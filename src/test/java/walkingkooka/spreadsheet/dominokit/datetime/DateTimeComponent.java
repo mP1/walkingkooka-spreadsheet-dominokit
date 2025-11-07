@@ -17,17 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.time.LocalDateTime;
@@ -40,10 +32,7 @@ import java.util.function.Supplier;
  * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
  * {@link DateTimeComponent}.
  */
-public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalDateTime, DateTimeComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, DateTimeComponent, LocalDateTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement, DateTimeComponent>,
-    ValidatorHelper {
+public final class DateTimeComponent extends TestTemporalComponent<LocalDateTime, DateTimeComponent> {
 
     public static DateTimeComponent empty(final String id,
                                           final Supplier<LocalDateTime> clearValue) {
@@ -180,46 +169,6 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
     }
 
     @Override
-    public DateTimeComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addKeyUpListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
     public DateTimeComponent alwaysShowHelperText() {
         return this;
     }
@@ -237,41 +186,6 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
 
     private Optional<String> helperText = Optional.empty();
 
-    @Override
-    public DateTimeComponent hideMarginBottom() {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent removeBorders() {
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent removePadding() {
-        return this;
-    }
-
-    public DateTimeComponent autocompleteOff() {
-        return this;
-    }
-
-    public DateTimeComponent clearIcon() {
-        return this;
-    }
-
-    public DateTimeComponent disableSpellcheck() {
-        return this;
-    }
-
-    public DateTimeComponent enterFiresValueChange() {
-        return this;
-    }
-
-    public DateTimeComponent magnifyingGlassIcon() {
-        return this;
-    }
-
     // FIXES
     //
     // java.lang.NoSuchMethodError: walkingkooka.spreadsheet.dominokit.value.TextBoxComponent.setCssText(Ljava/lang/String;)Lwalkingkooka/spreadsheet/dominokit/ui/textbox/TextBoxComponent;
@@ -279,12 +193,5 @@ public final class DateTimeComponent implements FormValueComponent<HTMLFieldSetE
     public DateTimeComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
-    }
-
-    // FormValueComponentTreePrintable..................................................................................
-
-    @Override
-    public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
     }
 }

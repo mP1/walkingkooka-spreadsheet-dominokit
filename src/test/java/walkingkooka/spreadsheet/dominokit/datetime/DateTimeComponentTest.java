@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
@@ -27,7 +27,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class DateTimeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, LocalDateTime, DateTimeComponent> {
+public final class DateTimeComponentTest implements FormValueComponentTesting<HTMLDivElement, LocalDateTime, DateTimeComponent> {
 
     // setId............................................................................................................
 

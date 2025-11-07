@@ -67,11 +67,11 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
     @Override
     public Optional<LocalDateTime> value() {
-        return CalendarAndTimePicker.toLocalDateTime(
-            CalendarAndTimePicker.dateToLocalDate(
+        return toLocalDateTime(
+            dateToLocalDate(
                 this.calendar.getDate()
             ),
-            CalendarAndTimePicker.dateToLocalTime(
+            dateToLocalTime(
                 this.timePicker.getDate()
             ),
             this.clearValue
@@ -83,7 +83,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
-            CalendarAndTimePicker.localDateToDate(
+            localDateToDate(
                 value.orElse(
                     this.clearValue.get()
                 ).toLocalDate()
@@ -91,7 +91,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         );
 
         this.timePicker.setDate(
-            CalendarAndTimePicker.localTimeToDate(
+            localTimeToDate(
                 value.orElse(
                     this.clearValue.get()
                 ).toLocalTime()
@@ -145,17 +145,17 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         calendar.addDateSelectionListener(
             (final CalendarDay oldDay,
              final CalendarDay newDay) -> {
-                final Optional<LocalTime> time = CalendarAndTimePicker.dateToLocalTime(
+                final Optional<LocalTime> time = dateToLocalTime(
                     timePicker.getDate()
                 );
                 listener.onValueChanged(
-                    CalendarAndTimePicker.toLocalDateTime(
-                        CalendarAndTimePicker.calendarDayToLocalDate(oldDay),
+                    toLocalDateTime(
+                        calendarDayToLocalDate(oldDay),
                         time,
                         clearValue
                     ),
-                    CalendarAndTimePicker.toLocalDateTime(
-                        CalendarAndTimePicker.calendarDayToLocalDate(newDay),
+                    toLocalDateTime(
+                        calendarDayToLocalDate(newDay),
                         time,
                         clearValue
                     )
@@ -166,18 +166,18 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         timePicker.addTimeSelectionListener(
             (final Date oldTime,
              final Date newTime) -> {
-                final Optional<LocalDate> date = CalendarAndTimePicker.dateToLocalDate(
+                final Optional<LocalDate> date = dateToLocalDate(
                     calendar.getDate()
                 );
                 listener.onValueChanged(
-                    CalendarAndTimePicker.toLocalDateTime(
+                    toLocalDateTime(
                         date,
-                        CalendarAndTimePicker.dateToLocalTime(oldTime),
+                        dateToLocalTime(oldTime),
                         clearValue
                     ),
-                    CalendarAndTimePicker.toLocalDateTime(
+                    toLocalDateTime(
                         date,
-                        CalendarAndTimePicker.dateToLocalTime(newTime),
+                        dateToLocalTime(newTime),
                         clearValue
                     )
                 );

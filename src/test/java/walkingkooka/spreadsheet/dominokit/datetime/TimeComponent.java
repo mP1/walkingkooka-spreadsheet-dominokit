@@ -17,17 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.time.LocalTime;
@@ -40,10 +32,7 @@ import java.util.function.Supplier;
  * A mock of main/TimeComponent with the same public interface and a helpful {@link TreePrintable}.
  * This will be useful for rendering tests.
  */
-public final class TimeComponent implements FormValueComponent<HTMLFieldSetElement, LocalTime, TimeComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, TimeComponent, LocalTime>,
-    TestHtmlElementComponent<HTMLFieldSetElement, TimeComponent>,
-    ValidatorHelper {
+public final class TimeComponent extends TestTemporalComponent<LocalTime, TimeComponent> {
 
     public static TimeComponent empty(final String id,
                                       final Supplier<LocalTime> clearValue) {
@@ -176,46 +165,6 @@ public final class TimeComponent implements FormValueComponent<HTMLFieldSetEleme
     private boolean disabled;
 
     @Override
-    public TimeComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addClickListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addInputListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addKeyDownListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public TimeComponent addKeyUpListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
     public TimeComponent alwaysShowHelperText() {
         return this;
     }
@@ -234,50 +183,8 @@ public final class TimeComponent implements FormValueComponent<HTMLFieldSetEleme
     private Optional<String> helperText = Optional.empty();
 
     @Override
-    public TimeComponent hideMarginBottom() {
-        return this;
-    }
-
-    @Override
-    public TimeComponent removeBorders() {
-        return this;
-    }
-
-    @Override
-    public TimeComponent removePadding() {
-        return this;
-    }
-
-    public TimeComponent autocompleteOff() {
-        return this;
-    }
-
-    public TimeComponent clearIcon() {
-        return this;
-    }
-
-    public TimeComponent disableSpellcheck() {
-        return this;
-    }
-
-    public TimeComponent enterFiresValueChange() {
-        return this;
-    }
-
-    public TimeComponent magnifyingGlassIcon() {
-        return this;
-    }
-
-    @Override
     public TimeComponent setCssText(final String css) {
         Objects.requireNonNull(css, "css");
         return this;
-    }
-
-    // FormValueComponentTreePrintable..................................................................................
-
-    @Override
-    public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
     }
 }
