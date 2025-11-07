@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 /**
  * Provides a default {@link TreePrintable#printTree(IndentingPrinter)}.
  */
-public interface FormValueComponentTreePrintable<E extends HTMLElement, V extends FormValueComponent<E, T, V>, T> extends FormValueComponent<E, T, V> {
+public interface FormValueComponentTreePrintable<E extends HTMLElement, C extends FormValueComponent<E, T, C>, T> extends FormValueComponent<E, T, C> {
 
     // TreePrintable....................................................................................................
 
