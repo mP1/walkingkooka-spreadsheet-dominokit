@@ -232,6 +232,11 @@ public final class SliderComponent extends SliderComponentLike
     }
 
     @Override
+    public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
+        return this;
+    }
+
+    @Override
     SliderComponent addEventListener(final EventType eventType,
                                      final EventListener listener) {
         // nop

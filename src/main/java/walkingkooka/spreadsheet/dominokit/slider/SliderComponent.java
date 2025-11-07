@@ -209,14 +209,17 @@ public final class SliderComponent extends SliderComponentLike {
 
     @Override
     public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
         this.slider.addChangeListener(
-            (Double oldValue, Double newValue) -> listener.onValueChanged(
-                Optional.of(oldValue),
-                Optional.of(newValue)
-            )
+            SliderComponentChangeListener.with(listener)
         );
+        return this;
+    }
+
+    public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
+        this.slider.getChangeListeners()
+            .remove(
+                SliderComponentChangeListener.with(listener)
+            );
         return this;
     }
 
