@@ -24,16 +24,20 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlStyledComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement, Double, SliderComponent>,
     HtmlStyledComponent<SliderComponent>,
-    TreePrintable {
+    TreePrintable,
+    HasValueWatchers<HTMLDivElement, Double, SliderComponent> {
 
     SliderComponentLike() {
         super();
@@ -128,6 +132,18 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
 
 
     abstract public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener);
+
+    // HasValueWatcher..................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<Optional<Double>> changeListener = (final Optional<Double> oldValue,
+                                                                 final Optional<Double> newValue) -> watcher.onValue(newValue);
+        this.addChangeListener(changeListener);
+        return () -> this.removeChangeListener(changeListener);
+    }
 
     // TreePrintable....................................................................................................
 
