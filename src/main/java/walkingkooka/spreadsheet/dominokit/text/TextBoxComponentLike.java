@@ -33,7 +33,7 @@ import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
-    HasValueWatchers<String> {
+    HasValueWatchers<HTMLFieldSetElement, String, TextBoxComponent> {
 
     TextBoxComponentLike() {
         super();
@@ -145,9 +145,4 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     abstract void removeEventListener(final EventType type,
                                       final EventListener listener);
-
-    public final TextBoxComponentLike addValueWatcher2(final ValueWatcher<String> watcher) {
-        this.addValueWatcher(watcher);
-        return this;
-    }
 }

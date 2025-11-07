@@ -17,7 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-public interface HasValueWatchers<T> {
+import elemental2.dom.HTMLElement;
 
-    Runnable addValueWatcher(final ValueWatcher<T> watcher);
+import java.util.function.Consumer;
+
+public interface HasValueWatchers<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>{
+
+    Runnable addValueWatcher(final ValueWatcher<V> watcher);
+
+    default C addValueWatcher2(final ValueWatcher<V> watcher,
+                               final Consumer<Runnable> remover) {
+        remover.accept(
+            this.addValueWatcher(watcher)
+        );
+        return (C) this;
+    }
+
+    default C addValueWatcher2(final ValueWatcher<V> watcher) {
+        this.addValueWatcher(watcher);
+        return (C) this;
+    }
 }

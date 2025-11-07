@@ -36,7 +36,7 @@ import java.util.Objects;
  */
 abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetElement, Boolean, CheckboxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, CheckboxComponent, Boolean>,
-    HasValueWatchers<Boolean> {
+    HasValueWatchers<HTMLFieldSetElement, Boolean, CheckboxComponent> {
 
     CheckboxComponentLike() {
         super();
