@@ -179,6 +179,13 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     }
 
     @Override
+    SelectComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        return this;
+    }
+
+    @Override
     SelectComponent<T> addEventListener(final EventType type,
                                         final EventListener listener) {
         return this;

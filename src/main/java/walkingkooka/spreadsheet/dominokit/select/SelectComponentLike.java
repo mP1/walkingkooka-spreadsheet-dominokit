@@ -20,16 +20,21 @@ package walkingkooka.spreadsheet.dominokit.select;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
  * Base class for {@link SelectComponent} that captures common members for main/test.
  */
 abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
+    HasValueWatchers<HTMLFieldSetElement, T, SelectComponent<T>> {
 
     SelectComponentLike() {
         super();
@@ -119,4 +124,18 @@ abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSet
 
     abstract SelectComponent<T> addEventListener(final EventType type,
                                                  final EventListener listener);
+
+    abstract SelectComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener);
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<Optional<T>> changeListener = (final Optional<T> oldValue,
+                                                            final Optional<T> newValue) -> watcher.onValue(newValue);
+        this.addChangeListener(changeListener);
+        return () -> this.removeChangeListener(changeListener);
+    }
 }
