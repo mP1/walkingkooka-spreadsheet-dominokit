@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.slider;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlStyledComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -27,6 +28,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement, Double, SliderComponent>,
@@ -123,6 +125,9 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
 
     abstract SliderComponent addEventListener(final EventType eventType,
                                               final EventListener listener);
+
+
+    abstract public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener);
 
     // TreePrintable....................................................................................................
 
