@@ -161,6 +161,15 @@ public final class CheckboxComponent extends CheckboxComponentLike {
         return this;
     }
 
+    @Override
+    void removeEventListener(final EventType type,
+                             final EventListener listener) {
+        this.checkbox.removeEventListener(
+            type,
+            listener
+        );
+    }
+
     // focus............................................................................................................
 
     @Override

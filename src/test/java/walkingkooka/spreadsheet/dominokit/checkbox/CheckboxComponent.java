@@ -164,6 +164,12 @@ public final class CheckboxComponent extends CheckboxComponentLike
         return this;
     }
 
+    @Override
+    void removeEventListener(final EventType type,
+                             final EventListener listener) {
+        // nop
+    }
+
     // styling..........................................................................................................
     
     @Override
