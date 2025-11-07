@@ -250,7 +250,7 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     // width............................................................................................................
 
     @Override
-    public int width() {
+    public final int width() {
         return this.element()
             .offsetWidth;
     }
@@ -258,7 +258,7 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     // height...........................................................................................................
 
     @Override
-    public int height() {
+    public final int height() {
         return this.element()
             .offsetHeight;
     }
