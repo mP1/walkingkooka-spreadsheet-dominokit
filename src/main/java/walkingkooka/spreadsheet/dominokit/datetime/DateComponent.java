@@ -52,7 +52,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
     @Override
     public Optional<LocalDate> value() {
-        return CalendarAndTimePicker.dateToLocalDate(
+        return dateToLocalDate(
             this.calendar.getDate()
         );
     }
@@ -62,7 +62,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         Objects.requireNonNull(value, "value");
 
         this.calendar.setDate(
-            CalendarAndTimePicker.localDateToDate(
+            localDateToDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -110,8 +110,8 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         this.calendar.addDateSelectionListener(
             (final CalendarDay oldDay,
              final CalendarDay newDay) -> listener.onValueChanged(
-                CalendarAndTimePicker.calendarDayToLocalDate(oldDay),
-                CalendarAndTimePicker.calendarDayToLocalDate(newDay)
+                calendarDayToLocalDate(oldDay),
+                calendarDayToLocalDate(newDay)
             )
         );
 

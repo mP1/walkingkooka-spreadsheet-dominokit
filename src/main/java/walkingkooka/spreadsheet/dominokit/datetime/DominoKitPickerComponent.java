@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.DivElement;
@@ -25,9 +24,7 @@ import org.dominokit.domino.ui.elements.SpanElement;
 import org.dominokit.domino.ui.forms.FormsStyles;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.LazyChild;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,7 @@ import static org.dominokit.domino.ui.utils.Domino.span;
 /**
  * Abstract base class for date/datetime/time pickers.
  */
-abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C> {
+abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V, C>> extends TemporalComponent<V, C> {
 
     /**
      * Parent of the picker and messages.
@@ -195,51 +192,6 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
         FormsStyles.dui_field_invalid.remove(this);
     }
 
-    @Override
-    public final C addBlurListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addContextMenuListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addKeyUpListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
     // node.............................................................................................................
 
     @Override
@@ -268,28 +220,5 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     @Override
     public final HTMLDivElement element() {
         return this.bodyElement.element();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public final void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(
-                this.toString()
-            );
-        }
-        printer.outdent();
-    }
-
-    // Object...........................................................................................................
-
-    @Override
-    public final String toString() {
-        return this.value()
-            .map(Object::toString)
-            .orElse("");
     }
 }

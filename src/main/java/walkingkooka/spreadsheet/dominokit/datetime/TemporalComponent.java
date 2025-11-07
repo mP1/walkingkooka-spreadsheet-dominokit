@@ -17,7 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
+import elemental2.dom.EventListener;
+import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -28,16 +33,14 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-/**
- * A collection of helpers to assist conversion between {@link Date} and {@link LocalDate} or {@link LocalTime}.
- */
-final class CalendarAndTimePicker {
+abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C>,
+    FormValueComponentTreePrintable<HTMLDivElement, C, V> {
 
     /**
      * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
      */
     static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
-        return CalendarAndTimePicker.dateToLocalDate(
+        return dateToLocalDate(
             null != day ?
                 day.getDate() :
                 null
@@ -110,10 +113,89 @@ final class CalendarAndTimePicker {
 
     final static ZoneId ZONE_ID = ZoneId.systemDefault();
 
-    /**
-     * Stop creation
-     */
-    private CalendarAndTimePicker() {
+    TemporalComponent() {
+        super();
+    }
+
+    @Override
+    public final C addBlurListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public final C addContextMenuListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final C addFocusListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final C addInputListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final C addKeyDownListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final C addKeyUpListener(final EventListener listener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final C hideMarginBottom() {
+        return (C) this;
+    }
+
+    @Override
+    public final C removeBorders() {
+        return (C) this;
+    }
+
+    @Override
+    public final C removePadding() {
+        return (C) this;
+    }
+
+    public final C autocompleteOff() {
+        return (C) this;
+    }
+
+    public final C clearIcon() {
+        return (C) this;
+    }
+
+    public final C disableSpellcheck() {
+        return (C) this;
+    }
+
+    public final C enterFiresValueChange() {
+        return (C) this;
+    }
+
+    public final C magnifyingGlassIcon() {
+        return (C) this;
+    }
+
+    // FormValueComponentTreePrintable..................................................................................
+
+    @Override
+    public final void treePrintAlternateValues(final IndentingPrinter printer) {
+        // NOP
+    }
+
+   // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.value()
+            .map(Object::toString)
+            .orElse("");
+    }
 }
+    

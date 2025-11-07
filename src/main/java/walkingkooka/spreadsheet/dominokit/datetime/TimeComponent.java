@@ -51,7 +51,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
 
     @Override
     public Optional<LocalTime> value() {
-        return CalendarAndTimePicker.dateToLocalTime(
+        return dateToLocalTime(
             this.timePicker.getDate()
         );
     }
@@ -61,7 +61,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         Objects.requireNonNull(value, "value");
 
         this.timePicker.setDate(
-            CalendarAndTimePicker.localTimeToDate(
+            localTimeToDate(
                 value.orElse(
                     this.clearValue.get()
                 )
@@ -104,8 +104,8 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         this.timePicker.addTimeSelectionListener(
             (final Date oldTime,
              final Date newTime) -> listener.onValueChanged(
-                CalendarAndTimePicker.dateToLocalTime(oldTime),
-                CalendarAndTimePicker.dateToLocalTime(newTime)
+                dateToLocalTime(oldTime),
+                dateToLocalTime(newTime)
             )
         );
 
