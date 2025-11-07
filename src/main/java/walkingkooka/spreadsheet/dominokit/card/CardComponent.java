@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.card;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.cards.Card;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -134,11 +134,11 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
     // filter...........................................................................................................
 
     /**
-     * Adds a {@link ChangeListener}, automatically adding a filter text box lazily. The textbox will occupy the
+     * Adds a {@link ValueWatcher}, automatically adding a filter text box lazily. The textbox will occupy the
      * right third of the card header.
      */
-    public CardComponent setFilterValueChangeListener(final ChangeListener<Optional<String>> changeListener) {
-        Objects.requireNonNull(changeListener, "changeListener");
+    public CardComponent setFilterValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
 
         if (null == this.filter) {
             this.filter = TextBoxComponent.empty()
@@ -150,7 +150,7 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
                 )
             );
         }
-        this.filter.addChangeListener(changeListener);
+        this.filter.addValueWatcher2(watcher);
 
         return this;
     }

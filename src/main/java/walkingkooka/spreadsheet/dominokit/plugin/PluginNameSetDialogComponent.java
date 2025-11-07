@@ -117,8 +117,8 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
                 context
             ).setTitle(
                 context.dialogTitle()
-            ).appendChild(this.add.setFilterValueChangeListener(this::addFilterOnValueChange))
-            .appendChild(this.remove.setFilterValueChangeListener(this::removeFilterOnValueChange))
+            ).appendChild(this.add.setFilterValueWatcher(this::addFilterOnValue))
+            .appendChild(this.remove.setFilterValueWatcher(this::removeFilterOnValue))
             .appendChild(this.textBox)
             .appendChild(
                 AnchorListComponent.empty()
@@ -141,8 +141,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
      * When the ADD card filter changes, execute a {@link walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher#}.
      * When the {@link walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher#onPluginSet(PluginSet, AppContext)}.
      */
-    private void addFilterOnValueChange(final Optional<String> oldValue,
-                                        final Optional<String> newValue) {
+    private void addFilterOnValue(final Optional<String> value) {
         this.context.pluginFilter(
             this.add.filterValue()
                 .orElse("*"),
@@ -155,11 +154,10 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     // remove...........................................................................................................
 
-    private void removeFilterOnValueChange(final Optional<String> oldValue,
-                                           final Optional<String> newValue) {
+    private void removeFilterOnValue(final Optional<String> value) {
         this.remove.setFilter(
             this.predicate(
-                newValue.orElse(null)
+                value.orElse(null)
             )
         );
         this.refreshLinks();
