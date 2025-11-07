@@ -178,23 +178,19 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
     // path.............................................................................................................
 
-
     private SpreadsheetCellRangeReferencePathComponent path() {
         return SpreadsheetCellRangeReferencePathComponent.empty(
                 ID_PREFIX + "cell-range-path-",
                 this.context
             ).setLabel("Cell Range Path")
-            .addChangeListener(this::onCellRangePathValueChange);
-    }
-
-    private void onCellRangePathValueChange(final Optional<SpreadsheetCellRangeReferencePath> oldPath,
-                                            final Optional<SpreadsheetCellRangeReferencePath> newPath) {
-        this.setAndRefresh(
-            t -> t.setQuery(
-                t.query()
-                    .setPath(newPath)
-            )
-        );
+            .addValueWatcher2(
+                (Optional<SpreadsheetCellRangeReferencePath> value) -> this.setAndRefresh(
+                    t -> t.setQuery(
+                        t.query()
+                            .setPath(value)
+                    )
+                )
+            );
     }
 
     private final SpreadsheetCellRangeReferencePathComponent path;
