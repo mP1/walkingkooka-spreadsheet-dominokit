@@ -113,6 +113,8 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
     abstract CheckboxComponent addEventListener(final EventType type,
                                                 final EventListener listener);
 
+    // Object...........................................................................................................
+
     @Override
     public final String toString() {
         String disabled = "";
