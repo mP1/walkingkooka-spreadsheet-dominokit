@@ -39,7 +39,7 @@ import java.util.function.Function;
  */
 public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>>,
-    HasValueWatchers<T>{
+    HasValueWatchers<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>{
 
     /**
      * Creates a new {@link ValueTextBoxComponent}.
@@ -289,11 +289,6 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
         return this.textBox.addValueWatcher(
             (text) -> watcher.onValue(this.value())
         );
-    }
-
-    public ValueTextBoxComponent<T> addValueWatcher2(final ValueWatcher<T> watcher) {
-        this.addValueWatcher(watcher);
-        return this;
     }
 
     // HtmlComponentDelegator...........................................................................................

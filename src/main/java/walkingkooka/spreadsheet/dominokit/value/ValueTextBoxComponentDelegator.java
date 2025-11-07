@@ -33,7 +33,7 @@ import java.util.Optional;
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
     extends FormValueComponent<HTMLFieldSetElement, V, C>,
     HtmlComponentDelegator<HTMLFieldSetElement, C>,
-    HasValueWatchers<V> {
+    HasValueWatchers<HTMLFieldSetElement, V, C> {
 
     @Override
     default C setId(final String id) {
