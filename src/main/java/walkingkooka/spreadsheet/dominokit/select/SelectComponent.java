@@ -183,11 +183,17 @@ public final class SelectComponent<T> extends SelectComponentLike<T> {
         Objects.requireNonNull(listener, "listener");
 
         this.select.addChangeListener(
-            (oldValue, newValue) -> listener.onValueChanged(
-                Optional.ofNullable(oldValue),
-                Optional.ofNullable(newValue)
-            )
+            SelectComponentChangeListener.with(listener)
         );
+        return this;
+    }
+
+    @Override
+    SelectComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
+        this.select.removeChangeListener(
+            SelectComponentChangeListener.with(listener)
+        );
+
         return this;
     }
 
