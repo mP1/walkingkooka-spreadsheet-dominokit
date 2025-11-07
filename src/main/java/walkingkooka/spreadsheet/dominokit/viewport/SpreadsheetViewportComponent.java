@@ -365,12 +365,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             .setCssProperty("border-style", "solid")
             .setCssProperty("border-width", "1px")
             .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
-            .addChangeListener(
-                (Optional<SpreadsheetColumnReference> oldValue, Optional<SpreadsheetColumnReference> newValue) -> {
-                    this.pushNewHome(
-                        newValue.orElse(null)
-                    );
-                }
+            .addValueWatcher2(
+                (Optional<SpreadsheetColumnReference> value) -> this.pushNewHome(
+                    value.orElse(null)
+                )
             );
     }
 
@@ -387,12 +385,10 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             .setCssProperty("border-style", "solid")
             .setCssProperty("border-width", "1px")
             .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
-            .addChangeListener(
-                (Optional<SpreadsheetRowReference> oldValue, Optional<SpreadsheetRowReference> newValue) -> {
-                    this.pushNewHome(
-                        newValue.orElse(null)
-                    );
-                }
+            .addValueWatcher2(
+                (Optional<SpreadsheetRowReference> value) -> this.pushNewHome(
+                    value.orElse(null)
+                )
             );
     }
 
