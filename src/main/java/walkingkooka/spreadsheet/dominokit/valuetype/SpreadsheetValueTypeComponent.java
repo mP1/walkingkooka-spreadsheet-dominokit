@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -40,6 +42,7 @@ import java.util.Optional;
  */
 public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent>,
     HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetValueTypeComponent>,
+    HasValueWatchers<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent>,
     TreePrintable {
 
     public static SpreadsheetValueTypeComponent empty(final String id,
@@ -269,6 +272,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     @Override //
     public Optional<ValueTypeName> value() {
         return this.select.value();
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<ValueTypeName> watcher) {
+        return this.select.addValueWatcher(watcher);
     }
 
     // HtmlComponentDelegator...........................................................................................
