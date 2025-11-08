@@ -80,7 +80,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
 
     private final HistoryTokenAnchorComponent close;
 
-    // upload.........................................................................................................
+    // upload...........................................................................................................
 
     private UploadFileComponent uploadFile() {
         return UploadFileComponent.empty(ID_PREFIX + "UploadFile")
@@ -97,7 +97,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
     // @VisibleForTesting
     final UploadFileComponent uploadFile;
 
-    // uploadLink.........................................................................................................
+    // uploadLink........................................................................................................
 
     private PluginUploadSaveAnchorComponent uploadLink() {
         return PluginUploadSaveAnchorComponent.empty(ID_PREFIX + "upload" + SpreadsheetElementIds.LINK)
@@ -112,7 +112,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
 
     private final PluginUploadSaveAnchorComponent uploadLink;
 
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     private DialogComponent dialogCreate(final PluginUploadDialogComponentContext context) {
         return DialogComponent.largeEdit(
@@ -176,7 +176,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
         // ignore
     }
 
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
