@@ -244,6 +244,12 @@ public final class UploadFileComponent extends UploadFileComponentLike {
         }
     }
 
+    @Override
+    UploadFileComponent removeChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
+        this.changeListener.remove(listener);
+        return this;
+    }
+
     private final List<ChangeListener<Optional<BrowserFile>>> changeListener = Lists.array();
 
     @Override

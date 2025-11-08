@@ -133,4 +133,11 @@ public final class UploadFileComponent extends UploadFileComponentLike
     public UploadFileComponent focus() {
         return this;
     }
+
+    // ChangeListeners..................................................................................................
+
+    @Override
+    UploadFileComponent removeChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
+        return this;
+    }
 }
