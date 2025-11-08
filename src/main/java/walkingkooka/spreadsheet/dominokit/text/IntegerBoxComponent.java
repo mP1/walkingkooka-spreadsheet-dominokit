@@ -117,6 +117,18 @@ public final class IntegerBoxComponent extends IntegerBoxComponentLike {
     }
 
     @Override
+    IntegerBoxComponent removeEventListener(final EventType eventType,
+                                            final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
+
+        this.integerBox.removeEventListener(
+            eventType,
+            listener
+        );
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent clearIcon() {
         this.integerBox.apply(
             self -> self.appendChild(

@@ -23,11 +23,15 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
+import java.util.Objects;
 import java.util.Optional;
 
 abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer>,
+    HasValueWatchers<HTMLFieldSetElement, Integer, IntegerBoxComponent> {
 
     IntegerBoxComponentLike() {
         super();
@@ -102,9 +106,26 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
     abstract IntegerBoxComponent addEventListener(final EventType eventType,
                                                   final EventListener listener);
 
+    abstract IntegerBoxComponent removeEventListener(final EventType eventType,
+                                                     final EventListener listener);
+
     public abstract IntegerBoxComponent clearIcon();
 
     public abstract IntegerBoxComponent enterFiresValueChange();
 
     public abstract IntegerBoxComponent setValidator(final Validator<Optional<Integer>> validator);
+
+    // HasValueWatcher..................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<Integer> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final EventListener inputEventListener = (e) -> watcher.onValue(this.value());
+        this.addInputListener(inputEventListener);
+        return () -> this.removeEventListener(
+            EventType.input,
+            inputEventListener
+        );
+    }
 }

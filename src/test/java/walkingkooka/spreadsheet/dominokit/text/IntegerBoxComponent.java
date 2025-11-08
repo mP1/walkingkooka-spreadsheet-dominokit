@@ -194,6 +194,13 @@ public final class IntegerBoxComponent extends IntegerBoxComponentLike
     }
 
     @Override
+    IntegerBoxComponent removeEventListener(final EventType eventType,
+                                            final EventListener listener) {
+        Objects.requireNonNull(eventType, "eventType");
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent alwaysShowHelperText() {
         return this;
     }
