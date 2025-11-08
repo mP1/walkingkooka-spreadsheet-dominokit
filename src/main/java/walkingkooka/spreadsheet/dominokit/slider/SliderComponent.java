@@ -210,15 +210,16 @@ public final class SliderComponent extends SliderComponentLike {
     @Override
     public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
         this.slider.addChangeListener(
-            SliderComponentChangeListener.with(listener)
+            this.changeListener(listener)
         );
         return this;
     }
 
-    public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
+    @Override
+    SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
         this.slider.getChangeListeners()
             .remove(
-                SliderComponentChangeListener.with(listener)
+                this.changeListener(listener)
             );
         return this;
     }
