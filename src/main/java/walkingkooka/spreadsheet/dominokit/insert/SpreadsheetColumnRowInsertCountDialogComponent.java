@@ -109,7 +109,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
             .min(1)
             .setLabel("Count")
             .required()
-            .addInputListener(
+            .addValueWatcher2(
                 (e) -> this.refreshInsert()
             );
     }
