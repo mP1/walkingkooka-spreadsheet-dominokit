@@ -23,6 +23,8 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.validation.ValidationCheckbox;
@@ -35,7 +37,8 @@ import java.util.Optional;
  * A checkbox that uses {@link ValidationCheckbox} values
  */
 public final class ValidationCheckboxComponent implements FormValueComponent<HTMLFieldSetElement, Object, ValidationCheckboxComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValidationCheckboxComponent> {
+    HtmlComponentDelegator<HTMLFieldSetElement, ValidationCheckboxComponent>,
+    HasValueWatchers<HTMLFieldSetElement, Object, ValidationCheckboxComponent> {
 
     public static ValidationCheckboxComponent empty(final String id,
                                                     final ValidationCheckboxComponentContext context) {
@@ -265,6 +268,19 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
             .orElse(Boolean.FALSE) ?
             value.trueValue() :
             value.falseValue();
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Object> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.checkbox.addValueWatcher(
+            (final Optional<Boolean> value) -> watcher.onValue(
+                toValue(value)
+            )
+        );
     }
 
     // isEditing........................................................................................................
