@@ -71,9 +71,10 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
     private LocaleDialogComponent(final LocaleDialogComponentContext context) {
         this.context = context;
 
-        this.locale = this.locale();
-
         this.save = this.<Locale>saveValueAnchor(context);
+
+        // locale after save because locale passes a method reference to #save
+        this.locale = this.locale();
 
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
@@ -193,8 +194,8 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                     }
                 }
             ).optional()
-            .addChangeListener(
-                (Optional<Locale> oldLocale, Optional<Locale> newLocale) -> this.save.setValue(newLocale)
+            .addValueWatcher2(
+                this.save::setValue
             );
     }
 
