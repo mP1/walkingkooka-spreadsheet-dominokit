@@ -22,7 +22,9 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
+import java.util.Objects;
 import java.util.Optional;
 
 abstract class TestTemporalComponent<V, C extends TestTemporalComponent<V, C>> extends TemporalComponent<V, C>
@@ -41,5 +43,13 @@ abstract class TestTemporalComponent<V, C extends TestTemporalComponent<V, C>> e
     @Override
     public final C addClickListener(final EventListener listener) {
         throw new UnsupportedOperationException();
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<V> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+        return () -> {};
     }
 }

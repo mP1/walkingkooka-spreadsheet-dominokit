@@ -20,10 +20,13 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
+import org.dominokit.domino.ui.datepicker.DateSelectionListener;
 import org.dominokit.domino.ui.timepicker.TimePicker;
+import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -205,6 +208,54 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         return HtmlComponent.hasFocus(this.element()) ||
             this.calendar.isExpanded() ||
             this.timePicker.isExpanded();
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<LocalDateTime> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final Calendar calendar = this.calendar;
+        final TimePicker timePicker = this.timePicker;
+        final Supplier<LocalDateTime> clearValue = this.clearValue;
+
+        final DateSelectionListener dateSelectionListener = (final CalendarDay oldDay,
+                                                             final CalendarDay newDay) -> {
+            final Optional<LocalTime> time = dateToLocalTime(
+                timePicker.getDate()
+            );
+            watcher.onValue(
+                toLocalDateTime(
+                    calendarDayToLocalDate(newDay),
+                    time,
+                    clearValue
+                )
+            );
+        };
+
+        calendar.addDateSelectionListener(dateSelectionListener);
+
+        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
+                                                             final Date newTime) -> {
+            final Optional<LocalDate> date = dateToLocalDate(
+                calendar.getDate()
+            );
+            watcher.onValue(
+                toLocalDateTime(
+                    date,
+                    dateToLocalTime(newTime),
+                    clearValue
+                )
+            );
+        };
+
+        timePicker.addTimeSelectionListener(timeSelectionListener);
+
+        return () -> {
+            this.calendar.removeDateSelectionListener(dateSelectionListener);
+            this.timePicker.removeTimeSelectionListener(timeSelectionListener);
+        };
     }
 
     private final FlexLayoutComponent layout;
