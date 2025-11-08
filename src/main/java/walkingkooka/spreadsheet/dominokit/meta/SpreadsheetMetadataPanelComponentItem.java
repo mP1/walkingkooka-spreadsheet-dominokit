@@ -233,8 +233,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     final IntegerBoxComponent integerBox() {
         final IntegerBoxComponent integerBox = IntegerBoxComponent.empty();
 
-        integerBox.addChangeListener(
-            (oldValue, newValue) -> this.saveIntegerValue(integerBox)
+        integerBox.addValueWatcher2(
+            (newValue) -> this.saveIntegerValue(integerBox)
         ).addKeyDownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
