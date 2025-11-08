@@ -77,8 +77,8 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
     private TextBoxComponent textBox() {
         final TextBoxComponent textBox = TextBoxComponent.empty();
 
-        textBox.addChangeListener(
-            (final Optional<String> oldValue, final Optional<String> newValue) -> this.saveText(textBox)
+        textBox.addValueWatcher2(
+            (final Optional<String> newValue) -> this.saveText(textBox)
         ).addKeyDownListener(
             (final Event event) -> {
                 final KeyboardEvent keyboardEvent = Js.cast(event);
