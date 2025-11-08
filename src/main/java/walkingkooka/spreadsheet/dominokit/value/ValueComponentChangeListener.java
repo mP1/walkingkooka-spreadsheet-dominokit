@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.select;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Cast;
@@ -23,18 +23,20 @@ import walkingkooka.Cast;
 import java.util.Objects;
 import java.util.Optional;
 
-final class SelectComponentChangeListener<T> implements ChangeListener<T> {
+final class ValueComponentChangeListener<T> implements ChangeListener<T> {
 
-    static <T> SelectComponentChangeListener<T> with(final ChangeListener<Optional<T>> listener) {
-        return new SelectComponentChangeListener<>(
+    static <T> ValueComponentChangeListener<T> with(final ChangeListener<Optional<T>> listener) {
+        return new ValueComponentChangeListener<>(
             Objects.requireNonNull(listener, "listener")
         );
     }
 
-    private SelectComponentChangeListener(final ChangeListener<Optional<T>> listener) {
+    private ValueComponentChangeListener(final ChangeListener<Optional<T>> listener) {
         super();
         this.listener = listener;
     }
+
+    // ChangeListener...................................................................................................
 
     @Override
     public void onValueChanged(final T oldValue,
@@ -57,11 +59,11 @@ final class SelectComponentChangeListener<T> implements ChangeListener<T> {
     @Override
     public boolean equals(final Object other) {
         return this == other ||
-            other instanceof SelectComponentChangeListener &&
+            other instanceof ValueComponentChangeListener &&
                 this.equals0(Cast.to(other));
     }
 
-    private boolean equals0(final SelectComponentChangeListener<?> other) {
+    private boolean equals0(final ValueComponentChangeListener<?> other) {
         return this.listener.equals(other.listener);
     }
 

@@ -130,8 +130,7 @@ abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement,
     abstract SliderComponent addEventListener(final EventType eventType,
                                               final EventListener listener);
 
-
-    abstract public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener);
+    abstract SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener);
 
     // HasValueWatcher..................................................................................................
 

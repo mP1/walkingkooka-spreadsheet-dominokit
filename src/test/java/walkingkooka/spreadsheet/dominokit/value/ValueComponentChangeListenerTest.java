@@ -15,16 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.slider;
+package walkingkooka.spreadsheet.dominokit.value;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SliderComponentChangeListenerTest implements ClassTesting<SliderComponentChangeListener> {
+public final class ValueComponentChangeListenerTest implements ClassTesting<ValueComponentChangeListener<Void>> {
+
+    // class............................................................................................................
 
     @Override
-    public Class<SliderComponentChangeListener> type() {
-        return SliderComponentChangeListener.class;
+    public Class<ValueComponentChangeListener<Void>> type() {
+        return Cast.to(ValueComponentChangeListener.class);
     }
 
     @Override
