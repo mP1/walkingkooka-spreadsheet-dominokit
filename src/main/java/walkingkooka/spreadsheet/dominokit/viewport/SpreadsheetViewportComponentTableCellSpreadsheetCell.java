@@ -214,8 +214,8 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                     .removeBorders()
                     .removePadding()
                     .setCssText("width: fit-content; height: 0px; margin: auto;")
-                    .addChangeListener(
-                        (Optional<Object> oldValue, Optional<Object> newValue) -> context.pushHistoryToken(
+                    .addValueWatcher2(
+                        (Optional<Object> newValue) -> context.pushHistoryToken(
                             context.historyToken()
                                 .clearAction()
                                 .setSaveValue(newValue)
