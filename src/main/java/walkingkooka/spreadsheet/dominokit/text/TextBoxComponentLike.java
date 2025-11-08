@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -107,20 +106,16 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     public final Runnable addValueWatcher(final ValueWatcher<String> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-
         final EventListener keyDownListener = (e) -> {
             final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
             if (Key.Enter.equals(keyboardEvent.key)) {
-                TextBoxComponentLike.this.fire();
+                watcher.onValue(this.value());
             }
         };
         this.addKeyDownListener(keyDownListener);
 
-        final EventListener inputListener = (e) -> TextBoxComponentLike.this.fire();
+        final EventListener inputListener = (e) -> watcher.onValue(this.value());
         this.addInputListener(inputListener);
-
-
-        final Runnable valueWatcherRemover = valueWatchers.add(watcher);
 
         return () -> {
             this.removeEventListener(
@@ -131,17 +126,8 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
                 EventType.input,
                 inputListener
             );
-            valueWatcherRemover.run();
         };
     }
-
-    private void fire() {
-        this.valueWatchers.onValue(
-            this.value()
-        );
-    }
-
-    private final ValueWatchers<String> valueWatchers = ValueWatchers.empty();
 
     abstract void removeEventListener(final EventType type,
                                       final EventListener listener);
