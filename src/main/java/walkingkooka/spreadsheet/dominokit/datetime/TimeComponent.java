@@ -19,7 +19,9 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.timepicker.TimePicker;
+import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalTime;
 import java.util.Date;
@@ -127,6 +129,21 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     @Override
     public boolean isEditing() {
         return this.timePicker.isExpanded();
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<LocalTime> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
+                                                             final Date newTime) -> watcher.onValue(
+            dateToLocalTime(newTime)
+        );
+
+        this.timePicker.addTimeSelectionListener(timeSelectionListener);
+        return () -> this.timePicker.removeTimeSelectionListener(timeSelectionListener);
     }
 
     private final TimePicker timePicker;
