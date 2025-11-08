@@ -349,7 +349,7 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
         return this;
     }
 
-    // events...........................................................................................................
+    // xxxChangeListener................................................................................................
 
     @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
@@ -363,6 +363,14 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
             )
         );
 
+        return this;
+    }
+
+    @Override
+    SuggestBoxComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
+        this.suggestBox.removeChangeListener(
+            this.changeListener(listener)
+        );
         return this;
     }
 

@@ -242,7 +242,7 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
 
     private List<String> errors;
 
-    // events...........................................................................................................
+    // xxxChangeListener................................................................................................
 
     @Override
     public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
@@ -250,6 +250,13 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
 
         return this;
     }
+
+    @Override
+    SuggestBoxComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
+        return this;
+    }
+
+    // addXXXListener...................................................................................................
 
     @Override
     SuggestBoxComponent<T> addEventListener(final EventType eventType,
