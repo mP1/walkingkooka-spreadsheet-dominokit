@@ -352,8 +352,9 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
                 context
             );
 
-            names.addKeyUpListener((e) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names))
-                .addChangeListener((o, n) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names));
+            names.addValueWatcher2(
+                (ignored) -> this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names)
+            );
             parent.appendChild(names);
         }
 
