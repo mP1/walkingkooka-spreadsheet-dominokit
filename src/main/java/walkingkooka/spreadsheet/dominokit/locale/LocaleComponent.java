@@ -22,6 +22,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.util.HasLocale;
@@ -34,6 +36,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link Locale}.
  */
 public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, LocaleComponent<T>>,
+    HasValueWatchers<HTMLFieldSetElement, Locale, LocaleComponent<T>>,
     TreePrintable {
 
     /**
@@ -124,6 +127,17 @@ public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HT
     public Optional<Locale> value() {
         return this.suggestBox.value()
             .map(HasLocale::locale);
+    }
+
+    // HasValueWatcher..................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Locale> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.suggestBox.addValueWatcher(
+            v -> v.map(HasLocale::locale)
+        );
     }
 
     // SuggestBoxComponentDelegator.....................................................................................
