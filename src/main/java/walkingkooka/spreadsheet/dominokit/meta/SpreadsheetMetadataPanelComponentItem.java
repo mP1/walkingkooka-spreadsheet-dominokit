@@ -17,17 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.KeyboardEvent;
-import jsinterop.base.Js;
 import org.dominokit.domino.ui.forms.IntegerBox;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.dom.LiComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -235,19 +231,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
 
         integerBox.addValueWatcher2(
             (newValue) -> this.saveIntegerValue(integerBox)
-        ).addKeyDownListener(
-            (final Event event) -> {
-                final KeyboardEvent keyboardEvent = Js.cast(event);
-                switch (Key.fromEvent(keyboardEvent)) {
-                    case Enter:
-                        event.preventDefault();
-                        this.saveIntegerValue(integerBox);
-                        break;
-                    default:
-                        // ignore other keys
-                        break;
-                }
-            }
         ).clear();
 
         return integerBox.setCssProperty("width", TEXT_BOX_WIDTH)
