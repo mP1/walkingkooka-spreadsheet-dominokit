@@ -359,11 +359,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 "Invalid character" // TODO message should have more detail about what characters are valid.
             ).setId(ID + '-' + id + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
-            .addChangeListener(
-                (Optional<Character> oldValue, Optional<Character> newValue) ->
+            .addValueWatcher2(
+                (Optional<Character> value) ->
                     this.refreshDecimalNumberSymbols(
                         propertyIndex,
-                        newValue
+                        value
                     )
             );
     }
@@ -376,11 +376,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
             .setLabel(label)
             .setValidator(SpreadsheetValidators.required())
             .clearIcon()
-            .addChangeListener(
-                (Optional<String> oldValue, Optional<String> newValue) ->
+            .addValueWatcher2(
+                (Optional<String> value) ->
                     this.refreshDecimalNumberSymbols(
                         propertyIndex,
-                        newValue
+                        value
                     )
             );
     }
