@@ -142,18 +142,18 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
             ).setId(ID_PREFIX + "label" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Label")
             .required()
-            .addChangeListener(
-                (oldValue, newValue) -> {
+            .addValueWatcher2(
+                (value) -> {
                     // history change will trigger a load label if necessary
                     this.loaded = null;
 
                     final HistoryToken historyToken = context.historyToken();
                     if (historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
                         context.pushHistoryToken(
-                            historyToken.setLabelName(newValue)
+                            historyToken.setLabelName(value)
                         );
                     } else {
-                        this.labelName.setValue(newValue);
+                        this.labelName.setValue(value);
                         this.refreshLinks();
                     }
                 }
