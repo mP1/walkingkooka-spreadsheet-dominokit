@@ -19,16 +19,22 @@ package walkingkooka.spreadsheet.dominokit.upload;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Base class that captures the common methods between the real and test implementation/sub-classes.
  */
-abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElement, BrowserFile, UploadFileComponent> {
+abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElement, BrowserFile, UploadFileComponent>,
+    HasValueWatchers<HTMLDivElement, BrowserFile, UploadFileComponent> {
 
     UploadFileComponentLike() {
         super();
@@ -104,6 +110,22 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
     @Override
     public final UploadFileComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
+    }
+
+    // ChangeListeners..................................................................................................
+
+    abstract UploadFileComponent removeChangeListener(final ChangeListener<Optional<BrowserFile>> listener);
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<Optional<BrowserFile>> changeListener = (final Optional<BrowserFile> oldValue,
+                                                                      final Optional<BrowserFile> newValue) -> watcher.onValue(newValue);
+        this.addChangeListener(changeListener);
+        return () -> this.removeChangeListener(changeListener);
     }
 
     // TreePrintable....................................................................................................
