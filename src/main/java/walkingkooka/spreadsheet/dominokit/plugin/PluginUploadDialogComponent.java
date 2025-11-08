@@ -85,8 +85,8 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
     private UploadFileComponent uploadFile() {
         return UploadFileComponent.empty(ID_PREFIX + "UploadFile")
             .setLabel("Drop files here or click to upload.")
-            .addChangeListener(
-                (oldFile, newFile) -> this.refreshIfOpen(this.context)
+            .addValueWatcher2(
+                (value) -> this.refreshIfOpen(this.context)
             );
     }
 
