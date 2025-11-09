@@ -17,14 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 /**
  * A Context for a {@link SpreadsheetViewportCache}.
  */
-public interface SpreadsheetViewportCacheContext extends HistoryContext,
+public interface SpreadsheetViewportCacheContext extends RefreshContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadataFetcherWatchers {
 }
