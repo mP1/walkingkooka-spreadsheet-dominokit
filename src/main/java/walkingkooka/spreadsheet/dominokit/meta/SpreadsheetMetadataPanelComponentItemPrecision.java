@@ -72,8 +72,11 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
             final HistoryTokenAnchorComponent anchor = token
                 .link(SpreadsheetMetadataPanelComponent.id(SpreadsheetMetadataPropertyName.PRECISION) + "-" + value)
                 .setTabIndex(0)
-                .clickOrEnterPushHistoryToken(context)
-                .setTextContent(0 == value ? "Unlimited" : String.valueOf(value));
+                .setTextContent(
+                    0 == value ?
+                        "Unlimited" :
+                        String.valueOf(value)
+                );
 
             valueToAnchors.put(value, anchor);
 
