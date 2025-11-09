@@ -78,6 +78,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     public static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                              final SpreadsheetContextMenu menu,
                              final SpreadsheetSelectionMenuContext context) {
+        build0(
+            historyToken.clearAction()
+                .cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            menu,
+            context
+        );
+    }
+
+    private static void build0(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                               final SpreadsheetContextMenu menu,
+                               final SpreadsheetSelectionMenuContext context) {
         // show context menu
         final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = historyToken.anchoredSelection();
         final SpreadsheetSelection selection = anchoredSpreadsheetSelection.selection();
