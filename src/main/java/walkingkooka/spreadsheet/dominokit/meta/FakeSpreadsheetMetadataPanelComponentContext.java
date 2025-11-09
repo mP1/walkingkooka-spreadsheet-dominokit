@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Locale;
 
-public class FakeSpreadsheetMetadataPanelComponentContext extends FakeHistoryContext
+public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshContext
     implements SpreadsheetMetadataPanelComponentContext {
 
     public FakeSpreadsheetMetadataPanelComponentContext() {
@@ -42,35 +42,6 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeHistoryCon
 
     @Override
     public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
