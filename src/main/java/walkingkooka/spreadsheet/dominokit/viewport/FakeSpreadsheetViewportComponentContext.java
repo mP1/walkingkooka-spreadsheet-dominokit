@@ -29,13 +29,13 @@ import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorSelector;
+import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
@@ -54,7 +54,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext implements SpreadsheetViewportComponentContext {
+public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext implements SpreadsheetViewportComponentContext {
 
     public FakeSpreadsheetViewportComponentContext() {
         super();
@@ -193,31 +193,6 @@ public class FakeSpreadsheetViewportComponentContext extends FakeHistoryContext 
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override 
-    public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override 
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 
