@@ -101,6 +101,8 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
             case Enter:
                 context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ENTER");
 
+                event.preventDefault();
+
                 // if cell then edit formula
                 context.pushHistoryToken(
                     context.historyToken()
@@ -113,6 +115,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                 break;
             case Escape:
                 context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ESCAPE restoring text");
+                event.preventDefault();
                 this.onUndo();
                 break;
             default:
