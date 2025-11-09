@@ -17,42 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 
-public class FakeDialogComponentContext extends FakeHistoryContext
+public class FakeDialogComponentContext extends FakeRefreshContext
     implements DialogComponentContext {
 
     @Override
     public String dialogTitle() {
-        throw new UnsupportedOperationException();
-    }
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
