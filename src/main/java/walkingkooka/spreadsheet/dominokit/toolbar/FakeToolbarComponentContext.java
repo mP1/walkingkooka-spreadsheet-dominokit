@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
+import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public class FakeToolbarComponentContext extends FakeHistoryContext
+public class FakeToolbarComponentContext extends FakeRefreshContext
     implements ToolbarComponentContext {
 
     public FakeToolbarComponentContext() {
@@ -46,35 +46,6 @@ public class FakeToolbarComponentContext extends FakeHistoryContext
 
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
-        throw new UnsupportedOperationException();
-    }
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }
