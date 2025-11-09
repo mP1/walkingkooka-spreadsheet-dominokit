@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-public interface ToolbarComponentContext extends HistoryContext,
+public interface ToolbarComponentContext extends RefreshContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
     HasSpreadsheetViewportCache {

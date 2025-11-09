@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 final class AppContextToolbarComponentContext implements ToolbarComponentContext,
-    HistoryContextDelegator,
+    RefreshContextDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator {
 
     static AppContextToolbarComponentContext with(final AppContext context) {
@@ -58,10 +58,10 @@ final class AppContextToolbarComponentContext implements ToolbarComponentContext
         return this.context.spreadsheetViewportCache();
     }
 
-    // HistoryContextDelegator.....................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     @Override
-    public HistoryContext historyContext() {
+    public RefreshContext refreshContext() {
         return this.context;
     }
 
