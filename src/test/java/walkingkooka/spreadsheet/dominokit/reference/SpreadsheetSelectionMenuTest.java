@@ -70,6 +70,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     TreePrintableTesting,
     SpreadsheetMetadataTesting {
 
+    private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+
+    private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName-1");
+
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
     private final static Optional<SpreadsheetCell> NO_SUMMARY = Optional.empty();
@@ -79,8 +83,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCell() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -1610,8 +1614,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellRecentSpreadsheetFormatterSelector() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
@@ -3158,8 +3162,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellRecentSpreadsheetParserSelector() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetNumberParsePattern parsePattern = SpreadsheetPattern.parseNumberParsePattern("$0.00");
@@ -4702,8 +4706,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellRecentTextStyleProperties() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
@@ -6259,8 +6263,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellRecentSpreadsheetFormatterSelectorAndSpreadsheetParserSelectorAndSpreadsheetFormatterMenus() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
@@ -7827,8 +7831,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellDateTimeSymbolsChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -9371,8 +9375,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellDecimalNumberSymbolsChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -10915,8 +10919,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellLocaleChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -12459,8 +12463,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellLocaleRecents() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -14009,8 +14013,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellValidators() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -15556,8 +15560,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellValidatorsChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -17106,8 +17110,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellValueType() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -18647,8 +18651,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellValueTypeNumberChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -20194,8 +20198,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellValueTypeTextChecked() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -21739,8 +21743,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testCellRange() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseCellRange("B2:C3")
                 .setDefaultAnchor()
         );
@@ -23368,8 +23372,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testLabel() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             LABEL.setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -24900,8 +24904,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testUnknownLabel() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.labelName("UnknownLabel")
                 .setDefaultAnchor()
         );
@@ -26410,8 +26414,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testColumn() {
         final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
@@ -26506,8 +26510,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testColumnRangeAnchorLeft() {
         final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.LEFT)
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
@@ -26602,8 +26606,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testColumnRangeAnchorRight() {
         final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.RIGHT)
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
@@ -26698,8 +26702,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testRow() {
         final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseRow("3").setDefaultAnchor()
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
@@ -26794,8 +26798,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testRowRangeAnchorTop() {
         final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.TOP)
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
@@ -26890,8 +26894,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Test
     public void testRowRangeAnchorBottom() {
         final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
-            SpreadsheetId.with(1), // id
-            SpreadsheetName.with("SpreadsheetName-1"), // name
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
             SpreadsheetSelection.parseRowRange("3:4").setAnchor(SpreadsheetViewportAnchor.BOTTOM)
         );
         final SpreadsheetSelectionMenuContext context = this.context(token);
