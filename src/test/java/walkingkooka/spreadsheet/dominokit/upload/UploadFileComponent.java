@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.upload;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
@@ -109,26 +108,6 @@ public final class UploadFileComponent extends UploadFileComponentLike
     }
 
     private boolean disabled = false;
-
-    @Override
-    public UploadFileComponent addBlurListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public UploadFileComponent addContextMenuListener(final EventListener listener) {
-        return this;
-    }
-
-    @Override
-    public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
-        return this;
-    }
-
-    @Override
-    public UploadFileComponent addFocusListener(final EventListener listener) {
-        return this;
-    }
 
     @Override
     public UploadFileComponent focus() {

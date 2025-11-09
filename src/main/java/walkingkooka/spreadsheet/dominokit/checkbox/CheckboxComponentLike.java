@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.checkbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
@@ -53,67 +51,6 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
     public final boolean isRequired() {
         return false;
     }
-
-    // addXXXListener...................................................................................................
-
-    @Override
-    public final CheckboxComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public final CheckboxComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    abstract CheckboxComponent addEventListener(final EventType type,
-                                                final EventListener listener);
 
     // Object...........................................................................................................
 

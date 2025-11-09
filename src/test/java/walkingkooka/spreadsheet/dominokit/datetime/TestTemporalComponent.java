@@ -17,15 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Objects;
-import java.util.Optional;
 
 abstract class TestTemporalComponent<V, C extends TestTemporalComponent<V, C>> extends TemporalComponent<V, C>
     implements TestHtmlElementComponent<HTMLDivElement, C>,
@@ -33,16 +30,6 @@ abstract class TestTemporalComponent<V, C extends TestTemporalComponent<V, C>> e
 
     TestTemporalComponent() {
         super();
-    }
-
-    @Override
-    public final C addChangeListener(final ChangeListener<Optional<V>> listener) {
-        return (C) this;
-    }
-
-    @Override
-    public final C addClickListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
     }
 
     // HasValueWatchers.................................................................................................

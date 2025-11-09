@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
@@ -63,26 +62,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     default C clear() {
         return this.clearValue();
     }
-
-    // addXXXListener...................................................................................................
-
-    C addBlurListener(final EventListener listener);
-
-    C addClickListener(final EventListener listener);
-
-    C addContextMenuListener(final EventListener listener);
-
-    C addFocusListener(final EventListener listener);
-
-    C addInputListener(final EventListener listener);
-
-    C addKeyDownListener(final EventListener listener);
-
-    C addKeyUpListener(final EventListener listener);
-
-    // ChangeListener...................................................................................................
-
-    C addChangeListener(final ChangeListener<Optional<V>> listener);
 
     /**
      * Provides an adapter that takes a value and fires an {@link Optional} value to the given {@link ChangeListener}.

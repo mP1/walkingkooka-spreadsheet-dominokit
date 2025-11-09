@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -117,36 +116,6 @@ abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implement
 
     TemporalComponent() {
         super();
-    }
-
-    @Override
-    public final C addBlurListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addContextMenuListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final C addKeyUpListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

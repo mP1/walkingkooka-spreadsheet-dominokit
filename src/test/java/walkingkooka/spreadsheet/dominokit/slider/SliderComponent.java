@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.slider;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -224,20 +221,6 @@ public final class SliderComponent extends SliderComponentLike
     }
 
     private boolean disabled;
-
-    // addXXXListener...................................................................................................
-
-    @Override
-    public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
-        return this;
-    }
-
-    @Override
-    SliderComponent addEventListener(final EventType eventType,
-                                     final EventListener listener) {
-        // nop
-        return this;
-    }
 
     @Override
     public SliderComponent alwaysShowHelperText() {

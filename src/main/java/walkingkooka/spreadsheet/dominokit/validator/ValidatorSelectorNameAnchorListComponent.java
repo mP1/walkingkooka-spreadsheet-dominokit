@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -144,73 +141,6 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
 
     @Override
     public ValidatorSelectorNameAnchorListComponent setDisabled(final boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addChangeListener(final ChangeListener<Optional<ValidatorSelector>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public ValidatorSelectorNameAnchorListComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private ValidatorSelectorNameAnchorListComponent addEventListener(final EventType type,
-                                                                      final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
         throw new UnsupportedOperationException();
     }
 

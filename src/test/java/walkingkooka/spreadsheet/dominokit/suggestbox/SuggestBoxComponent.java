@@ -17,12 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.menu.MenuItem;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
@@ -242,24 +239,6 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
     }
 
     private List<String> errors;
-
-    // xxxChangeListener................................................................................................
-
-    @Override
-    public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    // addXXXListener...................................................................................................
-
-    @Override
-    SuggestBoxComponent<T> addEventListener(final EventType eventType,
-                                            final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-        return this;
-    }
 
     // focus............................................................................................................
 

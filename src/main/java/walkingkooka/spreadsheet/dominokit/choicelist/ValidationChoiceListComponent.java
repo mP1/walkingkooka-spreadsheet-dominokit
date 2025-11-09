@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.choicelist;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -193,60 +191,6 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     @Override
     public ValidationChoiceListComponent removePadding() {
         this.select.removePadding();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addBlurListener(final EventListener listener) {
-        this.select.addBlurListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addClickListener(final EventListener listener) {
-        this.select.addClickListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addChangeListener(final ChangeListener<Optional<Object>> listener) {
-        this.select.addChangeListener(
-            (final Optional<ValidationChoice> oldValue,
-             final Optional<ValidationChoice> newValue) -> listener.onValueChanged(
-                oldValue.map(ValidationChoice::value),
-                newValue.map(ValidationChoice::value)
-            )
-        );
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addContextMenuListener(final EventListener listener) {
-        this.select.addContextMenuListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addFocusListener(final EventListener listener) {
-        this.select.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addInputListener(final EventListener listener) {
-        this.select.addInputListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addKeyDownListener(final EventListener listener) {
-        this.select.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent addKeyUpListener(final EventListener listener) {
-        this.select.addKeyUpListener(listener);
         return this;
     }
 

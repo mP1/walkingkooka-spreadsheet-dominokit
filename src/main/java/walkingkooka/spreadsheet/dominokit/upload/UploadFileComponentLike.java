@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.upload;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -83,28 +82,6 @@ abstract class UploadFileComponentLike implements FormValueComponent<HTMLDivElem
 
     @Override
     public final UploadFileComponent removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
-    // addXXXListener...................................................................................................
-
-    @Override
-    public final UploadFileComponent addClickListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final UploadFileComponent addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final UploadFileComponent addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final UploadFileComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 

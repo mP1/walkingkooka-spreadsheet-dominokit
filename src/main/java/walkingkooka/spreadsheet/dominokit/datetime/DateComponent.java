@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.datepicker.DateSelectionListener;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalDate;
@@ -100,29 +98,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
     public DateComponent resetView() {
         this.calendar.resetView();
-        return this;
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    public DateComponent addChangeListener(final ChangeListener<Optional<LocalDate>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.calendar.addDateSelectionListener(
-            (final CalendarDay oldDay,
-             final CalendarDay newDay) -> listener.onValueChanged(
-                calendarDayToLocalDate(oldDay),
-                calendarDayToLocalDate(newDay)
-            )
-        );
-
-        return this;
-    }
-
-    @Override
-    public DateComponent addClickListener(final EventListener listener) {
-        this.calendar.addClickListener(listener);
         return this;
     }
 

@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -198,64 +196,6 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     @Override
     public SpreadsheetValueTypeComponent validate() {
         this.select.validate();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addBlurListener(final EventListener listener) {
-        this.select.addBlurListener(
-            listener
-        );
-        return this;
-    }
-    
-    @Override
-    public SpreadsheetValueTypeComponent addChangeListener(final ChangeListener<Optional<ValueTypeName>> listener) {
-        this.select.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addContextMenuListener(final EventListener listener) {
-        this.select.addContextMenuListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addClickListener(final EventListener listener) {
-        this.select.addClickListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addFocusListener(final EventListener listener) {
-        this.select.addFocusListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addInputListener(final EventListener listener) {
-        this.select.addInputListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addKeyDownListener(final EventListener listener) {
-        this.select.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetValueTypeComponent addKeyUpListener(final EventListener listener) {
-        this.select.addKeyUpListener(listener);
         return this;
     }
 

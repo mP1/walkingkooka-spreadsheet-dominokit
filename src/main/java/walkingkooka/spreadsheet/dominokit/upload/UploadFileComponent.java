@@ -17,18 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.upload;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.File;
 import elemental2.dom.FileReader;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.ProgressEvent;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.upload.DefaultFileUploadDecoration;
 import org.dominokit.domino.ui.upload.FileItem;
 import org.dominokit.domino.ui.upload.FileUpload;
 import org.dominokit.domino.ui.upload.IsFilePreview;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.DataUrl;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
@@ -173,35 +170,6 @@ public final class UploadFileComponent extends UploadFileComponentLike {
         return this;
     }
 
-    @Override
-    public UploadFileComponent addBlurListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.fileUpload.addEventListener(
-            EventType.blur,
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public UploadFileComponent addContextMenuListener(final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.fileUpload.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-        return this;
-    }
-
     private void onFileItem(final FileItem fileItem) {
         final File file = fileItem.getFile();
 
@@ -224,15 +192,6 @@ public final class UploadFileComponent extends UploadFileComponentLike {
         fileReader.readAsDataURL(file);
 
         fileItem.addRemoveHandler((removedFileIgnored) -> this.setValue(Optional.empty()));
-    }
-
-    @Override
-    public UploadFileComponent addFocusListener(final EventListener listener) {
-        this.fileUpload.addEventListener(
-            EventType.focus,
-            listener
-        );
-        return this;
     }
 
     @Override

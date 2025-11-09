@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameAndDirection;
@@ -324,55 +322,6 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addBlurListener(final EventListener listener) {
-        this.names.addBlurListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addChangeListener(final ChangeListener<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>> listener) {
-        this.names.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addClickListener(final EventListener listener) {
-        this.names.addClickListener(listener);
-        return this;
-    }
-
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addContextMenuListener(final EventListener listener) {
-        this.names.addContextMenuListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addFocusListener(final EventListener listener) {
-        this.names.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addInputListener(final EventListener listener) {
-        this.names.addInputListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyDownListener(final EventListener listener) {
-        this.names.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent addKeyUpListener(final EventListener listener) {
-        this.names.addKeyUpListener(listener);
-        return this;
     }
 
     // ValueWatcher.....................................................................................................

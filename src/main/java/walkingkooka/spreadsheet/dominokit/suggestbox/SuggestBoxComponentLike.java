@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
@@ -46,65 +44,6 @@ abstract class SuggestBoxComponentLike<T> implements FormValueComponent<HTMLFiel
     abstract public SuggestBoxComponent<T> setOptions(final List<T> options);
 
     abstract public SuggestBoxComponent<T> setVerifiedOption(final T option);
-
-    @Override
-    public final SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public final SuggestBoxComponent<T> addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    abstract SuggestBoxComponent<T> addEventListener(final EventType eventType,
-                                                     final EventListener listener);
 
     // FormValueComponentTreePrintable..................................................................................
 

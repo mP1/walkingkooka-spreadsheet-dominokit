@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.text;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CharSequences;
@@ -89,46 +87,6 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
 
     @Override
     public final TextViewComponent setHelperText(final Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addBlurListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addClickListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addContextMenuListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final TextViewComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 

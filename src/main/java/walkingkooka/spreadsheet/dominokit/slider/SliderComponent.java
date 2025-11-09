@@ -18,9 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.slider;
 
 import elemental2.dom.Element;
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.sliders.Slider;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -206,26 +204,6 @@ public final class SliderComponent extends SliderComponentLike {
     @Override
     public SliderComponent setErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SliderComponent addChangeListener(final ChangeListener<Optional<Double>> listener) {
-        this.slider.addChangeListener(
-            this.changeListener(listener)
-        );
-        return this;
-    }
-
-    @Override
-    SliderComponent addEventListener(final EventType eventType,
-                                     final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.slider.addEventListener(
-            eventType,
-            listener
-        );
-        return this;
     }
 
     @Override

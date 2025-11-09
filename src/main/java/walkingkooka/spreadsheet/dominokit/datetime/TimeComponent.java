@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalTime;
@@ -94,29 +92,6 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     @Override
     public TimeComponent removeCssProperty(final String name) {
         this.timePicker.removeCssProperty(name);
-        return this;
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    public TimeComponent addChangeListener(final ChangeListener<Optional<LocalTime>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.timePicker.addTimeSelectionListener(
-            (final Date oldTime,
-             final Date newTime) -> listener.onValueChanged(
-                dateToLocalTime(oldTime),
-                dateToLocalTime(newTime)
-            )
-        );
-
-        return this;
-    }
-
-    @Override
-    public TimeComponent addClickListener(final EventListener listener) {
-        this.timePicker.addClickListener(listener);
         return this;
     }
 

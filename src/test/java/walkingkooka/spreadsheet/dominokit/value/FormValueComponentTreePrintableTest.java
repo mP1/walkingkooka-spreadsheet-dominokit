@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
@@ -149,46 +147,6 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
 
             @Override
             public TestValueComponent setDisabled(final boolean disabled) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addBlurListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addClickListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addContextMenuListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addFocusListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addInputListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addKeyDownListener(final EventListener listener) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public TestValueComponent addKeyUpListener(final EventListener listener) {
                 throw new UnsupportedOperationException();
             }
 

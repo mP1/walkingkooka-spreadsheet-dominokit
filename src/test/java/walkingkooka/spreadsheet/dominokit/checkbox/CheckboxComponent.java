@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.checkbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -150,21 +147,6 @@ public final class CheckboxComponent extends CheckboxComponentLike
         return this;
     }
 
-    // events...........................................................................................................
-
-    @Override
-    public CheckboxComponent addChangeListener(final ChangeListener<Optional<Boolean>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return this;
-    }
-
-    @Override
-    CheckboxComponent addEventListener(final EventType type,
-                                       final EventListener listener) {
-        return this;
-    }
-
     // styling..........................................................................................................
     
     @Override
@@ -186,6 +168,8 @@ public final class CheckboxComponent extends CheckboxComponentLike
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         return () -> {};
     }
 }

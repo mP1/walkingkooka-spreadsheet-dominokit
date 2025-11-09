@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.checkbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -166,66 +164,6 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
         return this;
     }
 
-    @Override
-    public ValidationCheckboxComponent addBlurListener(final EventListener listener) {
-        this.checkbox.addBlurListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addClickListener(final EventListener listener) {
-        this.checkbox.addClickListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addChangeListener(final ChangeListener<Optional<Object>> listener) {
-        this.checkbox.addChangeListener(
-            (final Optional<Boolean> oldValue,
-             final Optional<Boolean> newValue) -> listener.onValueChanged(
-                toValue(oldValue),
-                toValue(newValue)
-            )
-        );
-        return this;
-    }
-
-    private Optional<Object> toValue(final Optional<Boolean> value) {
-        return value.orElse(Boolean.FALSE) ?
-            this.validationCheckbox.trueValue() :
-            this.validationCheckbox.falseValue();
-    }
-
-    @Override
-    public ValidationCheckboxComponent addContextMenuListener(final EventListener listener) {
-        this.checkbox.addContextMenuListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addFocusListener(final EventListener listener) {
-        this.checkbox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addInputListener(final EventListener listener) {
-        this.checkbox.addInputListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addKeyDownListener(final EventListener listener) {
-        this.checkbox.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValidationCheckboxComponent addKeyUpListener(final EventListener listener) {
-        this.checkbox.addKeyUpListener(listener);
-        return this;
-    }
-
     // ValidationCheckbox...............................................................................................
 
     public ValidationCheckbox validationCheckbox() {
@@ -278,7 +216,9 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
 
         return this.checkbox.addValueWatcher(
             (final Optional<Boolean> value) -> watcher.onValue(
-                toValue(value)
+                value.orElse(Boolean.FALSE) ?
+                    this.validationCheckbox.trueValue() :
+                    this.validationCheckbox.falseValue()
             )
         );
     }
