@@ -48,4 +48,33 @@ public class FakeToolbarComponentContext extends FakeHistoryContext
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
+
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContext...................................................................................................
+
+    @Override
+    public void debug(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
 }
