@@ -173,6 +173,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             e -> {
                 final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
                 if(keyboardEvent.key.equals(Key.Enter)) {
+                    e.preventDefault();
                     listener.handleEvent(e);
                 }
             }
