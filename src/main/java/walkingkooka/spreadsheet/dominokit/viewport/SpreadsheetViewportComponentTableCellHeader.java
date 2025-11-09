@@ -46,7 +46,6 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
                 Optional.of(selection)
             ).link(id)
             .setTabIndex(0)
-            .clickOrEnterPushHistoryToken(context)
             .setTextContent(text);
         this.anchor = anchor;
 

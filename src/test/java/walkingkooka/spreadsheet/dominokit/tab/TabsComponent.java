@@ -56,8 +56,7 @@ public final class TabsComponent implements TabsComponentLike, TestHtmlElementCo
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
             .setId(id)
             .setTextContent(title)
-            .setDisabled(true)
-            .clickOrEnterPushHistoryToken(this.context);
+            .setDisabled(true);
 
         this.anchors.add(anchor);
         return this;

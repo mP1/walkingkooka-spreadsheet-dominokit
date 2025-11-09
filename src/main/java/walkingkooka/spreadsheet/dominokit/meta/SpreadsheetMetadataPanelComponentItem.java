@@ -187,7 +187,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
         return context.historyToken()
             .link(SpreadsheetMetadataPanelComponent.id(this.propertyName) + "-default")
             .setTabIndex(0)
-            .clickOrEnterPushHistoryToken(context)
             .setTextContent("default");
     }
 
