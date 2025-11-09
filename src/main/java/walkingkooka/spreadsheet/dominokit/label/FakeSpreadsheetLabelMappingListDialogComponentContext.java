@@ -33,6 +33,13 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
         super();
     }
 
+    // RefreshContext...................................................................................................
+
+    @Override
+    public boolean isSpreadsheetMetadataLoaded() {
+        throw new UnsupportedOperationException();
+    }
+
     // CanGiveFocus.....................................................................................................
 
     @Override

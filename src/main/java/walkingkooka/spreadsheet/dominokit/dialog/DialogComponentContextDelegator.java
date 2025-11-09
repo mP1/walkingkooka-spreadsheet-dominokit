@@ -17,28 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 
 public interface DialogComponentContextDelegator extends DialogComponentContext,
-    HistoryContextDelegator,
-    LoggingContextDelegator {
+    RefreshContextDelegator {
 
     @Override
-    default void giveFocus(final Runnable focus) {
-        this.dialogComponentContext()
-            .giveFocus(focus);
-    }
-
-    @Override
-    default HistoryContext historyContext() {
-        return this.dialogComponentContext();
-    }
-
-    @Override
-    default LoggingContext loggingContext() {
+    default RefreshContext refreshContext() {
         return this.dialogComponentContext();
     }
 

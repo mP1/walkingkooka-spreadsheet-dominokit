@@ -25,6 +25,13 @@ public class FakeRefreshContext extends FakeHistoryContext implements RefreshCon
         super();
     }
 
+    // RefreshContext...................................................................................................
+
+    @Override
+    public boolean isSpreadsheetMetadataLoaded() {
+        throw new UnsupportedOperationException();
+    }
+
     // CanGiveFocus.....................................................................................................
 
     @Override

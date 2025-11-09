@@ -24,4 +24,10 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 public interface RefreshContext extends CanGiveFocus,
     HistoryContext,
     LoggingContext {
+
+    /**
+     * Returns true of the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} for the {@link walkingkooka.spreadsheet.SpreadsheetId}
+     * in the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} is present(loaded).
+     */
+    boolean isSpreadsheetMetadataLoaded();
 }
