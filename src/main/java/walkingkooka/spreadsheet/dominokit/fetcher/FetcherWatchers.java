@@ -23,7 +23,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.watch.Watchers;
 
 import java.util.List;
@@ -69,14 +68,12 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
     @Override
     public final void onBegin(final HttpMethod method,
                               final Url url,
-                              final Optional<FetcherRequestBody<?>> body,
-                              final AppContext context) {
+                              final Optional<FetcherRequestBody<?>> body) {
         // cant use fire because it removes one shot watchers...
         final FetcherWatchersEvent<W> event = FetcherWatchersEvent.begin(
             method,
             url,
-            body,
-            context
+            body
         );
         this.onceWatchers.accept(event);
         this.watchers.accept(event);
@@ -87,37 +84,31 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
                                 final AbsoluteOrRelativeUrl url,
                                 final HttpStatus status,
                                 final Headers headers,
-                                final String body,
-                                final AppContext context) {
+                                final String body) {
         this.fire(
             FetcherWatchersEvent.failure(
                 method,
                 url,
                 status,
                 headers,
-                body,
-                context
+                body
             )
         );
     }
 
     @Override
-    public final void onError(final Object cause,
-                              final AppContext context) {
+    public final void onError(final Object cause) {
         this.fire(
             FetcherWatchersEvent.error(
-                cause,
-                context
+                cause
             )
         );
     }
 
     @Override
-    public final void onEmptyResponse(final AppContext context) {
+    public final void onEmptyResponse() {
         this.fire(
-            FetcherWatchersEvent.empty(
-                context
-            )
+            FetcherWatchersEvent.empty()
         );
     }
 

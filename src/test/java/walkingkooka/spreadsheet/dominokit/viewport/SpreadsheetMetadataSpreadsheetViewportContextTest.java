@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.WebColorName;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -59,8 +58,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             ).set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 false
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle cellStyle = context.cellStyle();
@@ -111,8 +109,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             ).set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 true
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle cellStyle = context.cellStyle();
@@ -177,8 +174,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
         );
 
         context.onSpreadsheetMetadata(
-            metadata,
-            AppContexts.fake()
+            metadata
         );
 
         final TextStyle with = context.cellStyle();
@@ -187,8 +183,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             metadata.set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 false
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle without = context.cellStyle();
@@ -210,8 +205,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                     TextStylePropertyName.BACKGROUND_COLOR,
                     WebColorName.GREEN.color()
                 )
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle before = context.cellStyle();
@@ -223,8 +217,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                     TextStylePropertyName.BACKGROUND_COLOR,
                     WebColorName.BLUE.color()
                 )
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle after = context.cellStyle();
@@ -264,8 +257,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             ).set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 false
-            ),
-            AppContexts.fake()
+            )
         );
 
 
@@ -314,8 +306,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             ).set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 true
-            ),
-            AppContexts.fake()
+            )
         );
 
 
@@ -378,8 +369,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
         );
 
         context.onSpreadsheetMetadata(
-            metadata,
-            AppContexts.fake()
+            metadata
         );
 
         final TextStyle cellStyle = TextStyle.EMPTY.set(
@@ -393,8 +383,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             metadata.set(
                 SpreadsheetMetadataPropertyName.SHOW_GRID_LINES,
                 false
-            ),
-            AppContexts.fake()
+            )
         );
 
         final TextStyle without = context.selectedCellStyle(cellStyle);

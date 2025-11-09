@@ -17,26 +17,22 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
-
 /**
- * The event payload used by {@link FetcherWatcher#onEmptyResponse(AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onEmptyResponse()}.
  */
 final class EmptyResponseFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> with(final AppContext context) {
-        return new EmptyResponseFetcherWatchersEvent<>(context);
+    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> with() {
+        return new EmptyResponseFetcherWatchersEvent<>();
     }
 
-    private EmptyResponseFetcherWatchersEvent(final AppContext context) {
-        super(context);
+    private EmptyResponseFetcherWatchersEvent() {
+        super();
     }
 
     @Override
     void fire(final W watcher) {
-        watcher.onEmptyResponse(
-            this.context
-        );
+        watcher.onEmptyResponse();
     }
 
     @Override

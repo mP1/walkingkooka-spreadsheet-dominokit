@@ -24,8 +24,6 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -51,13 +49,6 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
     @Test
     public void testRefreshShouldShowHeadersTrue() {
-        final AppContext appContext = new FakeAppContext() {
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
-
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -72,6 +63,11 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -168,8 +164,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -186,8 +181,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                             )
                         )
                     )
-                ),
-                appContext
+                )
             );
 
         final SpreadsheetViewportComponentTableRowCells component = SpreadsheetViewportComponentTableRowCells.empty(
@@ -217,13 +211,6 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
     @Test
     public void testRefreshShouldShowHeadersFalse() {
-        final AppContext appContext = new FakeAppContext() {
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
-
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -238,6 +225,11 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -324,8 +316,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -342,8 +333,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                             )
                         )
                     )
-                ),
-                appContext
+                )
             );
 
         final SpreadsheetViewportComponentTableRowCells component = SpreadsheetViewportComponentTableRowCells.empty(

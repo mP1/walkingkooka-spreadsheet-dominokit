@@ -166,8 +166,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata(),
-            context
+            context.spreadsheetMetadata()
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -190,8 +189,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                         SpreadsheetSelection.parseCell("C3")
                     )
                 )
-            ),
-            context
+            )
         );
 
         this.treePrintAndCheck(

@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 
@@ -31,8 +30,7 @@ public interface NopFetcherWatcher extends FetcherWatcher {
     @Override //
     default void onBegin(final HttpMethod method,
                          final Url url,
-                         final Optional<FetcherRequestBody<?>> body,
-                         final AppContext context) {
+                         final Optional<FetcherRequestBody<?>> body) {
         // nop
     }
 
@@ -41,14 +39,12 @@ public interface NopFetcherWatcher extends FetcherWatcher {
                            final AbsoluteOrRelativeUrl url,
                            final HttpStatus status,
                            final Headers headers,
-                           final String body,
-                           final AppContext context) {
+                           final String body) {
         // nop
     }
 
     @Override//
-    default void onError(final Object cause,
-                         final AppContext context) {
+    default void onError(final Object cause) {
         // nop
     }
 }

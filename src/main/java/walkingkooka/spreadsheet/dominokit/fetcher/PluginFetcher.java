@@ -206,7 +206,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "JarEntryInfoList":
                 // GET https://server/api/plugin/Plugin/list
@@ -220,8 +220,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                                 bodyText,
                                 JarEntryInfoList.class
                             )
-                    ),
-                    this.context
+                    )
                 );
                 break;
             case "JarEntryInfoName":
@@ -229,8 +228,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 this.watcher.onJarEntryInfoName(
                     this.extractPluginName(url),
                     JarEntryInfoName.pluginDownloadPathExtract(url.path()),
-                    body,
-                    context
+                    body
                 );
                 break;
             case "Plugin":
@@ -245,8 +243,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                                 bodyText,
                                 Plugin.class
                             )
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "PluginSet":
@@ -255,8 +252,7 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                     this.parse(
                         bodyText,
                         PluginSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

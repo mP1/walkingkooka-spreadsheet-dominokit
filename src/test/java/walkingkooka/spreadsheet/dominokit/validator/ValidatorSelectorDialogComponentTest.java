@@ -130,8 +130,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
 
         context.metadataWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata(),
-            context
+            context.spreadsheetMetadata()
         );
 
         final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
@@ -180,8 +179,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                         )
                     )
                 )
-            ),
-            context
+            )
         );
 
         this.treePrintAndCheck(

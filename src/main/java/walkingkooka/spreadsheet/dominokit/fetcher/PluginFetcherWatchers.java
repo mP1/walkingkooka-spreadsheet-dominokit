@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -40,13 +39,11 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
 
     @Override
     public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list,
-                                   final AppContext context) {
+                                   final Optional<JarEntryInfoList> list) {
         this.fire(
             PluginFetcherWatchersJarEntryInfoListEvent.with(
                 name,
-                list,
-                context
+                list
             )
         );
     }
@@ -54,14 +51,12 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body,
-                                   final AppContext context) {
+                                   final Optional<String> body) {
         this.fire(
             PluginFetcherWatchersJarEntryInfoNameEvent.with(
                 pluginName,
                 filename,
-                body,
-                context
+                body
             )
         );
     }
@@ -69,25 +64,19 @@ public final class PluginFetcherWatchers extends FetcherWatchers<PluginFetcherWa
 
     @Override
     public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin,
-                         final AppContext context) {
+                         final Optional<Plugin> plugin) {
         this.fire(
             PluginFetcherWatchersPluginEvent.with(
                 name,
-                plugin,
-                context
+                plugin
             )
         );
     }
 
     @Override
-    public void onPluginSet(final PluginSet plugins,
-                            final AppContext context) {
+    public void onPluginSet(final PluginSet plugins) {
         this.fire(
-            PluginFetcherWatchersPluginSetEvent.with(
-                plugins,
-                context
-            )
+            PluginFetcherWatchersPluginSetEvent.with(plugins)
         );
     }
 

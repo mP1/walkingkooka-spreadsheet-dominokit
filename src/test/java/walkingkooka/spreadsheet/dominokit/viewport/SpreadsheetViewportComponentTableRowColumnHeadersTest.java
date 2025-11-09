@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import org.junit.jupiter.api.Test;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -148,13 +146,6 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
     private void treePrintAndCheck2(final HistoryToken historyToken,
                                     final boolean shouldShowHeaders,
                                     final String expected) {
-        final AppContext appContext = new FakeAppContext() {
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
-
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -169,6 +160,11 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -250,8 +246,7 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         final SpreadsheetViewportComponentTableRowColumnHeaders component = SpreadsheetViewportComponentTableRowColumnHeaders.empty(

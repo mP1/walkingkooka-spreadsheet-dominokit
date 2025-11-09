@@ -23,7 +23,6 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
@@ -139,7 +138,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     /**
      * When the ADD card filter changes, execute a {@link walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher#}.
-     * When the {@link walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher#onPluginSet(PluginSet, AppContext)}.
+     * When the {@link PluginFetcherWatcher#onPluginSet(PluginSet)}.
      */
     private void addFilterOnValue(final Optional<String> value) {
         this.context.pluginFilter(
@@ -233,8 +232,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         if(this.isOpen()) {
             // maybe should ignore metadata if it has the wrong SpreadsheetMetadata
             this.setText(
@@ -246,8 +244,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // Ignore many
     }
 
@@ -255,29 +252,25 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     @Override
     public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list,
-                                   final AppContext context) {
+                                   final Optional<JarEntryInfoList> list) {
         // NOP
     }
 
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body,
-                                   final AppContext context) {
+                                   final Optional<String> body) {
         // NOP
     }
 
     @Override
     public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin,
-                         final AppContext context) {
+                         final Optional<Plugin> plugin) {
         // NOP
     }
 
     @Override
-    public void onPluginSet(final PluginSet plugins,
-                            final AppContext context) {
+    public void onPluginSet(final PluginSet plugins) {
         this.filterMatchPluginNames = plugins.names();
         this.refreshIfOpen(this.context);
     }

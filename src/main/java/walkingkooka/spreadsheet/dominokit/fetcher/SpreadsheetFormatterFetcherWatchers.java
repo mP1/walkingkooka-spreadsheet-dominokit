@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
@@ -38,27 +37,21 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
     }
 
     @Override
-    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
-                                              final AppContext context) {
+    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
         this.fire(
-            SpreadsheetFormatterFetcherWatchersInfoSetEvent.with(
-                infos,
-                context
-            )
+            SpreadsheetFormatterFetcherWatchersInfoSetEvent.with(infos)
         );
     }
 
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
                                                    final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                   final AppContext context) {
+                                                   final SpreadsheetFormatterSelectorEdit edit) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersEditEvent.with(
                 id,
                 cellOrLabel,
-                edit,
-                context
+                edit
             )
         );
     }
@@ -66,14 +59,12 @@ public final class SpreadsheetFormatterFetcherWatchers extends FetcherWatchers<S
     @Override
     public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
                                                final SpreadsheetExpressionReference cellOrLabel,
-                                               final SpreadsheetFormatterMenuList menu,
-                                               final AppContext context) {
+                                               final SpreadsheetFormatterMenuList menu) {
         this.fire(
             SpreadsheetFormatterFetcherWatchersMenuListEvent.with(
                 id,
                 cellOrLabel,
-                menu,
-                context
+                menu
             )
         );
     }

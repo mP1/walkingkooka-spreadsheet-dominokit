@@ -25,7 +25,6 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.predicate.character.CharPredicate;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -747,15 +746,13 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     @Override
     public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
-                                                     final DecimalNumberSymbolsHateosResource locale,
-                                                     final AppContext context) {
+                                                     final DecimalNumberSymbolsHateosResource locale) {
         // NOP
     }
 
     @Override
     public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
-                                                        final DecimalNumberSymbolsHateosResourceSet symbols,
-                                                        final AppContext context) {
+                                                        final DecimalNumberSymbolsHateosResourceSet symbols) {
         this.localeLoad.suggestBoxComponent()
             .setOptions(
                 symbols.stream()
@@ -770,21 +767,18 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         this.refreshIfOpen(this.context);
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.refreshIfOpen(this.context);
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // Ignore many
     }
 

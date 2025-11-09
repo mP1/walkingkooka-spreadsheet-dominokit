@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Set;
@@ -32,21 +31,18 @@ final class ConverterFetcherWatchersVerifyEvent extends FetcherWatchersEvent<Con
 
     static ConverterFetcherWatchersVerifyEvent with(final SpreadsheetId id,
                                                     final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                                                    final Set<MissingConverter> missingConverters,
-                                                    final AppContext context) {
+                                                    final Set<MissingConverter> missingConverters) {
         return new ConverterFetcherWatchersVerifyEvent(
             id,
             metadataPropertyName,
-            missingConverters,
-            context
+            missingConverters
         );
     }
 
     private ConverterFetcherWatchersVerifyEvent(final SpreadsheetId id,
                                                 final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                                                final Set<MissingConverter> missingConverters,
-                                                final AppContext context) {
-        super(context);
+                                                final Set<MissingConverter> missingConverters) {
+        super();
         this.id = id;
         this.metadataPropertyName = metadataPropertyName;
         this.missingConverters = missingConverters;
@@ -57,8 +53,7 @@ final class ConverterFetcherWatchersVerifyEvent extends FetcherWatchersEvent<Con
         watcher.onVerify(
             this.id,
             this.metadataPropertyName,
-            this.missingConverters,
-            this.context
+            this.missingConverters
         );
     }
 

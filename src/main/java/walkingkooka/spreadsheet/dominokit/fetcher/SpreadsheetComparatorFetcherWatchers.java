@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class SpreadsheetComparatorFetcherWatchers extends FetcherWatchers<SpreadsheetComparatorFetcherWatcher>
     implements SpreadsheetComparatorFetcherWatcher {
@@ -32,13 +31,9 @@ public final class SpreadsheetComparatorFetcherWatchers extends FetcherWatchers<
     }
 
     @Override
-    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
-                                               final AppContext context) {
+    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos) {
         this.fire(
-            SpreadsheetComparatorFetcherWatchersInfoSetEvent.with(
-                infos,
-                context
-            )
+            SpreadsheetComparatorFetcherWatchersInfoSetEvent.with(infos)
         );
     }
 }

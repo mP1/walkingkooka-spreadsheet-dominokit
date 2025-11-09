@@ -66,7 +66,7 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetExporterInfoSet":
                 // GET http://server/api/exporter
@@ -74,8 +74,7 @@ public final class SpreadsheetExporterFetcher extends Fetcher<SpreadsheetExporte
                     this.parse(
                         body,
                         SpreadsheetExporterInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

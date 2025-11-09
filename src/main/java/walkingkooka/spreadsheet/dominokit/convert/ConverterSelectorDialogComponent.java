@@ -27,7 +27,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -194,8 +193,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     @Override //
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<FetcherRequestBody<?>> body,
-                        final AppContext context) {
+                        final Optional<FetcherRequestBody<?>> body) {
         // nop
     }
 
@@ -204,8 +202,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
                           final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
-                          final String body,
-                          final AppContext context) {
+                          final String body) {
         if (this.isOpen()) {
             if (HttpMethod.POST.equals(method) && this.context.isVerifyConverterSelectorUrl(url.path())) {
                 this.selector.setErrors(
@@ -220,37 +217,32 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     }
 
     @Override//
-    public void onError(final Object cause,
-                        final AppContext context) {
+    public void onError(final Object cause) {
         // nop
     }
 
     // ConverterFetcherWatcher..........................................................................................
 
     @Override
-    public void onConverterInfoSet(final ConverterInfoSet infos,
-                                   final AppContext context) {
+    public void onConverterInfoSet(final ConverterInfoSet infos) {
         // ignore
     }
 
     @Override
     public void onVerify(final SpreadsheetId id,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                         final Set<MissingConverter> missingConverters,
-                         final AppContext context) {
+                         final Set<MissingConverter> missingConverters) {
         this.selector.clearErrors();
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.refreshIfOpen(this.context);
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // Ignore many
     }
 

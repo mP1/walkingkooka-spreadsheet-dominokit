@@ -23,7 +23,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetError;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
@@ -385,8 +384,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         this.refreshIfOpen(this.context);
     }
 

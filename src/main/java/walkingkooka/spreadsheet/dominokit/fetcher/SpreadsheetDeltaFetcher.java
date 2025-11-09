@@ -1219,7 +1219,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetDelta":
                 // http://server/api/spreadsheet/1/cell
@@ -1229,8 +1229,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                     this.parse(
                         body,
                         SpreadsheetDelta.class
-                    ), // delta
-                    context
+                    ) // delta
                 );
                 break;
             default:

@@ -578,8 +578,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
 
         // required otherwise SpreadsheetViewportCache will "ignore delta because they belong to a different spreadsheet
         appContext.metadataFetcherWatchers.onSpreadsheetMetadata(
-            appContext.spreadsheetMetadata(),
-            appContext
+            appContext.spreadsheetMetadata()
         );
 
         // SpreadsheetId=123
@@ -623,8 +622,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                         SpreadsheetSelection.parseCell("Z1")
                     )
                 )
-            ), // delta
-            appContext
+            ) // delta
         );
 
         this.onHistoryTokenChangeAndCheck(

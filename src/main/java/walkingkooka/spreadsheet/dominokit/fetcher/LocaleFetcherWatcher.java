@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -28,9 +27,7 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 public interface LocaleFetcherWatcher extends FetcherWatcher {
 
     void onLocaleHateosResource(final LocaleTag id,
-                                final LocaleHateosResource locale,
-                                final AppContext context);
+                                final LocaleHateosResource locale);
 
-    void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales,
-                                   final AppContext context);
+    void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales);
 }

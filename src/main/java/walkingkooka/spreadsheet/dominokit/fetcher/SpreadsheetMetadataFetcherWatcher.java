@@ -17,16 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Set;
 
 public interface SpreadsheetMetadataFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                               final AppContext context);
+    void onSpreadsheetMetadata(final SpreadsheetMetadata metadata);
 
-    void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                  final AppContext context);
+    void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas);
 }

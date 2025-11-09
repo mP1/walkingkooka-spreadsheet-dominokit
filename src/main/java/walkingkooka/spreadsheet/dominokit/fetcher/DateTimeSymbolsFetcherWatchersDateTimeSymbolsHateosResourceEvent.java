@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
@@ -27,19 +26,16 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent extends FetcherWatchersEvent<DateTimeSymbolsFetcherWatcher> {
 
     static DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent with(final LocaleTag id,
-                                                                                 final DateTimeSymbolsHateosResource symbols,
-                                                                                 final AppContext context) {
+                                                                                 final DateTimeSymbolsHateosResource symbols) {
         return new DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent(
             id,
-            symbols,
-            context
+            symbols
         );
     }
 
     private DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent(final LocaleTag id,
-                                                                             final DateTimeSymbolsHateosResource symbols,
-                                                                             final AppContext context) {
-        super(context);
+                                                                             final DateTimeSymbolsHateosResource symbols) {
+        super();
         this.id = id;
         this.symbols = symbols;
     }
@@ -48,8 +44,7 @@ final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent ext
     void fire(final DateTimeSymbolsFetcherWatcher watcher) {
         watcher.onDateTimeSymbolsHateosResource(
             this.id,
-            this.symbols,
-            this.context
+            this.symbols
         );
     }
 

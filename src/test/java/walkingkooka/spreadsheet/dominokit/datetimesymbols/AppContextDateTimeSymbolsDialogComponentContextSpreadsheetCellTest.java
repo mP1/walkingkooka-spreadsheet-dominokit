@@ -178,8 +178,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
 
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID),
-                appContext
+                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
             );
 
         appContext.spreadsheetViewportCache()
@@ -190,8 +189,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
                     Sets.of(
                         cell
                     )
-                ),
-                appContext
+                )
             );
 
         this.loadDateTimeSymbolsAndCheck(

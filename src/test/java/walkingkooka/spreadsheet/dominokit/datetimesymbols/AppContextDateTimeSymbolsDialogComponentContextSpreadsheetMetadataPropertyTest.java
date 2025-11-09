@@ -172,8 +172,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
                 METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS),
-                appContext
+                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS)
             );
 
         this.loadDateTimeSymbolsAndCheck(

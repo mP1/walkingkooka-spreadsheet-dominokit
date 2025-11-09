@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
@@ -27,19 +26,16 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 final class LocaleFetcherWatchersLocaleHateosResourceEvent extends FetcherWatchersEvent<LocaleFetcherWatcher> {
 
     static LocaleFetcherWatchersLocaleHateosResourceEvent with(final LocaleTag id,
-                                                               final LocaleHateosResource locale,
-                                                               final AppContext context) {
+                                                               final LocaleHateosResource locale) {
         return new LocaleFetcherWatchersLocaleHateosResourceEvent(
             id,
-            locale,
-            context
+            locale
         );
     }
 
     private LocaleFetcherWatchersLocaleHateosResourceEvent(final LocaleTag id,
-                                                           final LocaleHateosResource locale,
-                                                           final AppContext context) {
-        super(context);
+                                                           final LocaleHateosResource locale) {
+        super();
         this.id = id;
         this.locale = locale;
     }
@@ -48,8 +44,7 @@ final class LocaleFetcherWatchersLocaleHateosResourceEvent extends FetcherWatche
     void fire(final LocaleFetcherWatcher watcher) {
         watcher.onLocaleHateosResource(
             this.id,
-            this.locale,
-            this.context
+            this.locale
         );
     }
 

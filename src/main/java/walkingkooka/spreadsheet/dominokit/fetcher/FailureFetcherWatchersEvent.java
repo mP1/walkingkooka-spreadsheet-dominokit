@@ -21,10 +21,9 @@ import elemental2.dom.Headers;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
- * The event payload used by {@link FetcherWatcher#onFailure(HttpMethod, AbsoluteOrRelativeUrl, HttpStatus, Headers, String, AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onFailure(HttpMethod, AbsoluteOrRelativeUrl, HttpStatus, Headers, String)}.
  * The {@link #status}, {@link #headers}, {@link #body} are from the fetch response.
  */
 final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
@@ -33,15 +32,13 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
                                                                           final AbsoluteOrRelativeUrl url,
                                                                           final HttpStatus status,
                                                                           final Headers headers,
-                                                                          final String body,
-                                                                          final AppContext context) {
+                                                                          final String body) {
         return new FailureFetcherWatchersEvent<>(
             method,
             url,
             status,
             headers,
-            body,
-            context
+            body
         );
     }
 
@@ -49,9 +46,8 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
                                         final AbsoluteOrRelativeUrl url,
                                         final HttpStatus status,
                                         final Headers headers,
-                                        final String body,
-                                        final AppContext context) {
-        super(context);
+                                        final String body) {
+        super();
 
         this.method = method;
         this.url = url;
@@ -67,8 +63,7 @@ final class FailureFetcherWatchersEvent<W extends FetcherWatcher> extends Fetche
             this.url,
             this.status,
             this.headers,
-            this.body,
-            this.context
+            this.body
         );
     }
 

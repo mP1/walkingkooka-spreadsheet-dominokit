@@ -25,8 +25,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 
@@ -44,26 +42,21 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
     public void testAddThenFire() {
         this.fired = 0;
 
-        final SpreadsheetId id = SpreadsheetId.with(1);
         final ExpressionFunctionInfoSet infos = SpreadsheetExpressionFunctions.EMPTY_INFO_SET;
-        final AppContext context = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
         watchers.add(
             new FakeExpressionFunctionFetcherWatcher() {
 
                 @Override
-                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is,
-                                                        final AppContext ac) {
+                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is) {
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(is, infos);
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(ac, context);
 
                     ExpressionFunctionFetcherWatchersTest.this.fired++;
                 }
             });
         watchers.onExpressionFunctionInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
     }
@@ -72,32 +65,26 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
     public void testAddOnce() {
         this.fired = 0;
 
-        final SpreadsheetId id = SpreadsheetId.with(1);
         final ExpressionFunctionInfoSet infos = SpreadsheetExpressionFunctions.EMPTY_INFO_SET;
-        final AppContext context = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
         watchers.addOnce(
             new FakeExpressionFunctionFetcherWatcher() {
 
                 @Override
-                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is,
-                                                        final AppContext ac) {
+                public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet is) {
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(is, infos);
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(ac, context);
 
                     ExpressionFunctionFetcherWatchersTest.this.fired++;
                 }
             });
         watchers.onExpressionFunctionInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
 
         watchers.onExpressionFunctionInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
     }
@@ -111,7 +98,6 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
         final Optional<FetcherRequestBody<?>> body = Optional.of(
             FetcherRequestBody.string("Body123")
         );
-        final AppContext appContext = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
         watchers.add(
@@ -120,23 +106,21 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
                 @Override
                 public void onBegin(final HttpMethod m,
                                     final Url u,
-                                    final Optional<FetcherRequestBody<?>> b,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> b) {
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(method, m);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(u, u);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(b, b);
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ExpressionFunctionFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(3, this.fired);
     }
 
@@ -145,27 +129,24 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
         this.fired = 0;
 
         final Object cause = "cause-123";
-        final AppContext appContext = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
         watchers.add(
             new FakeExpressionFunctionFetcherWatcher() {
                 @Override
-                public void onError(final Object c,
-                                    final AppContext context) {
+                public void onError(final Object c) {
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(cause, c);
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ExpressionFunctionFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(1, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(2, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(3, this.fired);
     }
 
@@ -178,7 +159,6 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
         final String body = "Body-failure-789";
-        final AppContext appContext = AppContexts.fake();
 
         final ExpressionFunctionFetcherWatchers watchers = ExpressionFunctionFetcherWatchers.empty();
         watchers.add(
@@ -189,25 +169,23 @@ public final class ExpressionFunctionFetcherWatchersTest extends FetcherWatchers
                                       final AbsoluteOrRelativeUrl u,
                                       final HttpStatus s,
                                       final Headers h,
-                                      final String b,
-                                      final AppContext context) {
+                                      final String b) {
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(method, m);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(url, u);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(status, s);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(headers, h);
                     ExpressionFunctionFetcherWatchersTest.this.checkEquals(body, b);
-                    ExpressionFunctionFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ExpressionFunctionFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(3, this.fired);
     }
 

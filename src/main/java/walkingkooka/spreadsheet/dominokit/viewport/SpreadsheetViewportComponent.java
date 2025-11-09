@@ -34,7 +34,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -850,8 +849,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<FetcherRequestBody<?>> body,
-                        final AppContext context) {
+                        final Optional<FetcherRequestBody<?>> body) {
         // nop
     }
 
@@ -860,8 +858,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                           final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
-                          final String body,
-                          final AppContext context) {
+                          final String body) {
         // if loading SpreadsheetId failed, force a reload.
         if (HttpMethod.GET.equals(method)) {
             final Optional<SpreadsheetId> maybeId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
@@ -875,8 +872,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     }
 
     @Override
-    public void onError(final Object cause,
-                        final AppContext context) {
+    public void onError(final Object cause) {
         // nop
     }
 
@@ -885,8 +881,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         Objects.requireNonNull(delta, "delta");
 
         final Optional<SpreadsheetViewport> maybeSpreadsheetViewport = delta.viewport();
@@ -896,7 +891,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.synchronizeSpreadsheetDeltaViewportSelectionHistoryToken(viewport);
             this.reloadSpreadsheetMetadataIfViewportChanged(viewport);
         }
-        this.componentLifecycleHistoryTokenQuery(context);
+        this.componentLifecycleHistoryTokenQuery(this.context);
         this.loadViewportCellsIfNecessary();
     }
 
@@ -954,16 +949,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
                                                    final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                   final AppContext context) {
+                                                   final SpreadsheetFormatterSelectorEdit edit) {
         // nop
     }
 
     @Override
     public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
                                                final SpreadsheetExpressionReference cellOrLabel,
-                                               final SpreadsheetFormatterMenuList menus,
-                                               final AppContext context) {
+                                               final SpreadsheetFormatterMenuList menus) {
         this.spreadsheetFormatterSelectorSelection = cellOrLabel;
         this.spreadsheetFormatterSelectorMenus = menus;
         this.refreshIfOpen(this.context);
@@ -972,14 +965,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     // metadata.........................................................................................................
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // NOP
     }
 
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         Objects.requireNonNull(metadata, "metadata");
 
         if (metadata.shouldViewRefresh(this.metadata)) {

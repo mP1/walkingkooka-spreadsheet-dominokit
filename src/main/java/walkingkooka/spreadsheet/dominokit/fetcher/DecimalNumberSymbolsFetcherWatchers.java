@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -35,26 +34,22 @@ public final class DecimalNumberSymbolsFetcherWatchers extends FetcherWatchers<D
 
     @Override
     public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
-                                                     final DecimalNumberSymbolsHateosResource symbols,
-                                                     final AppContext context) {
+                                                     final DecimalNumberSymbolsHateosResource symbols) {
         this.fire(
             DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent.with(
                 id,
-                symbols,
-                context
+                symbols
             )
         );
     }
 
     @Override
     public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
-                                                        final DecimalNumberSymbolsHateosResourceSet symbols,
-                                                        final AppContext context) {
+                                                        final DecimalNumberSymbolsHateosResourceSet symbols) {
         this.fire(
             DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceSetEvent.with(
                 localeStartsWith,
-                symbols,
-                context
+                symbols
             )
         );
     }

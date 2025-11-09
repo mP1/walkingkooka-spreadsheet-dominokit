@@ -111,7 +111,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetParserInfoSet":
                 // GET http://server/api/parser
@@ -119,8 +119,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                     this.parse(
                         body,
                         SpreadsheetParserInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "SpreadsheetParserSelectorEdit":
@@ -130,8 +129,7 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                     this.parse(
                         body,
                         SpreadsheetParserSelectorEdit.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

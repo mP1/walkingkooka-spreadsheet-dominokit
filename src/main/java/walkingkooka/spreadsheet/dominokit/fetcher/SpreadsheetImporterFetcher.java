@@ -68,7 +68,7 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetImporterInfoSet":
                 // GET http://server/api/importer
@@ -76,8 +76,7 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
                     this.parse(
                         body,
                         SpreadsheetImporterInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

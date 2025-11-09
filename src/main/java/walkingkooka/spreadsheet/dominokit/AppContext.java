@@ -159,27 +159,24 @@ public interface AppContext extends CanGiveFocus,
             new SpreadsheetMetadataFetcherWatcher() {
 
                 @Override
-                public void onEmptyResponse(final AppContext context) {
-                    this.reloadPreviousHistoryToken(context);
+                public void onEmptyResponse() {
+                    this.reloadPreviousHistoryToken();
                 }
 
                 @Override
-                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                  final AppContext context) {
+                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
                     // ignore
                 }
 
                 @Override
-                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                                     final AppContext context) {
+                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
                     // ignore
                 }
 
                 @Override
                 public void onBegin(final HttpMethod method,
                                     final Url url,
-                                    final Optional<FetcherRequestBody<?>> body,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> body) {
                     // ignore
                 }
 
@@ -188,23 +185,21 @@ public interface AppContext extends CanGiveFocus,
                                       final AbsoluteOrRelativeUrl url,
                                       final HttpStatus status,
                                       final Headers headers,
-                                      final String body,
-                                      final AppContext context) {
-                    context.pushHistoryToken(
+                                      final String body) {
+                    AppContext.this.pushHistoryToken(
                         previous.clearAction()
                     );
                 }
 
                 @Override
-                public void onError(final Object cause,
-                                    final AppContext context) {
-                    this.reloadPreviousHistoryToken(context);
+                public void onError(final Object cause) {
+                    this.reloadPreviousHistoryToken();
                 }
 
                 // clear the cached SpreadsheetMetadata and then push the previous URL which should load previous spreadsheet etc.
-                private void reloadPreviousHistoryToken(final AppContext context) {
-                    context.clearSpreadsheetMetadata();
-                    context.pushHistoryToken(
+                private void reloadPreviousHistoryToken() {
+                    AppContext.this.clearSpreadsheetMetadata();
+                    AppContext.this.pushHistoryToken(
                         previous.clearAction()
                     );
                 }

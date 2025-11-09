@@ -24,7 +24,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
@@ -210,8 +209,7 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         final UrlPath path = url.path();
 
         if (SpreadsheetDeltaFetcher.isGetLabelMappingsFindByName(method, path)) {

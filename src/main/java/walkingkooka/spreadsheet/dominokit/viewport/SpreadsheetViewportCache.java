@@ -682,15 +682,14 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
      * Captures the default width and height which will be used when rendering
      */
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         // clear cache if id changed.
         final SpreadsheetId oldId = this.spreadsheetId;
         final SpreadsheetId id = metadata.id().orElse(null);
         if (false == Objects.equals(oldId, id)) {
             // history is probably a create spreadsheet id so clear cache
             this.clear();
-            context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
+            this.context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
         }
 
         this.spreadsheetId = id;
@@ -702,8 +701,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     SpreadsheetId spreadsheetId;
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // ignore
     }
 
@@ -717,8 +715,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         final Optional<SpreadsheetId> maybeSpreadsheetId = SpreadsheetMetadataFetcher.extractSpreadsheetId(url);
         if (maybeSpreadsheetId.isPresent() &&
             maybeSpreadsheetId.get()

@@ -192,16 +192,14 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
                     this.pluginFetcherWatchers.onJarEntryInfoName(
                         pluginName,
                         Optional.of(EMPTY_FILENAME),
-                        EMPTY_FILE_CONTENT,
-                        this
+                        EMPTY_FILE_CONTENT
                     );
                 }
                 if (NON_EMPTY_FILENAME.equals(filename)) {
                     this.pluginFetcherWatchers.onJarEntryInfoName(
                         pluginName,
                         Optional.of(NON_EMPTY_FILENAME),
-                        NON_EMPTY_FILE_CONTENT,
-                        this
+                        NON_EMPTY_FILE_CONTENT
                     );
                 }
             }

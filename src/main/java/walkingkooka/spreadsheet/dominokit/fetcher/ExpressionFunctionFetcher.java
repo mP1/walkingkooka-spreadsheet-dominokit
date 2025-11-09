@@ -65,7 +65,7 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "ExpressionFunctionInfoSet":
                 // GET http://server/api/function
@@ -73,8 +73,7 @@ public final class ExpressionFunctionFetcher extends Fetcher<ExpressionFunctionF
                     this.parse(
                         body,
                         ExpressionFunctionInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

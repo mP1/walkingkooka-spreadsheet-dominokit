@@ -18,33 +18,24 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * The event payload used by {@link SpreadsheetComparatorFetcherWatchers}.
  */
 final class SpreadsheetComparatorFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<SpreadsheetComparatorFetcherWatcher> {
 
-    static SpreadsheetComparatorFetcherWatchersInfoSetEvent with(final SpreadsheetComparatorInfoSet infos,
-                                                                 final AppContext context) {
-        return new SpreadsheetComparatorFetcherWatchersInfoSetEvent(
-            infos,
-            context
-        );
+    static SpreadsheetComparatorFetcherWatchersInfoSetEvent with(final SpreadsheetComparatorInfoSet infos) {
+        return new SpreadsheetComparatorFetcherWatchersInfoSetEvent(infos);
     }
 
-    private SpreadsheetComparatorFetcherWatchersInfoSetEvent(final SpreadsheetComparatorInfoSet infos,
-                                                             final AppContext context) {
-        super(context);
+    private SpreadsheetComparatorFetcherWatchersInfoSetEvent(final SpreadsheetComparatorInfoSet infos) {
+        super();
         this.infos = infos;
     }
 
     @Override
     void fire(final SpreadsheetComparatorFetcherWatcher watcher) {
-        watcher.onSpreadsheetComparatorInfoSet(
-            this.infos,
-            this.context
-        );
+        watcher.onSpreadsheetComparatorInfoSet(this.infos);
     }
 
     private final SpreadsheetComparatorInfoSet infos;

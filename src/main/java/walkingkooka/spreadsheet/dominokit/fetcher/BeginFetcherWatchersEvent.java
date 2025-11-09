@@ -19,32 +19,28 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 
 /**
- * The event payload used by {@link FetcherWatcher#onBegin(HttpMethod, Url, Optional, AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onBegin(HttpMethod, Url, Optional)}.
  */
 final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
     static <W extends FetcherWatcher> BeginFetcherWatchersEvent<W> with(final HttpMethod method,
                                                                         final Url url,
-                                                                        final Optional<FetcherRequestBody<?>> body,
-                                                                        final AppContext context) {
+                                                                        final Optional<FetcherRequestBody<?>> body) {
         return new BeginFetcherWatchersEvent<>(
             method,
             url,
-            body,
-            context
+            body
         );
     }
 
     private BeginFetcherWatchersEvent(final HttpMethod method,
                                       final Url url,
-                                      final Optional<FetcherRequestBody<?>> body,
-                                      final AppContext context) {
-        super(context);
+                                      final Optional<FetcherRequestBody<?>> body) {
+        super();
         this.method = method;
         this.url = url;
         this.body = body;
@@ -55,8 +51,7 @@ final class BeginFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherW
         watcher.onBegin(
             this.method,
             this.url,
-            this.body,
-            this.context
+            this.body
         );
     }
 

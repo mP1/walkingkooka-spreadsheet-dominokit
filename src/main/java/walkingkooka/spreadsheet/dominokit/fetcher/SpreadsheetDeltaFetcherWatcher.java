@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 /**
@@ -34,6 +33,5 @@ public interface SpreadsheetDeltaFetcherWatcher extends FetcherWatcher {
      */
     void onSpreadsheetDelta(final HttpMethod method,
                             final AbsoluteOrRelativeUrl url,
-                            final SpreadsheetDelta delta,
-                            final AppContext context);
+                            final SpreadsheetDelta delta);
 }

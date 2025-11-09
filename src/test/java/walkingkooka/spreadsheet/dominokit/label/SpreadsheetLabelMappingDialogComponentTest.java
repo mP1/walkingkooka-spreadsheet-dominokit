@@ -348,8 +348,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                     SpreadsheetSelection.labelName("LoadedLabel123")
                         .setLabelMappingReference(SpreadsheetSelection.parseCell("C3"))
                 )
-            ),
-            context
+            )
         );
 
         // refresh again ! for now label and expression reference are not updated from the SAVE response

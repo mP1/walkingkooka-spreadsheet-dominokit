@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.export.SpreadsheetExporter;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 
@@ -26,6 +25,5 @@ import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
  */
 public interface SpreadsheetExporterFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos,
-                                      final AppContext context);
+    void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos);
 }

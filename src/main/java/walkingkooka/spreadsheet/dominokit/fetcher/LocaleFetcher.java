@@ -106,7 +106,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "LocaleHateosResource":
                 // GET http://server/api/locale/LocaleTagId
@@ -117,8 +117,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
                     this.parse(
                         body,
                         LocaleHateosResource.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "LocaleHateosResourceSet":
@@ -127,8 +126,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
                     this.parse(
                         body,
                         LocaleHateosResourceSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

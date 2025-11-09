@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
@@ -28,10 +27,8 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
  */
 public interface SpreadsheetParserFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
-                                    final AppContext context);
+    void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos);
 
     void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                         final SpreadsheetParserSelectorEdit edit,
-                                         final AppContext context);
+                                         final SpreadsheetParserSelectorEdit edit);
 }

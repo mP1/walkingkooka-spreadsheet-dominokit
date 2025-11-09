@@ -78,7 +78,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "ValidatorInfo":
                 // GET http://server/api/validator/ValidatorName
@@ -86,8 +86,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                     this.parse(
                         body,
                         ValidatorInfo.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "ValidatorInfoSet":
@@ -96,8 +95,7 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                     this.parse(
                         body,
                         ValidatorInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

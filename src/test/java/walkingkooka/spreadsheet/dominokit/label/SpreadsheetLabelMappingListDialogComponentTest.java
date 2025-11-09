@@ -84,8 +84,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            METADATA,
-            context
+            METADATA
         );
 
         this.onHistoryTokenChangeAndCheck(
@@ -135,8 +134,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            METADATA,
-            context
+            METADATA
         );
 
         this.onHistoryTokenChangeAndCheck(
@@ -189,8 +187,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                         SpreadsheetSelection.parseCell("C3")
                     )
                 )
-            ),
-            context
+            )
         );
 
         this.treePrintAndCheck(
@@ -260,8 +257,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            METADATA,
-            context
+            METADATA
         );
 
         this.onHistoryTokenChangeAndCheck(
@@ -316,8 +312,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                         SpreadsheetSelection.parseCell("C3")
                     )
                 )
-            ),
-            context
+            )
         );
 
         this.treePrintAndCheck(
@@ -388,8 +383,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            METADATA,
-            context
+            METADATA
         );
 
         this.onHistoryTokenChangeAndCheck(
@@ -444,8 +438,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                         SpreadsheetSelection.parseCell("C3")
                     )
                 )
-            ),
-            context
+            )
         );
 
         this.treePrintAndCheck(

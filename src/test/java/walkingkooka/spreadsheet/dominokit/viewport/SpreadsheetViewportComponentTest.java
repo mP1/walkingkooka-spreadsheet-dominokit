@@ -543,6 +543,11 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
             }
+
+            @Override
+            public void debug(final Object... values) {
+                appContext.debug(values);
+            }
         };
 
         final SpreadsheetViewportComponentTableContext tableContext = new FakeSpreadsheetViewportComponentTableContext() {
@@ -672,8 +677,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -690,8 +694,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                             )
                         )
                     )
-                ).setWindow(SpreadsheetViewportWindows.parse("A1:B2")),
-                appContext
+                ).setWindow(SpreadsheetViewportWindows.parse("A1:B2"))
             );
 
         component.viewportGridWidth = VIEWPORT_GRID_WIDTH;

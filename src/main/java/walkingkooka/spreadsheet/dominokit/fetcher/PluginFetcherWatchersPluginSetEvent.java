@@ -18,33 +18,24 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.plugin.store.PluginSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * The event payload used by {@link PluginFetcherWatchers}.
  */
 final class PluginFetcherWatchersPluginSetEvent extends FetcherWatchersEvent<PluginFetcherWatcher> {
 
-    static PluginFetcherWatchersPluginSetEvent with(final PluginSet plugins,
-                                                    final AppContext context) {
-        return new PluginFetcherWatchersPluginSetEvent(
-            plugins,
-            context
-        );
+    static PluginFetcherWatchersPluginSetEvent with(final PluginSet plugins) {
+        return new PluginFetcherWatchersPluginSetEvent(plugins);
     }
 
-    private PluginFetcherWatchersPluginSetEvent(final PluginSet plugins,
-                                                final AppContext context) {
-        super(context);
+    private PluginFetcherWatchersPluginSetEvent(final PluginSet plugins) {
+        super();
         this.plugins = plugins;
     }
 
     @Override
     void fire(final PluginFetcherWatcher watcher) {
-        watcher.onPluginSet(
-            this.plugins,
-            this.context
-        );
+        watcher.onPluginSet(this.plugins);
     }
 
     private final PluginSet plugins;

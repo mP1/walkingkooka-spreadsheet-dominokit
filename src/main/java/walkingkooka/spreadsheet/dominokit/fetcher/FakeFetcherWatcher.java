@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 
@@ -35,8 +34,7 @@ abstract class FakeFetcherWatcher implements FetcherWatcher {
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<FetcherRequestBody<?>> body,
-                        final AppContext context) {
+                        final Optional<FetcherRequestBody<?>> body) {
         throw new UnsupportedOperationException();
     }
 
@@ -45,19 +43,17 @@ abstract class FakeFetcherWatcher implements FetcherWatcher {
                           final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
-                          final String body,
-                          final AppContext context) {
+                          final String body) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void onError(final Object cause,
-                        final AppContext context) {
+    public void onError(final Object cause) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void onEmptyResponse(final AppContext context) {
+    public void onEmptyResponse() {
         throw new UnsupportedOperationException();
     }
 }

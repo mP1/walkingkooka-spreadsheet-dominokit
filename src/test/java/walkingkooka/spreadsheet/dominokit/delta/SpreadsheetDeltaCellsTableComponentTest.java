@@ -24,7 +24,6 @@ import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -309,8 +308,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
         component.onSpreadsheetDelta(
             HttpMethod.POST,
             Url.parseAbsolute("https://example.com/1/cell/"),
-            delta,
-            AppContexts.fake()
+            delta
         );
 
         this.treePrintAndCheck(

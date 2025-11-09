@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 
 /**
@@ -26,19 +25,16 @@ import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosReso
 final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent extends FetcherWatchersEvent<DateTimeSymbolsFetcherWatcher> {
 
     static DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent with(final String localeStartsWith,
-                                                                                    final DateTimeSymbolsHateosResourceSet symbols,
-                                                                                    final AppContext context) {
+                                                                                    final DateTimeSymbolsHateosResourceSet symbols) {
         return new DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent(
             localeStartsWith,
-            symbols,
-            context
+            symbols
         );
     }
 
     private DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent(final String localeStartsWith,
-                                                                                final DateTimeSymbolsHateosResourceSet symbols,
-                                                                                final AppContext context) {
-        super(context);
+                                                                                final DateTimeSymbolsHateosResourceSet symbols) {
+        super();
         this.localeStartsWith = localeStartsWith;
         this.symbols = symbols;
     }
@@ -47,8 +43,7 @@ final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent 
     void fire(final DateTimeSymbolsFetcherWatcher watcher) {
         watcher.onDateTimeSymbolsHateosResourceSet(
             this.localeStartsWith,
-            this.symbols,
-            this.context
+            this.symbols
         );
     }
 

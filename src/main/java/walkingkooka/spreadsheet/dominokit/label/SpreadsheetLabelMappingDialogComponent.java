@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.label;
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
@@ -450,8 +449,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         if (this.isOpen()) {
             if (HttpMethod.GET.equals(method) || HttpMethod.POST.equals(method)) {
                 final Set<SpreadsheetLabelMapping> mappings = delta.labels();

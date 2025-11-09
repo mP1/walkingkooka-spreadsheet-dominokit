@@ -300,8 +300,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
             this.pluginFetcherWatchers.onPluginSet(
                 PluginSet.with(
                     new TreeSet<>(plugin)
-                ),
-                this.context
+                )
             );
         }
 

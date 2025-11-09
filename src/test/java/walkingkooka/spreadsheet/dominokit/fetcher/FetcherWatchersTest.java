@@ -27,8 +27,6 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import java.util.Optional;
 
@@ -46,18 +44,16 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireSuccess() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = AppContexts.fake();
-
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("onBeginonSuccess", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("onBeginonSuccess", watcher.toString());
     }
@@ -66,22 +62,20 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireSuccess2() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = AppContexts.fake();
-
         final TestFetcherWatcher onceWatcher = new TestFetcherWatcher();
         watchers.addOnce(onceWatcher);
 
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.add(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("onBeginonSuccess", onceWatcher.b.toString());
         this.checkEquals("onBeginonSuccess", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("onBeginonSuccess", onceWatcher.b.toString());
         this.checkEquals("onBeginonSuccessonBeginonSuccess", watcher.toString());
@@ -91,18 +85,16 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireFailure() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = AppContexts.fake();
-
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body");
 
         this.checkEquals("onBeginonFailure", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body", context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onFailure(HttpMethod.GET, URL, HttpStatusCode.INTERNAL_SERVER_ERROR.status(), null, "Body");
 
         this.checkEquals("onBeginonFailure", watcher.toString());
     }
@@ -111,31 +103,27 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFireError() {
         final TestFetcherWatchers watchers = new TestFetcherWatchers();
 
-        final AppContext context = AppContexts.fake();
-
         final TestFetcherWatcher watcher = new TestFetcherWatcher();
         watchers.addOnce(watcher);
 
         final Exception error = new Exception();
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onError(error, context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onError(error);
 
         this.checkEquals("onBeginonError", watcher.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onError(error, context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onError(error);
 
         this.checkEquals("onBeginonError", watcher.toString());
     }
 
     static final class TestFetcherWatchers extends FetcherWatchers<TestFetcherWatcher> {
 
-        public void onSuccess(final AppContext context) {
+        public void onSuccess() {
             this.fire(
-                new TestSuccessFetcherWatcherEvent(
-                    context
-                )
+                new TestSuccessFetcherWatcherEvent()
             );
         }
     }
@@ -147,12 +135,11 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         public void onBegin(final HttpMethod method,
                             final Url url,
-                            final Optional<FetcherRequestBody<?>> body,
-                            final AppContext context) {
+                            final Optional<FetcherRequestBody<?>> body) {
             this.b.append("onBegin");
         }
 
-        public void onSuccess(final AppContext context) {
+        public void onSuccess() {
             this.b.append("onSuccess");
         }
 
@@ -161,19 +148,17 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
                               final AbsoluteOrRelativeUrl url,
                               final HttpStatus status,
                               final Headers headers,
-                              final String body,
-                              final AppContext context) {
+                              final String body) {
             this.b.append("onFailure");
         }
 
         @Override
-        public void onError(final Object cause,
-                            final AppContext context) {
+        public void onError(final Object cause) {
             this.b.append("onError");
         }
 
         @Override
-        public void onEmptyResponse(final AppContext context) {
+        public void onEmptyResponse() {
             this.b.append("onEmptyResponse");
         }
 
@@ -185,15 +170,13 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
     static final class TestSuccessFetcherWatcherEvent extends FetcherWatchersEvent<TestFetcherWatcher> {
 
-        TestSuccessFetcherWatcherEvent(final AppContext context) {
-            super(context);
+        TestSuccessFetcherWatcherEvent() {
+            super();
         }
 
         @Override
         void fire(final TestFetcherWatcher watcher) {
-            watcher.onSuccess(
-                this.context
-            );
+            watcher.onSuccess();
         }
 
         @Override
@@ -206,8 +189,6 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
     public void testAddOnceAndFirePriority() {
         final TestFetcherWatchers2 watchers = new TestFetcherWatchers2();
 
-        final AppContext context = AppContexts.fake();
-
         final StringBuilder b = new StringBuilder();
 
         final TestFetcherWatcher2 watcher = new TestFetcherWatcher2("A", b);
@@ -216,24 +197,22 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         final TestFetcherWatcher2 onceWatcher = new TestFetcherWatcher2("B", b);
         watchers.addOnce(onceWatcher);
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccess", b.toString());
 
-        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY, context);
-        watchers.onSuccess(context);
+        watchers.onBegin(HttpMethod.GET, Url.EMPTY_RELATIVE_URL, BODY);
+        watchers.onSuccess();
 
         this.checkEquals("B.onBeginA.onBeginB.onSuccessA.onSuccessA.onBeginA.onSuccess", b.toString());
     }
 
     static final class TestFetcherWatchers2 extends FetcherWatchers<TestFetcherWatcher2> {
 
-        public void onSuccess(final AppContext context) {
+        public void onSuccess() {
             this.fire(
-                new TestSuccessFetcherWatcherEvent2(
-                    context
-                )
+                new TestSuccessFetcherWatcherEvent2()
             );
         }
     }
@@ -252,12 +231,11 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         @Override
         public void onBegin(final HttpMethod method,
                             final Url url,
-                            final Optional<FetcherRequestBody<?>> body,
-                            final AppContext context) {
+                            final Optional<FetcherRequestBody<?>> body) {
             this.b.append(this.prefix).append(".onBegin");
         }
 
-        public void onSuccess(final AppContext context) {
+        public void onSuccess() {
             this.b.append(this.prefix).append(".onSuccess");
         }
 
@@ -266,19 +244,17 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
                               final AbsoluteOrRelativeUrl url,
                               final HttpStatus status,
                               final Headers headers,
-                              final String body,
-                              final AppContext context) {
+                              final String body) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public void onError(final Object cause,
-                            final AppContext context) {
+        public void onError(final Object cause) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public void onEmptyResponse(AppContext context) {
+        public void onEmptyResponse() {
             throw new UnsupportedOperationException();
         }
 
@@ -290,15 +266,13 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
 
     static final class TestSuccessFetcherWatcherEvent2 extends FetcherWatchersEvent<TestFetcherWatcher2> {
 
-        TestSuccessFetcherWatcherEvent2(final AppContext context) {
-            super(context);
+        TestSuccessFetcherWatcherEvent2() {
+            super();
         }
 
         @Override
         void fire(final TestFetcherWatcher2 watcher) {
-            watcher.onSuccess(
-                this.context
-            );
+            watcher.onSuccess();
         }
 
         @Override
