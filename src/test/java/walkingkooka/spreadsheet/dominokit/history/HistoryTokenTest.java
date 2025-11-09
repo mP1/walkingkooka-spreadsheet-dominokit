@@ -1630,7 +1630,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
 
         this.checkEquals(
-            "Invalid value: got HistoryTokenTest expected DateTimeSymbols",
+            "Invalid value: got HistoryTokenTest expected DateTimeSymbols, /123/SpreadsheetName456/cell/A1/dateTimeSymbols",
             thrown.getMessage(),
             "message"
         );

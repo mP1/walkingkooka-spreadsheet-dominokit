@@ -4034,14 +4034,16 @@ public abstract class HistoryToken implements HasUrlFragment {
     abstract public HistoryToken setSaveValue(final Optional<?> value);
 
     final void reportInvalidSaveValue(final Object value,
-                                        final Class<?> expected) {
+                                      final Class<?> expected) {
         // Invalid value: got String expected Integer
 
         throw new IllegalArgumentException(
             "Invalid value: got " +
                 value.getClass().getSimpleName() +
                 " expected " +
-                expected.getSimpleName()
+                expected.getSimpleName() +
+                ", " +
+                this.urlFragment()
         );
     }
 
