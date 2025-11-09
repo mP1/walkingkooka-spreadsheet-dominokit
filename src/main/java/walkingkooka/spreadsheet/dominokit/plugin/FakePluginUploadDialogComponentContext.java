@@ -31,9 +31,4 @@ public class FakePluginUploadDialogComponentContext extends FakeDialogComponentC
     public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
-
-    @Override
-    public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
 }
