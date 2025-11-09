@@ -72,7 +72,7 @@ public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher
      * Looks at the current {@link HistoryToken} and fires the other lifecycle methods. This is sometimes useful
      * where other state also affects whether a component requires a refresh.
      */
-    default void componentLifecycleHistoryTokenQuery(final AppContext context) {
+    default void componentLifecycleHistoryTokenQuery(final RefreshContext context) {
         final HistoryToken token = context.historyToken();
         final String prefix = this.getClass().getSimpleName();
 
