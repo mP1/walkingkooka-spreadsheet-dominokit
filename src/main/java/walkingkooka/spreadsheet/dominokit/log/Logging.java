@@ -82,6 +82,8 @@ public interface Logging {
 
     boolean SPREADSHEET_TOOLBAR_COMPONENT_ITEM = false;
 
+    boolean SPREADSHEET_VIEWPORT_CACHE = false;
+
     boolean SPREADSHEET_VIEWPORT_COMPONENT = false;
 
     boolean SPREADSHEET_VIEWPORT_COMPONENT_TABLE = false;
