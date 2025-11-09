@@ -26,6 +26,14 @@ public interface RefreshContextDelegator extends RefreshContext,
     HistoryContextDelegator,
     LoggingContextDelegator {
 
+    // RefreshContext...................................................................................................
+
+    @Override
+    default boolean isSpreadsheetMetadataLoaded() {
+        return this.refreshContext()
+            .isSpreadsheetMetadataLoaded();
+    }
+
     // CanGiveFocus.....................................................................................................
 
     @Override
@@ -48,7 +56,7 @@ public interface RefreshContextDelegator extends RefreshContext,
         return this.refreshContext();
     }
 
-    // RefreshContext...................................................................................................
+    // RefreshContextDelegator..........................................................................................
 
     RefreshContext refreshContext();
 }

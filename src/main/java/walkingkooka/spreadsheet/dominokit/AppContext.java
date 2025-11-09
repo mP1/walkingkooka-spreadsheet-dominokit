@@ -126,6 +126,7 @@ public interface AppContext extends CanGiveFocus,
     /**
      * If the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to be loaded then fire history token again.
      */
+    @Override
     default boolean isSpreadsheetMetadataLoaded() {
         final boolean loaded;
 
