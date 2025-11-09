@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -82,7 +83,8 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     HistoryTokenWatcher,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
-    SpreadsheetLabelNameResolver {
+    SpreadsheetLabelNameResolver,
+    Logging {
 
     /**
      * Creates a new cache with no cells or labels present.
@@ -637,12 +639,14 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 if (false == Objects.equals(currentId, newId)) {
                     this.clear();
 
-                    context.debug(
-                        "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
-                            currentId +
-                            " to " +
-                            newId
-                    );
+                    if(SPREADSHEET_VIEWPORT_CACHE) {
+                        context.debug(
+                            "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
+                                currentId +
+                                " to " +
+                                newId
+                        );
+                    }
                 }
 
                 final Optional<SpreadsheetSelection> maybeSelectionNotLabel = historyToken.anchoredSelectionOrEmpty()
@@ -667,8 +671,9 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             } else {
                 this.clear();
 
-                context.debug("SpreadsheetViewportCache.onHistoryTokenChange clearing cache was " + currentId);
-
+                if(SPREADSHEET_VIEWPORT_CACHE) {
+                    context.debug("SpreadsheetViewportCache.onHistoryTokenChange clearing cache was " + currentId);
+                }
                 id = null;
             }
         }
@@ -689,7 +694,10 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
         if (false == Objects.equals(oldId, id)) {
             // history is probably a create spreadsheet id so clear cache
             this.clear();
-            this.context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
+
+            if(SPREADSHEET_VIEWPORT_CACHE) {
+                this.context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
+            }
         }
 
         this.spreadsheetId = id;
