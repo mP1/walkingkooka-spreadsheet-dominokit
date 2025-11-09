@@ -43,9 +43,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
     public void testAddThenFire() {
         this.fired = 0;
 
-        final SpreadsheetId id = SpreadsheetId.with(1);
         final SpreadsheetDelta spreadsheetDelta = SpreadsheetDelta.EMPTY;
-        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.add(
@@ -53,12 +51,10 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
                 @Override
                 public void onSpreadsheetDelta(final HttpMethod method,
                                                final AbsoluteOrRelativeUrl url,
-                                               final SpreadsheetDelta delta,
-                                               final AppContext context) {
+                                               final SpreadsheetDelta delta) {
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(METHOD, method);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(URL, url);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
-                    SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                 }
@@ -66,8 +62,7 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.onSpreadsheetDelta(
             METHOD,
             URL,
-            spreadsheetDelta,
-            appContext
+            spreadsheetDelta
         );
 
         this.checkEquals(1, this.fired);
@@ -87,23 +82,21 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
                 @Override
                 public void onSpreadsheetDelta(final HttpMethod method,
                                                final AbsoluteOrRelativeUrl url,
-                                               final SpreadsheetDelta delta,
-                                               final AppContext context) {
+                                               final SpreadsheetDelta delta) {
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(METHOD, method);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(URL, url);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(spreadsheetDelta, delta);
-                    SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta);
         this.checkEquals(1, this.fired);
 
-        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta, appContext);
+        watchers.onSpreadsheetDelta(METHOD, URL, spreadsheetDelta);
         this.checkEquals(1, this.fired);
     }
 
@@ -116,7 +109,6 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         final Optional<FetcherRequestBody<?>> body = Optional.of(
             FetcherRequestBody.string("Body123")
         );
-        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.add(
@@ -125,23 +117,21 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
                 @Override
                 public void onBegin(final HttpMethod m,
                                     final Url u,
-                                    final Optional<FetcherRequestBody<?>> b,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> b) {
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(method, m);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(u, u);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(b, b);
-                    SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(3, this.fired);
     }
 
@@ -156,21 +146,19 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         watchers.add(
             new FakeSpreadsheetDeltaFetcherWatcher() {
                 @Override
-                public void onError(final Object c,
-                                    final AppContext context) {
+                public void onError(final Object c) {
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(cause, c);
-                    SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(1, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(2, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(3, this.fired);
     }
 
@@ -183,7 +171,6 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
         final String body = "Body-failure-789";
-        final AppContext appContext = AppContexts.fake();
 
         final SpreadsheetDeltaFetcherWatchers watchers = SpreadsheetDeltaFetcherWatchers.empty();
         watchers.add(
@@ -194,25 +181,23 @@ public final class SpreadsheetDeltaFetcherWatchersTest extends FetcherWatchersTe
                                       final AbsoluteOrRelativeUrl u,
                                       final HttpStatus s,
                                       final Headers h,
-                                      final String b,
-                                      final AppContext context) {
+                                      final String b) {
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(method, m);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(url, u);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(status, s);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(headers, h);
                     SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(body, b);
-                    SpreadsheetDeltaFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     SpreadsheetDeltaFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(3, this.fired);
     }
 

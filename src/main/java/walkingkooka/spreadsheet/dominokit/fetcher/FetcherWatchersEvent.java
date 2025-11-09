@@ -22,7 +22,6 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -31,43 +30,38 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
 
     static <W extends FetcherWatcher> BeginFetcherWatchersEvent<W> begin(final HttpMethod method,
                                                                          final Url url,
-                                                                         final Optional<FetcherRequestBody<?>> body,
-                                                                         final AppContext context) {
+                                                                         final Optional<FetcherRequestBody<?>> body) {
         return BeginFetcherWatchersEvent.with(
             method,
             url,
-            body,
-            context
+            body
         );
     }
 
-    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> empty(final AppContext context) {
-        return EmptyResponseFetcherWatchersEvent.with(context);
+    static <W extends FetcherWatcher> EmptyResponseFetcherWatchersEvent<W> empty() {
+        return EmptyResponseFetcherWatchersEvent.with();
     }
 
-    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> error(final Object cause,
-                                                                         final AppContext context) {
-        return ErrorFetcherWatchersEvent.with(cause, context);
+    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> error(final Object cause) {
+        return ErrorFetcherWatchersEvent.with(cause);
     }
 
     static <W extends FetcherWatcher> FailureFetcherWatchersEvent<W> failure(final HttpMethod method,
                                                                              final AbsoluteOrRelativeUrl url,
                                                                              final HttpStatus status,
                                                                              final Headers headers,
-                                                                             final String body,
-                                                                             final AppContext context) {
+                                                                             final String body) {
         return FailureFetcherWatchersEvent.with(
             method,
             url,
             status,
             headers,
-            body,
-            context
+            body
         );
     }
 
-    FetcherWatchersEvent(final AppContext context) {
-        this.context = context;
+    FetcherWatchersEvent() {
+        super();
     }
 
     @Override
@@ -80,7 +74,7 @@ abstract class FetcherWatchersEvent<W extends FetcherWatcher> implements Consume
      */
     abstract void fire(final W watcher);
 
-    final AppContext context;
+    // Object...........................................................................................................
 
     @Override
     public abstract String toString();

@@ -145,8 +145,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
 
         context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata(),
-            context
+            context.spreadsheetMetadata()
         );
 
         context.historyTokenWatchers.onHistoryTokenChange(
@@ -163,8 +162,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                     )
                 )
-            ),
-            context
+            )
         );
 
         component.refresh(context);

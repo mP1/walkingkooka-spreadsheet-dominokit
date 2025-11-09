@@ -153,8 +153,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
                 METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS, DECIMAL_NUMBER_SYMBOLS),
-                appContext
+                    .set(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS, DECIMAL_NUMBER_SYMBOLS)
             );
 
         this.loadDecimalNumberSymbolsAndCheck(

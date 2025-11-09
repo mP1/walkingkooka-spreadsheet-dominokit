@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 
@@ -29,21 +28,18 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
 
     static SpreadsheetFormatterFetcherWatchersMenuListEvent with(final SpreadsheetId id,
                                                                  final SpreadsheetExpressionReference cellOrLabel,
-                                                                 final SpreadsheetFormatterMenuList menuList,
-                                                                 final AppContext context) {
+                                                                 final SpreadsheetFormatterMenuList menuList) {
         return new SpreadsheetFormatterFetcherWatchersMenuListEvent(
             id,
             cellOrLabel,
-            menuList,
-            context
+            menuList
         );
     }
 
     private SpreadsheetFormatterFetcherWatchersMenuListEvent(final SpreadsheetId id,
                                                              final SpreadsheetExpressionReference cellOrLabel,
-                                                             final SpreadsheetFormatterMenuList menuList,
-                                                             final AppContext context) {
-        super(context);
+                                                             final SpreadsheetFormatterMenuList menuList) {
+        super();
         this.id = id;
         this.cellOrLabel = cellOrLabel;
         this.menuList = menuList;
@@ -54,8 +50,7 @@ final class SpreadsheetFormatterFetcherWatchersMenuListEvent extends FetcherWatc
         watcher.onSpreadsheetFormatterMenuList(
             this.id,
             this.cellOrLabel,
-            this.menuList,
-            this.context
+            this.menuList
         );
     }
 

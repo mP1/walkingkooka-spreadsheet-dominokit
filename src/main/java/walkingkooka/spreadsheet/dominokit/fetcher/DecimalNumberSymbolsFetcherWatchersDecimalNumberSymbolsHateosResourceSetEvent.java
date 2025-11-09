@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 
 /**
@@ -26,19 +25,16 @@ import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbols
 final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceSetEvent extends FetcherWatchersEvent<DecimalNumberSymbolsFetcherWatcher> {
 
     static DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceSetEvent with(final String localeStartsWith,
-                                                                                              final DecimalNumberSymbolsHateosResourceSet symbols,
-                                                                                              final AppContext context) {
+                                                                                              final DecimalNumberSymbolsHateosResourceSet symbols) {
         return new DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceSetEvent(
             localeStartsWith,
-            symbols,
-            context
+            symbols
         );
     }
 
     private DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceSetEvent(final String localeStartsWith,
-                                                                                          final DecimalNumberSymbolsHateosResourceSet symbols,
-                                                                                          final AppContext context) {
-        super(context);
+                                                                                          final DecimalNumberSymbolsHateosResourceSet symbols) {
+        super();
         this.localeStartsWith = localeStartsWith;
         this.symbols = symbols;
     }
@@ -47,8 +43,7 @@ final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourc
     void fire(final DecimalNumberSymbolsFetcherWatcher watcher) {
         watcher.onDecimalNumberSymbolsHateosResourceSet(
             this.localeStartsWith,
-            this.symbols,
-            this.context
+            this.symbols
         );
     }
 

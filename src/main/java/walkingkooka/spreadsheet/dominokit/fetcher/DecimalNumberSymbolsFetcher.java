@@ -103,7 +103,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "DecimalNumberSymbolsHateosResource":
                 // GET http://server/api/locale/LocaleTagId
@@ -114,8 +114,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                     this.parse(
                         body,
                         DecimalNumberSymbolsHateosResource.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "DecimalNumberSymbolsHateosResourceSet":
@@ -125,8 +124,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                     this.parse(
                         body,
                         DecimalNumberSymbolsHateosResourceSet.class
-                    ),
-                    context
+                    )
                 );
                 break;
             default:

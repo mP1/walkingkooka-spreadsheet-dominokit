@@ -77,8 +77,7 @@ public final class AppContextSpreadsheetCellFindDialogComponentContextTest imple
                             METADATA_EN_AU.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
-                            ),
-                            this
+                            )
                         );
 
                         cache.onSpreadsheetDelta(
@@ -88,8 +87,7 @@ public final class AppContextSpreadsheetCellFindDialogComponentContextTest imple
                                 Sets.of(
                                     label.setLabelMappingReference(spreadsheetExpressionReference)
                                 )
-                            ),
-                            this
+                            )
                         );
                         return cache;
                     }
@@ -128,8 +126,7 @@ public final class AppContextSpreadsheetCellFindDialogComponentContextTest imple
                             METADATA_EN_AU.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
-                            ),
-                            this
+                            )
                         );
 
                         cache.onSpreadsheetDelta(
@@ -140,8 +137,7 @@ public final class AppContextSpreadsheetCellFindDialogComponentContextTest imple
                                     label1.setLabelMappingReference(label2),
                                     label2.setLabelMappingReference(label2Target)
                                 )
-                            ),
-                            this
+                            )
                         );
                         return cache;
                     }
@@ -174,15 +170,13 @@ public final class AppContextSpreadsheetCellFindDialogComponentContextTest imple
                             METADATA_EN_AU.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
-                            ),
-                            this
+                            )
                         );
 
                         cache.onSpreadsheetDelta(
                             HttpMethod.GET,
                             Url.parseRelative("/api/spreadsheet/1/SpreadsheetName2/cell/"),
-                            SpreadsheetDelta.EMPTY,
-                            this
+                            SpreadsheetDelta.EMPTY
                         );
                         return cache;
                     }

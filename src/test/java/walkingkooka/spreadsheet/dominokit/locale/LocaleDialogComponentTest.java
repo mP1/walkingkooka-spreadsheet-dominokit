@@ -70,8 +70,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
 
         context.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA,
-                context
+                METADATA
             );
 
         context.spreadsheetViewportCache()
@@ -82,8 +81,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY) // no locale
                     )
-                ),
-                context
+                )
             );
 
         this.onHistoryTokenChangeAndCheck2(
@@ -130,8 +128,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
 
         context.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA,
-                context
+                METADATA
             );
 
         context.spreadsheetViewportCache()
@@ -145,8 +142,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                                 Optional.of(LOCALE)
                             )
                     )
-                ),
-                context
+                )
             );
 
         this.onHistoryTokenChangeAndCheck2(

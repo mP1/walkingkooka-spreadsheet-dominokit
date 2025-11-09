@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
 
 /**
@@ -25,26 +24,18 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
  */
 final class SpreadsheetFormatterFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<SpreadsheetFormatterFetcherWatcher> {
 
-    static SpreadsheetFormatterFetcherWatchersInfoSetEvent with(final SpreadsheetFormatterInfoSet infos,
-                                                                final AppContext context) {
-        return new SpreadsheetFormatterFetcherWatchersInfoSetEvent(
-            infos,
-            context
-        );
+    static SpreadsheetFormatterFetcherWatchersInfoSetEvent with(final SpreadsheetFormatterInfoSet infos) {
+        return new SpreadsheetFormatterFetcherWatchersInfoSetEvent(infos);
     }
 
-    private SpreadsheetFormatterFetcherWatchersInfoSetEvent(final SpreadsheetFormatterInfoSet infos,
-                                                            final AppContext context) {
-        super(context);
+    private SpreadsheetFormatterFetcherWatchersInfoSetEvent(final SpreadsheetFormatterInfoSet infos) {
+        super();
         this.infos = infos;
     }
 
     @Override
     void fire(final SpreadsheetFormatterFetcherWatcher watcher) {
-        watcher.onSpreadsheetFormatterInfoSet(
-            this.infos,
-            this.context
-        );
+        watcher.onSpreadsheetFormatterInfoSet(this.infos);
     }
 
     private final SpreadsheetFormatterInfoSet infos;

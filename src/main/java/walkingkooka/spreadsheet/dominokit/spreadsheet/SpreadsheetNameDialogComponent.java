@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -211,13 +210,12 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override
-    public void onEmptyResponse(final AppContext context) {
+    public void onEmptyResponse() {
         // ignore
     }
 
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         if (this.isOpen()) {
             if (Objects.equals(
                 metadata.id().orElse(null),
@@ -230,8 +228,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // ignore
     }
 

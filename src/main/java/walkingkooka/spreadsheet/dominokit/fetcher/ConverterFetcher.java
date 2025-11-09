@@ -101,7 +101,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "ConverterInfoSet":
                 // GET http://server/api/converter
@@ -109,8 +109,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                     this.parse(
                         body,
                         ConverterInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "MissingConverterSet":
@@ -121,8 +120,7 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
                     this.parse(
                         body,
                         MissingConverterSet.class
-                    ), // MissingConverterSet
-                    context
+                    ) // MissingConverterSet
                 );
                 break;
 

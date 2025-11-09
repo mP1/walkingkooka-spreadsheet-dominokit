@@ -74,32 +74,28 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
         return this.context.addSpreadsheetFormatterFetcherWatcher(
             new SpreadsheetFormatterFetcherWatcher() {
                 @Override
-                public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
-                                                          final AppContext context) {
+                public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
                     set.accept(infos.aliasSet());
                 }
 
                 @Override
                 public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
                                                                final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                               final SpreadsheetFormatterSelectorEdit edit,
-                                                               final AppContext context) {
+                                                               final SpreadsheetFormatterSelectorEdit edit) {
                     // nop
                 }
 
                 @Override
                 public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
                                                            final SpreadsheetExpressionReference cellOrLabel,
-                                                           final SpreadsheetFormatterMenuList menu,
-                                                           final AppContext context) {
+                                                           final SpreadsheetFormatterMenuList menu) {
                     // nop
                 }
 
                 @Override
                 public void onBegin(final HttpMethod method,
                                     final Url url,
-                                    final Optional<FetcherRequestBody<?>> body,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> body) {
                     // nop
                 }
 
@@ -108,19 +104,17 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextSpreadsheetForm
                                       final AbsoluteOrRelativeUrl url,
                                       final HttpStatus status,
                                       final Headers headers,
-                                      final String body,
-                                      final AppContext context) {
+                                      final String body) {
                     // nop
                 }
 
                 @Override
-                public void onError(final Object cause,
-                                    final AppContext context) {
+                public void onError(final Object cause) {
                     // nop
                 }
 
                 @Override
-                public void onEmptyResponse(final AppContext context) {
+                public void onEmptyResponse() {
                     // nop
                 }
             }

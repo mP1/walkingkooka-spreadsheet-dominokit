@@ -154,8 +154,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest 
 
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID),
-                appContext
+                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
             );
 
         appContext.spreadsheetViewportCache()
@@ -166,8 +165,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest 
                     Sets.of(
                         cell
                     )
-                ),
-                appContext
+                )
             );
 
         this.loadDecimalNumberSymbolsAndCheck(

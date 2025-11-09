@@ -17,30 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
-
 /**
- * The event payload used by {@link FetcherWatcher#onError(Object, AppContext)}.
+ * The event payload used by {@link FetcherWatcher#onError(Object)}.
  */
 final class ErrorFetcherWatchersEvent<W extends FetcherWatcher> extends FetcherWatchersEvent<W> {
 
-    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> with(final Object cause,
-                                                                        final AppContext context) {
-        return new ErrorFetcherWatchersEvent<>(cause, context);
+    static <W extends FetcherWatcher> ErrorFetcherWatchersEvent<W> with(final Object cause) {
+        return new ErrorFetcherWatchersEvent<>(cause);
     }
 
-    private ErrorFetcherWatchersEvent(final Object cause,
-                                      final AppContext context) {
-        super(context);
+    private ErrorFetcherWatchersEvent(final Object cause) {
+        super();
         this.cause = cause;
     }
 
     @Override
     void fire(final W watcher) {
-        watcher.onError(
-            this.cause,
-            this.context
-        );
+        watcher.onError(this.cause);
     }
 
     private final Object cause;

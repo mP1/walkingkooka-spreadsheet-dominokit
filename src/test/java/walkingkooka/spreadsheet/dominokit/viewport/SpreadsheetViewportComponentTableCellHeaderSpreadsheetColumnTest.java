@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLTableCellElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -166,8 +165,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumnT
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                new FakeAppContext()
+                metadata
             );
 
         this.treePrintAndCheck(

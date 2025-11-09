@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 
@@ -27,19 +26,16 @@ import walkingkooka.spreadsheet.server.locale.LocaleTag;
 final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent extends FetcherWatchersEvent<DecimalNumberSymbolsFetcherWatcher> {
 
     static DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent with(final LocaleTag id,
-                                                                                           final DecimalNumberSymbolsHateosResource symbols,
-                                                                                           final AppContext context) {
+                                                                                           final DecimalNumberSymbolsHateosResource symbols) {
         return new DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent(
             id,
-            symbols,
-            context
+            symbols
         );
     }
 
     private DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent(final LocaleTag id,
-                                                                                       final DecimalNumberSymbolsHateosResource symbols,
-                                                                                       final AppContext context) {
-        super(context);
+                                                                                       final DecimalNumberSymbolsHateosResource symbols) {
+        super();
         this.id = id;
         this.symbols = symbols;
     }
@@ -48,8 +44,7 @@ final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourc
     void fire(final DecimalNumberSymbolsFetcherWatcher watcher) {
         watcher.onDecimalNumberSymbolsHateosResource(
             this.id,
-            this.symbols,
-            this.context
+            this.symbols
         );
     }
 

@@ -560,8 +560,9 @@ public class App implements EntryPoint,
      * Update the spreadsheet-id, spreadsheet-name and viewport selection from the given {@link SpreadsheetMetadata}.
      */
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
+        final AppContext context = this;
+
         // SKIP spreadsheet id change if SpreadsheetListRenameHistoryToken
         if (false == context.historyToken() instanceof SpreadsheetListRenameHistoryToken) {
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
@@ -645,8 +646,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // IGNORE
     }
 
@@ -689,8 +689,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         // Updates the anchoredSpreadsheetSelection of the local Metadata.
         // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
         // is fine because it was already updated when the delta above was returned.
@@ -742,12 +741,11 @@ public class App implements EntryPoint,
     @Override
     public void onBegin(final HttpMethod method,
                         final Url url,
-                        final Optional<FetcherRequestBody<?>> body,
-                        final AppContext context) {
+                        final Optional<FetcherRequestBody<?>> body) {
         if (body.isPresent()) {
-            context.debug(method + " " + url, body.get());
+            this.debug(method + " " + url, body.get());
         } else {
-            context.debug(method + " " + url);
+            this.debug(method + " " + url);
         }
     }
 
@@ -756,19 +754,17 @@ public class App implements EntryPoint,
                           final AbsoluteOrRelativeUrl url,
                           final HttpStatus status,
                           final Headers headers,
-                          final String body,
-                          final AppContext context) {
+                          final String body) {
         if (CharSequences.isNullOrEmpty(body)) {
-            context.error(method + " " + url + " " + status);
+            this.error(method + " " + url + " " + status);
         } else {
-            context.error(method + " " + url + " " + status, body);
+            this.error(method + " " + url + " " + status, body);
         }
     }
 
     @Override
-    public void onError(final Object cause,
-                        final AppContext context) {
-        context.error(cause);
+    public void onError(final Object cause) {
+        this.error(cause);
     }
 
     // SpreadsheetComparatorFetcher.....................................................................................
@@ -793,8 +789,7 @@ public class App implements EntryPoint,
     private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorFetcherWatchers;
 
     @Override
-    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
-                                               final AppContext context) {
+    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos) {
         this.spreadsheetComparatorInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -823,8 +818,7 @@ public class App implements EntryPoint,
     private final ConverterFetcherWatchers converterFetcherWatchers;
 
     @Override
-    public void onConverterInfoSet(final ConverterInfoSet infos,
-                                   final AppContext context) {
+    public void onConverterInfoSet(final ConverterInfoSet infos) {
         this.converterInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -834,8 +828,7 @@ public class App implements EntryPoint,
     @Override
     public void onVerify(final SpreadsheetId id,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                         final Set<MissingConverter> missingConverters,
-                         final AppContext context) {
+                         final Set<MissingConverter> missingConverters) {
         // NOP
     }
 
@@ -862,15 +855,13 @@ public class App implements EntryPoint,
 
     @Override
     public void onDateTimeSymbolsHateosResource(final LocaleTag id,
-                                                final DateTimeSymbolsHateosResource dateTimeSymbols,
-                                                final AppContext context) {
+                                                final DateTimeSymbolsHateosResource dateTimeSymbols) {
         // NOP
     }
 
     @Override
     public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
-                                                   final DateTimeSymbolsHateosResourceSet symbols,
-                                                   final AppContext context) {
+                                                   final DateTimeSymbolsHateosResourceSet symbols) {
         // NOP
     }
 
@@ -897,15 +888,13 @@ public class App implements EntryPoint,
 
     @Override
     public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
-                                                     final DecimalNumberSymbolsHateosResource decimalNumberSymbols,
-                                                     final AppContext context) {
+                                                     final DecimalNumberSymbolsHateosResource decimalNumberSymbols) {
         // NOP
     }
 
     @Override
     public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
-                                                        final DecimalNumberSymbolsHateosResourceSet decimalNumberSymbolsSet,
-                                                        final AppContext context) {
+                                                        final DecimalNumberSymbolsHateosResourceSet decimalNumberSymbolsSet) {
         // NOP
     }
 
@@ -931,8 +920,7 @@ public class App implements EntryPoint,
     private final SpreadsheetExporterFetcherWatchers spreadsheetExporterFetcherWatchers;
 
     @Override
-    public void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos,
-                                             final AppContext context) {
+    public void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos) {
         this.spreadsheetExporterInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -961,8 +949,7 @@ public class App implements EntryPoint,
     private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
 
     @Override
-    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos,
-                                            final AppContext context) {
+    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos) {
         this.expressionFunctionInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -991,8 +978,7 @@ public class App implements EntryPoint,
     private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterFetcherWatchers;
 
     @Override
-    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos,
-                                              final AppContext context) {
+    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
         this.spreadsheetFormatterInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -1002,16 +988,14 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
                                                    final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                   final SpreadsheetFormatterSelectorEdit edit,
-                                                   final AppContext context) {
+                                                   final SpreadsheetFormatterSelectorEdit edit) {
         // nop
     }
 
     @Override
     public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
                                                final SpreadsheetExpressionReference cellOrLabel,
-                                               final SpreadsheetFormatterMenuList menu,
-                                               final AppContext context) {
+                                               final SpreadsheetFormatterMenuList menu) {
         // nop
     }
 
@@ -1036,14 +1020,12 @@ public class App implements EntryPoint,
     private final FormHandlerFetcherWatchers formHandlerFetcherWatchers;
 
     @Override
-    public void onFormHandlerInfo(final FormHandlerInfo info,
-                                  final AppContext context) {
+    public void onFormHandlerInfo(final FormHandlerInfo info) {
         // NOP
     }
 
     @Override
-    public void onFormHandlerInfoSet(final FormHandlerInfoSet infos,
-                                     final AppContext context) {
+    public void onFormHandlerInfoSet(final FormHandlerInfoSet infos) {
         this.formHandlerInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -1072,8 +1054,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos,
-                                             final AppContext context) {
+    public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos) {
         this.spreadsheetImporterInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -1103,8 +1084,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onLocaleHateosResource(final LocaleTag id,
-                                       final LocaleHateosResource locale,
-                                       final AppContext context) {
+                                       final LocaleHateosResource locale) {
         // NOP
     }
 
@@ -1112,8 +1092,7 @@ public class App implements EntryPoint,
      * Save the loaded locales. These will appear in the {@link LocaleComponent}.
      */
     @Override
-    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales,
-                                          final AppContext context) {
+    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales) {
         final Set<Locale> availableLocales = Sets.hash();
         final Map<Locale, String> localeToText = Maps.hash();
 
@@ -1214,8 +1193,7 @@ public class App implements EntryPoint,
     private final SpreadsheetParserFetcherWatchers spreadsheetParserFetcherWatchers;
 
     @Override
-    public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos,
-                                           final AppContext context) {
+    public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos) {
         this.spreadsheetParserInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -1224,8 +1202,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                                final SpreadsheetParserSelectorEdit edit,
-                                                final AppContext context) {
+                                                final SpreadsheetParserSelectorEdit edit) {
         // nop
     }
 
@@ -1251,14 +1228,12 @@ public class App implements EntryPoint,
     private final ValidatorFetcherWatchers validatorFetcherWatchers;
 
     @Override
-    public void onValidatorInfo(final ValidatorInfo info,
-                                final AppContext context) {
+    public void onValidatorInfo(final ValidatorInfo info) {
         // NOP
     }
 
     @Override
-    public void onValidatorInfoSet(final ValidatorInfoSet infos,
-                                   final AppContext context) {
+    public void onValidatorInfoSet(final ValidatorInfoSet infos) {
         this.validatorInfoSet = infos;
         this.refreshSpreadsheetProvider();
     }
@@ -1283,29 +1258,25 @@ public class App implements EntryPoint,
 
     @Override
     public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list,
-                                   final AppContext context) {
+                                   final Optional<JarEntryInfoList> list) {
         // NOP
     }
 
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body,
-                                   final AppContext context) {
+                                   final Optional<String> body) {
         // NOP
     }
 
     @Override
     public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin,
-                         final AppContext context) {
+                         final Optional<Plugin> plugin) {
         // NOP
     }
 
     @Override
-    public void onPluginSet(final PluginSet plugins,
-                            final AppContext context) {
+    public void onPluginSet(final PluginSet plugins) {
         // TODO
     }
 

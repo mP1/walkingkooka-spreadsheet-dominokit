@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.validation.provider.ValidatorInfo;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 
@@ -33,24 +32,16 @@ public final class ValidatorFetcherWatchers extends FetcherWatchers<ValidatorFet
     }
 
     @Override
-    public void onValidatorInfo(final ValidatorInfo info,
-                                final AppContext context) {
+    public void onValidatorInfo(final ValidatorInfo info) {
         this.fire(
-            ValidatorFetcherWatchersInfoEvent.with(
-                info,
-                context
-            )
+            ValidatorFetcherWatchersInfoEvent.with(info)
         );
     }
 
     @Override
-    public void onValidatorInfoSet(final ValidatorInfoSet infos,
-                                   final AppContext context) {
+    public void onValidatorInfoSet(final ValidatorInfoSet infos) {
         this.fire(
-            ValidatorFetcherWatchersInfoSetEvent.with(
-                infos,
-                context
-            )
+            ValidatorFetcherWatchersInfoSetEvent.with(infos)
         );
     }
 }

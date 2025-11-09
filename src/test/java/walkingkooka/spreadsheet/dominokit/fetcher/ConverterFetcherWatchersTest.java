@@ -39,24 +39,20 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
 
         final ConverterInfoSet infos = ConverterProviders.empty()
             .converterInfos();
-        final AppContext context = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
             new FakeConverterFetcherWatcher() {
 
                 @Override
-                public void onConverterInfoSet(final ConverterInfoSet is,
-                                               final AppContext ac) {
+                public void onConverterInfoSet(final ConverterInfoSet is) {
                     ConverterFetcherWatchersTest.this.checkEquals(is, infos);
-                    ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
                     ConverterFetcherWatchersTest.this.fired++;
                 }
             });
         watchers.onConverterInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
     }
@@ -66,30 +62,25 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         this.fired = 0;
 
         final ConverterInfoSet infos = ConverterInfoSet.EMPTY;
-        final AppContext context = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.addOnce(
             new FakeConverterFetcherWatcher() {
 
                 @Override
-                public void onConverterInfoSet(final ConverterInfoSet is,
-                                               final AppContext ac) {
+                public void onConverterInfoSet(final ConverterInfoSet is) {
                     ConverterFetcherWatchersTest.this.checkEquals(is, infos);
-                    ConverterFetcherWatchersTest.this.checkEquals(ac, context);
 
                     ConverterFetcherWatchersTest.this.fired++;
                 }
             });
         watchers.onConverterInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
 
         watchers.onConverterInfoSet(
-            infos,
-            context
+            infos
         );
         this.checkEquals(1, this.fired);
     }
@@ -112,23 +103,21 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
                 @Override
                 public void onBegin(final HttpMethod m,
                                     final Url u,
-                                    final Optional<FetcherRequestBody<?>> b,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> b) {
                     ConverterFetcherWatchersTest.this.checkEquals(method, m);
                     ConverterFetcherWatchersTest.this.checkEquals(u, u);
                     ConverterFetcherWatchersTest.this.checkEquals(b, b);
-                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ConverterFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onBegin(method, url, body, appContext);
+        watchers.onBegin(method, url, body);
         this.checkEquals(3, this.fired);
     }
 
@@ -137,27 +126,24 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         this.fired = 0;
 
         final Object cause = "cause-123";
-        final AppContext appContext = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
             new FakeConverterFetcherWatcher() {
                 @Override
-                public void onError(final Object c,
-                                    final AppContext context) {
+                public void onError(final Object c) {
                     ConverterFetcherWatchersTest.this.checkEquals(cause, c);
-                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ConverterFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(1, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(2, this.fired);
 
-        watchers.onError(cause, appContext);
+        watchers.onError(cause);
         this.checkEquals(3, this.fired);
     }
 
@@ -170,7 +156,6 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
         final HttpStatus status = HttpStatusCode.withCode(123).setMessage("status message 456");
         final Headers headers = null;
         final String body = "Body-failure-789";
-        final AppContext appContext = AppContexts.fake();
 
         final ConverterFetcherWatchers watchers = ConverterFetcherWatchers.empty();
         watchers.add(
@@ -181,25 +166,23 @@ public final class ConverterFetcherWatchersTest extends FetcherWatchersTestCase<
                                       final AbsoluteOrRelativeUrl u,
                                       final HttpStatus s,
                                       final Headers h,
-                                      final String b,
-                                      final AppContext context) {
+                                      final String b) {
                     ConverterFetcherWatchersTest.this.checkEquals(method, m);
                     ConverterFetcherWatchersTest.this.checkEquals(url, u);
                     ConverterFetcherWatchersTest.this.checkEquals(status, s);
                     ConverterFetcherWatchersTest.this.checkEquals(headers, h);
                     ConverterFetcherWatchersTest.this.checkEquals(body, b);
-                    ConverterFetcherWatchersTest.this.checkEquals(appContext, context);
 
                     ConverterFetcherWatchersTest.this.fired++;
                 }
             });
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(1, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(2, this.fired);
 
-        watchers.onFailure(method, url, status, headers, body, appContext);
+        watchers.onFailure(method, url, status, headers, body);
         this.checkEquals(3, this.fired);
     }
 

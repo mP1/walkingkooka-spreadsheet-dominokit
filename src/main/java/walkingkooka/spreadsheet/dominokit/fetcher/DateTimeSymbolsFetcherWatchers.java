@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
@@ -35,26 +34,22 @@ public final class DateTimeSymbolsFetcherWatchers extends FetcherWatchers<DateTi
 
     @Override
     public void onDateTimeSymbolsHateosResource(final LocaleTag id,
-                                                final DateTimeSymbolsHateosResource symbols,
-                                                final AppContext context) {
+                                                final DateTimeSymbolsHateosResource symbols) {
         this.fire(
             DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent.with(
                 id,
-                symbols,
-                context
+                symbols
             )
         );
     }
 
     @Override
     public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
-                                                   final DateTimeSymbolsHateosResourceSet symbols,
-                                                   final AppContext context) {
+                                                   final DateTimeSymbolsHateosResourceSet symbols) {
         this.fire(
             DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent.with(
                 localeStartsWith,
-                symbols,
-                context
+                symbols
             )
         );
     }

@@ -225,7 +225,6 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 watcher.onEmptyResponse(
-                    context
                 );
                 break;
             case "SpreadsheetMetadata":
@@ -233,8 +232,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                     this.parse(
                         body,
                         SpreadsheetMetadata.class
-                    ),
-                    context
+                    )
                 );
                 break;
             case "SpreadsheetMetadataSet":
@@ -242,8 +240,7 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                     this.parse(
                         body,
                         SpreadsheetMetadataSet.class
-                    ),
-                    context
+                    )
                 );
                 break;
             default:

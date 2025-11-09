@@ -126,8 +126,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 this.spreadsheetMetadata(1, "SpreadsheetName111"),
                 this.spreadsheetMetadata(2, "SpreadsheetName222"),
                 this.spreadsheetMetadata(3, "SpreadsheetName333")
-            ),
-            context
+            )
         );
 
         // refresh again !

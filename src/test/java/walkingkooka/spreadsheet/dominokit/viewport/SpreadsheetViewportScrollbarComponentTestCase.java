@@ -91,8 +91,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
             this.historyToken = historyToken;
 
             this.spreadsheetViewportCache.onSpreadsheetMetadata(
-                this.spreadsheetMetadata,
-                this
+                this.spreadsheetMetadata
             );
 
             this.spreadsheetViewportCache.setWindows(

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 /**
@@ -25,23 +24,18 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
  */
 final class SpreadsheetMetadataFetcherWatchersEvent extends FetcherWatchersEvent<SpreadsheetMetadataFetcherWatcher> {
 
-    static SpreadsheetMetadataFetcherWatchersEvent with(final SpreadsheetMetadata metadata,
-                                                        final AppContext context) {
-        return new SpreadsheetMetadataFetcherWatchersEvent(metadata, context);
+    static SpreadsheetMetadataFetcherWatchersEvent with(final SpreadsheetMetadata metadata) {
+        return new SpreadsheetMetadataFetcherWatchersEvent(metadata);
     }
 
-    private SpreadsheetMetadataFetcherWatchersEvent(final SpreadsheetMetadata metadata,
-                                                    final AppContext context) {
-        super(context);
+    private SpreadsheetMetadataFetcherWatchersEvent(final SpreadsheetMetadata metadata) {
+        super();
         this.metadata = metadata;
     }
 
     @Override
     void fire(final SpreadsheetMetadataFetcherWatcher watcher) {
-        watcher.onSpreadsheetMetadata(
-            this.metadata,
-            this.context
-        );
+        watcher.onSpreadsheetMetadata(this.metadata);
     }
 
     private final SpreadsheetMetadata metadata;

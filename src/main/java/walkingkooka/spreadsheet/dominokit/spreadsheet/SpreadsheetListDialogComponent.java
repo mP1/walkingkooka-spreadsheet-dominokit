@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -163,14 +162,12 @@ public final class SpreadsheetListDialogComponent implements DialogComponentLife
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         // ignore
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         if (this.isOpen()) {
             this.table.setValue(
                 Optional.ofNullable(

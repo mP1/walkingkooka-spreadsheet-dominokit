@@ -175,7 +175,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetFormatterInfoSet":
                 // GET http://server/api/spreadsheet/1/formatter
@@ -183,8 +183,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                     this.parse(
                         body,
                         SpreadsheetFormatterInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "SpreadsheetFormatterSelectorEdit":
@@ -196,8 +195,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                     this.parse(
                         body,
                         SpreadsheetFormatterSelectorEdit.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "SpreadsheetFormatterMenuList":
@@ -208,8 +206,7 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                     this.parse(
                         body,
                         SpreadsheetFormatterMenuList.class
-                    ), // menu
-                    context
+                    ) // menu
                 );
                 break;
             default:

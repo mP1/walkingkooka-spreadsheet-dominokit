@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.plugin;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
@@ -150,29 +149,25 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
 
     @Override
     public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list,
-                                   final AppContext context) {
+                                   final Optional<JarEntryInfoList> list) {
         // NOP
     }
 
     @Override
     public void onJarEntryInfoName(final PluginName pluginName,
                                    final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body,
-                                   final AppContext context) {
+                                   final Optional<String> body) {
         // NOP
     }
 
     @Override
     public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin,
-                         final AppContext context) {
+                         final Optional<Plugin> plugin) {
         // change message telling user plugin upload was successful
     }
 
     @Override
-    public void onPluginSet(final PluginSet plugins,
-                            final AppContext context) {
+    public void onPluginSet(final PluginSet plugins) {
         // ignore
     }
 

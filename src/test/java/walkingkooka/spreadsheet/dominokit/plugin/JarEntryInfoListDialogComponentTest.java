@@ -149,8 +149,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
             PLUGIN_NAME,
             Optional.of(
                 JarEntryInfoList.EMPTY
-            ),
-            context
+            )
         );
 
         // refresh again !
@@ -245,8 +244,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                         )
                     )
                 )
-            ),
-            context
+            )
         );
 
         // refresh again !
@@ -358,8 +356,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                         )
                     )
                 )
-            ),
-            context
+            )
         );
 
         // refresh again !
@@ -434,8 +431,7 @@ public final class JarEntryInfoListDialogComponentTest implements DialogComponen
                         )
                     )
                 )
-            ),
-            context
+            )
         );
 
         // refresh again !

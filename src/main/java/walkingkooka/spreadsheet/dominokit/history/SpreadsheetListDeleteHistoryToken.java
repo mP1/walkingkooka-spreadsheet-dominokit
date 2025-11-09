@@ -98,22 +98,19 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
         context.addSpreadsheetMetadataFetcherWatcherOnce(
             new SpreadsheetMetadataFetcherWatcher() {
                 @Override
-                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                                  final AppContext context) {
+                public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
                     // nop
                 }
 
                 @Override
-                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                                     final AppContext context) {
+                public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
                     // ignore
                 }
 
                 @Override
                 public void onBegin(final HttpMethod method,
                                     final Url url,
-                                    final Optional<FetcherRequestBody<?>> body,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> body) {
                     // nop
                 }
 
@@ -122,23 +119,21 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
                                       final AbsoluteOrRelativeUrl url,
                                       final HttpStatus status,
                                       final Headers headers,
-                                      final String body,
-                                      final AppContext context) {
+                                      final String body) {
                     context.pushHistoryToken(
                         previous.clearAction()
                     );
                 }
 
                 @Override
-                public void onError(final Object cause,
-                                    final AppContext context) {
+                public void onError(final Object cause) {
                     context.pushHistoryToken(
                         previous.clearAction()
                     );
                 }
 
                 @Override
-                public void onEmptyResponse(final AppContext context) {
+                public void onEmptyResponse() {
 
                 }
             }

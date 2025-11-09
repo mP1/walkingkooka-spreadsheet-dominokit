@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 /**
@@ -29,21 +28,18 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
 
     static SpreadsheetDeltaFetcherWatchersEvent with(final HttpMethod method,
                                                      final AbsoluteOrRelativeUrl url,
-                                                     final SpreadsheetDelta delta,
-                                                     final AppContext context) {
+                                                     final SpreadsheetDelta delta) {
         return new SpreadsheetDeltaFetcherWatchersEvent(
             method,
             url,
-            delta,
-            context
+            delta
         );
     }
 
     private SpreadsheetDeltaFetcherWatchersEvent(final HttpMethod method,
                                                  final AbsoluteOrRelativeUrl url,
-                                                 final SpreadsheetDelta delta,
-                                                 final AppContext context) {
-        super(context);
+                                                 final SpreadsheetDelta delta) {
+        super();
         this.method = method;
         this.url = url;
         this.delta = delta;
@@ -54,8 +50,7 @@ final class SpreadsheetDeltaFetcherWatchersEvent extends FetcherWatchersEvent<Sp
         watcher.onSpreadsheetDelta(
             this.method,
             this.url,
-            this.delta,
-            this.context
+            this.delta
         );
     }
 

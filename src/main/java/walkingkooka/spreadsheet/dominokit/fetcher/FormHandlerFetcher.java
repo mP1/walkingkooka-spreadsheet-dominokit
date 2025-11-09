@@ -78,7 +78,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "FormHandlerInfo":
                 // GET http://server/api/formHandler/FormHandlerName
@@ -86,8 +86,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                     this.parse(
                         body,
                         FormHandlerInfo.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "FormHandlerInfoSet":
@@ -96,8 +95,7 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                     this.parse(
                         body,
                         FormHandlerInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

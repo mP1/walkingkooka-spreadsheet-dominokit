@@ -28,8 +28,6 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -366,13 +364,6 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                                         final HistoryToken initialHistoryToken,
                                         final HistoryToken expectedHistoryToken,
                                         final SpreadsheetViewportNavigation expectedNavigation) {
-        final AppContext appContext = new FakeAppContext() {
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
-
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -387,6 +378,11 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -486,7 +482,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
             @Override
             public void debug(final Object... values) {
-                appContext.debug(values);
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -506,8 +502,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -526,8 +521,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                     )
                 ).setWindow(
                     SpreadsheetViewportWindows.parse("A1:C3")
-                ),
-                appContext
+                )
             );
 
         this.historyToken = null;
@@ -842,13 +836,6 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
     private String printTreeAndCheck(final HistoryToken historyToken,
                                      final boolean shouldShowHeaders,
                                      final String expected) {
-        final AppContext appContext = new FakeAppContext() {
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
-
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -863,6 +850,11 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -955,7 +947,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
             @Override
             public void debug(final Object... values) {
-                appContext.debug(values);
+                System.out.println("DEBUG " + Arrays.toString(values));
             }
         };
 
@@ -975,8 +967,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -993,8 +984,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                             )
                         )
                     )
-                ),
-                appContext
+                )
             );
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(

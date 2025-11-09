@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.plugin.PluginName;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 
 import java.util.Optional;
@@ -29,19 +28,16 @@ import java.util.Optional;
 final class PluginFetcherWatchersJarEntryInfoListEvent extends FetcherWatchersEvent<PluginFetcherWatcher> {
 
     static PluginFetcherWatchersJarEntryInfoListEvent with(final PluginName name,
-                                                           final Optional<JarEntryInfoList> list,
-                                                           final AppContext context) {
+                                                           final Optional<JarEntryInfoList> list) {
         return new PluginFetcherWatchersJarEntryInfoListEvent(
             name,
-            list,
-            context
+            list
         );
     }
 
     private PluginFetcherWatchersJarEntryInfoListEvent(final PluginName name,
-                                                       final Optional<JarEntryInfoList> list,
-                                                       final AppContext context) {
-        super(context);
+                                                       final Optional<JarEntryInfoList> list) {
+        super();
         this.name = name;
         this.list = list;
     }
@@ -50,8 +46,7 @@ final class PluginFetcherWatchersJarEntryInfoListEvent extends FetcherWatchersEv
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onJarEntryInfoList(
             this.name,
-            this.list,
-            this.context
+            this.list
         );
     }
 

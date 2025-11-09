@@ -22,7 +22,6 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Set;
@@ -32,11 +31,9 @@ import java.util.Set;
  */
 public interface ConverterFetcherWatcher extends FetcherWatcher {
 
-    void onConverterInfoSet(final ConverterInfoSet infos,
-                            final AppContext context);
+    void onConverterInfoSet(final ConverterInfoSet infos);
 
     void onVerify(final SpreadsheetId id,
                   final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                  final Set<MissingConverter> missingConverters,
-                  final AppContext context);
+                  final Set<MissingConverter> missingConverters);
 }

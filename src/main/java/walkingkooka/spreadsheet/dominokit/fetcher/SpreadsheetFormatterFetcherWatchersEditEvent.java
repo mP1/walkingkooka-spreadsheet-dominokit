@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 
@@ -31,21 +30,18 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
 
     static SpreadsheetFormatterFetcherWatchersEditEvent with(final SpreadsheetId id,
                                                              final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                             final SpreadsheetFormatterSelectorEdit edit,
-                                                             final AppContext context) {
+                                                             final SpreadsheetFormatterSelectorEdit edit) {
         return new SpreadsheetFormatterFetcherWatchersEditEvent(
             id,
             cellOrLabel,
-            edit,
-            context
+            edit
         );
     }
 
     private SpreadsheetFormatterFetcherWatchersEditEvent(final SpreadsheetId id,
                                                          final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                         final SpreadsheetFormatterSelectorEdit edit,
-                                                         final AppContext context) {
-        super(context);
+                                                         final SpreadsheetFormatterSelectorEdit edit) {
+        super();
         this.id = id;
         this.cellOrLabel = cellOrLabel;
         this.edit = edit;
@@ -56,8 +52,7 @@ final class SpreadsheetFormatterFetcherWatchersEditEvent extends FetcherWatchers
         watcher.onSpreadsheetFormatterSelectorEdit(
             this.id,
             this.cellOrLabel,
-            this.edit,
-            this.context
+            this.edit
         );
     }
 

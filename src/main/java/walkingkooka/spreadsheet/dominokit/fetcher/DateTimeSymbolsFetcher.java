@@ -103,7 +103,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "DateTimeSymbolsHateosResource":
                 // GET http://server/api/dateTimeSymbols/LocaleTagId
@@ -114,8 +114,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResource.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             case "DateTimeSymbolsHateosResourceSet":
@@ -125,8 +124,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResourceSet.class
-                    ),
-                    context
+                    )
                 );
                 break;
             default:

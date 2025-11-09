@@ -18,33 +18,24 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.convert.provider.ConverterInfoSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * The event payload used by {@link ConverterFetcherWatchers}.
  */
 final class ConverterFetcherWatchersInfoSetEvent extends FetcherWatchersEvent<ConverterFetcherWatcher> {
 
-    static ConverterFetcherWatchersInfoSetEvent with(final ConverterInfoSet infos,
-                                                     final AppContext context) {
-        return new ConverterFetcherWatchersInfoSetEvent(
-            infos,
-            context
-        );
+    static ConverterFetcherWatchersInfoSetEvent with(final ConverterInfoSet infos) {
+        return new ConverterFetcherWatchersInfoSetEvent(infos);
     }
 
-    private ConverterFetcherWatchersInfoSetEvent(final ConverterInfoSet infos,
-                                                 final AppContext context) {
-        super(context);
+    private ConverterFetcherWatchersInfoSetEvent(final ConverterInfoSet infos) {
+        super();
         this.infos = infos;
     }
 
     @Override
     void fire(final ConverterFetcherWatcher watcher) {
-        watcher.onConverterInfoSet(
-            this.infos,
-            this.context
-        );
+        watcher.onConverterInfoSet(this.infos);
     }
 
     private final ConverterInfoSet infos;

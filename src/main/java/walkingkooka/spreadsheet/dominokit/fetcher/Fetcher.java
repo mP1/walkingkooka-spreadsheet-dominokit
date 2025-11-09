@@ -250,8 +250,7 @@ abstract public class Fetcher<W extends FetcherWatcher> {
         this.watcher.onBegin(
             method,
             url,
-            body,
-            this.context
+            body
         );
     }
 
@@ -302,15 +301,13 @@ abstract public class Fetcher<W extends FetcherWatcher> {
             url,
             status,
             headers,
-            body,
-            this.context
+            body
         );
     }
 
     private void onError(final Object cause) {
         this.watcher.onError(
-            cause,
-            this.context
+            cause
         );
     }
 

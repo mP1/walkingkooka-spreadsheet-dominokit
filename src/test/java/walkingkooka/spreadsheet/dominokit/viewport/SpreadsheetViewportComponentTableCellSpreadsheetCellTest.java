@@ -388,6 +388,11 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
             }
+
+            @Override
+            public void debug(final Object... values) {
+                System.out.println("DEBUG: " + Arrays.toString(values));
+            }
         };
 
         final SpreadsheetViewportComponentTableContext tableContext = new FakeSpreadsheetViewportComponentTableContext() {
@@ -488,8 +493,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                metadata,
-                appContext
+                metadata
             );
 
         tableContext.spreadsheetViewportCache()
@@ -504,8 +508,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                                 .setError(error)
                         ).setFormattedValue(formatted)
                     )
-                ),
-                appContext
+                )
             );
 
         this.treePrintAndCheck(

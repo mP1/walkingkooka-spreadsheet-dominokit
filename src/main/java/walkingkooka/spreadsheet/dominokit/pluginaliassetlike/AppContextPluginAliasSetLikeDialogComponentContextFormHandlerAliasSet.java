@@ -71,22 +71,19 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextFormHandlerAlia
             new FormHandlerFetcherWatcher() {
 
                 @Override
-                public void onFormHandlerInfo(final FormHandlerInfo info,
-                                              final AppContext context) {
+                public void onFormHandlerInfo(final FormHandlerInfo info) {
                     // NOP
                 }
 
                 @Override
-                public void onFormHandlerInfoSet(final FormHandlerInfoSet infos,
-                                                 final AppContext context) {
+                public void onFormHandlerInfoSet(final FormHandlerInfoSet infos) {
                     set.accept(infos.aliasSet());
                 }
 
                 @Override
                 public void onBegin(final HttpMethod method,
                                     final Url url,
-                                    final Optional<FetcherRequestBody<?>> body,
-                                    final AppContext context) {
+                                    final Optional<FetcherRequestBody<?>> body) {
                     // nop
                 }
 
@@ -95,19 +92,17 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextFormHandlerAlia
                                       final AbsoluteOrRelativeUrl url,
                                       final HttpStatus status,
                                       final Headers headers,
-                                      final String body,
-                                      final AppContext context) {
+                                      final String body) {
                     // nop
                 }
 
                 @Override
-                public void onError(final Object cause,
-                                    final AppContext context) {
+                public void onError(final Object cause) {
                     // nop
                 }
 
                 @Override
-                public void onEmptyResponse(final AppContext context) {
+                public void onEmptyResponse() {
                     // nop
                 }
             }

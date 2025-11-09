@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 
 public class FakeSpreadsheetDeltaFetcherWatcher extends FakeFetcherWatcher implements SpreadsheetDeltaFetcherWatcher {
@@ -27,8 +26,7 @@ public class FakeSpreadsheetDeltaFetcherWatcher extends FakeFetcherWatcher imple
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta,
-                                   final AppContext context) {
+                                   final SpreadsheetDelta delta) {
         throw new UnsupportedOperationException();
     }
 }

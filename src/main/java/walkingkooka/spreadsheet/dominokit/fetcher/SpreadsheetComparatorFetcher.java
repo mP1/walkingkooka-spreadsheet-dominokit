@@ -68,7 +68,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
-                this.watcher.onEmptyResponse(context);
+                this.watcher.onEmptyResponse();
                 break;
             case "SpreadsheetComparatorInfoSet":
                 // GET http://server/api/comparator
@@ -76,8 +76,7 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
                     this.parse(
                         body,
                         SpreadsheetComparatorInfoSet.class
-                    ), // edit
-                    context
+                    ) // edit
                 );
                 break;
             default:

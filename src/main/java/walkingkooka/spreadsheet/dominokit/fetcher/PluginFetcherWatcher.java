@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
@@ -32,19 +31,15 @@ import java.util.Optional;
 public interface PluginFetcherWatcher extends FetcherWatcher {
 
     void onJarEntryInfoList(final PluginName name,
-                            final Optional<JarEntryInfoList> list,
-                            final AppContext context);
+                            final Optional<JarEntryInfoList> list);
 
     void onJarEntryInfoName(final PluginName pluginName,
                             final Optional<JarEntryInfoName> filename,
-                            final Optional<String> body,
-                            final AppContext context);
+                            final Optional<String> body);
 
     void onPlugin(final PluginName name,
-                  final Optional<Plugin> plugin,
-                  final AppContext context);
+                  final Optional<Plugin> plugin);
 
 
-    void onPluginSet(final PluginSet plugins,
-                     final AppContext context);
+    void onPluginSet(final PluginSet plugins);
 }

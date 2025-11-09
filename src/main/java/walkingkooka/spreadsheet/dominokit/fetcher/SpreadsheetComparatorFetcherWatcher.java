@@ -19,13 +19,11 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * A watcher that receives all {@link SpreadsheetComparator} response events.
  */
 public interface SpreadsheetComparatorFetcherWatcher extends FetcherWatcher {
 
-    void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos,
-                                        final AppContext context);
+    void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos);
 }

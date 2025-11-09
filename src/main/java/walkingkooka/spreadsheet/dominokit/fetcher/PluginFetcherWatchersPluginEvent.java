@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.store.Plugin;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.Optional;
 
@@ -29,19 +28,16 @@ import java.util.Optional;
 final class PluginFetcherWatchersPluginEvent extends FetcherWatchersEvent<PluginFetcherWatcher> {
 
     static PluginFetcherWatchersPluginEvent with(final PluginName name,
-                                                 final Optional<Plugin> plugin,
-                                                 final AppContext context) {
+                                                 final Optional<Plugin> plugin) {
         return new PluginFetcherWatchersPluginEvent(
             name,
-            plugin,
-            context
+            plugin
         );
     }
 
     private PluginFetcherWatchersPluginEvent(final PluginName name,
-                                             final Optional<Plugin> plugin,
-                                             final AppContext context) {
-        super(context);
+                                             final Optional<Plugin> plugin) {
+        super();
         this.name = name;
         this.plugin = plugin;
     }
@@ -50,8 +46,7 @@ final class PluginFetcherWatchersPluginEvent extends FetcherWatchersEvent<Plugin
     void fire(final PluginFetcherWatcher watcher) {
         watcher.onPlugin(
             this.name,
-            this.plugin,
-            this.context
+            this.plugin
         );
     }
 

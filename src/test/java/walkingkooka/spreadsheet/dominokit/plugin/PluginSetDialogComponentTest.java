@@ -366,8 +366,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                                 count
                             )
                     )
-                ),
-                this
+                )
             );
         }
 

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -232,8 +231,7 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
     @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata,
-                                      final AppContext context) {
+    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         final boolean showGridLines = metadata.get(SpreadsheetMetadataPropertyName.SHOW_GRID_LINES)
             .orElse(true);
 
@@ -246,8 +244,7 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
     }
 
     @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas,
-                                         final AppContext context) {
+    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // ignore
     }
 
