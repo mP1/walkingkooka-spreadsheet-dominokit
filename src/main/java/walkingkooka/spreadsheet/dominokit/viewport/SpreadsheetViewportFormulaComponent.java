@@ -87,8 +87,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         final SpreadsheetViewportFormulaComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
 
-        context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
-
+        if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+            context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
+        }
         context.pushHistoryToken(
             historyToken.formula()
         );
@@ -99,7 +100,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
 
         switch (Key.fromEvent(event)) {
             case Enter:
-                context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ENTER");
+                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+                    context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ENTER");
+                }
 
                 event.preventDefault();
 
@@ -114,7 +117,9 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                 );
                 break;
             case Escape:
-                context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ESCAPE restoring text");
+                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+                    context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ESCAPE restoring text");
+                }
                 event.preventDefault();
                 this.onUndo();
                 break;
@@ -209,7 +214,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                     cell = null;
                 }
 
-                if(this.shouldLogLifecycleChanges()) {
+                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
                     context.debug(this.getClass().getSimpleName() + ".refresh formula cell: " + cell);
                 }
                 if (null != cell) {
@@ -221,7 +226,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
             }
 
             if (token instanceof SpreadsheetCellFormulaHistoryToken & false == this.previousHistoryToken instanceof SpreadsheetCellFormulaHistoryToken) {
-                if(this.shouldLogLifecycleChanges()) {
+                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
                     context.debug(this.getClass().getSimpleName() + ".refresh giving focus");
                 }
                 context.giveFocus(formula::focus);
@@ -248,7 +253,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         final Optional<SpreadsheetCell> cell = cache.cell(cellReference);
         final Optional<String> text = cell.map((c) -> c.formula().text());
 
-        if(SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+        if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
             context.debug("SpreadsheetViewportFormulaComponent.refreshFormula " + cellReference + " text=" + text);
         }
 
