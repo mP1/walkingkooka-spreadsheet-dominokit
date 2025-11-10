@@ -22,6 +22,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -134,10 +135,13 @@ public final class UploadFileComponent extends UploadFileComponentLike
         return this;
     }
 
-    // ChangeListeners..................................................................................................
+    // HasValueWatchers.................................................................................................
 
     @Override
-    UploadFileComponent removeChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
-        return this;
+    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {
+        };
     }
 }
