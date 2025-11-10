@@ -247,4 +247,11 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quoteAndEscape(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return SPREADSHEET_METADATA_FETCHER;
+    }
 }

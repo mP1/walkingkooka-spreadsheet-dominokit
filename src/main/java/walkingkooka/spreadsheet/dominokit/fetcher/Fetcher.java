@@ -29,6 +29,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.server.SpreadsheetServerMediaTypes;
 import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
@@ -44,7 +45,7 @@ import java.util.OptionalInt;
 /**
  * Base class for a variety of fetchers that target HateosResources and other end points.
  */
-abstract public class Fetcher<W extends FetcherWatcher> {
+abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
 
     Fetcher(final W watcher,
             final AppContext context) {
@@ -270,7 +271,9 @@ abstract public class Fetcher<W extends FetcherWatcher> {
             }
         }
 
-        this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
+        if(this.isDebugEnabled()) {
+            this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
+        }
 
         this.onSuccess(
             method,
@@ -399,6 +402,10 @@ abstract public class Fetcher<W extends FetcherWatcher> {
     }
 
     private int waitingRequestCount;
+
+    // Logging..........................................................................................................
+
+    abstract boolean isDebugEnabled();
 
     // Object..........................................................................................................
 

@@ -102,4 +102,11 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return FORM_HANDLER_FETCHER;
+    }
 }

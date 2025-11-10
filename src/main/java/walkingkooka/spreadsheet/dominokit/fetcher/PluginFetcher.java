@@ -272,4 +272,11 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                 .value()
         );
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return PLUGIN_FETCHER;
+    }
 }

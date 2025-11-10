@@ -83,4 +83,11 @@ public final class SpreadsheetImporterFetcher extends Fetcher<SpreadsheetImporte
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return SPREADSHEET_IMPORTER_FETCHER;
+    }
 }

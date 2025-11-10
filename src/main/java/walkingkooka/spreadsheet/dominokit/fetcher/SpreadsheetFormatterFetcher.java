@@ -244,4 +244,11 @@ public final class SpreadsheetFormatterFetcher extends Fetcher<SpreadsheetFormat
                 .value()
         );
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return SPREADSHEET_FORMATTER_FETCHER;
+    }
 }
