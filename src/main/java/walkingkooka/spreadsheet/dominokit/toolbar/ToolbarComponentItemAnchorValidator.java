@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorValidator extends ToolbarComponentItemAnch
 
     private ToolbarComponentItemAnchorValidator(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.validatorId(),
+            ToolbarComponent.VALIDATOR_ID,
             Optional.of(
                 SpreadsheetIcons.validator()
             ),

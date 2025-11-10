@@ -40,7 +40,7 @@ final class ToolbarComponentItemAnchorCellFind extends ToolbarComponentItemAncho
 
     private ToolbarComponentItemAnchorCellFind(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.findCellsId(),
+            ToolbarComponent.FIND_CELLS_ID,
             Optional.of(
                 SpreadsheetIcons.cellsFind()
             ),

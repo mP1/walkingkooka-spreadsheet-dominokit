@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorFormatter extends ToolbarComponentItemAnch
 
     private ToolbarComponentItemAnchorFormatter(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.formatterId(),
+            ToolbarComponent.FORMATTER_ID,
             Optional.of(
                 SpreadsheetIcons.formatter()
             ),

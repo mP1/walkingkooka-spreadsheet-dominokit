@@ -33,7 +33,7 @@ final class ToolbarComponentItemAnchorMetadataBooleanShowGridLines extends Toolb
 
     private ToolbarComponentItemAnchorMetadataBooleanShowGridLines(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.showGridLinesIds(),
+            ToolbarComponent.SHOW_GRID_LINES_ID,
             Optional.of(
                 SpreadsheetIcons.gridLines()
             ),

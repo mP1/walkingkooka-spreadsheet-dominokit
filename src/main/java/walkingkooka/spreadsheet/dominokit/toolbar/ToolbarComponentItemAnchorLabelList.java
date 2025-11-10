@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorLabelList extends ToolbarComponentItemAnch
 
     private ToolbarComponentItemAnchorLabelList(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.labelListId(),
+            ToolbarComponent.LABEL_LIST_ID,
             Optional.of(
                 SpreadsheetIcons.labelAdd()
             ),

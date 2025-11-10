@@ -41,7 +41,7 @@ final class ToolbarComponentItemAnchorSort extends ToolbarComponentItemAnchor<To
 
     private ToolbarComponentItemAnchorSort(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.sortId(),
+            ToolbarComponent.SORT_ID,
             Optional.of(
                 SpreadsheetIcons.sort()
             ),

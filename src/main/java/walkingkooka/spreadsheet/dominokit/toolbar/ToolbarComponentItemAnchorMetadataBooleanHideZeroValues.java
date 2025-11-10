@@ -34,7 +34,7 @@ final class ToolbarComponentItemAnchorMetadataBooleanHideZeroValues extends Tool
 
     private ToolbarComponentItemAnchorMetadataBooleanHideZeroValues(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.hideZeroValues(),
+            ToolbarComponent.HIDE_ZERO_VALUES_ID,
             Optional.of(
                 SpreadsheetIcons.hideZeroValues()
             ),

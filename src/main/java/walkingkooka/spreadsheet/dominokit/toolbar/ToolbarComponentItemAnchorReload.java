@@ -37,7 +37,7 @@ final class ToolbarComponentItemAnchorReload extends ToolbarComponentItemAnchor<
 
     private ToolbarComponentItemAnchorReload(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.reloadId(),
+            ToolbarComponent.RELOAD_ID,
             Optional.of(
                 SpreadsheetIcons.reload()
             ),

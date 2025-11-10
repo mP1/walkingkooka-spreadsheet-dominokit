@@ -33,7 +33,7 @@ final class ToolbarComponentItemAnchorMetadataBooleanShowFormulaEditor extends T
 
     private ToolbarComponentItemAnchorMetadataBooleanShowFormulaEditor(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.showFormulaEditorId(),
+            ToolbarComponent.SHOW_FORMULA_EDITOR_ID,
             Optional.of(
                 SpreadsheetIcons.showFormulaEditor()
             ),

@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorDecimalNumberSymbols extends ToolbarCompon
 
     private ToolbarComponentItemAnchorDecimalNumberSymbols(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.decimalNumberSymbolsId(),
+            ToolbarComponent.DECIMAL_NUMBER_SYMBOLS_ID,
             Optional.of(
                 SpreadsheetIcons.decimalNumberSymbols()
             ),
