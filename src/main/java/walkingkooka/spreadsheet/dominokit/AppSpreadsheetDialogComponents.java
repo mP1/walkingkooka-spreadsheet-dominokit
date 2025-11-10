@@ -168,7 +168,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         {
             final SpreadsheetCellValueDialogComponentContext<EmailAddress> emailContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.EMAIL_ADDRESS,
+                SpreadsheetValueType.EMAIL,
                 context.spreadsheetViewportCache(),
                 context, // SpreadsheetDeltaFetcherWatcher
                 context // RefreshContext
