@@ -220,7 +220,6 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                           final String contentTypeName,
                           final Optional<String> body) {
         final SpreadsheetMetadataFetcherWatcher watcher = this.watcher;
-        final AppContext context = this.context;
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":

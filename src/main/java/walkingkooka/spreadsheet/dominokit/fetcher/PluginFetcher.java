@@ -200,8 +200,6 @@ public final class PluginFetcher extends Fetcher<PluginFetcherWatcher> {
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
                           final Optional<String> body) {
-        final AppContext context = this.context;
-
         final String bodyText = body.orElse("");
 
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {

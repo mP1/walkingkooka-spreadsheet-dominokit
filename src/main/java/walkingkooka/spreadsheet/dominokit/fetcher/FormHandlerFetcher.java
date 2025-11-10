@@ -74,8 +74,6 @@ public final class FormHandlerFetcher extends Fetcher<FormHandlerFetcherWatcher>
                           final AbsoluteOrRelativeUrl url,
                           final String contentTypeName,
                           final Optional<String> body) {
-        final AppContext context = this.context;
-
         switch (CharSequences.nullToEmpty(contentTypeName).toString()) {
             case "":
                 this.watcher.onEmptyResponse();
