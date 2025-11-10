@@ -96,13 +96,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
                 );
             this.value = valueComponent;
         } else {
-            this.value = valueComponent.addChangeListener(
-                (final Optional<T> oldValue,
-                 final Optional<T> newValue) -> context.pushHistoryToken(
-                    context.historyToken()
-                        .setSaveValue(newValue)
-                )
-            );
+            throw new IllegalArgumentException("ValueComponent " + valueComponent + " missing " + HasValueWatchers.class.getSimpleName());
         }
 
         this.save = this.<String>saveValueAnchor(context);
