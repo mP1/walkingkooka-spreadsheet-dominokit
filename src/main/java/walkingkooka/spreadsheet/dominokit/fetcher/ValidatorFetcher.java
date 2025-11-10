@@ -102,4 +102,11 @@ public final class ValidatorFetcher extends Fetcher<ValidatorFetcherWatcher> {
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return VALIDATOR_FETCHER;
+    }
 }

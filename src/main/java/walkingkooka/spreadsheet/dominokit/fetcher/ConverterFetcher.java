@@ -141,4 +141,11 @@ public final class ConverterFetcher extends Fetcher<ConverterFetcherWatcher> {
             )
         );
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return CONVERTER_FETCHER;
+    }
 }

@@ -135,4 +135,11 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
     }
 
     final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/locale/${LocaleTag}");
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return LOCALE_FETCHER;
+    }
 }

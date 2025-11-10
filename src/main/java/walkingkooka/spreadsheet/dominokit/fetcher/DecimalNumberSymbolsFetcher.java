@@ -150,4 +150,11 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
     private final static UrlPathTemplate STARTS_WITH_PATH_TEMPLATE = UrlPathTemplate.parse("/api/decimalNumberSymbols/*/localeStartsWith/${startsWith}");
 
     private final static TemplateValueName STARTS_WITH = TemplateValueName.with("startsWith");
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return DECIMAL_NUMBER_SYMBOLS_FETCHER;
+    }
 }

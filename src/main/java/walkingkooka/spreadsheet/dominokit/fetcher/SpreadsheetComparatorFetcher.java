@@ -83,4 +83,11 @@ public final class SpreadsheetComparatorFetcher extends Fetcher<SpreadsheetCompa
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return SPREADSHEET_COMPARATOR_FETCHER;
+    }
 }

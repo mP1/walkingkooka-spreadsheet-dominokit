@@ -136,4 +136,11 @@ public final class SpreadsheetParserFetcher extends Fetcher<SpreadsheetParserFet
                 throw new IllegalArgumentException("Unexpected content type " + CharSequences.quote(contentTypeName));
         }
     }
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return SPREADSHEET_PARSER_FETCHER;
+    }
 }

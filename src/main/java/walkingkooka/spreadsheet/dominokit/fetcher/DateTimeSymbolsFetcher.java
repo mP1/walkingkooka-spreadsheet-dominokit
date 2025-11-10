@@ -151,4 +151,11 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
     private final static UrlPathTemplate STARTS_WITH_PATH_TEMPLATE = UrlPathTemplate.parse("/api/dateTimeSymbols/*/localeStartsWith/${startsWith}");
 
     private final static TemplateValueName STARTS_WITH = TemplateValueName.with("startsWith");
+
+    // Logging..........................................................................................................
+
+    @Override
+    boolean isDebugEnabled() {
+        return DATE_TIME_SYMBOLS_FETCHER;
+    }
 }
