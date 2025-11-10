@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
@@ -32,6 +33,7 @@ import java.util.Optional;
 
 abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer>,
+    HasEventListeners<Integer, IntegerBoxComponent>,
     HasValueWatchers<HTMLFieldSetElement, Integer, IntegerBoxComponent> {
 
     IntegerBoxComponentLike() {
