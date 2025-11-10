@@ -28,6 +28,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.HasText;
 
 import java.util.List;
@@ -251,11 +252,6 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
         return this;
     }
 
-    @Override
-    SuggestBoxComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
-        return this;
-    }
-
     // addXXXListener...................................................................................................
 
     @Override
@@ -287,5 +283,14 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
     @Override
     public SuggestBoxComponent<T> removePadding() {
         return this;
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
     }
 }

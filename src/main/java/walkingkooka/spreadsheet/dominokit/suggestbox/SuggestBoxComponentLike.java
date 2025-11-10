@@ -20,17 +20,14 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -108,22 +105,6 @@ abstract class SuggestBoxComponentLike<T> implements FormValueComponent<HTMLFiel
 
     abstract SuggestBoxComponent<T> addEventListener(final EventType eventType,
                                                      final EventListener listener);
-
-    // ChangeListener...................................................................................................
-
-    abstract SuggestBoxComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener);
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final ChangeListener<Optional<T>> changeListener = (final Optional<T> oldValue,
-                                                            final Optional<T> newValue) -> watcher.onValue(newValue);
-        this.addChangeListener(changeListener);
-        return () -> this.removeChangeListener(changeListener);
-    }
 
     // FormValueComponentTreePrintable..................................................................................
 
