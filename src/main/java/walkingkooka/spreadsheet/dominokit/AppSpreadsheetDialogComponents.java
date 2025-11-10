@@ -82,12 +82,15 @@ import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.validation.ValueTypeName;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.function.BiFunction;
 
 /**
  * Responsible for creating and the registry of all {@link DialogComponent}.
@@ -133,138 +136,107 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void cellValue(final AppContext context) {
-        {
-            final SpreadsheetCellValueDialogComponentContext<LocalDate> dateContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.DATE,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
+        cellValue(
+            SpreadsheetValueType.DATE,
+            LocalDate.class,
+            (id, c) -> DateComponent.empty(
+                id + SpreadsheetElementIds.DATE_PICKER,
+                context.now()::toLocalDate // HasNow
+            ),
+            context
+        );
 
-            SpreadsheetCellValueDialogComponent.with(
-                DateComponent.empty(
-                    dateContext.id() + "-value" + SpreadsheetElementIds.DATE_PICKER,
-                    context.now()::toLocalDate // HasNow
+        cellValue(
+            SpreadsheetValueType.DATE_TIME,
+            LocalDateTime.class,
+            (id, c) -> DateTimeComponent.empty(
+                id + SpreadsheetElementIds.DATE_TIME_PICKER,
+                context::now // HasNow
+            ),
+            context
+        );
+
+        cellValue(
+            SpreadsheetValueType.EMAIL,
+            EmailAddress.class,
+            (id, c) -> EmailAddressComponent.empty()
+                .setId(id + SpreadsheetElementIds.TEXT_BOX)
+                .optional(),
+            context
+        );
+
+        cellValue(
+            SpreadsheetValueType.NUMBER,
+            ExpressionNumber.class,
+            (id, c) -> NumberComponent.empty(
+                id + SpreadsheetElementIds.TEXT_BOX,
+                c
+            ).optional(),
+            context
+        );
+
+        cellValue(
+            SpreadsheetValueType.TEXT,
+            String.class,
+            (id, c) -> TextBoxComponent.empty()
+                .setId(
+                    id + SpreadsheetElementIds.TEXT_BOX
                 ),
-                dateContext
-            );
-        }
-        {
-            final SpreadsheetCellValueDialogComponentContext<LocalDateTime> dateTimeContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.DATE_TIME,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
+            context
+        );
 
-            SpreadsheetCellValueDialogComponent.with(
-                DateTimeComponent.empty(
-                    dateTimeContext.id() + "-value" + SpreadsheetElementIds.DATE_TIME_PICKER,
-                    context::now // HasNow
-                ),
-                dateTimeContext
-            );
-        }
+        cellValue(
+            SpreadsheetValueType.TIME,
+            LocalTime.class,
+            (id, c) -> TimeComponent.empty(
+                id + SpreadsheetElementIds.TIME_PICKER,
+                context.now()::toLocalTime // HasNow
+            ),
+            context
+        );
 
-        {
-            final SpreadsheetCellValueDialogComponentContext<EmailAddress> emailContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.EMAIL,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
-
-            SpreadsheetCellValueDialogComponent.with(
-                EmailAddressComponent.empty()
-                    .setId(
-                        emailContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX
-                    ).optional(),
-                emailContext
-            );
-        }
-
-        {
-            final SpreadsheetCellValueDialogComponentContext<ExpressionNumber> numberContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.NUMBER,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
-
-            SpreadsheetCellValueDialogComponent.with(
-                NumberComponent.empty(
-                    numberContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX,
-                    context
+        cellValue(
+            SpreadsheetValueType.URL,
+            AbsoluteUrl.class,
+            (id, c) -> AbsoluteUrlComponent.empty()
+                .setId(
+                    id + SpreadsheetElementIds.TEXT_BOX
                 ).optional(),
-                numberContext
-            );
-        }
+            context
+        );
 
-        {
-            final SpreadsheetCellValueDialogComponentContext<String> textContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.TEXT,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
+        cellValue(
+            SpreadsheetValueType.WHOLE_NUMBER,
+            ExpressionNumber.class,
+            (id, c) -> WholeNumberComponent.empty(
+                id + SpreadsheetElementIds.TEXT_BOX,
+                c
+            ).optional(),
+            context
+        );
+    }
 
-            SpreadsheetCellValueDialogComponent.with(
-                TextBoxComponent.empty()
-                    .setId(
-                        textContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX
-                    ),
-                textContext
-            );
-        }
-        {
-            final SpreadsheetCellValueDialogComponentContext<LocalTime> timeContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.TIME,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
+    /**
+     * Registers a {@link SpreadsheetCellValueDialogComponent} with the given {@link FormValueComponent} for the given {@link ValueTypeName}.
+     */
+    private static <T> void cellValue(final ValueTypeName value,
+                                      final Class<T> type,
+                                      final BiFunction<String, AppContext, FormValueComponent<?, T, ?>> component,
+                                      final AppContext context) {
+        final SpreadsheetCellValueDialogComponentContext<T> cellValueDialogComponentContext = SpreadsheetCellValueDialogComponentContexts.basic(
+            value,
+            context.spreadsheetViewportCache(),
+            context, // SpreadsheetDeltaFetcherWatcher
+            context // RefreshContext
+        );
 
-            SpreadsheetCellValueDialogComponent.with(
-                TimeComponent.empty(
-                    timeContext.id() + "-value" + SpreadsheetElementIds.TIME_PICKER,
-                    context.now()::toLocalTime // HasNow
-                ),
-                timeContext
-            );
-        }
-
-        {
-            final SpreadsheetCellValueDialogComponentContext<AbsoluteUrl> urlContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.URL,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
-
-            SpreadsheetCellValueDialogComponent.with(
-                AbsoluteUrlComponent.empty()
-                    .setId(urlContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX)
-                    .optional(),
-                urlContext
-            );
-        }
-
-        {
-            final SpreadsheetCellValueDialogComponentContext<ExpressionNumber> wholeNumberContext = SpreadsheetCellValueDialogComponentContexts.basic(
-                SpreadsheetValueType.WHOLE_NUMBER,
-                context.spreadsheetViewportCache(),
-                context, // SpreadsheetDeltaFetcherWatcher
-                context // RefreshContext
-            );
-
-            SpreadsheetCellValueDialogComponent.with(
-                WholeNumberComponent.empty(
-                    wholeNumberContext.id() + "-value" + SpreadsheetElementIds.TEXT_BOX,
-                    context
-                ).optional(),
-                wholeNumberContext
-            );
-        }
+        SpreadsheetCellValueDialogComponent.with(
+            component.apply(
+                cellValueDialogComponentContext.id() + "-value",
+                context
+            ),
+            cellValueDialogComponentContext
+        );
     }
 
     private static void columnAndRow(final AppContext context) {
