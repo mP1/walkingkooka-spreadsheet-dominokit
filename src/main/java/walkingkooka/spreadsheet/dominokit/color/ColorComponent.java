@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
@@ -223,6 +224,13 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
     @Override
     public ColorComponent setValue(final Optional<Color> value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         throw new UnsupportedOperationException();
     }
 

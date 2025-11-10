@@ -249,6 +249,18 @@ public final class SliderComponent extends SliderComponentLike {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<Double> changeListener = (final Double oldValue,
+                                                       final Double newValue) -> watcher.onValue(
+            Optional.ofNullable(newValue)
+        );
+        this.slider.addChangeListener(changeListener);
+        return () -> this.slider.removeChangeListener(changeListener);
+    }
+
     // width............................................................................................................
 
     @Override
@@ -300,20 +312,6 @@ public final class SliderComponent extends SliderComponentLike {
     @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.slider.element());
-    }
-
-    // HasValueWatcher..................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final ChangeListener<Double> changeListener = (final Double oldValue,
-                                                       final Double newValue) -> watcher.onValue(
-            Optional.ofNullable(newValue)
-        );
-        this.slider.addChangeListener(changeListener);
-        return () -> this.slider.removeChangeListener(changeListener);
     }
 
     // Object...........................................................................................................

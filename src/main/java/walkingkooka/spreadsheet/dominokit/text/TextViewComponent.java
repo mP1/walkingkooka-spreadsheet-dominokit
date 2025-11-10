@@ -22,8 +22,10 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -76,6 +78,13 @@ public final class TextViewComponent extends TextViewComponentLike
                 null :
                 value
         );
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
     }
 
     // HtmlComponentDelegator...........................................................................................

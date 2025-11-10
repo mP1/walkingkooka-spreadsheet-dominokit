@@ -40,8 +40,7 @@ import java.util.function.Function;
  */
 public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>>,
-    HasEventListeners<T, ValueTextBoxComponent<T>>,
-    HasValueWatchers<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>{
+    HasEventListeners<T, ValueTextBoxComponent<T>> {
 
     /**
      * Creates a new {@link ValueTextBoxComponent}.

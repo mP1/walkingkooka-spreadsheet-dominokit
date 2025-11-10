@@ -72,6 +72,19 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         return this;
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<LocalDate> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final DateSelectionListener dateSelectionListener = (final CalendarDay oldDay,
+                                                             final CalendarDay newDay) -> watcher.onValue(
+            calendarDayToLocalDate(newDay)
+        );
+
+        this.calendar.addDateSelectionListener(dateSelectionListener);
+        return () -> this.calendar.removeDateSelectionListener(dateSelectionListener);
+    }
+
     // HtmlComponent....................................................................................................
 
     @Override
@@ -110,21 +123,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     @Override
     public boolean isEditing() {
         return this.calendar.isExpanded();
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<LocalDate> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final DateSelectionListener dateSelectionListener = (final CalendarDay oldDay,
-                                                             final CalendarDay newDay) -> watcher.onValue(
-            calendarDayToLocalDate(newDay)
-        );
-
-        this.calendar.addDateSelectionListener(dateSelectionListener);
-        return () -> this.calendar.removeDateSelectionListener(dateSelectionListener);
     }
 
     private final Calendar calendar;

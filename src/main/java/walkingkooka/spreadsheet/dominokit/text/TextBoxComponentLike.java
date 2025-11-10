@@ -21,16 +21,12 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
-import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
-    HasEventListeners<String, TextBoxComponent>,
-    HasValueWatchers<HTMLFieldSetElement, String, TextBoxComponent> {
+    HasEventListeners<String, TextBoxComponent> {
 
     TextBoxComponentLike() {
         super();

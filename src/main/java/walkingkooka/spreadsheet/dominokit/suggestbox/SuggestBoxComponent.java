@@ -278,6 +278,18 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
         );
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<T> changeListener = (final T oldValue,
+                                                  final T newValue) -> watcher.onValue(
+            Optional.ofNullable(newValue)
+        );
+        this.suggestBox.addChangeListener(changeListener);
+        return () -> this.suggestBox.removeChangeListener(changeListener);
+    }
+
     // isDisabled.......................................................................................................
 
     @Override
@@ -445,20 +457,6 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     }
 
     private final SuggestBoxComponentSuggestBox<T> suggestBox;
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final ChangeListener<T> changeListener = (final T oldValue,
-                                                  final T newValue) -> watcher.onValue(
-            Optional.ofNullable(newValue)
-        );
-        this.suggestBox.addChangeListener(changeListener);
-        return () -> this.suggestBox.removeChangeListener(changeListener);
-    }
 
     // Object...........................................................................................................
 

@@ -21,7 +21,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -35,8 +34,7 @@ import java.util.Optional;
  * A checkbox that uses {@link ValidationCheckbox} values
  */
 public final class ValidationCheckboxComponent implements FormValueComponent<HTMLFieldSetElement, Object, ValidationCheckboxComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValidationCheckboxComponent>,
-    HasValueWatchers<HTMLFieldSetElement, Object, ValidationCheckboxComponent> {
+    HtmlComponentDelegator<HTMLFieldSetElement, ValidationCheckboxComponent> {
 
     public static ValidationCheckboxComponent empty(final String id,
                                                     final ValidationCheckboxComponentContext context) {
@@ -207,8 +205,6 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
             value.trueValue() :
             value.falseValue();
     }
-
-    // HasValueWatchers.................................................................................................
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Object> watcher) {

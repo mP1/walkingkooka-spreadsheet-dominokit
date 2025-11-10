@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.upload;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -71,6 +70,14 @@ public final class UploadFileComponent extends UploadFileComponentLike
     private Optional<BrowserFile> value = Optional.empty();
 
     @Override
+    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {
+        };
+    }
+
+    @Override
     public UploadFileComponent setLabel(final String label) {
         this.label = Objects.requireNonNull(label, "label");
         return this;
@@ -112,15 +119,5 @@ public final class UploadFileComponent extends UploadFileComponentLike
     @Override
     public UploadFileComponent focus() {
         return this;
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return () -> {
-        };
     }
 }

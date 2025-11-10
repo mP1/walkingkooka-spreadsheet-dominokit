@@ -26,15 +26,13 @@ import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Optional;
 
 abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, Integer, IntegerBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, IntegerBoxComponent, Integer>,
-    HasEventListeners<Integer, IntegerBoxComponent>,
-    HasValueWatchers<HTMLFieldSetElement, Integer, IntegerBoxComponent> {
+    HasEventListeners<Integer, IntegerBoxComponent> {
 
     IntegerBoxComponentLike() {
         super();
@@ -47,6 +45,33 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
     public abstract  IntegerBoxComponent step(final int step);
 
     public abstract IntegerBoxComponent pattern(final String pattern);
+
+    // Value............................................................................................................
+
+    @Override
+    public final Runnable addValueWatcher(final ValueWatcher<Integer> watcher) {
+        final EventListener keyDownListener = (e) -> {
+            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+            if (Key.Enter.equals(keyboardEvent.key)) {
+                watcher.onValue(this.value());
+            }
+        };
+        this.addKeyDownListener(keyDownListener);
+
+        final EventListener inputListener = (e) -> watcher.onValue(this.value());
+        this.addInputListener(inputListener);
+
+        return () -> {
+            this.removeEventListener(
+                EventType.keydown,
+                keyDownListener
+            );
+            this.removeEventListener(
+                EventType.input,
+                inputListener
+            );
+        };
+    }
 
     // addXXXListener...................................................................................................
 
@@ -117,31 +142,4 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
     public abstract IntegerBoxComponent enterFiresValueChange();
 
     public abstract IntegerBoxComponent setValidator(final Validator<Optional<Integer>> validator);
-
-    // HasValueWatcher..................................................................................................
-
-    @Override
-    public final Runnable addValueWatcher(final ValueWatcher<Integer> watcher) {
-        final EventListener keyDownListener = (e) -> {
-            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-            if (Key.Enter.equals(keyboardEvent.key)) {
-                watcher.onValue(this.value());
-            }
-        };
-        this.addKeyDownListener(keyDownListener);
-
-        final EventListener inputListener = (e) -> watcher.onValue(this.value());
-        this.addInputListener(inputListener);
-
-        return () -> {
-            this.removeEventListener(
-                EventType.keydown,
-                keyDownListener
-            );
-            this.removeEventListener(
-                EventType.input,
-                inputListener
-            );
-        };
-    }
 }

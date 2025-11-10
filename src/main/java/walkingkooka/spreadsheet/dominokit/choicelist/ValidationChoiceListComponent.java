@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -40,8 +39,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link Object}.
  */
 public final class ValidationChoiceListComponent implements FormValueComponent<HTMLFieldSetElement, Object, ValidationChoiceListComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValidationChoiceListComponent>,
-    HasValueWatchers<HTMLFieldSetElement, Object, ValidationChoiceListComponent> {
+    HtmlComponentDelegator<HTMLFieldSetElement, ValidationChoiceListComponent> {
 
     public static ValidationChoiceListComponent empty(final String id,
                                                       final ValidationChoiceListComponentContext context) {
@@ -241,13 +239,6 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     }
 
     @Override
-    public boolean isEditing() {
-        return this.select.isEditing();
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
     public Runnable addValueWatcher(final ValueWatcher<Object> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
@@ -256,6 +247,11 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                 value.map(ValidationChoice::value)
             )
         );
+    }
+
+    @Override
+    public boolean isEditing() {
+        return this.select.isEditing();
     }
 
     // HtmlComponentDelegator...........................................................................................

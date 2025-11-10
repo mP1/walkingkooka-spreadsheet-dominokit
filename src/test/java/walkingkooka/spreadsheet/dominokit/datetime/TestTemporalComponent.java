@@ -32,7 +32,7 @@ abstract class TestTemporalComponent<V, C extends TestTemporalComponent<V, C>> e
         super();
     }
 
-    // HasValueWatchers.................................................................................................
+    // Value............................................................................................................
 
     @Override
     public final Runnable addValueWatcher(final ValueWatcher<V> watcher) {

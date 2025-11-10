@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.text.CharSequences;
@@ -47,8 +46,7 @@ import java.util.function.Function;
  * within a larger {@link SpreadsheetColumnOrRowSpreadsheetComparatorNamesList}.
  */
 final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements FormValueComponent<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
-    HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent>,
-    HasValueWatchers<HTMLDivElement, SpreadsheetColumnOrRowSpreadsheetComparatorNames, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
+    HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> {
 
     static SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent with(final String id,
                                                                                                             final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveUp,
@@ -246,6 +244,12 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         return this;
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetColumnOrRowSpreadsheetComparatorNames> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.names.addValueWatcher(watcher);
+    }
 
     @Override
     public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent alwaysShowHelperText() {
@@ -322,15 +326,6 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
-    }
-
-    // ValueWatcher.....................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetColumnOrRowSpreadsheetComparatorNames> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return this.names.addValueWatcher(watcher);
     }
 
     // HtmlComponentDelegator...........................................................................................

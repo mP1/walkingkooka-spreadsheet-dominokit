@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlStyledComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -30,8 +29,7 @@ import java.util.stream.Collectors;
 
 abstract class SliderComponentLike implements FormValueComponent<HTMLDivElement, Double, SliderComponent>,
     HtmlStyledComponent<SliderComponent>,
-    TreePrintable,
-    HasValueWatchers<HTMLDivElement, Double, SliderComponent> {
+    TreePrintable {
 
     SliderComponentLike() {
         super();

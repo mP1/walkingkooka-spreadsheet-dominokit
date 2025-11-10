@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -51,8 +50,7 @@ import java.util.stream.Collectors;
 public final class SpreadsheetLabelComponent implements SuggestBoxComponentDelegator<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent>,
     SpreadsheetDeltaFetcherWatcher,
     NopFetcherWatcher,
-    NopEmptyResponseFetcherWatcher,
-    HasValueWatchers<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent> {
+    NopEmptyResponseFetcherWatcher {
 
     public static SpreadsheetLabelComponent with(final Function<SpreadsheetLabelName, MenuItem<SpreadsheetLabelName>> optionMenuItemCreator,
                                                  final SpreadsheetLabelComponentContext context) {
@@ -120,6 +118,11 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
         return this.suggestBox.value();
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetLabelName> watcher) {
+        return this.suggestBox.addValueWatcher(watcher);
+    }
+
     // focus............................................................................................................
 
     @Override
@@ -141,13 +144,6 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
     }
 
     private final SuggestBoxComponent<SpreadsheetLabelName> suggestBox;
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetLabelName> watcher) {
-        return this.suggestBox.addValueWatcher(watcher);
-    }
 
     // TreePrintable....................................................................................................
 

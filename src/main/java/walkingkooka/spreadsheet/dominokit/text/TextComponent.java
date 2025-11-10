@@ -22,6 +22,7 @@ import elemental2.dom.Node;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -99,6 +100,13 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
         Objects.requireNonNull(value, "value");
         this.value = value;
         return this;
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
     }
 
     @Override

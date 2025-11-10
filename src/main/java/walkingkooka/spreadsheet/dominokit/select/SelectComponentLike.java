@@ -24,7 +24,6 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Objects;
@@ -35,8 +34,7 @@ import java.util.Optional;
  */
 abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
-    HasEventListeners<T, SelectComponent<T>>,
-    HasValueWatchers<HTMLFieldSetElement, T, SelectComponent<T>> {
+    HasEventListeners<T, SelectComponent<T>> {
 
     SelectComponentLike() {
         super();
@@ -129,7 +127,7 @@ abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSet
 
     abstract SelectComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener);
 
-    // HasValueWatchers.................................................................................................
+    // Value............................................................................................................
 
     @Override
     public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {

@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.time.Instant;
@@ -34,8 +33,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C>,
-    FormValueComponentTreePrintable<HTMLDivElement, C, V>,
-    HasValueWatchers<HTMLDivElement, V, C> {
+    FormValueComponentTreePrintable<HTMLDivElement, C, V> {
 
     /**
      * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
