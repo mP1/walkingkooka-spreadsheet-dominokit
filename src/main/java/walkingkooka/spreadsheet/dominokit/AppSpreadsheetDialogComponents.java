@@ -136,6 +136,11 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void cellValue(final AppContext context) {
+        cellValueAbsoluteUrl(
+            SpreadsheetValueType.ABSOLUTE_URL,
+            context
+        );
+
         cellValue(
             SpreadsheetValueType.DATE,
             LocalDate.class,
@@ -196,13 +201,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             context
         );
 
-        cellValue(
+        cellValueAbsoluteUrl(
             SpreadsheetValueType.URL,
-            AbsoluteUrl.class,
-            (id, c) -> AbsoluteUrlComponent.empty()
-                .setId(
-                    id + SpreadsheetElementIds.TEXT_BOX
-                ).optional(),
             context
         );
 
@@ -213,6 +213,19 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 id + SpreadsheetElementIds.TEXT_BOX,
                 c
             ).optional(),
+            context
+        );
+    }
+
+    private static void cellValueAbsoluteUrl(final ValueTypeName value,
+                                             final AppContext context) {
+        cellValue(
+            value,
+            AbsoluteUrl.class,
+            (id, c) -> AbsoluteUrlComponent.empty()
+                .setId(
+                    id + SpreadsheetElementIds.TEXT_BOX
+                ).optional(),
             context
         );
     }
