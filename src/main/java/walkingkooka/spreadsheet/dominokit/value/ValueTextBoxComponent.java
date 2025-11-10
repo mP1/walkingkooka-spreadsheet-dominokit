@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -39,6 +40,7 @@ import java.util.function.Function;
  */
 public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>>,
+    HasEventListeners<T, ValueTextBoxComponent<T>>,
     HasValueWatchers<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>{
 
     /**
