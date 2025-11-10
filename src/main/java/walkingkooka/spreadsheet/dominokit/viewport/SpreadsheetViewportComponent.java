@@ -1005,7 +1005,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         }
 
         this.refreshIfOpen(this.context);
-        if(false == this.isOpen()) {
+        if (false == this.isOpen()) {
             this.refreshLayout();
         }
 
