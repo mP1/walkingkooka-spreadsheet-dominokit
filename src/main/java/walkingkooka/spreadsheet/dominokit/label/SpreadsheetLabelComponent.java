@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.menu.MenuItem;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.UrlPath;
 import walkingkooka.net.http.HttpMethod;
@@ -120,38 +118,6 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
     @Override //
     public Optional<SpreadsheetLabelName> value() {
         return this.suggestBox.value();
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    public SpreadsheetLabelComponent addChangeListener(final ChangeListener<Optional<SpreadsheetLabelName>> listener) {
-        this.suggestBox.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLabelComponent addClickListener(final EventListener listener) {
-        this.suggestBox.addClickListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLabelComponent addFocusListener(final EventListener listener) {
-        this.suggestBox.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLabelComponent addKeyDownListener(final EventListener listener) {
-        this.suggestBox.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetLabelComponent addKeyUpListener(final EventListener listener) {
-        this.suggestBox.addKeyUpListener(listener);
-        return this;
     }
 
     // focus............................................................................................................

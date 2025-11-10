@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
@@ -66,47 +64,6 @@ public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HT
     @Override
     public boolean isEditing() {
         return this.suggestBox.isEditing();
-    }
-
-    @Override
-    public LocaleComponent<T> addChangeListener(final ChangeListener<Optional<Locale>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addChangeListener(
-            (Optional<LocaleComponentSuggestionsValue<T>> oldLocale, Optional<LocaleComponentSuggestionsValue<T>> newLocale) -> listener.onValueChanged(
-                oldLocale.map(HasLocale::locale),
-                newLocale.map(HasLocale::locale)
-            )
-        );
-        return this;
-    }
-
-    @Override
-    public LocaleComponent<T> addClickListener(final EventListener listener) {
-        this.suggestBox.addClickListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public LocaleComponent<T> addFocusListener(final EventListener listener) {
-        this.suggestBox.addFocusListener(
-            listener
-        );
-        return this;
-    }
-
-    @Override
-    public LocaleComponent<T> addKeyDownListener(final EventListener listener) {
-        this.suggestBox.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public LocaleComponent<T> addKeyUpListener(final EventListener listener) {
-        this.suggestBox.addKeyUpListener(listener);
-        return this;
     }
 
     // Value............................................................................................................

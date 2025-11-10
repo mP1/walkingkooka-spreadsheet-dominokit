@@ -18,10 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 import elemental2.dom.Element;
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
-import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
@@ -346,35 +344,6 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     public SuggestBoxComponent<T> setErrors(final List<String> errors) {
         this.suggestBox.invalidate(
             Lists.immutable(errors)
-        );
-        return this;
-    }
-
-    // xxxChangeListener................................................................................................
-
-    @Override
-    public SuggestBoxComponent<T> addChangeListener(final ChangeListener<Optional<T>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addChangeListener(
-            (final T oldValue,
-             final T newValue) -> listener.onValueChanged(
-                Optional.ofNullable(oldValue),
-                Optional.ofNullable(newValue)
-            )
-        );
-
-        return this;
-    }
-
-    @Override
-    SuggestBoxComponent<T> addEventListener(final EventType eventType,
-                                                    final EventListener listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.suggestBox.addEventListener(
-            eventType,
-            listener
         );
         return this;
     }

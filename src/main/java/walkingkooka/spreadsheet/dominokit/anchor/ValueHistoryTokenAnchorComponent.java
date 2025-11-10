@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
-import elemental2.dom.EventListener;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.Objects;
@@ -86,30 +85,6 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     @Override
     public ValueHistoryTokenAnchorComponent<T> setDisabled(final boolean disabled) {
         this.anchor.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> addClickListener(final EventListener listener) {
-        this.anchor.addClickListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> addFocusListener(final EventListener listener) {
-        this.anchor.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> addKeyDownListener(final EventListener listener) {
-        this.anchor.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public ValueHistoryTokenAnchorComponent<T> addKeyUpListener(final EventListener listener) {
-        this.anchor.addKeyUpListener(listener);
         return this;
     }
 

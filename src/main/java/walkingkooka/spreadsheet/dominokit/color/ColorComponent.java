@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.color;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLTableElement;
-import org.dominokit.domino.ui.events.EventType;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -237,76 +234,6 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     @Override
     public ColorComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ColorComponent addBlurListener(EventListener listener) {
-        return this.addEventListener(
-            EventType.blur,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addClickListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.click,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addChangeListener(final ChangeListener<Optional<Color>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ColorComponent addContextMenuListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.contextmenu,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addFocusListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.focus,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addInputListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.input,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addKeyDownListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keydown,
-            listener
-        );
-    }
-
-    @Override
-    public ColorComponent addKeyUpListener(final EventListener listener) {
-        return this.addEventListener(
-            EventType.keyup,
-            listener
-        );
-    }
-
-    private ColorComponent addEventListener(final EventType type,
-                                            final EventListener listener) {
-        this.element().addEventListener(
-            type.getName(),
-            Objects.requireNonNull(listener, "listener")
-        );
-        return this;
     }
 
     @Override

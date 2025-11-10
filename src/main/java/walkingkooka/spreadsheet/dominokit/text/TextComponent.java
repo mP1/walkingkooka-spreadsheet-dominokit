@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.text;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -146,48 +144,6 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
 
     @Override
     public TextComponent removeCssProperty(final String name) {
-        throw new UnsupportedOperationException();
-    }
-
-    // events...........................................................................................................
-
-    @Override
-    public TextComponent addBlurListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addChangeListener(final ChangeListener<Optional<String>> listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addClickListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addContextMenuListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextComponent addKeyUpListener(final EventListener listener) {
         throw new UnsupportedOperationException();
     }
 

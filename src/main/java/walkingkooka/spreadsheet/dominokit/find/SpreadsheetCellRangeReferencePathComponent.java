@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.find;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -180,54 +178,6 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     @Override
     public SpreadsheetCellRangeReferencePathComponent removePadding() {
         this.select.removePadding();
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addBlurListener(final EventListener listener) {
-        this.select.addBlurListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addClickListener(final EventListener listener) {
-        this.select.addClickListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addChangeListener(final ChangeListener<Optional<SpreadsheetCellRangeReferencePath>> listener) {
-        this.select.addChangeListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addContextMenuListener(final EventListener listener) {
-        this.select.addContextMenuListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addFocusListener(final EventListener listener) {
-        this.select.addFocusListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addInputListener(final EventListener listener) {
-        this.select.addInputListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addKeyDownListener(final EventListener listener) {
-        this.select.addKeyDownListener(listener);
-        return this;
-    }
-
-    @Override
-    public SpreadsheetCellRangeReferencePathComponent addKeyUpListener(final EventListener listener) {
-        this.select.addKeyUpListener(listener);
         return this;
     }
 

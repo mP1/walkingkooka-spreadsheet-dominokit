@@ -17,13 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.datepicker.DateSelectionListener;
 import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -128,72 +126,6 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
     public DateTimeComponent resetView() {
         this.calendar.resetView();
-        return this;
-    }
-
-    // events...........................................................................................................
-
-    /**
-     * Register a listener for both the date and time components. When an event is fired, the given {@link ChangeListener}
-     * is fired combining the event component with the value of the other component.
-     */
-    @Override
-    public DateTimeComponent addChangeListener(final ChangeListener<Optional<LocalDateTime>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        final Calendar calendar = this.calendar;
-        final TimePicker timePicker = this.timePicker;
-        final Supplier<LocalDateTime> clearValue = this.clearValue;
-
-        calendar.addDateSelectionListener(
-            (final CalendarDay oldDay,
-             final CalendarDay newDay) -> {
-                final Optional<LocalTime> time = dateToLocalTime(
-                    timePicker.getDate()
-                );
-                listener.onValueChanged(
-                    toLocalDateTime(
-                        calendarDayToLocalDate(oldDay),
-                        time,
-                        clearValue
-                    ),
-                    toLocalDateTime(
-                        calendarDayToLocalDate(newDay),
-                        time,
-                        clearValue
-                    )
-                );
-            }
-        );
-
-        timePicker.addTimeSelectionListener(
-            (final Date oldTime,
-             final Date newTime) -> {
-                final Optional<LocalDate> date = dateToLocalDate(
-                    calendar.getDate()
-                );
-                listener.onValueChanged(
-                    toLocalDateTime(
-                        date,
-                        dateToLocalTime(oldTime),
-                        clearValue
-                    ),
-                    toLocalDateTime(
-                        date,
-                        dateToLocalTime(newTime),
-                        clearValue
-                    )
-                );
-            }
-        );
-
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent addClickListener(final EventListener listener) {
-        this.calendar.addClickListener(listener);
-        this.timePicker.addClickListener(listener);
         return this;
     }
 

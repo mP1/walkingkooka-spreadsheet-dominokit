@@ -18,9 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.Event;
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -224,63 +222,6 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
     }
 
     @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addBlurListener(final EventListener listener) {
-       throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addClickListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addChangeListener(final ChangeListener<Optional<R>> listener) {
-        this.slider.addChangeListener(
-            (Optional<Double> oldValue, Optional<Double> newValue) -> listener.onValueChanged(
-                oldValue.map(this::doubleToReference),
-                newValue.map(this::doubleToReference)
-            )
-        );
-        return this;
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addContextMenuListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addFocusListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addInputListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addKeyDownListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public final SpreadsheetViewportScrollbarComponent<R> addKeyUpListener(final EventListener listener) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<R> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return this.slider.addValueWatcher(
-            (Optional<Double> value) -> watcher.onValue(
-                value.map(this::doubleToReference)
-            )
-        );
-    }
-
-    @Override
     public final SpreadsheetViewportScrollbarComponent<R> hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
@@ -317,6 +258,19 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
     }
 
     abstract SpreadsheetColumnOrRowReferenceKind referenceKind();
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<R> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.slider.addValueWatcher(
+            (Optional<Double> value) -> watcher.onValue(
+                value.map(this::doubleToReference)
+            )
+        );
+    }
 
     // TreePrintable....................................................................................................
 

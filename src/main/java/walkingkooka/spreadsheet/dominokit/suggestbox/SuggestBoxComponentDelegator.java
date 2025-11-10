@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -158,60 +156,6 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
         this.suggestBoxComponent()
             .validate();
         return (C)this;
-    }
-
-    // listeners........................................................................................................
-
-    @Override
-    C addChangeListener(final ChangeListener<Optional<V>> listener);
-
-    @Override
-    default C addBlurListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addBlurListener(listener);
-        return (C) this;
-    }
-    
-    @Override
-    default C addClickListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addClickListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addContextMenuListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addContextMenuListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addFocusListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addFocusListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addInputListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addInputListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addKeyDownListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addKeyDownListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addKeyUpListener(final EventListener listener) {
-        this.suggestBoxComponent()
-            .addKeyUpListener(listener);
-        return (C) this;
     }
 
     // HtmlComponentDelegator...........................................................................................

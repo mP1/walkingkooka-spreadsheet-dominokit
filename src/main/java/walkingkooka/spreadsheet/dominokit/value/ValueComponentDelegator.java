@@ -17,9 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 
@@ -54,62 +52,6 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     default C setDisabled(final boolean disabled) {
         this.valueComponent()
             .setDisabled(disabled);
-        return (C) this;
-    }
-
-    @Override
-    default C addBlurListener(final EventListener listener) {
-        this.valueComponent()
-            .addBlurListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addChangeListener(final ChangeListener<Optional<V>> listener) {
-        this.valueComponent()
-            .addChangeListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addClickListener(final EventListener listener) {
-        this.valueComponent()
-            .addClickListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addContextMenuListener(final EventListener listener) {
-        this.valueComponent()
-            .addContextMenuListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addFocusListener(final EventListener listener) {
-        this.valueComponent()
-            .addFocusListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addInputListener(final EventListener listener) {
-        this.valueComponent()
-            .addInputListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addKeyDownListener(final EventListener listener) {
-        this.valueComponent()
-            .addKeyDownListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addKeyUpListener(final EventListener listener) {
-        this.valueComponent()
-            .addKeyUpListener(listener);
         return (C) this;
     }
 

@@ -17,16 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
-import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> extends AnchorComponent<A, T>,
@@ -153,67 +150,6 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     @Override
     default A setIconAfter(final Optional<Icon<?>> icon) {
         this.anchorComponent().setIconAfter(icon);
-        return (A) this;
-    }
-
-    // addXXXListener...................................................................................................
-
-    @Override
-    default A addBlurListener(final EventListener listener) {
-        this.anchorComponent()
-            .addBlurListener(listener);
-        return (A) this;
-    }
-    
-    /**
-     * Anchors dont fire change listeners, therefore any listener will never receive any events.
-     */
-    @Override
-    default A addChangeListener(final ChangeListener<Optional<T>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        return (A) this;
-    }
-
-    @Override
-    default A addClickListener(final EventListener listener) {
-        this.anchorComponent()
-            .addClickListener(listener);
-        return (A) this;
-    }
-
-    @Override
-    default A addContextMenuListener(final EventListener listener) {
-        this.anchorComponent()
-            .addContextMenuListener(listener);
-        return (A) this;
-    }
-
-    @Override
-    default A addFocusListener(final EventListener listener) {
-        this.anchorComponent()
-            .addFocusListener(listener);
-        return (A) this;
-    }
-
-    @Override
-    default A addInputListener(final EventListener listener) {
-        this.anchorComponent()
-            .addInputListener(listener);
-        return (A) this;
-    }
-    
-    @Override
-    default A addKeyDownListener(final EventListener listener) {
-        this.anchorComponent()
-            .addKeyDownListener(listener);
-        return (A) this;
-    }
-
-    @Override
-    default A addKeyUpListener(final EventListener listener) {
-        this.anchorComponent()
-            .addKeyUpListener(listener);
         return (A) this;
     }
 

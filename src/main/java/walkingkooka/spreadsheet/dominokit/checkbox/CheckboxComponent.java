@@ -21,7 +21,6 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.CheckBox;
-import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -137,31 +136,6 @@ public final class CheckboxComponent extends CheckboxComponentLike {
         return this;
     }
 
-    // events...........................................................................................................
-
-    @Override
-    public CheckboxComponent addChangeListener(final ChangeListener<Optional<Boolean>> listener) {
-        Objects.requireNonNull(listener, "listener");
-
-        this.checkbox.addChangeListener(
-            (oldValue, newValue) -> listener.onValueChanged(
-                Optional.ofNullable(oldValue),
-                Optional.ofNullable(newValue)
-            )
-        );
-        return this;
-    }
-
-    @Override
-    CheckboxComponent addEventListener(final EventType type,
-                                       final EventListener listener) {
-        this.checkbox.addEventListener(
-            type,
-            Objects.requireNonNull(listener, "listener")
-        );
-        return this;
-    }
-
     // focus............................................................................................................
 
     @Override
@@ -251,7 +225,7 @@ public final class CheckboxComponent extends CheckboxComponentLike {
     // HasValueWatchers.................................................................................................
 
     @Override
-    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+    public final Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
         final EventListener inputEventListener = event -> watcher.onValue(this.value());
