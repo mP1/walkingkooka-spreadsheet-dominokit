@@ -173,34 +173,34 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             "ToolbarComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hideZeroValues-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-showFormulaEditor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
-                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Headings\"\n" +
-                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
-                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
+                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-showGridLines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
-                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-labelCreate-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
-                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-labelList-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
@@ -276,13 +276,13 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-format-text \"Formatting\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/formatter] id=toolbar-formatter-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Formatting...\"\n" +
-                "      mdi-earth \"DateTimeSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/dateTimeSymbols] id=toolbar-date-time-symbols-Link\n" +
+                "      mdi-earth \"DateTimeSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/dateTimeSymbols] id=toolbar-dateTimeSymbols-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"DateTimeSymbols...\"\n" +
                 "      mdi-format-text \"Parsing\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/parser] id=toolbar-parser-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Parser(s)...\"\n" +
-                "      mdi-earth \"DecimalNumberSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/decimalNumberSymbols] id=toolbar-decimal-number-symbols-Link\n" +
+                "      mdi-earth \"DecimalNumberSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/decimalNumberSymbols] id=toolbar-decimalNumberSymbols-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"DecimalNumberSymbols...\"\n" +
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
@@ -291,37 +291,37 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-sign-yield \"Validator\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/validator] id=toolbar-validator-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Validator...\"\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hideZeroValues-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-showFormulaEditor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
-                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Headings\"\n" +
-                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
-                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
+                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-showGridLines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
-                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-find-cells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-sort-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/label] id=toolbar-labelCreate-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
-                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/labels] id=toolbar-label-list-Link\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/labels] id=toolbar-labelList-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/reload] id=toolbar-reload-Link\n" +
@@ -352,37 +352,37 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             "ToolbarComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hideZeroValues-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-showFormulaEditor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
-                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Headings\"\n" +
-                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
-                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
+                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-showGridLines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
-                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-labelCreate-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
-                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-labelList-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +
@@ -413,37 +413,37 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             "ToolbarComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hide-zero-values-Link\n" +
+                "      mdi-star \"Hide Zeros\" [#/1/Spreadsheet123/spreadsheet/hideZeroValues/save/true] id=toolbar-hideZeroValues-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Zero Values\"\n" +
-                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-show-formula-editor-Link\n" +
+                "      mdi-form-textbox \"Show Formula Editor\" [#/1/Spreadsheet123/spreadsheet/showFormulaEditor/save/false] CHECKED id=toolbar-showFormulaEditor-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Formula Editor\"\n" +
-                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-show-formulas-Link\n" +
+                "      mdi-table-large \"Show Headings\" [#/1/Spreadsheet123/spreadsheet/showHeadings/save/false] CHECKED id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Headings\"\n" +
-                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-show-formulas-Link\n" +
+                "      mdi-math-integral \"Show Formulas\" [#/1/Spreadsheet123/spreadsheet/showFormulas/save/true] id=toolbar-showFormulas-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Hide Formulas\"\n" +
-                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-show-grid-lines-Link\n" +
+                "      mdi-grid \"Show Grid Lines\" [#/1/Spreadsheet123/spreadsheet/showGridLines/save/false] CHECKED id=toolbar-showGridLines-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Show Grid Lines\"\n" +
-                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-auto-hide-scrollbars-Link\n" +
+                "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-find-cells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-find-highlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/findHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Sort cell(s), column(s), row(s)...\"\n" +
-                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-label-create-Link\n" +
+                "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-labelCreate-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Create Label\"\n" +
-                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-label-list-Link\n" +
+                "      mdi-flag-checkered \"Labels\" [#/1/Spreadsheet123/label] id=toolbar-labelList-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Labels\"\n" +
                 "      mdi-reload \"Reload\" [#/1/Spreadsheet123/reload] id=toolbar-reload-Link\n" +

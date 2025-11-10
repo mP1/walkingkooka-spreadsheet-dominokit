@@ -240,23 +240,23 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     }
 
     public static String autoHideScrollbarsId() {
-        return TOOLBAR_ID_PREFIX + "auto-hide-scrollbars";
+        return TOOLBAR_ID_PREFIX + "autoHideScrollbars";
     }
 
     public static String dateTimeSymbolsId() {
-        return TOOLBAR_ID_PREFIX + "date-time-symbols";
+        return TOOLBAR_ID_PREFIX + "dateTimeSymbols";
     }
 
     public static String decimalNumberSymbolsId() {
-        return TOOLBAR_ID_PREFIX + "decimal-number-symbols";
+        return TOOLBAR_ID_PREFIX + "decimalNumberSymbols";
     }
 
     public static String findCellsId() {
-        return TOOLBAR_ID_PREFIX + "find-cells";
+        return TOOLBAR_ID_PREFIX + "findCells";
     }
 
     public static String findHighlightId() {
-        return TOOLBAR_ID_PREFIX + "find-highlight";
+        return TOOLBAR_ID_PREFIX + "findHighlight";
     }
 
     public static String formatterId() {
@@ -264,15 +264,15 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     }
 
     public static String hideZeroValues() {
-        return TOOLBAR_ID_PREFIX + "hide-zero-values";
+        return TOOLBAR_ID_PREFIX + "hideZeroValues";
     }
 
     public static String labelCreateId() {
-        return TOOLBAR_ID_PREFIX + "label-create";
+        return TOOLBAR_ID_PREFIX + "labelCreate";
     }
 
     public static String labelListId() {
-        return TOOLBAR_ID_PREFIX + "label-list";
+        return TOOLBAR_ID_PREFIX + "labelList";
     }
 
     public static String parserId() {
@@ -288,19 +288,19 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     }
 
     public static String showFormulasId() {
-        return TOOLBAR_ID_PREFIX + "show-formulas";
+        return TOOLBAR_ID_PREFIX + "showFormulas";
     }
 
     public static String showFormulaEditorId() {
-        return TOOLBAR_ID_PREFIX + "show-formula-editor";
+        return TOOLBAR_ID_PREFIX + "showFormulaEditor";
     }
 
     public static String showGridLinesIds() {
-        return TOOLBAR_ID_PREFIX + "show-grid-lines";
+        return TOOLBAR_ID_PREFIX + "showGridLines";
     }
 
     public static String showHeadingsId() {
-        return TOOLBAR_ID_PREFIX + "show-headings";
+        return TOOLBAR_ID_PREFIX + "showHeadings";
     }
 
     public static String sortId() {
