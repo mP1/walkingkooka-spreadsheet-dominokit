@@ -19,16 +19,10 @@ package walkingkooka.spreadsheet.dominokit.text;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
-import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
-import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-
-import java.util.Objects;
-import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
@@ -98,37 +92,4 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     abstract TextBoxComponent addEventListener(final EventType eventType,
                                                final EventListener listener);
-
-    /**
-     * Fires a {@link ValueWatcher#onValue(Optional)} when the value changes or ENTER is hit.
-     */
-    @Override
-    public final Runnable addValueWatcher(final ValueWatcher<String> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final EventListener keyDownListener = (e) -> {
-            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-            if (Key.Enter.equals(keyboardEvent.key)) {
-                watcher.onValue(this.value());
-            }
-        };
-        this.addKeyDownListener(keyDownListener);
-
-        final EventListener inputListener = (e) -> watcher.onValue(this.value());
-        this.addInputListener(inputListener);
-
-        return () -> {
-            this.removeEventListener(
-                EventType.keydown,
-                keyDownListener
-            );
-            this.removeEventListener(
-                EventType.input,
-                inputListener
-            );
-        };
-    }
-
-    abstract void removeEventListener(final EventType type,
-                                      final EventListener listener);
 }

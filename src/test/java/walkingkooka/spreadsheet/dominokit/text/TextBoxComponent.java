@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -174,12 +175,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
-    void removeEventListener(final EventType type,
-                             final EventListener listener) {
-        // NOP
-    }
-
-    @Override
     public TextBoxComponent alwaysShowHelperText() {
         return this;
     }
@@ -258,6 +253,15 @@ public final class TextBoxComponent extends TextBoxComponentLike
     @Override
     public boolean isEditing() {
         return false;
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
     }
 
     // FormValueComponentTreePrintable..................................................................................

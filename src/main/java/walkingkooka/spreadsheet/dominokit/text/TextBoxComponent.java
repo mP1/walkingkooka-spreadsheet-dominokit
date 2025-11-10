@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -79,16 +80,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 listener
             );
         return this;
-    }
-
-    @Override
-    void removeEventListener(final EventType type,
-                             final EventListener listener) {
-        this.textBox.getInputElement()
-            .removeEventListener(
-                type,
-                listener
-            );
     }
 
     public TextBoxComponent autocompleteOff() {
@@ -276,6 +267,45 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 null :
                 value
         );
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    /**
+     * Fires a {@link ValueWatcher#onValue(Optional)} when the value changes or ENTER is hit.
+     */
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final EventListener keyDownListener = (e) -> {
+            final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
+            if (Key.Enter.equals(keyboardEvent.key)) {
+                watcher.onValue(this.value());
+            }
+        };
+        final TextBox textBox = this.textBox;
+        textBox.addEventListener(
+            EventType.keydown,
+            keyDownListener
+        );
+
+        final EventListener inputListener = (e) -> watcher.onValue(this.value());
+        textBox.addEventListener(
+            EventType.input,
+            inputListener
+        );
+
+        return () -> {
+            textBox.removeEventListener(
+                EventType.keydown,
+                keyDownListener
+            );
+            textBox.removeEventListener(
+                EventType.input,
+                inputListener
+            );
+        };
     }
 
     // ValueComponent...................................................................................................
