@@ -156,12 +156,13 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             context
         );
 
-        cellValue(
+        cellValueEmail(
             SpreadsheetValueType.EMAIL,
-            EmailAddress.class,
-            (id, c) -> EmailAddressComponent.empty()
-                .setId(id + SpreadsheetElementIds.TEXT_BOX)
-                .optional(),
+            context
+        );
+
+        cellValueEmail(
+            SpreadsheetValueType.EMAIL_ADDRESS,
             context
         );
 
@@ -212,6 +213,18 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
                 id + SpreadsheetElementIds.TEXT_BOX,
                 c
             ).optional(),
+            context
+        );
+    }
+
+    private static void cellValueEmail(final ValueTypeName value,
+                                       final AppContext context) {
+        cellValue(
+            value,
+            EmailAddress.class,
+            (id, c) -> EmailAddressComponent.empty()
+                .setId(id + SpreadsheetElementIds.TEXT_BOX)
+                .optional(),
             context
         );
     }
