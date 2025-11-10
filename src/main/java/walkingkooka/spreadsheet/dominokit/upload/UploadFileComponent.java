@@ -29,12 +29,12 @@ import org.dominokit.domino.ui.upload.FileItem;
 import org.dominokit.domino.ui.upload.FileUpload;
 import org.dominokit.domino.ui.upload.IsFilePreview;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.net.DataUrl;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -155,10 +155,7 @@ public final class UploadFileComponent extends UploadFileComponentLike {
                 this.fileUpload.removeFileItems();
             }
 
-            this.fireChangeListeners(
-                oldValue,
-                value
-            );
+            this.valueWatchers.onValue(value);
         }
         return this;
     }
@@ -191,8 +188,7 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     public UploadFileComponent addChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
         Objects.requireNonNull(listener, "listener");
 
-        this.changeListener.add(listener);
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -212,7 +208,6 @@ public final class UploadFileComponent extends UploadFileComponentLike {
         final FileReader fileReader = new FileReader();
         fileReader.onload = (final ProgressEvent<FileReader> progressEvent) ->
         {
-            final Optional<BrowserFile> oldValue = this.value;
             final Optional<BrowserFile> newValue = Optional.of(
                 BrowserFile.base64(
                     file.name,
@@ -223,34 +218,13 @@ public final class UploadFileComponent extends UploadFileComponentLike {
             );
             this.value = newValue;
 
-            this.fireChangeListeners(
-                oldValue, // oldValue
-                newValue
-            );
+            this.valueWatchers.onValue(newValue);
             return null;
         };
         fileReader.readAsDataURL(file);
 
         fileItem.addRemoveHandler((removedFileIgnored) -> this.setValue(Optional.empty()));
     }
-
-    private void fireChangeListeners(final Optional<BrowserFile> oldValue,
-                                     final Optional<BrowserFile> newValue) {
-        for (final ChangeListener<Optional<BrowserFile>> listener : this.changeListener) {
-            listener.onValueChanged(
-                oldValue,
-                newValue
-            );
-        }
-    }
-
-    @Override
-    UploadFileComponent removeChangeListener(final ChangeListener<Optional<BrowserFile>> listener) {
-        this.changeListener.remove(listener);
-        return this;
-    }
-
-    private final List<ChangeListener<Optional<BrowserFile>>> changeListener = Lists.array();
 
     @Override
     public UploadFileComponent addFocusListener(final EventListener listener) {
@@ -272,6 +246,17 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
     }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.valueWatchers.add(watcher);
+    }
+
+    private final ValueWatchers<BrowserFile> valueWatchers = ValueWatchers.empty();
 
     // HtmlComponent....................................................................................................
 
