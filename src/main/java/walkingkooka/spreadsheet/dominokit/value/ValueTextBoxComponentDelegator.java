@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
@@ -33,6 +34,7 @@ import java.util.Optional;
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
     extends FormValueComponent<HTMLFieldSetElement, V, C>,
     HtmlComponentDelegator<HTMLFieldSetElement, C>,
+    HasEventListeners<V, C>,
     HasValueWatchers<HTMLFieldSetElement, V, C> {
 
     @Override
