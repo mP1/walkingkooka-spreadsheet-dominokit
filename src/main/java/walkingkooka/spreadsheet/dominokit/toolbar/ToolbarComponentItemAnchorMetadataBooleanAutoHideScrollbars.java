@@ -33,7 +33,7 @@ final class ToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars extends 
 
     private ToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.autoHideScrollbarsId(),
+            ToolbarComponent.AUTO_HIDE_SCROLL_BARS_ID,
             Optional.of(
                 SpreadsheetIcons.autoHideScrollbars()
             ),

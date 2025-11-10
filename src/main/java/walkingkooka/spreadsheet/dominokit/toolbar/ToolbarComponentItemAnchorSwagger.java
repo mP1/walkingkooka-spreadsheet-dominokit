@@ -38,7 +38,7 @@ final class ToolbarComponentItemAnchorSwagger extends ToolbarComponentItemAnchor
 
     private ToolbarComponentItemAnchorSwagger(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.swaggerId(),
+            ToolbarComponent.SWAGGER_ID,
             Optional.of(
                 SpreadsheetIcons.swagger()
             ),

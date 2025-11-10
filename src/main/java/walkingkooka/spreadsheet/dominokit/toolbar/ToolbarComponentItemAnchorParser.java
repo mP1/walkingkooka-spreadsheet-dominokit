@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorParser extends ToolbarComponentItemAnchor<
 
     private ToolbarComponentItemAnchorParser(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.parserId(),
+            ToolbarComponent.PARSER_ID,
             Optional.of(
                 SpreadsheetIcons.parser()
             ),

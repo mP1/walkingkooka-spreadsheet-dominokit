@@ -238,82 +238,45 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
                 v -> '-' + v.toString().toUpperCase()
             ).orElse("");
     }
-
-    public static String autoHideScrollbarsId() {
-        return TOOLBAR_ID_PREFIX + "autoHideScrollbars";
-    }
-
-    public static String dateTimeSymbolsId() {
-        return TOOLBAR_ID_PREFIX + "dateTimeSymbols";
-    }
-
-    public static String decimalNumberSymbolsId() {
-        return TOOLBAR_ID_PREFIX + "decimalNumberSymbols";
-    }
-
-    public static String findCellsId() {
-        return TOOLBAR_ID_PREFIX + "findCells";
-    }
-
-    public static String findHighlightId() {
-        return TOOLBAR_ID_PREFIX + "findHighlight";
-    }
-
-    public static String formatterId() {
-        return TOOLBAR_ID_PREFIX + "formatter";
-    }
-
-    public static String hideZeroValues() {
-        return TOOLBAR_ID_PREFIX + "hideZeroValues";
-    }
-
-    public static String labelCreateId() {
-        return TOOLBAR_ID_PREFIX + "labelCreate";
-    }
-
-    public static String labelListId() {
-        return TOOLBAR_ID_PREFIX + "labelList";
-    }
-
-    public static String parserId() {
-        return TOOLBAR_ID_PREFIX + "parser";
-    }
-
-    public static String pluginId() {
-        return TOOLBAR_ID_PREFIX + "plugin";
-    }
-
-    public static String reloadId() {
-        return TOOLBAR_ID_PREFIX + "reload";
-    }
-
-    public static String showFormulasId() {
-        return TOOLBAR_ID_PREFIX + "showFormulas";
-    }
-
-    public static String showFormulaEditorId() {
-        return TOOLBAR_ID_PREFIX + "showFormulaEditor";
-    }
-
-    public static String showGridLinesIds() {
-        return TOOLBAR_ID_PREFIX + "showGridLines";
-    }
-
-    public static String showHeadingsId() {
-        return TOOLBAR_ID_PREFIX + "showHeadings";
-    }
-
-    public static String sortId() {
-        return TOOLBAR_ID_PREFIX + "sort";
-    }
-
-    public static String swaggerId() {
-        return TOOLBAR_ID_PREFIX + "swagger";
-    }
-
-    public static String validatorId() {
-        return TOOLBAR_ID_PREFIX + "validator";
-    }
+    
 
     final static String TOOLBAR_ID_PREFIX = "toolbar-";
+
+    final static String AUTO_HIDE_SCROLL_BARS_ID = TOOLBAR_ID_PREFIX + "autoHideScrollbars";
+
+    final static String DATE_TIME_SYMBOLS_ID = TOOLBAR_ID_PREFIX + "dateTimeSymbols";
+
+    final static String DECIMAL_NUMBER_SYMBOLS_ID = TOOLBAR_ID_PREFIX + "decimalNumberSymbols";
+
+    final static String FIND_CELLS_ID = TOOLBAR_ID_PREFIX + "findCells";
+
+    final static String FIND_HIGHLIGHT_ID = TOOLBAR_ID_PREFIX + "findHighlight";
+
+    final static String FORMATTER_ID = TOOLBAR_ID_PREFIX + "formatter";
+
+    final static String HIDE_ZERO_VALUES_ID = TOOLBAR_ID_PREFIX + "hideZeroValues";
+
+    final static String LABEL_CREATE_ID = TOOLBAR_ID_PREFIX + "labelCreate";
+
+    final static String LABEL_LIST_ID = TOOLBAR_ID_PREFIX + "labelList";
+
+    final static String PARSER_ID = TOOLBAR_ID_PREFIX + "parser";
+
+    final static String PLUGIN_ID = TOOLBAR_ID_PREFIX + "plugin";
+
+    final static String RELOAD_ID = TOOLBAR_ID_PREFIX + "reload";
+
+    final static String SHOW_FORMULAS_ID = TOOLBAR_ID_PREFIX + "showFormulas";
+
+    final static String SHOW_FORMULA_EDITOR_ID = TOOLBAR_ID_PREFIX + "showFormulaEditor";
+
+    final static String SHOW_GRID_LINES_ID = TOOLBAR_ID_PREFIX + "showGridLines";
+
+    final static String SHOW_HEADINGS_ID = TOOLBAR_ID_PREFIX + "showHeadings";
+
+    final static String SORT_ID = TOOLBAR_ID_PREFIX + "sort";
+
+    final static String SWAGGER_ID = TOOLBAR_ID_PREFIX + "swagger";
+
+    final static String VALIDATOR_ID = TOOLBAR_ID_PREFIX + "validator";
 }

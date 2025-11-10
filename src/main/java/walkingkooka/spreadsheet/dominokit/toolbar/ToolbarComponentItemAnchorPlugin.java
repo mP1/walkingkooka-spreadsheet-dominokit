@@ -38,7 +38,7 @@ final class ToolbarComponentItemAnchorPlugin extends ToolbarComponentItemAnchor<
 
     private ToolbarComponentItemAnchorPlugin(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.pluginId(),
+            ToolbarComponent.PLUGIN_ID,
             Optional.of(
                 SpreadsheetIcons.plugin()
             ),

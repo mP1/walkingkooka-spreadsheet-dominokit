@@ -43,7 +43,7 @@ final class ToolbarComponentItemAnchorLabelCreate extends ToolbarComponentItemAn
 
     private ToolbarComponentItemAnchorLabelCreate(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.labelCreateId(),
+            ToolbarComponent.LABEL_CREATE_ID,
             Optional.of(
                 SpreadsheetIcons.labelAdd()
             ),

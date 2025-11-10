@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorDateTimeSymbols extends ToolbarComponentIt
 
     private ToolbarComponentItemAnchorDateTimeSymbols(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.dateTimeSymbolsId(),
+            ToolbarComponent.DATE_TIME_SYMBOLS_ID,
             Optional.of(
                 SpreadsheetIcons.dateTimeSymbols()
             ),
