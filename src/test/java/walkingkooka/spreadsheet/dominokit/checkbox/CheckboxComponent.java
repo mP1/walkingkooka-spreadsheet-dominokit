@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.List;
 import java.util.Objects;
@@ -164,12 +165,6 @@ public final class CheckboxComponent extends CheckboxComponentLike
         return this;
     }
 
-    @Override
-    void removeEventListener(final EventType type,
-                             final EventListener listener) {
-        // nop
-    }
-
     // styling..........................................................................................................
     
     @Override
@@ -185,5 +180,12 @@ public final class CheckboxComponent extends CheckboxComponentLike
     @Override
     public CheckboxComponent removePadding() {
         return this;
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        return () -> {};
     }
 }

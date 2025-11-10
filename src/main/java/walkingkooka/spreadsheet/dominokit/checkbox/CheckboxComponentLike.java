@@ -26,10 +26,7 @@ import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
-
-import java.util.Objects;
 
 /**
  * Base class for {@link SelectComponent} that captures common members for main/test.
@@ -117,23 +114,6 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
 
     abstract CheckboxComponent addEventListener(final EventType type,
                                                 final EventListener listener);
-
-    @Override
-    public final Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final EventListener inputEventListener = event -> watcher.onValue(this.value());
-
-        this.addInputListener(inputEventListener);
-
-        return () -> this.removeEventListener(
-            EventType.input,
-            inputEventListener
-        );
-    }
-
-    abstract void removeEventListener(final EventType type,
-                                      final EventListener listener);
 
     // Object...........................................................................................................
 
