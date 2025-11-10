@@ -189,6 +189,14 @@ abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
                          final Map<HttpHeaderName<?>, Object> headers,
                          final Optional<FetcherRequestBody<?>> body,
                          final RequestInit requestInit) {
+        if (this.isDebugEnabled()) {
+            if (body.isPresent()) {
+                this.context.debug(method + " " + url, body.get());
+            } else {
+                this.context.debug(method + " " + url);
+            }
+        }
+
         this.onBegin(
             method,
             url,
