@@ -24,6 +24,7 @@ import org.dominokit.domino.ui.forms.CheckBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.List;
 import java.util.Objects;
@@ -161,15 +162,6 @@ public final class CheckboxComponent extends CheckboxComponentLike {
         return this;
     }
 
-    @Override
-    void removeEventListener(final EventType type,
-                             final EventListener listener) {
-        this.checkbox.removeEventListener(
-            type,
-            listener
-        );
-    }
-
     // focus............................................................................................................
 
     @Override
@@ -253,6 +245,25 @@ public final class CheckboxComponent extends CheckboxComponentLike {
     public boolean isEditing() {
         return HtmlComponent.hasFocus(
             this.checkbox.element()
+        );
+    }
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final EventListener inputEventListener = event -> watcher.onValue(this.value());
+
+        this.checkbox.addEventListener(
+            EventType.input,
+            inputEventListener
+        );
+
+        return () -> this.checkbox.removeEventListener(
+            EventType.input,
+            inputEventListener
         );
     }
 
