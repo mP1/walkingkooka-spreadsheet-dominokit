@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -232,11 +233,6 @@ public final class SliderComponent extends SliderComponentLike
     }
 
     @Override
-    public SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
-        return this;
-    }
-
-    @Override
     SliderComponent addEventListener(final EventType eventType,
                                      final EventListener listener) {
         // nop
@@ -306,5 +302,14 @@ public final class SliderComponent extends SliderComponentLike
     @Override
     public boolean isEditing() {
         return false;
+    }
+
+    // HasValueWatcher..................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
     }
 }

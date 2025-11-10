@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -216,15 +217,6 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
-    SliderComponent removeChangeListener(final ChangeListener<Optional<Double>> listener) {
-        this.slider.getChangeListeners()
-            .remove(
-                this.changeListener(listener)
-            );
-        return this;
-    }
-
-    @Override
     SliderComponent addEventListener(final EventType eventType,
                                      final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
@@ -330,6 +322,20 @@ public final class SliderComponent extends SliderComponentLike {
     @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.slider.element());
+    }
+
+    // HasValueWatcher..................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<Double> changeListener = (final Double oldValue,
+                                                       final Double newValue) -> watcher.onValue(
+            Optional.ofNullable(newValue)
+        );
+        this.slider.addChangeListener(changeListener);
+        return () -> this.slider.removeChangeListener(changeListener);
     }
 
     // Object...........................................................................................................
