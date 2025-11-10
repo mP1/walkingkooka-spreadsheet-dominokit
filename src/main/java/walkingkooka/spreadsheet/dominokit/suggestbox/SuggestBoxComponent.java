@@ -36,6 +36,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -367,14 +368,6 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     }
 
     @Override
-    SuggestBoxComponent<T> removeChangeListener(final ChangeListener<Optional<T>> listener) {
-        this.suggestBox.removeChangeListener(
-            this.changeListener(listener)
-        );
-        return this;
-    }
-
-    @Override
     SuggestBoxComponent<T> addEventListener(final EventType eventType,
                                                     final EventListener listener) {
         Objects.requireNonNull(listener, "listener");
@@ -483,6 +476,20 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     }
 
     private final SuggestBoxComponentSuggestBox<T> suggestBox;
+
+    // HasValueWatchers.................................................................................................
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final ChangeListener<T> changeListener = (final T oldValue,
+                                                  final T newValue) -> watcher.onValue(
+            Optional.ofNullable(newValue)
+        );
+        this.suggestBox.addChangeListener(changeListener);
+        return () -> this.suggestBox.removeChangeListener(changeListener);
+    }
 
     // Object...........................................................................................................
 
