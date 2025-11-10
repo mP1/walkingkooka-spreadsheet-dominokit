@@ -742,11 +742,7 @@ public class App implements EntryPoint,
     public void onBegin(final HttpMethod method,
                         final Url url,
                         final Optional<FetcherRequestBody<?>> body) {
-        if (body.isPresent()) {
-            this.debug(method + " " + url, body.get());
-        } else {
-            this.debug(method + " " + url);
-        }
+        // NOP
     }
 
     @Override
