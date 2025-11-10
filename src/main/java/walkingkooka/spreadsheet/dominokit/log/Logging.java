@@ -21,34 +21,36 @@ package walkingkooka.spreadsheet.dominokit.log;
  * Global / centralised constants that turn on/off logging for components.
  */
 public interface Logging {
+    
+    boolean FETCHER = false;
 
     boolean APP_HISTORY_CONTEXT_HISTORY_WATCHER = true;
 
-    boolean CONVERTER_FETCHER = false;
+    boolean CONVERTER_FETCHER = FETCHER | false;
 
     boolean CONVERTER_SELECTOR_DIALOG_COMPONENT = false;
 
     boolean DATE_TIME_SYMBOLS_DIALOG_COMPONENT = false;
 
-    boolean DATE_TIME_SYMBOLS_FETCHER = false;
+    boolean DATE_TIME_SYMBOLS_FETCHER = FETCHER | false;
 
     boolean DECIMAL_NUMBER_SYMBOLS_DIALOG_COMPONENT = false;
 
-    boolean DECIMAL_NUMBER_SYMBOLS_FETCHER = false;
+    boolean DECIMAL_NUMBER_SYMBOLS_FETCHER = FETCHER | false;
 
-    boolean EXPRESSION_FUNCTION_FETCHER = false;
+    boolean EXPRESSION_FUNCTION_FETCHER = FETCHER | false;
 
-    boolean FORM_HANDLER_FETCHER = false;
+    boolean FORM_HANDLER_FETCHER = FETCHER | false;
 
     boolean FORM_HANDLER_SELECTOR_DIALOG_COMPONENT = false;
 
     boolean JAR_ENTRY_INFO_LIST_DIALOG_COMPONENT = false;
 
-    boolean LOCALE_FETCHER = false;
+    boolean LOCALE_FETCHER = FETCHER | false;
 
     boolean PLUGIN_ALIAS_SET_LIKE_SELECTOR_DIALOG_COMPONENT = false;
 
-    boolean PLUGIN_FETCHER = false;
+    boolean PLUGIN_FETCHER = FETCHER | false;
 
     boolean PLUGIN_FILE_VIEW_DIALOG_COMPONENT = false;
 
@@ -70,19 +72,19 @@ public interface Logging {
 
     boolean SPREADSHEET_COLUMN_ROW_INSERT_COUNT_DIALOG_COMPONENT = false;
 
-    boolean SPREADSHEET_COMPARATOR_FETCHER = false;
+    boolean SPREADSHEET_COMPARATOR_FETCHER = FETCHER | false;
 
     boolean SPREADSHEET_COMPARATOR_NAME_LIST_DIALOG_COMPONENT = false;
 
-    boolean SPREADSHEET_DELTA_FETCHER = false;
+    boolean SPREADSHEET_DELTA_FETCHER = FETCHER | false;
 
-    boolean SPREADSHEET_EXPORTER_FETCHER = false;
+    boolean SPREADSHEET_EXPORTER_FETCHER = FETCHER | false;
 
-    boolean SPREADSHEET_FORMATTER_FETCHER = false;
+    boolean SPREADSHEET_FORMATTER_FETCHER = FETCHER | false;
 
     boolean SPREADSHEET_FORMATTER_SELECTOR_DIALOG_COMPONENT = false;
 
-    boolean SPREADSHEET_IMPORTER_FETCHER = false;
+    boolean SPREADSHEET_IMPORTER_FETCHER = FETCHER | false;
 
     boolean SPREADSHEET_KEYBOARD_EVENT_LISTENER = true;
 
@@ -94,7 +96,7 @@ public interface Logging {
 
     boolean SPREADSHEET_LOCALE_COMPONENT_LIFECYCLE = false;
 
-    boolean SPREADSHEET_METADATA_FETCHER = false;
+    boolean SPREADSHEET_METADATA_FETCHER = FETCHER | false;
 
     boolean SPREADSHEET_METADATA_HISTORY_TOKEN_AWARE_COMPONENT_LIFECYCLE = false;
 
@@ -102,7 +104,7 @@ public interface Logging {
 
     boolean SPREADSHEET_NAVIGATE_COMPONENT_LIFECYCLE = false;
 
-    boolean SPREADSHEET_PARSER_FETCHER = false;
+    boolean SPREADSHEET_PARSER_FETCHER = FETCHER | false;
 
     boolean SPREADSHEET_PARSER_SELECTOR_DIALOG_COMPONENT = false;
 
@@ -120,7 +122,7 @@ public interface Logging {
 
     boolean SPREADSHEET_VIEWPORT_SCROLLBAR_COMPONENT = false;
 
-    boolean VALIDATOR_FETCHER = false;
+    boolean VALIDATOR_FETCHER = FETCHER | false;
 
     boolean VALIDATOR_SELECTOR_DIALOG_COMPONENT = false;
 }
