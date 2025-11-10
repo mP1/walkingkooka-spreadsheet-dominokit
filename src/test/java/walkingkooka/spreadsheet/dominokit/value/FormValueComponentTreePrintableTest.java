@@ -26,6 +26,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public final class FormValueComponentTreePrintableTest implements TreePrintableTesting {
@@ -99,6 +100,13 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
 
             @Override
             public TestValueComponent setValue(final Optional<String> value) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+                Objects.requireNonNull(watcher, "watcher");
+
                 throw new UnsupportedOperationException();
             }
 

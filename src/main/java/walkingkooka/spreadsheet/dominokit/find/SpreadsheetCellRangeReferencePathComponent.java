@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.CharSequences;
@@ -37,8 +36,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
 public final class SpreadsheetCellRangeReferencePathComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetCellRangeReferencePathComponent>,
-    HasValueWatchers<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
+    HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetCellRangeReferencePathComponent> {
 
     public static SpreadsheetCellRangeReferencePathComponent empty(final String id,
                                                                    final SpreadsheetCellRangeReferencePathComponentContext context) {
@@ -197,15 +195,13 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
-    public boolean isEditing() {
-        return this.select.isEditing();
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
     public Runnable addValueWatcher(final ValueWatcher<SpreadsheetCellRangeReferencePath> watcher) {
         return this.select.addValueWatcher(watcher);
+    }
+
+    @Override
+    public boolean isEditing() {
+        return this.select.isEditing();
     }
 
     // HtmlComponentDelegator...........................................................................................

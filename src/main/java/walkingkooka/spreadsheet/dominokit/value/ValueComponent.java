@@ -23,6 +23,7 @@ import walkingkooka.Value;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
  * A {@link HtmlComponent} that supports mostly displaying a value, but without any label or validation functionality
@@ -36,6 +37,21 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     default C clearValue() {
         return this.setValue(Optional.empty());
+    }
+
+    Runnable addValueWatcher(final ValueWatcher<V> watcher);
+
+    default C addValueWatcher2(final ValueWatcher<V> watcher,
+                               final Consumer<Runnable> remover) {
+        remover.accept(
+            this.addValueWatcher(watcher)
+        );
+        return (C) this;
+    }
+
+    default C addValueWatcher2(final ValueWatcher<V> watcher) {
+        this.addValueWatcher(watcher);
+        return (C) this;
     }
 
     boolean isDisabled();

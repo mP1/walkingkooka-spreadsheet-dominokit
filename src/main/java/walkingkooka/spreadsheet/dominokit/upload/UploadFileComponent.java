@@ -160,6 +160,15 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     private Optional<BrowserFile> value;
 
     @Override
+    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.valueWatchers.add(watcher);
+    }
+
+    private final ValueWatchers<BrowserFile> valueWatchers = ValueWatchers.empty();
+
+    @Override
     public boolean isDisabled() {
         return this.fileUpload.isDisabled();
     }
@@ -205,17 +214,6 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
     }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return this.valueWatchers.add(watcher);
-    }
-
-    private final ValueWatchers<BrowserFile> valueWatchers = ValueWatchers.empty();
 
     // HtmlComponent....................................................................................................
 

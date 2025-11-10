@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
 import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponent;
 import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.CaseKind;
@@ -86,18 +85,12 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
                                                 final SpreadsheetCellValueDialogComponentContext<T> context) {
         this.context = context;
 
-        if (valueComponent instanceof HasValueWatchers) {
-            ((HasValueWatchers<?, T, ?>) valueComponent)
-                .addValueWatcher2(
-                    (final Optional<T> value) -> context.pushHistoryToken(
-                        context.historyToken()
-                            .setSaveValue(value)
-                    )
-                );
-            this.value = valueComponent;
-        } else {
-            throw new IllegalArgumentException("ValueComponent " + valueComponent + " missing " + HasValueWatchers.class.getSimpleName());
-        }
+        this.value = valueComponent.addValueWatcher2(
+            (final Optional<T> value) -> context.pushHistoryToken(
+                context.historyToken()
+                    .setSaveValue(value)
+            )
+        );
 
         this.save = this.<String>saveValueAnchor(context);
 

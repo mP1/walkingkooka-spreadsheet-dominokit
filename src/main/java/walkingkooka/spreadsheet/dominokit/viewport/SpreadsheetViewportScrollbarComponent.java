@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.slider.SliderComponent;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -63,8 +62,7 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     SpreadsheetViewportComponentLifecycle,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>>,
-    HtmlStyledComponent<SpreadsheetViewportScrollbarComponent<R>>,
-    HasValueWatchers<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>> {
+    HtmlStyledComponent<SpreadsheetViewportScrollbarComponent<R>> {
 
     static SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> columns(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponentColumns.with(context);
@@ -222,6 +220,17 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
     }
 
     @Override
+    public Runnable addValueWatcher(final ValueWatcher<R> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return this.slider.addValueWatcher(
+            (Optional<Double> value) -> watcher.onValue(
+                value.map(this::doubleToReference)
+            )
+        );
+    }
+
+    @Override
     public final SpreadsheetViewportScrollbarComponent<R> hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
@@ -258,19 +267,6 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
     }
 
     abstract SpreadsheetColumnOrRowReferenceKind referenceKind();
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<R> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return this.slider.addValueWatcher(
-            (Optional<Double> value) -> watcher.onValue(
-                value.map(this::doubleToReference)
-            )
-        );
-    }
 
     // TreePrintable....................................................................................................
 

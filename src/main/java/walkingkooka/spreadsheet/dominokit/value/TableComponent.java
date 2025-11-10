@@ -19,10 +19,18 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 
+import java.util.Objects;
+
 /**
  * Base interface for all table {@link ValueComponent}.
  */
 public interface TableComponent<E extends HTMLElement, V, C extends TableComponent<E, V, C>> extends ValueComponent<E, V, C> {
+
+    @Override
+    default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default boolean isDisabled() {

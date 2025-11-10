@@ -71,6 +71,19 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         return this;
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<LocalTime> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
+                                                             final Date newTime) -> watcher.onValue(
+            dateToLocalTime(newTime)
+        );
+
+        this.timePicker.addTimeSelectionListener(timeSelectionListener);
+        return () -> this.timePicker.removeTimeSelectionListener(timeSelectionListener);
+    }
+
     // HtmlComponent....................................................................................................
 
     @Override
@@ -104,21 +117,6 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     @Override
     public boolean isEditing() {
         return this.timePicker.isExpanded();
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<LocalTime> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
-                                                             final Date newTime) -> watcher.onValue(
-            dateToLocalTime(newTime)
-        );
-
-        this.timePicker.addTimeSelectionListener(timeSelectionListener);
-        return () -> this.timePicker.removeTimeSelectionListener(timeSelectionListener);
     }
 
     private final TimePicker timePicker;

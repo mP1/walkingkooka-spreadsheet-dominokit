@@ -165,6 +165,13 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
 
     private Optional<T> value;
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
+    }
+
     // isDisabled.......................................................................................................
 
     @Override
@@ -262,14 +269,5 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
     @Override
     public SuggestBoxComponent<T> removePadding() {
         return this;
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return () -> {};
     }
 }

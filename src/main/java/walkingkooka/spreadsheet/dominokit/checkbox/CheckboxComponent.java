@@ -105,6 +105,23 @@ public final class CheckboxComponent extends CheckboxComponentLike {
     }
 
     @Override
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        final EventListener inputEventListener = event -> watcher.onValue(this.value());
+
+        this.checkbox.addEventListener(
+            EventType.input,
+            inputEventListener
+        );
+
+        return () -> this.checkbox.removeEventListener(
+            EventType.input,
+            inputEventListener
+        );
+    }
+
+    @Override
     public boolean isDisabled() {
         return this.checkbox.isDisabled();
     }
@@ -219,25 +236,6 @@ public final class CheckboxComponent extends CheckboxComponentLike {
     public boolean isEditing() {
         return HtmlComponent.hasFocus(
             this.checkbox.element()
-        );
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        final EventListener inputEventListener = event -> watcher.onValue(this.value());
-
-        this.checkbox.addEventListener(
-            EventType.input,
-            inputEventListener
-        );
-
-        return () -> this.checkbox.removeEventListener(
-            EventType.input,
-            inputEventListener
         );
     }
 

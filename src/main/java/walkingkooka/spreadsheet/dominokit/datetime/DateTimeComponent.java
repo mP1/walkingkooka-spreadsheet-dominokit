@@ -103,48 +103,6 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     }
 
     @Override
-    public DateTimeComponent setCssText(final String css) {
-        this.calendar.cssText(css);
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent setCssProperty(final String name,
-                                            final String value) {
-        this.calendar.setCssProperty(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent removeCssProperty(final String name) {
-        this.calendar.removeCssProperty(name);
-        return this;
-    }
-
-    public DateTimeComponent resetView() {
-        this.calendar.resetView();
-        return this;
-    }
-
-    @Override
-    public DateTimeComponent focus() {
-        // NOP
-        return this;
-    }
-
-    @Override
-    public boolean isEditing() {
-        return HtmlComponent.hasFocus(this.element()) ||
-            this.calendar.isExpanded() ||
-            this.timePicker.isExpanded();
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
     public Runnable addValueWatcher(final ValueWatcher<LocalDateTime> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
@@ -188,6 +146,46 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
             this.calendar.removeDateSelectionListener(dateSelectionListener);
             this.timePicker.removeTimeSelectionListener(timeSelectionListener);
         };
+    }
+
+    @Override
+    public DateTimeComponent setCssText(final String css) {
+        this.calendar.cssText(css);
+        return this;
+    }
+
+    @Override
+    public DateTimeComponent setCssProperty(final String name,
+                                            final String value) {
+        this.calendar.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
+    public DateTimeComponent removeCssProperty(final String name) {
+        this.calendar.removeCssProperty(name);
+        return this;
+    }
+
+    public DateTimeComponent resetView() {
+        this.calendar.resetView();
+        return this;
+    }
+
+    @Override
+    public DateTimeComponent focus() {
+        // NOP
+        return this;
+    }
+
+    @Override
+    public boolean isEditing() {
+        return HtmlComponent.hasFocus(this.element()) ||
+            this.calendar.isExpanded() ||
+            this.timePicker.isExpanded();
     }
 
     private final FlexLayoutComponent layout;

@@ -20,10 +20,12 @@ package walkingkooka.spreadsheet.dominokit.text;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -77,6 +79,13 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
 
     @Override
     public final TextViewComponent setDisabled(final boolean disabled) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         throw new UnsupportedOperationException();
     }
 

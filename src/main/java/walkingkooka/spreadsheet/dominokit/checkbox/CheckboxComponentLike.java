@@ -23,15 +23,13 @@ import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
-import walkingkooka.spreadsheet.dominokit.value.HasValueWatchers;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
  * Base class for {@link SelectComponent} that captures common members for main/test.
  */
 abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetElement, Boolean, CheckboxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, CheckboxComponent, Boolean>,
-    HasValueWatchers<HTMLFieldSetElement, Boolean, CheckboxComponent> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, CheckboxComponent, Boolean> {
 
     CheckboxComponentLike() {
         super();

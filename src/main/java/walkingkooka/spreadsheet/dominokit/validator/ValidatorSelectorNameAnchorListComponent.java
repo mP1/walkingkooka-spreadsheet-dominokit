@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
@@ -133,6 +134,13 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     }
 
     private Optional<ValidatorSelector> value;
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<ValidatorSelector> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public boolean isDisabled() {

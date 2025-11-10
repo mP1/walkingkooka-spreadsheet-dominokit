@@ -101,6 +101,13 @@ public final class CheckboxComponent extends CheckboxComponentLike
 
     private Optional<Boolean> value = Optional.empty();
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
+    }
+
     // disabled.........................................................................................................
 
     @Override
@@ -162,14 +169,5 @@ public final class CheckboxComponent extends CheckboxComponentLike
     @Override
     public CheckboxComponent removePadding() {
         return this;
-    }
-
-    // HasValueWatchers.................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return () -> {};
     }
 }

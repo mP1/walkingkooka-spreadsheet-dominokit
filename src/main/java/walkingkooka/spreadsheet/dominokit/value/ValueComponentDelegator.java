@@ -43,6 +43,12 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
+        return this.valueComponent()
+            .addValueWatcher(watcher);
+    }
+
+    @Override
     default boolean isDisabled() {
         return this.valueComponent()
             .isDisabled();

@@ -119,6 +119,13 @@ public final class SliderComponent extends SliderComponentLike
 
     private Optional<Double> value = Optional.empty();
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return () -> {};
+    }
+
     // minValue.........................................................................................................
     
     @Override
@@ -285,14 +292,5 @@ public final class SliderComponent extends SliderComponentLike
     @Override
     public boolean isEditing() {
         return false;
-    }
-
-    // HasValueWatcher..................................................................................................
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Double> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return () -> {};
     }
 }
