@@ -28,6 +28,7 @@ import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTarget;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -39,6 +40,7 @@ import java.util.Optional;
  */
 abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent, HistoryToken>,
     SpreadsheetContextMenuTarget<HTMLAnchorElement>,
+    HasEventListeners<HistoryToken, HistoryTokenAnchorComponent>,
     TooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
 
     HistoryTokenAnchorComponentLike() {
@@ -57,7 +59,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
         return this.setHistoryToken(value);
     }
 
-    // addXXXListener...................................................................................................
+    // HasEventListeners................................................................................................
 
     @Override
     public final HistoryTokenAnchorComponent addBlurListener(final EventListener listener) {
