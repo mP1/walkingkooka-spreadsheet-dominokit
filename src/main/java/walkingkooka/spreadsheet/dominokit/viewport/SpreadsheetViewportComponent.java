@@ -599,6 +599,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     @Override
     public void refresh(final RefreshContext context) {
+        final long start = System.currentTimeMillis();
         this.refreshLayout();
 
         final HistoryToken historyToken = context.historyToken();
@@ -663,6 +664,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
             this.spreadsheetFormatterSelectorSelection = spreadsheetFormatterSelectorSelection;
             this.spreadsheetFormatterSelectorMenus = spreadsheetFormatterSelectorMenus;
+        }
+
+        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+            final long end = System.currentTimeMillis();
+            this.context.debug(this.getClass().getSimpleName() + " refresh " + (end - start) + " ms");
         }
     }
 
