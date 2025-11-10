@@ -311,7 +311,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
     void onKeyDownEvent(final KeyboardEvent event) {
         final KeyBinding binding = KeyBinding.fromKeyEvent(event);
 
-        if (SPREADSHEET_KEYBOARD_EVENT_LISTENER) {
+        if (SPREADSHEET_VIEWPORT_COMPONENT_TABLE) {
             this.context.debug(this.getClass().getSimpleName() + " handleKeyEvent " + binding);
         }
 
