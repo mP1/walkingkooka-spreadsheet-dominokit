@@ -225,7 +225,7 @@ public final class CheckboxComponent extends CheckboxComponentLike {
     // HasValueWatchers.................................................................................................
 
     @Override
-    public final Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
         final EventListener inputEventListener = event -> watcher.onValue(this.value());
