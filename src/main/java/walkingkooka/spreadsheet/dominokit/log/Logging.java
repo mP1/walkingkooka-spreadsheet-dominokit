@@ -26,6 +26,8 @@ public interface Logging {
 
     boolean FETCHER = false;
 
+    boolean VIEWPORT = false;
+
     boolean APP_HISTORY_CONTEXT_HISTORY_WATCHER = true;
 
     boolean CONVERTER_FETCHER = FETCHER | false;
@@ -116,9 +118,9 @@ public interface Logging {
 
     boolean SPREADSHEET_VIEWPORT_CACHE = false;
 
-    boolean SPREADSHEET_VIEWPORT_COMPONENT = false;
+    boolean SPREADSHEET_VIEWPORT_COMPONENT = VIEWPORT | false;
 
-    boolean SPREADSHEET_VIEWPORT_COMPONENT_TABLE = false;
+    boolean SPREADSHEET_VIEWPORT_COMPONENT_TABLE = VIEWPORT | false;
 
     boolean SPREADSHEET_VIEWPORT_FORMULA_COMPONENT = false;
 
