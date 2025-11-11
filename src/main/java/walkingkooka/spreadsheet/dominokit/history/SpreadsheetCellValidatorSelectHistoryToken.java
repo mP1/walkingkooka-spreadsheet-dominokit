@@ -75,4 +75,15 @@ public final class SpreadsheetCellValidatorSelectHistoryToken extends Spreadshee
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValidatorSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

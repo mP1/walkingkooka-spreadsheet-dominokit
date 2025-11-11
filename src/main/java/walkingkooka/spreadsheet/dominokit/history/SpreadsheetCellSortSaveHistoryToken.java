@@ -107,4 +107,16 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
                 this.comparatorNames
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellSortSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }

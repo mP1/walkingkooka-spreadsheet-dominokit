@@ -77,4 +77,14 @@ public final class PluginFileViewHistoryToken extends PluginNameHistoryToken {
     public HistoryToken clearAction() {
         return pluginSelect(this.name);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginFileView(
+            this.name,
+            this.file
+        );
+    }
 }

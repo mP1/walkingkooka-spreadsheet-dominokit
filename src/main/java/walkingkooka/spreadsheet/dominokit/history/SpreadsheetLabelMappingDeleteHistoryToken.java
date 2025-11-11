@@ -103,4 +103,15 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
                 this.labelName // getter returns Optional label
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLabelMappingDelete(
+            this.id,
+            this.name,
+            this.labelName
+        );
+    }
 }

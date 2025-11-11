@@ -75,4 +75,15 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellParserSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

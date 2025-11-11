@@ -78,4 +78,15 @@ public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken exten
                                final AppContext context) {
         // TODO give focus to toolbar decimalNumberSymbols link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDecimalNumberSymbolsUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

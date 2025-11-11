@@ -85,4 +85,15 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
                 this.anchoredSelection().selection()
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDelete(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

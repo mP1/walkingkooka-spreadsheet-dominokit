@@ -75,4 +75,15 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
                                final AppContext context) {
         // SpreadsheetViewportComponent will give focus to column
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnNavigate(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

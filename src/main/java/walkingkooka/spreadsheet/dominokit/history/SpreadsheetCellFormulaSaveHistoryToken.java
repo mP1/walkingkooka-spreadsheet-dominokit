@@ -106,4 +106,16 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
                 SpreadsheetFormula.textPatch(text)
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormulaSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.text
+        );
+    }
 }

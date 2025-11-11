@@ -71,4 +71,15 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
                                final AppContext context) {
         // show metadata style UI
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitMetadataStyleSelect(
+            this.id,
+            this.name,
+            this.stylePropertyName()
+        );
+    }
 }

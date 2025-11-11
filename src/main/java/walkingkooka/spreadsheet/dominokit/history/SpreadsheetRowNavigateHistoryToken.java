@@ -120,4 +120,15 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowNavigate(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

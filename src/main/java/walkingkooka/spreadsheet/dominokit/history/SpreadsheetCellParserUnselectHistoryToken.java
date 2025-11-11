@@ -78,4 +78,15 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
                                final AppContext context) {
         // TODO give focus to toolbar parser link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellParserUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

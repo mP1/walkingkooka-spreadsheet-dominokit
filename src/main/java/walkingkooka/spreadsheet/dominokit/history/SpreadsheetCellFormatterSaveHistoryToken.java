@@ -97,4 +97,16 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
                 this.spreadsheetFormatterSelector
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormatterSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.spreadsheetFormatterSelector
+        );
+    }
 }

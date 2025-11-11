@@ -105,4 +105,16 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
                 this.comparatorNames
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnSortSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }

@@ -72,4 +72,11 @@ public final class SpreadsheetListSelectHistoryToken extends SpreadsheetListHist
                     context.spreadsheetListDialogComponentDefaultCount()
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetListSelect(this.offsetAndCount);
+    }
 }

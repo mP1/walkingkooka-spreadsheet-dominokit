@@ -87,4 +87,15 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
                 )
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellReload(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

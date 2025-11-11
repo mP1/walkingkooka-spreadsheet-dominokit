@@ -106,4 +106,15 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         // previously SpreadsheetMetadataPropertyName#FIND_QUERY was patched
         // which is now wrong.
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFind(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

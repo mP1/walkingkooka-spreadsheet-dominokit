@@ -75,4 +75,15 @@ public final class SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken extends
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDecimalNumberSymbolsSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

@@ -97,4 +97,16 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
                 this.valueType
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValueTypeSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.valueType
+        );
+    }
 }

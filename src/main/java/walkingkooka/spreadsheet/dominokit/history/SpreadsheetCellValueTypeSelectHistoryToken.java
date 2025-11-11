@@ -75,4 +75,15 @@ public final class SpreadsheetCellValueTypeSelectHistoryToken extends Spreadshee
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValueTypeSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

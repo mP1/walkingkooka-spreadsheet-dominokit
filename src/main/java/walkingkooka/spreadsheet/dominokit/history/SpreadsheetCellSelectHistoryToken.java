@@ -221,4 +221,15 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
         return result;
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

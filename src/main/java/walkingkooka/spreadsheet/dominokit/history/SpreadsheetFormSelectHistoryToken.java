@@ -88,4 +88,15 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitFormSelect(
+            this.id,
+            this.name,
+            this.formName
+        );
+    }
 }

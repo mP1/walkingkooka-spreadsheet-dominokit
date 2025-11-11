@@ -65,4 +65,14 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
                                final AppContext context) {
         // show metadata UI
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitMetadataSelect(
+            this.id,
+            this.name
+        );
+    }
 }

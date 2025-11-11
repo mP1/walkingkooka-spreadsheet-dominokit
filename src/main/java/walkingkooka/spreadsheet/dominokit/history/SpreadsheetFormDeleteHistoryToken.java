@@ -89,4 +89,15 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitFormDelete(
+            this.id,
+            this.name,
+            this.formName
+        );
+    }
 }

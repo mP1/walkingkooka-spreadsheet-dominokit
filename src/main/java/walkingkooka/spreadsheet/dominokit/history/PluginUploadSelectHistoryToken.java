@@ -76,4 +76,11 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginUploadSelect();
+    }
 }

@@ -90,4 +90,11 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
             );
         context.pushHistoryToken(previous);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginUploadSave(this.file);
+    }
 }

@@ -95,4 +95,14 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
         );
         context.reload();
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetReload(
+            this.id,
+            this.name
+        );
+    }
 }

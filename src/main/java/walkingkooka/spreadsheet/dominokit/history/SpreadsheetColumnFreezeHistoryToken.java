@@ -89,4 +89,15 @@ public class SpreadsheetColumnFreezeHistoryToken extends SpreadsheetColumnHistor
             context
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnFreeze(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

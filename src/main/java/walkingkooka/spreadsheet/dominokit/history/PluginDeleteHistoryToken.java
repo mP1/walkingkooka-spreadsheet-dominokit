@@ -64,4 +64,11 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken imple
             .deletePlugin(this.name());
         context.pushHistoryToken(previous);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginDelete(this.name);
+    }
 }

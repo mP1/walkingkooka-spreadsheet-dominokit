@@ -98,4 +98,16 @@ public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColu
                                final AppContext context) {
         // EDIT dialog appears!
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnSortEdit(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }

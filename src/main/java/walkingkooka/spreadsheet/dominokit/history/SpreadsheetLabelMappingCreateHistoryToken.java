@@ -80,4 +80,14 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
                                final AppContext context) {
         // show label mapping UI
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLabelMappingCreate(
+            this.id,
+            this.name
+        );
+    }
 }

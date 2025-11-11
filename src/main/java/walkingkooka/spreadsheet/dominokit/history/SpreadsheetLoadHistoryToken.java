@@ -90,4 +90,11 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
             previous
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLoad();
+    }
 }

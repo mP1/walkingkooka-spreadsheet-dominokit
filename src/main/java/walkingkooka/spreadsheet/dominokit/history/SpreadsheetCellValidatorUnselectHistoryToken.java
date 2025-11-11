@@ -78,4 +78,15 @@ public final class SpreadsheetCellValidatorUnselectHistoryToken extends Spreadsh
                                final AppContext context) {
         // TODO give focus to toolbar validator link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValidatorUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

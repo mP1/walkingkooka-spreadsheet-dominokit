@@ -70,4 +70,11 @@ public final class UnknownHistoryToken extends HistoryToken {
 
         throw new UnsupportedOperationException();
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitUnknown(this.fragment);
+    }
 }

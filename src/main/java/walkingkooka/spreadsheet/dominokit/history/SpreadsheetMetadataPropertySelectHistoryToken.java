@@ -71,4 +71,15 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
                                final AppContext context) {
         // show metadata edit UI
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitMetadataPropertySelect(
+            this.id,
+            this.name,
+            this.propertyName
+        );
+    }
 }

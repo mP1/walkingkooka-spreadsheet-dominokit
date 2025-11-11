@@ -97,4 +97,16 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
                                final AppContext context) {
         // EDIT dialog appears!
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellSortEdit(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }

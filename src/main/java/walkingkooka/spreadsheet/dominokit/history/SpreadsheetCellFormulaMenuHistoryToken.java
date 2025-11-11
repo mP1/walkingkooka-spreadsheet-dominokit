@@ -79,4 +79,15 @@ public final class SpreadsheetCellFormulaMenuHistoryToken extends SpreadsheetCel
                                final AppContext context) {
         // SpreadsheetViewportComponent will open a cell menu
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormulaMenu(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

@@ -62,4 +62,11 @@ public final class PluginListReloadHistoryToken extends PluginListHistoryToken i
         );
         this.loadPlugins(context);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginListReload(this.offsetAndCount);
+    }
 }

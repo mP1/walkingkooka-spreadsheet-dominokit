@@ -93,4 +93,15 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitFormList(
+            this.id,
+            this.name,
+            this.offsetAndCount
+        );
+    }
 }

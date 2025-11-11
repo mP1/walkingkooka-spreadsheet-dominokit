@@ -102,4 +102,14 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
                 )
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetListRenameSave(
+            this.id,
+            this.value
+        );
+    }
 }

@@ -75,4 +75,15 @@ public final class SpreadsheetCellLocaleSelectHistoryToken extends SpreadsheetCe
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLocaleSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

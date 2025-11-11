@@ -75,4 +75,15 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
                                final AppContext context) {
         // SpreadsheetViewportComponent will give focus to row
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

@@ -78,4 +78,15 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
                                final AppContext context) {
         // TODO give focus to toolbar formatter link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormatterUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

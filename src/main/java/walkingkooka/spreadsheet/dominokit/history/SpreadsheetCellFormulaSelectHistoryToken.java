@@ -78,4 +78,15 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
                                final AppContext context) {
         // SpreadsheetViewportFormulaComponent will grab focus etc.
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormulaSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

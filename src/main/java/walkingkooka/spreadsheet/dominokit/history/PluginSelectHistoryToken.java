@@ -53,4 +53,11 @@ public final class PluginSelectHistoryToken extends PluginNameHistoryToken {
     public HistoryToken clearAction() {
         return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginSelect(this.name);
+    }
 }

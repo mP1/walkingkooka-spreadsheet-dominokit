@@ -74,4 +74,15 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
                                final AppContext context) {
         this.deltaClearSelectionAndPushViewportHistoryToken(context);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnClear(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

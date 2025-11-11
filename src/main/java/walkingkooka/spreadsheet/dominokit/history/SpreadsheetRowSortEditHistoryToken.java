@@ -98,4 +98,16 @@ public final class SpreadsheetRowSortEditHistoryToken extends SpreadsheetRowSort
                                final AppContext context) {
         // EDIT dialog appears!
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowSortEdit(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }

@@ -78,4 +78,16 @@ public final class SpreadsheetCellValueTypeUnselectHistoryToken extends Spreadsh
                                final AppContext context) {
         // TODO give focus to toolbar valueType link
     }
+
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValueTypeUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

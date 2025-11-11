@@ -120,4 +120,17 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             this.value()
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellStyleSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.propertyName(),
+            this.value()
+        );
+    }
 }

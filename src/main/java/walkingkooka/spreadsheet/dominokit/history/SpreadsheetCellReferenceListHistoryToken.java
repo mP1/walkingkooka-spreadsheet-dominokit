@@ -92,4 +92,15 @@ public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetC
                                final AppContext context) {
         // references dialog will open
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellReference(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

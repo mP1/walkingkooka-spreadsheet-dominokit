@@ -114,4 +114,16 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
                 )
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLabelSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.labelName
+        );
+    }
 }
