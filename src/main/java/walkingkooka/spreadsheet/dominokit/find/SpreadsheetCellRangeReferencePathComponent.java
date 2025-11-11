@@ -145,6 +145,12 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
     }
 
     @Override
+    public SpreadsheetCellRangeReferencePathComponent blur() {
+        this.select.blur();
+        return this;
+    }
+
+    @Override
     public SpreadsheetCellRangeReferencePathComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;

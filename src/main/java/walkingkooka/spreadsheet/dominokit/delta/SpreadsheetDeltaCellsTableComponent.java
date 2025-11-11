@@ -128,6 +128,12 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
         return this;
     }
 
+    @Override
+    public SpreadsheetDeltaCellsTableComponent blur() {
+        this.dataTable.blur();
+        return this;
+    }
+
     // value............................................................................................................
 
     @Override

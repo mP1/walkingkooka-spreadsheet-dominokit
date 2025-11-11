@@ -120,4 +120,9 @@ public final class UploadFileComponent extends UploadFileComponentLike
     public UploadFileComponent focus() {
         return this;
     }
+
+    @Override
+    public UploadFileComponent blur() {
+        return this;
+    }
 }

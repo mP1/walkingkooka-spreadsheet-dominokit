@@ -186,6 +186,12 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
     }
 
     @Override
+    public ValueTextBoxComponent<T> blur() {
+        this.textBox.blur();
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return this.textBox.isEditing();
     }

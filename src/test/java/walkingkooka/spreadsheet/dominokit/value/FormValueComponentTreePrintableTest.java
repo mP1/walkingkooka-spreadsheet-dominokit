@@ -116,6 +116,11 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             }
 
             @Override
+            public TestValueComponent blur() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
             public TestValueComponent optional() {
                 throw new UnsupportedOperationException();
             }

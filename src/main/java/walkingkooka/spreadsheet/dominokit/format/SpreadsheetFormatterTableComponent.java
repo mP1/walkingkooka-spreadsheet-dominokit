@@ -108,6 +108,12 @@ public final class SpreadsheetFormatterTableComponent implements TableComponent<
     }
 
     @Override
+    public SpreadsheetFormatterTableComponent blur() {
+        this.dataTable.blur();
+        return this;
+    }
+
+    @Override
     public Optional<List<SpreadsheetFormatterSample>> value() {
         return this.samples;
     }

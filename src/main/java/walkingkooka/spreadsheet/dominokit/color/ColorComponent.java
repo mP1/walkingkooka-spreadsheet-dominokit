@@ -264,6 +264,11 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         return this;
     }
 
+    @Override
+    public ColorComponent blur() {
+        return this;
+    }
+
     // HtmlComponentDelegator...........................................................................................
 
     @Override

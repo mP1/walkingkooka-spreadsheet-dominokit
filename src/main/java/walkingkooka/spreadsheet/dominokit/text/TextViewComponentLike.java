@@ -121,6 +121,12 @@ abstract class TextViewComponentLike implements FormValueComponent<HTMLDivElemen
     }
 
     @Override
+    public final TextViewComponent blur() {
+        // ignored
+        return (TextViewComponent) this;
+    }
+
+    @Override
     public final List<String> errors() {
         return Lists.empty();
     }

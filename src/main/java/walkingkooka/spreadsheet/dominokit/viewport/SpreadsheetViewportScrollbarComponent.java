@@ -250,6 +250,11 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
         return this;
     }
 
+    @Override
+    public final SpreadsheetViewportScrollbarComponent<R> blur() {
+        return this;
+    }
+
     private Double referenceToDouble(final R reference) {
         return Double.valueOf(
             this.referenceKind().value(

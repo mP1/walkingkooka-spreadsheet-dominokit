@@ -173,6 +173,11 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     }
 
     @Override
+    public ValidatorSelectorNameAnchorListComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean isEditing() {
         return this.anchors.isEditing();
     }

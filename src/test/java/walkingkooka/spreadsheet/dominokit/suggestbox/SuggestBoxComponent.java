@@ -254,6 +254,13 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
         return this;
     }
 
+    // blur............................................................................................................
+
+    @Override
+    public SuggestBoxComponent<T> blur() {
+        return this;
+    }
+
     // styling..........................................................................................................
 
     @Override

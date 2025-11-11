@@ -125,6 +125,11 @@ public final class IntegerBoxComponent extends IntegerBoxComponentLike
     }
 
     @Override
+    public IntegerBoxComponent blur() {
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent optional() {
         this.required = false;
         return this;

@@ -151,6 +151,12 @@ public final class IntegerBoxComponent extends IntegerBoxComponentLike {
     }
 
     @Override
+    public IntegerBoxComponent blur() {
+        this.integerBox.blur();
+        return this;
+    }
+
+    @Override
     public IntegerBoxComponent enterFiresValueChange() {
         final IntegerBox integerBox = this.integerBox;
 

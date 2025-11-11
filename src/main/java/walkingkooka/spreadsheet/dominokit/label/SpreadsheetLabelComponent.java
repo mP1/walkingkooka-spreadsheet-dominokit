@@ -131,6 +131,14 @@ public final class SpreadsheetLabelComponent implements SuggestBoxComponentDeleg
         return this;
     }
 
+    // blur.............................................................................................................
+
+    @Override
+    public SpreadsheetLabelComponent blur() {
+        this.suggestBox.blur();
+        return this;
+    }
+
     @Override
     public boolean isEditing() {
         return this.suggestBox.isEditing();

@@ -212,6 +212,11 @@ public final class SliderComponent extends SliderComponentLike {
     }
 
     @Override
+    public SliderComponent blur() {
+        return this;
+    }
+
+    @Override
     public SliderComponent alwaysShowHelperText() {
         final DominoElement<Element> element = elements.elementOf(
             this.slider.element()

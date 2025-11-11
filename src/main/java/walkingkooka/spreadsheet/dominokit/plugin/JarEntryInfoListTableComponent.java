@@ -150,6 +150,12 @@ final class JarEntryInfoListTableComponent implements TableComponent<HTMLDivElem
         return this;
     }
 
+    @Override
+    public JarEntryInfoListTableComponent blur() {
+        this.table.blur();
+        return this;
+    }
+
     private final DataTableComponent<JarEntryInfo> table;
 
     // HtmlComponentDelegator...........................................................................................

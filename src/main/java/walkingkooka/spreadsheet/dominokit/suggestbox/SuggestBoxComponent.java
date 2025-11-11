@@ -368,6 +368,14 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
         return this;
     }
 
+    // blur.............................................................................................................
+
+    @Override
+    public SuggestBoxComponent<T> blur() {
+        this.suggestBox.blur();
+        return this;
+    }
+
     // isEditing........................................................................................................
 
     @Override

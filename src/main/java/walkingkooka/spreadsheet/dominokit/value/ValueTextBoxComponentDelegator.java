@@ -77,6 +77,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     }
 
     @Override
+    default C blur() {
+        this.valueTextBoxComponent()
+            .blur();
+        return (C) this;
+    }
+
+    @Override
     default boolean isEditing() {
         return this.valueTextBoxComponent()
             .isEditing();

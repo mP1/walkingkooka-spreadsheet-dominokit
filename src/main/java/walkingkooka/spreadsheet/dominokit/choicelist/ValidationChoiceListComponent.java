@@ -158,6 +158,12 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
     }
 
     @Override
+    public ValidationChoiceListComponent blur() {
+        this.select.blur();
+        return this;
+    }
+
+    @Override
     public ValidationChoiceListComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;

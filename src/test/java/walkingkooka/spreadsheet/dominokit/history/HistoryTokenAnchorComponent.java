@@ -257,6 +257,13 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         return this;
     }
 
+    // blur.............................................................................................................
+
+    @Override
+    public HistoryTokenAnchorComponent blur() {
+        return this;
+    }
+
     // SpreadsheetContextMenuTarget.....................................................................................
 
     /**

@@ -128,6 +128,12 @@ public final class ValidationCheckboxComponent implements FormValueComponent<HTM
     }
 
     @Override
+    public ValidationCheckboxComponent blur() {
+        this.checkbox.blur();
+        return this;
+    }
+
+    @Override
     public ValidationCheckboxComponent alwaysShowHelperText() {
         this.checkbox.alwaysShowHelperText();
         return this;

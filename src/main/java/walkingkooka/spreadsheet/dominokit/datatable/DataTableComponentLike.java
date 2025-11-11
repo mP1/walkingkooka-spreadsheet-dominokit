@@ -58,6 +58,11 @@ abstract class DataTableComponentLike<T> implements TableComponent<HTMLDivElemen
     }
 
     @Override
+    public final DataTableComponent<T> blur() {
+        return (DataTableComponent<T>) this;
+    }
+
+    @Override
     public final boolean isEditing() {
         return false; // always NO
     }

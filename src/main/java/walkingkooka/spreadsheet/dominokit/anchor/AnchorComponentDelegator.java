@@ -161,6 +161,13 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
+    default A blur() {
+        this.anchorComponent()
+            .blur();
+        return (A) this;
+    }
+
+    @Override
     default boolean isEditing() {
         return this.anchorComponent()
             .isEditing();

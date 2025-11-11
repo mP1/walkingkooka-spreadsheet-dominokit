@@ -95,4 +95,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
     C removePadding();
 
     C focus();
+
+    C blur();
 }

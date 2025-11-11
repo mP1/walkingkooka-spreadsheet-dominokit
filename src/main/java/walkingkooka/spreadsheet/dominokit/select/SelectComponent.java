@@ -215,6 +215,14 @@ public final class SelectComponent<T> extends SelectComponentLike<T> {
         return this;
     }
 
+    // blur.............................................................................................................
+
+    @Override
+    public SelectComponent<T> blur() {
+        this.select.blur();
+        return this;
+    }
+
     // styling..........................................................................................................
 
     @Override

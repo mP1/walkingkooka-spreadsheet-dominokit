@@ -179,6 +179,11 @@ public final class SliderComponent extends SliderComponentLike
     }
 
     @Override
+    public SliderComponent blur() {
+        return this;
+    }
+
+    @Override
     public SliderComponent optional() {
         this.required = false;
         return this;

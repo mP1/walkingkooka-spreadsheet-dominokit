@@ -90,6 +90,13 @@ public interface ValueComponentDelegator<E extends HTMLElement, V, C extends Val
     }
 
     @Override
+    default C blur() {
+        this.valueComponent()
+            .blur();
+        return (C) this;
+    }
+
+    @Override
     default boolean isEditing() {
         return this.valueComponent()
             .isEditing();

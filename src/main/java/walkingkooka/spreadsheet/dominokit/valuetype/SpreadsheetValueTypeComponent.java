@@ -113,6 +113,12 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
+    public SpreadsheetValueTypeComponent blur() {
+        this.select.blur();
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return this.select.isEditing();
     }

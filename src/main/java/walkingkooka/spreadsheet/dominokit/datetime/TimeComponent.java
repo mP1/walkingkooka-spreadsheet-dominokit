@@ -115,6 +115,12 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     }
 
     @Override
+    public TimeComponent blur() {
+        // NOP
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return this.timePicker.isExpanded();
     }
