@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogCo
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.checkbox.CheckboxComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
@@ -138,6 +139,15 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void cellValue(final AppContext context) {
         cellValueAbsoluteUrl(
             SpreadsheetValueType.ABSOLUTE_URL,
+            context
+        );
+
+        cellValue(
+            SpreadsheetValueType.BOOLEAN,
+            Boolean.class,
+            (id, c) -> CheckboxComponent.empty()
+                .setId(id + SpreadsheetElementIds.CHECKBOX)
+                .setLabel("Value"),
             context
         );
 
