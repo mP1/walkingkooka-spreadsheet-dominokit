@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
-public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElement, FlexLayoutComponent>,
+public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElement, FlexLayoutComponent>,
     ComponentWithChildren<FlexLayoutComponent, HTMLDivElement> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
@@ -159,7 +159,7 @@ public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElemen
     // CanBeEmpty.......................................................................................................
 
     @Override
-    public final boolean isEmpty() {
+    public boolean isEmpty() {
         return this.isEmptyIfChildrenAreEmpty();
     }
 
@@ -173,7 +173,7 @@ public class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElemen
     //      TextBoxComponent
     //        [Value222]
     @Override
-    public final void printTree(final IndentingPrinter printer) {
+    public void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
