@@ -75,4 +75,15 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLabelSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

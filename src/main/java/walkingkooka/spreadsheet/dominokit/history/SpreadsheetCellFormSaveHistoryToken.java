@@ -108,4 +108,17 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.formName,
+            this.values
+        );
+    }
 }

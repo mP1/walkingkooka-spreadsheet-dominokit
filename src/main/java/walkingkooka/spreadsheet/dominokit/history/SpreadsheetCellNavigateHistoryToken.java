@@ -108,4 +108,15 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellNavigate(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

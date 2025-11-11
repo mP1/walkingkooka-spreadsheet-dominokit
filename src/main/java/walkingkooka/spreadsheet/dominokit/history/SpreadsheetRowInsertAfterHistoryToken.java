@@ -98,4 +98,16 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowInsertAfter(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.count
+        );
+    }
 }

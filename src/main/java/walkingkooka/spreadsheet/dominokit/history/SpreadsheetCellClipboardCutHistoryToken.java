@@ -161,4 +161,16 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
             }
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellClipboardCut(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.kind()
+        );
+    }
 }

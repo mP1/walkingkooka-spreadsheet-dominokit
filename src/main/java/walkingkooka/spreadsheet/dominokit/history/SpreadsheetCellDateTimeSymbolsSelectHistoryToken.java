@@ -75,4 +75,15 @@ public final class SpreadsheetCellDateTimeSymbolsSelectHistoryToken extends Spre
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDateTimeSymbolsSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

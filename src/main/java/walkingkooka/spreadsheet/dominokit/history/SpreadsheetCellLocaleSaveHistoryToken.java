@@ -97,4 +97,16 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
                 this.locale
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLocaleSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.locale
+        );
+    }
 }

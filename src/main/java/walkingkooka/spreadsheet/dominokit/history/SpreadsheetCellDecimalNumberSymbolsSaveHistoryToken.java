@@ -97,4 +97,16 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends S
                 this.decimalNumberSymbols
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDecimalNumberSymbolsSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.decimalNumberSymbols
+        );
+    }
 }

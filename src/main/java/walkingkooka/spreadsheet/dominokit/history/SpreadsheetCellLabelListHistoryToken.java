@@ -92,4 +92,16 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
                                final AppContext context) {
         // opens a dialog listing labels for the current selection
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLabelList(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.offsetAndCount
+        );
+    }
 }

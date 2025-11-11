@@ -122,4 +122,15 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
                                final AppContext context) {
         // show label mapping UI
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLabelMappingSelect(
+            this.id,
+            this.name,
+            this.labelName
+        );
+    }
 }

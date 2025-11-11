@@ -79,4 +79,16 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
                                final AppContext context) {
         // TODO select toolbar icon
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellStyleSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.propertyName()
+        );
+    }
 }

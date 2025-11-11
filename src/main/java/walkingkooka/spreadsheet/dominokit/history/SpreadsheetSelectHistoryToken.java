@@ -317,4 +317,14 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetSelect(
+            this.id,
+            this.name
+        );
+    }
 }

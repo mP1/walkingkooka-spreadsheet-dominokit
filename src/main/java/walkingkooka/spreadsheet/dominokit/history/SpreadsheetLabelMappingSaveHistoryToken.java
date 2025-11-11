@@ -118,4 +118,15 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
                 this.mapping
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLabelMappingSave(
+            this.id,
+            this.name,
+            this.mapping
+        );
+    }
 }

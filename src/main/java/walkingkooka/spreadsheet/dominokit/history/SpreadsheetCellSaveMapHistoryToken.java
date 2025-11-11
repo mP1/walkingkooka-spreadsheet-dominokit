@@ -81,4 +81,16 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
                                                            final SpreadsheetName name,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final Map<SpreadsheetCellReference, V> values);
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellSaveMap(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.value
+        );
+    }
 }

@@ -82,4 +82,15 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
                 this.anchoredSelection().selection()
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowDelete(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

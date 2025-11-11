@@ -116,4 +116,14 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitNavigate(
+            this.id,
+            this.name
+        );
+    }
 }

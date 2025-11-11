@@ -78,4 +78,15 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
                                final AppContext context) {
         // TODO give focus to toolbar value link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValueUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

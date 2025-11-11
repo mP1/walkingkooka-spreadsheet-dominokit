@@ -102,4 +102,15 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
             context
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFreeze(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

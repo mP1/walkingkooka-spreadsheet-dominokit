@@ -75,4 +75,15 @@ public final class SpreadsheetCellFormatterSelectHistoryToken extends Spreadshee
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellFormatterSelect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

@@ -98,4 +98,16 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
                 this.spreadsheetParserSelector
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellParserSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.spreadsheetParserSelector
+        );
+    }
 }

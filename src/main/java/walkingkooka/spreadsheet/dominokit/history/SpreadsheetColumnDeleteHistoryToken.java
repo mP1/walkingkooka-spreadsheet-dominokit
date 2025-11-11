@@ -83,4 +83,15 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
                     .selection()
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnDelete(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

@@ -68,4 +68,11 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
 
         return historyToken;
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetListRenameSelect(this.id);
+    }
 }

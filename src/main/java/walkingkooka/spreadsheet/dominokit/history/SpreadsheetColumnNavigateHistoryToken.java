@@ -103,4 +103,15 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnNavigate(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

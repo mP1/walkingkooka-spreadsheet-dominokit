@@ -78,4 +78,15 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends Sp
                                final AppContext context) {
         // TODO give focus to toolbar dateTimeSymbols link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDateTimeSymbolsUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

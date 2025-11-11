@@ -78,4 +78,15 @@ public final class SpreadsheetCellLocaleUnselectHistoryToken extends Spreadsheet
                                final AppContext context) {
         // TODO give focus to toolbar locale link
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellLocaleUnselect(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

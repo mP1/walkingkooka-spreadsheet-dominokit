@@ -100,4 +100,16 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
             context.pushHistoryToken(previous);
         }
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnInsertAfter(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.count
+        );
+    }
 }

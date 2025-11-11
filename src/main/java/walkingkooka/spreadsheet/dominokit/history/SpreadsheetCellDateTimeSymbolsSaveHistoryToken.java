@@ -97,4 +97,16 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
                 this.dateTimeSymbols
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellDateTimeSymbolsSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.dateTimeSymbols
+        );
+    }
 }

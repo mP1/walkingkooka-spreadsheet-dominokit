@@ -141,4 +141,11 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
         context.spreadsheetMetadataFetcher()
             .deleteSpreadsheetMetadata(this.id);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetListDelete(this.id);
+    }
 }

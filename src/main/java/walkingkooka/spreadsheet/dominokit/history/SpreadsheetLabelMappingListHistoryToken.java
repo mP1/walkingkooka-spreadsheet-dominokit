@@ -101,4 +101,15 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
                                final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetLabelMappingList(
+            this.id,
+            this.name,
+            this.offsetAndCount
+        );
+    }
 }

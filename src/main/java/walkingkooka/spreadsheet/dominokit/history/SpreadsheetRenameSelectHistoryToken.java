@@ -86,4 +86,14 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
                                       final AppContext context) {
         // NOP
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetRenameSelect(
+            this.id,
+            this.name
+        );
+    }
 }

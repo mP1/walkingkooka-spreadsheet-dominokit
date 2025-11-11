@@ -97,4 +97,16 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
                 this.validator
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellValidatorSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.validator
+        );
+    }
 }

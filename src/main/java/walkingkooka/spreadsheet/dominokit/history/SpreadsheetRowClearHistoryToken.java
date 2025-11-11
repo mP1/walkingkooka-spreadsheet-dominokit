@@ -74,4 +74,15 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
                                final AppContext context) {
         this.deltaClearSelectionAndPushViewportHistoryToken(context);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowClear(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

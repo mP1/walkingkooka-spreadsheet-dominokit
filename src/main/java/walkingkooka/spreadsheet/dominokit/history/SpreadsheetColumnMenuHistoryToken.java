@@ -75,4 +75,15 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
                                final AppContext context) {
         // SpreadsheetViewportComponent will open a column menu
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitColumnMenu(
+            this.id,
+            this.name,
+            this.anchoredSelection
+        );
+    }
 }

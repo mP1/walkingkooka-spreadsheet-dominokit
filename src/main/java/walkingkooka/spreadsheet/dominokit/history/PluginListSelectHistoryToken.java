@@ -57,4 +57,12 @@ public final class PluginListSelectHistoryToken extends PluginListHistoryToken i
                                      final AppContext context) {
         this.loadPlugins(context);
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitPluginListSelect(this.offsetAndCount);
+    }
+
 }

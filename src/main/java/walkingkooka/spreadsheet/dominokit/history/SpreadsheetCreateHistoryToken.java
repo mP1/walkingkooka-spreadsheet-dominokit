@@ -82,4 +82,11 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         context.spreadsheetMetadataFetcher()
             .postCreateSpreadsheetMetadata();
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetCreate();
+    }
 }

@@ -117,4 +117,16 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
             }
         );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitCellClipboardPaste(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.kind()
+        );
+    }
 }

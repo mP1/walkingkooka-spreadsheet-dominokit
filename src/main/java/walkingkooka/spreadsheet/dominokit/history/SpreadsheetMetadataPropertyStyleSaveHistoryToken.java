@@ -114,4 +114,16 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                 )
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitMetadataStyleSave(
+            this.id,
+            this.name,
+            this.stylePropertyName(),
+            this.stylePropertyValue
+        );
+    }
 }

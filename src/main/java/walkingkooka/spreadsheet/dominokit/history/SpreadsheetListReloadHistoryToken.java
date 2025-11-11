@@ -68,4 +68,11 @@ public final class SpreadsheetListReloadHistoryToken extends SpreadsheetListHist
 
         // SpreadsheetListSelectHistoryToken#onHistoryTokenChange will do the actual reloading of data
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitSpreadsheetListReload(this.offsetAndCount);
+    }
 }

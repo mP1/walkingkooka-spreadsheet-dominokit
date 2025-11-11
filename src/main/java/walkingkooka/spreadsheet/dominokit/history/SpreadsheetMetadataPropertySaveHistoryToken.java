@@ -108,4 +108,16 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
                 )
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitMetadataPropertySave(
+            this.id,
+            this.name,
+            this.propertyName,
+            this.propertyValue
+        );
+    }
 }

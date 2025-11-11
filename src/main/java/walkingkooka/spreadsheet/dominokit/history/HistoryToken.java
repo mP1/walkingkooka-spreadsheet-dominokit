@@ -5044,4 +5044,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                     .toString()
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    abstract void accept(final HistoryTokenVisitor visitor);
 }

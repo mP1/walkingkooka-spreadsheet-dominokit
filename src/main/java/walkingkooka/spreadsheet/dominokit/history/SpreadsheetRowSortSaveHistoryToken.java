@@ -107,4 +107,16 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
                 this.comparatorNames
             );
     }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitRowSortSave(
+            this.id,
+            this.name,
+            this.anchoredSelection,
+            this.comparatorNames
+        );
+    }
 }
