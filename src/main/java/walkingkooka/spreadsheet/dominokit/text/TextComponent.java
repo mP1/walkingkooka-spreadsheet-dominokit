@@ -176,6 +176,11 @@ public final class TextComponent implements FormValueComponent<HTMLDivElement, S
     }
 
     @Override
+    public TextComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean isEditing() {
         return false;
     }

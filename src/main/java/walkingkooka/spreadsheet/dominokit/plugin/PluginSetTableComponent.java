@@ -128,6 +128,11 @@ final class PluginSetTableComponent implements TableComponent<HTMLDivElement, Pl
         return this;
     }
 
+    @Override
+    public PluginSetTableComponent blur() {
+        this.dataTable.blur();
+        return this;
+    }
 
     @Override
     public Optional<PluginSet> value() {

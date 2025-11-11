@@ -155,6 +155,11 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     }
 
     @Override
+    public SelectComponent<T> blur() {
+        return this;
+    }
+
+    @Override
     public SelectComponent<T> hideMarginBottom() {
         return this;
     }

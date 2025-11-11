@@ -124,6 +124,12 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
         return this;
     }
 
+    @Override
+    public SpreadsheetDeltaLabelsTableComponent blur() {
+        this.dataTable.blur();
+        return this;
+    }
+
     // value............................................................................................................
 
     @Override

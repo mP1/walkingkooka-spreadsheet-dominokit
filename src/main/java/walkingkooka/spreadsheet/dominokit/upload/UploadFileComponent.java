@@ -211,6 +211,13 @@ public final class UploadFileComponent extends UploadFileComponentLike {
     }
 
     @Override
+    public UploadFileComponent blur() {
+        this.fileUpload.element()
+            .blur();
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
     }

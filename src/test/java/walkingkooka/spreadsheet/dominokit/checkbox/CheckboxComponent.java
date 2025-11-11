@@ -154,6 +154,13 @@ public final class CheckboxComponent extends CheckboxComponentLike
         return this;
     }
 
+    // blur.............................................................................................................
+
+    @Override
+    public CheckboxComponent blur() {
+        return this;
+    }
+
     // styling..........................................................................................................
     
     @Override

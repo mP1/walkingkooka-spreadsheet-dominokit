@@ -131,6 +131,12 @@ final class SpreadsheetListTableComponent implements TableComponent<HTMLDivEleme
     }
 
     @Override
+    public SpreadsheetListTableComponent blur() {
+        this.dataTable.blur();
+        return this;
+    }
+
+    @Override
     public Optional<List<SpreadsheetMetadata>> value() {
         return this.dataTable.value();
     }

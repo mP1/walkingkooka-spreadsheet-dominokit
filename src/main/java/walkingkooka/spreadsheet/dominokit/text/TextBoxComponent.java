@@ -117,6 +117,12 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
+    public TextBoxComponent blur() {
+        this.textBox.blur();
+        return this;
+    }
+
     public TextBoxComponent enterFiresValueChange() {
         return this.addKeyDownListener(
             (final Event event) -> {

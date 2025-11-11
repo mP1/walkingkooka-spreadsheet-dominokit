@@ -182,6 +182,12 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     }
 
     @Override
+    public DateTimeComponent blur() {
+        // NOP
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element()) ||
             this.calendar.isExpanded() ||

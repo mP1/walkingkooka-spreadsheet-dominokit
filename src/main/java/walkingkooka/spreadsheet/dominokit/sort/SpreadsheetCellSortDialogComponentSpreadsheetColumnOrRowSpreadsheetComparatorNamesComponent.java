@@ -324,6 +324,12 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
     }
 
     @Override
+    public SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent blur() {
+        this.names.blur();
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element());
     }

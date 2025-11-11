@@ -101,6 +101,11 @@ public final class TimeComponent extends TestTemporalComponent<LocalTime, TimeCo
     }
 
     @Override
+    public TimeComponent blur() {
+        return this;
+    }
+
+    @Override
     public TimeComponent optional() {
         this.required = false;
         return this;

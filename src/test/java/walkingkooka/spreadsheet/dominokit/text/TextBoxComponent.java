@@ -99,6 +99,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
+    public TextBoxComponent blur() {
+        return this;
+    }
+
+    @Override
     public TextBoxComponent optional() {
         this.required = false;
         return this;

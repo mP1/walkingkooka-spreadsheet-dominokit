@@ -121,6 +121,12 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     }
 
     @Override
+    public DateComponent blur() {
+        // NOP
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return this.calendar.isExpanded();
     }

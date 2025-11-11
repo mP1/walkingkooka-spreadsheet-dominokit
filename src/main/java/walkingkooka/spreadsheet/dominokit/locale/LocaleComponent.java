@@ -60,6 +60,12 @@ public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HT
     }
 
     @Override
+    public LocaleComponent<T> blur() {
+        this.suggestBox.blur();
+        return this;
+    }
+
+    @Override
     public boolean isEditing() {
         return this.suggestBox.isEditing();
     }

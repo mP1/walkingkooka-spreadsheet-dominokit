@@ -101,6 +101,11 @@ public final class DateTimeComponent extends TestTemporalComponent<LocalDateTime
     }
 
     @Override
+    public DateTimeComponent blur() {
+        return this;
+    }
+
+    @Override
     public DateTimeComponent optional() {
         this.required = false;
         return this;
