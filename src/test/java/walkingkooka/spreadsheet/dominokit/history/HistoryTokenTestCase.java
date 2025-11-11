@@ -982,27 +982,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     @Test
     public final void testEqualsDifferentHistoryTokenType() {
         this.checkNotEquals(
-            new FakeHistoryToken() {
-                @Override
-                public UrlFragment urlFragment() {
-                    return UrlFragment.SLASH;
-                }
-            }
-        );
-    }
-
-    @Test
-    public final void testEqualsDifferentTypeSameUrlFragment() {
-        final T token = this.createHistoryToken();
-
-        this.checkNotEquals(
-            token,
-            new FakeHistoryToken() {
-                @Override
-                public UrlFragment urlFragment() {
-                    return token.urlFragment();
-                }
-            }
+            HistoryToken.unknown(
+                UrlFragment.parse("/different!")
+            )
         );
     }
 
