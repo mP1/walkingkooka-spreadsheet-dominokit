@@ -23,17 +23,24 @@ import walkingkooka.ToStringBuilderOption;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.HasText;
 import walkingkooka.text.printer.IndentingPrinter;
 
 /**
  * Base class for {@link SelectComponent} that captures common members for main/test.
  */
 abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetElement, Boolean, CheckboxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, CheckboxComponent, Boolean> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, CheckboxComponent, Boolean>,
+    HasText {
 
     CheckboxComponentLike() {
         super();
     }
+
+    public abstract CheckboxComponent setText(final String text);
+
+    // ValueComponent...................................................................................................
 
     @Override
     public final CheckboxComponent optional() {
@@ -67,6 +74,10 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
             .enable(ToStringBuilderOption.QUOTE)
             .label("id")
             .value(this.id())
+            .label("text")
+            .enable(ToStringBuilderOption.QUOTE)
+            .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
+            .value(this.text())
             .build();
     }
 
@@ -74,6 +85,16 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
 
     @Override
     public final void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
+        final String text = this.text();
+        if(false == CharSequences.isNullOrEmpty(text)) {
+            printer.indent();
+            {
+                printer.print("text=");
+                printer.print(
+                    CharSequences.quoteAndEscape(text)
+                );
+            }
+            printer.outdent();
+        }
     }
 }
