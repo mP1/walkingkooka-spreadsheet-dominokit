@@ -37,7 +37,23 @@ public final class CheckboxComponent extends CheckboxComponentLike
     }
 
     private CheckboxComponent() {
+        this.text = "";
     }
+
+    @Override
+    public CheckboxComponent setText(final String text) {
+        Objects.requireNonNull(text, "text");
+
+        this.text = text;
+        return this;
+    }
+
+    @Override
+    public String text() {
+        return this.text;
+    }
+
+    private String text;
 
     // id...............................................................................................................
 

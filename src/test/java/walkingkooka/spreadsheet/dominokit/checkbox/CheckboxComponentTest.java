@@ -19,12 +19,14 @@ package walkingkooka.spreadsheet.dominokit.checkbox;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class CheckboxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Boolean, CheckboxComponent> {
+public final class CheckboxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Boolean, CheckboxComponent>,
+    ToStringTesting<CheckboxComponent> {
 
     @Test
     public void testTreePrintDisabledTrue() {
@@ -49,6 +51,45 @@ public final class CheckboxComponentTest implements FormValueComponentTesting<HT
                 .setDisabled(false),
             "CheckboxComponent\n" +
                 "  Label123 [false] id=id987 DISABLED\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintText() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setLabel("Label123")
+                .setValue(Optional.of(false))
+                .setId("id987")
+                .setText("Text222"),
+            "CheckboxComponent\n" +
+                "  Label123 [false] id=id987\n" +
+                "    text=\"Text222\""
+        );
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToStringWithoutText() {
+        this.toStringAndCheck(
+            this.createComponent()
+                .setLabel("Label123")
+                .setValue(Optional.of(false))
+                .setId("id987"),
+            "\"Label123\" id=\"id987\""
+        );
+    }
+
+    @Test
+    public void testToStringIncludesText() {
+        this.toStringAndCheck(
+            this.createComponent()
+                .setLabel("Label123")
+                .setValue(Optional.of(false))
+                .setId("id987")
+                .setText("Text222"),
+            "\"Label123\" id=\"id987\" text=\"Text222\""
         );
     }
 

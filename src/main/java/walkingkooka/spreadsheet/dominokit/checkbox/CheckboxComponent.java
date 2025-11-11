@@ -68,6 +68,21 @@ public final class CheckboxComponent extends CheckboxComponentLike {
         return this.checkbox.getLabel();
     }
 
+    // label............................................................................................................
+
+    @Override
+    public CheckboxComponent setText(final String text) {
+        this.checkbox.setCheckLabel(text);
+        return this;
+    }
+
+    @Override
+    public String text() {
+        return this.checkbox.getCheckLabelTextElement()
+            .get()
+            .getTextContent();
+    }
+
     // helperText.......................................................................................................
 
     @Override
