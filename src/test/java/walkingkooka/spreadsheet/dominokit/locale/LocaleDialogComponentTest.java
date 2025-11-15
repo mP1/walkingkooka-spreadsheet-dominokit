@@ -233,7 +233,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
             @Override
             public Set<Locale> availableLocales() {
                 return Sets.of(
-                    LOCALE,
+                    LocaleDialogComponentTest.LOCALE,
                     Locale.ENGLISH,
                     Locale.FRENCH
                 );
@@ -241,7 +241,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
 
             @Override
             public Optional<String> localeText(final Locale locale) {
-                if (locale.equals(LOCALE)) {
+                if (locale.equals(LocaleDialogComponentTest.LOCALE)) {
                     return Optional.of("English (Australian)");
                 }
                 if (locale.equals(Locale.ENGLISH)) {

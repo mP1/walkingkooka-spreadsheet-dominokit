@@ -2039,7 +2039,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
 
             @Override
             public Locale locale() {
-                return LOCALE;
+                return SpreadsheetFormatterSelectorDialogComponentTest.LOCALE;
             }
 
             // SpreadsheetFormatterContext......................................................................................

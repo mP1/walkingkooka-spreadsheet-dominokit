@@ -347,7 +347,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                                 Maps.empty()
                             )
                         ),
-                        USER,
+                        PluginSetDialogComponentTest.USER,
                         NOW.now()
                     )
                 );
