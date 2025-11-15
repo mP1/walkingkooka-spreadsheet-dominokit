@@ -178,7 +178,7 @@ public final class AppContextLocaleDialogComponentContextMetadataLocaleTest exte
                 public SpreadsheetMetadata spreadsheetMetadata() {
                     return SpreadsheetMetadata.EMPTY.set(
                         SpreadsheetMetadataPropertyName.LOCALE,
-                        LOCALE
+                        AppContextLocaleDialogComponentContextMetadataLocaleTest.LOCALE
                     );
                 }
             }

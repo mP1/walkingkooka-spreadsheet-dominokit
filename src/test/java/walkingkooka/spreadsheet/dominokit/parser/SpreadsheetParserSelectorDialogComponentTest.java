@@ -1434,7 +1434,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
 
             @Override
             public Locale locale() {
-                return LOCALE;
+                return SpreadsheetParserSelectorDialogComponentTest.LOCALE;
             }
 
             @Override
