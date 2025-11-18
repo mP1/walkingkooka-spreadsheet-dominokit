@@ -413,7 +413,6 @@ public class App implements EntryPoint,
 
         this.providerContext = SpreadsheetProviderContexts.basic(
             PluginStores.fake(),
-            this.jsonNodeMarshallUnmarshallContext(),
             this.spreadsheetMetadata.environmentContext(
                 EnvironmentContexts.empty(
                     this.locale(),
@@ -421,6 +420,7 @@ public class App implements EntryPoint,
                     EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                 )
             ),
+            this.jsonNodeMarshallUnmarshallContext(),
             LocaleContexts.jre(this.locale())
         );
 
@@ -588,8 +588,8 @@ public class App implements EntryPoint,
 
             this.providerContext = SpreadsheetProviderContexts.basic(
                 PluginStores.fake(),
-                this.jsonNodeMarshallUnmarshallContext(),
                 environmentContext,
+                this.jsonNodeMarshallUnmarshallContext(),
                 LocaleContexts.jre(this.locale())
             );
 
@@ -1382,8 +1382,8 @@ public class App implements EntryPoint,
     private void refreshSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.basic(
             PluginStores.fake(),
-            this.jsonNodeMarshallUnmarshallContext(),
             this.environmentContext(),
+            this.jsonNodeMarshallUnmarshallContext(),
             LocaleContexts.jre(this.locale())
         );
 
