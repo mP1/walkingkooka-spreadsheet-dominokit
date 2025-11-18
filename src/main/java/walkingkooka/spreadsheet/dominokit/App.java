@@ -411,7 +411,7 @@ public class App implements EntryPoint,
         );
         this.addPluginFetcherWatcher(this);
 
-        this.providerContext = SpreadsheetProviderContexts.basic(
+        this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
             this.spreadsheetMetadata.environmentContext(
                 EnvironmentContexts.empty(
@@ -586,7 +586,7 @@ public class App implements EntryPoint,
                 )
             );
 
-            this.providerContext = SpreadsheetProviderContexts.basic(
+            this.providerContext = SpreadsheetProviderContexts.spreadsheet(
                 PluginStores.fake(),
                 environmentContext,
                 this.jsonNodeMarshallUnmarshallContext(),
@@ -1380,7 +1380,7 @@ public class App implements EntryPoint,
     }
 
     private void refreshSpreadsheetProvider() {
-        this.providerContext = SpreadsheetProviderContexts.basic(
+        this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
             this.environmentContext(),
             this.jsonNodeMarshallUnmarshallContext(),
