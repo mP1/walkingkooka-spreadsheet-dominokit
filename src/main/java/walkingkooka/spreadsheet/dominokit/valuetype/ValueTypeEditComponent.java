@@ -60,7 +60,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
                     id + nameText + SpreadsheetElementIds.OPTION, // id
                     n.isAny() ?
                         "Any" :
-                        CaseKind.PASCAL.change(
+                        CaseKind.KEBAB.change(
                             nameText,
                             CaseKind.TITLE
                         ), // text
