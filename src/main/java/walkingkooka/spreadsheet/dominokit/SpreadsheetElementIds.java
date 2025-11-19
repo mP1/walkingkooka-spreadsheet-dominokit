@@ -35,6 +35,8 @@ public final class SpreadsheetElementIds implements PublicStaticHelper {
 
     public final static String DIALOG = "-Dialog";
 
+    public final static String LABEL = "-Label";
+
     public final static String LINK = "-Link";
 
     public final static String MENU_ITEM = "-MenuItem";
