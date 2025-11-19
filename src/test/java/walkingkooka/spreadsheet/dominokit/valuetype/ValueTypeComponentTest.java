@@ -27,13 +27,13 @@ import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
-public final class SpreadsheetValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent> {
+public final class ValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, ValueTypeComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "SpreadsheetValueTypeComponent\n" +
+            "ValueTypeComponent\n" +
                 "  SelectComponent\n" +
                 "    [] id=ValueType123-\n" +
                 "      *\n" +
@@ -55,7 +55,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(Optional.of(SpreadsheetValueType.ANY)),
-            "SpreadsheetValueTypeComponent\n" +
+            "ValueTypeComponent\n" +
                 "  SelectComponent\n" +
                 "    [*] id=ValueType123-\n" +
                 "      *\n" +
@@ -81,7 +81,7 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
                         SpreadsheetValueType.BOOLEAN
                     )
                 ),
-            "SpreadsheetValueTypeComponent\n" +
+            "ValueTypeComponent\n" +
                 "  SelectComponent\n" +
                 "    [boolean] id=ValueType123-\n" +
                 "      *\n" +
@@ -101,10 +101,10 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetValueTypeComponent createComponent() {
-        return SpreadsheetValueTypeComponent.empty(
+    public ValueTypeComponent createComponent() {
+        return ValueTypeComponent.empty(
             "ValueType123-",
-            new FakeSpreadsheetValueTypeComponentContext() {
+            new FakeValueTypeComponentContext() {
 
                 @Override
                 public HistoryToken historyToken() {
@@ -117,8 +117,8 @@ public final class SpreadsheetValueTypeComponentTest implements FormValueCompone
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetValueTypeComponent> type() {
-        return SpreadsheetValueTypeComponent.class;
+    public Class<ValueTypeComponent> type() {
+        return ValueTypeComponent.class;
     }
 
     @Override

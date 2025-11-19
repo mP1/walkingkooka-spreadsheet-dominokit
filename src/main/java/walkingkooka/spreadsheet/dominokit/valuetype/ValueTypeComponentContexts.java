@@ -17,25 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.reflect.PublicStaticHelper;
 
-import java.lang.reflect.Method;
+public final class ValueTypeComponentContexts implements PublicStaticHelper {
 
-public final class SpreadsheetValueTypeComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetValueTypeComponentContexts> {
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+    /**
+     * {see FakeValueTypeComponentContext}
+     */
+    public static ValueTypeComponentContext fake() {
+        return new FakeValueTypeComponentContext();
     }
 
-    @Override
-    public Class<SpreadsheetValueTypeComponentContexts> type() {
-        return SpreadsheetValueTypeComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+    /**
+     * Stop creation
+     */
+    private ValueTypeComponentContexts() {
+        throw new UnsupportedOperationException();
     }
 }

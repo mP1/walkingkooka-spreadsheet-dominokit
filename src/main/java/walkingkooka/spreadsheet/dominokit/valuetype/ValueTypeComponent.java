@@ -37,20 +37,20 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link ValueTypeName}.
  */
-public final class SpreadsheetValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, SpreadsheetValueTypeComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, SpreadsheetValueTypeComponent>,
+public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, ValueTypeComponent>,
+    HtmlComponentDelegator<HTMLFieldSetElement, ValueTypeComponent>,
     TreePrintable {
 
-    public static SpreadsheetValueTypeComponent empty(final String id,
-                                                      final SpreadsheetValueTypeComponentContext context) {
-        return new SpreadsheetValueTypeComponent(
+    public static ValueTypeComponent empty(final String id,
+                                           final ValueTypeComponentContext context) {
+        return new ValueTypeComponent(
             id,
             context
         );
     }
 
-    private SpreadsheetValueTypeComponent(final String id,
-                                          final SpreadsheetValueTypeComponentContext context) {
+    private ValueTypeComponent(final String id,
+                               final ValueTypeComponentContext context) {
         final SelectComponent<ValueTypeName> select = SelectComponent.<ValueTypeName>empty(
             (v) -> {
                 final ValueTypeName n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueTypeName"));
@@ -85,7 +85,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent setId(final String id) {
+    public ValueTypeComponent setId(final String id) {
         this.select.setId(id);
         return this;
     }
@@ -96,7 +96,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent setLabel(final String label) {
+    public ValueTypeComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
@@ -107,13 +107,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent focus() {
+    public ValueTypeComponent focus() {
         this.select.focus();
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent blur() {
+    public ValueTypeComponent blur() {
         this.select.blur();
         return this;
     }
@@ -124,13 +124,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent alwaysShowHelperText() {
+    public ValueTypeComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent setHelperText(final Optional<String> text) {
+    public ValueTypeComponent setHelperText(final Optional<String> text) {
         this.select.setHelperText(text);
         return this;
     }
@@ -146,25 +146,25 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent setErrors(final List<String> errors) {
+    public ValueTypeComponent setErrors(final List<String> errors) {
         this.select.setErrors(errors);
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent hideMarginBottom() {
+    public ValueTypeComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent removeBorders() {
+    public ValueTypeComponent removeBorders() {
         this.select.removeBorders();
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent removePadding() {
+    public ValueTypeComponent removePadding() {
         this.select.removePadding();
         return this;
     }
@@ -175,13 +175,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent setDisabled(final boolean disabled) {
+    public ValueTypeComponent setDisabled(final boolean disabled) {
         this.select.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent required() {
+    public ValueTypeComponent required() {
         this.select.required();
         return this;
     }
@@ -192,13 +192,13 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     }
 
     @Override
-    public SpreadsheetValueTypeComponent optional() {
+    public ValueTypeComponent optional() {
         this.select.optional();
         return this;
     }
 
     @Override
-    public SpreadsheetValueTypeComponent validate() {
+    public ValueTypeComponent validate() {
         this.select.validate();
         return this;
     }
@@ -206,7 +206,7 @@ public final class SpreadsheetValueTypeComponent implements FormValueComponent<H
     // Value............................................................................................................
 
     @Override
-    public SpreadsheetValueTypeComponent setValue(final Optional<ValueTypeName> valueType) {
+    public ValueTypeComponent setValue(final Optional<ValueTypeName> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);

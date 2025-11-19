@@ -122,7 +122,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -246,7 +246,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -370,7 +370,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -492,7 +492,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -648,7 +648,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -801,7 +801,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -923,7 +923,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1045,7 +1045,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1167,7 +1167,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1289,7 +1289,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1411,7 +1411,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1533,7 +1533,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1655,7 +1655,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1777,7 +1777,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -1899,7 +1899,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -2021,7 +2021,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -2143,7 +2143,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +
@@ -2265,7 +2265,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              TDRL\n" +
                 "              BULR\n" +
                 "              BURL\n" +
-                "        SpreadsheetValueTypeComponent\n" +
+                "        ValueTypeComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
                 "              *\n" +

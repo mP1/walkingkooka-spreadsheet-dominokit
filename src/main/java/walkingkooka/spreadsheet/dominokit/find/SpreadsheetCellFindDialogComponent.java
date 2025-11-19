@@ -36,7 +36,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToke
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
-import walkingkooka.spreadsheet.dominokit.valuetype.SpreadsheetValueTypeComponent;
+import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -275,8 +275,8 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
     // valueType........................................................................................................
 
-    private SpreadsheetValueTypeComponent valueType() {
-        return SpreadsheetValueTypeComponent.empty(
+    private ValueTypeComponent valueType() {
+        return ValueTypeComponent.empty(
                 ID_PREFIX + "value-type-",
                 this.context
             ).setLabel("Value type")
@@ -290,7 +290,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
             );
     }
 
-    private final SpreadsheetValueTypeComponent valueType;
+    private final ValueTypeComponent valueType;
 
     private SpreadsheetParserContext spreadsheetParserContext() {
         final SpreadsheetCellFindDialogComponentContext context = this.context;
