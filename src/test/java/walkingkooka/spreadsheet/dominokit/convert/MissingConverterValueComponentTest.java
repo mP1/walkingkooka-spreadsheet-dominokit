@@ -61,7 +61,7 @@ public class MissingConverterValueComponentTest implements ValueComponentTesting
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 
     @Override
