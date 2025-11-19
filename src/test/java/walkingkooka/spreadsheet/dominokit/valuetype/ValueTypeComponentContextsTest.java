@@ -17,7 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public class FakeSpreadsheetValueTypeComponentContext extends FakeHistoryContext implements SpreadsheetValueTypeComponentContext {
+import java.lang.reflect.Method;
+
+public final class ValueTypeComponentContextsTest implements PublicStaticHelperTesting<ValueTypeComponentContexts> {
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
+
+    @Override
+    public Class<ValueTypeComponentContexts> type() {
+        return ValueTypeComponentContexts.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
 }
