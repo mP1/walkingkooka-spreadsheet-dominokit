@@ -17,7 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public class FakeValueTypeComponentContext extends FakeHistoryContext implements ValueTypeComponentContext {
+public final class ValueTypeEditComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {see FakeValueTypeEditComponentContext}
+     */
+    public static ValueTypeEditComponentContext fake() {
+        return new FakeValueTypeEditComponentContext();
+    }
+
+    /**
+     * Stop creation
+     */
+    private ValueTypeEditComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

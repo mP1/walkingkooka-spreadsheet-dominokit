@@ -19,5 +19,5 @@ package walkingkooka.spreadsheet.dominokit.valuetype;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public interface ValueTypeComponentContext extends HistoryContext {
+public interface ValueTypeEditComponentContext extends HistoryContext {
 }

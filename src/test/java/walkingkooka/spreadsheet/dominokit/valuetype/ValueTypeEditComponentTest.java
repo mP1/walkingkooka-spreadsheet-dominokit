@@ -27,13 +27,13 @@ import walkingkooka.validation.ValueTypeName;
 
 import java.util.Optional;
 
-public final class ValueTypeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, ValueTypeComponent> {
+public final class ValueTypeEditComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, ValueTypeEditComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "ValueTypeComponent\n" +
+            "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [] id=ValueType123-\n" +
                 "      *\n" +
@@ -55,7 +55,7 @@ public final class ValueTypeComponentTest implements FormValueComponentTesting<H
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(Optional.of(SpreadsheetValueType.ANY)),
-            "ValueTypeComponent\n" +
+            "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [*] id=ValueType123-\n" +
                 "      *\n" +
@@ -81,7 +81,7 @@ public final class ValueTypeComponentTest implements FormValueComponentTesting<H
                         SpreadsheetValueType.BOOLEAN
                     )
                 ),
-            "ValueTypeComponent\n" +
+            "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [boolean] id=ValueType123-\n" +
                 "      *\n" +
@@ -101,10 +101,10 @@ public final class ValueTypeComponentTest implements FormValueComponentTesting<H
     // ValueComponent...................................................................................................
 
     @Override
-    public ValueTypeComponent createComponent() {
-        return ValueTypeComponent.empty(
+    public ValueTypeEditComponent createComponent() {
+        return ValueTypeEditComponent.empty(
             "ValueType123-",
-            new FakeValueTypeComponentContext() {
+            new FakeValueTypeEditComponentContext() {
 
                 @Override
                 public HistoryToken historyToken() {
@@ -117,8 +117,8 @@ public final class ValueTypeComponentTest implements FormValueComponentTesting<H
     // class............................................................................................................
 
     @Override
-    public Class<ValueTypeComponent> type() {
-        return ValueTypeComponent.class;
+    public Class<ValueTypeEditComponent> type() {
+        return ValueTypeEditComponent.class;
     }
 
     @Override

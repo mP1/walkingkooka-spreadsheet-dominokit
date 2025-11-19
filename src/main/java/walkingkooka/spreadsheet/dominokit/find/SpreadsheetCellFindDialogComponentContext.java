@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableCompon
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeComponentContext;
+import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponentContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
@@ -45,7 +45,7 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     HasNow,
     DialogComponentContext,
     SpreadsheetCellRangeReferencePathComponentContext,
-    ValueTypeComponentContext,
+    ValueTypeEditComponentContext,
     SpreadsheetParserProvider,
     ProviderContext {
 

@@ -37,20 +37,20 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link ValueTypeName}.
  */
-public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, ValueTypeComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValueTypeComponent>,
+public final class ValueTypeEditComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, ValueTypeEditComponent>,
+    HtmlComponentDelegator<HTMLFieldSetElement, ValueTypeEditComponent>,
     TreePrintable {
 
-    public static ValueTypeComponent empty(final String id,
-                                           final ValueTypeComponentContext context) {
-        return new ValueTypeComponent(
+    public static ValueTypeEditComponent empty(final String id,
+                                               final ValueTypeEditComponentContext context) {
+        return new ValueTypeEditComponent(
             id,
             context
         );
     }
 
-    private ValueTypeComponent(final String id,
-                               final ValueTypeComponentContext context) {
+    private ValueTypeEditComponent(final String id,
+                                   final ValueTypeEditComponentContext context) {
         final SelectComponent<ValueTypeName> select = SelectComponent.<ValueTypeName>empty(
             (v) -> {
                 final ValueTypeName n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueTypeName"));
@@ -85,7 +85,7 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent setId(final String id) {
+    public ValueTypeEditComponent setId(final String id) {
         this.select.setId(id);
         return this;
     }
@@ -96,7 +96,7 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent setLabel(final String label) {
+    public ValueTypeEditComponent setLabel(final String label) {
         this.select.setLabel(label);
         return this;
     }
@@ -107,13 +107,13 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent focus() {
+    public ValueTypeEditComponent focus() {
         this.select.focus();
         return this;
     }
 
     @Override
-    public ValueTypeComponent blur() {
+    public ValueTypeEditComponent blur() {
         this.select.blur();
         return this;
     }
@@ -124,13 +124,13 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent alwaysShowHelperText() {
+    public ValueTypeEditComponent alwaysShowHelperText() {
         this.select.alwaysShowHelperText();
         return this;
     }
 
     @Override
-    public ValueTypeComponent setHelperText(final Optional<String> text) {
+    public ValueTypeEditComponent setHelperText(final Optional<String> text) {
         this.select.setHelperText(text);
         return this;
     }
@@ -146,25 +146,25 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent setErrors(final List<String> errors) {
+    public ValueTypeEditComponent setErrors(final List<String> errors) {
         this.select.setErrors(errors);
         return this;
     }
 
     @Override
-    public ValueTypeComponent hideMarginBottom() {
+    public ValueTypeEditComponent hideMarginBottom() {
         this.select.hideMarginBottom();
         return this;
     }
 
     @Override
-    public ValueTypeComponent removeBorders() {
+    public ValueTypeEditComponent removeBorders() {
         this.select.removeBorders();
         return this;
     }
 
     @Override
-    public ValueTypeComponent removePadding() {
+    public ValueTypeEditComponent removePadding() {
         this.select.removePadding();
         return this;
     }
@@ -175,13 +175,13 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent setDisabled(final boolean disabled) {
+    public ValueTypeEditComponent setDisabled(final boolean disabled) {
         this.select.setDisabled(disabled);
         return this;
     }
 
     @Override
-    public ValueTypeComponent required() {
+    public ValueTypeEditComponent required() {
         this.select.required();
         return this;
     }
@@ -192,13 +192,13 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
-    public ValueTypeComponent optional() {
+    public ValueTypeEditComponent optional() {
         this.select.optional();
         return this;
     }
 
     @Override
-    public ValueTypeComponent validate() {
+    public ValueTypeEditComponent validate() {
         this.select.validate();
         return this;
     }
@@ -206,7 +206,7 @@ public final class ValueTypeComponent implements FormValueComponent<HTMLFieldSet
     // Value............................................................................................................
 
     @Override
-    public ValueTypeComponent setValue(final Optional<ValueTypeName> valueType) {
+    public ValueTypeEditComponent setValue(final Optional<ValueTypeName> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);
