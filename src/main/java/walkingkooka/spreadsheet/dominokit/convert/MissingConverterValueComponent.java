@@ -150,7 +150,7 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
 
     @Override
     public boolean isDisabled() {
-        return true;
+        return false;
     }
 
     @Override
