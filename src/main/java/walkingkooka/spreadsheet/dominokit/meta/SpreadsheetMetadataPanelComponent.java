@@ -182,10 +182,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             // eg: /1/SpreadsheetName/metadata/SpreadsheetName
             item.addFocusListener(
                 (e) -> context.pushHistoryToken(
-                    context.historyToken()
-                        .setMetadataPropertyName(
-                            item.propertyName
-                        )
+                    item.historyToken(
+                            context.historyToken()
+                    )
                 )
             );
         }
