@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.dom.LiComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
@@ -294,6 +295,15 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
      * The parent {@link SpreadsheetMetadataPanelComponentContext} this will be used primarily to save updated values.
      */
     final SpreadsheetMetadataPanelComponentContext context;
+
+    /**
+     * Returns the {@link HistoryToken} when this item is selected in the {@link SpreadsheetMetadataPanelComponent}.
+     */
+    public final HistoryToken historyToken(final HistoryToken historyToken) {
+        return this instanceof SpreadsheetMetadataPanelComponentItemAnchor ?
+            historyToken.metadataShow() :
+            historyToken.setMetadataPropertyName(this.propertyName);
+    }
 
     // HtmlComponentDelegator...........................................................................................
 
