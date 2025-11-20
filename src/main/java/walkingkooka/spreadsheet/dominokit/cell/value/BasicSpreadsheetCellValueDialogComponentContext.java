@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.text.CaseKind;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -32,7 +32,7 @@ import java.util.Optional;
 final class BasicSpreadsheetCellValueDialogComponentContext<T> implements SpreadsheetCellValueDialogComponentContext<T>,
     RefreshContextDelegator {
 
-    static <T> BasicSpreadsheetCellValueDialogComponentContext<T> with(final ValueTypeName valueType,
+    static <T> BasicSpreadsheetCellValueDialogComponentContext<T> with(final ValueType valueType,
                                                                        final SpreadsheetViewportCache viewportCache,
                                                                        final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                        final RefreshContext refreshContext) {
@@ -44,7 +44,7 @@ final class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spread
         );
     }
 
-    private BasicSpreadsheetCellValueDialogComponentContext(final ValueTypeName valueType,
+    private BasicSpreadsheetCellValueDialogComponentContext(final ValueType valueType,
                                                             final SpreadsheetViewportCache viewportCache,
                                                             final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                             final RefreshContext refreshContext) {
@@ -80,11 +80,11 @@ final class BasicSpreadsheetCellValueDialogComponentContext<T> implements Spread
     private final SpreadsheetViewportCache viewportCache;
 
     @Override
-    public ValueTypeName valueType() {
+    public ValueType valueType() {
         return this.valueType;
     }
 
-    private final ValueTypeName valueType;
+    private final ValueType valueType;
 
     // RefreshContextDelegator..........................................................................................
 

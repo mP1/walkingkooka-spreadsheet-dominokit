@@ -21,14 +21,14 @@ import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 public final class SpreadsheetCellValueDialogComponentContexts implements PublicStaticHelper {
 
     /**
      * {@see BasicSpreadsheetCellValueDialogComponentContextDate}
      */
-    public static <T> SpreadsheetCellValueDialogComponentContext<T> basic(final ValueTypeName valueType,
+    public static <T> SpreadsheetCellValueDialogComponentContext<T> basic(final ValueType valueType,
                                                                           final SpreadsheetViewportCache viewportCache,
                                                                           final HasSpreadsheetDeltaFetcherWatchers deltaFetcherWatchers,
                                                                           final RefreshContext refreshContext) {

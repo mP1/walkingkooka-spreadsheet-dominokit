@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetText;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
@@ -289,7 +289,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                                 SpreadsheetSelection.A1.setFormula(
                                     SpreadsheetFormula.EMPTY.setText("A1=1+2+3000")
                                         .setValueType(
-                                            Optional.of(ValueTypeName.TEXT)
+                                            Optional.of(ValueType.TEXT)
                                         )
                                 )
                             );

@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -374,7 +374,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitCellValueSave(final SpreadsheetId id,
                                       final SpreadsheetName name,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
-                                      final ValueTypeName valueType,
+                                      final ValueType valueType,
                                       final Optional<?> value) {
         // NOP
     }
@@ -382,7 +382,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitCellValueSelect(final SpreadsheetId id,
                                         final SpreadsheetName name,
                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                        final ValueTypeName valueType) {
+                                        final ValueType valueType) {
         // NOP
     }
 
@@ -395,7 +395,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitCellValueTypeSave(final SpreadsheetId id,
                                           final SpreadsheetName name,
                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                          final Optional<ValueTypeName> valueType) {
+                                          final Optional<ValueType> valueType) {
         // NOP
     }
 

@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
@@ -106,7 +106,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor(),
-                    ValueTypeName.TEXT,
+                    ValueType.TEXT,
                     Optional.empty()
                 )
             ),

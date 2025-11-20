@@ -75,7 +75,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -950,7 +950,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellSaveValueTypeHistoryToken cellSaveValueType(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final Map<SpreadsheetCellReference, Optional<ValueTypeName>> cellToValueType) {
+                                                                             final Map<SpreadsheetCellReference, Optional<ValueType>> cellToValueType) {
         return SpreadsheetCellSaveValueTypeHistoryToken.with(
             id,
             name,
@@ -1046,7 +1046,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellValueSaveHistoryToken cellValueSave(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                     final ValueTypeName valueType,
+                                                                     final ValueType valueType,
                                                                      final Optional<?> value) {
         return SpreadsheetCellValueSaveHistoryToken.with(
             id,
@@ -1063,7 +1063,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellValueSelectHistoryToken cellValueSelect(final SpreadsheetId id,
                                                                          final SpreadsheetName name,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                         final ValueTypeName valueType) {
+                                                                         final ValueType valueType) {
         return SpreadsheetCellValueSelectHistoryToken.with(
             id,
             name,
@@ -1093,7 +1093,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellValueTypeSaveHistoryToken cellValueTypeSave(final SpreadsheetId id,
                                                                              final SpreadsheetName name,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                             final Optional<ValueTypeName> valueType) {
+                                                                             final Optional<ValueType> valueType) {
         return SpreadsheetCellValueTypeSaveHistoryToken.with(
             id,
             name,
@@ -4294,7 +4294,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 }
 
                                 if (this instanceof SpreadsheetCellValueSaveHistoryToken || this instanceof SpreadsheetCellValueSelectHistoryToken) {
-                                    final ValueTypeName valueType = this.valueType()
+                                    final ValueType valueType = this.valueType()
                                         .orElse(SpreadsheetValueType.TEXT);
 
                                     Object saveValue;
@@ -4333,7 +4333,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
                                             value,
-                                            ValueTypeName::with
+                                            ValueType::with
                                         )
                                     );
                                 }
@@ -4804,7 +4804,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     // value............................................................................................................
 
-    public final HistoryToken setValue(final Optional<ValueTypeName> valueType) {
+    public final HistoryToken setValue(final Optional<ValueType> valueType) {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {
@@ -4874,7 +4874,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     // valueType........................................................................................................
 
-    public final Optional<ValueTypeName> valueType() {
+    public final Optional<ValueType> valueType() {
         return this instanceof SpreadsheetCellValueHistoryToken ?
             this.cast(SpreadsheetCellValueHistoryToken.class).valueType :
             Optional.empty();

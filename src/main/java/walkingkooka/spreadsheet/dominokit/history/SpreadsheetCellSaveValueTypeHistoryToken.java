@@ -21,11 +21,11 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeNameMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeMap;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Map;
 import java.util.Optional;
@@ -38,24 +38,24 @@ import java.util.Optional;
  * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/valueType/{@link ValueTypeName} for each selected cell.
  * </pre>
  */
-public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValueTypeName>> {
+public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValueType>> {
 
     static SpreadsheetCellSaveValueTypeHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Map<SpreadsheetCellReference, Optional<ValueTypeName>> value) {
+                                                         final Map<SpreadsheetCellReference, Optional<ValueType>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellReferenceToValueTypeNameMap.with(value)
+            SpreadsheetCellReferenceToValueTypeMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveValueTypeHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final SpreadsheetCellReferenceToValueTypeNameMap value) {
+                                                     final SpreadsheetCellReferenceToValueTypeMap value) {
         super(
             id,
             name,
@@ -68,20 +68,20 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
     SpreadsheetCellSaveValueTypeHistoryToken replace(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Map<SpreadsheetCellReference, Optional<ValueTypeName>> value) {
+                                                     final Map<SpreadsheetCellReference, Optional<ValueType>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellReferenceToValueTypeNameMap.with(value)
+            SpreadsheetCellReferenceToValueTypeMap.with(value)
         );
     }
 
     @Override
-    SpreadsheetCellReferenceToValueTypeNameMap parseSaveValue(final TextCursor cursor) {
+    SpreadsheetCellReferenceToValueTypeMap parseSaveValue(final TextCursor cursor) {
         return parseJson(
             cursor,
-            SpreadsheetCellReferenceToValueTypeNameMap.class
+            SpreadsheetCellReferenceToValueTypeMap.class
         );
     }
 

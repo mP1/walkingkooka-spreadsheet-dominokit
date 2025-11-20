@@ -23,16 +23,16 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements Value<Optional<ValueTypeName>> {
+public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements Value<Optional<ValueType>> {
 
     static SpreadsheetCellValueTypeSaveHistoryToken with(final SpreadsheetId id,
                                                          final SpreadsheetName name,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
-                                                         final Optional<ValueTypeName> valueType) {
+                                                         final Optional<ValueType> valueType) {
         return new SpreadsheetCellValueTypeSaveHistoryToken(
             id,
             name,
@@ -44,7 +44,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     private SpreadsheetCellValueTypeSaveHistoryToken(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final Optional<ValueTypeName> valueType) {
+                                                     final Optional<ValueType> valueType) {
         super(
             id,
             name,
@@ -54,7 +54,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     }
 
     @Override
-    public Optional<ValueTypeName> value() {
+    public Optional<ValueType> value() {
         return this.valueType;
     }
 

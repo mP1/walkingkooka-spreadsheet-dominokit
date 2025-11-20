@@ -45,7 +45,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.text.CaseKind;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.List;
 import java.util.Objects;
@@ -95,14 +95,14 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         this.save = this.<String>saveValueAnchor(context);
 
         String nowOrToday;
-        ValueTypeName valueTypeName = context.valueType();
-        if (ValueTypeName.DATE.equals(valueTypeName)) {
+        ValueType ValueType = context.valueType();
+        if (ValueType.DATE.equals(ValueType)) {
             nowOrToday = TODAY_TEXT;
         } else {
-            if (ValueTypeName.DATE_TIME.equals(valueTypeName)) {
+            if (ValueType.DATE_TIME.equals(ValueType)) {
                 nowOrToday = NOW_TEXT;
             } else {
-                if (ValueTypeName.TIME.equals(valueTypeName)) {
+                if (ValueType.TIME.equals(ValueType)) {
                     nowOrToday = NOW_TEXT;
                 } else {
                     nowOrToday = "";
@@ -183,10 +183,10 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
             .appendChild(this.save)
             .appendChild(this.clear);
 
-        final ValueTypeName valueType = context.valueType();
-        if (ValueTypeName.DATE.equals(valueType) ||
-            ValueTypeName.DATE_TIME.equals(valueType) ||
-            ValueTypeName.TIME.equals(valueType)) {
+        final ValueType valueType = context.valueType();
+        if (ValueType.DATE.equals(valueType) ||
+            ValueType.DATE_TIME.equals(valueType) ||
+            ValueType.TIME.equals(valueType)) {
             links.appendChild(this.nowOrToday);
         }
 
@@ -262,7 +262,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
         this.nowOrToday.setValue(
             Optional.of(
-                ValueTypeName.DATE == context.valueType() ?
+                ValueType.DATE == context.valueType() ?
                     "today" :
                     "now"
             )
@@ -321,7 +321,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        final ValueTypeName valueType = token.valueType()
+        final ValueType valueType = token.valueType()
             .orElse(null);
         return null != valueType &&
             token instanceof SpreadsheetCellValueSelectHistoryToken &&

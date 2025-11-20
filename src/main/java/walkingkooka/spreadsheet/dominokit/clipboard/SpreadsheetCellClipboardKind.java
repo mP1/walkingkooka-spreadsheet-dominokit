@@ -47,7 +47,7 @@ import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
@@ -588,7 +588,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
      * The clipboard value is a formatted text.
      */
     VALUE_TYPE(
-        ValueTypeName.class,
+        ValueType.class,
         SpreadsheetMediaTypes.JSON_VALUE_TYPE,
         (SpreadsheetCell cell) -> cell.formula()
             .valueType(),
@@ -615,7 +615,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                 SpreadsheetFormula.EMPTY.setValueType(
                     context.unmarshallOptional(
                         node,
-                        ValueTypeName.class
+                        ValueType.class
                     )
                 )
             );

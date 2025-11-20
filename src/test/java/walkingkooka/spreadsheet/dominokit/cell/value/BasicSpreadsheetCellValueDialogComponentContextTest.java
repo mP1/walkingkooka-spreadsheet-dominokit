@@ -27,13 +27,13 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetCellValueDialogComponentContextTest implements SpreadsheetCellValueDialogComponentContextTesting<Void, BasicSpreadsheetCellValueDialogComponentContext<Void>> {
 
-    private final static ValueTypeName VALUE_TYPE = ValueTypeName.DATE;
+    private final static ValueType VALUE_TYPE = ValueType.DATE;
     private final static SpreadsheetDeltaFetcherWatchers DELTA_FETCHER_WATCHERS = SpreadsheetDeltaFetcherWatchers.empty();
     private final static RefreshContext REFRESH_CONTEXT = AppContexts.fake();
 

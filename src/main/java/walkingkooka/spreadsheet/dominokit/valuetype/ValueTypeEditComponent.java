@@ -28,16 +28,16 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A drop down that supports picking an optional {@link ValueTypeName}.
+ * A drop down that supports picking an optional {@link ValueType}.
  */
-public final class ValueTypeEditComponent implements FormValueComponent<HTMLFieldSetElement, ValueTypeName, ValueTypeEditComponent>,
+public final class ValueTypeEditComponent implements FormValueComponent<HTMLFieldSetElement, ValueType, ValueTypeEditComponent>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValueTypeEditComponent>,
     TreePrintable {
 
@@ -51,9 +51,9 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
 
     private ValueTypeEditComponent(final String id,
                                    final ValueTypeEditComponentContext context) {
-        final SelectComponent<ValueTypeName> select = SelectComponent.<ValueTypeName>empty(
+        final SelectComponent<ValueType> select = SelectComponent.<ValueType>empty(
             (v) -> {
-                final ValueTypeName n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueTypeName"));
+                final ValueType n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueType"));
                 final String nameText = n.text();
 
                 return context.selectOption(
@@ -74,7 +74,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
             Optional.of(SpreadsheetValueType.ANY)
         );
 
-        for (final ValueTypeName typeName : SpreadsheetValueType.ALL_CELL_VALUE_TYPES) {
+        for (final ValueType typeName : SpreadsheetValueType.ALL_CELL_VALUE_TYPES) {
             select.appendOption(
                 Optional.of(typeName)
             );
@@ -206,7 +206,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
     // Value............................................................................................................
 
     @Override
-    public ValueTypeEditComponent setValue(final Optional<ValueTypeName> valueType) {
+    public ValueTypeEditComponent setValue(final Optional<ValueType> valueType) {
         Objects.requireNonNull(valueType, "valueType");
 
         this.select.setValue(valueType);
@@ -214,12 +214,12 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
     }
 
     @Override //
-    public Optional<ValueTypeName> value() {
+    public Optional<ValueType> value() {
         return this.select.value();
     }
 
     @Override
-    public Runnable addValueWatcher(final ValueWatcher<ValueTypeName> watcher) {
+    public Runnable addValueWatcher(final ValueWatcher<ValueType> watcher) {
         return this.select.addValueWatcher(watcher);
     }
 
@@ -230,7 +230,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
         return this.select;
     }
 
-    private final SelectComponent<ValueTypeName> select;
+    private final SelectComponent<ValueType> select;
 
     // Object...........................................................................................................
 

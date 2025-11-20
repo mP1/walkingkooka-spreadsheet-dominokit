@@ -61,7 +61,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Iterator;
@@ -463,7 +463,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 Optional<SpreadsheetParserSelector> parser = null;
                 Map<TextStylePropertyName<?>, Object> styleNameToValues = null;
                 Optional<ValidatorSelector> validator = null;
-                Optional<ValueTypeName> valueType = null;
+                Optional<ValueType> valueType = null;
 
                 for (final SpreadsheetCell cell : this.cells.values()) {
                     if (selectionNotLabel.test(cell.reference())) {

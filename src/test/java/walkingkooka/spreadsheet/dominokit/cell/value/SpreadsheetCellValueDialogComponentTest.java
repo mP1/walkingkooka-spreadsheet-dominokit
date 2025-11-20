@@ -48,7 +48,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -77,7 +77,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),
-            ValueTypeName.DATE,
+            ValueType.DATE,
             Optional.empty()
         );
 
@@ -111,7 +111,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),
-            ValueTypeName.DATE
+            ValueType.DATE
         );
 
         this.isMatchAndCheck(
@@ -137,7 +137,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 context
             )
         );
@@ -175,7 +175,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 Optional.of(
                     LocalDate.of(
                         2025,
@@ -223,7 +223,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 )
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.DATE_TIME,
+                ValueType.DATE_TIME,
                 Optional.of(
                     LocalDateTime.of(
                         LocalDate.of(
@@ -272,7 +272,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<EmailAddress> dialog = SpreadsheetCellValueDialogComponent.with(
             EmailAddressComponent.empty(),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.EMAIL,
+                ValueType.EMAIL,
                 Optional.of(
                     EmailAddress.parse("user123@example.com")
                 ),
@@ -312,7 +312,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             TextBoxComponent.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.TEXT,
+                ValueType.TEXT,
                 Optional.of("HelloTextValue"),
                 context
             )
@@ -348,7 +348,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             TextBoxComponent.empty()
                 .setId("TextBox-Text"),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.TEXT,
+                ValueType.TEXT,
                 context
             )
         );
@@ -385,7 +385,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 () -> LocalTime.MIN
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.TIME,
+                ValueType.TIME,
                 Optional.of(
                     LocalTime.of(
                         12,
@@ -427,7 +427,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<AbsoluteUrl> dialog = SpreadsheetCellValueDialogComponent.with(
             AbsoluteUrlComponent.empty(),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.URL,
+                ValueType.URL,
                 Optional.of(
                     Url.parseAbsolute("https://example.com/path1/k1=v2")
                 ),
@@ -523,7 +523,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
 
     static class TestSpreadsheetCellValueDialogComponentContext<T> extends FakeSpreadsheetCellValueDialogComponentContext<T> {
 
-        TestSpreadsheetCellValueDialogComponentContext(final ValueTypeName valueType,
+        TestSpreadsheetCellValueDialogComponentContext(final ValueType valueType,
                                                        final AppContext context) {
             this(
                 valueType,
@@ -532,7 +532,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
             );
         }
 
-        TestSpreadsheetCellValueDialogComponentContext(final ValueTypeName valueType,
+        TestSpreadsheetCellValueDialogComponentContext(final ValueType valueType,
                                                        final Optional<T> value,
                                                        final AppContext context) {
             this.valueType = valueType;
@@ -574,11 +574,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
         @Override
-        public ValueTypeName valueType() {
+        public ValueType valueType() {
             return this.valueType;
         }
 
-        private final ValueTypeName valueType;
+        private final ValueType valueType;
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
@@ -603,7 +603,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 CLEAR_VALUE
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 this.appContext(historyToken)
             )
         );

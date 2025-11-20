@@ -23,11 +23,11 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class ValueTypeEditComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueTypeName, ValueTypeEditComponent> {
+public final class ValueTypeEditComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueType, ValueTypeEditComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {

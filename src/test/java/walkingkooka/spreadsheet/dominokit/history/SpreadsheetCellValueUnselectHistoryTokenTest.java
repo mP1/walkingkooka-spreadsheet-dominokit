@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
@@ -33,7 +33,7 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testSetValueNotEmpty() {
-        final ValueTypeName valueType = ValueTypeName.TEXT;
+        final ValueType valueType = ValueType.TEXT;
 
         this.setValueAndCheck(
             this.createHistoryToken(),

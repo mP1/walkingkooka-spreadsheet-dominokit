@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class ValueTypeViewComponentTest implements ValueComponentTesting<HTMLElement, ValueTypeName, ValueTypeViewComponent> {
+public final class ValueTypeViewComponentTest implements ValueComponentTesting<HTMLElement, ValueType, ValueTypeViewComponent> {
 
     @Test
     public void testSetValueWithEmpty() {

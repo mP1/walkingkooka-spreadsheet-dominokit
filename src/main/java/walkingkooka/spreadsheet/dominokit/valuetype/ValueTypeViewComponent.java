@@ -24,12 +24,12 @@ import walkingkooka.spreadsheet.dominokit.label.LabelComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
 import java.util.Optional;
 
-public final class ValueTypeViewComponent implements ValueComponent<HTMLElement, ValueTypeName, ValueTypeViewComponent>,
+public final class ValueTypeViewComponent implements ValueComponent<HTMLElement, ValueType, ValueTypeViewComponent>,
     HtmlComponentDelegator<HTMLElement, ValueTypeViewComponent> {
 
     public static ValueTypeViewComponent empty() {
@@ -42,17 +42,17 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
     }
 
     @Override
-    public ValueTypeViewComponent setValue(final Optional<ValueTypeName> value) {
+    public ValueTypeViewComponent setValue(final Optional<ValueType> value) {
         Objects.requireNonNull(value, "value");
 
-        this.label.setValue(value.map(ValueTypeName::value));
+        this.label.setValue(value.map(ValueType::value));
         return this;
     }
 
     @Override
-    public Optional<ValueTypeName> value() {
+    public Optional<ValueType> value() {
         return this.label.value()
-            .map(ValueTypeName::with);
+            .map(ValueType::with);
     }
 
     @Override
@@ -61,7 +61,7 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
     }
 
     @Override
-    public Runnable addValueWatcher(final ValueWatcher<ValueTypeName> watcher) {
+    public Runnable addValueWatcher(final ValueWatcher<ValueType> watcher) {
         throw new UnsupportedOperationException();
     }
 

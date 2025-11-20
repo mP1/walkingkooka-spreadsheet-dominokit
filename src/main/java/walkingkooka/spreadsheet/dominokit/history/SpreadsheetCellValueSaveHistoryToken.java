@@ -26,21 +26,21 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A {@link HistoryToken} that contains a {@link SpreadsheetFormula#value()} encoded as JSON.
- * The {@link ValueTypeName} will contain the value type.
+ * The {@link ValueType} will contain the value type.
  */
 public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellValueHistoryToken implements Value<Optional<?>> {
 
     static SpreadsheetCellValueSaveHistoryToken with(final SpreadsheetId id,
                                                      final SpreadsheetName name,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                                     final ValueTypeName valueType,
+                                                     final ValueType valueType,
                                                      final Optional<?> value) {
         return new SpreadsheetCellValueSaveHistoryToken(
             id,
@@ -54,7 +54,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     private SpreadsheetCellValueSaveHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                 final ValueTypeName valueType,
+                                                 final ValueType valueType,
                                                  final Optional<?> value) {
         super(
             id,
@@ -101,7 +101,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     UrlFragment valueUrlFragment() {
         // TODO add support to remove JsonString open/close quotes, which is possible since #valueType is present.
 
-        final ValueTypeName valueType = this.valueType.orElse(SpreadsheetValueType.TEXT);
+        final ValueType valueType = this.valueType.orElse(SpreadsheetValueType.TEXT);
 
         String json = "";
 

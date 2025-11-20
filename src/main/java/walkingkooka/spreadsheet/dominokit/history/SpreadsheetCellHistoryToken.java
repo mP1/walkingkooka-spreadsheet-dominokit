@@ -38,7 +38,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStyle;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -244,10 +244,10 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         if (this instanceof SpreadsheetCellValueTypeHistoryToken) {
-            if (null != valueOrNull && false == valueOrNull instanceof ValueTypeName) {
+            if (null != valueOrNull && false == valueOrNull instanceof ValueType) {
                 this.reportInvalidSaveValue(
                     valueOrNull,
-                    ValueTypeName.class
+                    ValueType.class
                 );
             }
 
@@ -314,7 +314,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                                                     if (mapValueOptionalValue instanceof ValidatorSelector) {
                                                         mode = MODE_VALIDATOR & mode;
                                                     } else {
-                                                        if (mapValueOptionalValue instanceof ValueTypeName) {
+                                                        if (mapValueOptionalValue instanceof ValueType) {
                                                             mode = MODE_VALUE_TYPE & mode;
                                                         } else {
                                                             mode = 0;
@@ -650,7 +650,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             Optional.ofNullable(
                 null == valueTypeString ?
                     null :
-                    ValueTypeName.with(valueTypeString)
+                    ValueType.with(valueTypeString)
             )
         );
     }

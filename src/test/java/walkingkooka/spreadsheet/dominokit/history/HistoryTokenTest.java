@@ -54,7 +54,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -3542,7 +3542,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -3556,7 +3556,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -3571,7 +3571,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 NAME,
                 SpreadsheetSelection.labelName("Label123")
                     .setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -3617,7 +3617,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSave() {
-        final ValueTypeName valueType = ValueTypeName.with("hello-value-type");
+        final ValueType valueType = ValueType.with("hello-value-type");
 
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/A1/valueType/save/" + urlEncode(valueType.value()),
