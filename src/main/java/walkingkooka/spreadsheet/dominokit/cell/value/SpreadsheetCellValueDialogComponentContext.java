@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.cell.value;
 import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
@@ -36,9 +36,9 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends DialogCom
     String id();
 
     /**
-     * The {@link ValueTypeName} for this value being edited by this dialog.
+     * The {@link ValueType} for this value being edited by this dialog.
      */
-    ValueTypeName valueType();
+    ValueType valueType();
 
     /**
      * Get the current cell if available, which will be useful to get the value and errors.

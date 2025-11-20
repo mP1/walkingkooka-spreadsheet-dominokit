@@ -64,7 +64,7 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Map;
@@ -3780,7 +3780,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     a2.setFormula(
                         SpreadsheetFormula.EMPTY.setValueType(
                             Optional.of(
-                                ValueTypeName.with("ignored")
+                                ValueType.with("ignored")
                             )
                         )
                     ).setFormatter(
@@ -3835,7 +3835,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         final ValidatorSelector validator = ValidatorSelector.parse("hello-validator");
 
-        final ValueTypeName valueType = ValueTypeName.with("hello-value-type");
+        final ValueType valueType = ValueType.with("hello-value-type");
 
         final SpreadsheetCellReference a2 = SpreadsheetSelection.parseCell("A2");
 

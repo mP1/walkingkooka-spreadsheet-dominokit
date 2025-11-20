@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeViewComponent;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +125,7 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
                 ValueTypeViewComponent.empty()
                     .setValue(
                         Optional.of(
-                            ValueTypeName.with(
+                            ValueType.with(
                                 missingConverterValue.type()
                             )
                         )

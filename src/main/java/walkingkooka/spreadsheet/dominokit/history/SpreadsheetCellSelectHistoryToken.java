@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToSpre
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToSpreadsheetParserSelectorMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToTextStyleMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidatorSelectorMap;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeNameMap;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
@@ -209,7 +209,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
-                        SpreadsheetCellReferenceToValueTypeNameMap.class
+                        SpreadsheetCellReferenceToValueTypeMap.class
                     )
                 );
                 break;

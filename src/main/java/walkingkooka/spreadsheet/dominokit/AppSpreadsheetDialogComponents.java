@@ -86,7 +86,7 @@ import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogCompo
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -227,7 +227,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
     }
 
-    private static void cellValueAbsoluteUrl(final ValueTypeName value,
+    private static void cellValueAbsoluteUrl(final ValueType value,
                                              final AppContext context) {
         cellValue(
             value,
@@ -240,7 +240,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
     }
 
-    private static void cellValueEmail(final ValueTypeName value,
+    private static void cellValueEmail(final ValueType value,
                                        final AppContext context) {
         cellValue(
             value,
@@ -253,9 +253,9 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     /**
-     * Registers a {@link SpreadsheetCellValueDialogComponent} with the given {@link FormValueComponent} for the given {@link ValueTypeName}.
+     * Registers a {@link SpreadsheetCellValueDialogComponent} with the given {@link FormValueComponent} for the given {@link ValueType}.
      */
-    private static <T> void cellValue(final ValueTypeName value,
+    private static <T> void cellValue(final ValueType value,
                                       final Class<T> type,
                                       final BiFunction<String, AppContext, FormValueComponent<?, T, ?>> component,
                                       final AppContext context) {

@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueSelectHistoryTokenTest extends SpreadsheetCellValueHistoryTokenTestCase<SpreadsheetCellValueSelectHistoryToken> {
 
-    private final static ValueTypeName VALUE_TYPE = ValueTypeName.TEXT;
+    private final static ValueType VALUE_TYPE = ValueType.TEXT;
 
     // with.............................................................................................................
 
@@ -70,14 +70,14 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE
+                ValueType.DATE
             ),
             Optional.empty(),
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 Optional.empty()
             )
         );
@@ -94,14 +94,14 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE
+                ValueType.DATE
             ),
             value,
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 value
             )
         );
@@ -116,14 +116,14 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE
+                ValueType.DATE
             ),
             Optional.empty(),
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 Optional.empty()
             )
         );
@@ -136,14 +136,14 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE
+                ValueType.DATE
             ),
             "\"1999-12-31\"",
             HistoryToken.cellValueSave(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.DATE,
+                ValueType.DATE,
                 Optional.of(
                     LocalDate.of(1999, 12, 31)
                 )
@@ -169,7 +169,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
     public void testSetValueWithDifferent() {
         final SpreadsheetCellValueHistoryToken historyToken = this.createHistoryToken();
 
-        final ValueTypeName different = ValueTypeName.with("different");
+        final ValueType different = ValueType.with("different");
 
         this.setValueAndCheck(
             historyToken,
@@ -193,7 +193,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -206,7 +206,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 CELL_RANGE.setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -219,7 +219,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }
@@ -232,7 +232,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
                 ID,
                 NAME,
                 LABEL.setDefaultAnchor(),
-                ValueTypeName.TEXT
+                ValueType.TEXT
             )
         );
     }

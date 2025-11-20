@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
-import walkingkooka.validation.ValueTypeName;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
     static SpreadsheetCellValueSelectHistoryToken with(final SpreadsheetId id,
                                                        final SpreadsheetName name,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
-                                                       final ValueTypeName valueType) {
+                                                       final ValueType valueType) {
         return new SpreadsheetCellValueSelectHistoryToken(
             id,
             name,
@@ -43,7 +43,7 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
     private SpreadsheetCellValueSelectHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final ValueTypeName valueType) {
+                                                   final ValueType valueType) {
         super(
             id,
             name,
