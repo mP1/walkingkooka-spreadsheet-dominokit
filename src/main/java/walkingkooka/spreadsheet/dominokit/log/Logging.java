@@ -64,6 +64,8 @@ public interface Logging {
 
     boolean PLUGIN_UPLOAD_DIALOG_COMPONENT = DIALOG_COMPONENT | false;
 
+    boolean SCHEDULER_CAN_GIVE_FOCUS = false;
+
     boolean SPREADSHEET_APP_LAYOUT = false;
 
     boolean SPREADSHEET_CELL_FIND_DIALOG_COMPONENT = DIALOG_COMPONENT | false;

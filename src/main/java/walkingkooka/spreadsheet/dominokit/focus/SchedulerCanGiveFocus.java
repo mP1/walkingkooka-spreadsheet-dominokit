@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.focus;
 
 import elemental2.dom.Element;
 import org.gwtproject.core.client.Scheduler;
+import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 import java.util.Objects;
@@ -27,7 +28,8 @@ import java.util.Objects;
  * Schedules giving focus by calling the {@link Runnable} provided.
  * If multiple attempts are made to give focus in a short period of time an {@link IllegalStateException} will be thrown.
  */
-final class SchedulerCanGiveFocus implements CanGiveFocus {
+final class SchedulerCanGiveFocus implements CanGiveFocus,
+    Logging {
 
     static SchedulerCanGiveFocus with(final LoggingContext loggingContext) {
         return new SchedulerCanGiveFocus(
@@ -45,7 +47,9 @@ final class SchedulerCanGiveFocus implements CanGiveFocus {
      */
     @Override
     public void giveFocus(final Runnable giveFocus) {
-        this.loggingContext.debug(this.getClass().getSimpleName() + ".giveFocus " + giveFocus);
+        if(SCHEDULER_CAN_GIVE_FOCUS) {
+            this.loggingContext.debug(this.getClass().getSimpleName() + ".giveFocus " + giveFocus);
+        }
 
         final Runnable existingGiveFocus = this.giveFocus;
         if (null != existingGiveFocus && false == giveFocus.equals(existingGiveFocus)) {
