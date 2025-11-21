@@ -65,8 +65,6 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Converter Title123\n" +
                 "    id=ConverterSelector-Dialog includeClose=true CLOSED\n" +
-                "      MissingConverterSetComponent\n" +
-                "        MissingConverterSet\n" +
                 "      ConverterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
