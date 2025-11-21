@@ -25,12 +25,14 @@ import org.dominokit.domino.ui.dialogs.IsDialogHeight;
 import org.dominokit.domino.ui.dialogs.IsDialogWidth;
 import org.dominokit.domino.ui.layout.NavBar;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -230,6 +232,7 @@ public final class DialogComponent extends DialogComponentLike {
     @Override
     public DialogComponent appendChild(final IsElement<?> child) {
         this.dialog.appendChild(child);
+        this.children.add(child);
         return this;
     }
 
@@ -322,6 +325,15 @@ public final class DialogComponent extends DialogComponentLike {
     public HTMLDivElement element() {
         return this.dialog.element();
     }
+
+    // ComponentWithChildren............................................................................................
+
+    @Override
+    public List<IsElement<?>> children() {
+        return this.children;
+    }
+
+    private final List<IsElement<?>> children = Lists.array();
 
     // Object..........................................................................................................
 
