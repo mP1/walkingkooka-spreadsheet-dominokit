@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.DialogSize;
+import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.text.CharSequences;
@@ -29,7 +30,8 @@ import walkingkooka.text.printer.IndentingPrinter;
  * Interface that defines all the PUBLIC methods of {@link DialogComponent}.
  * This is used to keep the two DialogComponent.java (main/test) in sync.
  */
-abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, DialogComponent> {
+abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, DialogComponent>,
+    ComponentWithChildren<DialogComponent, HTMLDivElement> {
 
     public final static boolean INCLUDE_CLOSE = true;
 
@@ -146,6 +148,19 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
         return false;
     }
 
+    // ComponentWithChildren............................................................................................
+
+    @Override
+    public final DialogComponent removeChild(final int index) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final boolean isEmpty() {
+        return this.children()
+            .isEmpty();
+    }
+
     // TreePrintable....................................................................................................
 
     @Override
@@ -161,14 +176,8 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
             printer.print("id=" + this.id() + " includeClose=" + this.isTitleIncludeClose());
             printer.println(this.isOpen() ? "" : " CLOSED");
 
-            printer.indent();
-            {
-                this.printTreeChildren(printer);
-            }
-            printer.outdent();
+            this.printTreeChildren(printer);
         }
         printer.outdent();
     }
-
-    abstract void printTreeChildren(final IndentingPrinter printer);
 }

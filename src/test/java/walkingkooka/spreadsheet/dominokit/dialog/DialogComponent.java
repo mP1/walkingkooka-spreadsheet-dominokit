@@ -21,11 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.dialogs.IsDialogHeight;
 import org.dominokit.domino.ui.dialogs.IsDialogWidth;
-import walkingkooka.CanBeEmpty;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Objects;
@@ -134,22 +131,10 @@ public final class DialogComponent extends DialogComponentLike
 
     private final List<IsElement<?>> children = Lists.array();
 
-    // TreePrintable....................................................................................................
+    // ComponentWithChildren............................................................................................
 
     @Override
-    public void printTreeChildren(final IndentingPrinter printer) {
-        for (final IsElement<?> child : this.children) {
-            if(child instanceof CanBeEmpty) {
-                final CanBeEmpty canBeEmpty = (CanBeEmpty) child;
-                if(canBeEmpty.isEmpty()) {
-                    continue;
-                }
-            }
-            TreePrintable.printTreeOrToString(
-                child,
-                printer
-            );
-            printer.lineStart();
-        }
+    public List<IsElement<?>> children() {
+        return this.children;
     }
 }
