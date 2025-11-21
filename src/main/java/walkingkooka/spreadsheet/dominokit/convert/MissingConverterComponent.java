@@ -117,11 +117,9 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
 
         final MissingConverter missingConverter = value.orElse(null);
         if (null != missingConverter) {
-            component.appendChild(
-                ConverterNameComponent.empty()
-                    .setValue(
-                        Optional.of(missingConverter.name())
-                    )
+            component.appendText(
+                missingConverter.name()
+                    .value()
             );
 
             for (final MissingConverterValue missingConverterValue : missingConverter.values()) {
