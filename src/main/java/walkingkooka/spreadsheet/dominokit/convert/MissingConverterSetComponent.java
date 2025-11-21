@@ -1,0 +1,192 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.convert;
+
+import elemental2.dom.HTMLDivElement;
+import walkingkooka.spreadsheet.convert.provider.MissingConverter;
+import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.text.printer.IndentingPrinter;
+
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * A component that displays a {@link MissingConverterSet}.
+ */
+final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent> {
+
+    static MissingConverterSetComponent empty(final MissingConverterSet value) {
+        return new MissingConverterSetComponent(
+            Objects.requireNonNull(value, "value")
+        );
+    }
+
+    private MissingConverterSetComponent(final MissingConverterSet value) {
+        this.component = HtmlElementComponent.div();
+        this.setValue(
+            Optional.of(value)
+        );
+    }
+
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public String id() {
+        return this.component.id();
+    }
+
+    @Override
+    public MissingConverterSetComponent setId(final String id) {
+        this.component.setId(id);
+        return this;
+    }
+
+    @Override
+    public int width() {
+        return this.component.width();
+    }
+
+    @Override
+    public int height() {
+        return this.component.height();
+    }
+
+    @Override
+    public boolean isEditing() {
+        return false;
+    }
+
+    @Override
+    public MissingConverterSetComponent setCssText(final String css) {
+        this.component.setCssText(css);
+        return this;
+    }
+
+    @Override
+    public MissingConverterSetComponent setCssProperty(final String name,
+                                                       final String value) {
+        this.component.setCssProperty(
+            name,
+            value
+        );
+        return this;
+    }
+
+    @Override
+    public MissingConverterSetComponent removeCssProperty(final String name) {
+        this.component.removeCssProperty(name);
+        return this;
+    }
+
+    @Override
+    public HTMLDivElement element() {
+        return this.component.element();
+    }
+
+    private final DivComponent component;
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public MissingConverterSetComponent setValue(final Optional<MissingConverterSet> value) {
+        Objects.requireNonNull(value, "value");
+
+        this.value = value;
+
+        final DivComponent component = this.component;
+        component.clear();
+
+        final MissingConverterSet missingConverterSet = value.orElse(null);
+        if (null != missingConverterSet) {
+            for (final MissingConverter missingConverter : missingConverterSet) {
+                component.appendChild(
+                    MissingConverterComponent.empty(missingConverter)
+                );
+            }
+        }
+
+        return this;
+    }
+
+    @Override
+    public Optional<MissingConverterSet> value() {
+        return this.value;
+    }
+
+    private Optional<MissingConverterSet> value;
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<MissingConverterSet> watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return false;
+    }
+
+    @Override
+    public MissingConverterSetComponent setDisabled(final boolean disabled) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MissingConverterSetComponent hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MissingConverterSetComponent removeBorders() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MissingConverterSetComponent removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MissingConverterSetComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MissingConverterSetComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+
+        final MissingConverterSet value = this.value.orElse(null);
+        if (null != value) {
+            printer.indent();
+            {
+                value.printTree(printer);
+            }
+            printer.outdent();
+        }
+    }
+}
