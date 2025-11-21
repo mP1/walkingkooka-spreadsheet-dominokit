@@ -18,21 +18,26 @@
 package walkingkooka.spreadsheet.dominokit.convert;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.IsElement;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
+import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A component that displays a {@link MissingConverterSet}.
  */
-final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent> {
+final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent>,
+    ComponentWithChildren<MissingConverterSetComponent, HTMLDivElement> {
 
     static MissingConverterSetComponent empty(final MissingConverterSet value) {
         return new MissingConverterSetComponent(
@@ -118,7 +123,7 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
         final MissingConverterSet missingConverterSet = value.orElse(null);
         if (null != missingConverterSet) {
             for (final MissingConverter missingConverter : missingConverterSet) {
-                component.appendChild(
+                this.appendChild(
                     MissingConverterComponent.empty(missingConverter)
                 );
             }
@@ -173,6 +178,41 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     public MissingConverterSetComponent blur() {
         throw new UnsupportedOperationException();
     }
+
+    // ComponentWithChildren............................................................................................
+
+    @Override
+    public MissingConverterSetComponent appendChild(final IsElement<?> child) {
+        Objects.requireNonNull(child, "child");
+
+        this.children.add(child);
+        this.component.appendChild(child);
+
+        return this;
+    }
+
+    @Override
+    public MissingConverterSetComponent removeChild(final int index) {
+        this.component.removeChild(
+            this.children.remove(index)
+        );
+
+        return this;
+    }
+
+    @Override
+    public List<IsElement<?>> children() {
+        return Lists.readOnly(
+            this.children
+        );
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.children.isEmpty();
+    }
+
+    private final List<IsElement<?>> children = Lists.array();
 
     // TreePrintable....................................................................................................
 
