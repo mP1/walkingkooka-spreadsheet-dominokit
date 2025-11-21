@@ -27,6 +27,7 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
+import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -78,6 +79,8 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addConverterFetcherWatcher(this);
 
+        this.missing = this.missing();
+
         this.selector = this.selector();
 
         this.save = this.saveValueAnchor(context);
@@ -111,7 +114,8 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
             context
         );
 
-        return dialog.appendChild(this.selector)
+        return dialog.appendChild(this.missing)
+            .appendChild(this.selector)
             .appendChild(
                 AnchorListComponent.empty()
                     .appendChild(this.save)
@@ -129,6 +133,14 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     private final DialogComponent dialog;
 
     private final ConverterSelectorDialogComponentContext context;
+
+    // missing..........................................................................................................
+
+    private MissingConverterSetComponent missing() {
+        return MissingConverterSetComponent.empty(MissingConverterSet.EMPTY);
+    }
+
+    private final MissingConverterSetComponent missing;
 
     // textBox..........................................................................................................
 
@@ -233,6 +245,11 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
                          final Set<MissingConverter> missingConverters) {
         this.selector.clearErrors();
+        this.missing.setValue(
+            Optional.of(
+                MissingConverterSet.EMPTY.setElements(missingConverters)
+            )
+        );
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
