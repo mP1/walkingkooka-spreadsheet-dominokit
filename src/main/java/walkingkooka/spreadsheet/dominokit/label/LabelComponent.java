@@ -23,6 +23,10 @@ import org.dominokit.domino.ui.labels.Label;
 import java.util.Objects;
 import java.util.Optional;
 
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_accent;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_m_4;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_full;
+
 public final class LabelComponent extends LabelComponentLike {
 
     public static LabelComponent empty() {
@@ -31,7 +35,8 @@ public final class LabelComponent extends LabelComponentLike {
 
     private LabelComponent() {
         super();
-        this.label = Label.create("");
+        this.label = Label.create("")
+            .addCss(dui_m_4, dui_bg_accent, dui_rounded_full);
     }
 
     @Override
