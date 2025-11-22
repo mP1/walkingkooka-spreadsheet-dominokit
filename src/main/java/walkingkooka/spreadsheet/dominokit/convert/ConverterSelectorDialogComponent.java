@@ -114,15 +114,14 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
             context
         );
 
-        return dialog.appendChild(this.missing)
-            .appendChild(this.selector)
+        return dialog.appendChild(this.selector)
             .appendChild(
                 AnchorListComponent.empty()
                     .appendChild(this.save)
                     .appendChild(this.clear)
                     .appendChild(this.undo)
                     .appendChild(this.close)
-            );
+            ).appendChild(this.missing);
     }
 
     @Override
