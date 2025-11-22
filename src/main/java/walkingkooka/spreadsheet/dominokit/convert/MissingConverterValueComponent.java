@@ -125,7 +125,7 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
                 ValueTypeViewComponent.empty()
                     .setValue(
                         Optional.of(
-                            ValueType.with(
+                            ValueType.fromClassName(
                                 missingConverterValue.type()
                             )
                         )
