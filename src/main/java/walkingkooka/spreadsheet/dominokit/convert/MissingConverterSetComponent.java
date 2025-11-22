@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
+import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -45,6 +46,11 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
     private MissingConverterSetComponent(final MissingConverterSet value) {
         this.flex = FlexLayoutComponent.column();
+        this.card = CardComponent.empty()
+            .setTitle("Missing Converter(s)")
+            .appendChild(this.flex)
+            .hide();
+
         this.setValue(
             Optional.of(value)
         );
@@ -102,8 +108,10 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
     @Override
     public HTMLDivElement element() {
-        return this.flex.element();
+        return this.card.element();
     }
+
+    private final CardComponent card;
 
     private final FlexLayoutComponent flex;
 
@@ -125,6 +133,14 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
                     MissingConverterComponent.empty(missingConverter)
                 );
             }
+        }
+
+        final CardComponent card = this.card;
+
+        if(null == missingConverterSet || missingConverterSet.isEmpty()) {
+            card.hide();
+        } else {
+            card.show();
         }
 
         return this;
