@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
-import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -41,7 +41,7 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
     }
 
     private MissingConverterComponent(final MissingConverter value) {
-        this.component = HtmlElementComponent.div();
+        this.flex = FlexLayoutComponent.column();
         this.setValue(
             Optional.of(value)
         );
@@ -51,23 +51,23 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
 
     @Override
     public String id() {
-        return this.component.id();
+        return this.flex.id();
     }
 
     @Override
     public MissingConverterComponent setId(final String id) {
-        this.component.setId(id);
+        this.flex.setId(id);
         return this;
     }
 
     @Override
     public int width() {
-        return this.component.width();
+        return this.flex.width();
     }
 
     @Override
     public int height() {
-        return this.component.height();
+        return this.flex.height();
     }
 
     @Override
@@ -77,14 +77,14 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
 
     @Override
     public MissingConverterComponent setCssText(final String css) {
-        this.component.setCssText(css);
+        this.flex.setCssText(css);
         return this;
     }
 
     @Override
     public MissingConverterComponent setCssProperty(final String name,
                                                     final String value) {
-        this.component.setCssProperty(
+        this.flex.setCssProperty(
             name,
             value
         );
@@ -93,16 +93,16 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
 
     @Override
     public MissingConverterComponent removeCssProperty(final String name) {
-        this.component.removeCssProperty(name);
+        this.flex.removeCssProperty(name);
         return this;
     }
 
     @Override
     public HTMLDivElement element() {
-        return this.component.element();
+        return this.flex.element();
     }
 
-    private final DivComponent component;
+    private final FlexLayoutComponent flex;
 
     // ValueComponent...................................................................................................
 
@@ -112,21 +112,28 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
 
         this.value = value;
 
-        final DivComponent component = this.component;
-        component.clear();
+        final FlexLayoutComponent flex = this.flex;
+        flex.removeAllChildren();
 
         final MissingConverter missingConverter = value.orElse(null);
         if (null != missingConverter) {
-            component.appendText(
-                missingConverter.name()
-                    .value()
+            flex.appendChild(
+                DivComponent.div()
+                        .appendText(
+                    missingConverter.name()
+                        .value()
+                )
             );
 
+            final FlexLayoutComponent rowFlex = FlexLayoutComponent.row();
+
             for (final MissingConverterValue missingConverterValue : missingConverter.values()) {
-                component.appendChild(
+                rowFlex.appendChild(
                     MissingConverterValueComponent.empty(missingConverterValue)
                 );
             }
+
+            flex.appendChild(rowFlex);
         }
 
         return this;
