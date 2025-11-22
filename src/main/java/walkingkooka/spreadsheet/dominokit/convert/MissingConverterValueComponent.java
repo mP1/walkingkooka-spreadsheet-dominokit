@@ -42,7 +42,9 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
     }
 
     private MissingConverterValueComponent(final MissingConverterValue value) {
-        this.component = HtmlElementComponent.div();
+        this.div = HtmlElementComponent.div()
+            .setCssText("margin: 8px");
+
         this.setValue(
             Optional.of(value)
         );
@@ -52,23 +54,23 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
 
     @Override
     public String id() {
-        return this.component.id();
+        return this.div.id();
     }
 
     @Override
     public MissingConverterValueComponent setId(final String id) {
-        this.component.setId(id);
+        this.div.setId(id);
         return this;
     }
 
     @Override
     public int width() {
-        return this.component.width();
+        return this.div.width();
     }
 
     @Override
     public int height() {
-        return this.component.height();
+        return this.div.height();
     }
 
     @Override
@@ -78,14 +80,14 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
 
     @Override
     public MissingConverterValueComponent setCssText(final String css) {
-        this.component.setCssText(css);
+        this.div.setCssText(css);
         return this;
     }
 
     @Override
     public MissingConverterValueComponent setCssProperty(final String name,
                                                          final String value) {
-        this.component.setCssProperty(
+        this.div.setCssProperty(
             name,
             value
         );
@@ -94,16 +96,16 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
 
     @Override
     public MissingConverterValueComponent removeCssProperty(final String name) {
-        this.component.removeCssProperty(name);
+        this.div.removeCssProperty(name);
         return this;
     }
 
     @Override
     public HTMLDivElement element() {
-        return this.component.element();
+        return this.div.element();
     }
 
-    private final DivComponent component;
+    private final DivComponent div;
 
     // ValueComponent...................................................................................................
 
@@ -113,7 +115,7 @@ final class MissingConverterValueComponent implements ValueComponent<HTMLDivElem
 
         this.value = value;
 
-        final DivComponent component = this.component;
+        final DivComponent component = this.div;
         component.clear();
 
         final MissingConverterValue missingConverterValue = value.orElse(null);

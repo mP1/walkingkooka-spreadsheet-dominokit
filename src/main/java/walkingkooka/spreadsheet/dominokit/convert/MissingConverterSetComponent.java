@@ -19,12 +19,10 @@ package walkingkooka.spreadsheet.dominokit.convert;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
-import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -46,7 +44,7 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     }
 
     private MissingConverterSetComponent(final MissingConverterSet value) {
-        this.component = HtmlElementComponent.div();
+        this.flex = FlexLayoutComponent.column();
         this.setValue(
             Optional.of(value)
         );
@@ -56,23 +54,23 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
     @Override
     public String id() {
-        return this.component.id();
+        return this.flex.id();
     }
 
     @Override
     public MissingConverterSetComponent setId(final String id) {
-        this.component.setId(id);
+        this.flex.setId(id);
         return this;
     }
 
     @Override
     public int width() {
-        return this.component.width();
+        return this.flex.width();
     }
 
     @Override
     public int height() {
-        return this.component.height();
+        return this.flex.height();
     }
 
     @Override
@@ -82,14 +80,14 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
     @Override
     public MissingConverterSetComponent setCssText(final String css) {
-        this.component.setCssText(css);
+        this.flex.setCssText(css);
         return this;
     }
 
     @Override
     public MissingConverterSetComponent setCssProperty(final String name,
                                                        final String value) {
-        this.component.setCssProperty(
+        this.flex.setCssProperty(
             name,
             value
         );
@@ -98,16 +96,16 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
     @Override
     public MissingConverterSetComponent removeCssProperty(final String name) {
-        this.component.removeCssProperty(name);
+        this.flex.removeCssProperty(name);
         return this;
     }
 
     @Override
     public HTMLDivElement element() {
-        return this.component.element();
+        return this.flex.element();
     }
 
-    private final DivComponent component;
+    private final FlexLayoutComponent flex;
 
     // ValueComponent...................................................................................................
 
@@ -117,8 +115,8 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
         this.value = value;
 
-        final DivComponent component = this.component;
-        component.clear();
+        final FlexLayoutComponent flex = this.flex;
+        flex.removeAllChildren();
 
         final MissingConverterSet missingConverterSet = value.orElse(null);
         if (null != missingConverterSet) {
@@ -185,34 +183,27 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     public MissingConverterSetComponent appendChild(final IsElement<?> child) {
         Objects.requireNonNull(child, "child");
 
-        this.children.add(child);
-        this.component.appendChild(child);
+        this.flex.appendChild(child);
 
         return this;
     }
 
     @Override
     public MissingConverterSetComponent removeChild(final int index) {
-        this.component.removeChild(
-            this.children.remove(index)
-        );
+        this.flex.removeChild(index);
 
         return this;
     }
 
     @Override
     public List<IsElement<?>> children() {
-        return Lists.readOnly(
-            this.children
-        );
+        return this.flex.children();
     }
 
     @Override
     public boolean isEmpty() {
-        return this.children.isEmpty();
+        return this.flex.isEmpty();
     }
-
-    private final List<IsElement<?>> children = Lists.array();
 
     // TreePrintable....................................................................................................
 
