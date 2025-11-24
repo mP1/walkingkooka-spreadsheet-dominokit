@@ -130,7 +130,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -254,7 +254,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -378,7 +378,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -500,7 +500,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -656,7 +656,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -809,7 +809,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -931,7 +931,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1053,7 +1053,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1175,7 +1175,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1297,7 +1297,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1419,7 +1419,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1541,7 +1541,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1663,7 +1663,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1785,7 +1785,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -1907,7 +1907,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -2029,7 +2029,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -2151,7 +2151,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
@@ -2273,7 +2273,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "              date\n" +
                 "              date-time\n" +
                 "              email\n" +
-                "              error\n" +
+                "              error(spreadsheet)\n" +
                 "              number\n" +
                 "              text\n" +
                 "              time\n" +
