@@ -41,7 +41,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      date\n" +
                 "      date-time\n" +
                 "      email\n" +
-                "      error\n" +
+                "      error(spreadsheet)\n" +
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
@@ -63,7 +63,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      date\n" +
                 "      date-time\n" +
                 "      email\n" +
-                "      error\n" +
+                "      error(spreadsheet)\n" +
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
@@ -89,7 +89,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      date\n" +
                 "      date-time\n" +
                 "      email\n" +
-                "      error\n" +
+                "      error(spreadsheet)\n" +
                 "      number\n" +
                 "      text\n" +
                 "      time\n" +
