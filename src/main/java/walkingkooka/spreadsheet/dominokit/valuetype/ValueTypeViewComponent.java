@@ -17,13 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
+import com.google.gwt.core.client.GWT;
 import elemental2.dom.HTMLElement;
+import walkingkooka.color.Color;
+import walkingkooka.color.WebColorName;
+import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.label.LabelComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
@@ -46,6 +51,59 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
         Objects.requireNonNull(value, "value");
 
         this.label.setValue(value.map(ValueType::value));
+
+        final ValueType valueType = value.orElse(null);
+        if (null != valueType) {
+            final Color color;
+
+            if (valueType.isDate() || valueType.isDateTime() || valueType.isTime()) {
+                color = WebColorName.CHOCOLATE.color();
+            } else {
+                if (valueType.isNumber()) {
+                    color = WebColorName.LIMEGREEN.color();
+                } else {
+                    if (valueType.isError()) {
+                        color = WebColorName.DEEPPINK.color();
+                    } else {
+                        if (valueType.isText()) {
+                            color = WebColorName.PURPLE.color();
+                        } else {
+                            if (SpreadsheetValueType.isColor(valueType)) {
+                                color = WebColorName.OLIVE.color();
+                            } else {
+                                if (SpreadsheetValueType.isReference(valueType)) {
+                                    color = WebColorName.ORANGE.color();
+                                } else {
+                                    if (valueType.isJson() ) {
+                                        color = WebColorName.SANDYBROWN.color();
+                                    } else {
+                                        if (valueType.isEmail() || valueType.isUrl()) {
+                                            color = WebColorName.AZURE.color();
+                                        } else {
+                                            if (valueType.isList()) {
+                                                color = WebColorName.DARKSALMON.color();
+                                            } else {
+                                                color = null;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (null != color) {
+                if(GWT.isScript()) {
+                    this.label.setCssProperty(
+                        TextStylePropertyName.BACKGROUND_COLOR.value(),
+                        color.text()
+                    );
+                }
+            }
+        }
+
         return this;
     }
 
