@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.text.LineEnding;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -58,6 +59,16 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
 
     @Override
     default SpreadsheetCellFindDialogComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetCellFindDialogComponentContext setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 

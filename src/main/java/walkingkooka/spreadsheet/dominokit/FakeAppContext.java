@@ -76,6 +76,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -515,6 +516,18 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    // HasLineEnding....................................................................................................
+
+    @Override
+    public LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public AppContext setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 

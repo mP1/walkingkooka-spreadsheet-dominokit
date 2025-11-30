@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.text.LineEnding;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -247,6 +248,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         @Override
         public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setLineEnding(final LineEnding lineEnding) {
             throw new UnsupportedOperationException();
         }
 

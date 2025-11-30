@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
+import walkingkooka.text.LineEnding;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -40,6 +41,17 @@ public interface SpreadsheetViewportFormulaComponentContext extends RefreshConte
 
     @Override
     default SpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetViewportFormulaComponentContext setLineEnding(final LineEnding lineEnding) {
+        Objects.requireNonNull(lineEnding, "lineEnding");
         throw new UnsupportedOperationException();
     }
 

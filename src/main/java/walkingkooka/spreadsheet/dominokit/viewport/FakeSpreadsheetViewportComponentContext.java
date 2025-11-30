@@ -46,6 +46,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.LineEnding;
 import walkingkooka.tree.text.TextStyle;
 
 import java.time.LocalDateTime;
@@ -74,6 +75,16 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     @Override 
     public <T> Either<T, String> convert(final Object value, 
                                          final Class<T> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 

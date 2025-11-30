@@ -178,6 +178,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -247,6 +248,8 @@ public class App implements EntryPoint,
      * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
      */
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
+
+    private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
     public App() {
         SpreadsheetServerStartup.init();
@@ -415,6 +418,7 @@ public class App implements EntryPoint,
             PluginStores.fake(),
             this.spreadsheetMetadata.environmentContext(
                 EnvironmentContexts.empty(
+                    LINE_ENDING,
                     this.locale(),
                     this,
                     EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
@@ -578,6 +582,7 @@ public class App implements EntryPoint,
 
             final EnvironmentContext environmentContext = metadata.environmentContext(
                 EnvironmentContexts.empty(
+                    LINE_ENDING,
                     metadata.locale(),
                     this,
                     Optional.of(
