@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.LineEnding;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -150,11 +151,6 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     // EnvironmentContext...............................................................................................
 
     @Override
-    public SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
                                                                              final T value) {
         this.context.setEnvironmentValue(
@@ -168,6 +164,23 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     public SpreadsheetCellFindDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.context.removeEnvironmentValue(name);
         return this;
+    }
+
+    @Override
+    public LineEnding lineEnding() {
+        return SpreadsheetCellFindDialogComponentContext.super.lineEnding();
+    }
+
+    @Override
+    public SpreadsheetCellFindDialogComponentContext setLineEnding(final LineEnding lineEnding) {
+        return (SpreadsheetCellFindDialogComponentContext)
+            SpreadsheetCellFindDialogComponentContext.super.setLineEnding(lineEnding);
+    }
+
+    @Override
+    public SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
+        return (SpreadsheetCellFindDialogComponentContext)
+            SpreadsheetCellFindDialogComponentContext.super.setUser(user);
     }
 
     // DialogComponentContext...........................................................................................

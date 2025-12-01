@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.LineEnding;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -173,6 +174,17 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
 
     // EnvironmentContext...............................................................................................
 
+    @Override
+    public LineEnding lineEnding() {
+        return this.context.lineEnding();
+    }
+
+    @Override
+    public SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
+        this.context.setLineEnding(lineEnding);
+        return this;
+    }
+    
     @Override
     public Locale locale() {
         return this.context.locale();

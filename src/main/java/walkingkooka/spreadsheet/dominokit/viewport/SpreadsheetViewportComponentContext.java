@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
+import walkingkooka.text.LineEnding;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -57,7 +58,19 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     }
 
     @Override
-    SpreadsheetViewportComponentContext setLocale(final Locale locale);
+    default LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetViewportComponentContext setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     default SpreadsheetViewportComponentContext setUser(final Optional<EmailAddress> user) {

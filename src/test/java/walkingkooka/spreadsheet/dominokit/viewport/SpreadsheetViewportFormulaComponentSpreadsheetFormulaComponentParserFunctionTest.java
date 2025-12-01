@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.util.FunctionTesting;
 
@@ -425,6 +426,11 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
 
         @Override
         public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setLineEnding(final LineEnding lineEnding) {
             throw new UnsupportedOperationException();
         }
 
