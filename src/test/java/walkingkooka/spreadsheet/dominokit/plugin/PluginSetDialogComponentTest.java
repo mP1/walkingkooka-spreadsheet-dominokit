@@ -348,7 +348,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
                             )
                         ),
                         PluginSetDialogComponentTest.USER,
-                        NOW.now()
+                        HAS_NOW.now()
                     )
                 );
             }

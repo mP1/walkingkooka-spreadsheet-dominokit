@@ -379,7 +379,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                         )
                     ),
                     USER,
-                    NOW.now()
+                    HAS_NOW.now()
                 )
             );
         }
