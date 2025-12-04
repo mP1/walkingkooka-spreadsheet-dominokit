@@ -263,7 +263,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
             "filename" + i + ".jar",
             pluginBinary(),
             USER,
-            NOW.now()
+            HAS_NOW.now()
         );
     }
 

@@ -227,7 +227,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 metadata.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
                     LOCALE_CONTEXT,
-                    NOW
+                    HAS_NOW
                 )
             )
         );
@@ -274,7 +274,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
                     LOCALE_CONTEXT,
-                    NOW
+                    HAS_NOW
                 )
             )
         );
@@ -326,7 +326,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
                     LOCALE_CONTEXT,
-                    NOW
+                    HAS_NOW
                 )
             )
         );
@@ -346,7 +346,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
                 METADATA.spreadsheetParserContext(
                     SpreadsheetMetadata.NO_CELL,
                     LOCALE_CONTEXT,
-                    NOW
+                    HAS_NOW
                 )
             )
         );

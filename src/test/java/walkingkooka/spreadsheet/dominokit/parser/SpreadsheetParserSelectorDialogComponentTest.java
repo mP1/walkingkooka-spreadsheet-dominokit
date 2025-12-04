@@ -1429,7 +1429,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
 
             @Override
             public LocalDateTime now() {
-                return NOW.now();
+                return HAS_NOW.now();
             }
 
             @Override

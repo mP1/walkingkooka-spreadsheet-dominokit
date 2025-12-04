@@ -2034,7 +2034,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
 
             @Override
             public LocalDateTime now() {
-                return NOW.now();
+                return HAS_NOW.now();
             }
 
             @Override
