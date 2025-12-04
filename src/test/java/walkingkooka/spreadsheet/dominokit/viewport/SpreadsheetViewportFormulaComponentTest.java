@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
@@ -248,6 +249,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         @Override
         public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public TestSpreadsheetViewportFormulaComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
             throw new UnsupportedOperationException();
         }
 

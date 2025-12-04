@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.Headers;
 import walkingkooka.Context;
 import walkingkooka.datetime.HasNow;
+import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -272,6 +273,11 @@ public interface AppContext extends CanGiveFocus,
 
     @Override
     default AppContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default AppContext setEnvironmentContext(final EnvironmentContext environmentContext) {
         throw new UnsupportedOperationException();
     }
 
