@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
@@ -41,6 +42,11 @@ public interface SpreadsheetViewportFormulaComponentContext extends RefreshConte
 
     @Override
     default SpreadsheetViewportFormulaComponentContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default SpreadsheetViewportFormulaComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
         throw new UnsupportedOperationException();
     }
 
