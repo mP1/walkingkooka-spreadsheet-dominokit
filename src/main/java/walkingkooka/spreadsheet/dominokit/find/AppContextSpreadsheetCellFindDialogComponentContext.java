@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.LineEnding;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -177,6 +178,12 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
             SpreadsheetCellFindDialogComponentContext.super.setLineEnding(lineEnding);
     }
 
+    @Override
+    public SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
+        return (SpreadsheetCellFindDialogComponentContext)
+            SpreadsheetCellFindDialogComponentContext.super.setLocale(locale);
+    }
+    
     @Override
     public SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
         return (SpreadsheetCellFindDialogComponentContext)
