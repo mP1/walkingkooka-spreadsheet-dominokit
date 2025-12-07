@@ -1350,6 +1350,11 @@ public class App implements EntryPoint,
     // EnvironmentContext...............................................................................................
 
     @Override
+    public App setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public App setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
