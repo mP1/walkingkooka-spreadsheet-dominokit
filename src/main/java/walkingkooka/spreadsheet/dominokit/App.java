@@ -416,7 +416,7 @@ public class App implements EntryPoint,
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
-            this.spreadsheetMetadata.environmentContext(
+            this.spreadsheetMetadata.spreadsheetEnvironmentContext(
                 EnvironmentContexts.empty(
                     LINE_ENDING,
                     this.locale(),
@@ -580,7 +580,7 @@ public class App implements EntryPoint,
                 metadata.mathContext()
             );
 
-            final EnvironmentContext environmentContext = metadata.environmentContext(
+            final EnvironmentContext environmentContext = metadata.spreadsheetEnvironmentContext(
                 EnvironmentContexts.empty(
                     LINE_ENDING,
                     metadata.locale(),
