@@ -3984,7 +3984,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             return this.historyToken;
         }
 
-        private HistoryToken historyToken;
+        private HistoryToken historyToken = HistoryToken.parseString("");
 
         @Override
         public SpreadsheetViewportCache spreadsheetViewportCache() {
