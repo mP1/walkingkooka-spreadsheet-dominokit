@@ -21,6 +21,7 @@ import com.google.gwt.core.shared.GWT;
 import walkingkooka.spreadsheet.dominokit.App;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -28,11 +29,16 @@ import java.util.function.Consumer;
  */
 final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
 
-    static HistoryTokenWatchersEvent with(final HistoryToken previous, final AppContext context) {
-        return new HistoryTokenWatchersEvent(previous, context);
+    static HistoryTokenWatchersEvent with(final HistoryToken previous,
+                                          final AppContext context) {
+        return new HistoryTokenWatchersEvent(
+            Objects.requireNonNull(previous, "previous"),
+            Objects.requireNonNull(context, "context")
+        );
     }
 
-    private HistoryTokenWatchersEvent(final HistoryToken previous, final AppContext context) {
+    private HistoryTokenWatchersEvent(final HistoryToken previous,
+                                      final AppContext context) {
         this.previous = previous;
         this.context = context;
     }
