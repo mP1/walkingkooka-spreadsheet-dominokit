@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.find;
 
 import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.environment.EnvironmentValueWatcher;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
@@ -116,11 +117,6 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
     }
 
     @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
         throw new UnsupportedOperationException();
     }
@@ -131,12 +127,27 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
     }
 
     @Override
-    public PluginStore pluginStore() {
+    public Locale locale() {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcher(final EnvironmentValueWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PluginStore pluginStore() {
         throw new UnsupportedOperationException();
     }
 
