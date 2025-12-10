@@ -39,7 +39,9 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
 
     @Override
     public void accept(final HistoryTokenWatcher watcher) {
-        final long before = System.currentTimeMillis();
+        final long before = GWT.isClient() ?
+            System.currentTimeMillis() :
+            0;
 
         try {
             watcher.onHistoryTokenChange(
