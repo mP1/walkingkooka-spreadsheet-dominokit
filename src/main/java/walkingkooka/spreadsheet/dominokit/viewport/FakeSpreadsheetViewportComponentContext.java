@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.Either;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.environment.EnvironmentValueWatcher;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
@@ -121,6 +122,16 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
 
     @Override 
     public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcher(final EnvironmentValueWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

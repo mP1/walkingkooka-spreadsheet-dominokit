@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.environment.EnvironmentValueWatcher;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
@@ -69,6 +70,16 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
 
     @Override
     public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcher(final EnvironmentValueWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
