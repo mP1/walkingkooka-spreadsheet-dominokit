@@ -754,6 +754,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public int decimalNumberDigitCount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public DecimalNumberSymbols decimalNumberSymbols() {
         throw new UnsupportedOperationException();
     }
