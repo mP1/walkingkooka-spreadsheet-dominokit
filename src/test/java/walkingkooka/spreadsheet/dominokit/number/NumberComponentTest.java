@@ -25,7 +25,6 @@ import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
@@ -289,7 +288,7 @@ public final class NumberComponentTest implements FormValueComponentTesting<HTML
 
         @Override
         public int generalFormatNumberDigitCount() {
-            return SpreadsheetFormatterContext.DEFAULT_GENERAL_FORMAT_NUMBER_DIGIT_COUNT;
+            return DecimalNumberContext.DEFAULT_NUMBER_DIGIT_COUNT;
         }
     }
 
