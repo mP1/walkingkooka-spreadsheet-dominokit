@@ -105,7 +105,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
 
-        items.add(this.generalFormatNumberDigitCount());
+        items.add(this.decimalNumberDigitCount());
 
         items.add(this.dateTimeSymbols());
         items.add(this.dateFormatter());
@@ -253,8 +253,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> generalFormatNumberDigitCount() {
-        return SpreadsheetMetadataPanelComponentItem.generalFormatNumberDigitCount(
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> decimalNumberDigitCount() {
+        return SpreadsheetMetadataPanelComponentItem.decimalNumberDigitCount(
             this.context
         );
     }

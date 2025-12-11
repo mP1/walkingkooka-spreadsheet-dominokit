@@ -70,10 +70,10 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     }
 
     /**
-     * {@see SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount}
+     * {@see SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount}
      */
-    static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount generalFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount.with(
+    static SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount decimalNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount.with(
             context
         );
     }

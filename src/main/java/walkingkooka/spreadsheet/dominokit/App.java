@@ -1610,7 +1610,7 @@ public class App implements EntryPoint,
 
     @Override
     public int generalFormatNumberDigitCount() {
-        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT);
+        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT);
     }
 
     // RecentValueSavesContextDelegator.................................................................................

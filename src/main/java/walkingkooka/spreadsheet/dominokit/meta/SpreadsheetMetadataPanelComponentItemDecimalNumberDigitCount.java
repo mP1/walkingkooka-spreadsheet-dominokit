@@ -31,17 +31,17 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#PRECISION}
  */
-final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer, SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount, HTMLUListElement> {
+final class SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount extends SpreadsheetMetadataPanelComponentItem<Integer, SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount, HTMLUListElement> {
 
-    static SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount with(final SpreadsheetMetadataPanelComponentContext context) {
-        return new SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(
+    static SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount with(final SpreadsheetMetadataPanelComponentContext context) {
+        return new SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount(
             context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount(final SpreadsheetMetadataPanelComponentContext context) {
         super(
-            SpreadsheetMetadataPropertyName.GENERAL_NUMBER_FORMAT_DIGIT_COUNT,
+            SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT,
             context
         );
 
@@ -68,7 +68,7 @@ final class SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount e
     }
 
     @Override //
-    SpreadsheetMetadataPanelComponentItemGeneralFormatNumberDigitCount addFocusListener(final EventListener listener) {
+    SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount addFocusListener(final EventListener listener) {
         this.list.addFocusInListener(listener);
         return this;
     }
