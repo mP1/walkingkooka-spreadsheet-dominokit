@@ -114,11 +114,6 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     @Override
-    public int generalFormatNumberDigitCount() {
-        return this.context.generalFormatNumberDigitCount();
-    }
-
-    @Override
     public SpreadsheetExpressionEvaluationContext spreadsheetExpressionEvaluationContext(final Optional<Object> cell) {
         throw new UnsupportedOperationException();
     }

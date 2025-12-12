@@ -1558,8 +1558,8 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             }
 
             @Override
-            public int generalFormatNumberDigitCount() {
-                return SPREADSHEET_FORMATTER_CONTEXT.generalFormatNumberDigitCount();
+            public int decimalNumberDigitCount() {
+                return SPREADSHEET_FORMATTER_CONTEXT.decimalNumberDigitCount();
             }
 
             @Override
