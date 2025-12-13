@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -26,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
@@ -34,7 +34,7 @@ import java.util.Optional;
 /**
  * A {@link SpreadsheetCellValueAnchorComponent} is a link that when clicked results in a picker allowing the user to select
  * from a date picker or something similar, depending on the {@link walkingkooka.validation.ValueType}
- * for the selected {@link walkingkooka.spreadsheet.SpreadsheetCell}.
+ * for the selected {@link walkingkooka.spreadsheet.value.SpreadsheetCell}.
  */
 public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<SpreadsheetCellValueAnchorComponent, SpreadsheetExpressionReference> {
 

@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.validation.ValueType;
 
 import java.util.Optional;

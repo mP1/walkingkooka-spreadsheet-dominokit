@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 

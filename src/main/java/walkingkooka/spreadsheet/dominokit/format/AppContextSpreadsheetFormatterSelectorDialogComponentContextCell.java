@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import org.gwtproject.core.shared.GWT;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;

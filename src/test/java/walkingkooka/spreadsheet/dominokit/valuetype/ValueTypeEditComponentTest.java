@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.valuetype;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
 import java.util.Optional;

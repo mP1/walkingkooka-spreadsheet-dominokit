@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
 import walkingkooka.locale.LocaleContext;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.color.ColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -32,6 +31,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;

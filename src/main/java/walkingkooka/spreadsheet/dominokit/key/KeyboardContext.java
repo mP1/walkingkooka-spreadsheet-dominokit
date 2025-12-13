@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Optional;
 

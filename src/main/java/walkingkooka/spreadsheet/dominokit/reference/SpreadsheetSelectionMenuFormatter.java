@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -28,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 
 import java.util.List;

@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.cell.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.cell.FakeSpreadsheetCellLinksComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.validation.ValueType;
 
 import java.util.Optional;

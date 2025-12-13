@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.error;
 
-import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.value.SpreadsheetError;
 
 /**
- * A component that will be used to support entry text entry of a {@link walkingkooka.spreadsheet.SpreadsheetError}.
+ * A component that will be used to support entry text entry of a {@link walkingkooka.spreadsheet.value.SpreadsheetError}.
  */
 public final class SpreadsheetErrorComponent implements ValueTextBoxComponentDelegator<SpreadsheetErrorComponent, SpreadsheetError> {
 

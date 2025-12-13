@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.valuetype;
 import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
 import java.util.Optional;

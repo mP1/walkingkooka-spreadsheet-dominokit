@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -31,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;

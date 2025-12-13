@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;
