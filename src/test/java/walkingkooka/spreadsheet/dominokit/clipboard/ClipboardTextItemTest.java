@@ -26,8 +26,6 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetCell;
-import walkingkooka.spreadsheet.SpreadsheetCellRange;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
@@ -39,6 +37,8 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.spreadsheet.value.SpreadsheetCellRange;
 import walkingkooka.text.HasTextTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -238,7 +238,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.value.SpreadsheetCell\",\n" +
                     "  \"cell-range\": \"A1\",\n" +
                     "  \"value\": {}\n" +
                     "}"
@@ -264,7 +264,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.value.SpreadsheetCell\",\n" +
                     "  \"cell-range\": \"A1\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": {\n" +
@@ -307,7 +307,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.value.SpreadsheetCell\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
                     "    \"A1\": {\n" +
@@ -866,7 +866,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testToSpreadsheetCellRange() {
         this.toSpreadsheetCellRangeAndCheck(
             "{\n" +
-                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.value.SpreadsheetCell\",\n" +
                 "  \"cell-range\": \"A1:B2\",\n" +
                 "  \"value\": {\n" +
                 "    \"A1\": {\n" +
@@ -899,7 +899,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     public void testToSpreadsheetCellRange2() {
         this.toSpreadsheetCellRangeAndCheck(
             "{\n" +
-                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.SpreadsheetCell\",\n" +
+                "  \"mediaType\": \"application/json+walkingkooka.spreadsheet.value.SpreadsheetCell\",\n" +
                 "  \"cell-range\": \"A1:B2\",\n" +
                 "  \"value\": {\n" +
                 "    \"A1\": {\n" +

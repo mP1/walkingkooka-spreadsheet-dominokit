@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.formula;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
-import walkingkooka.spreadsheet.SpreadsheetError;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.value.SpreadsheetError;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;

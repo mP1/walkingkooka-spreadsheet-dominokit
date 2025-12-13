@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
@@ -26,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleUnselectHistoryToken;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Locale;
 import java.util.Optional;

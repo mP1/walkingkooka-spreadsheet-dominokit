@@ -21,7 +21,6 @@ import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.SpreadsheetValueType;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
@@ -85,6 +84,7 @@ import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogCompo
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.validation.ValueType;
 

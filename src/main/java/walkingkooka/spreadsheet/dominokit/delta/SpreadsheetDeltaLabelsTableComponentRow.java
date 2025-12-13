@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;

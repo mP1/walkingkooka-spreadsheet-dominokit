@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 
 /**
- * A text box that allows the entry of a glob pattern which may be used to match the text form of a {@link walkingkooka.spreadsheet.SpreadsheetCell}
+ * A text box that allows the entry of a glob pattern which may be used to match the text form of a {@link walkingkooka.spreadsheet.value.SpreadsheetCell}
  * component within a FIND component.
  * <pre>
  * text contains [_] <-- TextMatchComponent

@@ -28,7 +28,6 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.predicate.PredicateTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -39,6 +38,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -347,7 +347,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMediaTypeCell() {
         this.mediaTypeAndCheck(
             SpreadsheetCellClipboardKind.CELL,
-            MediaType.parse("application/json+walkingkooka.spreadsheet.SpreadsheetCell")
+            MediaType.parse("application/json+walkingkooka.spreadsheet.value.SpreadsheetCell")
         );
     }
 

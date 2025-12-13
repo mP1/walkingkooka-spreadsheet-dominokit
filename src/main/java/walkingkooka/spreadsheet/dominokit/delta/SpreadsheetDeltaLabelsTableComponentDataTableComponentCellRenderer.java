@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.spreadsheet.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
@@ -27,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelSelectAnchorComp
 import walkingkooka.spreadsheet.dominokit.text.TextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Optional;
 
