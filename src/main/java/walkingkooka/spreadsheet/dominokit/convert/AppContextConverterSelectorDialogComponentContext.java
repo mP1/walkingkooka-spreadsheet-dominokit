@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
+import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 
 import java.util.Objects;
 import java.util.Optional;

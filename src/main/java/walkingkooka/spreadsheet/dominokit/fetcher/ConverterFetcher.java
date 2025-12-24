@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.convert.ConverterHateosResourceMappings;
-import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
+import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 

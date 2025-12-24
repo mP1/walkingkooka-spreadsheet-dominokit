@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
-import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
+import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 import walkingkooka.template.TemplateValueName;
 import walkingkooka.template.url.UrlPathTemplate;
 import walkingkooka.text.CharSequences;
