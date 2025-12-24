@@ -24,11 +24,11 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetUrlQueryParameters;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleTag;
 import walkingkooka.spreadsheet.server.url.SpreadsheetUrlPathTemplate;
+import walkingkooka.spreadsheet.server.url.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
