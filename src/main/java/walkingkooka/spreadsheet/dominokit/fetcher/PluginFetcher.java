@@ -33,7 +33,7 @@ import walkingkooka.plugin.store.Plugin;
 import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.server.net.SpreadsheetServerLinkRelations;
 import walkingkooka.spreadsheet.server.net.SpreadsheetServerMediaTypes;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
