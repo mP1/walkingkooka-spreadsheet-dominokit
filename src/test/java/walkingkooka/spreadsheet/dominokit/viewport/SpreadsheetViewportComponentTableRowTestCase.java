@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLTableRowElement;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 abstract class SpreadsheetViewportComponentTableRowTestCase<T extends SpreadsheetViewportComponentTableRow<T>> implements HtmlComponentTesting<T, HTMLTableRowElement> {
 

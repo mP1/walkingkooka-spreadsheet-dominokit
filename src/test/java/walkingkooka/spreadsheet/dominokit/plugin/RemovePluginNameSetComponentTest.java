@@ -23,10 +23,10 @@ import walkingkooka.Cast;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public final class RemovePluginNameSetComponentTest implements HtmlComponentTesting<RemovePluginNameSetComponent,
     HTMLDivElement> {

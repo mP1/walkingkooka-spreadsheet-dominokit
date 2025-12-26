@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameSelectHistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Objects;
 import java.util.Optional;

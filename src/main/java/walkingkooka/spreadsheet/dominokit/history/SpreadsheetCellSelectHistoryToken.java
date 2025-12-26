@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
@@ -31,6 +30,7 @@ import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToText
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValidatorSelectorMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueTypeMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 
