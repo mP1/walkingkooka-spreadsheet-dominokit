@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
 
 final class AppContextSpreadsheetLabelMappingListDialogComponentContextLabel extends AppContextSpreadsheetLabelMappingListDialogComponentContext {
 

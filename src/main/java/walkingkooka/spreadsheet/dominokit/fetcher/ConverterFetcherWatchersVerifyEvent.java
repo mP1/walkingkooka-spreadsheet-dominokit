@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.convert.provider.ConverterSelector;
-import walkingkooka.spreadsheet.SpreadsheetId;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Set;
