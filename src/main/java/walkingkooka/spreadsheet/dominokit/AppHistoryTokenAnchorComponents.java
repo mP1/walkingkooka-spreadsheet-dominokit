@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Optional;
 

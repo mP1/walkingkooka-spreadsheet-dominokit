@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.HasText;
 
 /**

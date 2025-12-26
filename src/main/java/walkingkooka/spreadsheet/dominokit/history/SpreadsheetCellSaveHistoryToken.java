@@ -21,7 +21,7 @@ import walkingkooka.Value;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 /**

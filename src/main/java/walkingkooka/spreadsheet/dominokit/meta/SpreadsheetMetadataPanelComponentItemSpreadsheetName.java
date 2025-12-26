@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a {@link SpreadsheetNameComponent}.

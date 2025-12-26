@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Optional;
 

@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.SpreadsheetId;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.test.Testing;
 
 public interface ComponentLifecycleMatcherTesting extends Testing {

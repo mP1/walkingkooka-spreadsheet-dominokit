@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.spreadsheet;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.SpreadsheetName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Optional;
 
