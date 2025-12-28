@@ -1363,7 +1363,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
                     @Override
                     public LocalDateTime now() {
-                        return NOW;
+                        return SpreadsheetDeltaFetcherTest.NOW;
                     }
 
 
