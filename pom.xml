@@ -54,23 +54,9 @@
                 <updatePolicy>never</updatePolicy>
             </snapshots>
         </repository>
-
-        <repository>
-            <id>google-sonatype-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-
         <repository>
             <id>maven.repository.snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <url>https://central.sonatype.org/repository/maven-snapshots/</url>
         </repository>
 
     </repositories>
