@@ -24,7 +24,7 @@ import walkingkooka.InvalidCharacterException;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.ImmutableSortedSet;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.convert.CanConvert;
+import walkingkooka.convert.ConverterLike;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
@@ -1343,7 +1343,7 @@ public class App implements EntryPoint,
     // ProviderContext..................................................................................................
 
     @Override
-    public CanConvert canConvert() {
+    public ConverterLike converterLike() {
         return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
     }
 
