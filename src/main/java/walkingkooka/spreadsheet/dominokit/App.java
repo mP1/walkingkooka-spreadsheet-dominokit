@@ -1350,6 +1350,12 @@ public class App implements EntryPoint,
     // EnvironmentContext...............................................................................................
 
     @Override
+    public LineEnding lineEnding() {
+        return this.environmentContext()
+            .lineEnding();
+    }
+
+    @Override
     public App setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
@@ -1500,6 +1506,7 @@ public class App implements EntryPoint,
                     throw new UnsupportedOperationException();
                 },
                 this.viewportCache, // SpreadsheetLabelNameResolver
+                this.lineEnding(),
                 this, // LocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
