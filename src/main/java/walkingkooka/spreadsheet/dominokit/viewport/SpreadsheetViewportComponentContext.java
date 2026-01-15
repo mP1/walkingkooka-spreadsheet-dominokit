@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.environment.EnvironmentContext;
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
@@ -69,7 +68,7 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     }
 
     @Override
-    default SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
+    default void setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 
@@ -79,16 +78,9 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     }
 
     @Override
-    default SpreadsheetViewportComponentContext setUser(final Optional<EmailAddress> user) {
+    default void setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
-
-    @Override
-    <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                final T value);
-
-    @Override
-    SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name);
 
     /**
      * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails

@@ -436,7 +436,18 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         }
 
         @Override
-        public TestSpreadsheetViewportFormulaComponentContext setLineEnding(final LineEnding lineEnding) {
+        public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                            final T value) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void setLineEnding(final LineEnding lineEnding) {
             throw new UnsupportedOperationException();
         }
 
@@ -446,18 +457,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         }
 
         @Override
-        public TestSpreadsheetViewportFormulaComponentContext setUser(final Optional<EmailAddress> user) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public <T> TestSpreadsheetViewportFormulaComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                                      final T value) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public TestSpreadsheetViewportFormulaComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        public void setUser(final Optional<EmailAddress> user) {
             throw new UnsupportedOperationException();
         }
     }

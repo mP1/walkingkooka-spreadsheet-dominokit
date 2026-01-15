@@ -79,26 +79,6 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public LineEnding lineEnding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override 
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
         throw new UnsupportedOperationException();
@@ -110,13 +90,33 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
-    public <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                       final T value) {
+    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                        final T value) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setLineEnding(final LineEnding lineEnding) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 
