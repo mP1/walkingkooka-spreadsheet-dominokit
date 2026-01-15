@@ -103,7 +103,7 @@ public class FakeLocaleDialogComponentContext extends FakeDialogComponentContext
     }
 
     @Override
-    public LocaleDialogComponentContext setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

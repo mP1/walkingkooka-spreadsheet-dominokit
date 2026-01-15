@@ -162,7 +162,7 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     }
 
     @Override
-    public SpreadsheetFormatterContext setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

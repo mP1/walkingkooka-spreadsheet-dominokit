@@ -62,7 +62,7 @@ public interface SpreadsheetViewportFormulaComponentContext extends RefreshConte
     }
 
     @Override
-    default SpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+    default void setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();
     }

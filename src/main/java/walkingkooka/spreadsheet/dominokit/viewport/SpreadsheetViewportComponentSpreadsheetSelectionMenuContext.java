@@ -226,7 +226,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     @Override
-    public SpreadsheetViewportComponentSpreadsheetSelectionMenuContext setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

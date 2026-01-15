@@ -52,7 +52,7 @@ abstract class AppContextLocaleDialogComponentContext implements LocaleDialogCom
     }
 
     @Override
-    public LocaleDialogComponentContext setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();
     }

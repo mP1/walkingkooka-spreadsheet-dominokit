@@ -1356,7 +1356,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public App setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 
