@@ -64,7 +64,7 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     }
 
     @Override
-    public Locale locale() {
+    public final Locale locale() {
         return this.context.locale();
     }
 
@@ -74,12 +74,12 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     }
 
     @Override
-    public SpreadsheetFormatterSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
+    public final SpreadsheetFormatterSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetFormatterSelectorDialogComponentContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
+    public final SpreadsheetFormatterSelectorDialogComponentContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
         throw new UnsupportedOperationException();
     }
 
