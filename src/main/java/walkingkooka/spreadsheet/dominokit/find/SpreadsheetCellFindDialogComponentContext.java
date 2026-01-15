@@ -79,7 +79,7 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     }
 
     @Override
-    default SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
+    default void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

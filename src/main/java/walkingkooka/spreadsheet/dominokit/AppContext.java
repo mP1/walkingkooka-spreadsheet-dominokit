@@ -288,7 +288,7 @@ public interface AppContext extends CanGiveFocus,
     }
 
     @Override
-    default AppContext setLocale(final Locale locale) {
+    default void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

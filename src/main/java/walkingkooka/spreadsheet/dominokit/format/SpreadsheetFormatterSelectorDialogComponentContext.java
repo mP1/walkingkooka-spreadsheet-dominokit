@@ -78,7 +78,7 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
     @Override
-    default SpreadsheetFormatterSelectorDialogComponentContext setLocale(final Locale locale) {
+    default void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 }

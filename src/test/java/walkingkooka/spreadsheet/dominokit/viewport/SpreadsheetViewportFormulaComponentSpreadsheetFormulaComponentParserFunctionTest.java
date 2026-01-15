@@ -441,7 +441,7 @@ public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponen
         }
 
         @Override
-        public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+        public void setLocale(final Locale locale) {
             throw new UnsupportedOperationException();
         }
 

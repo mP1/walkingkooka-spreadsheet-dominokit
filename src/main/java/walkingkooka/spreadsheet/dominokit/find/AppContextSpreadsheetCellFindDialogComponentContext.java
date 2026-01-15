@@ -179,9 +179,8 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     }
 
     @Override
-    public SpreadsheetCellFindDialogComponentContext setLocale(final Locale locale) {
-        return (SpreadsheetCellFindDialogComponentContext)
-            SpreadsheetCellFindDialogComponentContext.super.setLocale(locale);
+    public void setLocale(final Locale locale) {
+        SpreadsheetCellFindDialogComponentContext.super.setLocale(locale);
     }
     
     @Override

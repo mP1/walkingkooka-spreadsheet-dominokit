@@ -263,7 +263,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         }
 
         @Override
-        public TestSpreadsheetViewportFormulaComponentContext setLocale(final Locale locale) {
+        public void setLocale(final Locale locale) {
             throw new UnsupportedOperationException();
         }
 

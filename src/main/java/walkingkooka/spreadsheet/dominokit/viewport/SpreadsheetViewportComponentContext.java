@@ -74,7 +74,7 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     }
 
     @Override
-    default SpreadsheetViewportComponentContext setLocale(final Locale locale) {
+    default void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 

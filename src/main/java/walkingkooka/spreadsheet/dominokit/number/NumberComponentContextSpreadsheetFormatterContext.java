@@ -162,7 +162,7 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     @Override
-    public SpreadsheetFormatterContext setLocale(final Locale locale) {
+    public void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 
