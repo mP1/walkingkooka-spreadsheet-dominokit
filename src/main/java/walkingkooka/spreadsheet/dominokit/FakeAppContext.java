@@ -390,7 +390,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public AppContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
         throw new UnsupportedOperationException();
     }
 
@@ -538,7 +538,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public AppContext setLineEnding(final LineEnding lineEnding) {
+    public void setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 

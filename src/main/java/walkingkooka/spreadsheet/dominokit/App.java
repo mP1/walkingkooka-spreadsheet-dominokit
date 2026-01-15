@@ -1350,6 +1350,20 @@ public class App implements EntryPoint,
     // EnvironmentContext...............................................................................................
 
     @Override
+    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                        final T value) {
+        this.providerContext.setEnvironmentValue(
+            name,
+            value
+        );
+    }
+
+    @Override
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        this.providerContext.removeEnvironmentValue(name);
+    }
+
+    @Override
     public LineEnding lineEnding() {
         return this.environmentContext()
             .lineEnding();
@@ -1361,24 +1375,8 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public App setUser(final Optional<EmailAddress> user) {
+    public void setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                              final T value) {
-        this.providerContext.setEnvironmentValue(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public AppContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.providerContext.removeEnvironmentValue(name);
-        return this;
     }
 
     @Override

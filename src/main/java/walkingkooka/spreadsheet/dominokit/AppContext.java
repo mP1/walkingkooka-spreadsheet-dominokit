@@ -282,8 +282,8 @@ public interface AppContext extends CanGiveFocus,
     }
 
     @Override
-    default <T> AppContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                               final T value) {
+    default <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                         final T value) {
         throw new UnsupportedOperationException();
     }
 
@@ -293,7 +293,7 @@ public interface AppContext extends CanGiveFocus,
     }
 
     @Override
-    default AppContext setUser(final Optional<EmailAddress> user) {
+    default void setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
 

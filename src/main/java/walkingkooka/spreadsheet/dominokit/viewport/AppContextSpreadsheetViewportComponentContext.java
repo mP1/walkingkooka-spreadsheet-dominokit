@@ -175,16 +175,29 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     // EnvironmentContext...............................................................................................
 
     @Override
+    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                        final T value) {
+        this.context.setEnvironmentValue(
+            name,
+            value
+        );
+    }
+
+    @Override
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        this.context.removeEnvironmentValue(name);
+    }
+
+    @Override
     public LineEnding lineEnding() {
         return this.context.lineEnding();
     }
 
     @Override
-    public SpreadsheetViewportComponentContext setLineEnding(final LineEnding lineEnding) {
+    public void setLineEnding(final LineEnding lineEnding) {
         this.context.setLineEnding(lineEnding);
-        return this;
     }
-    
+
     @Override
     public Locale locale() {
         return this.context.locale();
@@ -196,25 +209,8 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
-    public SpreadsheetViewportComponentContext setUser(final Optional<EmailAddress> user) {
+    public void setUser(final Optional<EmailAddress> user) {
         this.context.setUser(user);
-        return this;
-    }
-
-    @Override
-    public <T> SpreadsheetViewportComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                       final T value) {
-        this.context.setEnvironmentValue(
-            name,
-            value
-        );
-        return this;
-    }
-
-    @Override
-    public SpreadsheetViewportComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.context.removeEnvironmentValue(name);
-        return this;
     }
 
     // LocaleContextDelegator...........................................................................................

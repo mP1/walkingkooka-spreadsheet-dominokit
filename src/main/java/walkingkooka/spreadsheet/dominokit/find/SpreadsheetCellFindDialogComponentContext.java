@@ -69,12 +69,23 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     }
 
     @Override
+    default <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                         final T value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default LineEnding lineEnding() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetCellFindDialogComponentContext setLineEnding(final LineEnding lineEnding) {
+    default void setLineEnding(final LineEnding lineEnding) {
         throw new UnsupportedOperationException();
     }
 
@@ -84,18 +95,7 @@ public interface SpreadsheetCellFindDialogComponentContext extends HistoryContex
     }
 
     @Override
-    default SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                              final T value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetCellFindDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+    default void setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
 }

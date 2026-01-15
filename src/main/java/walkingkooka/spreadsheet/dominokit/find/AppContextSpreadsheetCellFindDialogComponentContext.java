@@ -152,19 +152,17 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     // EnvironmentContext...............................................................................................
 
     @Override
-    public <T> SpreadsheetCellFindDialogComponentContext setEnvironmentValue(final EnvironmentValueName<T> name,
-                                                                             final T value) {
+    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                        final T value) {
         this.context.setEnvironmentValue(
             name,
             value
         );
-        return this;
     }
 
     @Override
-    public SpreadsheetCellFindDialogComponentContext removeEnvironmentValue(final EnvironmentValueName<?> name) {
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.context.removeEnvironmentValue(name);
-        return this;
     }
 
     @Override
@@ -173,9 +171,8 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     }
 
     @Override
-    public SpreadsheetCellFindDialogComponentContext setLineEnding(final LineEnding lineEnding) {
-        return (SpreadsheetCellFindDialogComponentContext)
-            SpreadsheetCellFindDialogComponentContext.super.setLineEnding(lineEnding);
+    public void setLineEnding(final LineEnding lineEnding) {
+        SpreadsheetCellFindDialogComponentContext.super.setLineEnding(lineEnding);
     }
 
     @Override
@@ -184,9 +181,8 @@ final class AppContextSpreadsheetCellFindDialogComponentContext implements Sprea
     }
     
     @Override
-    public SpreadsheetCellFindDialogComponentContext setUser(final Optional<EmailAddress> user) {
-        return (SpreadsheetCellFindDialogComponentContext)
-            SpreadsheetCellFindDialogComponentContext.super.setUser(user);
+    public void setUser(final Optional<EmailAddress> user) {
+        SpreadsheetCellFindDialogComponentContext.super.setUser(user);
     }
 
     // DialogComponentContext...........................................................................................
