@@ -133,6 +133,8 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentContexts;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContext;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContexts;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterProvider;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterProviders;
@@ -417,11 +419,13 @@ public class App implements EntryPoint,
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
             this.spreadsheetMetadata.spreadsheetEnvironmentContext(
-                EnvironmentContexts.empty(
-                    LINE_ENDING,
-                    this.locale(),
-                    this,
-                    EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
+                SpreadsheetEnvironmentContexts.basic(
+                    EnvironmentContexts.empty(
+                        LINE_ENDING,
+                        this.locale(),
+                        this,
+                        EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
+                    )
                 )
             ),
             this.jsonNodeMarshallUnmarshallContext(),
@@ -580,20 +584,22 @@ public class App implements EntryPoint,
                 metadata.mathContext()
             );
 
-            final EnvironmentContext environmentContext = metadata.spreadsheetEnvironmentContext(
-                EnvironmentContexts.empty(
-                    LINE_ENDING,
-                    metadata.locale(),
-                    this,
-                    Optional.of(
-                        EmailAddress.parse("user123@example.com")
+            final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext = metadata.spreadsheetEnvironmentContext(
+                SpreadsheetEnvironmentContexts.basic(
+                    EnvironmentContexts.empty(
+                        LINE_ENDING,
+                        metadata.locale(),
+                        this,
+                        Optional.of(
+                            EmailAddress.parse("user123@example.com")
+                        )
                     )
                 )
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
                 PluginStores.fake(),
-                environmentContext,
+                spreadsheetEnvironmentContext,
                 this.jsonNodeMarshallUnmarshallContext(),
                 LocaleContexts.jre(this.locale())
             );
