@@ -179,6 +179,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
@@ -420,6 +421,7 @@ public class App implements EntryPoint,
             PluginStores.fake(),
             this.spreadsheetMetadata.spreadsheetEnvironmentContext(
                 SpreadsheetEnvironmentContexts.basic(
+                    Storages.fake(),
                     EnvironmentContexts.empty(
                         LINE_ENDING,
                         this.locale(),
@@ -586,6 +588,7 @@ public class App implements EntryPoint,
 
             final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext = metadata.spreadsheetEnvironmentContext(
                 SpreadsheetEnvironmentContexts.basic(
+                    Storages.fake(),
                     EnvironmentContexts.empty(
                         LINE_ENDING,
                         metadata.locale(),
