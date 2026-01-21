@@ -49,14 +49,19 @@ public class MissingConverterSetComponentTest implements ValueComponentTesting<H
             this.createComponent(),
             "MissingConverterSetComponent\n" +
                 "  MissingConverterSet\n" +
-                "    alpha\n" +
-                "      123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
-                "        number\n" +
-                "      \"HelloWorldText\"\n" +
-                "        number\n" +
-                "    beta\n" +
-                "      1999-12-31 (java.time.LocalDate)\n" +
-                "        date\n"
+                "    MissingConverter\n" +
+                "      alpha\n" +
+                "        MissingConverterValue\n" +
+                "          123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
+                "            number\n" +
+                "        MissingConverterValue\n" +
+                "          \"HelloWorldText\"\n" +
+                "            number\n" +
+                "    MissingConverter\n" +
+                "      beta\n" +
+                "        MissingConverterValue\n" +
+                "          1999-12-31 (java.time.LocalDate)\n" +
+                "            date\n"
         );
     }
 

@@ -45,11 +45,14 @@ public class MissingConverterComponentTest implements ValueComponentTesting<HTML
         this.treePrintAndCheck(
             this.createComponent(),
             "MissingConverterComponent\n" +
-                "  object\n" +
-                "    123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
-                "      number\n" +
-                "    \"HelloWorldText\"\n" +
-                "      number\n"
+                "  MissingConverter\n" +
+                "    object\n" +
+                "      MissingConverterValue\n" +
+                "        123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
+                "          number\n" +
+                "      MissingConverterValue\n" +
+                "        \"HelloWorldText\"\n" +
+                "          number\n"
         );
     }
 
