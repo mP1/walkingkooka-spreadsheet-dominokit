@@ -77,6 +77,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
@@ -605,6 +606,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public long dateOffset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Indentation indentation() {
         throw new UnsupportedOperationException();
     }
 
