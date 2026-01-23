@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContextObjectPostProcessor;
@@ -143,6 +144,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
 
     @Override
     public Optional<TextNode> formatValue(final Optional<Object> value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Indentation indentation() {
         throw new UnsupportedOperationException();
     }
 
