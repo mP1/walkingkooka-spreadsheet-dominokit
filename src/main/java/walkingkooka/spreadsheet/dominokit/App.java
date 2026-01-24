@@ -1512,6 +1512,7 @@ public class App implements EntryPoint,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
+                this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
                 this, // LocaleContext
