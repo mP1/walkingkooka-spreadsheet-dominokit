@@ -531,6 +531,18 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
+    // HasIndentation...................................................................................................
+
+    @Override
+    public Indentation indentation() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
+        throw new UnsupportedOperationException();
+    }
+    
     // HasLineEnding....................................................................................................
 
     @Override
@@ -606,11 +618,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public long dateOffset() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Indentation indentation() {
         throw new UnsupportedOperationException();
     }
 

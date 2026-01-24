@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
+import walkingkooka.text.Indentation;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -65,6 +66,16 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
 
     @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Indentation indentation() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
         throw new UnsupportedOperationException();
     }
 

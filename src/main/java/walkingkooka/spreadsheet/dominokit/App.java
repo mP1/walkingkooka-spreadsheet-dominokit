@@ -181,6 +181,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
+import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
@@ -423,6 +424,7 @@ public class App implements EntryPoint,
                 SpreadsheetEnvironmentContexts.basic(
                     Storages.fake(),
                     EnvironmentContexts.empty(
+                        Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                         LINE_ENDING,
                         this.locale(),
                         this,
@@ -590,6 +592,7 @@ public class App implements EntryPoint,
                 SpreadsheetEnvironmentContexts.basic(
                     Storages.fake(),
                     EnvironmentContexts.empty(
+                        this.indentation(),
                         LINE_ENDING,
                         metadata.locale(),
                         this,
@@ -1370,6 +1373,18 @@ public class App implements EntryPoint,
     @Override
     public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.providerContext.removeEnvironmentValue(name);
+    }
+
+    @Override
+    public Indentation indentation() {
+        return this.environmentContext()
+            .indentation();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
+        this.environmentContext()
+            .setIndentation(indentation);
     }
 
     @Override

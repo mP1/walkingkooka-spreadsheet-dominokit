@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.text.Indentation;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -123,6 +124,16 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
 
     @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Indentation indentation() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
         throw new UnsupportedOperationException();
     }
 
