@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.storage.StoragePath;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -235,6 +236,13 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.fake();
+
+    // StorageConverterContext..........................................................................................
+
+    @Override
+    public Optional<StoragePath> currentWorkingDirectory() {
+        throw new UnsupportedOperationException();
+    }
 
     // Object...........................................................................................................
 

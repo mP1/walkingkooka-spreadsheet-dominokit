@@ -77,6 +77,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.StoragePath;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
@@ -851,6 +852,13 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {
+        throw new UnsupportedOperationException();
+    }
+
+    // StorageConverterContext..........................................................................................
+
+    @Override
+    public Optional<StoragePath> currentWorkingDirectory() {
         throw new UnsupportedOperationException();
     }
 }
