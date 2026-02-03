@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.Indentation;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -139,6 +140,16 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
 
     @Override
     public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ZoneOffset timeOffset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setTimeOffset(final ZoneOffset timeOffset) {
         throw new UnsupportedOperationException();
     }
 

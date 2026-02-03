@@ -91,6 +91,7 @@ import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -560,6 +561,16 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public LocalDateTime now() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ZoneOffset timeOffset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setTimeOffset(final ZoneOffset timeOffset) {
         throw new UnsupportedOperationException();
     }
 
