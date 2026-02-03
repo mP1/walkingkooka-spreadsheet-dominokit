@@ -133,6 +133,11 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
+    public LocalDateTime now() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public ZoneOffset timeOffset() {
         throw new UnsupportedOperationException();
     }
@@ -154,11 +159,6 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
 
     @Override
     public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override 
-    public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
 
