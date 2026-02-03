@@ -56,11 +56,6 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
     }
 
     @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> environmentValueName) {
         throw new UnsupportedOperationException();
     }
@@ -77,6 +72,16 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
 
     @Override
     public void setIndentation(final Indentation indentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
 
@@ -102,11 +107,6 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
 
     @Override
     public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
 
