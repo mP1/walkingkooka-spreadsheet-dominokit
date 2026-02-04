@@ -554,6 +554,637 @@ public class App implements EntryPoint,
         this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
     }
 
+    // CanGiveFocus.....................................................................................................
+
+    @Override
+    public void giveFocus(final Runnable giveFocus) {
+        this.canGiveFocus.giveFocus(giveFocus);
+    }
+
+    private final CanGiveFocus canGiveFocus;
+
+    // ClipboardContext.................................................................................................
+
+    @Override
+    public void readClipboardItem(final Predicate<MediaType> filter,
+                                  final ClipboardContextReadWatcher watcher) {
+        this.clipboardContext.readClipboardItem(
+            filter,
+            watcher
+        );
+    }
+
+    @Override
+    public void writeClipboardItem(final ClipboardTextItem item,
+                                   final ClipboardContextWriteWatcher watcher) {
+        this.clipboardContext.writeClipboardItem(
+            item,
+            watcher
+        );
+    }
+
+    private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
+
+    // SpreadsheetComparatorFetcher.....................................................................................
+
+    @Override
+    public SpreadsheetComparatorFetcher spreadsheetComparatorFetcher() {
+        return this.spreadsheetComparatorFetcher;
+    }
+
+    private final SpreadsheetComparatorFetcher spreadsheetComparatorFetcher;
+
+    @Override
+    public Runnable addSpreadsheetComparatorFetcherWatcher(final SpreadsheetComparatorFetcherWatcher watcher) {
+        return this.spreadsheetComparatorFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetComparatorFetcherWatcherOnce(final SpreadsheetComparatorFetcherWatcher watcher) {
+        return this.spreadsheetComparatorFetcherWatchers.addOnce(watcher);
+    }
+
+    private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos) {
+        this.spreadsheetComparatorInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
+
+    // ConverterFetcher.................................................................................................
+
+    @Override
+    public ConverterFetcher converterFetcher() {
+        return this.converterFetcher;
+    }
+
+    private final ConverterFetcher converterFetcher;
+
+    @Override
+    public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
+        return this.converterFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addConverterFetcherWatcherOnce(final ConverterFetcherWatcher watcher) {
+        return this.converterFetcherWatchers.addOnce(watcher);
+    }
+
+    private final ConverterFetcherWatchers converterFetcherWatchers;
+
+    @Override
+    public void onConverterInfoSet(final ConverterInfoSet infos) {
+        this.converterInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private ConverterInfoSet converterInfoSet;
+
+    @Override
+    public void onVerify(final SpreadsheetId id,
+                         final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
+                         final Set<MissingConverter> missingConverters) {
+        // NOP
+    }
+
+    // SpreadsheetDeltaFetcher..........................................................................................
+
+    @Override
+    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
+        return this.spreadsheetDeltaFetcher;
+    }
+
+    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
+
+    @Override
+    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.spreadsheetDeltaFetcherWatchers;
+    }
+
+    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetDelta(final HttpMethod method,
+                                   final AbsoluteOrRelativeUrl url,
+                                   final SpreadsheetDelta delta) {
+        // Updates the anchoredSpreadsheetSelection of the local Metadata.
+        // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
+        // is fine because it was already updated when the delta above was returned.
+        //
+        // this will prevent looping where multiple metadata/deltas happen and each overwrites the previous.
+        //
+        // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
+        // have the window property (unnecessary to calculate and return).
+        delta.viewport()
+            .ifPresent(
+                newV -> {
+                    final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
+                    this.spreadsheetMetadata = metadata.set(
+                        SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                        newV.rectangle().home()
+                    ).setOrRemove(
+                        SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION,
+                        newV.anchoredSelection()
+                            .orElse(null)
+                    );
+                }
+            );
+    }
+
+    // DateTimeSymbolsFetcher...........................................................................................
+
+    @Override
+    public DateTimeSymbolsFetcher dateTimeSymbolsFetcher() {
+        return this.dateTimeSymbolsFetcher;
+    }
+
+    private final DateTimeSymbolsFetcher dateTimeSymbolsFetcher;
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
+        return this.dateTimeSymbolsFetcherWatchers.add(watcher);
+    }
+
+    private final DateTimeSymbolsFetcherWatchers dateTimeSymbolsFetcherWatchers;
+
+    @Override
+    public Runnable addDateTimeSymbolsFetcherWatcherOnce(final DateTimeSymbolsFetcherWatcher watcher) {
+        return this.dateTimeSymbolsFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
+                                                final DateTimeSymbolsHateosResource dateTimeSymbols) {
+        // NOP
+    }
+
+    @Override
+    public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
+                                                   final DateTimeSymbolsHateosResourceSet symbols) {
+        // NOP
+    }
+
+    // DecimalNumberSymbolsFetcher...........................................................................................
+
+    @Override
+    public DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher() {
+        return this.decimalNumberSymbolsFetcher;
+    }
+
+    private final DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher;
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        return this.decimalNumberSymbolsFetcherWatchers.add(watcher);
+    }
+
+    private final DecimalNumberSymbolsFetcherWatchers decimalNumberSymbolsFetcherWatchers;
+
+    @Override
+    public Runnable addDecimalNumberSymbolsFetcherWatcherOnce(final DecimalNumberSymbolsFetcherWatcher watcher) {
+        return this.decimalNumberSymbolsFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+                                                     final DecimalNumberSymbolsHateosResource decimalNumberSymbols) {
+        // NOP
+    }
+
+    @Override
+    public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
+                                                        final DecimalNumberSymbolsHateosResourceSet decimalNumberSymbolsSet) {
+        // NOP
+    }
+
+    // EnvironmentContext...............................................................................................
+
+    @Override
+    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
+                                        final T value) {
+        this.providerContext.setEnvironmentValue(
+            name,
+            value
+        );
+    }
+
+    @Override
+    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        this.providerContext.removeEnvironmentValue(name);
+    }
+
+    @Override
+    public Indentation indentation() {
+        return this.environmentContext()
+            .indentation();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
+        this.environmentContext()
+            .setIndentation(indentation);
+    }
+
+    @Override
+    public LineEnding lineEnding() {
+        return this.environmentContext()
+            .lineEnding();
+    }
+
+    @Override
+    public Locale locale() {
+        return this.environmentContext()
+            .locale();
+    }
+
+    @Override
+    public void setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int generalFormatNumberDigitCount() {
+        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT);
+    }
+
+    @Override
+    public LocalDateTime now() {
+        return LocalDateTime.now();
+    }
+
+    @Override
+    public void setUser(final Optional<EmailAddress> user) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ProviderContext providerContext() {
+        return this.providerContext;
+    }
+
+    private ProviderContext providerContext;
+
+    // SpreadsheetExporterFetcher.......................................................................................
+
+    @Override
+    public SpreadsheetExporterFetcher spreadsheetExporterFetcher() {
+        return this.spreadsheetExporterFetcher;
+    }
+
+    private final SpreadsheetExporterFetcher spreadsheetExporterFetcher;
+
+    @Override
+    public Runnable addSpreadsheetExporterFetcherWatcher(final SpreadsheetExporterFetcherWatcher watcher) {
+        return this.spreadsheetExporterFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetExporterFetcherWatcherOnce(final SpreadsheetExporterFetcherWatcher watcher) {
+        return this.spreadsheetExporterFetcherWatchers.addOnce(watcher);
+    }
+
+    private final SpreadsheetExporterFetcherWatchers spreadsheetExporterFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos) {
+        this.spreadsheetExporterInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private SpreadsheetExporterInfoSet spreadsheetExporterInfoSet;
+
+    // ExpressionFunctionFetcher........................................................................................
+
+    @Override
+    public ExpressionFunctionFetcher expressionFunctionFetcher() {
+        return this.expressionFunctionFetcher;
+    }
+
+    private final ExpressionFunctionFetcher expressionFunctionFetcher;
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcher(final ExpressionFunctionFetcherWatcher watcher) {
+        return this.expressionFunctionFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addExpressionFunctionFetcherWatcherOnce(final ExpressionFunctionFetcherWatcher watcher) {
+        return this.expressionFunctionFetcherWatchers.addOnce(watcher);
+    }
+
+    private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
+
+    @Override
+    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos) {
+        this.expressionFunctionInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private ExpressionFunctionInfoSet expressionFunctionInfoSet;
+
+    // Fetcher..........................................................................................................
+
+    @Override
+    public void onBegin(final HttpMethod method,
+                        final Url url,
+                        final Optional<FetcherRequestBody<?>> body) {
+        // NOP
+    }
+
+    @Override
+    public void onFailure(final HttpMethod method,
+                          final AbsoluteOrRelativeUrl url,
+                          final HttpStatus status,
+                          final Headers headers,
+                          final String body) {
+        if (CharSequences.isNullOrEmpty(body)) {
+            this.error(method + " " + url + " " + status);
+        } else {
+            this.error(method + " " + url + " " + status, body);
+        }
+    }
+
+    @Override
+    public void onError(final Object cause) {
+        this.error(cause);
+    }
+
+    // SpreadsheetFormatterFetcher......................................................................................
+
+    @Override
+    public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
+        return this.spreadsheetFormatterFetcher;
+    }
+
+    private final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher;
+
+    @Override
+    public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
+        return this.spreadsheetFormatterFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addSpreadsheetFormatterFetcherWatcherOnce(final SpreadsheetFormatterFetcherWatcher watcher) {
+        return this.spreadsheetFormatterFetcherWatchers.addOnce(watcher);
+    }
+
+    private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterFetcherWatchers;
+
+    @Override
+    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
+        this.spreadsheetFormatterInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private SpreadsheetFormatterInfoSet spreadsheetFormatterInfoSet;
+
+    @Override
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
+                                                   final SpreadsheetFormatterSelectorEdit edit) {
+        // nop
+    }
+
+    @Override
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menu) {
+        // nop
+    }
+
+    // SpreadsheetFormatterContext......................................................................................
+
+    @Override
+    public ConverterLike converterLike() {
+        return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
+    }
+
+    @Override
+    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
+        return this.formatterContext;
+    }
+
+    /**
+     * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
+     */
+    private SpreadsheetFormatterContext formatterContext;
+
+    // FormHandlerFetcher...............................................................................................
+
+    @Override
+    public FormHandlerFetcher formHandlerFetcher() {
+        return this.formHandlerFetcher;
+    }
+
+    private final FormHandlerFetcher formHandlerFetcher;
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcher(final FormHandlerFetcherWatcher watcher) {
+        return this.formHandlerFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addFormHandlerFetcherWatcherOnce(final FormHandlerFetcherWatcher watcher) {
+        return this.formHandlerFetcherWatchers.addOnce(watcher);
+    }
+
+    private final FormHandlerFetcherWatchers formHandlerFetcherWatchers;
+
+    @Override
+    public void onFormHandlerInfo(final FormHandlerInfo info) {
+        // NOP
+    }
+
+    @Override
+    public void onFormHandlerInfoSet(final FormHandlerInfoSet infos) {
+        this.formHandlerInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private FormHandlerInfoSet formHandlerInfoSet;
+
+    // HistoryContextDelegator..........................................................................................
+
+    @Override
+    public HistoryContext historyContext() {
+        return this.apphistoryContextHistoryTokenWatcher;
+    }
+
+    private final AppHistoryContextHistoryWatcher apphistoryContextHistoryTokenWatcher;
+
+    // SpreadsheetImporterFetcher.......................................................................................
+
+    @Override
+    public SpreadsheetImporterFetcher spreadsheetImporterFetcher() {
+        return this.spreadsheetImporterFetcher;
+    }
+
+    private final SpreadsheetImporterFetcher spreadsheetImporterFetcher;
+
+    @Override
+    public Runnable addSpreadsheetImporterFetcherWatcher(final SpreadsheetImporterFetcherWatcher watcher) {
+        return this.spreadsheetImporterFetcherWatchers.add(watcher);
+    }
+
+    private final SpreadsheetImporterFetcherWatchers spreadsheetImporterFetcherWatchers;
+
+    @Override
+    public Runnable addSpreadsheetImporterFetcherWatcherOnce(final SpreadsheetImporterFetcherWatcher watcher) {
+        return this.spreadsheetImporterFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos) {
+        this.spreadsheetImporterInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
+
+    // JsonNodeMarshallContext..........................................................................................
+
+    @Override
+    public JsonNodeMarshallContext jsonNodeMarshallContext() {
+        return MARSHALL_CONTEXT;
+    }
+
+    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
+
+    /**
+     * The {@link JsonNodeUnmarshallContext} will be updated each time a new {@link SpreadsheetMetadata} is received.
+     */
+    @Override
+    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
+        return this.unmarshallContext;
+    }
+
+    private JsonNodeUnmarshallContext unmarshallContext;
+
+    @Override
+    public JsonNodeContext jsonNodeContext() {
+        return MARSHALL_CONTEXT;
+    }
+
+    // KeyboardContext..................................................................................................
+
+    @Override
+    public Optional<SpreadsheetCell> historyTokenCell() {
+        return this.spreadsheetViewportCache()
+            .historyTokenCell();
+    }
+
+    // LocaleContext....................................................................................................
+
+    @Override
+    public Set<Locale> availableLocales() {
+        return this.availableLocales;
+    }
+
+    /**
+     * Will be replaced when the server replies with all available locales.
+     */
+    private Set<Locale> availableLocales = Sets.of(LOCALE);
+
+    @Override
+    public Set<Locale> findByLocaleText(final String text,
+                                        final int offset,
+                                        final int count) {
+        return this.localeToText.entrySet()
+            .stream()
+            .filter(localeAndText -> {
+                final String localeText = localeAndText.getValue();
+                return false == localeText.isEmpty() &&
+                    (LocaleContexts.CASE_SENSITIVITY.equals(text, localeText) || LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, text));
+            }).skip(offset)
+            .limit(count)
+            .map(Entry::getKey)
+            .collect(
+                ImmutableSortedSet.collector(LocaleContexts.LANGUAGE_TAG_COMPARATOR)
+            );
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+
+        return Optional.ofNullable(
+            this.localeToText.get(locale)
+        );
+    }
+
+    private Map<Locale, String> localeToText = Maps.empty();
+
+    // LocaleContextDelegator...........................................................................................
+
+    @Override
+    public LocaleContext localeContext() {
+        return LOCALE_CONTEXT;
+    }
+
+    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(LOCALE);
+
+    // LocaleFetcher....................................................................................................
+
+    @Override
+    public LocaleFetcher localeFetcher() {
+        return this.localeFetcher;
+    }
+
+    private final LocaleFetcher localeFetcher;
+
+    @Override
+    public Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher) {
+        return this.localeFetcherWatchers.add(watcher);
+    }
+
+    private final LocaleFetcherWatchers localeFetcherWatchers;
+
+    @Override
+    public Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher) {
+        return this.localeFetcherWatchers.addOnce(watcher);
+    }
+
+    @Override
+    public void onLocaleHateosResource(final LocaleTag id,
+                                       final LocaleHateosResource locale) {
+        // NOP
+    }
+
+    /**
+     * Save the loaded locales. These will appear in the {@link LocaleComponent}.
+     */
+    @Override
+    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales) {
+        final Set<Locale> availableLocales = Sets.hash();
+        final Map<Locale, String> localeToText = Maps.hash();
+
+        for (final LocaleHateosResource localeHateosResource : locales) {
+            final Locale locale = localeHateosResource.locale();
+
+            availableLocales.add(locale);
+
+            localeToText.put(
+                locale,
+                localeHateosResource.text()
+            );
+        }
+
+        this.availableLocales = Sets.readOnly(availableLocales);
+        this.localeToText = localeToText;
+    }
+
+    // LoggingContext...................................................................................................
+
+    @Override
+    public LoggingContext loggingContext() {
+        return this.loggingContext;
+    }
+
+    private final LoggingContext loggingContext;
+
     // SpreadsheetMetadataFetcher.......................................................................................
 
     @Override
@@ -689,492 +1320,28 @@ public class App implements EntryPoint,
         return this.spreadsheetMetadata.mathContext();
     }
 
-    // SpreadsheetDeltaFetcher..........................................................................................
+    // SpreadsheetParserContext.........................................................................................
 
     @Override
-    public SpreadsheetDeltaFetcher spreadsheetDeltaFetcher() {
-        return this.spreadsheetDeltaFetcher;
+    public boolean canNumbersHaveGroupSeparator() {
+        return this.parserContext.canNumbersHaveGroupSeparator();
     }
 
-    private final SpreadsheetDeltaFetcher spreadsheetDeltaFetcher;
-
     @Override
-    public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
-        return this.spreadsheetDeltaFetcherWatchers;
-    }
-
-    private final SpreadsheetDeltaFetcherWatchers spreadsheetDeltaFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetDelta(final HttpMethod method,
-                                   final AbsoluteOrRelativeUrl url,
-                                   final SpreadsheetDelta delta) {
-        // Updates the anchoredSpreadsheetSelection of the local Metadata.
-        // This will prevent a PATCH of the server metadata when the history token anchoredSpreadsheetSelection changes, which
-        // is fine because it was already updated when the delta above was returned.
-        //
-        // this will prevent looping where multiple metadata/deltas happen and each overwrites the previous.
-        //
-        // we only update the anchoredSpreadsheetMetadata because some metadata GETS such as load metadata will not
-        // have the window property (unnecessary to calculate and return).
-        delta.viewport()
-            .ifPresent(
-                newV -> {
-                    final SpreadsheetMetadata metadata = this.spreadsheetMetadata;
-                    this.spreadsheetMetadata = metadata.set(
-                        SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
-                        newV.rectangle().home()
-                    ).setOrRemove(
-                        SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION,
-                        newV.anchoredSelection()
-                            .orElse(null)
-                    );
-                }
-            );
-    }
-
-    // ClipboardContext.................................................................................................
-
-    @Override
-    public void readClipboardItem(final Predicate<MediaType> filter,
-                                  final ClipboardContextReadWatcher watcher) {
-        this.clipboardContext.readClipboardItem(
-            filter,
-            watcher
+    public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
+                                                               final TextCursor cursor) {
+        return this.parserContext.invalidCharacterException(
+            parser,
+            cursor
         );
     }
 
     @Override
-    public void writeClipboardItem(final ClipboardTextItem item,
-                                   final ClipboardContextWriteWatcher watcher) {
-        this.clipboardContext.writeClipboardItem(
-            item,
-            watcher
-        );
+    public char valueSeparator() {
+        return this.parserContext.valueSeparator();
     }
 
-    private final ClipboardContext clipboardContext = ClipboardContexts.elemental();
-
-    // Fetcher..........................................................................................................
-
-    @Override
-    public void onBegin(final HttpMethod method,
-                        final Url url,
-                        final Optional<FetcherRequestBody<?>> body) {
-        // NOP
-    }
-
-    @Override
-    public void onFailure(final HttpMethod method,
-                          final AbsoluteOrRelativeUrl url,
-                          final HttpStatus status,
-                          final Headers headers,
-                          final String body) {
-        if (CharSequences.isNullOrEmpty(body)) {
-            this.error(method + " " + url + " " + status);
-        } else {
-            this.error(method + " " + url + " " + status, body);
-        }
-    }
-
-    @Override
-    public void onError(final Object cause) {
-        this.error(cause);
-    }
-
-    // SpreadsheetComparatorFetcher.....................................................................................
-
-    @Override
-    public SpreadsheetComparatorFetcher spreadsheetComparatorFetcher() {
-        return this.spreadsheetComparatorFetcher;
-    }
-
-    private final SpreadsheetComparatorFetcher spreadsheetComparatorFetcher;
-
-    @Override
-    public Runnable addSpreadsheetComparatorFetcherWatcher(final SpreadsheetComparatorFetcherWatcher watcher) {
-        return this.spreadsheetComparatorFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetComparatorFetcherWatcherOnce(final SpreadsheetComparatorFetcherWatcher watcher) {
-        return this.spreadsheetComparatorFetcherWatchers.addOnce(watcher);
-    }
-
-    private final SpreadsheetComparatorFetcherWatchers spreadsheetComparatorFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos) {
-        this.spreadsheetComparatorInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
-
-    // ConverterFetcher.................................................................................................
-
-    @Override
-    public ConverterFetcher converterFetcher() {
-        return this.converterFetcher;
-    }
-
-    private final ConverterFetcher converterFetcher;
-
-    @Override
-    public Runnable addConverterFetcherWatcher(final ConverterFetcherWatcher watcher) {
-        return this.converterFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addConverterFetcherWatcherOnce(final ConverterFetcherWatcher watcher) {
-        return this.converterFetcherWatchers.addOnce(watcher);
-    }
-
-    private final ConverterFetcherWatchers converterFetcherWatchers;
-
-    @Override
-    public void onConverterInfoSet(final ConverterInfoSet infos) {
-        this.converterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private ConverterInfoSet converterInfoSet;
-
-    @Override
-    public void onVerify(final SpreadsheetId id,
-                         final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
-                         final Set<MissingConverter> missingConverters) {
-        // NOP
-    }
-
-    // DateTimeSymbolsFetcher...........................................................................................
-
-    @Override
-    public DateTimeSymbolsFetcher dateTimeSymbolsFetcher() {
-        return this.dateTimeSymbolsFetcher;
-    }
-
-    private final DateTimeSymbolsFetcher dateTimeSymbolsFetcher;
-
-    @Override
-    public Runnable addDateTimeSymbolsFetcherWatcher(final DateTimeSymbolsFetcherWatcher watcher) {
-        return this.dateTimeSymbolsFetcherWatchers.add(watcher);
-    }
-
-    private final DateTimeSymbolsFetcherWatchers dateTimeSymbolsFetcherWatchers;
-
-    @Override
-    public Runnable addDateTimeSymbolsFetcherWatcherOnce(final DateTimeSymbolsFetcherWatcher watcher) {
-        return this.dateTimeSymbolsFetcherWatchers.addOnce(watcher);
-    }
-
-    @Override
-    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
-                                                final DateTimeSymbolsHateosResource dateTimeSymbols) {
-        // NOP
-    }
-
-    @Override
-    public void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,
-                                                   final DateTimeSymbolsHateosResourceSet symbols) {
-        // NOP
-    }
-
-    // DecimalNumberSymbolsFetcher...........................................................................................
-
-    @Override
-    public DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher() {
-        return this.decimalNumberSymbolsFetcher;
-    }
-
-    private final DecimalNumberSymbolsFetcher decimalNumberSymbolsFetcher;
-
-    @Override
-    public Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
-        return this.decimalNumberSymbolsFetcherWatchers.add(watcher);
-    }
-
-    private final DecimalNumberSymbolsFetcherWatchers decimalNumberSymbolsFetcherWatchers;
-
-    @Override
-    public Runnable addDecimalNumberSymbolsFetcherWatcherOnce(final DecimalNumberSymbolsFetcherWatcher watcher) {
-        return this.decimalNumberSymbolsFetcherWatchers.addOnce(watcher);
-    }
-
-    @Override
-    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
-                                                     final DecimalNumberSymbolsHateosResource decimalNumberSymbols) {
-        // NOP
-    }
-
-    @Override
-    public void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,
-                                                        final DecimalNumberSymbolsHateosResourceSet decimalNumberSymbolsSet) {
-        // NOP
-    }
-
-    // SpreadsheetExporterFetcher.......................................................................................
-
-    @Override
-    public SpreadsheetExporterFetcher spreadsheetExporterFetcher() {
-        return this.spreadsheetExporterFetcher;
-    }
-
-    private final SpreadsheetExporterFetcher spreadsheetExporterFetcher;
-
-    @Override
-    public Runnable addSpreadsheetExporterFetcherWatcher(final SpreadsheetExporterFetcherWatcher watcher) {
-        return this.spreadsheetExporterFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetExporterFetcherWatcherOnce(final SpreadsheetExporterFetcherWatcher watcher) {
-        return this.spreadsheetExporterFetcherWatchers.addOnce(watcher);
-    }
-
-    private final SpreadsheetExporterFetcherWatchers spreadsheetExporterFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos) {
-        this.spreadsheetExporterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private SpreadsheetExporterInfoSet spreadsheetExporterInfoSet;
-
-    // ExpressionFunctionFetcher........................................................................................
-
-    @Override
-    public ExpressionFunctionFetcher expressionFunctionFetcher() {
-        return this.expressionFunctionFetcher;
-    }
-
-    private final ExpressionFunctionFetcher expressionFunctionFetcher;
-
-    @Override
-    public Runnable addExpressionFunctionFetcherWatcher(final ExpressionFunctionFetcherWatcher watcher) {
-        return this.expressionFunctionFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addExpressionFunctionFetcherWatcherOnce(final ExpressionFunctionFetcherWatcher watcher) {
-        return this.expressionFunctionFetcherWatchers.addOnce(watcher);
-    }
-
-    private final ExpressionFunctionFetcherWatchers expressionFunctionFetcherWatchers;
-
-    @Override
-    public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos) {
-        this.expressionFunctionInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private ExpressionFunctionInfoSet expressionFunctionInfoSet;
-
-    // SpreadsheetFormatterFetcher......................................................................................
-
-    @Override
-    public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
-        return this.spreadsheetFormatterFetcher;
-    }
-
-    private final SpreadsheetFormatterFetcher spreadsheetFormatterFetcher;
-
-    @Override
-    public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
-        return this.spreadsheetFormatterFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addSpreadsheetFormatterFetcherWatcherOnce(final SpreadsheetFormatterFetcherWatcher watcher) {
-        return this.spreadsheetFormatterFetcherWatchers.addOnce(watcher);
-    }
-
-    private final SpreadsheetFormatterFetcherWatchers spreadsheetFormatterFetcherWatchers;
-
-    @Override
-    public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
-        this.spreadsheetFormatterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private SpreadsheetFormatterInfoSet spreadsheetFormatterInfoSet;
-
-    @Override
-    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
-                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
-                                                   final SpreadsheetFormatterSelectorEdit edit) {
-        // nop
-    }
-
-    @Override
-    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
-                                               final SpreadsheetExpressionReference cellOrLabel,
-                                               final SpreadsheetFormatterMenuList menu) {
-        // nop
-    }
-
-    // FormHandlerFetcher...............................................................................................
-    @Override
-    public FormHandlerFetcher formHandlerFetcher() {
-        return this.formHandlerFetcher;
-    }
-
-    private final FormHandlerFetcher formHandlerFetcher;
-
-    @Override
-    public Runnable addFormHandlerFetcherWatcher(final FormHandlerFetcherWatcher watcher) {
-        return this.formHandlerFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addFormHandlerFetcherWatcherOnce(final FormHandlerFetcherWatcher watcher) {
-        return this.formHandlerFetcherWatchers.addOnce(watcher);
-    }
-
-    private final FormHandlerFetcherWatchers formHandlerFetcherWatchers;
-
-    @Override
-    public void onFormHandlerInfo(final FormHandlerInfo info) {
-        // NOP
-    }
-
-    @Override
-    public void onFormHandlerInfoSet(final FormHandlerInfoSet infos) {
-        this.formHandlerInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private FormHandlerInfoSet formHandlerInfoSet;
-
-    // SpreadsheetImporterFetcher.......................................................................................
-
-    @Override
-    public SpreadsheetImporterFetcher spreadsheetImporterFetcher() {
-        return this.spreadsheetImporterFetcher;
-    }
-
-    private final SpreadsheetImporterFetcher spreadsheetImporterFetcher;
-
-    @Override
-    public Runnable addSpreadsheetImporterFetcherWatcher(final SpreadsheetImporterFetcherWatcher watcher) {
-        return this.spreadsheetImporterFetcherWatchers.add(watcher);
-    }
-
-    private final SpreadsheetImporterFetcherWatchers spreadsheetImporterFetcherWatchers;
-
-    @Override
-    public Runnable addSpreadsheetImporterFetcherWatcherOnce(final SpreadsheetImporterFetcherWatcher watcher) {
-        return this.spreadsheetImporterFetcherWatchers.addOnce(watcher);
-    }
-
-    @Override
-    public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos) {
-        this.spreadsheetImporterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
-
-    // LocaleFetcher....................................................................................................
-
-    @Override
-    public LocaleFetcher localeFetcher() {
-        return this.localeFetcher;
-    }
-
-    private final LocaleFetcher localeFetcher;
-
-    @Override
-    public Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher) {
-        return this.localeFetcherWatchers.add(watcher);
-    }
-
-    private final LocaleFetcherWatchers localeFetcherWatchers;
-
-    @Override
-    public Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher) {
-        return this.localeFetcherWatchers.addOnce(watcher);
-    }
-
-    @Override
-    public void onLocaleHateosResource(final LocaleTag id,
-                                       final LocaleHateosResource locale) {
-        // NOP
-    }
-
-    /**
-     * Save the loaded locales. These will appear in the {@link LocaleComponent}.
-     */
-    @Override
-    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales) {
-        final Set<Locale> availableLocales = Sets.hash();
-        final Map<Locale, String> localeToText = Maps.hash();
-
-        for (final LocaleHateosResource localeHateosResource : locales) {
-            final Locale locale = localeHateosResource.locale();
-
-            availableLocales.add(locale);
-
-            localeToText.put(
-                locale,
-                localeHateosResource.text()
-            );
-        }
-
-        this.availableLocales = Sets.readOnly(availableLocales);
-        this.localeToText = localeToText;
-    }
-
-    // LocaleContext....................................................................................................
-
-    @Override
-    public Set<Locale> availableLocales() {
-        return this.availableLocales;
-    }
-
-    /**
-     * Will be replaced when the server replies with all available locales.
-     */
-    private Set<Locale> availableLocales = Sets.of(LOCALE);
-
-    @Override
-    public Set<Locale> findByLocaleText(final String text,
-                                        final int offset,
-                                        final int count) {
-        return this.localeToText.entrySet()
-            .stream()
-            .filter(localeAndText -> {
-                final String localeText = localeAndText.getValue();
-                return false == localeText.isEmpty() &&
-                    (LocaleContexts.CASE_SENSITIVITY.equals(text, localeText) || LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, text));
-            }).skip(offset)
-            .limit(count)
-            .map(Entry::getKey)
-            .collect(
-                ImmutableSortedSet.collector(LocaleContexts.LANGUAGE_TAG_COMPARATOR)
-            );
-    }
-
-    @Override
-    public Optional<String> localeText(final Locale locale) {
-        Objects.requireNonNull(locale, "locale");
-
-        return Optional.ofNullable(
-            this.localeToText.get(locale)
-        );
-    }
-
-    private Map<Locale, String> localeToText = Maps.empty();
-
-    // LocaleContextDelegator...........................................................................................
-
-    @Override
-    public LocaleContext localeContext() {
-        return LOCALE_CONTEXT;
-    }
-
-    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(LOCALE);
+    private SpreadsheetParserContext parserContext;
 
     // SpreadsheetParserFetcher..........................................................................................
 
@@ -1210,40 +1377,6 @@ public class App implements EntryPoint,
                                                 final SpreadsheetParserSelectorEdit edit) {
         // nop
     }
-
-    // HasValidatorFetcher..............................................................................................
-
-    @Override
-    public ValidatorFetcher validatorFetcher() {
-        return this.validatorFetcher;
-    }
-
-    private final ValidatorFetcher validatorFetcher;
-
-    @Override
-    public Runnable addValidatorFetcherWatcher(final ValidatorFetcherWatcher watcher) {
-        return this.validatorFetcherWatchers.add(watcher);
-    }
-
-    @Override
-    public Runnable addValidatorFetcherWatcherOnce(final ValidatorFetcherWatcher watcher) {
-        return this.validatorFetcherWatchers.addOnce(watcher);
-    }
-
-    private final ValidatorFetcherWatchers validatorFetcherWatchers;
-
-    @Override
-    public void onValidatorInfo(final ValidatorInfo info) {
-        // NOP
-    }
-
-    @Override
-    public void onValidatorInfoSet(final ValidatorInfoSet infos) {
-        this.validatorInfoSet = infos;
-        this.refreshSpreadsheetProvider();
-    }
-
-    private ValidatorInfoSet validatorInfoSet;
 
     // PluginFetcher....................................................................................................
 
@@ -1285,128 +1418,14 @@ public class App implements EntryPoint,
         // TODO
     }
 
-    // JsonNodeMarshallContext..........................................................................................
+    // RecentValueSavesContextDelegator.................................................................................
 
     @Override
-    public JsonNodeMarshallContext jsonNodeMarshallContext() {
-        return MARSHALL_CONTEXT;
+    public RecentValueSavesContext recentValueSavesContext() {
+        return this.recentValueSavesContext;
     }
 
-    private final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
-
-    /**
-     * The {@link JsonNodeUnmarshallContext} will be updated each time a new {@link SpreadsheetMetadata} is received.
-     */
-    @Override
-    public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-        return this.unmarshallContext;
-    }
-
-    private JsonNodeUnmarshallContext unmarshallContext;
-
-    @Override
-    public JsonNodeContext jsonNodeContext() {
-        return MARSHALL_CONTEXT;
-    }
-
-    // SpreadsheetFormatterContext......................................................................................
-
-    @Override
-    public SpreadsheetFormatterContext spreadsheetFormatterContext() {
-        return this.formatterContext;
-    }
-
-    /**
-     * A new {@link SpreadsheetFormatterContext} is created each time a new {@link SpreadsheetMetadata} arrives.
-     */
-    private SpreadsheetFormatterContext formatterContext;
-
-    // SpreadsheetParserContext.........................................................................................
-
-    @Override
-    public boolean canNumbersHaveGroupSeparator() {
-        return this.parserContext.canNumbersHaveGroupSeparator();
-    }
-
-    @Override
-    public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
-                                                               final TextCursor cursor) {
-        return this.parserContext.invalidCharacterException(
-            parser,
-            cursor
-        );
-    }
-
-    @Override
-    public char valueSeparator() {
-        return this.parserContext.valueSeparator();
-    }
-
-    private SpreadsheetParserContext parserContext;
-
-    // ProviderContext..................................................................................................
-
-    @Override
-    public ConverterLike converterLike() {
-        return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
-    }
-
-    // EnvironmentContext...............................................................................................
-
-    @Override
-    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
-                                        final T value) {
-        this.providerContext.setEnvironmentValue(
-            name,
-            value
-        );
-    }
-
-    @Override
-    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.providerContext.removeEnvironmentValue(name);
-    }
-
-    @Override
-    public Indentation indentation() {
-        return this.environmentContext()
-            .indentation();
-    }
-
-    @Override
-    public void setIndentation(final Indentation indentation) {
-        this.environmentContext()
-            .setIndentation(indentation);
-    }
-
-    @Override
-    public LineEnding lineEnding() {
-        return this.environmentContext()
-            .lineEnding();
-    }
-
-    @Override
-    public Locale locale() {
-        return this.environmentContext()
-            .locale();
-    }
-
-    @Override
-    public void setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setUser(final Optional<EmailAddress> user) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ProviderContext providerContext() {
-        return this.providerContext;
-    }
-
-    private ProviderContext providerContext;
+    private final RecentValueSavesContext recentValueSavesContext;
 
     // SpreadsheetProvider..............................................................................................
 
@@ -1414,6 +1433,13 @@ public class App implements EntryPoint,
     public SpreadsheetProvider spreadsheetProvider() {
         return this.spreadsheetProvider;
     }
+
+    @Override
+    public SpreadsheetProvider systemSpreadsheetProvider() {
+        return this.systemSpreadsheetProvider;
+    }
+
+    private SpreadsheetProvider systemSpreadsheetProvider;
 
     private void refreshSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
@@ -1556,22 +1582,39 @@ public class App implements EntryPoint,
      */
     private SpreadsheetProvider spreadsheetProvider;
 
-    // system SpreadsheetProvider.......................................................................................
+    // HasValidatorFetcher..............................................................................................
 
     @Override
-    public SpreadsheetProvider systemSpreadsheetProvider() {
-        return this.systemSpreadsheetProvider;
+    public ValidatorFetcher validatorFetcher() {
+        return this.validatorFetcher;
     }
 
-    private SpreadsheetProvider systemSpreadsheetProvider;
-
-    // KeyboardContext.......................................................................................
+    private final ValidatorFetcher validatorFetcher;
 
     @Override
-    public Optional<SpreadsheetCell> historyTokenCell() {
-        return this.spreadsheetViewportCache()
-            .historyTokenCell();
+    public Runnable addValidatorFetcherWatcher(final ValidatorFetcherWatcher watcher) {
+        return this.validatorFetcherWatchers.add(watcher);
     }
+
+    @Override
+    public Runnable addValidatorFetcherWatcherOnce(final ValidatorFetcherWatcher watcher) {
+        return this.validatorFetcherWatchers.addOnce(watcher);
+    }
+
+    private final ValidatorFetcherWatchers validatorFetcherWatchers;
+
+    @Override
+    public void onValidatorInfo(final ValidatorInfo info) {
+        // NOP
+    }
+
+    @Override
+    public void onValidatorInfoSet(final ValidatorInfoSet infos) {
+        this.validatorInfoSet = infos;
+        this.refreshSpreadsheetProvider();
+    }
+
+    private ValidatorInfoSet validatorInfoSet;
 
     // SpreadsheetViewport..............................................................................................
 
@@ -1601,53 +1644,4 @@ public class App implements EntryPoint,
     }
 
     private final SpreadsheetViewportCache viewportCache;
-
-    // CanGiveFocus.....................................................................................................
-
-    @Override
-    public void giveFocus(final Runnable giveFocus) {
-        this.canGiveFocus.giveFocus(giveFocus);
-    }
-
-    private final CanGiveFocus canGiveFocus;
-
-    // HasNow...........................................................................................................
-
-    @Override
-    public LocalDateTime now() {
-        return LocalDateTime.now();
-    }
-
-    // HistoryContextDelegator.....................................................................................
-
-    @Override public HistoryContext historyContext() {
-        return this.apphistoryContextHistoryTokenWatcher;
-    }
-
-    private final AppHistoryContextHistoryWatcher apphistoryContextHistoryTokenWatcher;
-
-    // LoggingContext...................................................................................................
-
-    @Override
-    public LoggingContext loggingContext() {
-        return this.loggingContext;
-    }
-
-    private final LoggingContext loggingContext;
-
-    // NumberComponentContext...........................................................................................
-
-    @Override
-    public int generalFormatNumberDigitCount() {
-        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT);
-    }
-
-    // RecentValueSavesContextDelegator.................................................................................
-
-    @Override
-    public RecentValueSavesContext recentValueSavesContext() {
-        return this.recentValueSavesContext;
-    }
-
-    private final RecentValueSavesContext recentValueSavesContext;
 }
