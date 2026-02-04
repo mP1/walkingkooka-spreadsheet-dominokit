@@ -119,7 +119,8 @@ final class SpreadsheetSelectionMenuFormatter {
                         first.add(m);
                         return first;
                     },
-                    (List<SpreadsheetFormatterMenu> before, List<SpreadsheetFormatterMenu> merge) -> {
+                    (List<SpreadsheetFormatterMenu> before,
+                     List<SpreadsheetFormatterMenu> merge) -> {
                         before.addAll(merge);
                         return before;
                     }
@@ -142,13 +143,13 @@ final class SpreadsheetSelectionMenuFormatter {
                 )
             );
 
-            for (final SpreadsheetFormatterMenu spreadsheetFormatterSelectorMenu : nameAndMenus.getValue()) {
-                final SpreadsheetFormatterSelector selector = spreadsheetFormatterSelectorMenu.selector();
+            for (final SpreadsheetFormatterMenu selectorMenu : nameAndMenus.getValue()) {
+                final SpreadsheetFormatterSelector selector = selectorMenu.selector();
 
                 nameMenu.item(
                     SpreadsheetContextMenuItem.with(
                         nameMenuId + SpreadsheetElementIds.MENU_ITEM,
-                        spreadsheetFormatterSelectorMenu.label()
+                        selectorMenu.label()
                     ).historyToken(
                         Optional.of(
                             historyToken.setSaveStringValue(
