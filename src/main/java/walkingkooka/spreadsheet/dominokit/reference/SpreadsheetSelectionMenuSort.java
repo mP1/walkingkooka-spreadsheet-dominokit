@@ -58,11 +58,11 @@ final class SpreadsheetSelectionMenuSort {
         );
     }
 
-    static void comparatorsMenuItem(final HistoryToken historyToken,
-                                    final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
-                                    final String idPrefix,
-                                    final Collection<SpreadsheetComparatorName> comparatorNames,
-                                    final SpreadsheetContextMenu menu) {
+    private static void comparatorsMenuItem(final HistoryToken historyToken,
+                                            final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
+                                            final String idPrefix,
+                                            final Collection<SpreadsheetComparatorName> comparatorNames,
+                                            final SpreadsheetContextMenu menu) {
 
         // for each comparator info build a sub menu.
         for (final SpreadsheetComparatorName name : comparatorNames) {
