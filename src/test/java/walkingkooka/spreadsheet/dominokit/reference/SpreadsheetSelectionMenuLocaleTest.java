@@ -44,12 +44,27 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
 
     @Test
     public void testBuild() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("Spreadsheet123"),
-            SpreadsheetSelection.A1.setDefaultAnchor()
+        this.buildAndCheck(
+            HistoryToken.selection(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("Spreadsheet123"),
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
         );
+    }
 
+    @Test
+    public void testBuildWithSpreadsheetCellFormulaHistoryToken() {
+        this.buildAndCheck(
+            HistoryToken.cellFormula(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("Spreadsheet123"),
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+    }
+
+    private void buildAndCheck(final SpreadsheetAnchoredSelectionHistoryToken historyToken) {
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
