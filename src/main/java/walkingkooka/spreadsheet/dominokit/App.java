@@ -1589,7 +1589,6 @@ public class App implements EntryPoint,
         );
 
         try {
-            this.debug("SpreadsheetFormatterContext BEGIN formatterContext: " + this.formatterContext);
             this.formatterContext = metadata.spreadsheetFormatterContext(
                 SpreadsheetMetadata.NO_CELL,
                 (final Optional<Object> value) -> {
@@ -1603,7 +1602,6 @@ public class App implements EntryPoint,
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
-            this.debug("SpreadsheetFormatterContext CREATED");
         } catch (final RuntimeException cause) {
             this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
             this.formatterContext = SpreadsheetFormatterContexts.fake();
