@@ -94,6 +94,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

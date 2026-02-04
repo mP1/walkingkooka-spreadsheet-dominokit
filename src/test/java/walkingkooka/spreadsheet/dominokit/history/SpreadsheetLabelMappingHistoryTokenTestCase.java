@@ -41,6 +41,15 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // createLabel......................................................................................................
 
     @Test

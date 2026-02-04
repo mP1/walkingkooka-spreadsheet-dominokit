@@ -28,6 +28,15 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         super();
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // label............................................................................................................
 
     @Test

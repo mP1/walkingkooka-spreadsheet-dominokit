@@ -219,6 +219,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // dateTimeSymbols...........................................................................................................
+
+    final void dateTimeSymbolsAndCheck(final HistoryToken token) {
+        this.dateTimeSymbolsAndCheck(
+            token,
+            token
+        );
+    }
+
+    final void dateTimeSymbolsAndCheck(final HistoryToken token,
+                                       final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.dateTimeSymbols(),
+            () -> token + " dateTimeSymbols"
+        );
+    }
+    
     // setDelete........................................................................................................
 
     final void deleteAndCheck(final HistoryToken token) {

@@ -75,6 +75,20 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellDateTimeSymbolsSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test
