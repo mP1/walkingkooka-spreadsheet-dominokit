@@ -375,6 +375,55 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
         );
     }
 
+    @Test
+    public void testCellFormulaHistoryToken() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.cellFormula(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet123"),
+            AnchoredSpreadsheetSelection.with(
+                SpreadsheetSelection.A1,
+                SpreadsheetViewportAnchor.NONE
+            )
+        );
+
+        final SpreadsheetSelectionMenuContext context = this.context(
+            historyToken,
+            Lists.of(
+                SpreadsheetFormatterSelector.parse("date recent-1A"),
+                SpreadsheetFormatterSelector.parse("date recent-2B")
+            ),
+            Lists.empty(),
+            Optional.empty() // selectionSummary
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenuFormatter.build(
+            historyToken,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "  -----\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  -----\n" +
+                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
+                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+        );
+    }
+
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetFormatterSelector> recentFormatters,
                                                     final List<SpreadsheetFormatterMenu> menus,
