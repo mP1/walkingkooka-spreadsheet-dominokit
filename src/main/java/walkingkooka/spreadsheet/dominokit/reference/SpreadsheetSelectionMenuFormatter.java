@@ -72,7 +72,7 @@ final class SpreadsheetSelectionMenuFormatter {
                                final SpreadsheetContextMenu menu,
                                final String idPrefix,
                                final SpreadsheetSelectionMenuContext context) {
-        buildSpreadsheetFormatterMenus(
+        buildFormatter(
             historyToken,
             menu,
             idPrefix,
@@ -105,10 +105,10 @@ final class SpreadsheetSelectionMenuFormatter {
         );
     }
 
-    private static void buildSpreadsheetFormatterMenus(final HistoryToken historyToken,
-                                                       final SpreadsheetContextMenu menu,
-                                                       final String idPrefix,
-                                                       final SpreadsheetSelectionMenuContext context) {
+    private static void buildFormatter(final HistoryToken historyToken,
+                                       final SpreadsheetContextMenu menu,
+                                       final String idPrefix,
+                                       final SpreadsheetSelectionMenuContext context) {
         final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameToMenus = context.spreadsheetFormatterMenus()
             .stream()
             .collect(
