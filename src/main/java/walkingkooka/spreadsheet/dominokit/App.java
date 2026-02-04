@@ -1127,11 +1127,6 @@ public class App implements EntryPoint,
     // LocaleContext....................................................................................................
 
     @Override
-    public Locale locale() {
-        return LOCALE_CONTEXT.locale(); // TODO use SpreadsheetMetadata.locale
-    }
-
-    @Override
     public Set<Locale> availableLocales() {
         return this.availableLocales;
     }
@@ -1391,6 +1386,11 @@ public class App implements EntryPoint,
     public LineEnding lineEnding() {
         return this.environmentContext()
             .lineEnding();
+    }
+
+    @Override
+    public Locale locale() {
+        return LOCALE_CONTEXT.locale(); // TODO use SpreadsheetMetadata.locale
     }
 
     @Override
