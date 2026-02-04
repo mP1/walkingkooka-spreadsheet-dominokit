@@ -116,8 +116,13 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, dateTimeSymbols);
+                return METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                    dateTimeSymbols
+                );
             }
         };
 
@@ -164,7 +169,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.cellDateTimeSymbolsSelect(
-                    SPREADSHEET_ID,
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 );

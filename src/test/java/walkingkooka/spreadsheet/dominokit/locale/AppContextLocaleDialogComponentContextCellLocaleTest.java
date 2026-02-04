@@ -111,7 +111,7 @@ public final class AppContextLocaleDialogComponentContextCellLocaleTest extends 
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellLocaleSelect(
-                        SPREADSHEET_ID,
+                        AppContextLocaleDialogComponentContextCellLocaleTest.SPREADSHEET_ID,
                         SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor()
                     );

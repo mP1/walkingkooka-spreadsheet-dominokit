@@ -2035,7 +2035,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    SpreadsheetFormatterSelectorDialogComponentTest.SPREADSHEET_ID
                 );
             }
 

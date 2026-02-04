@@ -132,7 +132,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.metadataPropertySelect(
-                    SPREADSHEET_ID,
+                    AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS
                 );
@@ -140,8 +140,13 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS, DECIMAL_NUMBER_SYMBOLS);
+                return METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
+                    DECIMAL_NUMBER_SYMBOLS
+                );
             }
 
             @Override

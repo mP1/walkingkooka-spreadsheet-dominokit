@@ -400,7 +400,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    PluginNameSetDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(
                     SpreadsheetMetadataPropertyName.PLUGINS,
                     PluginNameSet.parse(metadataPlugins)

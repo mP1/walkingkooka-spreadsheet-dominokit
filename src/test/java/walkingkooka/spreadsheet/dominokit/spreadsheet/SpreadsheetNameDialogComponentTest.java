@@ -41,7 +41,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.spreadsheetRenameSelect(
-                    SPREADSHEET_ID,
+                    SpreadsheetNameDialogComponentTest.SPREADSHEET_ID,
                     SPREADSHEET_NAME
                 );
             }

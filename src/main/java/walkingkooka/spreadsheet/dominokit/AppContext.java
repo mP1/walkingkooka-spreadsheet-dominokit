@@ -24,6 +24,7 @@ import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.email.EmailAddress;
@@ -60,6 +61,7 @@ import walkingkooka.spreadsheet.dominokit.number.NumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCacheContext;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -69,6 +71,7 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
+import walkingkooka.storage.StoragePath;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContextObjectPostProcessor;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
@@ -114,6 +117,7 @@ public interface AppContext extends CanGiveFocus,
     LoggingContext,
     RefreshContext,
     KeyboardContext,
+    SpreadsheetEnvironmentContext,
     SpreadsheetViewportCacheContext,
     RecentValueSavesContext,
     WholeNumberComponentContext,
@@ -288,7 +292,22 @@ public interface AppContext extends CanGiveFocus,
     }
 
     @Override
+    default void setCurrentWorkingDirectory(final Optional<StoragePath> currentWorkingDirectory) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default void setLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default AbsoluteUrl serverUrl() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default void setSpreadsheetId(final Optional<SpreadsheetId> spreadsheetId) {
         throw new UnsupportedOperationException();
     }
 

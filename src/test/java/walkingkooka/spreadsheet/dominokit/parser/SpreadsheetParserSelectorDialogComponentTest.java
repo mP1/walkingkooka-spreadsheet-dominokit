@@ -1413,7 +1413,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    SpreadsheetParserSelectorDialogComponentTest.SPREADSHEET_ID
                 );
             }
 
