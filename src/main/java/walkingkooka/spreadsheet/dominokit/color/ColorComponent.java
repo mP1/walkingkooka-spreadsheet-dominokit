@@ -186,7 +186,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
         this.clearAnchor.setHistoryToken(
             historyTokenPreparer.apply(historyToken)
-                .map(h -> h.clearSaveValue())
+                .map(HistoryToken::clearSaveValue)
         );
     }
 

@@ -71,7 +71,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                                 .setSelection(
                                     Optional.of(s)
                                 ).setSaveValue(
-                                    v.flatMap(vv -> vv.value())
+                                    v.flatMap(ValidationChoice::value)
                                 )
                         )
                 );
