@@ -103,6 +103,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // freezeOrEmpty....................................................................................................
 
     @Test

@@ -71,6 +71,15 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // locale...........................................................................................................
 
     @Test

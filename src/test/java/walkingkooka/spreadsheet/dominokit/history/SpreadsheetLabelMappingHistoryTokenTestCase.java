@@ -50,6 +50,15 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // createLabel......................................................................................................
 
     @Test

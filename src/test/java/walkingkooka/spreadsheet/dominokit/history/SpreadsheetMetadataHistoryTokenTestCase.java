@@ -37,6 +37,15 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // label............................................................................................................
 
     @Test
