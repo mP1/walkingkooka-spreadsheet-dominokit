@@ -260,6 +260,10 @@ public class App implements EntryPoint,
 
     private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
 
+    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
+        LocaleContexts.jre(LOCALE)
+    );
+
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
     private final static HasNow NOW = LocalDateTime::now;
@@ -1167,8 +1171,6 @@ public class App implements EntryPoint,
     public LocaleContext localeContext() {
         return LOCALE_CONTEXT;
     }
-
-    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(LOCALE);
 
     // LocaleFetcher....................................................................................................
 
