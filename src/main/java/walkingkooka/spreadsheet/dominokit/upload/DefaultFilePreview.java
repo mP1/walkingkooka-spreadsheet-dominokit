@@ -147,13 +147,15 @@ class DefaultFilePreview extends BaseDominoElement<HTMLElement, DefaultFilePrevi
             FileReader fileReader = new FileReader();
             fileReader.addEventListener(
                 "load",
-                evt -> {
-                    thumbnail.appendChild(
-                        img(fileReader.result.asString())
-                            .setAttribute("alt", this.fileItem.getFile().name)
-                            .addCss(dui_image_responsive, dui_max_w_full, dui_max_h_full, dui_m_x_auto));
-                });
-            fileReader.readAsDataURL(this.fileItem.getFile());
+                evt -> thumbnail.appendChild(
+                    img(fileReader.result.asString())
+                        .setAttribute("alt", this.fileItem.getFile().name)
+                        .addCss(dui_image_responsive, dui_max_w_full, dui_max_h_full, dui_m_x_auto)
+                )
+            );
+            fileReader.readAsDataURL(
+                this.fileItem.getFile()
+            );
         } else {
             thumbnail.appendChild(Icons.file_upload().addCss(dui_fg_grey, dui_font_size_24));
         }
