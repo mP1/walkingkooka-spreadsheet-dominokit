@@ -92,11 +92,10 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
         this.suggestBox.setEmptyAsNull(true);
         this.suggestBox.setAutoValidation(true);
         this.suggestBox.withLoaderElement(
-            (parent, loaderElement) -> {
+            (parent, loaderElement) ->
                 this.loader = Loader.create(loaderElement, LoaderEffect.FACEBOOK)
                     .setLoadingTextPosition(Loader.LoadingTextPosition.TOP)
-                    .setRemoveLoadingText(true);
-            }
+                    .setRemoveLoadingText(true)
         );
         this.suggestBox.setLoader(this.loader);
 

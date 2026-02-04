@@ -64,14 +64,13 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
         return Optional.ofNullable(name);
     };
 
-    private final static BiConsumer<Optional<JarEntryInfoName>, HistoryTokenAnchorComponent> SETTER = (v, c) -> {
+    private final static BiConsumer<Optional<JarEntryInfoName>, HistoryTokenAnchorComponent> SETTER = (v, c) ->
         c.setHref(
             PluginFetcher.downloadUrl(
                 PLUGIN_NAME,
                 v
             )
         );
-    };
 
     // with.............................................................................................................
 
