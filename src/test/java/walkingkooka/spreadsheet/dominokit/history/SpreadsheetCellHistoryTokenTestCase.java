@@ -496,6 +496,20 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // validator........................................................................................................
+
+    @Test
+    public final void testValidator() {
+        this.validatorAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellValidatorSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // urlFragment......................................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetExpressionReference reference,

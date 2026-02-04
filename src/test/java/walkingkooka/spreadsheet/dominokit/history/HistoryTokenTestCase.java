@@ -786,6 +786,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // validator........................................................................................................
+
+    final void validatorAndCheck(final HistoryToken token) {
+        this.validatorAndCheck(
+            token,
+            token
+        );
+    }
+
+    final void validatorAndCheck(final HistoryToken token,
+                                 final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.validator(),
+            () -> token + " validator"
+        );
+    }
+
     // value............................................................................................................
 
     @Test

@@ -449,6 +449,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // validator........................................................................................................
+
+    @Test
+    public final void testValidator() {
+        this.validatorAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // helpers..............................................................................................
 
     final void urlFragmentAndCheck(final SpreadsheetColumnReference reference,
