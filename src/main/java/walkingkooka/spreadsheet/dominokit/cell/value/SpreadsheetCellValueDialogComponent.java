@@ -95,14 +95,14 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         this.save = this.<String>saveValueAnchor(context);
 
         String nowOrToday;
-        ValueType ValueType = context.valueType();
-        if (ValueType.DATE.equals(ValueType)) {
+        ValueType valueType = context.valueType();
+        if (valueType.DATE.equals(valueType)) {
             nowOrToday = TODAY_TEXT;
         } else {
-            if (ValueType.DATE_TIME.equals(ValueType)) {
+            if (valueType.DATE_TIME.equals(valueType)) {
                 nowOrToday = NOW_TEXT;
             } else {
-                if (ValueType.TIME.equals(ValueType)) {
+                if (valueType.TIME.equals(valueType)) {
                     nowOrToday = NOW_TEXT;
                 } else {
                     nowOrToday = "";
