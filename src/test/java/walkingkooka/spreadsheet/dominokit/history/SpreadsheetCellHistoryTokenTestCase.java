@@ -122,6 +122,20 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // formatter........................................................................................................
+
+    @Test
+    public final void testFormatter() {
+        this.formatterAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellFormatterSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // formula..........................................................................................................
 
     @Test

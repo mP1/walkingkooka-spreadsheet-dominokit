@@ -158,20 +158,6 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         );
     }
 
-    // Formatter........................................................................................................
-
-    @Test
-    public void testFormatter() {
-        this.formatterAndCheck(
-            this.createHistoryToken(),
-            HistoryToken.cellFormatterSelect(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor()
-            )
-        );
-    }
-
     // navigation.......................................................................................................
 
     @Test

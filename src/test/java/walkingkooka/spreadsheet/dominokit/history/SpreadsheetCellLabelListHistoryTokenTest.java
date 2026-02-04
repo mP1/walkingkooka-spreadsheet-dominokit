@@ -250,15 +250,6 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         );
     }
 
-    // Formatter........................................................................................................
-
-    @Test
-    public void testFormatter() {
-        this.formatterAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // navigation.......................................................................................................
 
     @Test

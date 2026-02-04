@@ -367,15 +367,6 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         );
     }
 
-    // Formatter........................................................................................................
-
-    @Test
-    public void testFormatter() {
-        this.formatterAndCheck(
-            this.createHistoryToken()
-        );
-    }
-
     // setSaveStringValue.....................................................................................................
 
     @Test
