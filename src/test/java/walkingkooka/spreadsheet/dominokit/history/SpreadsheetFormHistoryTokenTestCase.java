@@ -62,6 +62,15 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
         );
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // locale...........................................................................................................
 
     @Test

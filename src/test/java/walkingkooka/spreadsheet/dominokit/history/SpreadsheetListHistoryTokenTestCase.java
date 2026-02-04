@@ -40,6 +40,17 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         super();
     }
 
+    // dateTimeSymbols..................................................................................................
+
+    @Test
+    public final void testDateTimeSymbols() {
+        this.dateTimeSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    // setId............................................................................................................
+
     @Test
     public final void testSetIdName() {
         this.setIdAndNameAndCheck(
