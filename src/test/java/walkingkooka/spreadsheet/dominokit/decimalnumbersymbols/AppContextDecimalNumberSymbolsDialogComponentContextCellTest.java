@@ -140,7 +140,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest 
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.cellDecimalNumberSymbolsSelect(
-                    SPREADSHEET_ID,
+                    AppContextDecimalNumberSymbolsDialogComponentContextCellTest.SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 );

@@ -314,7 +314,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    PluginAliasSetLikeDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(
                     SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS,
                     infos

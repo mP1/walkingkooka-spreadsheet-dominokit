@@ -66,8 +66,13 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SPREADSHEET_NAME);
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                );
             }
 
             @Override
@@ -140,8 +145,13 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SPREADSHEET_NAME);
+                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                );
             }
 
             @Override

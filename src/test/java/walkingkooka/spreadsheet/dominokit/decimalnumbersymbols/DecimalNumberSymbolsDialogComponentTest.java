@@ -398,7 +398,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(
                     SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
                     decimalNumberSymbols

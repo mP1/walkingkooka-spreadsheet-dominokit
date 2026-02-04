@@ -285,7 +285,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
         public SpreadsheetMetadata spreadsheetMetadata() {
             return METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SPREADSHEET_ID
+                SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_ID
             ).set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SPREADSHEET_NAME

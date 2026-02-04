@@ -29,6 +29,7 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.environment.EnvironmentValueName;
@@ -37,6 +38,7 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
@@ -133,6 +135,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentContexts;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContext;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextDelegator;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContexts;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterInfoSet;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterProvider;
@@ -178,6 +181,7 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.StoragePath;
 import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.Indentation;
@@ -238,6 +242,7 @@ public class App implements EntryPoint,
     RecentValueSavesContextDelegator,
     SpreadsheetComparatorFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetEnvironmentContextDelegator,
     SpreadsheetExporterFetcherWatcher,
     SpreadsheetFormatterContextDelegator,
     SpreadsheetFormatterFetcherWatcher,
@@ -256,6 +261,8 @@ public class App implements EntryPoint,
     private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
+
+    private final static HasNow NOW = LocalDateTime::now;
 
     public App() {
         SpreadsheetServerStartup.init();
@@ -420,20 +427,20 @@ public class App implements EntryPoint,
         );
         this.addPluginFetcherWatcher(this);
 
+        this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
+            Storages.fake(),
+            EnvironmentContexts.empty(
+                Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
+                LINE_ENDING,
+                LOCALE,
+                NOW,
+                EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
+            )
+        );
+
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
-            this.spreadsheetMetadata.spreadsheetEnvironmentContext(
-                SpreadsheetEnvironmentContexts.basic(
-                    Storages.fake(),
-                    EnvironmentContexts.empty(
-                        Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
-                        LINE_ENDING,
-                        LOCALE,
-                        this,
-                        EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
-                    )
-                )
-            ),
+            this.spreadsheetEnvironmentContext(),
             this.jsonNodeMarshallUnmarshallContext(),
             LocaleContexts.jre(LOCALE)
         );
@@ -763,40 +770,62 @@ public class App implements EntryPoint,
     // EnvironmentContext...............................................................................................
 
     @Override
+    public AppContext cloneEnvironment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public AppContext setEnvironmentContext(final EnvironmentContext environmentContext) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
                                         final T value) {
-        this.providerContext.setEnvironmentValue(
-            name,
-            value
-        );
+        this.spreadsheetEnvironmentContext()
+            .setEnvironmentValue(
+                name,
+                value
+            );
     }
 
     @Override
     public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.providerContext.removeEnvironmentValue(name);
+        this.spreadsheetEnvironmentContext()
+            .removeEnvironmentValue(name);
+    }
+
+    @Override
+    public Optional<StoragePath> currentWorkingDirectory() {
+        return this.spreadsheetEnvironmentContext().currentWorkingDirectory();
+    }
+
+    @Override
+    public void setCurrentWorkingDirectory(final Optional<StoragePath> currentWorkingDirectory) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Indentation indentation() {
-        return this.environmentContext()
+        return this.spreadsheetEnvironmentContext()
             .indentation();
     }
 
     @Override
     public void setIndentation(final Indentation indentation) {
-        this.environmentContext()
+        this.spreadsheetEnvironmentContext()
             .setIndentation(indentation);
     }
 
     @Override
     public LineEnding lineEnding() {
-        return this.environmentContext()
+        return this.spreadsheetEnvironmentContext()
             .lineEnding();
     }
 
     @Override
     public Locale locale() {
-        return this.environmentContext()
+        return this.spreadsheetEnvironmentContext()
             .locale();
     }
 
@@ -806,13 +835,18 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public int generalFormatNumberDigitCount() {
-        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT);
+    public LocalDateTime now() {
+        return NOW.now();
     }
 
     @Override
-    public LocalDateTime now() {
-        return LocalDateTime.now();
+    public AbsoluteUrl serverUrl() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setSpreadsheetId(final Optional<SpreadsheetId> spreadsheetId) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -821,11 +855,16 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public ProviderContext providerContext() {
-        return this.providerContext;
+    public SpreadsheetEnvironmentContext environmentContext() {
+        return this.spreadsheetEnvironmentContext;
     }
 
-    private ProviderContext providerContext;
+    @Override
+    public SpreadsheetEnvironmentContext spreadsheetEnvironmentContext() {
+        return this.spreadsheetEnvironmentContext;
+    }
+
+    private SpreadsheetEnvironmentContext spreadsheetEnvironmentContext;
 
     // SpreadsheetExporterFetcher.......................................................................................
 
@@ -960,6 +999,11 @@ public class App implements EntryPoint,
     @Override
     public ConverterLike converterLike() {
         return this.spreadsheetFormatterContext(); // prioritize SpreadsheetFormatterContext over ProviderContext
+    }
+
+    @Override
+    public int generalFormatNumberDigitCount() {
+        return this.spreadsheetMetadata.getOrFail(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT);
     }
 
     @Override
@@ -1221,19 +1265,9 @@ public class App implements EntryPoint,
                 metadata.mathContext()
             );
 
+            // SpreasdsheetMetadata#spreasheetEnvironmentContext will unwrap previous
             final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext = metadata.spreadsheetEnvironmentContext(
-                SpreadsheetEnvironmentContexts.basic(
-                    Storages.fake(),
-                    EnvironmentContexts.empty(
-                        this.indentation(),
-                        LINE_ENDING,
-                        metadata.locale(),
-                        this,
-                        Optional.of(
-                            EmailAddress.parse("user123@example.com")
-                        )
-                    )
-                )
+                this.spreadsheetEnvironmentContext
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
@@ -1418,6 +1452,15 @@ public class App implements EntryPoint,
         // TODO
     }
 
+    // ProviderContext..................................................................................................
+
+    @Override
+    public ProviderContext providerContext() {
+        return this.providerContext;
+    }
+
+    private ProviderContext providerContext;
+
     // RecentValueSavesContextDelegator.................................................................................
 
     @Override
@@ -1546,6 +1589,7 @@ public class App implements EntryPoint,
         );
 
         try {
+            this.debug("SpreadsheetFormatterContext BEGIN formatterContext: " + this.formatterContext);
             this.formatterContext = metadata.spreadsheetFormatterContext(
                 SpreadsheetMetadata.NO_CELL,
                 (final Optional<Object> value) -> {
@@ -1559,6 +1603,7 @@ public class App implements EntryPoint,
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
+            this.debug("SpreadsheetFormatterContext CREATED");
         } catch (final RuntimeException cause) {
             this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
             this.formatterContext = SpreadsheetFormatterContexts.fake();

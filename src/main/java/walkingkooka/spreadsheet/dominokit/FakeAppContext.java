@@ -69,14 +69,17 @@ import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContex
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.provider.FakeSpreadsheetProvider;
 import walkingkooka.spreadsheet.provider.SpreadsheetProvider;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.storage.SpreadsheetStorageContext;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.Storage;
 import walkingkooka.storage.StoragePath;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
@@ -565,6 +568,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Optional<SpreadsheetId> spreadsheetId() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public ZoneOffset timeOffset() {
         throw new UnsupportedOperationException();
     }
@@ -576,6 +584,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Storage<SpreadsheetStorageContext> storage() {
         throw new UnsupportedOperationException();
     }
 

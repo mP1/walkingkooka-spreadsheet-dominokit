@@ -205,7 +205,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         @Override
         public HistoryToken historyToken() {
             return HistoryToken.cellFormula(
-                SPREADSHEET_ID,
+                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 AnchoredSpreadsheetSelection.with(
                     SpreadsheetSelection.A1,
@@ -218,7 +218,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         public SpreadsheetMetadata spreadsheetMetadata() {
             return METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SPREADSHEET_ID
+                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID
             ).set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SPREADSHEET_NAME

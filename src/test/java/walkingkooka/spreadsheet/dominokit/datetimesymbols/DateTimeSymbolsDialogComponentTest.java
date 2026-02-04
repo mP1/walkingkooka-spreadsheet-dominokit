@@ -310,7 +310,7 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SPREADSHEET_ID
+                    DateTimeSymbolsDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(
                     SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
                     dateTimeSymbols

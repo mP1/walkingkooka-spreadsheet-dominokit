@@ -501,7 +501,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         public SpreadsheetMetadata spreadsheetMetadata() {
             return METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SPREADSHEET_ID
+                SpreadsheetCellValueDialogComponentTest.SPREADSHEET_ID
             ).set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SPREADSHEET_NAME

@@ -270,7 +270,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
         public SpreadsheetMetadata spreadsheetMetadata() {
             return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SPREADSHEET_ID
+                SpreadsheetNavigateDialogComponentTest.SPREADSHEET_ID
             ).set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
                 SPREADSHEET_NAME

@@ -108,8 +108,13 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS);
+                return METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                    DATE_TIME_SYMBOLS
+                );
             }
         };
 
@@ -151,7 +156,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.metadataPropertySelect(
-                    SPREADSHEET_ID,
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS
                 );
@@ -159,8 +164,13 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
-                    .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS);
+                return METADATA_EN_AU.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                    DATE_TIME_SYMBOLS
+                );
             }
 
             @Override
