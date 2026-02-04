@@ -52,7 +52,7 @@ final class SpreadsheetSelectionMenuValidator {
     static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                       final SpreadsheetContextMenu menu,
                       final SpreadsheetSelectionMenuContext context) {
-        build0(
+        buildMenu(
             historyToken.validator(),
             menu,
             context.idPrefix() + "validator-",
@@ -60,10 +60,10 @@ final class SpreadsheetSelectionMenuValidator {
         );
     }
 
-    static void build0(final HistoryToken historyToken,
-                       final SpreadsheetContextMenu menu,
-                       final String idPrefix,
-                       final SpreadsheetSelectionMenuContext context) {
+    private static void buildMenu(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final String idPrefix,
+                                  final SpreadsheetSelectionMenuContext context) {
         buildValidatorSelectors(
             historyToken,
             menu,
