@@ -73,6 +73,15 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testLocale() {
+        this.localeAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // navigation.......................................................................................................
 
     @Test

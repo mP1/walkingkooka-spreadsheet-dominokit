@@ -202,6 +202,20 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testlocale() {
+        this.localeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellLocaleSelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+    
     // menu with selection..............................................................................................
 
     @Test

@@ -188,6 +188,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testLocale() {
+        this.localeAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu.............................................................................................................
 
     @Test

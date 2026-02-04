@@ -60,6 +60,15 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testLocale() {
+        this.localeAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Test

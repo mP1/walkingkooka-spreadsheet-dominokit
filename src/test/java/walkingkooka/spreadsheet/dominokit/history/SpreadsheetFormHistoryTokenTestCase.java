@@ -62,6 +62,15 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testLocale() {
+        this.localeAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // navigation.......................................................................................................
 
     @Test

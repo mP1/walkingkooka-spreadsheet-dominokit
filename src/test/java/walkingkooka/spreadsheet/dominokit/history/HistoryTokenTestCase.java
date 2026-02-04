@@ -540,6 +540,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // locale...........................................................................................................
+
+    final void localeAndCheck(final HistoryToken token) {
+        this.localeAndCheck(
+            token,
+            token
+        );
+    }
+
+    final void localeAndCheck(final HistoryToken token,
+                              final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.locale(),
+            () -> token + " locale"
+        );
+    }
+    
     // setMetadataPropertyName..........................................................................................
 
     @Test

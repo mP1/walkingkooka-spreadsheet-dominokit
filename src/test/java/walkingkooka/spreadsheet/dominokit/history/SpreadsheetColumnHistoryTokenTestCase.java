@@ -188,6 +188,15 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         );
     }
 
+    // locale...........................................................................................................
+
+    @Test
+    public final void testLocale() {
+        this.localeAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // menu(Selection)..................................................................................................
 
     @Test
