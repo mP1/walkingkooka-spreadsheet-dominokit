@@ -49,6 +49,15 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // setId............................................................................................................
 
     @Test

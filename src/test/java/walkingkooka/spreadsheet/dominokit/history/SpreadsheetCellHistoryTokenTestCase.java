@@ -89,6 +89,20 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
+    // decimalNumberSymbols.............................................................................................
+
+    @Test
+    public final void testDecimalNumberSymbols() {
+        this.decimalNumberSymbolsAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellDecimalNumberSymbolsSelect(
+                ID,
+                NAME,
+                SELECTION
+            )
+        );
+    }
+    
     // freezeOrEmpty....................................................................................................
 
     @Test

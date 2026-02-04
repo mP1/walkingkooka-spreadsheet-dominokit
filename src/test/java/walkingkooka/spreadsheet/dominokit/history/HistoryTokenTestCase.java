@@ -236,6 +236,24 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             () -> token + " dateTimeSymbols"
         );
     }
+
+    // decimalNumberSymbols.............................................................................................
+
+    final void decimalNumberSymbolsAndCheck(final HistoryToken token) {
+        this.decimalNumberSymbolsAndCheck(
+            token,
+            token
+        );
+    }
+
+    final void decimalNumberSymbolsAndCheck(final HistoryToken token,
+                                       final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.decimalNumberSymbols(),
+            () -> token + " decimalNumberSymbols"
+        );
+    }
     
     // setDelete........................................................................................................
 
