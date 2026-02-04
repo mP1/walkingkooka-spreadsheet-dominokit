@@ -1274,7 +1274,7 @@ public class App implements EntryPoint,
                 PluginStores.fake(),
                 spreadsheetEnvironmentContext,
                 this.jsonNodeMarshallUnmarshallContext(),
-                LocaleContexts.jre(this.locale())
+                this.localeContext()
             );
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
@@ -1489,7 +1489,7 @@ public class App implements EntryPoint,
             PluginStores.fake(),
             this.environmentContext(),
             this.jsonNodeMarshallUnmarshallContext(),
-            LocaleContexts.jre(this.locale())
+            this.localeContext()
         );
 
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
