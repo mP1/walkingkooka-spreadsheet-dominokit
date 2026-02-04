@@ -29,14 +29,13 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
-import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
+import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
-import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
@@ -230,6 +229,7 @@ public class App implements EntryPoint,
     HistoryContextDelegator,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
+    LocaleContextDelegator,
     LocaleFetcherWatcher,
     LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
@@ -1136,17 +1136,7 @@ public class App implements EntryPoint,
     /**
      * Will be replaced when the server replies with all available locales.
      */
-    private Set<Locale> availableLocales = Sets.empty();
-
-    @Override
-    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
-        return LOCALE_CONTEXT.dateTimeSymbolsForLocale(locale);
-    }
-
-    @Override
-    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
-        return LOCALE_CONTEXT.decimalNumberSymbolsForLocale(locale);
-    }
+    private Set<Locale> availableLocales = Sets.of(LOCALE);
 
     @Override
     public Set<Locale> findByLocaleText(final String text,
@@ -1177,9 +1167,14 @@ public class App implements EntryPoint,
 
     private Map<Locale, String> localeToText = Maps.empty();
 
-    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(
-        Locale.forLanguageTag("EN-AU")
-    ); // TODO use browser locale
+    // LocaleContextDelegator...........................................................................................
+
+    @Override
+    public LocaleContext localeContext() {
+        return LOCALE_CONTEXT;
+    }
+
+    private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.jre(LOCALE);
 
     // SpreadsheetParserFetcher..........................................................................................
 
