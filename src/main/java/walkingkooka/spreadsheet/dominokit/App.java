@@ -1390,7 +1390,8 @@ public class App implements EntryPoint,
 
     @Override
     public Locale locale() {
-        return LOCALE_CONTEXT.locale(); // TODO use SpreadsheetMetadata.locale
+        return this.environmentContext()
+            .locale();
     }
 
     @Override
