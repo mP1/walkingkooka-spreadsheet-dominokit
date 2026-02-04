@@ -68,10 +68,10 @@ final class SpreadsheetSelectionMenuFormatter {
         );
     }
 
-    static void build0(final HistoryToken historyToken,
-                       final SpreadsheetContextMenu menu,
-                       final String idPrefix,
-                       final SpreadsheetSelectionMenuContext context) {
+    private static void build0(final HistoryToken historyToken,
+                               final SpreadsheetContextMenu menu,
+                               final String idPrefix,
+                               final SpreadsheetSelectionMenuContext context) {
         buildSpreadsheetFormatterMenus(
             historyToken,
             menu,
