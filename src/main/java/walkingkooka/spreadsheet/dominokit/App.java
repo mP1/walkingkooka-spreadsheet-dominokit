@@ -253,6 +253,8 @@ public class App implements EntryPoint,
      */
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
 
+    private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
+
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
     public App() {
@@ -426,14 +428,14 @@ public class App implements EntryPoint,
                     EnvironmentContexts.empty(
                         Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                         LINE_ENDING,
-                        this.locale(),
+                        LOCALE,
                         this,
                         EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                     )
                 )
             ),
             this.jsonNodeMarshallUnmarshallContext(),
-            LocaleContexts.jre(this.locale())
+            LocaleContexts.jre(LOCALE)
         );
 
         // history
