@@ -97,4 +97,13 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
             this.createHistoryToken()
         );
     }
+
+    // validator........................................................................................................
+
+    @Test
+    public final void testValidator() {
+        this.validatorAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

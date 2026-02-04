@@ -222,4 +222,13 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase<T extends Spre
             )
         );
     }
+
+    // validator........................................................................................................
+
+    @Test
+    public final void testValidator() {
+        this.validatorAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

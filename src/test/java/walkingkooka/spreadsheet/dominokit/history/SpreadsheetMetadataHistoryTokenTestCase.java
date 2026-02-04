@@ -239,4 +239,13 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             )
         );
     }
+
+    // validator........................................................................................................
+
+    @Test
+    public final void testValidator() {
+        this.validatorAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }
