@@ -885,4 +885,9 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public Optional<StoragePath> currentWorkingDirectory() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public StoragePath parseStoragePath(final String path) {
+        throw new UnsupportedOperationException();
+    }
 }
