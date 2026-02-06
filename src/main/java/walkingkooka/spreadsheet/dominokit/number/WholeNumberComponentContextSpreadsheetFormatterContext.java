@@ -242,6 +242,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public StoragePath parseStoragePath(final String path) {
+        throw new UnsupportedOperationException();
+    }
+
     // Object...........................................................................................................
 
     @Override

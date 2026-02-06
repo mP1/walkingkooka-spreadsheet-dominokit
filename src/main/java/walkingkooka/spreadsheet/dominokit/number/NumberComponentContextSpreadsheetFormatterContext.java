@@ -244,6 +244,11 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public StoragePath parseStoragePath(final String path) {
+        throw new UnsupportedOperationException();
+    }
+
     // Object...........................................................................................................
 
     @Override
