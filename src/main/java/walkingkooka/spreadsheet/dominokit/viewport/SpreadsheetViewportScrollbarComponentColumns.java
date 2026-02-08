@@ -54,7 +54,7 @@ final class SpreadsheetViewportScrollbarComponentColumns extends SpreadsheetView
     @Override
     SliderComponent createSlider() {
         return SliderComponent.horizontal(
-            1,
+            SpreadsheetSelection.MIN_COLUMN,
             SpreadsheetSelection.MAX_COLUMN
         );
     }

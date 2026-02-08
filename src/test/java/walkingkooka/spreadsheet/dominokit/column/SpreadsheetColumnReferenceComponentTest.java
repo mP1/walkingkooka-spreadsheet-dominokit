@@ -57,7 +57,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements FormValueC
                 "    TextBoxComponent\n" +
                 "      [Invalid123!]\n" +
                 "      Errors\n" +
-                "        Invalid column \"Invalid\" not between \"A\" and \"XFE\"\n"
+                "        Invalid column \"Invalid\" not between \"A\" and \"XFD\"\n"
         );
     }
 
