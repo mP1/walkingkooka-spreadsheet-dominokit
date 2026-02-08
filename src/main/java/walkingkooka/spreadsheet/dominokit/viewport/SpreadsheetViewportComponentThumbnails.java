@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Objects;
 
@@ -33,15 +34,16 @@ final class SpreadsheetViewportComponentThumbnails {
         final SpreadsheetCellReference topLeft = last.begin();
 
         final float left = topLeft.column()
-            .value();
+            .value() -
+            SpreadsheetSelection.MIN_COLUMN;
         final float top = topLeft.row()
-            .value();
+            .value() -
+            SpreadsheetSelection.MIN_ROW;
 
         final SpreadsheetCellReference bottomRight = last.end();
         final float width = bottomRight.column()
             .value() -
-            left +
-            1;
+            left;
         final float right = Math.max(
             left + width,
             columnCount
@@ -49,8 +51,7 @@ final class SpreadsheetViewportComponentThumbnails {
 
         final float height = bottomRight.row()
             .value() -
-            top +
-            1;
+            top;
         final float bottom = Math.max(
             top + height,
             rowCount

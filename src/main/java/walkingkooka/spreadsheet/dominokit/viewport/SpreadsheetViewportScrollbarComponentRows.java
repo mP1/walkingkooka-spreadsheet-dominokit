@@ -54,7 +54,7 @@ final class SpreadsheetViewportScrollbarComponentRows extends SpreadsheetViewpor
     @Override
     SliderComponent createSlider() {
         return SliderComponent.vertical(
-            1,
+            SpreadsheetSelection.MIN_ROW,
             SpreadsheetSelection.MAX_ROW
         );
     }
