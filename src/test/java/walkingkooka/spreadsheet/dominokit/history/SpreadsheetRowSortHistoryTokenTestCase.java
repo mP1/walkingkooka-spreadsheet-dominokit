@@ -26,14 +26,14 @@ import java.util.Optional;
 
 public abstract class SpreadsheetRowSortHistoryTokenTestCase<T extends SpreadsheetRowSortHistoryToken> extends SpreadsheetRowHistoryTokenTestCase<T> {
 
-    final static String COMPARATOR_NAMES_LIST_STRING = "1=day-of-month UP,month-of-year UP,year DOWN";
+    final static String COMPARATOR_NAMES_LIST_STRING = "1=day-of-month,month-of-year,year-reversed";
 
     final static SpreadsheetColumnOrRowSpreadsheetComparatorNamesList COMPARATOR_NAMES_LIST = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(COMPARATOR_NAMES_LIST_STRING);
 
     final static AnchoredSpreadsheetSelection ANCHORED_ROW = SpreadsheetSelection.parseRowRange("1:3")
         .setDefaultAnchor();
 
-    final static String COMPARATOR_NAMES_LIST_STRING2 = "1=day-of-month UP;2=month-of-year UP;3=year DOWN";
+    final static String COMPARATOR_NAMES_LIST_STRING2 = "1=day-of-month;2=month-of-year;3=year-reversed";
 
     final static SpreadsheetColumnOrRowSpreadsheetComparatorNamesList COMPARATOR_NAMES_LIST2 = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(COMPARATOR_NAMES_LIST_STRING2);
 

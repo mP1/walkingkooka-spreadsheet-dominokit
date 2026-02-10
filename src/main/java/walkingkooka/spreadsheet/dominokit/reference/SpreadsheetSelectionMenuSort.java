@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -75,26 +74,24 @@ final class SpreadsheetSelectionMenuSort {
                 )
             );
 
-            final String upDownPrefixId = subMenuId + '-';
+            final SpreadsheetComparatorName nameUnreversed = name.unreversed();
 
-            // comparator-name / UP
+            // comparator-name
             subMenu.item(
-                upOrDownMenuItem(
-                    upDownPrefixId,
+                forwardOrReverseMenuItem(
+                    subMenuId,
                     columnOrRow,
-                    name,
-                    SpreadsheetComparatorDirection.UP,
+                    nameUnreversed,
                     historyToken
                 )
             );
 
-            // comparator-name / DOWN
+            // comparator-name-reversed
             subMenu.item(
-                upOrDownMenuItem(
-                    upDownPrefixId,
+                forwardOrReverseMenuItem(
+                    subMenuId + '-',
                     columnOrRow,
-                    name,
-                    SpreadsheetComparatorDirection.DOWN,
+                    nameUnreversed.reversed(),
                     historyToken
                 )
             );
@@ -112,19 +109,24 @@ final class SpreadsheetSelectionMenuSort {
     }
 
     // TODO add Icon
-    private static SpreadsheetContextMenuItem upOrDownMenuItem(final String idPrefix,
-                                                               final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
-                                                               final SpreadsheetComparatorName name,
-                                                               final SpreadsheetComparatorDirection direction,
-                                                               final HistoryToken historyToken) {
+    private static SpreadsheetContextMenuItem forwardOrReverseMenuItem(final String idPrefix,
+                                                                       final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
+                                                                       final SpreadsheetComparatorName name,
+                                                                       final HistoryToken historyToken) {
+        final boolean reversed = name.isReversed();
+        final String direction = reversed ?
+            "reverse" :
+            "forward";
+
         return historyToken.setSortSave(
-            name.setDirection(direction)
-                .setColumnOrRow(columnOrRow)
+            name.setColumnOrRow(columnOrRow)
                 .list()
         ).contextMenuItem(
-            idPrefix + direction + SpreadsheetElementIds.MENU_ITEM,
+            reversed ?
+                idPrefix + direction + SpreadsheetElementIds.MENU_ITEM :
+                idPrefix + SpreadsheetElementIds.MENU_ITEM,
             CaseKind.SNAKE.change(
-                direction.name(),
+                direction,
                 CaseKind.TITLE
             )
         );

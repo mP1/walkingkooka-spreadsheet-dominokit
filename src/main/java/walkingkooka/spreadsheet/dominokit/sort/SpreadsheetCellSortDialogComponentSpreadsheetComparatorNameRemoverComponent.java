@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameAndDirection;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
@@ -35,21 +35,21 @@ import java.util.function.Function;
 /**
  * A container that presents LINKS each missing a component from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent> {
 
     /**
-     * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent}.
+     * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent}.
      */
-    static SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent empty(final String id,
-                                                                                                         final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
-        return new SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(
+    static SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent empty(final String id,
+                                                                                             final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+        return new SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent(
             id,
             setter
         );
     }
 
-    private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent(final String id,
-                                                                                                    final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
+    private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent(final String id,
+                                                                                        final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, HistoryToken> setter) {
         this.root = CardComponent.empty()
             .setTitle("Remove comparator(s)");
 
@@ -61,7 +61,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
     void refresh(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
-                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                 final List<SpreadsheetComparatorName> spreadsheetComparatorNames,
                  final SpreadsheetCellSortDialogComponentContext context) {
         final CardComponent root = this.root;
         root.removeAllChildren()
@@ -70,14 +70,14 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
         if (columnOrRow.isPresent()) {
             this.refresh0(
                 columnOrRow.get(),
-                spreadsheetComparatorNameAndDirections,
+                spreadsheetComparatorNames,
                 context
             );
         }
     }
 
     void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
-                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                  final List<SpreadsheetComparatorName> spreadsheetComparatorNames,
                   final SpreadsheetCellSortDialogComponentContext context) {
         final CardComponent root = this.root;
 
@@ -85,13 +85,12 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
         final String idPrefix = this.id;
 
-        final int count = spreadsheetComparatorNameAndDirections.size();
+        final int count = spreadsheetComparatorNames.size();
 
         for (int i = 0; i < count; i++) {
-            final List<SpreadsheetComparatorNameAndDirection> removed = Lists.array();
-            removed.addAll(spreadsheetComparatorNameAndDirections);
+            final List<SpreadsheetComparatorName> removed = Lists.array();
+            removed.addAll(spreadsheetComparatorNames);
             final String text = removed.remove(i)
-                .name()
                 .text();
 
             root.appendChild(

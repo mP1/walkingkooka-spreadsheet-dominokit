@@ -21768,6 +21768,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             context
         );
 
+        // too avoid java "String too long" replace TR\n PLUS with TR\n COMMA
         this.treePrintAndCheck2(
             menu,
             "\"Cell B2:C3 Menu\" id=Cell-MenuId\n" +
@@ -21826,7 +21827,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -21851,7 +21852,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -21876,7 +21877,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -21901,7 +21902,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -21926,7 +21927,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -21951,7 +21952,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -21976,7 +21977,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -22001,7 +22002,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -22010,7 +22011,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -22035,7 +22036,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -22060,7 +22061,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -22085,7 +22086,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -22110,7 +22111,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -22135,7 +22136,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -22160,7 +22161,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -22185,7 +22186,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -22209,7 +22210,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "            TABLE\n" +
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-1-Link\n" +
@@ -22234,7 +22235,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-8-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-9-Link\n" +
@@ -22259,7 +22260,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-16-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-17-Link\n" +
@@ -22284,7 +22285,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-24-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-25-Link\n" +
@@ -22309,7 +22310,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-32-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-33-Link\n" +
@@ -22334,7 +22335,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-40-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-41-Link\n" +
@@ -22359,7 +22360,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-48-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-49-Link\n" +
@@ -22384,7 +22385,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-56-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
@@ -22400,14 +22401,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-1-Link\n" +
@@ -22432,7 +22433,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-8-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-9-Link\n" +
@@ -22457,7 +22458,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-16-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-17-Link\n" +
@@ -22482,7 +22483,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-24-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-25-Link\n" +
@@ -22507,7 +22508,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-32-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-33-Link\n" +
@@ -22532,7 +22533,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-40-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-41-Link\n" +
@@ -22557,7 +22558,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-48-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-49-Link\n" +
@@ -22582,7 +22583,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-56-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
@@ -22598,14 +22599,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-1-Link\n" +
@@ -22630,7 +22631,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-8-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-9-Link\n" +
@@ -22655,7 +22656,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-16-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-17-Link\n" +
@@ -22680,7 +22681,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-24-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-25-Link\n" +
@@ -22705,7 +22706,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-32-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-33-Link\n" +
@@ -22730,7 +22731,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-40-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-41-Link\n" +
@@ -22755,7 +22756,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-48-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-49-Link\n" +
@@ -22780,7 +22781,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-56-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
@@ -22796,14 +22797,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-1-Link\n" +
@@ -22828,7 +22829,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-8-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-9-Link\n" +
@@ -22853,7 +22854,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-16-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-17-Link\n" +
@@ -22878,7 +22879,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-24-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-25-Link\n" +
@@ -22903,7 +22904,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-32-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-33-Link\n" +
@@ -22928,7 +22929,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-40-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-41-Link\n" +
@@ -22953,7 +22954,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-48-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-49-Link\n" +
@@ -22978,7 +22979,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-56-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
@@ -22994,14 +22995,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-1-Link\n" +
@@ -23026,7 +23027,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-8-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-9-Link\n" +
@@ -23051,7 +23052,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-16-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-17-Link\n" +
@@ -23076,7 +23077,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-24-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-25-Link\n" +
@@ -23101,7 +23102,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-32-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-33-Link\n" +
@@ -23126,7 +23127,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-40-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-41-Link\n" +
@@ -23151,7 +23152,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-48-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-49-Link\n" +
@@ -23176,7 +23177,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-56-Link\n" +
-                "                  TR\n" +
+                "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
@@ -23192,7 +23193,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -23261,98 +23262,98 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26455,50 +26456,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26551,50 +26552,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26647,50 +26648,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date%20UP] id=test-column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date%20DOWN] id=test-column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time%20UP] id=test-column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time%20DOWN] id=test-column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month%20UP] id=test-column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month%20DOWN] id=test-column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week%20UP] id=test-column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week%20DOWN] id=test-column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm%20UP] id=test-column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm%20DOWN] id=test-column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day%20UP] id=test-column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day%20DOWN] id=test-column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour%20UP] id=test-column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour%20DOWN] id=test-column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year%20UP] id=test-column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year%20DOWN] id=test-column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second%20UP] id=test-column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second%20DOWN] id=test-column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number%20UP] id=test-column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number%20DOWN] id=test-column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute%20UP] id=test-column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute%20DOWN] id=test-column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text%20UP] id=test-column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text%20DOWN] id=test-column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive%20UP] id=test-column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive%20DOWN] id=test-column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time%20UP] id=test-column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time%20DOWN] id=test-column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year%20UP] id=test-column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year%20DOWN] id=test-column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26743,50 +26744,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26839,50 +26840,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
@@ -26935,50 +26936,50 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date%20UP] id=test-row-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date%20DOWN] id=test-row-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time%20UP] id=test-row-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time%20DOWN] id=test-row-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month%20UP] id=test-row-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month%20DOWN] id=test-row-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week%20UP] id=test-row-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week%20DOWN] id=test-row-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm%20UP] id=test-row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm%20DOWN] id=test-row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day%20UP] id=test-row-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day%20DOWN] id=test-row-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour%20UP] id=test-row-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour%20DOWN] id=test-row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year%20UP] id=test-row-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year%20DOWN] id=test-row-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second%20UP] id=test-row-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second%20DOWN] id=test-row-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number%20UP] id=test-row-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number%20DOWN] id=test-row-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute%20UP] id=test-row-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute%20DOWN] id=test-row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text%20UP] id=test-row-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text%20DOWN] id=test-row-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive%20UP] id=test-row-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive%20DOWN] id=test-row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time%20UP] id=test-row-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time%20DOWN] id=test-row-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year%20UP] id=test-row-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year%20DOWN] id=test-row-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +

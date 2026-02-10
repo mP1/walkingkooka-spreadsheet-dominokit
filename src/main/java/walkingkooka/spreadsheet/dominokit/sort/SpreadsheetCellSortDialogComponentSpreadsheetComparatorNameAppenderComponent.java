@@ -19,11 +19,9 @@ package walkingkooka.spreadsheet.dominokit.sort;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.compare.SpreadsheetComparatorDirection;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameAndDirection;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
@@ -34,29 +32,27 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * A container that shows LINKS for each {@link SpreadsheetComparatorName missing from the index {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}
  * from the parent {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
  */
-final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent> {
+final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent> {
 
     /**
-     * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent}.
+     * Creates an empty {@link SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent}.
      */
-    static SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent empty(final String id,
-                                                                                                          final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
-        return new SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(
+    static SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent empty(final String id,
+                                                                                              final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+        return new SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent(
             id,
             setter
         );
     }
 
-    private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent(final String id,
-                                                                                                     final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
+    private SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent(final String id,
+                                                                                         final Function<SpreadsheetColumnOrRowSpreadsheetComparatorNames, HistoryToken> setter) {
         this.flex = FlexLayoutComponent.row();
         this.root = CardComponent.empty()
             .setTitle("Append comparator(s)")
@@ -70,14 +66,14 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
      * Creates links to append each of the {@link walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName} that are missing from the current {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
      */
     void refresh(final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow,
-                 final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                 final List<SpreadsheetComparatorName> spreadsheetComparatorNames,
                  final SpreadsheetCellSortDialogComponentContext context) {
         this.flex.removeAllChildren();
         this.root.hide();
 
         if (columnOrRow.isPresent()) {
-            final List<SpreadsheetComparatorNameAndDirection> copy = Lists.array();
-            copy.addAll(spreadsheetComparatorNameAndDirections);
+            final List<SpreadsheetComparatorName> copy = Lists.array();
+            copy.addAll(spreadsheetComparatorNames);
 
             this.refresh0(
                 columnOrRow.get(),
@@ -88,7 +84,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
     }
 
     void refresh0(final SpreadsheetColumnOrRowReferenceOrRange columnOrRow,
-                  final List<SpreadsheetComparatorNameAndDirection> spreadsheetComparatorNameAndDirections,
+                  final List<SpreadsheetComparatorName> spreadsheetComparatorNames,
                   final SpreadsheetCellSortDialogComponentContext context) {
         final FlexLayoutComponent flex = this.flex;
 
@@ -96,27 +92,21 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
 
         final String idPrefix = this.id;
 
-        final Set<SpreadsheetComparatorName> existing = spreadsheetComparatorNameAndDirections.stream()
-            .map(SpreadsheetComparatorNameAndDirection::name)
-            .collect(Collectors.toSet());
-
-        final int addIndex = spreadsheetComparatorNameAndDirections.size();
+        final int addIndex = spreadsheetComparatorNames.size();
         int i = 0;
 
         for (final SpreadsheetComparatorInfo info : context.spreadsheetComparatorInfos()) {
 
             final SpreadsheetComparatorName comparatorName = info.name();
-            if (existing.contains(comparatorName)) {
+            if (spreadsheetComparatorNames.contains(comparatorName)) {
                 continue;
             }
 
-            spreadsheetComparatorNameAndDirections.add(
-                comparatorName.setDirection(SpreadsheetComparatorDirection.DEFAULT)
-            );
+            spreadsheetComparatorNames.add(comparatorName);
 
             final SpreadsheetColumnOrRowSpreadsheetComparatorNames append = SpreadsheetColumnOrRowSpreadsheetComparatorNames.with(
                 columnOrRow,
-                spreadsheetComparatorNameAndDirections
+                spreadsheetComparatorNames
             );
 
             flex.appendChild(
@@ -129,7 +119,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirect
                     )
             );
 
-            spreadsheetComparatorNameAndDirections.remove(addIndex);
+            spreadsheetComparatorNames.remove(addIndex);
 
             i++;
         }

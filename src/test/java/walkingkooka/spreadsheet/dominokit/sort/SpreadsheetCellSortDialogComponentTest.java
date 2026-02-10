@@ -114,7 +114,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Invalid Column Z is not within B2:C3\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -134,7 +134,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -193,7 +193,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Invalid Row 99 is not within B2:C3\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -213,7 +213,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -273,7 +273,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Missing '='\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -347,7 +347,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Missing comparator name\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -419,7 +419,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -439,7 +439,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -493,7 +493,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text,text2] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -513,7 +513,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -568,7 +568,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -588,7 +588,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -604,7 +604,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [C=text2] id=SpreadsheetCellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -625,7 +625,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -670,7 +670,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -690,7 +690,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -708,7 +708,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Duplicate Column B\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -729,7 +729,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -771,7 +771,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -791,7 +791,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -807,7 +807,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [C=text2] id=SpreadsheetCellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -828,7 +828,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -887,7 +887,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -907,7 +907,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -969,7 +969,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -989,7 +989,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1007,7 +1007,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Duplicate Column B\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1027,7 +1027,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1075,7 +1075,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [B=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/2=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1095,7 +1095,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1113,7 +1113,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Got Row 2 expected Column\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/2=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1133,7 +1133,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1179,7 +1179,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [3=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1199,7 +1199,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1261,7 +1261,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [3=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1281,7 +1281,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,text-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1297,7 +1297,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [4=text] id=SpreadsheetCellSort-comparatorNames-1-TextBox\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;3=text-case-insensitive;4=text] id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1317,7 +1317,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,text-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1335,7 +1335,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Duplicate Row 3\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;3=text-case-insensitive;4=text] id=SpreadsheetCellSort-comparatorNames-2-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-2-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1355,7 +1355,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-2-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-2-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-2-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1403,7 +1403,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                          [3=text] id=SpreadsheetCellSort-comparatorNames-0-TextBox\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/A=text;3=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1423,7 +1423,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
@@ -1441,7 +1441,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            Got Column A expected Row\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/A=text;3=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Append comparator(s)\n" +
@@ -1461,7 +1461,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,time] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,year] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent\n" +
+                "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
                 "                      Remove comparator(s)\n" +
