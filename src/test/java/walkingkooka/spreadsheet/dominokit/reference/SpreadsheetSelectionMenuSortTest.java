@@ -68,50 +68,50 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                 "    \"Date\" id=column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date%20UP] id=column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date%20DOWN] id=column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date] id=column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-reversed] id=column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-time%20UP] id=column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-time%20DOWN] id=column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-time] id=column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-time-reversed] id=column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-month%20UP] id=column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-month%20DOWN] id=column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-month] id=column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-month-reversed] id=column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week%20UP] id=column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week%20DOWN] id=column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week] id=column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week-reversed] id=column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-am-pm%20UP] id=column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-am-pm%20DOWN] id=column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-am-pm] id=column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-am-pm-reversed] id=column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day%20UP] id=column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day%20DOWN] id=column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day] id=column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day-reversed] id=column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour%20UP] id=column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour%20DOWN] id=column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour] id=column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour-reversed] id=column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=month-of-year%20UP] id=column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=month-of-year%20DOWN] id=column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=month-of-year] id=column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=month-of-year-reversed] id=column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=nano-of-second%20UP] id=column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=nano-of-second%20DOWN] id=column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=nano-of-second] id=column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=nano-of-second-reversed] id=column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=number%20UP] id=column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=number%20DOWN] id=column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=number] id=column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=number-reversed] id=column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute%20UP] id=column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute%20DOWN] id=column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute] id=column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute-reversed] id=column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text%20UP] id=column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text%20DOWN] id=column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text] id=column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-reversed] id=column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive%20UP] id=column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive%20DOWN] id=column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive] id=column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive-reversed] id=column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time%20UP] id=column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time%20DOWN] id=column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time] id=column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year%20UP] id=column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year%20DOWN] id=column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year] id=column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/A1/sort/edit/A=] id=column-sort-edit-MenuItem\n"
         );
@@ -134,50 +134,50 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             "\"Sort Row\" id=sort\n" +
                 "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
                 "    \"Date\" id=row-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date%20UP] id=row-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date%20DOWN] id=row-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date] id=row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-reversed] id=row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=row-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-time%20UP] id=row-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-time%20DOWN] id=row-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-time] id=row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-time-reversed] id=row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=row-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-month%20UP] id=row-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-month%20DOWN] id=row-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-month] id=row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-month-reversed] id=row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=row-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week%20UP] id=row-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week%20DOWN] id=row-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week] id=row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week-reversed] id=row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-am-pm%20UP] id=row-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-am-pm%20DOWN] id=row-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-am-pm] id=row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-am-pm-reversed] id=row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=row-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day%20UP] id=row-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day%20DOWN] id=row-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day] id=row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day-reversed] id=row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour%20UP] id=row-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour%20DOWN] id=row-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour] id=row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour-reversed] id=row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=row-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=month-of-year%20UP] id=row-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=month-of-year%20DOWN] id=row-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=month-of-year] id=row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=month-of-year-reversed] id=row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=row-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=nano-of-second%20UP] id=row-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=nano-of-second%20DOWN] id=row-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=nano-of-second] id=row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=nano-of-second-reversed] id=row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=row-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=number%20UP] id=row-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=number%20DOWN] id=row-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=number] id=row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=number-reversed] id=row-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute%20UP] id=row-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute%20DOWN] id=row-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute] id=row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute-reversed] id=row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=row-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text%20UP] id=row-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text%20DOWN] id=row-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text] id=row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-reversed] id=row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive%20UP] id=row-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive%20DOWN] id=row-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive] id=row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive-reversed] id=row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=row-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time%20UP] id=row-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time%20DOWN] id=row-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time] id=row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time-reversed] id=row-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=row-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year%20UP] id=row-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year%20DOWN] id=row-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year] id=row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year-reversed] id=row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/A12/sort/edit/12=] id=row-sort-edit-MenuItem\n"
         );
@@ -200,50 +200,50 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                 "    \"Date\" id=column-sort-date-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date%20UP] id=column-sort-date-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date%20DOWN] id=column-sort-date-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date] id=column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-reversed] id=column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=column-sort-date-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-time%20UP] id=column-sort-date-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-time%20DOWN] id=column-sort-date-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-time] id=column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-time-reversed] id=column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20UP] id=column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20DOWN] id=column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month] id=column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month-reversed] id=column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=column-sort-day-of-week-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week%20UP] id=column-sort-day-of-week-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week%20DOWN] id=column-sort-day-of-week-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week] id=column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week-reversed] id=column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-am-pm%20UP] id=column-sort-hour-of-am-pm-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-am-pm%20DOWN] id=column-sort-hour-of-am-pm-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-am-pm] id=column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-am-pm-reversed] id=column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=column-sort-hour-of-day-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day%20UP] id=column-sort-hour-of-day-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day%20DOWN] id=column-sort-hour-of-day-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day] id=column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day-reversed] id=column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour%20UP] id=column-sort-minute-of-hour-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour%20DOWN] id=column-sort-minute-of-hour-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour] id=column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour-reversed] id=column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=column-sort-month-of-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=month-of-year%20UP] id=column-sort-month-of-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=month-of-year%20DOWN] id=column-sort-month-of-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=month-of-year] id=column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=month-of-year-reversed] id=column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=column-sort-nano-of-second-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=nano-of-second%20UP] id=column-sort-nano-of-second-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=nano-of-second%20DOWN] id=column-sort-nano-of-second-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=nano-of-second] id=column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=nano-of-second-reversed] id=column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=column-sort-number-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=number%20UP] id=column-sort-number-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=number%20DOWN] id=column-sort-number-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=number] id=column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=number-reversed] id=column-sort-number-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute%20UP] id=column-sort-seconds-of-minute-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute%20DOWN] id=column-sort-seconds-of-minute-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute] id=column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute-reversed] id=column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=column-sort-text-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text%20UP] id=column-sort-text-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text%20DOWN] id=column-sort-text-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text] id=column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-reversed] id=column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive%20UP] id=column-sort-text-case-insensitive-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive%20DOWN] id=column-sort-text-case-insensitive-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive] id=column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive-reversed] id=column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time%20UP] id=column-sort-time-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time%20DOWN] id=column-sort-time-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time] id=column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20UP] id=column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20DOWN] id=column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year] id=column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B=] id=column-sort-edit-MenuItem\n"
         );
@@ -269,11 +269,11 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
                 "    \"Day Of Month\" id=column-sort-day-of-month-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20UP] id=column-sort-day-of-month-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month%20DOWN] id=column-sort-day-of-month-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month] id=column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-month-reversed] id=column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
-                "      \"Up\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20UP] id=column-sort-year-UP-MenuItem\n" +
-                "      \"Down\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year%20DOWN] id=column-sort-year-DOWN-MenuItem\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year] id=column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2/sort/edit/B=] id=column-sort-edit-MenuItem\n"
         );

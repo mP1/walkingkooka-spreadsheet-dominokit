@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.sort;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameAndDirection;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -108,7 +108,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         this.moveDownLink = moveDownLink;
         this.moveDown = moveDown;
 
-        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent.empty(
+        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent appender = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent.empty(
             id,
             (newNames) -> setter.apply(
                 Optional.of(newNames)
@@ -116,7 +116,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         );
         this.appender = appender;
 
-        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent.empty(
+        final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent remover = SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent.empty(
             id,
             setter
         );
@@ -140,8 +140,8 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
 
     void refresh(final String columnOrRowSpreadsheetComparatorNames,
                  final SpreadsheetCellSortDialogComponentContext context) {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent names = this.names;
-        names.setStringValue(
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent namesComponent = this.names;
+        namesComponent.setStringValue(
             Optional.ofNullable(
                 columnOrRowSpreadsheetComparatorNames.isEmpty() ?
                     null :
@@ -150,7 +150,7 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         );
 
         {
-            final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value = names.value();
+            final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value = namesComponent.value();
 
             this.moveUpLink.setHistoryToken(
                 this.moveUp.apply(value)
@@ -162,16 +162,16 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         }
 
         final Optional<SpreadsheetColumnOrRowReferenceOrRange> columnOrRow = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseColumnOrRow(columnOrRowSpreadsheetComparatorNames);
-        final List<SpreadsheetComparatorNameAndDirection> comparatorNameAndDirections = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseSpreadsheetComparatorNameAndDirections(columnOrRowSpreadsheetComparatorNames);
+        final List<SpreadsheetComparatorName> comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNames.tryParseSpreadsheetComparatorNames(columnOrRowSpreadsheetComparatorNames);
 
         this.appender.refresh(
             columnOrRow,
-            comparatorNameAndDirections,
+            comparatorNames,
             context
         );
         this.remover.refresh(
             columnOrRow,
-            comparatorNameAndDirections,
+            comparatorNames,
             context
         );
     }
@@ -186,9 +186,9 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
 
     private final Function<Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames>, Optional<HistoryToken>> moveDown;
 
-    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionAppenderComponent appender;
+    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent appender;
 
-    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAndDirectionRemoverComponent remover;
+    private final SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent remover;
 
     // ValueComponent...................................................................................................
 

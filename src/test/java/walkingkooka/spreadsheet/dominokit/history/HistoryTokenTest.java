@@ -1811,7 +1811,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveNotAnchoredSelection() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text UP");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text");
 
         final HistoryToken load = HistoryToken.spreadsheetLoad(ID);
 
@@ -1823,7 +1823,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveCell() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text UP");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("A=text");
 
         this.setSortSave(
             HistoryToken.cellSelect(
@@ -1843,7 +1843,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveCellRange() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("B=text UP;C=text DOWN");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("B=text;C=text-reversed");
 
         this.setSortSave(
             HistoryToken.cellSelect(
@@ -1863,7 +1863,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveColumn() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("AA=text UP");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("AA=text");
 
         this.setSortSave(
             HistoryToken.columnSelect(
@@ -1883,7 +1883,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveColumnRange() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("BB=text UP;CC=text DOWN");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("BB=text;CC=text-reversed");
 
         this.setSortSave(
             HistoryToken.columnSelect(
@@ -1903,7 +1903,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveRow() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("11=text UP");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("11=text");
 
         this.setSortSave(
             HistoryToken.rowSelect(
@@ -1923,7 +1923,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetSortSaveRowRange() {
-        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("22=text UP;33=text DOWN");
+        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames = SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse("22=text;33=text-reversed");
 
         this.setSortSave(
             HistoryToken.rowSelect(
