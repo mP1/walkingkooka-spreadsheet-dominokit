@@ -443,9 +443,9 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
             SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens.with(
                 COLUMN_OR_ROW,
                 COMPARATOR_NAMES,
-                TEXT
+                " after"
             ),
-            "A=number,text \"text1\""
+            "A=number,text after"
         );
     }
 
@@ -469,7 +469,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens.EMPTY_COMPARATOR_NAMES,
                 TEXT
             ),
-            "\"text1\""
+            "text1"
         );
     }
 
@@ -481,7 +481,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens.EMPTY_COMPARATOR_NAMES,
                 TEXT
             ),
-            "A=\"text1\""
+            "A=text1"
         );
     }
 

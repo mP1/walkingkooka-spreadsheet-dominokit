@@ -231,6 +231,10 @@ final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens implements Ha
             this.text.equals(other.text);
     }
 
+    /**
+     * Note it is possible that the {@link #toString()} representation may be ambiguous because {@link #text()},
+     * could hold one or more valid {@link SpreadsheetComparatorName}.
+     */
     @Override
     public String toString() {
         return ToStringBuilder.empty()
@@ -241,8 +245,8 @@ final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens implements Ha
             .separator(
                 this.comparatorNames.isEmpty() ?
                     SpreadsheetColumnOrRowSpreadsheetComparatorNames.COLUMN_ROW_AND_COMPARATOR_NAME_SEPARATOR.string() :
-                    " ")
-            .enable(ToStringBuilderOption.QUOTE)
+                    ""
+            ).disable(ToStringBuilderOption.QUOTE)
             .value(this.text)
             .build();
     }
