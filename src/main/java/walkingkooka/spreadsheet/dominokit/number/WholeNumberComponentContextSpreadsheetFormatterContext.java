@@ -243,6 +243,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     }
 
     @Override
+    public Optional<StoragePath> homeDirectory() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public StoragePath parseStoragePath(final String path) {
         throw new UnsupportedOperationException();
     }

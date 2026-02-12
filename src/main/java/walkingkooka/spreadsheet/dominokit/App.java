@@ -810,6 +810,16 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public Optional<StoragePath> homeDirectory() {
+        return this.spreadsheetEnvironmentContext().homeDirectory();
+    }
+
+    @Override
+    public void setHomeDirectory(final Optional<StoragePath> homeDirectory) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Indentation indentation() {
         return this.spreadsheetEnvironmentContext()
             .indentation();
@@ -1596,7 +1606,7 @@ public class App implements EntryPoint,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
-                this.currentWorkingDirectory(),
+                this, // HasUserDirectories
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),

@@ -297,6 +297,11 @@ public interface AppContext extends CanGiveFocus,
     }
 
     @Override
+    default void setHomeDirectory(final Optional<StoragePath> homeDirectory) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     default void setLocale(final Locale locale) {
         throw new UnsupportedOperationException();
     }
