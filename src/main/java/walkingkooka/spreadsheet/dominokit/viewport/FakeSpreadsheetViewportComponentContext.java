@@ -53,6 +53,7 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -99,6 +100,16 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
 
     @Override
     public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Currency currency() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
         throw new UnsupportedOperationException();
     }
 

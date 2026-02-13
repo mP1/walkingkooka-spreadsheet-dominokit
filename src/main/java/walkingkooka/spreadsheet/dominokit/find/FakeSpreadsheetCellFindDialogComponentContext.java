@@ -43,6 +43,7 @@ import walkingkooka.text.Indentation;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -128,6 +129,16 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public Currency currency() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+    
     @Override
     public Indentation indentation() {
         throw new UnsupportedOperationException();

@@ -210,6 +210,7 @@ import walkingkooka.validation.provider.ValidatorProviders;
 
 import java.math.MathContext;
 import java.time.LocalDateTime;
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -259,6 +260,8 @@ public class App implements EntryPoint,
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
 
     private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
+
+    private final static Currency CURRENCY = Currency.getInstance(LOCALE);
 
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
         LocaleContexts.jre(LOCALE)
@@ -434,6 +437,7 @@ public class App implements EntryPoint,
         this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
             Storages.fake(),
             EnvironmentContexts.empty(
+                CURRENCY,
                 Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                 LINE_ENDING,
                 LOCALE,
