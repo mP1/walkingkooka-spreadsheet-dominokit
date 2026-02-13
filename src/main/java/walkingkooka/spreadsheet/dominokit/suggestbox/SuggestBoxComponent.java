@@ -256,12 +256,12 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     // Value............................................................................................................
 
     @Override
-    public SuggestBoxComponent<T> setValue(final Optional<T> label) {
-        Objects.requireNonNull(label, "label");
+    public SuggestBoxComponent<T> setValue(final Optional<T> value) {
+        Objects.requireNonNull(value, "value");
 
-        if (label.isPresent()) {
+        if (value.isPresent()) {
             this.suggestBox.setValue(
-                label.get()
+                value.get()
             );
         } else {
             this.suggestBox.clear();
