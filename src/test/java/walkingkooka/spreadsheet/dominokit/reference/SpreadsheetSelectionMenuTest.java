@@ -113,6 +113,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -126,6 +127,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -139,6 +141,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -149,7 +152,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -165,7 +168,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -190,7 +193,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -215,7 +218,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -240,7 +243,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -265,7 +268,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -290,7 +293,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -315,7 +318,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -340,7 +343,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -349,7 +352,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -374,7 +377,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -399,7 +402,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -424,7 +427,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -449,7 +452,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -474,7 +477,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -499,7 +502,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -524,7 +527,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -545,7 +548,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -739,11 +742,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -937,11 +940,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -1135,11 +1138,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -1333,11 +1336,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -1531,7 +1534,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -1573,9 +1576,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -1586,7 +1589,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -1597,16 +1600,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -1657,6 +1660,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -1670,6 +1674,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -1683,6 +1688,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -1693,7 +1699,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -1709,7 +1715,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -1734,7 +1740,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -1759,7 +1765,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -1784,7 +1790,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -1809,7 +1815,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -1834,7 +1840,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -1859,7 +1865,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -1884,7 +1890,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -1893,7 +1899,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -1918,7 +1924,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -1943,7 +1949,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -1968,7 +1974,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -1993,7 +1999,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -2018,7 +2024,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -2043,7 +2049,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -2068,7 +2074,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -2089,7 +2095,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -2283,11 +2289,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -2481,11 +2487,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -2679,11 +2685,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -2877,11 +2883,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -3075,7 +3081,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -3121,9 +3127,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -3134,7 +3140,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -3145,16 +3151,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -3204,6 +3210,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -3217,6 +3224,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -3230,6 +3238,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -3240,7 +3249,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -3256,7 +3265,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -3281,7 +3290,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -3306,7 +3315,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -3331,7 +3340,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -3356,7 +3365,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -3381,7 +3390,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -3406,7 +3415,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -3431,7 +3440,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -3440,7 +3449,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -3465,7 +3474,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -3490,7 +3499,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -3515,7 +3524,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -3540,7 +3549,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -3565,7 +3574,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -3590,7 +3599,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -3615,7 +3624,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -3636,7 +3645,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -3830,11 +3839,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -4028,11 +4037,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -4226,11 +4235,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -4424,11 +4433,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -4622,7 +4631,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -4664,9 +4673,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -4677,7 +4686,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -4688,16 +4697,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -4758,6 +4767,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -4771,6 +4781,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -4784,6 +4795,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -4794,7 +4806,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -4810,7 +4822,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -4835,7 +4847,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -4860,7 +4872,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -4885,7 +4897,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -4910,7 +4922,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -4935,7 +4947,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -4960,7 +4972,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -4985,7 +4997,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -4994,7 +5006,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -5019,7 +5031,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -5044,7 +5056,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -5069,7 +5081,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -5094,7 +5106,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -5119,7 +5131,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -5144,7 +5156,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -5169,7 +5181,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -5190,7 +5202,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -5384,11 +5396,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -5582,11 +5594,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -5780,11 +5792,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -5978,11 +5990,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -6176,7 +6188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "    -----\n" +
@@ -6222,9 +6234,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -6235,7 +6247,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -6246,16 +6258,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -6322,6 +6334,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -6335,6 +6348,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -6348,6 +6362,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -6358,7 +6373,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -6374,7 +6389,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -6399,7 +6414,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -6424,7 +6439,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -6449,7 +6464,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -6474,7 +6489,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -6499,7 +6514,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -6524,7 +6539,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -6549,7 +6564,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -6558,7 +6573,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -6583,7 +6598,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -6608,7 +6623,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -6633,7 +6648,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -6658,7 +6673,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -6683,7 +6698,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -6708,7 +6723,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -6733,7 +6748,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -6754,7 +6769,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -6948,11 +6963,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -7146,11 +7161,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -7344,11 +7359,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -7542,11 +7557,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -7740,7 +7755,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -7790,9 +7805,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -7803,7 +7818,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -7814,16 +7829,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -7874,6 +7889,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -7887,6 +7903,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -7900,6 +7917,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -7910,7 +7928,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -7926,7 +7944,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -7951,7 +7969,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -7976,7 +7994,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -8001,7 +8019,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -8026,7 +8044,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -8051,7 +8069,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -8076,7 +8094,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -8101,7 +8119,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -8110,7 +8128,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -8135,7 +8153,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -8160,7 +8178,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -8185,7 +8203,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -8210,7 +8228,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -8235,7 +8253,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -8260,7 +8278,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -8285,7 +8303,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -8306,7 +8324,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -8500,11 +8518,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -8698,11 +8716,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -8896,11 +8914,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -9094,11 +9112,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -9292,7 +9310,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -9334,9 +9352,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -9347,7 +9365,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -9358,16 +9376,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -9418,6 +9436,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -9431,6 +9450,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -9444,6 +9464,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -9454,7 +9475,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -9470,7 +9491,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -9495,7 +9516,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -9520,7 +9541,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -9545,7 +9566,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -9570,7 +9591,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -9595,7 +9616,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -9620,7 +9641,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -9645,7 +9666,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -9654,7 +9675,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -9679,7 +9700,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -9704,7 +9725,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -9729,7 +9750,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -9754,7 +9775,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -9779,7 +9800,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -9804,7 +9825,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -9829,7 +9850,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -9850,7 +9871,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -10044,11 +10065,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -10242,11 +10263,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -10440,11 +10461,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -10638,11 +10659,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -10836,7 +10857,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -10878,9 +10899,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -10891,7 +10912,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -10902,16 +10923,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -10962,6 +10983,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -10975,6 +10997,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -10988,6 +11011,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -10998,7 +11022,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -11014,7 +11038,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -11039,7 +11063,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -11064,7 +11088,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -11089,7 +11113,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -11114,7 +11138,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -11139,7 +11163,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -11164,7 +11188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -11189,7 +11213,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -11198,7 +11222,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -11223,7 +11247,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -11248,7 +11272,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -11273,7 +11297,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -11298,7 +11322,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -11323,7 +11347,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -11348,7 +11372,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -11373,7 +11397,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -11394,7 +11418,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -11588,11 +11612,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -11786,11 +11810,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -11984,11 +12008,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -12182,11 +12206,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -12380,7 +12404,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -12422,9 +12446,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -12435,7 +12459,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -12446,16 +12470,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -12509,6 +12533,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -12522,6 +12547,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -12535,6 +12561,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -12545,7 +12572,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -12561,7 +12588,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -12586,7 +12613,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -12611,7 +12638,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -12636,7 +12663,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -12661,7 +12688,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -12686,7 +12713,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -12711,7 +12738,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -12736,7 +12763,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -12745,7 +12772,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -12770,7 +12797,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -12795,7 +12822,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -12820,7 +12847,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -12845,7 +12872,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -12870,7 +12897,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -12895,7 +12922,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -12920,7 +12947,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -12941,7 +12968,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -13135,11 +13162,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -13333,11 +13360,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -13531,11 +13558,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -13729,11 +13756,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -13927,7 +13954,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -13972,9 +13999,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -13985,7 +14012,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -13996,16 +14023,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -14056,6 +14083,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -14069,6 +14097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -14082,6 +14111,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -14092,7 +14122,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -14108,7 +14138,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -14133,7 +14163,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -14158,7 +14188,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -14183,7 +14213,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -14208,7 +14238,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -14233,7 +14263,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -14258,7 +14288,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -14283,7 +14313,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -14292,7 +14322,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -14317,7 +14347,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -14342,7 +14372,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -14367,7 +14397,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -14392,7 +14422,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -14417,7 +14447,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -14442,7 +14472,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -14467,7 +14497,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -14488,7 +14518,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -14682,11 +14712,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -14880,11 +14910,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -15078,11 +15108,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -15276,11 +15306,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -15474,7 +15504,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -15519,9 +15549,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator 111\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-111] id=test-validator-recent-0-MenuItem\n" +
                 "    \"Validator 222\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-222] id=test-validator-recent-1-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -15532,7 +15562,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -15543,16 +15573,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -15606,6 +15636,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -15619,6 +15650,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -15632,6 +15664,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -15642,7 +15675,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -15658,7 +15691,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -15683,7 +15716,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -15708,7 +15741,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -15733,7 +15766,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -15758,7 +15791,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -15783,7 +15816,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -15808,7 +15841,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -15833,7 +15866,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -15842,7 +15875,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -15867,7 +15900,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -15892,7 +15925,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -15917,7 +15950,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -15942,7 +15975,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -15967,7 +16000,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -15992,7 +16025,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -16017,7 +16050,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -16038,7 +16071,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -16232,11 +16265,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -16430,11 +16463,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -16628,11 +16661,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -16826,11 +16859,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -17024,7 +17057,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -17069,9 +17102,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator 111\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-111] id=test-validator-recent-0-MenuItem\n" +
                 "    \"Validator 222\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-222] id=test-validator-recent-1-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -17082,7 +17115,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -17093,16 +17126,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -17150,6 +17183,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -17163,6 +17197,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -17176,6 +17211,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -17186,7 +17222,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -17202,7 +17238,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -17227,7 +17263,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -17252,7 +17288,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -17277,7 +17313,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -17302,7 +17338,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -17327,7 +17363,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -17352,7 +17388,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -17377,7 +17413,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -17386,7 +17422,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -17411,7 +17447,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -17436,7 +17472,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -17461,7 +17497,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -17486,7 +17522,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -17511,7 +17547,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -17536,7 +17572,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -17561,7 +17597,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -17582,7 +17618,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -17776,11 +17812,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -17974,11 +18010,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -18172,11 +18208,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -18370,11 +18406,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -18568,7 +18604,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -18610,9 +18646,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -18623,7 +18659,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -18634,16 +18670,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -18697,6 +18733,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -18710,6 +18747,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -18723,6 +18761,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -18733,7 +18772,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -18749,7 +18788,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -18774,7 +18813,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -18799,7 +18838,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -18824,7 +18863,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -18849,7 +18888,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -18874,7 +18913,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -18899,7 +18938,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -18924,7 +18963,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -18933,7 +18972,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -18958,7 +18997,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -18983,7 +19022,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -19008,7 +19047,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -19033,7 +19072,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -19058,7 +19097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -19083,7 +19122,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -19108,7 +19147,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -19129,7 +19168,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -19323,11 +19362,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -19521,11 +19560,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -19719,11 +19758,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -19917,11 +19956,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -20115,7 +20154,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -20157,9 +20196,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -20170,7 +20209,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -20181,16 +20220,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -20242,6 +20281,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -20255,6 +20295,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -20268,6 +20309,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -20278,7 +20320,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -20294,7 +20336,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -20319,7 +20361,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -20344,7 +20386,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -20369,7 +20411,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -20394,7 +20436,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -20419,7 +20461,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -20444,7 +20486,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -20469,7 +20511,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -20478,7 +20520,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -20503,7 +20545,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -20528,7 +20570,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -20553,7 +20595,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -20578,7 +20620,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -20603,7 +20645,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -20628,7 +20670,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -20653,7 +20695,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -20674,7 +20716,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -20868,11 +20910,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -21066,11 +21108,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -21264,11 +21306,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -21462,11 +21504,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -21660,7 +21702,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -21702,9 +21744,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -21715,7 +21757,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -21726,16 +21768,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -21768,13 +21810,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             context
         );
 
-        // too avoid java "String too long" replace TR\n PLUS with TR\n COMMA
+        // too avoid java "String too long" replace TABLE\n and TR\n PLUS with TABLE\n COMMA and TR\n COMMA
         this.treePrintAndCheck2(
             menu,
             "\"Cell B2:C3 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -21788,6 +21831,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -21801,6 +21845,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -21811,7 +21856,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -22207,10 +22252,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-1-Link\n" +
@@ -22235,7 +22280,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-8-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-9-Link\n" +
@@ -22260,7 +22305,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-16-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-17-Link\n" +
@@ -22285,7 +22330,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-24-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-25-Link\n" +
@@ -22310,7 +22355,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-32-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-33-Link\n" +
@@ -22335,7 +22380,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-40-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-41-Link\n" +
@@ -22360,7 +22405,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-48-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-49-Link\n" +
@@ -22385,7 +22430,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-top-color-color-56-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
@@ -22405,10 +22450,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-1-Link\n" +
@@ -22433,7 +22478,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-8-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-9-Link\n" +
@@ -22458,7 +22503,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-16-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-17-Link\n" +
@@ -22483,7 +22528,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-24-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-25-Link\n" +
@@ -22508,7 +22553,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-32-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-33-Link\n" +
@@ -22533,7 +22578,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-40-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-41-Link\n" +
@@ -22558,7 +22603,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-48-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-49-Link\n" +
@@ -22583,7 +22628,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-left-color-color-56-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
@@ -22603,10 +22648,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-1-Link\n" +
@@ -22631,7 +22676,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-8-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-9-Link\n" +
@@ -22656,7 +22701,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-16-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-17-Link\n" +
@@ -22681,7 +22726,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-24-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-25-Link\n" +
@@ -22706,7 +22751,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-32-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-33-Link\n" +
@@ -22731,7 +22776,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-40-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-41-Link\n" +
@@ -22756,7 +22801,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-48-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-49-Link\n" +
@@ -22781,7 +22826,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-right-color-color-56-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
@@ -22801,10 +22846,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-1-Link\n" +
@@ -22829,7 +22874,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-8-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-9-Link\n" +
@@ -22854,7 +22899,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-16-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-17-Link\n" +
@@ -22879,7 +22924,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-24-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-25-Link\n" +
@@ -22904,7 +22949,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-32-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-33-Link\n" +
@@ -22929,7 +22974,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-40-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-41-Link\n" +
@@ -22954,7 +22999,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-48-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-49-Link\n" +
@@ -22979,7 +23024,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-bottom-color-color-56-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
@@ -22999,10 +23044,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-1-Link\n" +
@@ -23027,7 +23072,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-8-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-9-Link\n" +
@@ -23052,7 +23097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-16-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-17-Link\n" +
@@ -23077,7 +23122,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-24-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-25-Link\n" +
@@ -23102,7 +23147,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-32-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-33-Link\n" +
@@ -23127,7 +23172,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-40-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-41-Link\n" +
@@ -23152,7 +23197,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-48-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-49-Link\n" +
@@ -23177,7 +23222,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-border-color-color-56-Link\n" +
-                "                  TR\n",
+                "                  TR\n" +
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
@@ -23235,9 +23280,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -23248,7 +23293,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -23259,7 +23304,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -23356,16 +23401,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -23403,6 +23448,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -23416,6 +23462,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -23429,6 +23476,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -23439,7 +23487,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -23455,7 +23503,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -23480,7 +23528,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -23505,7 +23553,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -23530,7 +23578,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -23555,7 +23603,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -23580,7 +23628,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -23605,7 +23653,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -23630,7 +23678,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -23639,7 +23687,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -23664,7 +23712,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -23689,7 +23737,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -23714,7 +23762,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -23739,7 +23787,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -23764,7 +23812,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -23789,7 +23837,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -23814,7 +23862,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -23835,7 +23883,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -24029,11 +24077,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -24227,11 +24275,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -24425,11 +24473,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -24623,11 +24671,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -24821,7 +24869,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -24863,9 +24911,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -24876,7 +24924,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -24887,16 +24935,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -24936,6 +24984,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
@@ -24949,6 +24998,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
@@ -24962,6 +25012,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
                 "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
                 "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
@@ -24972,7 +25023,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -24988,7 +25039,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -25013,7 +25064,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -25038,7 +25089,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -25063,7 +25114,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -25088,7 +25139,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -25113,7 +25164,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -25138,7 +25189,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -25163,7 +25214,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -25172,7 +25223,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -25197,7 +25248,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -25222,7 +25273,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -25247,7 +25298,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -25272,7 +25323,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -25297,7 +25348,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -25322,7 +25373,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -25347,7 +25398,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -25368,7 +25419,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -25562,11 +25613,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -25760,11 +25811,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -25958,11 +26009,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -26156,11 +26207,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
-                "            TABLE\n" +
+                "            TABLE\n",
                 "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
                 "                  TR\n" +
@@ -26354,7 +26405,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
                 "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
                 "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n", // long line break +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -26396,115 +26447,19 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
                 "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
-        );
-    }
-
-    @Test
-    public void testColumn() {
-        final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SPREADSHEET_ID, // id
-            SPREADSHEET_NAME, // name
-            SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
-        );
-        final SpreadsheetSelectionMenuContext context = this.context(token);
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Column-MenuId",
-                "Column B Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenu.build(
-            token,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck2(
-            menu,
-            "\"Column B Menu\" id=Column-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/column/B/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "    \"1\" [/1/SpreadsheetName-1/column/B/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "    \"2\" [/1/SpreadsheetName-1/column/B/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "    \"3\" [/1/SpreadsheetName-1/column/B/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "    \"...\" [/1/SpreadsheetName-1/column/B/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                "  (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "    \"1\" [/1/SpreadsheetName-1/column/B/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "    \"2\" [/1/SpreadsheetName-1/column/B/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "    \"3\" [/1/SpreadsheetName-1/column/B/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "    \"...\" [/1/SpreadsheetName-1/column/B/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
-                "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
-                "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
-                "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
-                "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
-                "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
-                "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
-                "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
-                "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
-                "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
-                "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
-                "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
-                "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
-                "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
-                "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
-                "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/column/B/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Freeze\" id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
     }
 
@@ -26538,7 +26493,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Column B:C Menu\" id=Column-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/left/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/left/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -26549,7 +26504,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -26598,7 +26553,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -26634,7 +26589,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Column B:C Menu\" id=Column-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/right/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/right/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
@@ -26645,7 +26600,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -26694,7 +26649,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -26730,7 +26685,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -26741,7 +26696,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -26790,7 +26745,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -26826,7 +26781,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/top/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/top/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -26837,7 +26792,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -26886,7 +26841,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -26922,7 +26877,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/bottom/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/bottom/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "    \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
                 "    \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
@@ -26933,7 +26888,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "    \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "    \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -26982,7 +26937,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n" +
+                "  -----\n",
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );

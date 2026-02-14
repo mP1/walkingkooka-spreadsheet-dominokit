@@ -51,6 +51,7 @@ import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -192,6 +193,56 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
                 toMap(
                     range,
                     (SpreadsheetCell cell) -> cell.formula().text()
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link walkingkooka.datetime.DateTimeSymbols}.
+     */
+    CURRENCY (
+        Currency.class,
+        SpreadsheetMediaTypes.JSON_CURRENCY,
+        SpreadsheetCell::currency,
+        "currency"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.currency(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final AppContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setCurrency(
+                context.unmarshallOptional(
+                    node,
+                    Currency.class
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsCurrency(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::currency
                 )
             );
         }
@@ -846,6 +897,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     private final static List<SpreadsheetCellClipboardKind> VALUES = Lists.of(
         CELL,
         FORMULA,
+        CURRENCY,
         DATE_TIME_SYMBOLS,
         DECIMAL_NUMBER_SYMBOLS,
         LOCALE,

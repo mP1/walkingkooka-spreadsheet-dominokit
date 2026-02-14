@@ -68,6 +68,7 @@ import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -732,6 +733,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchCellsCurrency(final SpreadsheetId id,
+                                   final SpreadsheetSelection selection,
+                                   final Map<SpreadsheetCellReference, Optional<Currency>> cellToCurrency) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.cellsCurrencyPatch(
+                cellToCurrency,
+                this.context
+            )
+        );
+    }
+    
     public void patchCellsDateTimeSymbols(final SpreadsheetId id,
                                           final SpreadsheetSelection selection,
                                           final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols) {
