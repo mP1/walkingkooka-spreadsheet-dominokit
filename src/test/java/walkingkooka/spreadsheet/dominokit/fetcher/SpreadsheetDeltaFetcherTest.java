@@ -433,6 +433,9 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                     @Override
                     public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                         return JsonNodeUnmarshallContexts.basic(
+                            (String cc) -> {
+                                throw new UnsupportedOperationException();
+                            },
                             ExpressionNumberKind.BIG_DECIMAL,
                             MathContext.UNLIMITED
                         );

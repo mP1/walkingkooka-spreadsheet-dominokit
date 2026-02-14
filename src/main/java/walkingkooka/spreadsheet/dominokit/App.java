@@ -29,6 +29,7 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.currency.CanCurrencyForCurrencyCode;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
@@ -263,6 +264,10 @@ public class App implements EntryPoint,
 
     private final static Currency CURRENCY = Currency.getInstance(LOCALE);
 
+    private final static CanCurrencyForCurrencyCode CAN_CURRENCY_FOR_CURRENCY_CODE = (String cc) -> Optional.ofNullable(
+        Currency.getInstance(cc)
+    );
+
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
         LocaleContexts.jre(LOCALE)
     );
@@ -297,6 +302,7 @@ public class App implements EntryPoint,
         );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+            CAN_CURRENCY_FOR_CURRENCY_CODE,
             ExpressionNumberKind.DEFAULT,
             MathContext.DECIMAL32
         );
@@ -1277,6 +1283,7 @@ public class App implements EntryPoint,
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
+                CAN_CURRENCY_FOR_CURRENCY_CODE,
                 metadata.expressionNumberKind(),
                 metadata.mathContext()
             );
