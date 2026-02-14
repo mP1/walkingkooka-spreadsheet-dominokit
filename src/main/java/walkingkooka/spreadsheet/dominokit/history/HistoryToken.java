@@ -81,6 +81,7 @@ import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.math.MathContext;
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -314,6 +315,9 @@ public abstract class HistoryToken implements HasUrlFragment {
     final static JsonNodeMarshallUnmarshallContext MARSHALL_UNMARSHALL_CONTEXT = JsonNodeMarshallUnmarshallContexts.basic(
         JsonNodeMarshallContexts.basic(),
         JsonNodeUnmarshallContexts.basic(
+            (String cc) -> Optional.ofNullable(
+                Currency.getInstance(cc)
+            ),
             ExpressionNumberKind.BIG_DECIMAL,
             MathContext.DECIMAL64
         )
