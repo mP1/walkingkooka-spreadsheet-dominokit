@@ -53,6 +53,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
@@ -378,6 +379,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testMediaTypeClassCurrency() {
+        this.mediaTypeClassAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            Currency.class
+        );
+    }
+
+    @Test
     public void testMediaTypeClassStyle() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
@@ -441,6 +450,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             UrlFragment.with("formula")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentCurrency() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            UrlFragment.with("currency")
         );
     }
 
