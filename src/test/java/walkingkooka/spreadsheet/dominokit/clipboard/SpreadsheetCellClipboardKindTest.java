@@ -107,7 +107,6 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 .sorted()
                 .collect(Collectors.joining(", ")),
             Arrays.stream(SpreadsheetCellClipboardKind.values())
-                .filter(k -> k != SpreadsheetCellClipboardKind.FORMATTED_VALUE)
                 .map(Enum::name)
                 .sorted()
                 .collect(Collectors.joining(", "))
