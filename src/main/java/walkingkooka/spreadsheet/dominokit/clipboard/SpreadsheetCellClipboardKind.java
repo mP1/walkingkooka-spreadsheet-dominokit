@@ -900,14 +900,14 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         CURRENCY,
         DATE_TIME_SYMBOLS,
         DECIMAL_NUMBER_SYMBOLS,
-        LOCALE,
         FORMATTER,
+        LOCALE,
         PARSER,
         STYLE,
-        FORMATTED_VALUE,
+        VALIDATOR,
         VALUE,
         VALUE_TYPE,
-        VALIDATOR
+        FORMATTED_VALUE
     );
 
     static {
