@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.spreadsheet.value.SpreadsheetCellValueKind;
 import walkingkooka.test.ParseStringTesting;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -53,11 +54,13 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 
+import java.util.Arrays;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -95,6 +98,21 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             TextNode.text("Formatted-value - Hello123")
         )
     );
+
+    @Test
+    public void testEnumOrderingMatchesSpreadsheetCellValueKind() {
+        this.checkEquals(
+            Arrays.stream(SpreadsheetCellValueKind.values())
+                .map(Enum::name)
+                .sorted()
+                .collect(Collectors.joining(", ")),
+            Arrays.stream(SpreadsheetCellClipboardKind.values())
+                .filter(k -> k != SpreadsheetCellClipboardKind.FORMATTED_VALUE)
+                .map(Enum::name)
+                .sorted()
+                .collect(Collectors.joining(", "))
+        );
+    }
 
     // predicate........................................................................................................
 
