@@ -1175,8 +1175,10 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public Optional<String> localeText(final Locale locale) {
+    public Optional<String> localeText(final Locale locale,
+                                       final Locale requestedLocale) {
         Objects.requireNonNull(locale, "locale");
+        Objects.requireNonNull(requestedLocale, "requestedLocale");
 
         return Optional.ofNullable(
             this.localeToText.get(locale)
