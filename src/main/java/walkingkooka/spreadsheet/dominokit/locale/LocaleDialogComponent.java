@@ -135,13 +135,15 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
 
                     @Override
                     public Optional<LocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
-                        return context.localeText(locale)
-                            .map(t -> LocaleComponentSuggestionsValue.with(
-                                    locale,
-                                    t,
-                                    locale
-                                )
-                            );
+                        return context.localeText(
+                            locale,
+                            LocaleDialogComponent.this.context.locale()
+                        ).map(t -> LocaleComponentSuggestionsValue.with(
+                                locale,
+                                t,
+                                locale
+                            )
+                        );
                     }
 
                     @Override
@@ -169,8 +171,10 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
 
                         if (null != value) {
                             final Locale locale = value.locale();
-                            final String localeText = LocaleDialogComponent.this.context.localeText(locale)
-                                .orElse(null);
+                            final String localeText = LocaleDialogComponent.this.context.localeText(
+                                locale,
+                                LocaleDialogComponent.this.context.locale()
+                            ).orElse(null);
                             verified = LocaleComponentSuggestionsValue.with(
                                 locale,
                                 localeText,
