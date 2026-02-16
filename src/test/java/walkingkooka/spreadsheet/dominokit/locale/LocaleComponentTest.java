@@ -56,8 +56,7 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
         @Override
         public Set<Locale> findByLocaleText(final String text,
                                             final int offset,
-                                            final int count,
-                                            final Locale locale) {
+                                            final int count) {
             if (LocaleContexts.CASE_SENSITIVITY.equals(text, ENGLISH_AUSTRALIA_TEXT)) {
                 return Sets.of(ENAU);
             }
