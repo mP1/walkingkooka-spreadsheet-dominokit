@@ -122,13 +122,9 @@ final class SpreadsheetSelectionMenuLocale {
 
         int i = 0;
 
-        final Locale requestedLocale = context.locale();
-
         for (final Locale locale : context.recentLocales()) {
-            final String text = context.localeText(
-                locale,
-                requestedLocale
-            ).orElse(locale.toLanguageTag());
+            final String text = context.localeText(locale)
+                .orElse(locale.toLanguageTag());
 
             menu.item(
                 SpreadsheetContextMenuItem.with(

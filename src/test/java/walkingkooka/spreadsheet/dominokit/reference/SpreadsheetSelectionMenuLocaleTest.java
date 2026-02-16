@@ -116,10 +116,9 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             }
 
             @Override
-            public Optional<String> localeText(final Locale locale,
-                                               final Locale requestedLocale) {
+            public Optional<String> localeText(final Locale locale) {
                 return Optional.of(
-                    locale.getDisplayName(requestedLocale)
+                    locale.getDisplayName()
                 );
             }
 
@@ -138,11 +137,6 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
                             )
                         )
                 );
-            }
-
-            @Override
-            public Locale locale() {
-                return Locale.forLanguageTag("en-AU");
             }
         };
     }

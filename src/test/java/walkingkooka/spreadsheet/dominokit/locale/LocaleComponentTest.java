@@ -71,8 +71,7 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
         }
 
         @Override
-        public Optional<String> localeText(final Locale locale,
-                                           final Locale requestedLocale) {
+        public Optional<String> localeText(final Locale locale) {
             return Optional.ofNullable(
                 ENAU.equals(locale) ?
                     ENGLISH_AUSTRALIA_TEXT :
@@ -128,15 +127,12 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
 
                 @Override
                 public Optional<LocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
-                    return CONTEXT.localeText(
-                        locale,
-                        ENAU
-                    ).map(t -> LocaleComponentSuggestionsValue.with(
+                    return CONTEXT.localeText(locale)
+                        .map(t -> LocaleComponentSuggestionsValue.with(
                             locale,
                             t,
                             locale
-                        )
-                    );
+                        ));
                 }
 
                 @Override
