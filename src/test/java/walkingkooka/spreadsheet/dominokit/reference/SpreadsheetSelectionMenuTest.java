@@ -26999,10 +26999,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public Optional<String> localeText(final Locale locale,
-                                               final Locale requestedLocale) {
+            public Optional<String> localeText(final Locale locale) {
                 return Optional.of(
-                    locale.getDisplayName(requestedLocale)
+                    locale.getDisplayName()
                 );
             }
 
@@ -27078,11 +27077,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 ).loadFromLocale(
                     LocaleContexts.jre(LOCALE)
                 );
-            }
-
-            @Override
-            public Locale locale() {
-                return LOCALE;
             }
         };
     }
