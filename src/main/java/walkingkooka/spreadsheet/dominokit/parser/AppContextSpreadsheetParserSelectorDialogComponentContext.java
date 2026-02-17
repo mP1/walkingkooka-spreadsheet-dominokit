@@ -73,11 +73,6 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     }
 
     @Override
-    public void setLocale(final Locale locale) {
-        this.context.setLocale(locale);
-    }
-
-    @Override
     public SpreadsheetParserSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
         throw new UnsupportedOperationException();
     }

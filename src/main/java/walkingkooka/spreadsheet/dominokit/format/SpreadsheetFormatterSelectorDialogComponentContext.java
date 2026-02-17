@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
 
-import java.util.Locale;
 import java.util.Optional;
 
 /**
@@ -77,8 +76,8 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      */
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 
-    @Override
-    default void setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
+//    @Override
+//    default void setLocale(final Locale locale) {
+//        throw new UnsupportedOperationException();
+//    }
 }

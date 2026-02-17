@@ -30,6 +30,7 @@ import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.currency.CanCurrencyForCurrencyCode;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
@@ -38,6 +39,7 @@ import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
@@ -1186,6 +1188,16 @@ public class App implements EntryPoint,
     private Map<Locale, String> localeToText = Maps.empty();
 
     // LocaleContextDelegator...........................................................................................
+
+    @Override
+    public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
+        return LOCALE_CONTEXT.dateTimeSymbolsForLocale(locale);
+    }
+
+    @Override
+    public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
+        return LOCALE_CONTEXT.decimalNumberSymbolsForLocale(locale);
+    }
 
     @Override
     public LocaleContext localeContext() {
