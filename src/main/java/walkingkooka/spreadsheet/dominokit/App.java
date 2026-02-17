@@ -30,6 +30,7 @@ import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.currency.CanCurrencyForCurrencyCode;
+import walkingkooka.currency.CurrencyContext;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
@@ -227,6 +228,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
     AppContext,
     ConverterFetcherWatcher,
+    CurrencyContext,
     DateTimeSymbolsFetcherWatcher,
     DecimalNumberSymbolsFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
@@ -456,6 +458,7 @@ public class App implements EntryPoint,
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
+            this, // CurrencyContext
             this.spreadsheetEnvironmentContext(),
             this.jsonNodeMarshallUnmarshallContext(),
             LocaleContexts.jre(LOCALE)
@@ -671,6 +674,47 @@ public class App implements EntryPoint,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
                          final Set<MissingConverter> missingConverters) {
         // NOP
+    }
+
+    // CurrencyContext..................................................................................................
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Currency> availableCurrencies() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> currencyText(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Currency> currencyForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Currency> findByCurrencyText(final String text,
+                                            final int offset,
+                                            final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Number exchangeRate(final Currency from,
+                               final Currency to,
+                               final Optional<LocalDateTime> dateTime) {
+        throw new UnsupportedOperationException();
     }
 
     // SpreadsheetDeltaFetcher..........................................................................................
@@ -1307,6 +1351,7 @@ public class App implements EntryPoint,
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
                 PluginStores.fake(),
+                this, // CurrencyContext
                 spreadsheetEnvironmentContext,
                 this.jsonNodeMarshallUnmarshallContext(),
                 this.localeContext()
@@ -1522,6 +1567,7 @@ public class App implements EntryPoint,
     private void refreshSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
+            this, // CurrencyContext
             this.environmentContext(),
             this.jsonNodeMarshallUnmarshallContext(),
             this.localeContext()
@@ -1633,6 +1679,7 @@ public class App implements EntryPoint,
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
+                this, // CurrencyContext
                 this, // LocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext

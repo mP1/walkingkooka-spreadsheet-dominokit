@@ -50,6 +50,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -136,6 +137,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     @Override
     public boolean canNumbersHaveGroupSeparator() {
         return false;
+    }
+
+    @Override
+    public Optional<Currency> currencyForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
