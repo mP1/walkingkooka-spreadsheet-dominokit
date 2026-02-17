@@ -456,6 +456,21 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        Objects.requireNonNull(languageTag, "languageTag");
+
+        Locale locale;
+
+        try {
+            locale = Locale.forLanguageTag(languageTag);
+        } catch (final IllegalArgumentException cause) {
+            locale = null;
+        }
+
+        return Optional.ofNullable(locale);
+    }
+
+    @Override
     public Optional<String> localeText(final Locale locale) {
         throw new UnsupportedOperationException();
     }

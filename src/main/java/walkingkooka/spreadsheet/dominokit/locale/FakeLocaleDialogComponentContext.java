@@ -93,6 +93,11 @@ public class FakeLocaleDialogComponentContext extends FakeDialogComponentContext
     }
 
     @Override
+    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<String> localeText(final Locale locale) {
         throw new UnsupportedOperationException();
     }
