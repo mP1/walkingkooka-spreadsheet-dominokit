@@ -237,6 +237,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     // LocaleContextDelegator...........................................................................................
 
     @Override
+    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public LocaleContext localeContext() {
         throw new UnsupportedOperationException();
     }

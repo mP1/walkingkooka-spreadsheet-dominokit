@@ -436,6 +436,9 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                             (String cc) -> {
                                 throw new UnsupportedOperationException();
                             },
+                            (String lt) -> {
+                                throw new UnsupportedOperationException();
+                            },
                             ExpressionNumberKind.BIG_DECIMAL,
                             MathContext.UNLIMITED
                         );

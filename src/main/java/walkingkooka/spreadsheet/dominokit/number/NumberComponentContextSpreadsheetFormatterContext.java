@@ -237,6 +237,11 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     // LocaleContextDelegator...........................................................................................
 
     @Override
+    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        return LOCALE_CONTEXT.localeForLanguageTag(languageTag);
+    }
+
+    @Override
     public LocaleContext localeContext() {
         return LOCALE_CONTEXT;
     }
