@@ -1244,6 +1244,11 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        return LOCALE_CONTEXT.localeForLanguageTag(languageTag);
+    }
+
+    @Override
     public LocaleContext localeContext() {
         return LOCALE_CONTEXT;
     }
