@@ -849,7 +849,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     new FakeAppContext() {
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                            return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                            return METADATA_EN_AU.jsonNodeUnmarshallContext(
+                                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
+                                LOCALE_CONTEXT // CanLocaleForLanguageTag
+                            );
                         }
                     })
         );
@@ -953,7 +956,10 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     new FakeAppContext() {
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                            return METADATA_EN_AU.jsonNodeUnmarshallContext();
+                            return METADATA_EN_AU.jsonNodeUnmarshallContext(
+                                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
+                                LOCALE_CONTEXT // CanLocaleForLanguageTag
+                            );
                         }
 
                         @Override
