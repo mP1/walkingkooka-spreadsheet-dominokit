@@ -135,7 +135,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
 
                     @Override
                     public Optional<LocaleComponentSuggestionsValue<Locale>> toValue(final Locale locale) {
-                        return context.localeText(locale)
+                        return LocaleDialogComponent.this.context.localeText(locale)
                             .map(t -> LocaleComponentSuggestionsValue.with(
                                     locale,
                                     t,
