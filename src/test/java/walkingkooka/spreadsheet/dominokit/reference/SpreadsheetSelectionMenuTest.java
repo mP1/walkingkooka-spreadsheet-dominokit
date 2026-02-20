@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
-import walkingkooka.locale.LocaleContexts;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
@@ -27074,9 +27073,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 return SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.LOCALE,
                     LOCALE
-                ).loadFromLocale(
-                    LocaleContexts.jre(LOCALE)
-                );
+                ).loadFromLocale(CURRENCY_LOCALE_CONTEXT);
             }
         };
     }
