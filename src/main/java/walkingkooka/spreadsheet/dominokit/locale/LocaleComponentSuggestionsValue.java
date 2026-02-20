@@ -30,6 +30,9 @@ import walkingkooka.util.HasLocale;
 import java.util.Locale;
 import java.util.Objects;
 
+/**
+ * A value that uses a {@link Locale} as the key along with a value such as a {@link DateTimeSymbols}, {@link DecimalNumberSymbols} or {@link Locale}.
+ */
 public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
     HasText,
     Value<T>,
