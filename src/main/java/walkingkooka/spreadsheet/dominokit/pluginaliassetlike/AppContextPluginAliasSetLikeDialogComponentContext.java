@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.pluginaliassetlike;
 
+import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
@@ -81,7 +82,11 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final AS parseAliasSetLike(final String text) {
         return this.metadataPropertyName()
-            .parseUrlFragmentSaveValue(text);
+            .parseUrlFragmentSaveValue(
+                text,
+                CurrencyContexts.fake()
+                    .setLocaleContext(this.context)
+            );
     }
 
     @Override

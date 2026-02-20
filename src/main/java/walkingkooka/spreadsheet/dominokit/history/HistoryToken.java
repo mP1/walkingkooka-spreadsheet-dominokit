@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
 import walkingkooka.Value;
+import walkingkooka.currency.CurrencyLocaleContext;
+import walkingkooka.currency.FakeCurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.naming.ValueName;
@@ -4102,7 +4104,10 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 Cast.to(
                                     parseOptional(
                                         value,
-                                        propertyName::parseUrlFragmentSaveValue
+                                        (String text) -> propertyName.parseUrlFragmentSaveValue(
+                                            text,
+                                            CURRENCY_LOCALE_CONTEXT
+                                        )
                                     )
                                 )
                             );
@@ -4410,6 +4415,28 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return this.elseIfDifferent(saved);
     }
+
+    private final static CurrencyLocaleContext CURRENCY_LOCALE_CONTEXT = new FakeCurrencyLocaleContext() {
+        @Override
+        public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+            Currency currency;
+            
+            try {
+                currency = Currency.getInstance(currencyCode);
+            } catch (final RuntimeException ignore) {
+                currency = null;
+            }
+            
+            return Optional.ofNullable(currency);
+        }
+
+        @Override 
+        public Optional<Locale> localeForLanguageTag(final String languageTag) {
+            return Optional.of(
+                Locale.forLanguageTag(languageTag)
+            );
+        }
+    };
 
     private static <T> Optional<T> parseOptional(final String text,
                                                  final Function<String, T> notEmptyParser) {
