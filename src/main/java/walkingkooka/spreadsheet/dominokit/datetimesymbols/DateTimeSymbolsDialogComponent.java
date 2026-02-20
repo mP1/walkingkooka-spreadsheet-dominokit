@@ -453,7 +453,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 @Override
                 public void filter(final String startsWith,
                                    final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
-                    context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
+                    DateTimeSymbolsDialogComponent.this.context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
                 }
 
                 @Override
