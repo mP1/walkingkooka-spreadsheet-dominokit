@@ -606,7 +606,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                     @Override
                     public void filter(final String startsWith,
                                        final SuggestBoxComponent<LocaleComponentSuggestionsValue<DecimalNumberSymbols>> suggestBox) {
-                        context.findDecimalNumberSymbolsWithLocaleStartsWith(startsWith);
+                        DecimalNumberSymbolsDialogComponent.this.context.findDecimalNumberSymbolsWithLocaleStartsWith(startsWith);
                     }
 
                     @Override
