@@ -863,9 +863,9 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void patchCurrencySymbols(final SpreadsheetId id,
-                                     final SpreadsheetSelection selection,
-                                     final Optional<Currency> currency) {
+    public void patchCurrency(final SpreadsheetId id,
+                              final SpreadsheetSelection selection,
+                              final Optional<Currency> currency) {
         this.patchDeltaWithViewportAndWindowQueryString(
             id,
             selection,
