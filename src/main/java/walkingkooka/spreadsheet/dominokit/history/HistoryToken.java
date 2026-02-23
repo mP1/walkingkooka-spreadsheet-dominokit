@@ -5018,7 +5018,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * If possible selects a {@link ValueTypeName} {@link HistoryToken}.
+     * If possible selects a {@link ValueType} {@link HistoryToken}.
      */
     public final HistoryToken setValueType() {
         HistoryToken historyToken = this;
