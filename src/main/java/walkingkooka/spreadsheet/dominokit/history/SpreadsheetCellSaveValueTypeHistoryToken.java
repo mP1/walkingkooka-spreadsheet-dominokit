@@ -31,11 +31,11 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * This {@link HistoryToken} is used by to paste a {@link ValueTypeName} for many cells over another range.
+ * This {@link HistoryToken} is used by to paste a {@link ValueType} for many cells over another range.
  * <pre>
  * /123/SpreadsheetName456/cell/A1/save/valueType/XYZ
  *
- * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/valueType/{@link ValueTypeName} for each selected cell.
+ * /spreadsheet-id/spreadsheet-name/cell/cell or cell-range or label/save/valueType/{@link ValueType} for each selected cell.
  * </pre>
  */
 public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValueType>> {
