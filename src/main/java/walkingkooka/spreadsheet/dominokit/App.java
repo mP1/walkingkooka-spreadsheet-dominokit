@@ -30,7 +30,7 @@ import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.currency.CanCurrencyForCurrencyCode;
-import walkingkooka.currency.CurrencyContext;
+import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
@@ -229,7 +229,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
     AppContext,
     ConverterFetcherWatcher,
-    CurrencyContext,
+    CurrencyLocaleContext,
     DateTimeSymbolsFetcherWatcher,
     DecimalNumberSymbolsFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
@@ -1691,7 +1691,7 @@ public class App implements EntryPoint,
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
-                this.setLocaleContext(this), // CurrencyLocaleContext
+                this, // CurrencyLocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
