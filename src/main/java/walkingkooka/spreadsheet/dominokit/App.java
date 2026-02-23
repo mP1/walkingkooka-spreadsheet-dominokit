@@ -1691,8 +1691,7 @@ public class App implements EntryPoint,
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
-                this, // CurrencyContext
-                this, // LocaleContext
+                this.setLocaleContext(this), // CurrencyLocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
