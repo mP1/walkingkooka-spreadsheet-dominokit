@@ -863,6 +863,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
+    public void patchCurrencySymbols(final SpreadsheetId id,
+                                     final SpreadsheetSelection selection,
+                                     final Optional<Currency> currency) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.currencyPatch(
+                currency,
+                this.context
+            )
+        );
+    }
+
     public void patchDateTimeSymbols(final SpreadsheetId id,
                                      final SpreadsheetSelection selection,
                                      final Optional<DateTimeSymbols> dateTimeSymbols) {
