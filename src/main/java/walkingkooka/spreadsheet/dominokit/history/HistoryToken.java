@@ -157,6 +157,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment CREATE = UrlFragment.parse(CREATE_STRING);
 
+    final static String CURRENCY_STRING = "currency";
+
+    final static UrlFragment CURRENCY = UrlFragment.parse(CURRENCY_STRING);
+
     final static String CUT_STRING = "cut";
 
     final static UrlFragment CUT = UrlFragment.parse(CUT_STRING);
@@ -396,6 +400,47 @@ public abstract class HistoryToken implements HasUrlFragment {
             name,
             anchoredSelection,
             kind
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencySaveHistoryToken}
+     */
+    public static SpreadsheetCellCurrencySaveHistoryToken cellCurrencySave(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                           final Optional<Currency> currency) {
+        return SpreadsheetCellCurrencySaveHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            currency
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencySelectHistoryToken}
+     */
+    public static SpreadsheetCellCurrencySelectHistoryToken cellCurrencySelect(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellCurrencySelectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencyUnselectHistoryToken}
+     */
+    public static SpreadsheetCellCurrencyUnselectHistoryToken cellCurrencyUnselect(final SpreadsheetId id,
+                                                                                   final SpreadsheetName name,
+                                                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellCurrencyUnselectHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
         );
     }
 
@@ -825,6 +870,21 @@ public abstract class HistoryToken implements HasUrlFragment {
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final Set<SpreadsheetCell> value) {
         return SpreadsheetCellSaveCellHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            value
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveCurrencyHistoryToken}
+     */
+    public static SpreadsheetCellSaveCurrencyHistoryToken cellSaveCurrency(final SpreadsheetId id,
+                                                                           final SpreadsheetName name,
+                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                           final Map<SpreadsheetCellReference, Optional<Currency>> value) {
+        return SpreadsheetCellSaveCurrencyHistoryToken.with(
             id,
             name,
             anchoredSelection,
@@ -2160,7 +2220,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         HistoryToken historyToken = null;
 
-        if(false == this.anchoredSelectionOrEmpty().equals(anchoredSelection)) {
+        if (false == this.anchoredSelectionOrEmpty().equals(anchoredSelection)) {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 if (anchoredSelection.isPresent()) {
                     final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
@@ -2263,7 +2323,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return token;
     }
-    
+
     // clear............................................................................................................
 
     /**
@@ -2312,7 +2372,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return historyToken;
     }
-    
+
     // CLOSE............................................................................................................
 
     /**
@@ -2375,6 +2435,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     if (this instanceof SpreadsheetCellClearAndFormulaHistoryToken ||
+                        this instanceof SpreadsheetCellCurrencyHistoryToken ||
                         this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellFindHistoryToken ||
@@ -2596,6 +2657,27 @@ public abstract class HistoryToken implements HasUrlFragment {
         return count;
     }
 
+    // Currency..........................................................................................................
+
+    /**
+     * If possible selects a {@link Currency} {@link HistoryToken}.
+     */
+    public final HistoryToken currency() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellCurrencySelect(
+                cell.id(),
+                cell.name(),
+                cell.anchoredSelection()
+            );
+        }
+
+        return historyToken;
+    }
+
     // DELETE...........................................................................................................
 
     /**
@@ -2627,7 +2709,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                 if (this instanceof SpreadsheetSelectionHistoryToken) {
 
                     if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
-                        if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
+                        if (this instanceof SpreadsheetCellCurrencyHistoryToken ||
+                            this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                             this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                             this instanceof SpreadsheetCellFormHistoryToken ||
                             this instanceof SpreadsheetCellFormatterHistoryToken ||
@@ -3480,7 +3563,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final Optional<SpreadsheetMetadataPropertyName<?>> metadataPropertyName() {
         SpreadsheetMetadataPropertyName<?> propertyName = null;
 
-        if(this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+        if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
             propertyName = this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                 .propertyName;
         }
@@ -3500,10 +3583,10 @@ public abstract class HistoryToken implements HasUrlFragment {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadataHistoryToken = this.cast(SpreadsheetMetadataPropertyHistoryToken.class);
 
             historyToken = HistoryToken.metadataPropertySelect(
-                    metadataHistoryToken.id(),
-                    metadataHistoryToken.name(),
-                    propertyName
-                );
+                metadataHistoryToken.id(),
+                metadataHistoryToken.name(),
+                propertyName
+            );
         } else {
 
             if (this instanceof SpreadsheetNameHistoryToken) {
@@ -3831,7 +3914,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return token;
     }
-    
+
     // pluginName.......................................................................................................
 
     /**
@@ -4138,6 +4221,18 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 .anchoredSelection();
 
                             if (this instanceof SpreadsheetCellHistoryToken) {
+                                if (this instanceof SpreadsheetCellCurrencyHistoryToken && false == this instanceof SpreadsheetCellCurrencyUnselectHistoryToken) {
+                                    saved = HistoryToken.cellCurrencySave(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection,
+                                        parseOptional(
+                                            value,
+                                            Currency::getInstance
+                                        )
+                                    );
+                                }
+                                
                                 if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken && false == this instanceof SpreadsheetCellDateTimeSymbolsUnselectHistoryToken) {
                                     saved = HistoryToken.cellDateTimeSymbolsSave(
                                         id,
@@ -4311,7 +4406,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                     Object saveValue;
 
-                                    if("".equals(value)) {
+                                    if ("".equals(value)) {
                                         saveValue = null;
                                     } else {
                                         if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value) && ((SpreadsheetValueType.DATE.equals(valueType) || SpreadsheetValueType.LOCAL_DATE.equals(valueType)))) {
@@ -4420,17 +4515,17 @@ public abstract class HistoryToken implements HasUrlFragment {
         @Override
         public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
             Currency currency;
-            
+
             try {
                 currency = Currency.getInstance(currencyCode);
             } catch (final RuntimeException ignore) {
                 currency = null;
             }
-            
+
             return Optional.ofNullable(currency);
         }
 
-        @Override 
+        @Override
         public Optional<Locale> localeForLanguageTag(final String languageTag) {
             return Optional.of(
                 Locale.forLanguageTag(languageTag)
@@ -4697,6 +4792,14 @@ public abstract class HistoryToken implements HasUrlFragment {
             final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id();
             final SpreadsheetName name = spreadsheetAnchoredSelectionHistoryToken.name();
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
+
+            if (this instanceof SpreadsheetCellCurrencySelectHistoryToken) {
+                historyToken = cellCurrencyUnselect(
+                    id,
+                    name,
+                    anchoredSpreadsheetSelection
+                );
+            }
 
             if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
                 historyToken = cellDateTimeSymbolsUnselect(
@@ -5035,12 +5138,15 @@ public abstract class HistoryToken implements HasUrlFragment {
                         saveUrlFragmentValueOptional((Optional<?>) value) :
                         UrlFragment.with(
                             String.valueOf(
-                                value instanceof Locale ?
-                                    // toLanguageTag = EN-AU while Locale#toString EN_AU
-                                    ((Locale) value).toLanguageTag() :
-                                    value instanceof HasText ?
-                                        ((HasText) value).text() :
-                                        value
+                                value instanceof Currency ?
+                                    // Currency.getCurrencyCode()
+                                    ((Currency) value).getCurrencyCode() :
+                                    value instanceof Locale ?
+                                        // toLanguageTag = EN-AU while Locale#toString EN_AU
+                                        ((Locale) value).toLanguageTag() :
+                                        value instanceof HasText ?
+                                            ((HasText) value).text() :
+                                            value
                             )
                         );
     }

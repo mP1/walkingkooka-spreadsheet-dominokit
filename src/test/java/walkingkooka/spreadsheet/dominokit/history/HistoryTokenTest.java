@@ -2606,6 +2606,58 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/currency....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCurrency() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/currency",
+            HistoryToken.cellCurrencySelect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCurrencyToolbar() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/currency/toolbar",
+            HistoryToken.cellCurrencyUnselect(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCurrencySaveEmpty() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/currency/save/",
+            HistoryToken.cellCurrencySave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellCurrencySave() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/currency/save/" + CURRENCY.getCurrencyCode(),
+            HistoryToken.cellCurrencySave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(CURRENCY)
+            )
+        );
+    }
+
     // cell/dateTimeSymbols.............................................................................................
 
     @Test

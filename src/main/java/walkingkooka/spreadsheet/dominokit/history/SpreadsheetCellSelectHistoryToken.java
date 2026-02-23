@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToCurrencyMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToFormulaTextMap;
@@ -111,6 +112,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     parseJson(
                         cursor,
                         SpreadsheetCellSet.class
+                    )
+                );
+                break;
+            case CURRENCY_STRING:
+                result = cellSaveCurrency(
+                    this.id,
+                    this.name,
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseJson(
+                        cursor,
+                        SpreadsheetCellReferenceToCurrencyMap.class
                     )
                 );
                 break;
