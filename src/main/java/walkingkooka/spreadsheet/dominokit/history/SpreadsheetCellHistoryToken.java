@@ -42,6 +42,7 @@ import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -77,6 +78,22 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         final Object valueOrNull = value.orElse(null);
 
+        if (this instanceof SpreadsheetCellCurrencyHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof Currency) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    Currency.class
+                );
+            }
+
+            historyToken = HistoryToken.cellCurrencySave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+        
         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
             if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
                 this.reportInvalidSaveValue(
@@ -278,17 +295,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             if (valueOrNull instanceof Map) {
                 final Map<?, ?> map = Cast.to(valueOrNull);
                 if (false == map.isEmpty()) {
-                    final int MODE_DATE_TIME_SYMBOLS = 1;
-                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 2;
-                    final int MODE_FORMATTER = 4;
-                    final int MODE_FORMULA = 8;
-                    final int MODE_LOCALE = 16;
-                    final int MODE_PARSER = 32;
-                    final int MODE_STYLE = 64;
-                    final int MODE_VALIDATOR = 128;
-                    final int MODE_VALUE_TYPE = 256;
+                    final int MODE_CURRENCY = 1;
+                    final int MODE_DATE_TIME_SYMBOLS = 2;
+                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 4;
+                    final int MODE_FORMATTER = 8;
+                    final int MODE_FORMULA = 16;
+                    final int MODE_LOCALE = 32;
+                    final int MODE_PARSER = 64;
+                    final int MODE_STYLE = 128;
+                    final int MODE_VALIDATOR = 256;
+                    final int MODE_VALUE_TYPE = 512;
 
-                    int mode = MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
+                    int mode = MODE_CURRENCY | MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
 
                     for (final Object mapValue : map.values()) {
                         // ignore nulls
@@ -296,28 +314,32 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             final Optional<?> mapValueOptional = (Optional<?>) mapValue;
                             if (mapValueOptional.isPresent()) {
                                 Object mapValueOptionalValue = mapValueOptional.get();
-                                if (mapValueOptionalValue instanceof DateTimeSymbols) {
-                                    mode = MODE_DATE_TIME_SYMBOLS & mode;
+                                if (mapValueOptionalValue instanceof Currency) {
+                                    mode = MODE_CURRENCY & mode;
                                 } else {
-                                    if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
-                                        mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
+                                    if (mapValueOptionalValue instanceof DateTimeSymbols) {
+                                        mode = MODE_DATE_TIME_SYMBOLS & mode;
                                     } else {
-                                        if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                            mode = MODE_FORMATTER & mode;
+                                        if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
+                                            mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
                                         } else {
-                                            if (mapValueOptionalValue instanceof Locale) {
-                                                mode = MODE_LOCALE & mode;
+                                            if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
+                                                mode = MODE_FORMATTER & mode;
                                             } else {
-                                                if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                    mode = MODE_PARSER & mode;
+                                                if (mapValueOptionalValue instanceof Locale) {
+                                                    mode = MODE_LOCALE & mode;
                                                 } else {
-                                                    if (mapValueOptionalValue instanceof ValidatorSelector) {
-                                                        mode = MODE_VALIDATOR & mode;
+                                                    if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                        mode = MODE_PARSER & mode;
                                                     } else {
-                                                        if (mapValueOptionalValue instanceof ValueType) {
-                                                            mode = MODE_VALUE_TYPE & mode;
+                                                        if (mapValueOptionalValue instanceof ValidatorSelector) {
+                                                            mode = MODE_VALIDATOR & mode;
                                                         } else {
-                                                            mode = 0;
+                                                            if (mapValueOptionalValue instanceof ValueType) {
+                                                                mode = MODE_VALUE_TYPE & mode;
+                                                            } else {
+                                                                mode = 0;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -344,6 +366,14 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                         }
                     }
                     switch (mode) {
+                        case MODE_CURRENCY:
+                            historyToken = HistoryToken.cellSaveCurrency(
+                                this.id,
+                                this.name,
+                                this.anchoredSelection,
+                                Cast.to(valueOrNull)
+                            );
+                            break;
                         case MODE_DATE_TIME_SYMBOLS:
                             historyToken = HistoryToken.cellSaveDateTimeSymbols(
                                 this.id,
@@ -464,6 +494,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 break;
             case COPY_STRING:
                 result = this.parseCopy(cursor);
+                break;
+            case CURRENCY_STRING:
+                result = this.currency();
                 break;
             case CUT_STRING:
                 result = this.parseCut(cursor);

@@ -44,6 +44,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 import walkingkooka.visit.Visiting;
 import walkingkooka.visit.Visitor;
 
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -106,6 +107,25 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
         // NOP
     }
 
+    protected void visitCellCurrencySave(final SpreadsheetId id,
+                                         final SpreadsheetName name,
+                                         final AnchoredSpreadsheetSelection anchoredSelection,
+                                         final Optional<Currency> currency) {
+        // NOP
+    }
+
+    protected void visitCellCurrencySelect(final SpreadsheetId id,
+                                           final SpreadsheetName name,
+                                           final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+
+    protected void visitCellCurrencyUnselect(final SpreadsheetId id,
+                                             final SpreadsheetName name,
+                                             final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+    
     protected void visitCellDateTimeSymbolsSave(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
