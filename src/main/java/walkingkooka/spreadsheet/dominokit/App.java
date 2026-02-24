@@ -464,10 +464,9 @@ public class App implements EntryPoint,
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
-            this, // CurrencyContext
+            this,
             this.spreadsheetEnvironmentContext(),
-            this.jsonNodeMarshallUnmarshallContext(),
-            LocaleContexts.jre(LOCALE)
+            this.jsonNodeMarshallUnmarshallContext()
         );
 
         // history
@@ -1363,10 +1362,9 @@ public class App implements EntryPoint,
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
                 PluginStores.fake(),
-                this, // CurrencyContext
+                this, // CurrencyLocaleContext
                 spreadsheetEnvironmentContext,
-                this.jsonNodeMarshallUnmarshallContext(),
-                this.localeContext()
+                this.jsonNodeMarshallUnmarshallContext()
             );
 
             final Optional<SpreadsheetId> maybeId = metadata.id();
@@ -1579,10 +1577,9 @@ public class App implements EntryPoint,
     private void refreshSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
-            this, // CurrencyContext
+            this, // CurrencyLocaleContext
             this.environmentContext(),
-            this.jsonNodeMarshallUnmarshallContext(),
-            this.localeContext()
+            this.jsonNodeMarshallUnmarshallContext()
         );
 
         final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
