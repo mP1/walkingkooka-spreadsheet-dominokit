@@ -52,10 +52,57 @@ public final class SpreadsheetSelectionMenuValidatorTest implements TreePrintabl
 
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
-            Lists.of(
-                ValidatorSelector.parse("hello-validator-1"),
-                ValidatorSelector.parse("hello-validator-2")
-            ) // recent
+            Optional.empty(), // no summary
+            Lists.empty() // recents
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenuValidator.build(
+            historyToken,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "  \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-validator-clear-MenuItem\n" +
+                "  -----\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-validator-edit-MenuItem\n"
+        );
+    }
+
+    @Test
+    public void testBuildWithChecked() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet123"),
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        final SpreadsheetSelectionMenuContext context = this.context(
+            historyToken,
+            Optional.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                    .setValidator(
+                        Optional.of(
+                            ValidatorSelector.parse("hello-validator-1")
+                        )
+                    )
+            ),
+            Lists.empty() // recents
         );
 
         final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
@@ -82,6 +129,51 @@ public final class SpreadsheetSelectionMenuValidatorTest implements TreePrintabl
                 "  -----\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-validator-clear-MenuItem\n" +
                 "  -----\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-validator-edit-MenuItem\n"
+        );
+    }
+
+    @Test
+    public void testBuildWithRecents() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+            SpreadsheetId.with(1),
+            SpreadsheetName.with("Spreadsheet123"),
+            SpreadsheetSelection.A1.setDefaultAnchor()
+        );
+
+        final SpreadsheetSelectionMenuContext context = this.context(
+            historyToken,
+            Optional.empty(), // summary
+            Lists.of(
+                ValidatorSelector.parse("hello-validator-1"),
+                ValidatorSelector.parse("hello-validator-2")
+            ) // recent
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenuValidator.build(
+            historyToken,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck(
+            menu,
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "  \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "  -----\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-validator-clear-MenuItem\n" +
+                "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-validator-recent-0-MenuItem\n" +
@@ -90,6 +182,7 @@ public final class SpreadsheetSelectionMenuValidatorTest implements TreePrintabl
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
+                                                    final Optional<SpreadsheetCell> selectionSummary,
                                                     final List<ValidatorSelector> recentValidators) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
@@ -118,14 +211,7 @@ public final class SpreadsheetSelectionMenuValidatorTest implements TreePrintabl
 
             @Override
             public Optional<SpreadsheetCell> selectionSummary() {
-                return Optional.of(
-                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                        .setValidator(
-                            Optional.of(
-                                ValidatorSelector.parse("hello-validator-1")
-                            )
-                        )
-                );
+                return selectionSummary;
             }
         };
     }
