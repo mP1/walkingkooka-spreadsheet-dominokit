@@ -53,7 +53,7 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             Optional.empty(), // summary
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
         );
@@ -70,7 +70,7 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             Optional.empty(), // summary
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
         );
@@ -94,7 +94,7 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             ),
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
         );
@@ -114,7 +114,7 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
                 Locale.forLanguageTag("en-NZ")
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "  -----\n" +
                 "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  -----\n" +
