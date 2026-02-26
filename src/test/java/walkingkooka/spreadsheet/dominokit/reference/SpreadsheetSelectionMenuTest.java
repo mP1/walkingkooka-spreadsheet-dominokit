@@ -1544,7 +1544,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -3095,7 +3095,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -4648,7 +4648,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -6200,7 +6200,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -7752,7 +7752,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -9304,7 +9304,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -10845,7 +10845,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -12481,7 +12481,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/und] id=test-locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
@@ -14022,7 +14022,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
     "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
     "  \"Locale\" id=test-locale-SubMenu\n" +
-    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/und] id=test-locale-clear-MenuItem\n" +
+    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-locale-clear-MenuItem\n" +
     "    -----\n" +
     "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-edit-MenuItem\n" +
     "  \"Value type\" id=test-valueType-SubMenu\n" +

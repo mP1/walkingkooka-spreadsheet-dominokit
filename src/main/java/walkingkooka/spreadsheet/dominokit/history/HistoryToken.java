@@ -4318,8 +4318,10 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        Optional.of(
-                                            Locale.forLanguageTag(value)
+                                        Optional.ofNullable(
+                                            value.isEmpty() ?
+                                                null :
+                                                Locale.forLanguageTag(value)
                                         )
                                     );
                                 }
