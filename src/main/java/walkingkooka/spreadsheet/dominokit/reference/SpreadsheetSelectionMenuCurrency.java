@@ -69,6 +69,15 @@ final class SpreadsheetSelectionMenuCurrency {
             menu,
             idPrefix
         );
+
+        menu.separator();
+
+        buildRecents(
+            historyToken,
+            menu,
+            idPrefix,
+            context
+        );
     }
 
     private static void buildClear(final HistoryToken historyToken,
@@ -104,6 +113,34 @@ final class SpreadsheetSelectionMenuCurrency {
                 )
             )
         );
+    }
+
+    private static void buildRecents(final HistoryToken historyToken,
+                                     final SpreadsheetContextMenu menu,
+                                     final String idPrefix,
+                                     final SpreadsheetSelectionMenuContext context) {
+
+        int i = 0;
+
+        for (final Currency currency : context.recentCurrencies()) {
+            final String text = context.currencyText(currency)
+                .orElse(currency.getCurrencyCode());
+
+            menu.item(
+                SpreadsheetContextMenuItem.with(
+                    idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
+                    text
+                ).historyToken(
+                    Optional.of(
+                        historyToken.setSaveValue(
+                            Optional.of(currency)
+                        )
+                    )
+                )
+            );
+
+            i++;
+        }
     }
 
     /**

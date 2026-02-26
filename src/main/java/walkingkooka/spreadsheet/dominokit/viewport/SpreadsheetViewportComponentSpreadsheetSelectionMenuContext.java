@@ -18,8 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
-import walkingkooka.locale.LocaleContext;
-import walkingkooka.locale.LocaleContextDelegator;
+import walkingkooka.currency.CurrencyLocaleContext;
+import walkingkooka.currency.CurrencyLocaleContextDelegator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
@@ -45,6 +45,7 @@ import walkingkooka.validation.provider.ValidatorAlias;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -57,9 +58,10 @@ import java.util.stream.Collectors;
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext,
     SpreadsheetComparatorProviderDelegator,
     HistoryContextDelegator,
-    LocaleContextDelegator {
+    CurrencyLocaleContextDelegator {
 
-    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
+    static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<Currency> recentCurrencies,
+                                                                            final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                             final List<Locale> recentLocales,
                                                                             final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
@@ -67,6 +69,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                             final List<ValidatorSelector> recentValidatorSelectors,
                                                                             final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
+            recentCurrencies,
             recentSpreadsheetFormatterSelectors,
             spreadsheetFormatterMenus,
             recentLocales,
@@ -77,13 +80,16 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         );
     }
 
-    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
+    private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<Currency> recentCurrencies,
+                                                                        final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                         final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                         final List<Locale> recentLocales,
                                                                         final List<SpreadsheetParserSelector> recentSpreadsheetParserSelectors,
                                                                         final List<TextStyleProperty<?>> recentTextStyleProperties,
                                                                         final List<ValidatorSelector> recentValidatorSelectors,
                                                                         final SpreadsheetViewportComponentContext context) {
+        this.recentCurrencies = recentCurrencies;
+        
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterMenus = spreadsheetFormatterMenus;
 
@@ -115,6 +121,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         );
     }
 
+    @Override
+    public List<Currency> recentCurrencies() {
+        return this.recentCurrencies;
+    }
+
+    private final List<Currency> recentCurrencies;
+    
     @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         return this.recentSpreadsheetFormatterSelectors;
@@ -218,10 +231,10 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return this.context;
     }
 
-    // LocaleContextDelegator...........................................................................................
+    // CurrencyLocaleContextDelegator...................................................................................
 
     @Override
-    public LocaleContext localeContext() {
+    public CurrencyLocaleContext currencyLocaleContext() {
         return this.context;
     }
 

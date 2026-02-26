@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -34,6 +35,7 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Currency;
+import java.util.List;
 import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintableTesting,
@@ -48,6 +50,7 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
@@ -64,6 +67,7 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
@@ -80,6 +84,7 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            Lists.empty(), // recentCurrencies
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                     .setCurrency(
@@ -95,11 +100,36 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
         );
     }
 
+    @Test
+    public void testBuildWithRecentCurrencies() {
+        this.buildAndCheck(
+            HistoryToken.selection(
+                SpreadsheetId.with(1),
+                SpreadsheetName.with("Spreadsheet123"),
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            Lists.of(
+                Currency.getInstance("AUD"),
+                Currency.getInstance("NZD")
+            ), // recentCurrencies
+            Optional.empty(),
+            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  -----\n" +
+                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  -----\n" +
+                "  \"Australian Dollar\" [/1/Spreadsheet123/cell/A1/currency/save/AUD] id=test-currency-recent-0-MenuItem\n" +
+                "  \"New Zealand Dollar\" [/1/Spreadsheet123/cell/A1/currency/save/NZD] id=test-currency-recent-1-MenuItem\n"
+        );
+    }
+
     private void buildAndCheck(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                               final List<Currency> recentCurrencies,
                                final Optional<SpreadsheetCell> summary,
                                final String expected) {
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
+            recentCurrencies,
             summary
         );
 
@@ -126,6 +156,7 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
     }
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
+                                                    final List<Currency> recentCurrencies,
                                                     final Optional<SpreadsheetCell> summary) {
         return new FakeSpreadsheetSelectionMenuContext() {
 
@@ -137,6 +168,18 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
             @Override
             public String idPrefix() {
                 return "test-";
+            }
+
+            @Override
+            public Optional<String> currencyText(final Currency currency) {
+                return Optional.of(
+                    currency.getDisplayName()
+                );
+            }
+
+            @Override
+            public List<Currency> recentCurrencies() {
+                return recentCurrencies;
             }
 
             @Override
