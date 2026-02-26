@@ -78,6 +78,8 @@ public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
         this.value = value;
     }
 
+    // HasLocale........................................................................................................
+
     @Override
     public Locale locale() {
         return this.locale;
@@ -85,12 +87,14 @@ public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
 
     private final Locale locale;
 
+    // HasText..........................................................................................................
+
     @Override
     public String text() {
         return this.text;
     }
 
-// Value............................................................................................................
+    // Value............................................................................................................
 
     @Override
     public T value() {
@@ -99,7 +103,7 @@ public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
 
     private final T value;
 
-// Object...........................................................................................................
+    // Object...........................................................................................................
 
     @Override
     public int hashCode() {
@@ -129,7 +133,7 @@ public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
 
     private final String text;
 
-// Comparable.......................................................................................................
+    // Comparable.......................................................................................................
 
     @Override
     public int compareTo(final LocaleComponentSuggestionsValue other) {
