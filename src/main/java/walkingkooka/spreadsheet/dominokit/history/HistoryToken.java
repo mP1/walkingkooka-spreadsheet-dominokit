@@ -4228,7 +4228,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
                                             value,
-                                            Currency::getInstance
+                                            CURRENCY_LOCALE_CONTEXT::currencyForCurrencyCodeOrFail
                                         )
                                     );
                                 }
