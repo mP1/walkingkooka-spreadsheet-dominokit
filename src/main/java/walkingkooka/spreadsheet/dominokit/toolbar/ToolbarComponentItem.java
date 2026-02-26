@@ -69,6 +69,13 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
+     * {@link ToolbarComponentItemAnchorLocale}
+     */
+    static ToolbarComponentItem<?> currency(final ToolbarComponentContext context) {
+        return ToolbarComponentItemAnchorCurrency.with(context);
+    }
+
+    /**
      * {@see ToolbarComponentItemAnchorDateTimeSymbols}
      */
     static ToolbarComponentItem<?> dateTimeSymbols(final ToolbarComponentContext context) {
