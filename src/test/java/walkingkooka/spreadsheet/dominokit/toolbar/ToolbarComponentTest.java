@@ -285,6 +285,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-earth \"DecimalNumberSymbols\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/decimalNumberSymbols] id=toolbar-decimalNumberSymbols-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"DecimalNumberSymbols...\"\n" +
+                "      mdi-earth \"Locale\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/locale] id=toolbar-locale-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Locale...\"\n" +
                 "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Clear styling\"\n" +
