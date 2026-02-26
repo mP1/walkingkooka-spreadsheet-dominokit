@@ -551,9 +551,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         subMenu.disableIfEmpty();
     }
 
-    // style............................................................................................................
-
-
     // delete...........................................................................................................
 
     private static void clearDelete(final HistoryToken historyToken,
