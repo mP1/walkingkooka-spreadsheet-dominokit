@@ -34,10 +34,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.CaseKind;
-import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 import java.util.Set;
@@ -468,55 +466,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
     // value............................................................................................................
 
-    private static void value(final HistoryToken historyToken,
+    private static void value(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                               final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "value" + SpreadsheetElementIds.SUB_MENU,
-            "Value"
+        SpreadsheetSelectionMenuValue.build(
+            historyToken,
+            menu.subMenu(
+                context.idPrefix() + "value" + SpreadsheetElementIds.SUB_MENU,
+                "Value"
+            ),
+            context
         );
-
-        final String idPrefix = context.idPrefix() + "value-";
-
-        final SpreadsheetCell summary = context.selectionSummary()
-            .orElse(null);
-
-        // compute valueType to check once and test within loop below.
-        ValueType checked = null;
-        if (null != summary) {
-            final Object value = summary.formula()
-                .value()
-                .orElse(null);
-            if (null != value) {
-                checked = SpreadsheetValueType.toValueType(
-                    value.getClass()
-                ).orElse(null);
-            }
-        }
-
-        for (final ValueType valueType : SpreadsheetValueType.ALL) {
-            final String typeMenuId = idPrefix + valueType.value();
-
-            subMenu.item(
-                SpreadsheetContextMenuItem.with(
-                    typeMenuId + SpreadsheetElementIds.MENU_ITEM,
-                    CaseKind.KEBAB.change(
-                        valueType.text(),
-                        CaseKind.TITLE
-                    )
-                ).historyToken(
-                    Optional.of(
-                        historyToken.setValue(
-                            Optional.of(valueType)
-                        )
-                    )
-                ).checked(
-                    valueType.equals(checked)
-                )
-            );
-        }
-
-        subMenu.disableIfEmpty();
     }
 
     // delete...........................................................................................................
