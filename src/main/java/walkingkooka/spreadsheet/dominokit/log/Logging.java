@@ -34,6 +34,8 @@ public interface Logging {
 
     boolean CONVERTER_SELECTOR_DIALOG_COMPONENT = DIALOG_COMPONENT | false;
 
+    boolean CURRENCY_FETCHER = FETCHER | false;
+
     boolean DATE_TIME_SYMBOLS_DIALOG_COMPONENT = DIALOG_COMPONENT | false;
 
     boolean DATE_TIME_SYMBOLS_FETCHER = FETCHER | false;
