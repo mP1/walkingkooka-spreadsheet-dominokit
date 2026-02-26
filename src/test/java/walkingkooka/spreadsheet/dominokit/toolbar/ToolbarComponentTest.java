@@ -273,6 +273,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-format-letter-case-lower \"Upper-case\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/text-transform/save/UPPERCASE] id=toolbar-text_transform-UPPERCASE-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Upper-case text\"\n" +
+                "      mdi-currency-usd \"Currency\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/currency] id=toolbar-currency-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Currency...\"\n" +
                 "      mdi-format-text \"Formatting\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/formatter] id=toolbar-formatter-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Formatting...\"\n" +

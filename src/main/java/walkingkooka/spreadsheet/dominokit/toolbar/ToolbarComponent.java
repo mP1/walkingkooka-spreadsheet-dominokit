@@ -119,6 +119,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.textCaseLowercase(context),
             ToolbarComponentItem.textCaseUppercase(context),
             // format/pattern
+            ToolbarComponentItem.currency(context),
             ToolbarComponentItem.formatter(context),
             ToolbarComponentItem.dateTimeSymbols(context),
             ToolbarComponentItem.parser(context),
@@ -244,6 +245,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     final static String TOOLBAR_ID_PREFIX = "toolbar-";
 
     final static String AUTO_HIDE_SCROLL_BARS_ID = TOOLBAR_ID_PREFIX + "autoHideScrollbars";
+
+    final static String CURRENCY_ID = TOOLBAR_ID_PREFIX + "currency";
 
     final static String DATE_TIME_SYMBOLS_ID = TOOLBAR_ID_PREFIX + "dateTimeSymbols";
 
