@@ -170,6 +170,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.content_copy();
     }
 
+    public static MdiIcon currency() {
+        return Icons.currency_usd();
+    }
+
     public static MdiIcon cut() {
         return Icons.content_cut();
     }
