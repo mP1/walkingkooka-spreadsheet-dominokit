@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.time.LocalDateTime;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -42,6 +44,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
 
     @Override
     public List<SpreadsheetComparatorName> sortComparatorNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<Currency> recentCurrencies() {
         throw new UnsupportedOperationException();
     }
 
@@ -109,6 +116,52 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
 
     @Override
     public Optional<SpreadsheetSelection> resolveLabel(final SpreadsheetLabelName spreadsheetLabelName) {
+        throw new UnsupportedOperationException();
+    }
+
+    // CurrencyContext..................................................................................................
+
+    @Override
+    public Currency currency() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Currency> availableCurrencies() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> currencyText(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Currency> currencyForLocale(final Locale locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<Currency> findByCurrencyText(final String text,
+                                            final int offset,
+                                            final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Number exchangeRate(final Currency from,
+                               final Currency to,
+                               final Optional<LocalDateTime> dateTime) {
         throw new UnsupportedOperationException();
     }
 

@@ -56,6 +56,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -1629,6 +1630,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(),
             Lists.empty(),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // recentLocales
             Lists.of(
                 parsePattern.spreadsheetParserSelector()
@@ -3179,6 +3181,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -4731,6 +4734,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -6283,6 +6287,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -7838,6 +7843,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(), // recent formatters
             Lists.empty(),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -14564,6 +14570,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 .stream()
                 .map(SpreadsheetComparatorInfo::name)
                 .collect(Collectors.toList()),
+            Lists.empty(), // recentCurrencies
             Lists.empty(), // format patterns
             Lists.empty(), // SpreadsheetFormatterMenu
             Lists.empty(), // locales
@@ -14576,6 +14583,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetComparatorName> sortComparatorNames,
+                                                    final List<Currency> recentCurrencies,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                     final List<Locale> locales,
@@ -14647,6 +14655,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus() {
                 return spreadsheetFormatterMenus;
+            }
+
+            @Override
+            public List<Currency> recentCurrencies() {
+                return recentCurrencies;
             }
 
             @Override

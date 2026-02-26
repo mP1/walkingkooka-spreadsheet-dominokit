@@ -95,6 +95,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -784,6 +785,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 historyToken,
                 menu,
                 SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
+                    recentValueSavesContext.recentValueSaves(Currency.class),
                     recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
                     spreadsheetFormatterSelectorMenus,
                     recentValueSavesContext.recentValueSaves(Locale.class),

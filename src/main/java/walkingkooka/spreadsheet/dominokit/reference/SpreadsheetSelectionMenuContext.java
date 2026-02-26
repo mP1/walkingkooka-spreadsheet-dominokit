@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.Context;
-import walkingkooka.locale.LocaleContext;
+import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.color.ColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -36,6 +36,7 @@ import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -48,7 +49,7 @@ import java.util.Set;
 public interface SpreadsheetSelectionMenuContext extends Context,
     HasSpreadsheetMetadata,
     HistoryContext,
-    LocaleContext,
+    CurrencyLocaleContext,
     SpreadsheetLabelNameResolver,
     ColorComponentContext {
 
@@ -56,6 +57,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns the names of {@link SpreadsheetComparatorName} that will appear in the SORT menus.
      */
     List<SpreadsheetComparatorName> sortComparatorNames();
+
+    /**
+     * Returns recent {@link Currency}.
+     */
+    List<Currency> recentCurrencies();
 
     /**
      * Returns recent {@link SpreadsheetFormatterSelector}.

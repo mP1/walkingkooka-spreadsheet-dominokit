@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.currency.CurrencyLocaleContext;
+import walkingkooka.currency.CurrencyLocaleContextDelegator;
 import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.locale.LocaleContext;
-import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
@@ -51,6 +51,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.LineEnding;
 
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,7 +65,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     HasSpreadsheetFormatterFetcherWatchersDelegator,
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
-    LocaleContextDelegator,
+    CurrencyLocaleContextDelegator,
     ProviderContextDelegator,
     SpreadsheetLabelNameResolver,
     SpreadsheetParserProviderDelegator,
@@ -189,6 +190,16 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
+    public Currency currency() {
+        return this.context.currency();
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        this.context.setCurrency(currency);
+    }
+    
+    @Override
     public LineEnding lineEnding() {
         return this.context.lineEnding();
     }
@@ -213,10 +224,10 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
         this.context.setUser(user);
     }
 
-    // LocaleContextDelegator...........................................................................................
+    // CurrencyLocaleContextDelegator...................................................................................
 
     @Override
-    public LocaleContext localeContext() {
+    public CurrencyLocaleContext currencyLocaleContext() {
         return this.context;
     }
 
