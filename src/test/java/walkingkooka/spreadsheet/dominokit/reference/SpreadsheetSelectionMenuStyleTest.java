@@ -36,6 +36,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.printer.TreePrintableTesting;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -2853,16 +2855,17 @@ public final class SpreadsheetSelectionMenuStyleTest implements TreePrintableTes
             ),
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                    .setLocale(
-                        Optional.of(
-                            Locale.forLanguageTag("en-AU")
+                    .setStyle(
+                        TextStyle.EMPTY.set(
+                            TextStylePropertyName.TEXT_ALIGN,
+                            TextAlign.LEFT
                         )
                     )
             ),
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Alignment\" id=test-alignment-SubMenu\n" +
-                "    (mdi-format-align-left) \"Left\" [/1/Spreadsheet123/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
+                "    (mdi-format-align-left) \"Left\" [/1/Spreadsheet123/cell/A1/style/text-align/save/] CHECKED id=test-left-MenuItem\n" +
                 "    (mdi-format-align-center) \"Center\" [/1/Spreadsheet123/cell/A1/style/text-align/save/CENTER] id=test-center-MenuItem\n" +
                 "    (mdi-format-align-right) \"Right\" [/1/Spreadsheet123/cell/A1/style/text-align/save/RIGHT] id=test-right-MenuItem\n" +
                 "    (mdi-format-align-justify) \"Justify\" [/1/Spreadsheet123/cell/A1/style/text-align/save/JUSTIFY] id=test-justify-MenuItem\n" +
