@@ -453,49 +453,17 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
     // valueTypes.......................................................................................................
 
-    private static void valueTypes(final HistoryToken historyToken,
+    private static void valueTypes(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "valueType" + SpreadsheetElementIds.SUB_MENU,
-            "Value type"
+        SpreadsheetSelectionMenuValueType.build(
+            historyToken,
+            menu.subMenu(
+                context.idPrefix() + "valueType" + SpreadsheetElementIds.SUB_MENU,
+                "Value type"
+            ),
+            context
         );
-
-        final String idPrefix = context.idPrefix() + "valueTypes-";
-
-        final SpreadsheetCell summary = context.selectionSummary()
-            .orElse(null);
-
-        for (final ValueType type : SpreadsheetValueType.ALL) {
-            final String typeMenuId = idPrefix + type.value();
-
-            subMenu.item(
-                SpreadsheetContextMenuItem.with(
-                    typeMenuId + SpreadsheetElementIds.MENU_ITEM,
-                    CaseKind.KEBAB.change(
-                        type.text(),
-                        CaseKind.TITLE
-                    )
-                ).historyToken(
-                    Optional.of(
-                        historyToken.setValueType()
-                            .setSaveValue(
-                                Optional.of(type)
-                            )
-                    )
-                ).checked(
-                    type.equals(
-                        null == summary ?
-                            null :
-                            summary.formula()
-                                .valueType()
-                                .orElse(null)
-                    )
-                )
-            );
-        }
-
-        subMenu.disableIfEmpty();
     }
 
     // value............................................................................................................
