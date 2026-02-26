@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Headers;
 import walkingkooka.Context;
+import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.locale.LocaleContext;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
@@ -89,6 +89,7 @@ import java.util.Set;
 public interface AppContext extends CanGiveFocus,
     ClipboardContext,
     SpreadsheetProvider,
+    CurrencyLocaleContext,
     HasDateTimeSymbolsFetcher,
     HasDecimalNumberSymbolsFetcher,
     HasFormHandlerFetcher,
@@ -108,7 +109,6 @@ public interface AppContext extends CanGiveFocus,
     HasSpreadsheetParserFetcher,
     HasValidatorFetcher,
     JsonNodeMarshallUnmarshallContext,
-    LocaleContext,
     NumberComponentContext,
     ProviderContext,
     SpreadsheetFormatterContext,
