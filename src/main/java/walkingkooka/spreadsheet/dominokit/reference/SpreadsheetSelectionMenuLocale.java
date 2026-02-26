@@ -30,7 +30,7 @@ import java.util.Optional;
 /**
  * Creates a sub menu for each {@link Locale}, clear, edit and recents.
  * <pre>
- * Locales
+ * Locale
  *   Clear
  *   ---
  *   Edit
@@ -44,7 +44,7 @@ final class SpreadsheetSelectionMenuLocale {
     static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                       final SpreadsheetContextMenu menu,
                       final SpreadsheetSelectionMenuContext context) {
-        build0(
+        buildLocale(
             historyToken.locale(),
             menu,
             context.idPrefix() + "locale-",
@@ -52,10 +52,10 @@ final class SpreadsheetSelectionMenuLocale {
         );
     }
 
-    private static void build0(final HistoryToken historyToken,
-                               final SpreadsheetContextMenu menu,
-                               final String idPrefix,
-                               final SpreadsheetSelectionMenuContext context) {
+    private static void buildLocale(final HistoryToken historyToken,
+                                    final SpreadsheetContextMenu menu,
+                                    final String idPrefix,
+                                    final SpreadsheetSelectionMenuContext context) {
         buildClear(
             historyToken,
             menu,
