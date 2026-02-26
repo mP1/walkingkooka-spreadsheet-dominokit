@@ -114,6 +114,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
             );
 
+            currency(
+                historyToken,
+                menu,
+                context
+            );
+
             dateTimeSymbols(
                 historyToken,
                 menu,
@@ -302,8 +308,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     }
 
     private static void style(final HistoryToken historyToken,
-                                  final SpreadsheetContextMenu menu,
-                                  final SpreadsheetSelectionMenuContext context) {
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu subMenu = menu.subMenu(
             context.idPrefix() + "style" + SpreadsheetElementIds.SUB_MENU,
             "Style"
@@ -327,6 +333,23 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
 
         SpreadsheetSelectionMenuFormatter.build(
+            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            subMenu,
+            context
+        );
+
+        subMenu.disableIfEmpty();
+    }
+
+    private static void currency(final HistoryToken historyToken,
+                                 final SpreadsheetContextMenu menu,
+                                 final SpreadsheetSelectionMenuContext context) {
+        final SpreadsheetContextMenu subMenu = menu.subMenu(
+            context.idPrefix() + "currency" + SpreadsheetElementIds.SUB_MENU,
+            "Currency"
+        );
+
+        SpreadsheetSelectionMenuCurrency.build(
             historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
             subMenu,
             context
@@ -539,7 +562,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         subMenu.disableIfEmpty();
     }
-    
+
     // sort.............................................................................................................
 
     private static void sortColumns(final HistoryToken historyToken,
