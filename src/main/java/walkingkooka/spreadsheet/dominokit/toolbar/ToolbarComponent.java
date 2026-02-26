@@ -123,6 +123,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.dateTimeSymbols(context),
             ToolbarComponentItem.parser(context),
             ToolbarComponentItem.decimalNumberSymbols(context),
+            ToolbarComponentItem.locale(context),
             // clear
             ToolbarComponentItem.clearStyle(context),
             // validator
@@ -259,6 +260,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     final static String LABEL_CREATE_ID = TOOLBAR_ID_PREFIX + "labelCreate";
 
     final static String LABEL_LIST_ID = TOOLBAR_ID_PREFIX + "labelList";
+
+    final static String LOCALE_ID = TOOLBAR_ID_PREFIX + "locale";
 
     final static String PARSER_ID = TOOLBAR_ID_PREFIX + "parser";
 
