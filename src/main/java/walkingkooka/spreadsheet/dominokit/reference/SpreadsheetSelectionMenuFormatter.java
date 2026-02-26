@@ -60,7 +60,7 @@ final class SpreadsheetSelectionMenuFormatter {
     static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                       final SpreadsheetContextMenu menu,
                       final SpreadsheetSelectionMenuContext context) {
-        build0(
+        buildFormatter(
             historyToken.formatter(),
             menu,
             context.idPrefix() + "formatter-",
@@ -68,11 +68,11 @@ final class SpreadsheetSelectionMenuFormatter {
         );
     }
 
-    private static void build0(final HistoryToken historyToken,
-                               final SpreadsheetContextMenu menu,
-                               final String idPrefix,
-                               final SpreadsheetSelectionMenuContext context) {
-        buildFormatter(
+    private static void buildFormatter(final HistoryToken historyToken,
+                                       final SpreadsheetContextMenu menu,
+                                       final String idPrefix,
+                                       final SpreadsheetSelectionMenuContext context) {
+        buildFormatterNames(
             historyToken,
             menu,
             idPrefix,
@@ -105,10 +105,10 @@ final class SpreadsheetSelectionMenuFormatter {
         );
     }
 
-    private static void buildFormatter(final HistoryToken historyToken,
-                                       final SpreadsheetContextMenu menu,
-                                       final String idPrefix,
-                                       final SpreadsheetSelectionMenuContext context) {
+    private static void buildFormatterNames(final HistoryToken historyToken,
+                                            final SpreadsheetContextMenu menu,
+                                            final String idPrefix,
+                                            final SpreadsheetSelectionMenuContext context) {
         final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameToMenus = context.spreadsheetFormatterMenus()
             .stream()
             .collect(
