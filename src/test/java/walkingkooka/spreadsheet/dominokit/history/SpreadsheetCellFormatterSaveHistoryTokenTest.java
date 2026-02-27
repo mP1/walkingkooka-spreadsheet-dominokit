@@ -105,6 +105,29 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            PATTERN.toFormat()
+                .spreadsheetFormatterSelector()
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellFormatterSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                 final SpreadsheetName name,

@@ -4113,7 +4113,9 @@ public abstract class HistoryToken implements HasUrlFragment {
             value = hasValue.value();
         }
 
-        return Optional.ofNullable(value);
+        return value instanceof Optional ?
+            Cast.to(value) :
+            Optional.ofNullable(value);
     }
 
     /**

@@ -181,6 +181,16 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            LABEL
+        );
+    }
+
     @Override
     SpreadsheetCellLabelSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                             final SpreadsheetName name,
