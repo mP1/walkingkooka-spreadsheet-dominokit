@@ -149,6 +149,57 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
         );
     }
 
+    // setFlag..........................................................................................................
+
+    @Test
+    public void testSetFlagWithEmpty() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setFlag("")
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "[#/1/SpreadsheetName234/cell/A1]"
+        );
+    }
+
+    @Test
+    public void testSetFlagWithInvalid() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setFlag("AUS")
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "[#/1/SpreadsheetName234/cell/A1] [AUS]"
+        );
+    }
+
+    @Test
+    public void testSetFlag() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setFlag("AU")
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "[#/1/SpreadsheetName234/cell/A1] [AU]"
+        );
+    }
+
+    @Test
+    public void testSetFlagAndText() {
+        this.treePrintAndCheck(
+            HistoryTokenAnchorComponent.empty()
+                .setFlag("AU")
+                .setTextContent("Hello")
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+                ),
+            "\"Hello\" [#/1/SpreadsheetName234/cell/A1] [AU]"
+        );
+    }
+
     // iconAfter.......................................................................................................
 
     @Test

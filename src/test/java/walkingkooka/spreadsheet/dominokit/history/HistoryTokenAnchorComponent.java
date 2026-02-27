@@ -47,6 +47,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     private HistoryTokenAnchorComponent() {
         this.tooltip = Optional.empty();
         this.badge = "";
+        this.flag = "";
     }
 
     // setCssText.......................................................................................................
@@ -200,6 +201,22 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     }
 
     private String badge;
+
+    // flag.............................................................................................................
+
+    @Override
+    public String flag() {
+        return this.flag;
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent setFlag(final String text) {
+        Objects.requireNonNull(text, "text");
+        this.flag = text;
+        return this;
+    }
+
+    private String flag;
 
     // iconBefore | text Content | iconAfter
 

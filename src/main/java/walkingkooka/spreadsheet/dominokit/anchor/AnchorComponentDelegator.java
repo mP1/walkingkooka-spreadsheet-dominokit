@@ -131,6 +131,18 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
+    default String flag() {
+        return this.anchorComponent()
+            .flag();
+    }
+
+    @Override
+    default A setFlag(final String text) {
+        this.anchorComponent().setFlag(text);
+        return (A) this;
+    }
+
+    @Override
     default Optional<Icon<?>> iconBefore() {
         return this.anchorComponent()
             .iconBefore();

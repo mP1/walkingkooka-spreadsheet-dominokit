@@ -18,10 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import elemental2.dom.CSSStyleDeclaration;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.Text;
+import jsinterop.base.Js;
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.elements.AnchorElement;
 import org.dominokit.domino.ui.events.EventType;
@@ -35,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -326,6 +330,55 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private Badge badge;
 
+    // flag.............................................................................................................
+
+    @Override
+    public String flag() {
+        final Text flag = this.flag;
+        return null == flag ?
+            "" :
+            flag.textContent;
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent setFlag(final String flag) {
+        Objects.requireNonNull(flag, "flag");
+
+        final AnchorElement anchorElement = this.element;
+
+        final Text oldflag = this.flag;
+        if (null != oldflag) {
+            anchorElement.removeChild(oldflag);
+        }
+
+        if (null != flag && flag.length() == 2) {
+            Text newFlag = null;
+
+            // try/catch required because flag may fail if not two character country code.
+            try {
+                final String html = TextNode.flag(flag)
+                    .toHtml();
+                final Element element = DomGlobal.document.createElement("SPAN");
+                element.innerHTML = html;
+                newFlag = Js.cast(
+                    element.firstChild
+                );
+                anchorElement.appendChild(newFlag);
+            } catch (final RuntimeException ignore) {
+                // nop
+            }
+
+            this.flag = newFlag;
+
+        } else {
+            this.flag = null;
+        }
+
+        return this;
+    }
+
+    private Text flag;
+    
     // iconBefore | text Content | iconAfter
 
     // iconBefore......................................................................................................

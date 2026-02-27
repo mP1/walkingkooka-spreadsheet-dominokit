@@ -108,6 +108,12 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
         );
     }
 
+    // flag.............................................................................................................
+
+    String flag();
+
+    A setFlag(final String countryCode);
+
     // iconBefore | text Content | iconAfter
 
     // iconBefore......................................................................................................
