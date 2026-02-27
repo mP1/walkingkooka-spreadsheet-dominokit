@@ -25,8 +25,15 @@ public final class CurrencyDialogComponentContexts implements PublicStaticHelper
     /**
      * {@link AppContextCurrencyDialogComponentContextCellCurrency}
      */
-    public static CurrencyDialogComponentContext cellCurrency(final AppContext context) {
+    public static CurrencyDialogComponentContext appContextCellCurrency(final AppContext context) {
         return AppContextCurrencyDialogComponentContextCellCurrency.with(context);
+    }
+
+    /**
+     * {@link AppContextCurrencyDialogComponentContextMetadataCurrency}
+     */
+    public static CurrencyDialogComponentContext appContextMetadataCurrency(final AppContext context) {
+        return AppContextCurrencyDialogComponentContextMetadataCurrency.with(context);
     }
     
     /**
@@ -34,13 +41,6 @@ public final class CurrencyDialogComponentContexts implements PublicStaticHelper
      */
     public static FakeCurrencyDialogComponentContext fake() {
         throw new UnsupportedOperationException();
-    }
-
-    /**
-     * {@link AppContextCurrencyDialogComponentContextMetadataCurrency}
-     */
-    public static CurrencyDialogComponentContext metadataCurrency(final AppContext context) {
-        return AppContextCurrencyDialogComponentContextMetadataCurrency.with(context);
     }
 
     /**
