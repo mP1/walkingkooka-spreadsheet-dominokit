@@ -18,8 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.currency;
 
 import walkingkooka.reflect.PublicStaticHelper;
+
 public final class CurrencyDialogComponentContexts implements PublicStaticHelper {
 
+    /**
+     * {@see FakeCurrencyDialogComponentContext}
+     */
+    public static FakeCurrencyDialogComponentContext fake() {
+        throw new UnsupportedOperationException();
+    }
+    
     /**
      * Stop creation
      */
