@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import walkingkooka.Context;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -59,23 +60,35 @@ public interface HistoryContext extends Context {
     /**
      * Creates an ANCHOR with the given text and if a {@link HistoryToken} is passed, it will be pushed that if this
      * menu item clicked or selected with ENTER.
+     * If the {@link HistoryToken} has a {@link Locale} the {@link HistoryTokenAnchorComponent} will have its flag
+     * replaced.
      */
     default <T> HistoryTokenMenuItem<T> menuItem(final String id,
                                                  final String text,
                                                  final Optional<HistoryToken> historyToken) {
         Objects.requireNonNull(historyToken, "historyToken");
 
-        final HistoryTokenMenuItem<T> menu = new HistoryTokenMenuItem<>(
-            HistoryTokenAnchorComponent.empty()
-                .setId(id)
-                .setHistoryToken(historyToken)
-                .setTextContent(text)
-        );
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
+            .setId(id)
+            .setHistoryToken(historyToken)
+            .setTextContent(text);
 
-        final HistoryToken push = historyToken.orElse(null);
-        if (null != push) {
+        final HistoryTokenMenuItem<T> menu = new HistoryTokenMenuItem<>(anchor);
+
+        final HistoryToken historyTokenOrNull = historyToken.orElse(null);
+        if (null != historyTokenOrNull) {
+            final Object valueOrNull = historyTokenOrNull.saveValue()
+                .orElse(null);
+
+            if (valueOrNull instanceof Locale) {
+                final Locale locale = (Locale) valueOrNull;
+                anchor.setFlag(
+                    locale.getCountry()
+                );
+            }
+
             menu.addSelectionHandler(
-                (ignored) -> this.pushHistoryToken(push)
+                (ignored) -> this.pushHistoryToken(historyTokenOrNull)
             );
         }
 

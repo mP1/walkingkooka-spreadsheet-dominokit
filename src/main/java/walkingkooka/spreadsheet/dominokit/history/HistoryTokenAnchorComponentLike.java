@@ -214,6 +214,11 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             badge = "(" + badge + ")";
         }
 
+        String flag = this.flag();
+        if (false == flag.isEmpty()) {
+            flag = "[" + flag + "]";
+        }
+
         return ToStringBuilder.empty()
             .disable(ToStringBuilderOption.QUOTE)
             .enable(ToStringBuilderOption.SKIP_IF_DEFAULT_VALUE)
@@ -224,6 +229,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             .value(disabled)
             .value(hrefString)
             .value(badge)
+            .value(flag)
             .value(this.target())
             .value(this.isChecked() ? "CHECKED" : "")
             .value(this.iconAfter().map(Icon::getName))
