@@ -40,19 +40,19 @@ abstract class AppContextLocaleDialogComponentContext implements LocaleDialogCom
     // DialogComponentContext...........................................................................................
 
     @Override
-    public DialogComponentContext dialogComponentContext() {
+    public final DialogComponentContext dialogComponentContext() {
         return DialogComponentContexts.basic(this.context);
     }
 
     // LocaleContextDelegator...........................................................................................
 
     @Override
-    public LocaleContext localeContext() {
+    public final LocaleContext localeContext() {
         return this.context;
     }
 
     @Override
-    public void setLocale(final Locale locale) {
+    public final void setLocale(final Locale locale) {
         Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();
     }
@@ -62,7 +62,7 @@ abstract class AppContextLocaleDialogComponentContext implements LocaleDialogCom
     // Object...........................................................................................................
 
     @Override
-    public String toString() {
+    public final String toString() {
         return this.context.toString();
     }
 }
