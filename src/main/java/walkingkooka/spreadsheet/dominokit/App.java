@@ -68,6 +68,9 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatchers;
@@ -171,6 +174,9 @@ import walkingkooka.spreadsheet.provider.SpreadsheetProviderDelegator;
 import walkingkooka.spreadsheet.provider.SpreadsheetProviders;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.server.SpreadsheetServerStartup;
+import walkingkooka.spreadsheet.server.currency.CurrencyCode;
+import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
+import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
@@ -229,6 +235,7 @@ import java.util.function.Predicate;
 public class App implements EntryPoint,
     AppContext,
     ConverterFetcherWatcher,
+    CurrencyFetcherWatcher,
     CurrencyLocaleContext,
     DateTimeSymbolsFetcherWatcher,
     DecimalNumberSymbolsFetcherWatcher,
@@ -346,6 +353,14 @@ public class App implements EntryPoint,
         );
         this.converterInfoSet = ConverterInfoSet.EMPTY;
         this.addConverterFetcherWatcher(this);
+
+        // currency
+        this.currencyFetcherWatchers = CurrencyFetcherWatchers.empty();
+        this.currencyFetcher = CurrencyFetcher.with(
+            this.currencyFetcherWatchers,
+            this
+        );
+        this.addCurrencyFetcherWatcher(this);
 
         // dateTimeSymbols
         this.dateTimeSymbolsFetcherWatchers = DateTimeSymbolsFetcherWatchers.empty();
@@ -679,6 +694,38 @@ public class App implements EntryPoint,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
                          final Set<MissingConverter> missingConverters) {
         // NOP
+    }
+
+    // CurrencyWatcher..................................................................................................
+
+    @Override
+    public CurrencyFetcher currencyFetcher() {
+        return this.currencyFetcher;
+    }
+
+    private final CurrencyFetcher currencyFetcher;
+
+    @Override
+    public Runnable addCurrencyFetcherWatcher(final CurrencyFetcherWatcher watcher) {
+        return this.currencyFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addCurrencyFetcherWatcherOnce(final CurrencyFetcherWatcher watcher) {
+        return this.currencyFetcherWatchers.addOnce(watcher);
+    }
+
+    private final CurrencyFetcherWatchers currencyFetcherWatchers;
+
+    @Override
+    public void onCurrencyHateosResource(final CurrencyCode id,
+                                         final CurrencyHateosResource currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void onCurrencyHateosResourceSet(final CurrencyHateosResourceSet currencies) {
+        throw new UnsupportedOperationException();
     }
 
     // CurrencyContext..................................................................................................
