@@ -18,16 +18,31 @@
 package walkingkooka.spreadsheet.dominokit.currency;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class CurrencyDialogComponentContexts implements PublicStaticHelper {
 
+    /**
+     * {@link AppContextCurrencyDialogComponentContextCellCurrency}
+     */
+    public static CurrencyDialogComponentContext cellCurrency(final AppContext context) {
+        return AppContextCurrencyDialogComponentContextCellCurrency.with(context);
+    }
+    
     /**
      * {@see FakeCurrencyDialogComponentContext}
      */
     public static FakeCurrencyDialogComponentContext fake() {
         throw new UnsupportedOperationException();
     }
-    
+
+    /**
+     * {@link AppContextCurrencyDialogComponentContextMetadataCurrency}
+     */
+    public static CurrencyDialogComponentContext metadataCurrency(final AppContext context) {
+        return AppContextCurrencyDialogComponentContextMetadataCurrency.with(context);
+    }
+
     /**
      * Stop creation
      */
