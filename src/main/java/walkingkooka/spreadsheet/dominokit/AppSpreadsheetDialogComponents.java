@@ -31,6 +31,8 @@ import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameLi
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponent;
+import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
@@ -106,6 +108,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         metadata(context);
 
         cellValue(context);
+
+        currency(context);
 
         dateTimeSymbols(context);
 
@@ -278,6 +282,16 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void columnAndRow(final AppContext context) {
         SpreadsheetColumnRowInsertCountDialogComponent.with(
             SpreadsheetColumnRowInsertCountDialogComponentContexts.appContext(context)
+        );
+    }
+
+    private static void currency(final AppContext context) {
+        CurrencyDialogComponent.with(
+            CurrencyDialogComponentContexts.appContextCellCurrency(context)
+        );
+
+        CurrencyDialogComponent.with(
+            CurrencyDialogComponentContexts.appContextMetadataCurrency(context)
         );
     }
 
