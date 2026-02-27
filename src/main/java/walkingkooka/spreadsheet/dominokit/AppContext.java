@@ -75,7 +75,6 @@ import walkingkooka.storage.StoragePath;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContextObjectPostProcessor;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
-import walkingkooka.util.HasLocale;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -88,40 +87,38 @@ import java.util.Set;
  */
 public interface AppContext extends CanGiveFocus,
     ClipboardContext,
-    SpreadsheetProvider,
     CurrencyLocaleContext,
-    HasDateTimeSymbolsFetcher,
-    HasDecimalNumberSymbolsFetcher,
-    HasFormHandlerFetcher,
-    HasLocale,
     HasNow,
     HasSpreadsheetComparatorFetcher,
     HasConverterFetcher,
-    HasPluginFetcher,
+    HasDateTimeSymbolsFetcher,
+    HasDecimalNumberSymbolsFetcher,
+    HasExpressionFunctionFetcher,
+    HasFormHandlerFetcher,
     HasLocaleFetcher,
+    HasPluginFetcher,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetExporterFetcher,
-    HasExpressionFunctionFetcher,
     HasSpreadsheetFormatterFetcher,
     HasSpreadsheetImporterFetcher,
     HasSpreadsheetMetadata,
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetParserFetcher,
     HasValidatorFetcher,
+    HistoryContext,
     JsonNodeMarshallUnmarshallContext,
+    KeyboardContext,
+    LoggingContext,
     NumberComponentContext,
     ProviderContext,
+    RefreshContext,
+    RecentValueSavesContext,
+    SpreadsheetEnvironmentContext,
     SpreadsheetFormatterContext,
     SpreadsheetParserContext,
-    HistoryContext,
-    LoggingContext,
-    RefreshContext,
-    KeyboardContext,
-    SpreadsheetEnvironmentContext,
+    SpreadsheetProvider,
     SpreadsheetViewportCacheContext,
-    RecentValueSavesContext,
-    WholeNumberComponentContext,
-    Context {
+    WholeNumberComponentContext {
 
     /**
      * Clears any present {@link SpreadsheetMetadata}, ideal after an attempt to load an unknown / invalid {@link SpreadsheetId}.
