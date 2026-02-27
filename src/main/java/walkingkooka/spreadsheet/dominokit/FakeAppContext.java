@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcher;
@@ -160,6 +162,23 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public ConverterFetcher converterFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    // CurrencyWatcher..................................................................................................
+
+    @Override
+    public CurrencyFetcher currencyFetcher() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addCurrencyFetcherWatcher(final CurrencyFetcherWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addCurrencyFetcherWatcherOnce(final CurrencyFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
