@@ -62,6 +62,31 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            FORMULA
+        );
+    }
+
+    @Test
+    public void testSaveValueWithEmptyText() {
+        final String formulaText = "";
+
+        this.saveValueAndCheck(
+            SpreadsheetCellFormulaSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                formulaText
+            ),
+            formulaText
+        );
+    }
+
     // ClassTesting....................................................................................................
 
     @Override

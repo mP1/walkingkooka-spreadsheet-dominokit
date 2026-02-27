@@ -105,6 +105,28 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            PATTERN.spreadsheetParserSelector()
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellParserSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellParserSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,

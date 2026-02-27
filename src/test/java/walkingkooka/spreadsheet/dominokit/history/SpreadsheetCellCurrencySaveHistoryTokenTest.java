@@ -101,6 +101,28 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            CURRENCY
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellCurrencySaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellCurrencySaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                final SpreadsheetName name,

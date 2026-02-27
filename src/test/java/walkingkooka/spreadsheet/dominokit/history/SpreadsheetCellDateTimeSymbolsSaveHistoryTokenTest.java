@@ -101,6 +101,28 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            DATE_TIME_SYMBOLS
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellDateTimeSymbolsSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellDateTimeSymbolsSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                       final SpreadsheetName name,

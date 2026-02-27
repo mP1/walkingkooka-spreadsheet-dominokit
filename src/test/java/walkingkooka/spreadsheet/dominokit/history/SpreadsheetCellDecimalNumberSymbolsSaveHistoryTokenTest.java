@@ -105,6 +105,27 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            DECIMAL_NUMBER_SYMBOLS
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
 
     @Override
     SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken createHistoryToken(final SpreadsheetId id,

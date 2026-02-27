@@ -105,6 +105,28 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // saveValue........................................................................................................
+
+    @Test
+    public void testSaveValue() {
+        this.saveValueAndCheck(
+            this.createHistoryToken(),
+            LOCALE
+        );
+    }
+
+    @Test
+    public void testSaveValueWithoutValue() {
+        this.saveValueAndCheck(
+            SpreadsheetCellLocaleSaveHistoryToken.with(
+                ID,
+                NAME,
+                SELECTION,
+                Optional.empty()
+            )
+        );
+    }
+
     @Override
     SpreadsheetCellLocaleSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                              final SpreadsheetName name,
