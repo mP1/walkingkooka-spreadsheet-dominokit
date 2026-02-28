@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 public final class LocaleFetcherWatchers extends FetcherWatchers<LocaleFetcherWatcher>
     implements LocaleFetcherWatcher {
@@ -33,7 +33,7 @@ public final class LocaleFetcherWatchers extends FetcherWatchers<LocaleFetcherWa
     }
 
     @Override
-    public void onLocaleHateosResource(final LocaleTag id,
+    public void onLocaleHateosResource(final LocaleLanguageTag id,
                                        final LocaleHateosResource locale) {
         this.fire(
             LocaleFetcherWatchersLocaleHateosResourceEvent.with(

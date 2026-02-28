@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * The event payload used by {@link DateTimeSymbolsFetcherWatchers}.
  */
 final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent extends FetcherWatchersEvent<DateTimeSymbolsFetcherWatcher> {
 
-    static DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent with(final LocaleTag id,
+    static DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent with(final LocaleLanguageTag id,
                                                                                  final DateTimeSymbolsHateosResource symbols) {
         return new DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent(
             id,
@@ -33,7 +33,7 @@ final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent ext
         );
     }
 
-    private DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent(final LocaleTag id,
+    private DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent(final LocaleLanguageTag id,
                                                                              final DateTimeSymbolsHateosResource symbols) {
         super();
         this.id = id;
@@ -48,7 +48,7 @@ final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceEvent ext
         );
     }
 
-    private final LocaleTag id;
+    private final LocaleLanguageTag id;
 
     private final DateTimeSymbolsHateosResource symbols;
 

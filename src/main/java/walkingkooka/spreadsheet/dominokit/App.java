@@ -185,7 +185,7 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -835,7 +835,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
+    public void onDateTimeSymbolsHateosResource(final LocaleLanguageTag id,
                                                 final DateTimeSymbolsHateosResource dateTimeSymbols) {
         // NOP
     }
@@ -868,7 +868,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+    public void onDecimalNumberSymbolsHateosResource(final LocaleLanguageTag id,
                                                      final DecimalNumberSymbolsHateosResource decimalNumberSymbols) {
         // NOP
     }
@@ -1327,7 +1327,7 @@ public class App implements EntryPoint,
     }
 
     @Override
-    public void onLocaleHateosResource(final LocaleTag id,
+    public void onLocaleHateosResource(final LocaleLanguageTag id,
                                        final LocaleHateosResource locale) {
         // NOP
     }

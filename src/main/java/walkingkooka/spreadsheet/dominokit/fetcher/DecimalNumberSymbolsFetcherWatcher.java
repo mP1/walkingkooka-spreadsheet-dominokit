@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * A watcher that receives all {@link DecimalNumberSymbolsHateosResource} response events.
  */
 public interface DecimalNumberSymbolsFetcherWatcher extends FetcherWatcher {
 
-    void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+    void onDecimalNumberSymbolsHateosResource(final LocaleLanguageTag id,
                                               final DecimalNumberSymbolsHateosResource locale);
 
     void onDecimalNumberSymbolsHateosResourceSet(final String localeStartsWith,

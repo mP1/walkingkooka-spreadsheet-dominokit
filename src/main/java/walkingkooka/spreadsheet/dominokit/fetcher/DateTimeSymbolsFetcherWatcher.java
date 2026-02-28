@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * A watcher that receives all {@link DateTimeSymbolsHateosResource} response events.
  */
 public interface DateTimeSymbolsFetcherWatcher extends FetcherWatcher {
 
-    void onDateTimeSymbolsHateosResource(final LocaleTag id,
+    void onDateTimeSymbolsHateosResource(final LocaleLanguageTag id,
                                          final DateTimeSymbolsHateosResource locale);
 
     void onDateTimeSymbolsHateosResourceSet(final String localeStartsWith,

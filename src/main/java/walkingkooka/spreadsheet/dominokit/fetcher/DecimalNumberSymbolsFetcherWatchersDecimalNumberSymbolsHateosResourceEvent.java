@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * The event payload used by {@link DecimalNumberSymbolsFetcherWatchers}.
  */
 final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent extends FetcherWatchersEvent<DecimalNumberSymbolsFetcherWatcher> {
 
-    static DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent with(final LocaleTag id,
+    static DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent with(final LocaleLanguageTag id,
                                                                                            final DecimalNumberSymbolsHateosResource symbols) {
         return new DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent(
             id,
@@ -33,7 +33,7 @@ final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourc
         );
     }
 
-    private DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent(final LocaleTag id,
+    private DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent(final LocaleLanguageTag id,
                                                                                        final DecimalNumberSymbolsHateosResource symbols) {
         super();
         this.id = id;
@@ -48,7 +48,7 @@ final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourc
         );
     }
 
-    private final LocaleTag id;
+    private final LocaleLanguageTag id;
 
     private final DecimalNumberSymbolsHateosResource symbols;
 

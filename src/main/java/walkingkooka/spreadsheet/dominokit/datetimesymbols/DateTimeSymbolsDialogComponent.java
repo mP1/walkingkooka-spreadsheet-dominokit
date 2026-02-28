@@ -48,7 +48,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 import java.util.List;
 import java.util.Locale;
@@ -557,7 +557,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     // DateTimeSymbolsFetcherWatcher....................................................................................
 
     @Override
-    public void onDateTimeSymbolsHateosResource(final LocaleTag id,
+    public void onDateTimeSymbolsHateosResource(final LocaleLanguageTag id,
                                                 final DateTimeSymbolsHateosResource locale) {
         // NOP
     }

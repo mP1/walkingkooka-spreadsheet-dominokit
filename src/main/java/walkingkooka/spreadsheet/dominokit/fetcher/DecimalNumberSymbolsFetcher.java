@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 import walkingkooka.template.TemplateValueName;
 import walkingkooka.template.url.UrlPathTemplate;
@@ -59,8 +59,8 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         );
     }
 
-    // GET /api/decimalNumberSymbols/LocaleTag
-    public void getDecimalNumberSymbols(final LocaleTag id) {
+    // GET /api/decimalNumberSymbols/LocaleLanguageTag
+    public void getDecimalNumberSymbols(final LocaleLanguageTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
@@ -104,7 +104,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
                 this.watcher.onEmptyResponse();
                 break;
             case "DecimalNumberSymbolsHateosResource":
-                // GET http://server/api/locale/LocaleTagId
+                // GET http://server/api/locale/LocaleLanguageTagId
                 this.watcher.onDecimalNumberSymbolsHateosResource(
                     LOCALE_TAG_TEMPLATE.localeTag(
                         url.path()
@@ -130,7 +130,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
         }
     }
 
-    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/decimalNumberSymbols/${LocaleTag}");
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/decimalNumberSymbols/${LocaleLanguageTag}");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {

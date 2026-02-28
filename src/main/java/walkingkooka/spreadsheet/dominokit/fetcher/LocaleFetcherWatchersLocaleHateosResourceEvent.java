@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * The event payload used by {@link LocaleFetcherWatchers}.
  */
 final class LocaleFetcherWatchersLocaleHateosResourceEvent extends FetcherWatchersEvent<LocaleFetcherWatcher> {
 
-    static LocaleFetcherWatchersLocaleHateosResourceEvent with(final LocaleTag id,
+    static LocaleFetcherWatchersLocaleHateosResourceEvent with(final LocaleLanguageTag id,
                                                                final LocaleHateosResource locale) {
         return new LocaleFetcherWatchersLocaleHateosResourceEvent(
             id,
@@ -33,7 +33,7 @@ final class LocaleFetcherWatchersLocaleHateosResourceEvent extends FetcherWatche
         );
     }
 
-    private LocaleFetcherWatchersLocaleHateosResourceEvent(final LocaleTag id,
+    private LocaleFetcherWatchersLocaleHateosResourceEvent(final LocaleLanguageTag id,
                                                            final LocaleHateosResource locale) {
         super();
         this.id = id;
@@ -48,7 +48,7 @@ final class LocaleFetcherWatchersLocaleHateosResourceEvent extends FetcherWatche
         );
     }
 
-    private final LocaleTag id;
+    private final LocaleLanguageTag id;
 
     private final LocaleHateosResource locale;
 

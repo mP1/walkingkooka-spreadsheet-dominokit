@@ -22,22 +22,22 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
     ClassTesting<DateTimeSymbolsFetcher> {
 
     @Test
-    public void testLocaleTagTemplateGet() {
-        this.localeTagAndCheck(
+    public void testLocaleLanguageTagTemplateGet() {
+        this.localeLanguageTagAndCheck(
             UrlPath.parse("/api/dateTimeSymbols/EN-AU"),
-            LocaleTag.parse("EN-AU")
+            LocaleLanguageTag.parse("EN-AU")
         );
     }
 
-    private void localeTagAndCheck(final UrlPath path,
-                                   final LocaleTag expected) {
+    private void localeLanguageTagAndCheck(final UrlPath path,
+                                           final LocaleLanguageTag expected) {
         this.checkEquals(
             expected,
             DateTimeSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)

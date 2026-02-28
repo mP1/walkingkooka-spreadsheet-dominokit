@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 public final class DecimalNumberSymbolsFetcherWatchers extends FetcherWatchers<DecimalNumberSymbolsFetcherWatcher>
     implements DecimalNumberSymbolsFetcherWatcher {
@@ -33,7 +33,7 @@ public final class DecimalNumberSymbolsFetcherWatchers extends FetcherWatchers<D
     }
 
     @Override
-    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+    public void onDecimalNumberSymbolsHateosResource(final LocaleLanguageTag id,
                                                      final DecimalNumberSymbolsHateosResource symbols) {
         this.fire(
             DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent.with(
