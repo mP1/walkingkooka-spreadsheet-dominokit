@@ -29,7 +29,8 @@ import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
-import walkingkooka.currency.CanCurrencyForCurrencyCode;
+import walkingkooka.currency.CurrencyContext;
+import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
@@ -237,6 +238,7 @@ public class App implements EntryPoint,
     AppContext,
     ConverterFetcherWatcher,
     CurrencyFetcherWatcher,
+    CurrencyContextDelegator,
     CurrencyLocaleContext,
     DateTimeSymbolsFetcherWatcher,
     DecimalNumberSymbolsFetcherWatcher,
@@ -277,12 +279,16 @@ public class App implements EntryPoint,
 
     private final static Currency CURRENCY = Currency.getInstance(LOCALE);
 
-    private final static CanCurrencyForCurrencyCode CAN_CURRENCY_FOR_CURRENCY_CODE = (String cc) -> Optional.ofNullable(
-        Currency.getInstance(cc)
-    );
-
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
         LocaleContexts.jre(LOCALE)
+    );
+
+    private final static CurrencyContext CURRENCY_CONTEXT = CurrencyContexts.jre(
+        CURRENCY,
+        (Currency from, Currency to) -> {
+            throw new UnsupportedOperationException();
+        }, // exchange rate computer
+        LOCALE_CONTEXT
     );
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
@@ -315,7 +321,7 @@ public class App implements EntryPoint,
         );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-            CAN_CURRENCY_FOR_CURRENCY_CODE,
+            CURRENCY_CONTEXT,
             LOCALE_CONTEXT,
             ExpressionNumberKind.DEFAULT,
             MathContext.DECIMAL32
@@ -734,60 +740,23 @@ public class App implements EntryPoint,
         // NOP
     }
 
-    // CurrencyContext..................................................................................................
+    // CurrencyContextDelegator.........................................................................................
 
     @Override
-    public void setCurrency(final Currency currency) {
-        throw new UnsupportedOperationException();
+    public CurrencyContext currencyContext() {
+        return CURRENCY_CONTEXT;
     }
-
-    @Override
-    public Set<Currency> availableCurrencies() {
-        return this.availableCurrencies;
-    }
-
-    private Set<Currency> availableCurrencies = Sets.empty();
 
     @Override
     public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<String> currencyText(final Currency currency) {
-        throw new UnsupportedOperationException();
+        return this.currencyContext()
+            .currencyForCurrencyCode(currencyCode);
     }
 
     @Override
     public Optional<Currency> currencyForLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<Currency> findByCurrencyText(final String text,
-                                            final int offset,
-                                            final int count) {
-        return this.currencyToText.entrySet()
-            .stream()
-            .filter(currencyAndText -> {
-                final String currencyText = currencyAndText.getValue();
-                return false == currencyText.isEmpty() &&
-                    (CurrencyContexts.CASE_SENSITIVITY.equals(text, currencyText) || CurrencyContexts.CASE_SENSITIVITY.startsWith(currencyText, text));
-            }).skip(offset)
-            .limit(count)
-            .map(Entry::getKey)
-            .collect(
-                ImmutableSortedSet.collector(CurrencyContexts.CURRENCY_CODE_COMPARATOR)
-            );
-    }
-
-    private Map<Currency, String> currencyToText = Maps.empty();
-
-    @Override
-    public Number exchangeRate(final Currency from,
-                               final Currency to,
-                               final Optional<LocalDateTime> dateTime) {
-        throw new UnsupportedOperationException();
+        return this.currencyContext()
+            .currencyForLocale(locale);
     }
 
     // SpreadsheetDeltaFetcher..........................................................................................
@@ -926,6 +895,16 @@ public class App implements EntryPoint,
     public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.spreadsheetEnvironmentContext()
             .removeEnvironmentValue(name);
+    }
+
+    @Override
+    public Currency currency() {
+        return CURRENCY;
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1423,7 +1402,7 @@ public class App implements EntryPoint,
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                CAN_CURRENCY_FOR_CURRENCY_CODE,
+                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
                 LOCALE_CONTEXT,
                 metadata.expressionNumberKind(),
                 metadata.mathContext()
