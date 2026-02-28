@@ -52,7 +52,7 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.text.CaseKind;
 
 import java.util.Locale;
@@ -745,7 +745,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     // DecimalNumberSymbolsFetcherWatcher...............................................................................
 
     @Override
-    public void onDecimalNumberSymbolsHateosResource(final LocaleTag id,
+    public void onDecimalNumberSymbolsHateosResource(final LocaleLanguageTag id,
                                                      final DecimalNumberSymbolsHateosResource locale) {
         // NOP
     }

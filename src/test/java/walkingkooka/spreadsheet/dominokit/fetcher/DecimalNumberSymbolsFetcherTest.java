@@ -22,20 +22,20 @@ import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<DecimalNumberSymbolsFetcher> {
 
     @Test
-    public void testLocaleTag() {
-        this.localeTagAndCheck(
+    public void testLocaleLanguageTag() {
+        this.localeLanguageTagAndCheck(
             UrlPath.parse("/api/decimalNumberSymbols/EN-AU"),
-            LocaleTag.parse("EN-AU")
+            LocaleLanguageTag.parse("EN-AU")
         );
     }
 
-    private void localeTagAndCheck(final UrlPath path,
-                                   final LocaleTag expected) {
+    private void localeLanguageTagAndCheck(final UrlPath path,
+                                           final LocaleLanguageTag expected) {
         this.checkEquals(
             expected,
             DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)

@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 import walkingkooka.template.TemplateValueName;
 import walkingkooka.template.url.UrlPathTemplate;
@@ -59,8 +59,8 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
         );
     }
 
-    // GET /api/dateTimeSymbols/LocaleTag
-    public void getDateTimeSymbols(final LocaleTag id) {
+    // GET /api/dateTimeSymbols/LocaleLanguageTag
+    public void getDateTimeSymbols(final LocaleLanguageTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
@@ -104,7 +104,7 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
                 this.watcher.onEmptyResponse();
                 break;
             case "DateTimeSymbolsHateosResource":
-                // GET http://server/api/dateTimeSymbols/LocaleTagId
+                // GET http://server/api/dateTimeSymbols/LocaleLanguageTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
                     LOCALE_TAG_TEMPLATE.localeTag(
                         url.path()
@@ -130,8 +130,8 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
         }
     }
 
-    // /api/dateTimeSymbols/${LocaleTag}}
-    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/dateTimeSymbols/${LocaleTag}");
+    // /api/dateTimeSymbols/${LocaleLanguageTag}}
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/dateTimeSymbols/${LocaleLanguageTag}");
 
     // /api/dateTimeSymbols/*/localeStartsWith/STARTSWITH
     static String extractLocaleStartsWith(final UrlPath path) {

@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleTag;
+import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
@@ -57,8 +57,8 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
         );
     }
 
-    // GET /api/locale/LocaleTag
-    public void getLocale(final LocaleTag id) {
+    // GET /api/locale/LocaleLanguageTag
+    public void getLocale(final LocaleLanguageTag id) {
         Objects.requireNonNull(id, "id");
 
         get(
@@ -107,7 +107,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
                 this.watcher.onEmptyResponse();
                 break;
             case "LocaleHateosResource":
-                // GET http://server/api/locale/LocaleTagId
+                // GET http://server/api/locale/LocaleLanguageTagId
                 this.watcher.onLocaleHateosResource(
                     LOCALE_TAG_TEMPLATE.localeTag(
                         url.path()
@@ -132,7 +132,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
         }
     }
 
-    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/locale/${LocaleTag}");
+    final static SpreadsheetUrlPathTemplate LOCALE_TAG_TEMPLATE = SpreadsheetUrlPathTemplate.parse("/api/locale/${LocaleLanguageTag}");
 
     // Logging..........................................................................................................
 
