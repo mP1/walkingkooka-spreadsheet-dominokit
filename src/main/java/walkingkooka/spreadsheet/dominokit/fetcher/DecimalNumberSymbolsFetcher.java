@@ -106,7 +106,7 @@ public final class DecimalNumberSymbolsFetcher extends Fetcher<DecimalNumberSymb
             case "DecimalNumberSymbolsHateosResource":
                 // GET http://server/api/locale/LocaleLanguageTagId
                 this.watcher.onDecimalNumberSymbolsHateosResource(
-                    LOCALE_TAG_TEMPLATE.localeTag(
+                    LOCALE_TAG_TEMPLATE.localeLanguageTag(
                         url.path()
                     ),
                     this.parse(

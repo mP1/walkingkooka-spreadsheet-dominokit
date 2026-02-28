@@ -37,7 +37,7 @@ public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
                                            final LocaleLanguageTag expected) {
         this.checkEquals(
             expected,
-            LocaleFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)
+            LocaleFetcher.LOCALE_TAG_TEMPLATE.localeLanguageTag(path)
         );
     }
 

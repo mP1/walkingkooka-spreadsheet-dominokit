@@ -109,7 +109,7 @@ public final class LocaleFetcher extends Fetcher<LocaleFetcherWatcher> {
             case "LocaleHateosResource":
                 // GET http://server/api/locale/LocaleLanguageTagId
                 this.watcher.onLocaleHateosResource(
-                    LOCALE_TAG_TEMPLATE.localeTag(
+                    LOCALE_TAG_TEMPLATE.localeLanguageTag(
                         url.path()
                     ), // the request url
                     this.parse(
