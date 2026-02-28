@@ -38,7 +38,7 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
                                            final LocaleLanguageTag expected) {
         this.checkEquals(
             expected,
-            DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)
+            DecimalNumberSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeLanguageTag(path)
         );
     }
 

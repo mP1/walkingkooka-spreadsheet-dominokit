@@ -40,7 +40,7 @@ public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
                                            final LocaleLanguageTag expected) {
         this.checkEquals(
             expected,
-            DateTimeSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeTag(path)
+            DateTimeSymbolsFetcher.LOCALE_TAG_TEMPLATE.localeLanguageTag(path)
         );
     }
 

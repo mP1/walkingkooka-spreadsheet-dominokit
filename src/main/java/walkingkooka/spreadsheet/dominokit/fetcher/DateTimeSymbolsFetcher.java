@@ -106,7 +106,8 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
             case "DateTimeSymbolsHateosResource":
                 // GET http://server/api/dateTimeSymbols/LocaleLanguageTagId
                 this.watcher.onDateTimeSymbolsHateosResource(
-                    LOCALE_TAG_TEMPLATE.localeTag(
+                    LOCALE_TAG_TEMPLATE
+                        .localeLanguageTag(
                         url.path()
                     ),
                     this.parse(
