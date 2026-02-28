@@ -150,15 +150,19 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
                         suggestBox.setOptions(
                             CurrencyHateosResourceSet.filter(startsWith, CurrencyDialogComponent.this.context)
                                 .stream()
-                                .map(
-                                    (CurrencyHateosResource lhr) ->
-                                        CurrencyComponentSuggestionsValue.with(
-                                            lhr.currency(),
-                                            lhr.text(),
-                                            lhr.currency()
+                                .flatMap(
+                                    (CurrencyHateosResource chr) -> CurrencyDialogComponent.this.context.currencyForCurrencyCode(
+                                        chr.value()
+                                            .value()
+                                    ).map(
+                                        c -> CurrencyComponentSuggestionsValue.with(
+                                            c,
+                                            chr.text(),
+                                            c
                                         )
+                                    ).stream()
                                 ).sorted()
-                                .collect(Collectors.toList())
+                                .collect(Collectors.<CurrencyComponentSuggestionsValue<Currency>>toList())
                         );
                     }
 
