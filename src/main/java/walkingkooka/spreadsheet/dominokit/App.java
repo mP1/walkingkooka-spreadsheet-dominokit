@@ -1341,7 +1341,10 @@ public class App implements EntryPoint,
         final Map<Locale, String> localeToText = Maps.hash();
 
         for (final LocaleHateosResource localeHateosResource : locales) {
-            final Locale locale = localeHateosResource.locale();
+            final Locale locale = Locale.forLanguageTag(
+                localeHateosResource.value()
+                    .value()
+            );
 
             availableLocales.add(locale);
 

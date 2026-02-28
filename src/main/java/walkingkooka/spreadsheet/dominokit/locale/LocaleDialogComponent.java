@@ -150,15 +150,19 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                         suggestBox.setOptions(
                             LocaleHateosResourceSet.filter(startsWith, LocaleDialogComponent.this.context)
                                 .stream()
-                                .map(
-                                    (LocaleHateosResource lhr) ->
-                                        LocaleComponentSuggestionsValue.with(
-                                            lhr.locale(),
+                                .flatMap(
+                                    (LocaleHateosResource lhr) -> LocaleDialogComponent.this.context.localeForLanguageTag(
+                                        lhr.value()
+                                            .value()
+                                    ).map(
+                                        l -> LocaleComponentSuggestionsValue.with(
+                                            l,
                                             lhr.text(),
-                                            lhr.locale()
+                                            l
                                         )
+                                    ).stream()
                                 ).sorted()
-                                .collect(Collectors.toList())
+                                .collect(Collectors.<LocaleComponentSuggestionsValue<Locale>>toList())
                         );
                     }
 
