@@ -38,7 +38,6 @@ import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.j2cl.locale.LocaleAware;
-import walkingkooka.locale.CanLocaleForLanguageTag;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
@@ -282,10 +281,6 @@ public class App implements EntryPoint,
         Currency.getInstance(cc)
     );
 
-    private final static CanLocaleForLanguageTag CAN_LOCALE_FOR_LANGUAGE_TAG = (String lt) -> Optional.of(
-        Locale.forLanguageTag(lt)
-    );
-
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
         LocaleContexts.jre(LOCALE)
     );
@@ -321,7 +316,7 @@ public class App implements EntryPoint,
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
             CAN_CURRENCY_FOR_CURRENCY_CODE,
-            CAN_LOCALE_FOR_LANGUAGE_TAG,
+            LOCALE_CONTEXT,
             ExpressionNumberKind.DEFAULT,
             MathContext.DECIMAL32
         );
@@ -1426,7 +1421,7 @@ public class App implements EntryPoint,
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 CAN_CURRENCY_FOR_CURRENCY_CODE,
-                CAN_LOCALE_FOR_LANGUAGE_TAG,
+                LOCALE_CONTEXT,
                 metadata.expressionNumberKind(),
                 metadata.mathContext()
             );
