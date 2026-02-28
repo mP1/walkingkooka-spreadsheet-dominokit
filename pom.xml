@@ -201,12 +201,8 @@
                             <version>1.0-SNAPSHOT</version>
                         </path>
                     </annotationProcessorPaths>
-                    <!--
-                    If limited locales selected, attempts to resolve server Locales will have broken language-tags
-                    If local only has EN-AU and Server sends EN-NZ, EN-NZ will become NZ
-                    -->
                     <compilerArgs>
-                        <arg>-Awalkingkooka.j2cl.java.util.Currency=XXX</arg>
+                        <arg>-Awalkingkooka.j2cl.java.util.Currency=*</arg>
                         <arg>-Awalkingkooka.j2cl.java.util.Locale=*</arg>
                         <arg>-Awalkingkooka.j2cl.java.util.Locale.DEFAULT=en-AU</arg>
                         <arg>-Awalkingkooka.j2cl.java.util.TimeZone=Australia/Sydney</arg>

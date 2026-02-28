@@ -30,6 +30,7 @@ import walkingkooka.convert.provider.ConverterProvider;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.currency.CanCurrencyForCurrencyCode;
+import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
@@ -65,6 +66,7 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
+import walkingkooka.spreadsheet.dominokit.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
@@ -508,6 +510,12 @@ public class App implements EntryPoint,
             this.layout.element()
         );
 
+        // load all Currencys
+        this.currencyFetcher.getCurrencies(
+            0,
+            Integer.MAX_VALUE
+        );
+        
         // load all Locales
         this.localeFetcher.getLocales(
             0,
@@ -720,12 +728,15 @@ public class App implements EntryPoint,
     @Override
     public void onCurrencyHateosResource(final CurrencyCode id,
                                          final CurrencyHateosResource currency) {
-        throw new UnsupportedOperationException();
+        // NOP
     }
 
+    /**
+     * Save the loaded currencies. These will appear in the {@link CurrencyComponent}.
+     */
     @Override
     public void onCurrencyHateosResourceSet(final CurrencyHateosResourceSet currencies) {
-        throw new UnsupportedOperationException();
+        // NOP
     }
 
     // CurrencyContext..................................................................................................
@@ -737,8 +748,10 @@ public class App implements EntryPoint,
 
     @Override
     public Set<Currency> availableCurrencies() {
-        throw new UnsupportedOperationException();
+        return this.availableCurrencies;
     }
+
+    private Set<Currency> availableCurrencies = Sets.empty();
 
     @Override
     public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
@@ -759,8 +772,21 @@ public class App implements EntryPoint,
     public Set<Currency> findByCurrencyText(final String text,
                                             final int offset,
                                             final int count) {
-        throw new UnsupportedOperationException();
+        return this.currencyToText.entrySet()
+            .stream()
+            .filter(currencyAndText -> {
+                final String currencyText = currencyAndText.getValue();
+                return false == currencyText.isEmpty() &&
+                    (CurrencyContexts.CASE_SENSITIVITY.equals(text, currencyText) || CurrencyContexts.CASE_SENSITIVITY.startsWith(currencyText, text));
+            }).skip(offset)
+            .limit(count)
+            .map(Entry::getKey)
+            .collect(
+                ImmutableSortedSet.collector(CurrencyContexts.CURRENCY_CODE_COMPARATOR)
+            );
     }
+
+    private Map<Currency, String> currencyToText = Maps.empty();
 
     @Override
     public Number exchangeRate(final Currency from,
