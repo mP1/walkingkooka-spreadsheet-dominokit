@@ -1308,17 +1308,20 @@ public class App implements EntryPoint,
 
     @Override
     public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
-        return LOCALE_CONTEXT.dateTimeSymbolsForLocale(locale);
+        return this.localeContext()
+            .dateTimeSymbolsForLocale(locale);
     }
 
     @Override
     public Optional<DecimalNumberSymbols> decimalNumberSymbolsForLocale(final Locale locale) {
-        return LOCALE_CONTEXT.decimalNumberSymbolsForLocale(locale);
+        return this.localeContext()
+            .decimalNumberSymbolsForLocale(locale);
     }
 
     @Override
     public Optional<Locale> localeForLanguageTag(final String languageTag) {
-        return LOCALE_CONTEXT.localeForLanguageTag(languageTag);
+        return this.localeContext()
+            .localeForLanguageTag(languageTag);
     }
 
     @Override
