@@ -21,9 +21,6 @@ import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.InvalidCharacterException;
-import walkingkooka.collect.map.Maps;
-import walkingkooka.collect.set.ImmutableSortedSet;
-import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.ConverterLike;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
@@ -136,7 +133,6 @@ import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindingses;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -185,8 +181,6 @@ import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbols
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
@@ -225,9 +219,6 @@ import java.math.MathContext;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -251,7 +242,6 @@ public class App implements EntryPoint,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
     LocaleContextDelegator,
-    LocaleFetcherWatcher,
     LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
     PluginFetcherWatcher,
@@ -440,7 +430,11 @@ public class App implements EntryPoint,
             this.localeFetcherWatchers,
             this
         );
-        this.addLocaleFetcherWatcher(this);
+
+        this.localeContext = AppLocaleContext.with(
+            this,
+            LOCALE_CONTEXT
+        );
 
         // parser
         this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
@@ -1245,45 +1239,6 @@ public class App implements EntryPoint,
     // LocaleContextDelegator...........................................................................................
 
     @Override
-    public Set<Locale> availableLocales() {
-        return this.availableLocales;
-    }
-
-    /**
-     * Will be replaced when the server replies with all available locales.
-     */
-    private Set<Locale> availableLocales = Sets.of(LOCALE);
-
-    @Override
-    public Set<Locale> findByLocaleText(final String text,
-                                        final int offset,
-                                        final int count) {
-        return this.localeToText.entrySet()
-            .stream()
-            .filter(localeAndText -> {
-                final String localeText = localeAndText.getValue();
-                return false == localeText.isEmpty() &&
-                    (LocaleContexts.CASE_SENSITIVITY.equals(text, localeText) || LocaleContexts.CASE_SENSITIVITY.startsWith(localeText, text));
-            }).skip(offset)
-            .limit(count)
-            .map(Entry::getKey)
-            .collect(
-                ImmutableSortedSet.collector(LocaleContexts.LANGUAGE_TAG_COMPARATOR)
-            );
-    }
-
-    @Override
-    public Optional<String> localeText(final Locale locale) {
-        Objects.requireNonNull(locale, "locale");
-
-        return Optional.ofNullable(
-            this.localeToText.get(locale)
-        );
-    }
-
-    private Map<Locale, String> localeToText = Maps.empty();
-
-    @Override
     public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
         return this.localeContext()
             .dateTimeSymbolsForLocale(locale);
@@ -1303,8 +1258,10 @@ public class App implements EntryPoint,
 
     @Override
     public LocaleContext localeContext() {
-        return LOCALE_CONTEXT;
+        return this.localeContext;
     }
+
+    private final LocaleContext localeContext;
 
     // LocaleFetcher....................................................................................................
 
@@ -1325,38 +1282,6 @@ public class App implements EntryPoint,
     @Override
     public Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher) {
         return this.localeFetcherWatchers.addOnce(watcher);
-    }
-
-    @Override
-    public void onLocaleHateosResource(final LocaleLanguageTag id,
-                                       final LocaleHateosResource locale) {
-        // NOP
-    }
-
-    /**
-     * Save the loaded locales. These will appear in the {@link LocaleComponent}.
-     */
-    @Override
-    public void onLocaleHateosResourceSet(final LocaleHateosResourceSet locales) {
-        final Set<Locale> availableLocales = Sets.hash();
-        final Map<Locale, String> localeToText = Maps.hash();
-
-        for (final LocaleHateosResource localeHateosResource : locales) {
-            final Locale locale = Locale.forLanguageTag(
-                localeHateosResource.value()
-                    .value()
-            );
-
-            availableLocales.add(locale);
-
-            localeToText.put(
-                locale,
-                localeHateosResource.text()
-            );
-        }
-
-        this.availableLocales = Sets.readOnly(availableLocales);
-        this.localeToText = localeToText;
     }
 
     // LoggingContext...................................................................................................
