@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasLocaleFetcher extends HasLocaleFetcherWatchers {
+public interface HasLocaleFetcherWatchers {
 
-    LocaleFetcher localeFetcher();
+    Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher);
+
+    Runnable addLocaleFetcherWatcherOnce(final LocaleFetcherWatcher watcher);
 }
