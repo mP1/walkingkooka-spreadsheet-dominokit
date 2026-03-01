@@ -436,6 +436,11 @@ public class App implements EntryPoint,
             LOCALE_CONTEXT
         );
 
+        this.currencyContext = AppCurrencyContext.with(
+            this, // HasCurrencyFetcherWatchers
+            CURRENCY_CONTEXT
+        );
+
         // parser
         this.spreadsheetParserFetcherWatchers = SpreadsheetParserFetcherWatchers.empty();
         this.spreadsheetParserFetcher = SpreadsheetParserFetcher.with(
@@ -737,11 +742,6 @@ public class App implements EntryPoint,
     // CurrencyContextDelegator.........................................................................................
 
     @Override
-    public CurrencyContext currencyContext() {
-        return CURRENCY_CONTEXT;
-    }
-
-    @Override
     public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
         return this.currencyContext()
             .currencyForCurrencyCode(currencyCode);
@@ -752,6 +752,13 @@ public class App implements EntryPoint,
         return this.currencyContext()
             .currencyForLocale(locale);
     }
+
+    @Override
+    public CurrencyContext currencyContext() {
+        return this.currencyContext;
+    }
+
+    private final CurrencyContext currencyContext;
 
     // SpreadsheetDeltaFetcher..........................................................................................
 
