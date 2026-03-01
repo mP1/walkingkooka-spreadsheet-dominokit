@@ -1242,7 +1242,7 @@ public class App implements EntryPoint,
             .historyTokenCell();
     }
 
-    // LocaleContext....................................................................................................
+    // LocaleContextDelegator...........................................................................................
 
     @Override
     public Set<Locale> availableLocales() {
@@ -1282,8 +1282,6 @@ public class App implements EntryPoint,
     }
 
     private Map<Locale, String> localeToText = Maps.empty();
-
-    // LocaleContextDelegator...........................................................................................
 
     @Override
     public Optional<DateTimeSymbols> dateTimeSymbolsForLocale(final Locale locale) {
