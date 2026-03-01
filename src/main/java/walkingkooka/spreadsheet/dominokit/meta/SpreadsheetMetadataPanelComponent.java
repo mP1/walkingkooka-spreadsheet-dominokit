@@ -101,6 +101,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.valueSeparator());
 
+        items.add(this.currency());
+
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
@@ -277,6 +279,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             SpreadsheetMetadataPropertyName.VALUE_SEPARATOR,
             Optional.empty(),
             Object::toString
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<?, ?, ?> currency() {
+        return link(
+            SpreadsheetMetadataPropertyName.CURRENCY
         );
     }
 
