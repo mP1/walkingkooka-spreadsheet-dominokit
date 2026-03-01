@@ -445,7 +445,7 @@ public class App implements EntryPoint,
         this.spreadsheetParserInfoSet = SpreadsheetParserInfoSet.EMPTY;
         this.addSpreadsheetParserFetcherWatcher(this);
 
-        // importer
+        // validator
         this.validatorFetcherWatchers = ValidatorFetcherWatchers.empty();
         this.validatorFetcher = ValidatorFetcher.with(
             this.validatorFetcherWatchers,
