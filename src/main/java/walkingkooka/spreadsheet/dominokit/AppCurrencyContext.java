@@ -100,7 +100,8 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
     /**
      * This may be updated externally.
      */
-    private Map<Currency, String> currencyToText = Maps.empty();
+    // @VisibleForTesting
+    Map<Currency, String> currencyToText = Maps.empty();
 
     // CurrencyContext....................................................................................................
 
@@ -128,17 +129,19 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
         final Map<Currency, String> currencyToText = Maps.sorted(CurrencyContexts.CURRENCY_CODE_COMPARATOR);
 
         for (final CurrencyHateosResource currencyHateosResource : currencys) {
-            final Currency currency = Currency.getInstance(
+            final Currency currency = this.currencyForCurrencyCode(
                 currencyHateosResource.value()
                     .value() // currencyCode
-            );
+            ).orElse(null);
 
-            availableCurrencys.add(currency);
+            if (null != currency) {
+                availableCurrencys.add(currency);
 
-            currencyToText.put(
-                currency,
-                currencyHateosResource.text()
-            );
+                currencyToText.put(
+                    currency,
+                    currencyHateosResource.text()
+                );
+            }
         }
 
         this.currencyToText = currencyToText;

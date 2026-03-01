@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.currency.CurrencyContextTesting2;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.locale.LocaleContexts;
@@ -29,6 +30,7 @@ import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 
 import java.util.Currency;
 import java.util.Locale;
+import java.util.Map;
 
 import static org.junit.Assert.assertThrows;
 
@@ -92,6 +94,73 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
         this.setCurrencyAndCheck(
             this.createContext(),
             currency
+        );
+    }
+
+    @Test
+    public void testOnCurrencyHateosResourceSetSkipsUnknownCurrencyCode() {
+        final AppCurrencyContext context = this.createContext();
+
+        final String text = "Custom Australia Currency";
+
+        this.onCurrencyHateosResourceSetAndCheck(
+            context,
+            CurrencyHateosResourceSet.EMPTY.concat(
+                CurrencyHateosResource.with(
+                    CurrencyCode.parse("AAA"),
+                    "Custom AAA should be ignored!"
+                )
+            ).concat(
+                CurrencyHateosResource.with(
+                    CurrencyCode.fromCurrency(CURRENCY),
+                    text
+                )
+            ),
+            Maps.of(
+                CURRENCY,
+                text
+            )
+        );
+    }
+
+    @Test
+    public void testOnCurrencyHateosResourceSet() {
+        final AppCurrencyContext context = this.createContext();
+
+        final String text = "Custom Australia Currency";
+
+        final Currency currency2 = Currency.getInstance("NZD");
+        final String text2 = "Custom New Zealand Currency";
+
+        this.onCurrencyHateosResourceSetAndCheck(
+            context,
+            CurrencyHateosResourceSet.EMPTY.concat(
+                CurrencyHateosResource.with(
+                    CurrencyCode.fromCurrency(CURRENCY),
+                    text
+                )
+            ).concat(
+                CurrencyHateosResource.with(
+                    CurrencyCode.fromCurrency(currency2),
+                    text2
+                )
+            ),
+            Maps.of(
+                CURRENCY,
+                text,
+                currency2,
+                text2
+            )
+        );
+    }
+
+    private void onCurrencyHateosResourceSetAndCheck(final AppCurrencyContext context,
+                                                     final CurrencyHateosResourceSet resourceSet,
+                                                     final Map<Currency, String> expected) {
+        context.onCurrencyHateosResourceSet(resourceSet);
+        this.checkEquals(
+            expected,
+            context.currencyToText
         );
     }
 
