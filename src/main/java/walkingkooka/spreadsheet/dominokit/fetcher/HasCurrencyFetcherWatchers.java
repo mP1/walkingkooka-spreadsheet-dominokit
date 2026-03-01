@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public interface HasCurrencyFetcher extends HasCurrencyFetcherWatchers {
+public interface HasCurrencyFetcherWatchers {
 
-    CurrencyFetcher currencyFetcher();
+    Runnable addCurrencyFetcherWatcher(final CurrencyFetcherWatcher watcher);
+
+    Runnable addCurrencyFetcherWatcherOnce(final CurrencyFetcherWatcher watcher);
 }
