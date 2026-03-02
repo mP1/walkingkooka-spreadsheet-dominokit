@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.datetime;
 
 import org.dominokit.domino.ui.forms.TimeBox;
-import org.dominokit.domino.ui.timepicker.TimePicker;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
@@ -45,7 +44,6 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     private TimeComponent(final String id,
                           final Supplier<LocalTime> clearValue) {
         super(clearValue);
-        this.timePicker = TimePicker.create();
 
         this.timeBox = TimeBox.create() // DateTimeFormatInfo
             .withTimePicker(
@@ -61,7 +59,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     @Override
     public Optional<LocalTime> value() {
         return dateToLocalTime(
-            this.timePicker.getDate()
+            this.timeBox.getValue()
         );
     }
 
@@ -131,16 +129,13 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     @Override
     public TimeComponent blur() {
         this.timeBox.blur();
-        this.timePicker.blur();
         return this;
     }
 
     @Override
     public boolean isEditing() {
-        return this.timeBox.isFocused() || this.timePicker.isExpanded();
+        return this.timeBox.isFocused();
     }
 
     private final TimeBox timeBox;
-
-    private final TimePicker timePicker;
 }
