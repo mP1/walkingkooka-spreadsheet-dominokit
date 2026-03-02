@@ -17,16 +17,34 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import walkingkooka.Context;
+import walkingkooka.datetime.DateTimeSymbols;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Locale;
 
-/**
- * A {@link Context} used by {@link DateTimeComponent}.
- */
-public interface DateTimeComponentContext extends TemporalComponentContext<LocalDateTime> {
+public class FakeDateComponentContext implements DateComponentContext {
 
-    String datePattern();
+    public FakeDateComponentContext() {
+        super();
+    }
 
-    String timePattern();
+    @Override
+    public DateTimeSymbols dateTimeSymbols() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocalDate clearValue() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String pattern() {
+        throw new UnsupportedOperationException();
+    }
 }

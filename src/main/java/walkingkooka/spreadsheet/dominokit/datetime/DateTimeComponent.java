@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.forms.TimeBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import org.gwtproject.i18n.shared.cldr.DateTimeFormatInfo;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -36,23 +37,25 @@ import java.util.function.Supplier;
 public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateTime, DateTimeComponent> {
 
     public static DateTimeComponent empty(final String id,
-                                          final Supplier<LocalDateTime> clearValue) {
+                                          final DateTimeComponentContext context) {
         return new DateTimeComponent(
             id,
-            clearValue
+            context
         );
     }
 
     private DateTimeComponent(final String id,
-                              final Supplier<LocalDateTime> clearValue) {
-        super(clearValue);
+                              final DateTimeComponentContext context) {
+        super(context);
 
-        this.dateBox = createDateBox();
-        this.timeBox = createTimeBox();
+        final DateTimeFormatInfo dateTimeFormatInfo = DateTimeComponentContextDateTimeFormatInfo.with(context);
+
+        this.dateBox = createDateBox(dateTimeFormatInfo);
+        this.timeBox = createTimeBox(dateTimeFormatInfo);
 
         this.layout = FlexLayoutComponent.row()
-            .appendChild(dateBox)
-            .appendChild(timeBox);
+            .appendChild(this.dateBox)
+            .appendChild(this.timeBox);
 
         this.bodyElement.insertFirst(this.layout.element());
 
@@ -68,7 +71,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
             dateToLocalTime(
                 this.timeBox.getValue()
             ),
-            this.clearValue
+            this.context::clearValue
         );
     }
 
@@ -82,7 +85,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         this.dateBox.setValue(
             localDateToDate(
                 value.orElse(
-                    this.clearValue.get()
+                    this.context.clearValue()
                 ).toLocalDate()
             )
         );
@@ -90,7 +93,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         this.timeBox.setValue(
             localTimeToDate(
                 value.orElse(
-                    this.clearValue.get()
+                    this.context.clearValue()
                 ).toLocalTime()
             )
         );
@@ -107,7 +110,7 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
         final DateBox dateBox = this.dateBox;
         final TimeBox timeBox = this.timeBox;
-        final Supplier<LocalDateTime> clearValue = this.clearValue;
+        final Supplier<LocalDateTime> clearValue = this.context::clearValue;
 
         final ChangeListener<Date> dateBoxChangeListener = (final Date oldValue,
                                                             final Date newValue) -> {

@@ -35,18 +35,20 @@ import java.util.function.Supplier;
 public final class TimeComponent extends DominoKitPickerComponent<LocalTime, TimeComponent> {
 
     public static TimeComponent empty(final String id,
-                                      final Supplier<LocalTime> clearValue) {
+                                      final TimeComponentContext context) {
         return new TimeComponent(
             id,
-            clearValue
+            context
         );
     }
 
     private TimeComponent(final String id,
-                          final Supplier<LocalTime> clearValue) {
-        super(clearValue);
+                          final TimeComponentContext context) {
+        super(context);
 
-        this.timeBox = createTimeBox();
+        this.timeBox = createTimeBox(
+            TimeComponentContextDateTimeFormatInfo.with(context)
+        );
 
         this.bodyElement.insertFirst(
             this.timeBox.element()
@@ -70,7 +72,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         this.timeBox.setValue(
             localTimeToDate(
                 value.orElse(
-                    this.clearValue.get()
+                    this.context.clearValue()
                 )
             )
         );

@@ -28,6 +28,7 @@ import walkingkooka.convert.FakeConverterContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -77,8 +78,13 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         final DateComponent dateComponent = DateComponent.empty(
             SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + SpreadsheetElementIds.DATE,
-            () -> context.now()
-                .toLocalDate()
+            AppContextDateComponentContext.with(
+                () -> LocalDate.ofEpochDay(
+                    context.spreadsheetMetadata()
+                        .getOrFail(SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET)
+                ),
+                context
+            )
         );
         dateComponent.addValueWatcher2(
             (Optional<LocalDate> newValue) ->

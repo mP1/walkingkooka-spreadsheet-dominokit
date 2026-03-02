@@ -25,7 +25,6 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
  * A component that includes a {@link DateBox} and a {@link com.google.gwt.user.datepicker.client.DatePicker}, allowing
@@ -34,20 +33,22 @@ import java.util.function.Supplier;
 public final class DateComponent extends DominoKitPickerComponent<LocalDate, DateComponent> {
 
     public static DateComponent empty(final String id,
-                                      final Supplier<LocalDate> clearValue) {
+                                      final DateComponentContext context) {
         return new DateComponent(
             id,
-            clearValue
+            context
         );
     }
 
     private DateComponent(final String id,
-                          final Supplier<LocalDate> clearValue) {
+                          final DateComponentContext context) {
         super(
-            clearValue
+            context
         );
 
-        this.dateBox = createDateBox();
+        this.dateBox = createDateBox(
+            DateComponentContextDateTimeFormatInfo.with(context)
+        );
 
         this.bodyElement.insertFirst(
             this.dateBox.element()
@@ -70,7 +71,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         this.dateBox.setValue(
             localDateToDate(
                 value.orElse(
-                    this.clearValue.get()
+                    this.context.clearValue()
                 )
             )
         );

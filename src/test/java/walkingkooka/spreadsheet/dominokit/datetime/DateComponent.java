@@ -25,7 +25,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
  * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
@@ -34,17 +33,17 @@ import java.util.function.Supplier;
 public final class DateComponent extends TestTemporalComponent<LocalDate, DateComponent> {
 
     public static DateComponent empty(final String id,
-                                      final Supplier<LocalDate> clearValue) {
+                                      final DateComponentContext context) {
         return new DateComponent(
             id,
-            clearValue
+            context
         );
     }
 
     private DateComponent(final String id,
-                          final Supplier<LocalDate> clearValue) {
+                          final DateComponentContext context) {
         this.setId(id);
-        this.clearValue = clearValue;
+        this.context = context;
     }
 
     @Override
@@ -80,12 +79,14 @@ public final class DateComponent extends TestTemporalComponent<LocalDate, DateCo
         Objects.requireNonNull(value, "value");
         this.value = value.isPresent() ?
             value :
-            Optional.of(this.clearValue.get());
+            Optional.of(
+                this.context.clearValue()
+            );
 
         return validate();
     }
 
-    private final Supplier<LocalDate> clearValue;
+    private final DateComponentContext context;
 
     @Override
     public Optional<LocalDate> value() {
