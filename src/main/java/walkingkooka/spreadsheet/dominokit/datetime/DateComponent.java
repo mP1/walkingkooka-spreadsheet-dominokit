@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
@@ -93,7 +92,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
         final ChangeListener<Date> changeListener = (final Date oldValue,
                                                      final Date newValue) -> {
-            DomGlobal.console.trace("new Value " + newValue);
             watcher.onValue(
                 dateToLocalDate(newValue)
             );
