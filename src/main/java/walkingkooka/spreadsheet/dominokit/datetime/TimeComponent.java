@@ -17,8 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
+import org.dominokit.domino.ui.forms.TimeBox;
 import org.dominokit.domino.ui.timepicker.TimePicker;
-import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalTime;
@@ -44,8 +45,16 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     private TimeComponent(final String id,
                           final Supplier<LocalTime> clearValue) {
         super(clearValue);
-        this.timePicker = TimePicker.create(); // TODO Add support allowing user to pick locale/DateTimeSymbols/DecimalNumberSymbols ?
-        this.bodyElement.insertFirst(this.timePicker.element());
+        this.timePicker = TimePicker.create();
+
+        this.timeBox = TimeBox.create() // DateTimeFormatInfo
+            .withTimePicker(
+                (parent, c) -> c.withHeader()
+            );
+
+        this.bodyElement.insertFirst(
+            this.timeBox.element()
+        );
         this.setId(id);
     }
 
@@ -60,13 +69,16 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     public TimeComponent setValue(final Optional<LocalTime> value) {
         Objects.requireNonNull(value, "value");
 
-        this.timePicker.setDate(
+        // pause/set/unpause necessary otherwise when dialog resets the "cell" will also be saved with the reset value
+        this.timeBox.pauseChangeListeners();
+        this.timeBox.setValue(
             localTimeToDate(
                 value.orElse(
                     this.clearValue.get()
                 )
             )
         );
+        this.timeBox.resumeChangeListeners();
 
         return this;
     }
@@ -75,27 +87,29 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     public Runnable addValueWatcher(final ValueWatcher<LocalTime> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
-                                                             final Date newTime) -> watcher.onValue(
-            dateToLocalTime(newTime)
-        );
+        final ChangeListener<Date> changeListener = (final Date oldValue,
+                                                     final Date newValue) -> {
+            watcher.onValue(
+                dateToLocalTime(newValue)
+            );
+        };
 
-        this.timePicker.addTimeSelectionListener(timeSelectionListener);
-        return () -> this.timePicker.removeTimeSelectionListener(timeSelectionListener);
+        this.timeBox.addChangeListener(changeListener);
+        return () -> this.timeBox.removeChangeListener(changeListener);
     }
 
     // HtmlComponent....................................................................................................
 
     @Override
     public TimeComponent setCssText(final String css) {
-        this.timePicker.cssText(css);
+        this.timeBox.cssText(css);
         return this;
     }
 
     @Override
     public TimeComponent setCssProperty(final String name,
                                         final String value) {
-        this.timePicker.setCssProperty(
+        this.timeBox.setCssProperty(
             name,
             value
         );
@@ -104,19 +118,20 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
 
     @Override
     public TimeComponent removeCssProperty(final String name) {
-        this.timePicker.removeCssProperty(name);
+        this.timeBox.removeCssProperty(name);
         return this;
     }
 
     @Override
     public TimeComponent focus() {
-        // NOP
+        this.timeBox.focus();
         return this;
     }
 
     @Override
     public TimeComponent blur() {
-        // NOP
+        this.timeBox.blur();
+        this.timePicker.blur();
         return this;
     }
 
@@ -124,6 +139,8 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
     public boolean isEditing() {
         return this.timePicker.isExpanded();
     }
+
+    private final TimeBox timeBox;
 
     private final TimePicker timePicker;
 }
