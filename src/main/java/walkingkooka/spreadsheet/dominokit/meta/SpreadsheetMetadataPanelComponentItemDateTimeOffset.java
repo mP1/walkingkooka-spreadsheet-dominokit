@@ -19,26 +19,22 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
-import org.dominokit.domino.ui.forms.DateBox;
-import org.dominokit.domino.ui.icons.lib.Icons;
-import org.dominokit.domino.ui.utils.PostfixAddOn;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.Converters;
 import walkingkooka.convert.FakeConverterContext;
-import walkingkooka.datetime.DateTime;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -79,36 +75,25 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         final UlComponent list = this.ul();
 
-        final DateBox dateBox = DateBox.create()
-            .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-DateBox")
-            .setParseStrict(true) // use locale sensitive medium format.;
-            .addChangeListener(
-                (final Date oldValue, final Date newValue) -> {
-                    context.debug(this.getClass().getSimpleName() + ".onChange " + newValue);
-                    this.save(
-                        null != newValue ?
-                            toLong(newValue).toString() :
-                            ""
-                    );
-                }
-            ).apply(
-                self ->
-                    self.appendChild(
-                        PostfixAddOn.of(
-                            Icons.close_circle()
-                                .clickable()
-                                .addClickListener((e) -> self.clear())
-                        )
-                    )
-            );
+        final DateComponent dateComponent = DateComponent.empty(
+            SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + SpreadsheetElementIds.DATE,
+            () -> context.now()
+                .toLocalDate()
+        );
+        dateComponent.addValueWatcher2(
+            (Optional<LocalDate> newValue) ->
+                this.save(
+                    toLong(newValue)
+                        .map(Object::toString)
+                        .orElse("")
+                )
+        );
+        this.dateComponent = dateComponent;
 
         list.appendChild(
             li()
-                .appendChild(dateBox)
+                .appendChild(dateComponent)
         );
-
-        this.dateBox = dateBox.setWidth("200px")
-            .setMarginBottom("0");
 
         // build links for 1900 | 1904
         final HistoryToken token = context.historyToken();
@@ -153,10 +138,10 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
     @Override
     void focus() {
-        this.dateBox.focus();
+        this.dateComponent.focus();
     }
 
-    private final DateBox dateBox;
+    private final DateComponent dateComponent;
 
     private final HistoryTokenAnchorComponent defaultValueAnchor;
 
@@ -164,19 +149,12 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
     @Override
     public void refresh(final RefreshContext context) {
-        final Long metadataValue = this.context.spreadsheetMetadata()
-            .getIgnoringDefaults(PROPERTY_NAME)
-            .orElse(null);
+        final Optional<Long> metadataValue = this.context.spreadsheetMetadata()
+            .getIgnoringDefaults(PROPERTY_NAME);
 
-        // refresh the pattern, locale might have changed
-        this.dateBox.setPattern(this.context.datePattern())
-            .setValue(
-                null != metadataValue ?
-                    toDate(
-                        metadataValue
-                    ) :
-                    null
-            );
+        this.dateComponent.setValue(
+            toDate(metadataValue)
+        );
 
         final HistoryToken token = context.historyToken()
             .setMetadataPropertyName(PROPERTY_NAME);
@@ -207,7 +185,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
                 .defaults()
                 .get(this.propertyName)
                 .map(this::formatValue)
-                .orElse("")
+                .orElse("0")
         );
     }
 
@@ -220,32 +198,37 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     // Long <-> Date....................................................................................................
 
     // @VisibleForTesting
-    static Date toDate(final Long longValue) {
-        return DateTime.localDateTimeToDate(
-            NUMBER_TO_DATE.convertOrFail(
-                longValue,
-                LocalDate.class,
-                CONVERTER_CONTEXT
-            ).atTime(LocalTime.MIN)
+    static Optional<LocalDate> toDate(final Optional<Long> value) {
+        return Optional.ofNullable(
+            value.isPresent() ?
+                NUMBER_TO_DATE.convertOrFail(
+                    value.get(),
+                    LocalDate.class,
+                    CONVERTER_CONTEXT
+                ) :
+                null
         );
     }
 
     private final static Converter<ConverterContext> NUMBER_TO_DATE = Converters.numberToLocalDate();
 
     // @VisibleForTesting
-    static Long toLong(final Date date) {
-        return TO_LONG.convertOrFail(
-            DateTime.dateToLocalDateTime(date)
-                .toLocalDate(),
-            Long.class,
-            CONVERTER_CONTEXT
+    static Optional<Long> toLong(final Optional<LocalDate> date) {
+        return Optional.ofNullable(
+            date.isPresent() ?
+                LOCAL_DATE_TO_NUMBER.convertOrFail(
+                    date.get(),
+                    Long.class,
+                    CONVERTER_CONTEXT
+                ) :
+                null
         );
     }
 
-    private final static Converter<ConverterContext> TO_LONG = Converters.localDateToNumber();
+    private final static Converter<ConverterContext> LOCAL_DATE_TO_NUMBER = Converters.localDateToNumber();
 
     /**
-     * A non null {@link ConverterContext} is required for the two methods to convert Long and Date for the {@link DateBox}
+     * A non null {@link ConverterContext} is required for the two methods to convert Long and LocaleDate for the {@link DateComponent}
      */
     // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/3241
     private final static ConverterContext CONVERTER_CONTEXT = new FakeConverterContext() {
