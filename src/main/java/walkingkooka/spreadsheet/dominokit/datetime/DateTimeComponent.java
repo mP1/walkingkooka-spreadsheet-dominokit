@@ -176,10 +176,6 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
         return this;
     }
 
-    public DateTimeComponent resetView() {
-        return this;
-    }
-
     @Override
     public DateTimeComponent focus() {
         // NOP
