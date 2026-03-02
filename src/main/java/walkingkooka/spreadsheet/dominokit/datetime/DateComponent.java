@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.datepicker.CalendarDay;
 import org.dominokit.domino.ui.datepicker.DateSelectionListener;
+import org.dominokit.domino.ui.forms.DateBox;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalDate;
@@ -45,15 +47,26 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         super(
             clearValue
         );
+
         this.calendar = Calendar.create();
-        this.bodyElement.insertFirst(this.calendar.element());
+
+        // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
+        // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
+        this.dateBox = DateBox.create() // DateTimeFormatInfo
+            .withCalendar(
+                (parent, c) -> c.withHeader()
+            );
+
+        this.bodyElement.insertFirst(
+            this.dateBox.element()
+        );
         this.setId(id);
     }
 
     @Override
     public Optional<LocalDate> value() {
         return dateToLocalDate(
-            this.calendar.getDate()
+            this.dateBox.getValue()
         );
     }
 
@@ -61,14 +74,13 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     public DateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
 
-        this.calendar.setDate(
+        this.dateBox.setValue(
             localDateToDate(
                 value.orElse(
                     this.clearValue.get()
                 )
             )
         );
-
         return this;
     }
 
@@ -89,14 +101,14 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
     @Override
     public DateComponent setCssText(final String css) {
-        this.calendar.cssText(css);
+        this.dateBox.cssText(css);
         return this;
     }
 
     @Override
     public DateComponent setCssProperty(final String name,
                                         final String value) {
-        this.calendar.setCssProperty(
+        this.dateBox.setCssProperty(
             name,
             value
         );
@@ -105,7 +117,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
     @Override
     public DateComponent removeCssProperty(final String name) {
-        this.calendar.removeCssProperty(name);
+        this.dateBox.removeCssProperty(name);
         return this;
     }
 
@@ -116,20 +128,25 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
     @Override
     public DateComponent focus() {
-        // NOP
+        this.dateBox.focus();
         return this;
     }
 
     @Override
     public DateComponent blur() {
-        // NOP
+        this.dateBox.blur();
+        this.calendar.blur();
         return this;
     }
 
     @Override
     public boolean isEditing() {
-        return this.calendar.isExpanded();
+        return HtmlComponent.hasFocus(
+            this.dateBox.element()
+        ) || this.calendar.isExpanded();
     }
+
+    private final DateBox dateBox;
 
     private final Calendar calendar;
 }
