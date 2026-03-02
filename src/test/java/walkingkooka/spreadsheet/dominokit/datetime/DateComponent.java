@@ -155,10 +155,6 @@ public final class DateComponent extends TestTemporalComponent<LocalDate, DateCo
 
     private boolean disabled;
 
-    public DateComponent resetView() {
-        return this;
-    }
-
     @Override
     public DateComponent alwaysShowHelperText() {
         return this;
