@@ -122,10 +122,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         return this;
     }
 
-    public DateComponent resetView() {
-        return this;
-    }
-
     @Override
     public DateComponent focus() {
         this.dateBox.focus();
