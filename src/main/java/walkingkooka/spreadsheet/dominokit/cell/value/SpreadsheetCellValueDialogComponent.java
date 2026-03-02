@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
-import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -36,9 +35,6 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.link.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
-import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponent;
-import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -121,43 +117,6 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
                 CaseKind.TITLE
             )
         );
-
-        if (valueComponent instanceof AbsoluteUrlComponent) {
-            final AbsoluteUrlComponent absoluteUrlComponent = (AbsoluteUrlComponent) valueComponent;
-            absoluteUrlComponent.addValueWatcher(
-                (v) -> this.save.setValue(
-                    Cast.to(v)
-                )
-            );
-        }
-
-        if (valueComponent instanceof EmailAddressComponent) {
-            final EmailAddressComponent emailAddressComponent = (EmailAddressComponent) valueComponent;
-            emailAddressComponent.addValueWatcher(
-                (v) -> this.save.setValue(
-                    Cast.to(v)
-                )
-            );
-        }
-
-        if (valueComponent instanceof NumberComponent) {
-            final NumberComponent numberComponent = (NumberComponent) valueComponent;
-            numberComponent.addValueWatcher(
-                (v) -> this.save.setValue(
-                    Cast.to(v)
-                )
-            );
-        }
-
-        // refresh SAVE as the WholeNumberComponent is updated
-        if (valueComponent instanceof WholeNumberComponent) {
-            WholeNumberComponent wholeNumberComponent = (WholeNumberComponent) valueComponent;
-            wholeNumberComponent.addValueWatcher(
-                (v) -> this.save.setValue(
-                    Cast.to(v)
-                )
-            );
-        }
 
         this.clear = this.clearValueAnchor(context);
         this.undo = this.undoAnchor(context);
