@@ -676,7 +676,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
     @Override
     public String toString() {
-        return this.element().toString();
+        return this.items.toString();
     }
 
     // id...............................................................................................................
