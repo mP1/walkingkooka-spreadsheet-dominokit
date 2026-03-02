@@ -463,6 +463,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Set<Currency> findByCurrencyText(final String text,
                                             final int offset,
                                             final int count) {
