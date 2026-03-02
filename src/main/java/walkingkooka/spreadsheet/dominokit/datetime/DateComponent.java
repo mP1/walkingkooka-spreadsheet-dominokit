@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import org.dominokit.domino.ui.datepicker.Calendar;
 import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalDate;
@@ -47,8 +45,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         super(
             clearValue
         );
-
-        this.calendar = Calendar.create();
 
         // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
         // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
@@ -126,7 +122,6 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     }
 
     public DateComponent resetView() {
-        this.calendar.resetView();
         return this;
     }
 
@@ -139,18 +134,13 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     @Override
     public DateComponent blur() {
         this.dateBox.blur();
-        this.calendar.blur();
         return this;
     }
 
     @Override
     public boolean isEditing() {
-        return HtmlComponent.hasFocus(
-            this.dateBox.element()
-        ) || this.calendar.isExpanded();
+        return this.dateBox.isFocused();
     }
 
     private final DateBox dateBox;
-
-    private final Calendar calendar;
 }
