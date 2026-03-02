@@ -17,18 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import org.dominokit.domino.ui.datepicker.Calendar;
-import org.dominokit.domino.ui.datepicker.CalendarDay;
-import org.dominokit.domino.ui.datepicker.DateSelectionListener;
-import org.dominokit.domino.ui.timepicker.TimePicker;
-import org.dominokit.domino.ui.timepicker.TimeSelectionListener;
+import org.dominokit.domino.ui.forms.DateBox;
+import org.dominokit.domino.ui.forms.TimeBox;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,15 +47,21 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
                               final Supplier<LocalDateTime> clearValue) {
         super(clearValue);
 
-        final Calendar calendar = Calendar.create();
-        this.calendar = calendar;
+        // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
+        // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
+        this.dateBox = DateBox.create() // DateTimeFormatInfo
+            .withCalendar(
+                (parent, c) -> c.withHeader()
+            );
 
-        final TimePicker timePicker = TimePicker.create();
-        this.timePicker = timePicker;
+        this.timeBox = TimeBox.create() // DateTimeFormatInfo
+            .withTimePicker(
+                (parent, c) -> c.withHeader()
+            );
 
         this.layout = FlexLayoutComponent.row()
-            .appendChild(calendar)
-            .appendChild(timePicker);
+            .appendChild(dateBox)
+            .appendChild(timeBox);
 
         this.bodyElement.insertFirst(this.layout.element());
 
@@ -70,10 +72,10 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     public Optional<LocalDateTime> value() {
         return toLocalDateTime(
             dateToLocalDate(
-                this.calendar.getDate()
+                this.dateBox.getValue()
             ),
             dateToLocalTime(
-                this.timePicker.getDate()
+                this.timeBox.getValue()
             ),
             this.clearValue
         );
@@ -83,7 +85,10 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     public DateTimeComponent setValue(final Optional<LocalDateTime> value) {
         Objects.requireNonNull(value, "value");
 
-        this.calendar.setDate(
+        this.dateBox.pauseChangeListeners();
+        this.timeBox.pauseChangeListeners();
+
+        this.dateBox.setValue(
             localDateToDate(
                 value.orElse(
                     this.clearValue.get()
@@ -91,13 +96,16 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
             )
         );
 
-        this.timePicker.setDate(
+        this.timeBox.setValue(
             localTimeToDate(
                 value.orElse(
                     this.clearValue.get()
                 ).toLocalTime()
             )
         );
+
+        this.dateBox.resumeChangeListeners();
+        this.timeBox.resumeChangeListeners();
 
         return this;
     }
@@ -106,58 +114,56 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     public Runnable addValueWatcher(final ValueWatcher<LocalDateTime> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        final Calendar calendar = this.calendar;
-        final TimePicker timePicker = this.timePicker;
+        final DateBox dateBox = this.dateBox;
+        final TimeBox timeBox = this.timeBox;
         final Supplier<LocalDateTime> clearValue = this.clearValue;
 
-        final DateSelectionListener dateSelectionListener = (final CalendarDay oldDay,
-                                                             final CalendarDay newDay) -> {
-            final Optional<LocalTime> time = dateToLocalTime(
-                timePicker.getDate()
-            );
+        final ChangeListener<Date> dateBoxChangeListener = (final Date oldValue,
+                                                            final Date newValue) -> {
             watcher.onValue(
                 toLocalDateTime(
-                    calendarDayToLocalDate(newDay),
-                    time,
+                    dateToLocalDate(newValue), // date
+                    dateToLocalTime(
+                        timeBox.getValue()
+                    ),
                     clearValue
                 )
             );
         };
 
-        calendar.addDateSelectionListener(dateSelectionListener);
+        this.dateBox.addChangeListener(dateBoxChangeListener);
 
-        final TimeSelectionListener timeSelectionListener = (final Date oldTime,
-                                                             final Date newTime) -> {
-            final Optional<LocalDate> date = dateToLocalDate(
-                calendar.getDate()
-            );
+        final ChangeListener<Date> timeBoxChangeListener = (final Date oldValue,
+                                                            final Date newValue) -> {
             watcher.onValue(
                 toLocalDateTime(
-                    date,
-                    dateToLocalTime(newTime),
+                    dateToLocalDate(
+                        dateBox.getValue()
+                    ), // date
+                    dateToLocalTime(newValue), // time
                     clearValue
                 )
             );
         };
 
-        timePicker.addTimeSelectionListener(timeSelectionListener);
+        this.timeBox.addChangeListener(timeBoxChangeListener);
 
         return () -> {
-            this.calendar.removeDateSelectionListener(dateSelectionListener);
-            this.timePicker.removeTimeSelectionListener(timeSelectionListener);
+            this.dateBox.removeChangeListener(dateBoxChangeListener);
+            this.timeBox.removeChangeListener(timeBoxChangeListener);
         };
     }
 
     @Override
     public DateTimeComponent setCssText(final String css) {
-        this.calendar.cssText(css);
+        this.layout.setCssText(css);
         return this;
     }
 
     @Override
     public DateTimeComponent setCssProperty(final String name,
                                             final String value) {
-        this.calendar.setCssProperty(
+        this.layout.setCssProperty(
             name,
             value
         );
@@ -166,12 +172,11 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
     @Override
     public DateTimeComponent removeCssProperty(final String name) {
-        this.calendar.removeCssProperty(name);
+        this.layout.removeCssProperty(name);
         return this;
     }
 
     public DateTimeComponent resetView() {
-        this.calendar.resetView();
         return this;
     }
 
@@ -190,13 +195,13 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     @Override
     public boolean isEditing() {
         return HtmlComponent.hasFocus(this.element()) ||
-            this.calendar.isExpanded() ||
-            this.timePicker.isExpanded();
+            this.dateBox.isFocused() ||
+            this.timeBox.isFocused();
     }
 
     private final FlexLayoutComponent layout;
 
-    private final Calendar calendar;
+    private final DateBox dateBox;
 
-    private final TimePicker timePicker;
+    private final TimeBox timeBox;
 }
