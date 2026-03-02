@@ -28,7 +28,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * A time picker that displays a timePicker that supports picking {@link LocalTime}.
+ * A component that includes a {@link TimeBox} and a {@link org.dominokit.domino.ui.timepicker.TimePicker}, allowing
+ * the user to enter or select a {@link LocalTime}.
  * A {@link Supplier} is required to supply a NOW time when an {@link Optional#empty()} is given to {@link #setValue(Optional)}.
  */
 public final class TimeComponent extends DominoKitPickerComponent<LocalTime, TimeComponent> {
