@@ -137,7 +137,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
 
     @Override
     public boolean isEditing() {
-        return this.timePicker.isExpanded();
+        return this.timeBox.isFocused() || this.timePicker.isExpanded();
     }
 
     private final TimeBox timeBox;
