@@ -28,7 +28,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * A date picker that displays a calendar that supports picking {@link LocalDate}.
+ * A component that includes a {@link DateBox} and a {@link com.google.gwt.user.datepicker.client.DatePicker}, allowing
+ * the user to enter or select a {@link LocalDate}.
  */
 public final class DateComponent extends DominoKitPickerComponent<LocalDate, DateComponent> {
 
