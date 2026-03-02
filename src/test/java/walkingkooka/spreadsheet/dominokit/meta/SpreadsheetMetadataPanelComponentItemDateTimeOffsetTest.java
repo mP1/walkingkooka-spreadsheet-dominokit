@@ -20,24 +20,28 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Optional;
 
-public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest implements ClassTesting<SpreadsheetMetadataPanelComponentItemDateTimeOffset> {
+public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest implements TreePrintableTesting,
+    SpreadsheetMetadataTesting,
+    ClassTesting<SpreadsheetMetadataPanelComponentItemDateTimeOffset> {
 
     @Test
     public void testToDateToLongToDate1900() {
         this.toDateToLongToDateAndCheck(
-            new Date(
-                Date.UTC(
-                    1900 - 1900,
-                    Calendar.JANUARY,
-                    1,
-                    0,
-                    0,
-                    0
-                )
+            LocalDate.of(
+                1900,
+                1,
+                1
             )
         );
     }
@@ -45,15 +49,10 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToDateToLongToDate1901() {
         this.toDateToLongToDateAndCheck(
-            new Date(
-                Date.UTC(
-                    1901 - 1900,
-                    Calendar.JANUARY,
-                    1,
-                    0,
-                    0,
-                    0
-                )
+            LocalDate.of(
+                1901,
+                1,
+                1
             )
         );
     }
@@ -61,15 +60,10 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToDateToLongToDate1903() {
         this.toDateToLongToDateAndCheck(
-            new Date(
-                Date.UTC(
-                    1903 - 1900,
-                    Calendar.JANUARY,
-                    1,
-                    0,
-                    0,
-                    0
-                )
+            LocalDate.of(
+                1903,
+                1,
+                1
             )
         );
     }
@@ -77,15 +71,10 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToDateToLongToDate1999() {
         this.toDateToLongToDateAndCheck(
-            new Date(
-                Date.UTC(
-                    1999 - 1900,
-                    Calendar.DECEMBER,
-                    31,
-                    0,
-                    0,
-                    0
-                )
+            LocalDate.of(
+                1999,
+                12,
+                31
             )
         );
     }
@@ -93,24 +82,21 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToDateToLongToDate2023() {
         this.toDateToLongToDateAndCheck(
-            new Date(
-                Date.UTC(
-                    2023 - 1900,
-                    Calendar.AUGUST,
-                    29,
-                    0,
-                    0,
-                    0
-                )
+            LocalDate.of(
+                2023,
+                8, // August
+                29
             )
         );
     }
 
-    private void toDateToLongToDateAndCheck(final Date date) {
+    private void toDateToLongToDateAndCheck(final LocalDate date) {
         this.checkEquals(
-            date,
+            Optional.of(date),
             SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
-                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(date)
+                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
+                    Optional.of(date)
+                )
             ),
             date::toString
         );
@@ -121,19 +107,63 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     @Test
     public void testToLong() {
         this.checkEquals(
-            2L,
+            Optional.of(
+                2L
+            ),
             SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
-                new Date(
-                    Date.UTC(
-                        1970 - 1900,
-                        Calendar.JANUARY,
-                        3,
-                        0,
-                        0,
-                        0
+                Optional.of(
+                    LocalDate.of(
+                        1970,
+                        1,
+                        3
                     )
                 )
             )
+        );
+    }
+
+    // refresh..........................................................................................................
+
+    @Test
+    public void testRefresh() {
+        final SpreadsheetMetadataPanelComponentContext context = new FakeSpreadsheetMetadataPanelComponentContext() {
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.metadataPropertySelect(
+                    SpreadsheetId.with(1),
+                    SpreadsheetName.with("SpreadsheetName1"),
+                    SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET
+                );
+            }
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return METADATA_EN_AU;
+            }
+        };
+        final SpreadsheetMetadataPanelComponentItemDateTimeOffset component = SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(context);
+        component.refresh(context);
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
+                "  UL\n" +
+                "    style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
+                "      LI\n" +
+                "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "          DateComponent\n" +
+                "            [1899-12-30] id=metadata-dateTimeOffset-Date\n" +
+                "      LI\n" +
+                "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "          \"1900\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/0] id=metadata-dateTimeOffset-0-Link\n" +
+                "      LI\n" +
+                "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "          \"1904\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateTimeOffset-1462-Link\n" +
+                "      LI\n" +
+                "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "          \"default\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/] id=metadata-dateTimeOffset-default-Link\n" +
+                "            TooltipComponent\n" +
+                "              \"0\"\n"
         );
     }
 
