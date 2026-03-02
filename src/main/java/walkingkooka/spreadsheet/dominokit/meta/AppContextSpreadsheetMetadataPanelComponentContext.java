@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -45,6 +46,13 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     @Override
     public Locale locale() {
         return this.context.locale();
+    }
+
+    // HasNow...........................................................................................................
+
+    @Override
+    public LocalDateTime now() {
+        return this.context.now();
     }
 
     // HasSpreadsheetMetadata...........................................................................................

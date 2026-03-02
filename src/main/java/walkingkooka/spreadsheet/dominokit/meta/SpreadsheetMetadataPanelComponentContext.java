@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.datetime.HasNow;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -30,6 +31,7 @@ import java.text.SimpleDateFormat;
 
 public interface SpreadsheetMetadataPanelComponentContext extends RefreshContext,
     HasLocale,
+    HasNow,
     HasSpreadsheetMetadata,
     UiFormattingContext {
 

@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.time.LocalDateTime;
 import java.util.Locale;
 
 public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshContext
@@ -42,6 +43,11 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshCon
 
     @Override
     public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocalDateTime now() {
         throw new UnsupportedOperationException();
     }
 }
