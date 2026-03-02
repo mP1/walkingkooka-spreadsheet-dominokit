@@ -17,14 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
+import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.datepicker.Calendar;
-import org.dominokit.domino.ui.datepicker.CalendarDay;
-import org.dominokit.domino.ui.datepicker.DateSelectionListener;
 import org.dominokit.domino.ui.forms.DateBox;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -74,6 +75,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     public DateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
 
+        this.dateBox.pauseChangeListeners();
         this.dateBox.setValue(
             localDateToDate(
                 value.orElse(
@@ -81,6 +83,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
                 )
             )
         );
+        this.dateBox.resumeChangeListeners();
         return this;
     }
 
@@ -88,13 +91,16 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
     public Runnable addValueWatcher(final ValueWatcher<LocalDate> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        final DateSelectionListener dateSelectionListener = (final CalendarDay oldDay,
-                                                             final CalendarDay newDay) -> watcher.onValue(
-            calendarDayToLocalDate(newDay)
-        );
+        final ChangeListener<Date> changeListener = (final Date oldValue,
+                                                     final Date newValue) -> {
+            DomGlobal.console.trace("new Value " + newValue);
+            watcher.onValue(
+                dateToLocalDate(newValue)
+            );
+        };
 
-        this.calendar.addDateSelectionListener(dateSelectionListener);
-        return () -> this.calendar.removeDateSelectionListener(dateSelectionListener);
+        this.dateBox.addChangeListener(changeListener);
+        return () -> this.dateBox.removeChangeListener(changeListener);
     }
 
     // HtmlComponent....................................................................................................
