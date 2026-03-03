@@ -22,14 +22,20 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * A duplicate of the original {@link HistoryTokenAnchorComponent} with almost all the public methods but without any
@@ -47,7 +53,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     private HistoryTokenAnchorComponent() {
         this.tooltip = Optional.empty();
         this.badge = "";
-        this.flag = "";
+        this.flags = Sets.empty();
     }
 
     // setCssText.......................................................................................................
@@ -205,18 +211,34 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     // flag.............................................................................................................
 
     @Override
-    public String flag() {
-        return this.flag;
+    public Set<String> flags() {
+        return this.flags;
     }
 
     @Override
-    public HistoryTokenAnchorComponent setFlag(final String text) {
-        Objects.requireNonNull(text, "text");
-        this.flag = text;
+    public HistoryTokenAnchorComponent setFlags(final Set<String> flags) {
+        Objects.requireNonNull(flags, "flags");
+
+        final SortedSet<String> verified = SortedSets.tree(
+            CurrencyContexts.CASE_SENSITIVITY.comparator()
+        );
+
+        for (final String flag : flags) {
+            if (flag.length() == 2) {
+                try {
+                    TextNode.flag(flag)
+                        .toHtml();
+                    verified.add(flag);
+                } catch (final RuntimeException ignore) {
+                    // nop
+                }
+            }
+        }
+        this.flags = flags;
         return this;
     }
 
-    private String flag;
+    private Set<String> flags;
 
     // iconBefore | text Content | iconAfter
 

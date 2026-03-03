@@ -32,6 +32,9 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.ElementsFactory;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
@@ -42,6 +45,8 @@ import walkingkooka.tree.text.TextNode;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.SortedSet;
 
 import static org.dominokit.domino.ui.style.SpacingCss.dui_rounded_xl;
 
@@ -148,6 +153,8 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
         style.color = disabled ?
             "var(--dui-hyperlink-disabled-color)" :
             "var(--dui-hyperlink-color)";
+
+        this.flags = Sets.empty();
 
         this.iconBefore = null;
         this.iconAfter = null;
@@ -330,19 +337,16 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
 
     private Badge badge;
 
-    // flag.............................................................................................................
+    // flags............................................................................................................
 
     @Override
-    public String flag() {
-        final Text flag = this.flag;
-        return null == flag ?
-            "" :
-            flag.textContent;
+    public Set<String> flags() {
+        return this.flags;
     }
 
     @Override
-    public HistoryTokenAnchorComponent setFlag(final String flag) {
-        Objects.requireNonNull(flag, "flag");
+    public HistoryTokenAnchorComponent setFlags(final Set<String> flags) {
+        Objects.requireNonNull(flags, "flags");
 
         final AnchorElement anchorElement = this.element;
 
@@ -351,33 +355,51 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
             anchorElement.removeChild(oldflag);
         }
 
-        if (null != flag && flag.length() == 2) {
-            Text newFlag = null;
+        StringBuilder emojis = new StringBuilder();
+        final SortedSet<String> verified = SortedSets.tree(
+            CurrencyContexts.CASE_SENSITIVITY.comparator()
+        );
 
-            // try/catch required because flag may fail if not two character country code.
-            try {
-                final String html = TextNode.flag(flag)
-                    .toHtml();
-                final Element element = DomGlobal.document.createElement("SPAN");
-                element.innerHTML = html;
-                newFlag = Js.cast(
-                    element.firstChild
-                );
-                anchorElement.appendChild(newFlag);
-            } catch (final RuntimeException ignore) {
-                // nop
+        for (final String flag : flags) {
+            if (flag.length() == 2) {
+                // try/catch required because flag may fail if not two character country code.
+                try {
+                    final String html = TextNode.flag(flag)
+                        .toHtml();
+                    final Element element = DomGlobal.document.createElement("SPAN");
+                    element.innerHTML = html;
+                    final Text newFlag = Js.cast(
+                        element.firstChild
+                    );
+                    emojis.append(
+                        newFlag.textContent
+                    );
+
+                } catch (final RuntimeException ignore) {
+                    // nop
+                }
             }
-
-            this.flag = newFlag;
-
-        } else {
-            this.flag = null;
         }
+
+        final Text newFlag;
+
+        if (emojis.length() > 0) {
+            newFlag = DomGlobal.document.createTextNode(
+                emojis.toString()
+            );
+            anchorElement.appendChild(newFlag);
+        } else {
+            newFlag = null;
+        }
+        this.flag = newFlag;
+        this.flags = SortedSets.immutable(verified);
 
         return this;
     }
 
     private Text flag;
+
+    private Set<String> flags;
     
     // iconBefore | text Content | iconAfter
 

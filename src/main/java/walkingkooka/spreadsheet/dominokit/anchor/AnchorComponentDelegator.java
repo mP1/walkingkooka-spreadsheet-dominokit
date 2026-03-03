@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
+import java.util.Set;
 
 public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> extends AnchorComponent<A, T>,
     HtmlComponentDelegator<HTMLAnchorElement, A> {
@@ -131,14 +132,15 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     }
 
     @Override
-    default String flag() {
+    default Set<String> flags() {
         return this.anchorComponent()
-            .flag();
+            .flags();
     }
 
     @Override
-    default A setFlag(final String text) {
-        this.anchorComponent().setFlag(text);
+    default A setFlags(final Set<String> flags) {
+        this.anchorComponent()
+            .setFlags(flags);
         return (A) this;
     }
 
