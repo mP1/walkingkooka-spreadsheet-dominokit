@@ -72,14 +72,14 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         // COPY
         // PASTE
         // -----
-        // STYLE
-        // ----
-        // FORMATTER
+        // CURRENCY
         // DATE TIME SYMBOLS
         // DECIMAL NUMBER SYMBOLS
+        // FORMATTER
         // LOCALE
-        // VALUE TYPE
+        // STYLE
         // VALUE
+        // VALUE TYPE
         // VALIDATOR
         // HIDE ZERO VALUES
         // -----
@@ -97,18 +97,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
 
         if (selection.isExternalReference()) {
             clipboard(
-                historyToken,
-                menu,
-                context
-            );
-
-            style(
-                historyToken,
-                menu,
-                context
-            );
-
-            formatter(
                 historyToken,
                 menu,
                 context
@@ -132,7 +120,19 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                 context
             );
 
+            formatter(
+                historyToken,
+                menu,
+                context
+            );
+
             locale(
+                historyToken,
+                menu,
+                context
+            );
+
+            style(
                 historyToken,
                 menu,
                 context
