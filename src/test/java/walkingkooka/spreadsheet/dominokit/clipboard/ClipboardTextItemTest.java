@@ -850,8 +850,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                             return METADATA_EN_AU.jsonNodeUnmarshallContext(
-                                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
-                                LOCALE_CONTEXT // CanLocaleForLanguageTag
+                                CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
                         }
                     })
@@ -957,8 +956,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                             return METADATA_EN_AU.jsonNodeUnmarshallContext(
-                                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
-                                LOCALE_CONTEXT // CanLocaleForLanguageTag
+                                CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
                         }
 
