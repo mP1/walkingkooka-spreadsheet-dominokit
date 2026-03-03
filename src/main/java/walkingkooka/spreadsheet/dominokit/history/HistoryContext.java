@@ -20,10 +20,14 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import walkingkooka.Context;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyContexts;
 
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
 
@@ -80,6 +84,23 @@ public interface HistoryContext extends Context {
         if (null != historyTokenOrNull) {
             final Object valueOrNull = historyTokenOrNull.saveValue()
                 .orElse(null);
+
+            if (valueOrNull instanceof Currency) {
+                final Currency currency = (Currency) valueOrNull;
+                anchor.setFlags(
+                    HistoryContextMenuItem.CURRENCY_CONTEXT.localesForCurrencyCode(
+                            currency.getCurrencyCode()
+                        ).stream()
+                        .map(Locale::getCountry)
+                        .collect(
+                            Collectors.toCollection(
+                                () -> SortedSets.tree(
+                                    CurrencyContexts.CASE_SENSITIVITY.comparator()
+                                )
+                            )
+                        )
+                );
+            }
 
             if (valueOrNull instanceof Locale) {
                 final Locale locale = (Locale) valueOrNull;
