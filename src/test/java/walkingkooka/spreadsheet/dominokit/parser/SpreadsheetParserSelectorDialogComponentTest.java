@@ -94,13 +94,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -180,13 +184,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -298,13 +306,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -435,13 +447,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -593,13 +609,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -702,13 +722,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -830,13 +854,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -977,13 +1005,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1145,13 +1177,17 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
                 "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/general] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/general] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +

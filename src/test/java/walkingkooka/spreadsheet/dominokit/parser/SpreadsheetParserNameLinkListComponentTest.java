@@ -49,13 +49,17 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "            \"Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/date] id=ID123-0-Link\n" +
                 "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time] id=ID123-1-Link\n" +
                 "            \"Full Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/full-date] id=ID123-2-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-3-Link\n" +
-                "            \"Long Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date] id=ID123-4-Link\n" +
-                "            \"Medium Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date] id=ID123-5-Link\n" +
-                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-6-Link\n" +
-                "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date] id=ID123-7-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-8-Link\n" +
-                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-9-Link\n"
+                "            \"Full Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/full-date-time] id=ID123-3-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-4-Link\n" +
+                "            \"Long Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date] id=ID123-5-Link\n" +
+                "            \"Long Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date-time] id=ID123-6-Link\n" +
+                "            \"Medium Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date] id=ID123-7-Link\n" +
+                "            \"Medium Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date-time] id=ID123-8-Link\n" +
+                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-9-Link\n" +
+                "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date] id=ID123-10-Link\n" +
+                "            \"Short Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date-time] id=ID123-11-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-12-Link\n" +
+                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-13-Link\n"
         );
     }
 
@@ -74,13 +78,17 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 "            \"Date\" DISABLED id=ID123-0-Link\n" +
                 "            \"Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/date-time] id=ID123-1-Link\n" +
                 "            \"Full Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/full-date] id=ID123-2-Link\n" +
-                "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-3-Link\n" +
-                "            \"Long Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date] id=ID123-4-Link\n" +
-                "            \"Medium Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date] id=ID123-5-Link\n" +
-                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-6-Link\n" +
-                "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date] id=ID123-7-Link\n" +
-                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-8-Link\n" +
-                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-9-Link\n"
+                "            \"Full Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/full-date-time] id=ID123-3-Link\n" +
+                "            \"General\" [#/1/SpreadsheetName123/cell/A1/parser/save/general] id=ID123-4-Link\n" +
+                "            \"Long Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date] id=ID123-5-Link\n" +
+                "            \"Long Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/long-date-time] id=ID123-6-Link\n" +
+                "            \"Medium Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date] id=ID123-7-Link\n" +
+                "            \"Medium Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/medium-date-time] id=ID123-8-Link\n" +
+                "            \"Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/number] id=ID123-9-Link\n" +
+                "            \"Short Date\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date] id=ID123-10-Link\n" +
+                "            \"Short Date Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/short-date-time] id=ID123-11-Link\n" +
+                "            \"Time\" [#/1/SpreadsheetName123/cell/A1/parser/save/time] id=ID123-12-Link\n" +
+                "            \"Whole Number\" [#/1/SpreadsheetName123/cell/A1/parser/save/whole-number] id=ID123-13-Link\n"
         );
     }
 
