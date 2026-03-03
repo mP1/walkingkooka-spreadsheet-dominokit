@@ -150,6 +150,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -165,7 +179,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -190,7 +204,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -215,7 +229,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -240,7 +254,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -265,7 +279,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -290,7 +304,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -315,7 +329,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -340,7 +354,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -349,7 +363,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -374,7 +388,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -399,7 +413,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -424,7 +438,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -449,7 +463,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -474,7 +488,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -499,7 +513,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -524,7 +538,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -1534,20 +1548,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -1702,6 +1702,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -1717,7 +1731,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -1742,7 +1756,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -1767,7 +1781,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -1792,7 +1806,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -1817,7 +1831,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -1842,7 +1856,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -1867,7 +1881,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -1892,7 +1906,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -1901,7 +1915,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -1926,7 +1940,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -1951,7 +1965,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -1976,7 +1990,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -2001,7 +2015,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -2026,7 +2040,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -2051,7 +2065,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -2076,7 +2090,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -3086,20 +3100,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -3256,6 +3256,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -3271,7 +3285,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -3296,7 +3310,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -3321,7 +3335,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -3346,7 +3360,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -3371,7 +3385,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -3396,7 +3410,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -3421,7 +3435,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -3446,7 +3460,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -3455,7 +3469,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -3480,7 +3494,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -3505,7 +3519,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -3530,7 +3544,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -3555,7 +3569,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -3580,7 +3594,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -3605,7 +3619,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -3630,7 +3644,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -4640,20 +4654,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -4809,6 +4809,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -4824,7 +4838,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -4849,7 +4863,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -4874,7 +4888,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -4899,7 +4913,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -4924,7 +4938,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -4949,7 +4963,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -4974,7 +4988,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -4999,7 +5013,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -5008,7 +5022,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -5033,7 +5047,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -5058,7 +5072,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -5083,7 +5097,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -5108,7 +5122,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -5133,7 +5147,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -5158,7 +5172,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -5183,7 +5197,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -6193,20 +6207,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -6362,6 +6362,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -6377,7 +6391,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -6402,7 +6416,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -6427,7 +6441,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -6452,7 +6466,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -6477,7 +6491,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -6502,7 +6516,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -6527,7 +6541,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -6552,7 +6566,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -6561,7 +6575,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -6586,7 +6600,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -6611,7 +6625,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -6636,7 +6650,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -6661,7 +6675,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -6686,7 +6700,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -6711,7 +6725,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -6736,7 +6750,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -7746,20 +7760,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -7915,6 +7915,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -7930,7 +7944,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -7955,7 +7969,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -7980,7 +7994,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -8005,7 +8019,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -8030,7 +8044,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -8055,7 +8069,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -8080,7 +8094,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -8105,7 +8119,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -8114,7 +8128,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -8139,7 +8153,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -8164,7 +8178,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -8189,7 +8203,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -8214,7 +8228,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -8239,7 +8253,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -8264,7 +8278,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -8289,7 +8303,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -9299,20 +9313,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -9456,6 +9456,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -9471,7 +9485,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -9496,7 +9510,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -9521,7 +9535,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -9546,7 +9560,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -9571,7 +9585,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -9596,7 +9610,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -9621,7 +9635,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -9646,7 +9660,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-color-color-clear-Link\n" +
@@ -9655,7 +9669,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -9680,7 +9694,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -9705,7 +9719,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -9730,7 +9744,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -9755,7 +9769,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -9780,7 +9794,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -9805,7 +9819,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -9830,7 +9844,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
@@ -10840,20 +10854,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
@@ -11048,66 +11048,1621 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
 
         this.treePrintAndCheck2(
             menu,
+ "\"Cell A1 Menu\" id=Cell-MenuId\n" +
+     "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
+     "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+     "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+     "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+     "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+     "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+     "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+     "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+     "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+     "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+     "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+     "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+     "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+     "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+     "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
+     "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+     "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+     "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+     "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+     "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+     "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+     "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+     "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+     "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+     "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+     "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+     "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+     "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+     "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
+     "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+     "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+     "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+     "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+     "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+     "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+     "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+     "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+     "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+     "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+     "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+     "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+     "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+     "  -----\n",
+     "  \"Currency\" id=test-currency-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-currency-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-currency-edit-MenuItem\n" +
+     "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+     "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+     "  \"Formatter\" id=test-formatter-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
+     "  \"Locale\" id=test-locale-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-locale-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-edit-MenuItem\n" +
+     "  \"Style\" id=test-style-SubMenu\n" +
+     "    \"Alignment\" id=test-alignment-SubMenu\n" +
+     "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
+     "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/CENTER] id=test-center-MenuItem\n" +
+     "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/RIGHT] id=test-right-MenuItem\n" +
+     "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/JUSTIFY] id=test-justify-MenuItem\n" +
+     "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
+     "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
+     "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
+     "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
+     "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
+     "      ColorComponent\n" +
+     "        TABLE\n" +
+     "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
+     "            TBODY\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-1-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-2-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-3-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-4-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-5-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-6-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-7-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-8-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-9-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-10-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-11-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-12-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-13-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-14-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-15-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-16-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-17-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-18-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-19-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-20-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-21-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-22-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-23-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-24-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-25-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-26-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-27-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-28-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-29-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-30-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-31-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-32-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-33-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-34-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-35-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-36-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-37-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-38-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-39-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-40-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-41-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-42-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-43-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-44-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-45-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-46-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-47-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-48-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-49-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-50-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-51-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-52-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-53-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-54-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-55-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-color-color-56-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-color-color-clear-Link\n" +
+     "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
+     "      ColorComponent\n" +
+     "        TABLE\n" +
+     "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
+     "            TBODY\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-1-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-2-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-3-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-4-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-5-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-6-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-7-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-8-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-9-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-10-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-11-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-12-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-13-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-14-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-15-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-16-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-17-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-18-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-19-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-20-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-21-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-22-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-23-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-24-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-25-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-26-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-27-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-28-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-29-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-30-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-31-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-32-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-33-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-34-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-35-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-36-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-37-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-38-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-39-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-40-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-41-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-42-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-43-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-44-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-45-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-46-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-47-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-48-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-49-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-50-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-51-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-52-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-53-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-54-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-55-Link\n" +
+     "                TD\n" +
+     "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                    DISABLED id=test-background-color-color-56-Link\n" +
+     "              TR\n",
+     "                TD\n" +
+     "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
+     "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
+     "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
+     "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
+     "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+     "    \"Text case\" id=test-text-case-SubMenu\n" +
+     "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/] id=test-normal-MenuItem\n" +
+     "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
+     "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
+     "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
+     "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
+     "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
+     "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
+     "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
+     "    \"Border\" id=test-border-SubMenu\n" +
+     "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
+     "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
+     "          ColorComponent\n" +
+     "            TABLE\n" +
+     "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
+     "                TBODY\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-1-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-2-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-3-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-4-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-5-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-6-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-7-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-8-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-9-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-10-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-11-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-12-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-13-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-14-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-15-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-16-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-17-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-18-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-19-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-20-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-21-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-22-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-23-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-24-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-25-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-26-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-27-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-28-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-29-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-30-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-31-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-32-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-33-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-34-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-35-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-36-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-37-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-38-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-39-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-40-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-41-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-42-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-43-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-44-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-45-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-46-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-47-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-48-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-49-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-50-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-51-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-52-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-53-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-54-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-55-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-top-color-color-56-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
+     "        \"Style\" id=test-border-top-style-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
+     "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
+     "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
+     "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
+     "        \"Width\" id=test-border-top-width-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
+     "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
+     "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
+     "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
+     "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+     "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
+     "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
+     "          ColorComponent\n" +
+     "            TABLE\n" +
+     "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
+     "                TBODY\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-1-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-2-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-3-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-4-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-5-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-6-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-7-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-8-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-9-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-10-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-11-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-12-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-13-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-14-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-15-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-16-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-17-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-18-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-19-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-20-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-21-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-22-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-23-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-24-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-25-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-26-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-27-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-28-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-29-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-30-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-31-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-32-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-33-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-34-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-35-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-36-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-37-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-38-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-39-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-40-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-41-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-42-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-43-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-44-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-45-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-46-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-47-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-48-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-49-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-50-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-51-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-52-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-53-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-54-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-55-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-left-color-color-56-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
+     "        \"Style\" id=test-border-left-style-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
+     "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
+     "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
+     "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
+     "        \"Width\" id=test-border-left-width-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
+     "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
+     "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
+     "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
+     "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+     "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
+     "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
+     "          ColorComponent\n" +
+     "            TABLE\n" +
+     "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
+     "                TBODY\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-1-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-2-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-3-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-4-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-5-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-6-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-7-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-8-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-9-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-10-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-11-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-12-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-13-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-14-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-15-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-16-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-17-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-18-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-19-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-20-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-21-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-22-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-23-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-24-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-25-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-26-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-27-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-28-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-29-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-30-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-31-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-32-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-33-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-34-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-35-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-36-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-37-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-38-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-39-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-40-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-41-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-42-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-43-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-44-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-45-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-46-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-47-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-48-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-49-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-50-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-51-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-52-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-53-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-54-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-55-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-right-color-color-56-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
+     "        \"Style\" id=test-border-right-style-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
+     "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
+     "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
+     "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
+     "        \"Width\" id=test-border-right-width-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
+     "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
+     "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
+     "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
+     "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+     "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
+     "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
+     "          ColorComponent\n" +
+     "            TABLE\n" +
+     "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
+     "                TBODY\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-1-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-2-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-3-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-4-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-5-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-6-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-7-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-8-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-9-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-10-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-11-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-12-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-13-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-14-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-15-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-16-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-17-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-18-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-19-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-20-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-21-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-22-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-23-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-24-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-25-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-26-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-27-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-28-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-29-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-30-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-31-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-32-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-33-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-34-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-35-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-36-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-37-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-38-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-39-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-40-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-41-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-42-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-43-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-44-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-45-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-46-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-47-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-48-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-49-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-50-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-51-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-52-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-53-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-54-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-55-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-bottom-color-color-56-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
+     "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
+     "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
+     "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
+     "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
+     "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
+     "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
+     "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
+     "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
+     "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+     "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
+     "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
+     "          ColorComponent\n" +
+     "            TABLE\n" +
+     "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
+     "                TBODY\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-1-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-2-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-3-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-4-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-5-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-6-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-7-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-8-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-9-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-10-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-11-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-12-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-13-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-14-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-15-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-16-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-17-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-18-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-19-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-20-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-21-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-22-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-23-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-24-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-25-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-26-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-27-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-28-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-29-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-30-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-31-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-32-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-33-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-34-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-35-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-36-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-37-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-38-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-39-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-40-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-41-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-42-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-43-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-44-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-45-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-46-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-47-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-48-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-49-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-50-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-51-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-52-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-53-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-54-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-55-Link\n" +
+     "                    TD\n" +
+     "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+     "                        DISABLED id=test-border-color-color-56-Link\n" +
+     "                  TR\n",
+     "                    TD\n" +
+     "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+     "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
+     "        \"Style\" id=test-border-all-style-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
+     "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
+     "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
+     "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
+     "        \"Width\" id=test-border-all-width-SubMenu\n" +
+     "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
+     "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
+     "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
+     "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
+     "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
+     "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+     "    -----\n" +
+     "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
+     "  \"Value type\" id=test-valueType-SubMenu\n" +
+     "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+     "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+     "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date-time] id=test-valueTypes-date-time-MenuItem\n" +
+     "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/email] id=test-valueTypes-email-MenuItem\n" +
+     "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+     "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+     "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
+     "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+     "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
+     "  \"Value\" id=test-value-SubMenu\n" +
+     "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-value-boolean-MenuItem\n" +
+     "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-value-date-MenuItem\n" +
+     "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-value-date-time-MenuItem\n" +
+     "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-value-email-MenuItem\n" +
+     "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/number] id=test-value-number-MenuItem\n" +
+     "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-value-text-MenuItem\n" +
+     "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-value-time-MenuItem\n" +
+     "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-value-url-MenuItem\n" +
+     "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+     "  \"Validator\" id=test-validator-SubMenu\n" +
+     "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+     "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+     "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
+     "    -----\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/validator/save/] id=test-validator-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-validator-edit-MenuItem\n" +
+     "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+     "  -----\n",
+     "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
+     "  -----\n",
+     "  \"Insert\" id=test-insert-SubMenu\n" +
+     "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
+     "      \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+     "      \"2\" [/1/SpreadsheetName-1/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+     "      \"3\" [/1/SpreadsheetName-1/column/Z/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+     "      \"...\" [/1/SpreadsheetName-1/column/Z/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+     "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
+     "      \"1\" [/1/SpreadsheetName-1/column/Z/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+     "      \"2\" [/1/SpreadsheetName-1/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+     "      \"3\" [/1/SpreadsheetName-1/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+     "      \"...\" [/1/SpreadsheetName-1/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+     "    -----\n" +
+     "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
+     "      \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+     "      \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+     "      \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+     "      \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+     "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
+     "      \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+     "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+     "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+     "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+     "  -----\n",
+     "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
+     "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
+     "  -----\n",
+     "  \"Labels\" [1] id=test-label-SubMenu\n" +
+     "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
+     "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
+     "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
+     "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
+     "  -----\n",
+     "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
+        );
+    }
+
+    // because label is unknown it is not possible to create insertXXX column/row because the column/row components are unavailable.
+    @Test
+    public void testUnknownLabel() {
+        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
+            SPREADSHEET_ID, // id
+            SPREADSHEET_NAME, // name
+            SpreadsheetSelection.labelName("UnknownLabel")
+                .setDefaultAnchor()
+        );
+        final SpreadsheetSelectionMenuContext context = this.context(
+            token
+        );
+
+        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
+            Menu.create(
+                "Cell-MenuId",
+                "Cell A1 Menu",
+                Optional.empty(), // no icon
+                Optional.empty() // no badge
+            ),
+            context
+        );
+
+        SpreadsheetSelectionMenu.build(
+            token,
+            menu,
+            context
+        );
+
+        this.treePrintAndCheck2(
+            menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
+                "  \"Currency\" id=test-currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-currency-edit-MenuItem\n" +
+                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"Formatter\" id=test-formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
+                "  \"Locale\" id=test-locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/CENTER] id=test-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/RIGHT] id=test-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/JUSTIFY] id=test-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/CENTER] id=test-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/RIGHT] id=test-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/JUSTIFY] id=test-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-1-Link\n" +
@@ -11132,7 +12687,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-9-Link\n" +
@@ -11157,7 +12712,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-17-Link\n" +
@@ -11182,7 +12737,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-25-Link\n" +
@@ -11207,7 +12762,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-33-Link\n" +
@@ -11232,7 +12787,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-41-Link\n" +
@@ -11257,7 +12812,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-49-Link\n" +
@@ -11282,16 +12837,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
                 "      ColorComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-1-Link\n" +
@@ -11316,7 +12871,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-8-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-9-Link\n" +
@@ -11341,7 +12896,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-16-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-17-Link\n" +
@@ -11366,7 +12921,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-24-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-25-Link\n" +
@@ -11391,7 +12946,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-32-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-33-Link\n" +
@@ -11416,7 +12971,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-40-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-41-Link\n" +
@@ -11441,7 +12996,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-48-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-49-Link\n" +
@@ -11466,23 +13021,23 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-background-color-color-56-Link\n" +
-                "              TR\n" +
+                "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-text-case-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/] id=test-normal-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-normal-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
                 "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/Label123/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
                 "    \"Border\" id=test-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
@@ -11668,20 +13223,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-top-style-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
                 "        \"Width\" id=test-border-top-width-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -11866,20 +13421,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-left-style-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
                 "        \"Width\" id=test-border-left-width-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -12064,20 +13619,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-right-style-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
                 "        \"Width\" id=test-border-right-width-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -12262,20 +13817,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
                 "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
                 "          ColorComponent\n" +
@@ -12460,1621 +14015,66 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
+                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
                 "        \"Style\" id=test-border-all-style-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
+                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
+                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
+                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
                 "        \"Width\" id=test-border-all-width-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
+                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
+                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
+                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
+                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
+                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-clear-style-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-currency-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-edit-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
                 "  \"Value type\" id=test-valueType-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date-time] id=test-valueTypes-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/email] id=test-valueTypes-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date-time] id=test-valueTypes-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/email] id=test-valueTypes-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
                 "  \"Value\" id=test-value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-value-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-value-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-value-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-value-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/number] id=test-value-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-value-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-value-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-value-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-value-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number] id=test-value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-value-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-value-whole-number-MenuItem\n" +
                 "  \"Validator\" id=test-validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/validator/save/] id=test-validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/] id=test-validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-validator-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n",
-                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
+                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
                 "  -----\n",
-                "  \"Insert\" id=test-insert-SubMenu\n" +
-                "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/Z/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/Z/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/Z/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "    -----\n" +
-                "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
-                "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "  \"Insert\" id=test-insert-SubMenu DISABLED\n" +
                 "  -----\n",
-                "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n",
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
-                "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
+                "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
+                "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n",
-                "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
-        );
-    }
-
-    // because label is unknown it is not possible to create insertXXX column/row because the column/row components are unavailable.
-    @Test
-    public void testUnknownLabel() {
-        final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
-            SPREADSHEET_ID, // id
-            SPREADSHEET_NAME, // name
-            SpreadsheetSelection.labelName("UnknownLabel")
-                .setDefaultAnchor()
-        );
-        final SpreadsheetSelectionMenuContext context = this.context(
-            token
-        );
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Cell-MenuId",
-                "Cell A1 Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenu.build(
-            token,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck2(
-            menu,
-"\"Cell A1 Menu\" id=Cell-MenuId\n" +
-    "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-    "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-    "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-    "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-    "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/dateTimeSymbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-    "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/decimalNumberSymbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-    "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-    "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-    "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-    "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-    "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-    "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-    "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-    "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
-    "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-    "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-    "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-    "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-    "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/dateTimeSymbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-    "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/decimalNumberSymbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-    "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-    "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-    "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-    "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-    "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-    "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-    "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-    "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
-    "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-    "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-    "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-    "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-    "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/dateTimeSymbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-    "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/decimalNumberSymbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-    "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-    "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-    "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-    "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-    "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-    "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-    "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-    "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-    "  -----\n",
-    "  \"Style\" id=test-style-SubMenu\n" +
-    "    \"Alignment\" id=test-alignment-SubMenu\n" +
-    "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
-    "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/CENTER] id=test-center-MenuItem\n" +
-    "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/RIGHT] id=test-right-MenuItem\n" +
-    "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/JUSTIFY] id=test-justify-MenuItem\n" +
-    "    \"Vertical Alignment\" id=test-vertical-alignment-SubMenu\n" +
-    "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/TOP] id=test-top-MenuItem\n" +
-    "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-middle-MenuItem\n" +
-    "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-bottom-MenuItem\n" +
-    "    (mdi-palette) \"Color\" id=test-color-SubMenu\n" +
-    "      ColorComponent\n" +
-    "        TABLE\n" +
-    "          id=\"test-color-Table\" className=dui dui-menu-item\n" +
-    "            TBODY\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-1-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-2-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-3-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-4-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-5-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-6-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-7-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-8-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-9-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-10-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-11-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-12-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-13-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-14-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-15-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-16-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-17-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-18-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-19-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-20-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-21-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-22-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-23-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-24-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-25-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-26-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-27-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-28-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-29-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-30-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-31-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-32-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-33-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-34-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-35-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-36-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-37-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-38-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-39-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-40-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-41-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-42-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-43-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-44-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-45-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-46-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-47-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-48-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-49-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-50-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-51-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-52-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-53-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-54-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-55-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-color-color-56-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-color-color-clear-Link\n" +
-    "    (mdi-palette) \"Background Color\" id=test-background-color-SubMenu\n" +
-    "      ColorComponent\n" +
-    "        TABLE\n" +
-    "          id=\"test-background-color-Table\" className=dui dui-menu-item\n" +
-    "            TBODY\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-1-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-2-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-3-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-4-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-5-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-6-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-7-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-8-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-9-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-10-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-11-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-12-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-13-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-14-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-15-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-16-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-17-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-18-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-19-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-20-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-21-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-22-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-23-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-24-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-25-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-26-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-27-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-28-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-29-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-30-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-31-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-32-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-33-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-34-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-35-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-36-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-37-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-38-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-39-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-40-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-41-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-42-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-43-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-44-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-45-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-46-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-47-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-48-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-49-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-50-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-51-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-52-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-53-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-54-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-55-Link\n" +
-    "                TD\n" +
-    "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                    DISABLED id=test-background-color-color-56-Link\n" +
-    "              TR\n" +
-    "                TD\n" +
-    "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-background-color-color-clear-Link\n" +
-    "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-bold-MenuItem\n" +
-    "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-italics-MenuItem\n" +
-    "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strike-thru-MenuItem\n" +
-    "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
-    "    \"Text case\" id=test-text-case-SubMenu\n" +
-    "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-normal-MenuItem\n" +
-    "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-capitalize-MenuItem\n" +
-    "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-lower-MenuItem\n" +
-    "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-upper-MenuItem\n" +
-    "    \"Wrapping\" id=test-text-wrapping-SubMenu\n" +
-    "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-wrap/save/NORMAL] id=test-clip-MenuItem\n" +
-    "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/VISIBLE] id=test-overflow-MenuItem\n" +
-    "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/overflow-x/save/HIDDEN] id=test-wrap-MenuItem\n" +
-    "    \"Border\" id=test-border-SubMenu\n" +
-    "      (mdi-border-top-variant) \"Top\" id=test-border-top-SubMenu\n" +
-    "        (mdi-palette) \"Border Top Color\" id=test-border-top-color-SubMenu\n" +
-    "          ColorComponent\n" +
-    "            TABLE\n" +
-    "              id=\"test-border-top-color-Table\" className=dui dui-menu-item\n" +
-    "                TBODY\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-1-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-2-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-3-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-4-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-5-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-6-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-7-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-8-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-9-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-10-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-11-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-12-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-13-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-14-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-15-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-16-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-17-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-18-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-19-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-20-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-21-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-22-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-23-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-24-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-25-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-26-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-27-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-28-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-29-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-30-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-31-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-32-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-33-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-34-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-35-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-36-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-37-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-38-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-39-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-40-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-41-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-42-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-43-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-44-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-45-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-46-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-47-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-48-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-49-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-50-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-51-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-52-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-53-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-54-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-55-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-top-color-color-56-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-color/save/] id=test-border-top-color-color-clear-Link\n" +
-    "        \"Style\" id=test-border-top-style-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-border-top-style-none-MenuItem\n" +
-    "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-border-top-style-dashed-MenuItem\n" +
-    "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DOTTED] id=test-border-top-style-dotted-MenuItem\n" +
-    "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/SOLID] id=test-border-top-style-solid-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/] id=test-border-top-style-clear-MenuItem\n" +
-    "        \"Width\" id=test-border-top-width-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/0px] id=test-border-top-width-0-MenuItem\n" +
-    "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/1px] id=test-border-top-width-1-MenuItem\n" +
-    "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-border-top-width-2-MenuItem\n" +
-    "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-border-top-width-3-MenuItem\n" +
-    "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-border-top-width-4-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-border-top-width-clear-MenuItem\n" +
-    "      (mdi-border-left-variant) \"Left\" id=test-border-left-SubMenu\n" +
-    "        (mdi-palette) \"Border Left Color\" id=test-border-left-color-SubMenu\n" +
-    "          ColorComponent\n" +
-    "            TABLE\n" +
-    "              id=\"test-border-left-color-Table\" className=dui dui-menu-item\n" +
-    "                TBODY\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-1-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-2-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-3-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-4-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-5-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-6-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-7-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-8-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-9-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-10-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-11-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-12-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-13-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-14-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-15-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-16-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-17-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-18-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-19-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-20-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-21-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-22-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-23-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-24-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-25-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-26-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-27-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-28-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-29-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-30-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-31-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-32-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-33-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-34-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-35-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-36-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-37-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-38-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-39-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-40-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-41-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-42-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-43-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-44-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-45-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-46-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-47-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-48-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-49-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-50-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-51-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-52-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-53-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-54-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-55-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-left-color-color-56-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-color/save/] id=test-border-left-color-color-clear-Link\n" +
-    "        \"Style\" id=test-border-left-style-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-border-left-style-none-MenuItem\n" +
-    "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-border-left-style-dashed-MenuItem\n" +
-    "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DOTTED] id=test-border-left-style-dotted-MenuItem\n" +
-    "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/SOLID] id=test-border-left-style-solid-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/] id=test-border-left-style-clear-MenuItem\n" +
-    "        \"Width\" id=test-border-left-width-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/0px] id=test-border-left-width-0-MenuItem\n" +
-    "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/1px] id=test-border-left-width-1-MenuItem\n" +
-    "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-border-left-width-2-MenuItem\n" +
-    "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-border-left-width-3-MenuItem\n" +
-    "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-border-left-width-4-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-border-left-width-clear-MenuItem\n" +
-    "      (mdi-border-right-variant) \"Right\" id=test-border-right-SubMenu\n" +
-    "        (mdi-palette) \"Border Right Color\" id=test-border-right-color-SubMenu\n" +
-    "          ColorComponent\n" +
-    "            TABLE\n" +
-    "              id=\"test-border-right-color-Table\" className=dui dui-menu-item\n" +
-    "                TBODY\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-1-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-2-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-3-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-4-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-5-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-6-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-7-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-8-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-9-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-10-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-11-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-12-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-13-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-14-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-15-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-16-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-17-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-18-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-19-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-20-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-21-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-22-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-23-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-24-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-25-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-26-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-27-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-28-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-29-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-30-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-31-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-32-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-33-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-34-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-35-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-36-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-37-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-38-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-39-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-40-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-41-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-42-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-43-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-44-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-45-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-46-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-47-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-48-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-49-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-50-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-51-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-52-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-53-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-54-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-55-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-right-color-color-56-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-color/save/] id=test-border-right-color-color-clear-Link\n" +
-    "        \"Style\" id=test-border-right-style-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-border-right-style-none-MenuItem\n" +
-    "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-border-right-style-dashed-MenuItem\n" +
-    "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DOTTED] id=test-border-right-style-dotted-MenuItem\n" +
-    "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/SOLID] id=test-border-right-style-solid-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/] id=test-border-right-style-clear-MenuItem\n" +
-    "        \"Width\" id=test-border-right-width-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/0px] id=test-border-right-width-0-MenuItem\n" +
-    "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/1px] id=test-border-right-width-1-MenuItem\n" +
-    "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-border-right-width-2-MenuItem\n" +
-    "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-border-right-width-3-MenuItem\n" +
-    "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-border-right-width-4-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-border-right-width-clear-MenuItem\n" +
-    "      (mdi-border-bottom-variant) \"Bottom\" id=test-border-bottom-SubMenu\n" +
-    "        (mdi-palette) \"Border Bottom Color\" id=test-border-bottom-color-SubMenu\n" +
-    "          ColorComponent\n" +
-    "            TABLE\n" +
-    "              id=\"test-border-bottom-color-Table\" className=dui dui-menu-item\n" +
-    "                TBODY\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-1-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-2-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-3-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-4-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-5-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-6-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-7-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-8-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-9-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-10-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-11-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-12-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-13-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-14-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-15-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-16-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-17-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-18-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-19-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-20-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-21-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-22-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-23-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-24-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-25-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-26-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-27-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-28-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-29-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-30-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-31-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-32-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-33-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-34-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-35-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-36-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-37-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-38-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-39-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-40-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-41-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-42-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-43-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-44-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-45-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-46-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-47-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-48-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-49-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-50-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-51-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-52-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-53-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-54-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-55-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-bottom-color-color-56-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-color/save/] id=test-border-bottom-color-color-clear-Link\n" +
-    "        \"Style\" id=test-border-bottom-style-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-border-bottom-style-none-MenuItem\n" +
-    "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-border-bottom-style-dashed-MenuItem\n" +
-    "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DOTTED] id=test-border-bottom-style-dotted-MenuItem\n" +
-    "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/SOLID] id=test-border-bottom-style-solid-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/] id=test-border-bottom-style-clear-MenuItem\n" +
-    "        \"Width\" id=test-border-bottom-width-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/0px] id=test-border-bottom-width-0-MenuItem\n" +
-    "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/1px] id=test-border-bottom-width-1-MenuItem\n" +
-    "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-border-bottom-width-2-MenuItem\n" +
-    "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-border-bottom-width-3-MenuItem\n" +
-    "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-border-bottom-width-4-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-border-bottom-width-clear-MenuItem\n" +
-    "      (mdi-border-all-variant) \"All\" id=test-border-all-SubMenu\n" +
-    "        (mdi-palette) \"Border Color\" id=test-border-color-SubMenu\n" +
-    "          ColorComponent\n" +
-    "            TABLE\n" +
-    "              id=\"test-border-color-Table\" className=dui dui-menu-item\n" +
-    "                TBODY\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-1-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-2-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-3-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-4-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-5-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-6-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-7-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-8-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-9-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-10-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-11-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-12-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-13-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-14-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-15-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-16-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-17-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-18-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-19-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-20-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-21-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-22-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-23-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-24-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-25-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-26-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-27-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-28-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-29-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-30-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-31-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-32-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-33-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-34-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-35-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-36-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-37-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-38-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-39-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-40-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-41-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-42-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-43-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-44-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-45-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-46-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-47-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-48-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-49-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-50-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-51-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-52-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-53-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-54-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-55-Link\n" +
-    "                    TD\n" +
-    "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-    "                        DISABLED id=test-border-color-color-56-Link\n" +
-    "                  TR\n",
-    "                    TD\n" +
-    "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-    "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-color/save/] id=test-border-color-color-clear-Link\n" +
-    "        \"Style\" id=test-border-all-style-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-border-all-style-none-MenuItem\n" +
-    "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-border-all-style-dashed-MenuItem\n" +
-    "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DOTTED] id=test-border-all-style-dotted-MenuItem\n" +
-    "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/SOLID] id=test-border-all-style-solid-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/] id=test-border-all-style-clear-MenuItem\n" +
-    "        \"Width\" id=test-border-all-width-SubMenu\n" +
-    "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/0px] id=test-border-all-width-0-MenuItem\n" +
-    "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/1px] id=test-border-all-width-1-MenuItem\n" +
-    "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-border-all-width-2-MenuItem\n" +
-    "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-border-all-width-3-MenuItem\n" +
-    "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-border-all-width-4-MenuItem\n" +
-    "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-border-all-width-clear-MenuItem\n" +
-    "    -----\n" +
-    "    (mdi-format-clear) \"Clear style\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-clear-style-MenuItem\n" +
-    "  \"Formatter\" id=test-formatter-SubMenu\n" +
-    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-    "    -----\n" +
-    "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
-    "  \"Currency\" id=test-currency-SubMenu\n" +
-    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-currency-clear-MenuItem\n" +
-    "    -----\n" +
-    "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-currency-edit-MenuItem\n" +
-    "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
-    "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
-    "  \"Locale\" id=test-locale-SubMenu\n" +
-    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-locale-clear-MenuItem\n" +
-    "    -----\n" +
-    "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-edit-MenuItem\n" +
-    "  \"Value type\" id=test-valueType-SubMenu\n" +
-    "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-valueTypes-boolean-MenuItem\n" +
-    "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-valueTypes-date-MenuItem\n" +
-    "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date-time] id=test-valueTypes-date-time-MenuItem\n" +
-    "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/email] id=test-valueTypes-email-MenuItem\n" +
-    "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number] id=test-valueTypes-number-MenuItem\n" +
-    "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/text] id=test-valueTypes-text-MenuItem\n" +
-    "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/time] id=test-valueTypes-time-MenuItem\n" +
-    "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-valueTypes-url-MenuItem\n" +
-    "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/whole-number] id=test-valueTypes-whole-number-MenuItem\n" +
-    "  \"Value\" id=test-value-SubMenu\n" +
-    "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-value-boolean-MenuItem\n" +
-    "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-value-date-MenuItem\n" +
-    "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-value-date-time-MenuItem\n" +
-    "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-value-email-MenuItem\n" +
-    "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number] id=test-value-number-MenuItem\n" +
-    "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-value-text-MenuItem\n" +
-    "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-value-time-MenuItem\n" +
-    "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-value-url-MenuItem\n" +
-    "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-value-whole-number-MenuItem\n" +
-    "  \"Validator\" id=test-validator-SubMenu\n" +
-    "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-validator-hello-validator-1-MenuItem\n" +
-    "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-validator-hello-validator-2-MenuItem\n" +
-    "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-validator-hello-validator-3-MenuItem\n" +
-    "    -----\n" +
-    "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/] id=test-validator-clear-MenuItem\n" +
-    "    -----\n" +
-    "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-validator-edit-MenuItem\n" +
-    "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-    "  -----\n",
-    "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
-    "  -----\n",
-    "  \"Insert\" id=test-insert-SubMenu DISABLED\n" +
-    "  -----\n",
-    "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
-    "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
-    "  -----\n",
-    "  \"Labels\" [1] id=test-label-SubMenu\n" +
-    "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
-    "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
-    "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
-    "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
-    "  -----\n",
-    "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
+                "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
         );
     }
 
