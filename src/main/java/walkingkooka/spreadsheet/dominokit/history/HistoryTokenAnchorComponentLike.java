@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
@@ -214,10 +216,11 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             badge = "(" + badge + ")";
         }
 
-        String flag = this.flag();
-        if (false == flag.isEmpty()) {
-            flag = "[" + flag + "]";
-        }
+        final Set<String> flags = this.flags();
+        String flagsText = flags.isEmpty() ?
+            "" :
+            flags.stream()
+                .collect(Collectors.joining(", ", "[", "]"));
 
         return ToStringBuilder.empty()
             .disable(ToStringBuilderOption.QUOTE)
@@ -229,7 +232,7 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
             .value(disabled)
             .value(hrefString)
             .value(badge)
-            .value(flag)
+            .value(flagsText)
             .value(this.target())
             .value(this.isChecked() ? "CHECKED" : "")
             .value(this.iconAfter().map(Icon::getName))

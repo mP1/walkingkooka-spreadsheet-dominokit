@@ -21,6 +21,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
@@ -152,10 +153,10 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
     // setFlag..........................................................................................................
 
     @Test
-    public void testSetFlagWithEmpty() {
+    public void testSetFlagsWithEmpty() {
         this.treePrintAndCheck(
             HistoryTokenAnchorComponent.empty()
-                .setFlag("")
+                .setFlags(Sets.empty())
                 .setHref(
                     Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                 ),
@@ -164,11 +165,12 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
     }
 
     @Test
-    public void testSetFlagWithInvalid() {
+    public void testSetFlagsWithInvalid() {
         this.treePrintAndCheck(
             HistoryTokenAnchorComponent.empty()
-                .setFlag("AUS")
-                .setHref(
+                .setFlags(
+                    Sets.of("AUS")
+                ).setHref(
                     Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                 ),
             "[#/1/SpreadsheetName234/cell/A1] [AUS]"
@@ -176,23 +178,25 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
     }
 
     @Test
-    public void testSetFlag() {
+    public void testSetFlags() {
         this.treePrintAndCheck(
             HistoryTokenAnchorComponent.empty()
-                .setFlag("AU")
-                .setHref(
+                .setFlags(
+                    Sets.of("AU", "NZ")
+                ).setHref(
                     Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                 ),
-            "[#/1/SpreadsheetName234/cell/A1] [AU]"
+            "[#/1/SpreadsheetName234/cell/A1] [AU, NZ]"
         );
     }
 
     @Test
-    public void testSetFlagAndText() {
+    public void testSetFlagsAndText() {
         this.treePrintAndCheck(
             HistoryTokenAnchorComponent.empty()
-                .setFlag("AU")
-                .setTextContent("Hello")
+                .setFlags(
+                    Sets.of("AU")
+                ).setTextContent("Hello")
                 .setHref(
                     Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
                 ),

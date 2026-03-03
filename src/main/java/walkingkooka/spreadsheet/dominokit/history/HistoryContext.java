@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import walkingkooka.Context;
+import walkingkooka.collect.set.Sets;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -82,8 +83,10 @@ public interface HistoryContext extends Context {
 
             if (valueOrNull instanceof Locale) {
                 final Locale locale = (Locale) valueOrNull;
-                anchor.setFlag(
-                    locale.getCountry()
+                anchor.setFlags(
+                    Sets.of(
+                        locale.getCountry()
+                    )
                 );
             }
 

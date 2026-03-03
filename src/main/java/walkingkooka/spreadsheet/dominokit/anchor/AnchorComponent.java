@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 
 /**
  * Defines some operations common to all anchor and anchor like components.
@@ -110,9 +111,9 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
 
     // flag.............................................................................................................
 
-    String flag();
+    Set<String> flags();
 
-    A setFlag(final String countryCode);
+    A setFlags(final Set<String> countryCodes);
 
     // iconBefore | text Content | iconAfter
 
