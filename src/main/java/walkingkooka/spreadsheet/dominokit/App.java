@@ -311,9 +311,8 @@ public class App implements EntryPoint,
         );
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-            CURRENCY_CONTEXT,
-            LOCALE_CONTEXT,
             ExpressionNumberKind.DEFAULT,
+            CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT),
             MathContext.DECIMAL32
         );
 
@@ -1332,9 +1331,8 @@ public class App implements EntryPoint,
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
-                CURRENCY_CONTEXT, // CanCurrencyForCurrencyCode
-                LOCALE_CONTEXT,
                 metadata.expressionNumberKind(),
+                CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT),
                 metadata.mathContext()
             );
 

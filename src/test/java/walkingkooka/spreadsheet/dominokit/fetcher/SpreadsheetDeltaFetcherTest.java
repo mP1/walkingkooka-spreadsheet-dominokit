@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.currency.CurrencyLocaleContexts;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -433,13 +434,8 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                     @Override
                     public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                         return JsonNodeUnmarshallContexts.basic(
-                            (String cc) -> {
-                                throw new UnsupportedOperationException();
-                            },
-                            (String lt) -> {
-                                throw new UnsupportedOperationException();
-                            },
                             ExpressionNumberKind.BIG_DECIMAL,
+                            CurrencyLocaleContexts.fake(), // CurrencyCodeLanguageTagContext
                             MathContext.UNLIMITED
                         );
                     }

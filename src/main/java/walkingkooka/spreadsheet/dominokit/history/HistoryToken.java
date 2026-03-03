@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
 import walkingkooka.Value;
+import walkingkooka.currency.CurrencyCodeLanguageTagContext;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
@@ -321,13 +322,22 @@ public abstract class HistoryToken implements HasUrlFragment {
     final static JsonNodeMarshallUnmarshallContext MARSHALL_UNMARSHALL_CONTEXT = JsonNodeMarshallUnmarshallContexts.basic(
         JsonNodeMarshallContexts.basic(),
         JsonNodeUnmarshallContexts.basic(
-            (String cc) -> Optional.ofNullable(
-                Currency.getInstance(cc)
-            ),
-            (String lt) -> Optional.of(
-                Locale.forLanguageTag(lt)
-            ),
             ExpressionNumberKind.BIG_DECIMAL,
+            new CurrencyCodeLanguageTagContext() {
+                @Override
+                public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+                    return Optional.ofNullable(
+                        Currency.getInstance(currencyCode)
+                    );
+                }
+
+                @Override
+                public Optional<Locale> localeForLanguageTag(final String languageTag) {
+                    return Optional.of(
+                        Locale.forLanguageTag(languageTag)
+                    );
+                }
+            },
             MathContext.DECIMAL64
         )
     );
