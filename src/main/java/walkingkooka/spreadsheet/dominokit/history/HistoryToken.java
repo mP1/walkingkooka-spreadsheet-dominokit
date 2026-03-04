@@ -4199,7 +4199,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 Cast.to(
                                     parseOptional(
                                         value,
-                                        (String text) -> propertyName.parseUrlFragmentSaveValue(
+                                        (String text) -> propertyName.parseValueText(
                                             text,
                                             CURRENCY_LOCALE_CONTEXT
                                         )

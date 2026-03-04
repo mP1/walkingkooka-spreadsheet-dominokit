@@ -269,16 +269,18 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             )
         );
     }
-
-    // cant save a new id but can select spreadsheet-id.
+    
     @Test
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/spreadsheetId/save/456",
-            HistoryToken.metadataPropertySelect(
+            HistoryToken.metadataPropertySave(
                 ID,
                 NAME,
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID
+                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                Optional.of(
+                    SpreadsheetId.parse("456")
+                )
             )
         );
     }
