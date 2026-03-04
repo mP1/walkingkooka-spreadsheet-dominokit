@@ -82,7 +82,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
     @Override
     public final AS parseAliasSetLike(final String text) {
         return this.metadataPropertyName()
-            .parseUrlFragmentSaveValue(
+            .parseValueText(
                 text,
                 CurrencyContexts.fake()
                     .setLocaleContext(this.context)
