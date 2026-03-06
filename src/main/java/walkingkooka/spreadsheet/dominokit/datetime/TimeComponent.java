@@ -46,10 +46,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
                           final Supplier<LocalTime> clearValue) {
         super(clearValue);
 
-        this.timeBox = TimeBox.create() // DateTimeFormatInfo
-            .withTimePicker(
-                (parent, c) -> c.withHeader()
-            );
+        this.timeBox = createTimeBox();
 
         this.bodyElement.insertFirst(
             this.timeBox.element()

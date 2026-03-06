@@ -47,17 +47,8 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
                               final Supplier<LocalDateTime> clearValue) {
         super(clearValue);
 
-        // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
-        // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
-        this.dateBox = DateBox.create() // DateTimeFormatInfo
-            .withCalendar(
-                (parent, c) -> c.withHeader()
-            );
-
-        this.timeBox = TimeBox.create() // DateTimeFormatInfo
-            .withTimePicker(
-                (parent, c) -> c.withHeader()
-            );
+        this.dateBox = createDateBox();
+        this.timeBox = createTimeBox();
 
         this.layout = FlexLayoutComponent.row()
             .appendChild(dateBox)
