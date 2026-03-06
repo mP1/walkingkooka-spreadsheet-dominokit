@@ -21,7 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.forms.DateBox;
 import org.dominokit.domino.ui.forms.FormsStyles;
+import org.dominokit.domino.ui.forms.TimeBox;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.LazyChild;
 import walkingkooka.text.CharSequences;
@@ -40,6 +42,28 @@ import static org.dominokit.domino.ui.utils.Domino.span;
  * Abstract base class for date/datetime/time pickers.
  */
 abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V, C>> extends TemporalComponent<V, C> {
+
+    /**
+     * Creates a {@link DateBox} with an attached {@link org.dominokit.domino.ui.datepicker.Calendar}.
+     */
+    // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
+    // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
+    static DateBox createDateBox() {
+        return DateBox.create() // DateTimeFormatInfo
+            .withCalendar(
+                (parent, c) -> c.withHeader()
+            );
+    }
+
+    /**
+     * Creates a {@link TimeBox} with an attached {@link org.dominokit.domino.ui.timepicker.TimePicker}.
+     */
+    static TimeBox createTimeBox() {
+        return TimeBox.create() // DateTimeFormatInfo
+            .withTimePicker(
+                (parent, c) -> c.withHeader()
+            );
+    }
 
     /**
      * Parent of the picker and messages.
