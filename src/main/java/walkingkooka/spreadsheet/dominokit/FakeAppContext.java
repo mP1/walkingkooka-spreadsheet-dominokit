@@ -408,7 +408,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // ProviderContext..................................................................................................
+    // XXXEnvironmentContext............................................................................................
 
     @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
@@ -422,6 +422,72 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Currency currency() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Indentation indentation() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setIndentation(final Indentation indentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setLineEnding(final LineEnding lineEnding) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setLocale(final Locale locale) {
+        Objects.requireNonNull(locale, "locale");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LocalDateTime now() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<SpreadsheetId> spreadsheetId() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ZoneOffset timeOffset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setTimeOffset(final ZoneOffset timeOffset) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
     }
 
@@ -506,11 +572,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public Optional<Locale> localeForLanguageTag(final String languageTag) {
         Objects.requireNonNull(languageTag, "languageTag");
 
@@ -527,12 +588,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Optional<String> localeText(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setLocale(final Locale locale) {
-        Objects.requireNonNull(locale, "locale");
         throw new UnsupportedOperationException();
     }
 
@@ -609,74 +664,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public void giveFocus(final Runnable focus) {
-        throw new UnsupportedOperationException();
-    }
-
-    // HasCurrency...................................................................................................
-
-    @Override
-    public Currency currency() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setCurrency(final Currency currency) {
-        throw new UnsupportedOperationException();
-    }
-    
-    // HasIndentation...................................................................................................
-
-    @Override
-    public Indentation indentation() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setIndentation(final Indentation indentation) {
-        throw new UnsupportedOperationException();
-    }
-    
-    // HasLineEnding....................................................................................................
-
-    @Override
-    public LineEnding lineEnding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setLineEnding(final LineEnding lineEnding) {
-        throw new UnsupportedOperationException();
-    }
-
-    // HasNow...........................................................................................................
-
-    @Override
-    public LocalDateTime now() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetId> spreadsheetId() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ZoneOffset timeOffset() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setTimeOffset(final ZoneOffset timeOffset) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<EmailAddress> user() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Storage<SpreadsheetStorageContext> storage() {
         throw new UnsupportedOperationException();
     }
 
@@ -956,6 +943,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public StoragePath parseStoragePath(final String path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Storage<SpreadsheetStorageContext> storage() {
         throw new UnsupportedOperationException();
     }
 }
