@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.net.SpreadsheetMediaTypes;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -41,7 +40,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetCellRange;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
@@ -89,40 +87,11 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
-            SpreadsheetCell cell = context.unmarshall(
+            return context.unmarshall(
                 JsonNode.object()
                     .appendChild(node),
                 SpreadsheetCell.class
             );
-            final SpreadsheetFormula formula = cell.formula();
-
-            // if theres no token try and parse the formula text. This will be necessary because PASTE will
-            // need to update relative references.
-            if (false == formula.token().isPresent()) {
-                try {
-                    final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
-                    cell = cell.setFormula(
-                        SpreadsheetFormula.parse(
-                            TextCursors.charSequence(
-                                formula.text()
-                            ),
-                            metadata.spreadsheetParser(
-                                context, // SpreadsheetParserProvider
-                                context
-                            ),
-                            metadata.spreadsheetParserContext(
-                                Optional.of(cell),
-                                context,
-                                context
-                            )
-                        )
-                    );
-                } catch (final RuntimeException ignore) {
-
-                }
-            }
-            return cell;
         }
 
         @Override
@@ -160,25 +129,12 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
                                    final AppContext context) {
-            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
             ).setFormula(
-                SpreadsheetFormula.parse(
-                    TextCursors.charSequence(
-                        node.stringOrFail()
-                    ),
-                    metadata.spreadsheetParser(
-                        context, // SpreadsheetParserProvider
-                        context // ProviderContext
-                    ),
-                    metadata.spreadsheetParserContext(
-                        SpreadsheetMetadata.NO_CELL, // TODO seems wrong to pass NO_CELL
-                        context,
-                        context
-                    )// parser context
+                SpreadsheetFormula.EMPTY.setText(
+                    node.stringOrFail()
                 )
             );
         }

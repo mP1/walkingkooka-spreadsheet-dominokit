@@ -742,9 +742,6 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ),
-            SpreadsheetSelection.A1.setFormula(
-                SpreadsheetMetadataTesting.parseFormula(formula)
             )
         );
     }
@@ -761,9 +758,6 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ).setFormatter(formatPattern),
-            SpreadsheetSelection.A1.setFormula(
-                SpreadsheetMetadataTesting.parseFormula(formula)
             ).setFormatter(formatPattern)
         );
     }
@@ -780,13 +774,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ).setParser(parser),
-            SpreadsheetSelection.A1.setFormula(
-                    SpreadsheetFormula.EMPTY.setText(formula)
-                ).setParser(parser)
-                .setFormula(
-                    SpreadsheetMetadataTesting.parseFormula(formula)
-                )
+            ).setParser(parser)
         );
     }
 
@@ -802,9 +790,6 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ).setStyle(style),
-            SpreadsheetSelection.A1.setFormula(
-                SpreadsheetMetadataTesting.parseFormula(formula)
             ).setStyle(style)
         );
     }
@@ -819,22 +804,20 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ).setFormattedValue(formattedValue),
-            SpreadsheetSelection.A1.setFormula(
-                    SpreadsheetFormula.EMPTY.setText(formula)
-                ).setFormattedValue(formattedValue)
-                .setFormula(
-                    SpreadsheetMetadataTesting.parseFormula(formula)
-                )
+            ).setFormattedValue(formattedValue)
         );
     }
 
     @Test
     public void testUnmarshallFormulaEmpty() {
+        final String formula = "";
+
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
-            JsonNode.string(""),
-            EMPTY_FORMULA
+            JsonNode.string(formula),
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText(formula)
+            )
         );
     }
 
@@ -846,7 +829,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.FORMULA,
             JsonNode.string(formula),
             SpreadsheetSelection.A1.setFormula(
-                SpreadsheetMetadataTesting.parseFormula(formula)
+                SpreadsheetFormula.EMPTY.setText(formula)
             )
         );
     }
