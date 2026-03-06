@@ -26,9 +26,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 import walkingkooka.util.HasLocale;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 public interface SpreadsheetMetadataPanelComponentContext extends RefreshContext,
     HasLocale,
     HasNow,
@@ -36,15 +33,6 @@ public interface SpreadsheetMetadataPanelComponentContext extends RefreshContext
     UiFormattingContext {
 
     Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
-
-    default String datePattern() {
-        final SimpleDateFormat simpleDateFormat = (SimpleDateFormat)
-            DateFormat.getDateInstance(
-                DateFormat.MEDIUM,
-                this.locale()
-            );
-        return simpleDateFormat.toPattern();
-    }
 
     default void save(final SpreadsheetMetadataPropertyName<?> propertyName,
                       final String saveText) {
