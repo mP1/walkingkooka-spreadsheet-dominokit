@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.datetime;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.datepicker.CalendarDay;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -34,17 +33,6 @@ import java.util.function.Supplier;
 
 abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C>,
     FormValueComponentTreePrintable<HTMLDivElement, C, V> {
-
-    /**
-     * Helper used to transform a {@link CalendarDay} into a {@link LocalDate}.
-     */
-    static Optional<LocalDate> calendarDayToLocalDate(final CalendarDay day) {
-        return dateToLocalDate(
-            null != day ?
-                day.getDate() :
-                null
-        );
-    }
 
     /**
      * Helper that is used to translate {@link Date} to {@link LocalDate}.
