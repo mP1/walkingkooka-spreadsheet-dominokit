@@ -17,11 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
 
 public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshContext
@@ -42,12 +44,52 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshCon
     }
 
     @Override
+    public List<String> ampms() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int defaultYear() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Locale locale() {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    public List<String> monthNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<String> monthNameAbbreviations() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public LocalDateTime now() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int twoDigitYear() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<String> weekDayNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<String> weekDayNameAbbreviations() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public DateTimeSymbols dateTimeSymbols() {
         throw new UnsupportedOperationException();
     }
 }

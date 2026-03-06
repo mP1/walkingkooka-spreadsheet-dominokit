@@ -17,17 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.datetime.DateTimeContext;
+import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Objects;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
+    DateTimeContextDelegator,
     RefreshContextDelegator {
 
     static AppContextSpreadsheetMetadataPanelComponentContext with(final AppContext context) {
@@ -41,18 +42,11 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
         this.context = context;
     }
 
-    // HasLocale........................................................................................................
+    // DateTimeContextDelegator.........................................................................................
 
     @Override
-    public Locale locale() {
-        return this.context.locale();
-    }
-
-    // HasNow...........................................................................................................
-
-    @Override
-    public LocalDateTime now() {
-        return this.context.now();
+    public DateTimeContext dateTimeContext() {
+        return this.context;
     }
 
     // HasSpreadsheetMetadata...........................................................................................

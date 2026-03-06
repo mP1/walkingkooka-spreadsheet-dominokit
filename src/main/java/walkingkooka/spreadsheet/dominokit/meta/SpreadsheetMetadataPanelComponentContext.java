@@ -17,18 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import walkingkooka.datetime.HasNow;
+import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
-import walkingkooka.util.HasLocale;
 
 public interface SpreadsheetMetadataPanelComponentContext extends RefreshContext,
-    HasLocale,
-    HasNow,
+    DateTimeContext,
     HasSpreadsheetMetadata,
     UiFormattingContext {
 
