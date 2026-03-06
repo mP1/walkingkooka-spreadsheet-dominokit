@@ -17,7 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
-import java.time.LocalDate;
+import walkingkooka.ContextTesting;
+import walkingkooka.util.HasLocaleTesting;
 
-public interface DateComponentContextTesting<C extends DateComponentContext> extends TemporalComponentContextTesting<C, LocalDate> {
+import java.time.temporal.Temporal;
+
+public interface TemporalComponentContextTesting<C extends TemporalComponentContext<V>, V extends Temporal> extends ContextTesting<C>,
+    HasLocaleTesting {
+
+    default void patternAndCheck(final C context,
+                                 final String expected) {
+        this.checkEquals(
+            expected,
+            context.pattern(),
+            context::toString
+        );
+    }
 }

@@ -18,11 +18,30 @@
 package walkingkooka.spreadsheet.dominokit.datetime;
 
 import walkingkooka.Context;
+import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.util.HasLocale;
 
-import java.time.LocalDate;
+import java.time.temporal.Temporal;
 
 /**
  * A {@link Context} used by {@link DateComponent}.
  */
-public interface DateComponentContext extends TemporalComponentContext<LocalDate> {
+public interface TemporalComponentContext<T extends Temporal> extends Context,
+    HasLocale {
+
+    /**
+     * The {@link Temporal} when the value is cleared or deleted.
+     */
+    T clearValue();
+
+    /**
+     * The {@link DateTimeSymbols}.
+     */
+    DateTimeSymbols dateTimeSymbols();
+
+    /**
+     * The {@link String pattern} for the accompanying {@link org.dominokit.domino.ui.forms.DateBox} or
+     * {@link org.dominokit.domino.ui.forms.TimeBox}.
+     */
+    String pattern();
 }
