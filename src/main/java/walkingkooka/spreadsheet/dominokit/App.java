@@ -30,6 +30,7 @@ import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.CurrencyLocaleContext;
+import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
 import walkingkooka.environment.EnvironmentContext;
@@ -39,6 +40,8 @@ import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.math.DecimalNumberContext;
+import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.AbsoluteUrl;
@@ -150,7 +153,6 @@ import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContex
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextDelegator;
-import walkingkooka.spreadsheet.format.SpreadsheetFormatterContexts;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
@@ -285,6 +287,24 @@ public class App implements EntryPoint,
 
     private final static HasNow NOW = LocalDateTime::now;
 
+    private final static SpreadsheetFormatterContext FORMATTER_CONTEXT = AppSpreadsheetFormatterContext.with(
+        DateTimeContexts.basic(
+            LOCALE_CONTEXT.dateTimeSymbolsForLocale(LOCALE)
+                .get(),
+            LOCALE,
+            1920, // defaultYear
+            20, // twoDigitYear
+            NOW
+        ),
+        DecimalNumberContexts.basic(
+            DecimalNumberContext.DEFAULT_NUMBER_DIGIT_COUNT,
+            LOCALE_CONTEXT.decimalNumberSymbolsForLocale(LOCALE)
+                .get(),
+            LOCALE,
+            MathContext.UNLIMITED
+        )
+    );
+
     public App() {
         SpreadsheetServerStartup.init();
 
@@ -325,7 +345,7 @@ public class App implements EntryPoint,
         );
         this.addSpreadsheetMetadataFetcherWatcher(this);
 
-        this.formatterContext = SpreadsheetFormatterContexts.fake();
+        this.formatterContext = FORMATTER_CONTEXT;
         this.parserContext = SpreadsheetParserContexts.fake();
 
         // comparator
@@ -1675,7 +1695,7 @@ public class App implements EntryPoint,
             );
         } catch (final RuntimeException cause) {
             this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
-            this.formatterContext = SpreadsheetFormatterContexts.fake();
+            this.formatterContext = FORMATTER_CONTEXT;
         }
 
         try {
