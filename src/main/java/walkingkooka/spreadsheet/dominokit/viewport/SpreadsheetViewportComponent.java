@@ -260,13 +260,6 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             .addContextMenu(this::onFormulaContextMenu);
     }
 
-    /**
-     * Getter that returns the embedded {@link SpreadsheetViewportFormulaComponent}.
-     */
-    public SpreadsheetViewportFormulaComponent formula() {
-        return this.formula;
-    }
-
     private final SpreadsheetViewportFormulaComponent formula;
 
     private void onFormulaContextMenu(final Event event) {
