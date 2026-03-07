@@ -72,9 +72,9 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
     @Override
     public abstract C setCssText(final String cssText);
 
-    public abstract C addCssClasses(final CssClass...cssClass);
+    public abstract C addCssClasses(final CssClass... cssClass);
 
-    public abstract C removeCssClasses(final CssClass...cssClass);
+    public abstract C removeCssClasses(final CssClass... cssClass);
 
     public abstract C clear();
 

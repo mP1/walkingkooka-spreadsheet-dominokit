@@ -70,7 +70,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     SpreadsheetLabelNameResolver,
     SpreadsheetParserProviderDelegator,
     RecentValueSavesContextDelegator,
-    SpreadsheetViewportContextDelegator{
+    SpreadsheetViewportContextDelegator {
 
     static AppContextSpreadsheetViewportComponentContext with(final AppContext appContext) {
         return new AppContextSpreadsheetViewportComponentContext(
@@ -198,7 +198,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     public void setCurrency(final Currency currency) {
         this.context.setCurrency(currency);
     }
-    
+
     @Override
     public LineEnding lineEnding() {
         return this.context.lineEnding();

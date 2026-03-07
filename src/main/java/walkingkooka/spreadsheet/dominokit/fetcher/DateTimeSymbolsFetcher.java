@@ -108,8 +108,8 @@ public final class DateTimeSymbolsFetcher extends Fetcher<DateTimeSymbolsFetcher
                 this.watcher.onDateTimeSymbolsHateosResource(
                     LOCALE_TAG_TEMPLATE
                         .localeLanguageTag(
-                        url.path()
-                    ),
+                            url.path()
+                        ),
                     this.parse(
                         body,
                         DateTimeSymbolsHateosResource.class

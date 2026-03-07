@@ -63,7 +63,7 @@ public interface SpreadsheetColumnOrRowReferenceBoundedComponentContext extends 
         SpreadsheetColumnOrRowReference verified = null;
 
         if (null != value) {
-            if(false == this.columnOrRowRange().test(value.toSelection())) {
+            if (false == this.columnOrRowRange().test(value.toSelection())) {
                 verified = value;
             }
         }

@@ -84,7 +84,7 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
     @Override
     UrlFragment rowUrlFragment() {
         return this.navigation.map(
-            n-> NAVIGATE.append(n.urlFragment())
+            n -> NAVIGATE.append(n.urlFragment())
         ).orElse(NAVIGATE);
     }
 
@@ -103,7 +103,7 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         final SpreadsheetViewportHomeNavigationList navigation = this.navigation.orElse(null);
-        if(null != navigation) {
+        if (null != navigation) {
             // load the cells
             // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
             context.spreadsheetDeltaFetcher()

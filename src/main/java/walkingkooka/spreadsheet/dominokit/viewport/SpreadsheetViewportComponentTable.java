@@ -88,7 +88,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             keyBindings.select(),
             this::onSelect
         );
-        
+
         this.registerBindings(
             keyBindings.selectionLeft(),
             this::onSelectionLeft
@@ -206,7 +206,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
     private void registerBindings(final Collection<KeyBinding> bindings,
                                   final Consumer<KeyboardEvent> handler) {
-        for(KeyBinding binding : bindings) {
+        for (KeyBinding binding : bindings) {
             this.bindingToKeyboardEventHandler.put(
                 binding,
                 handler
@@ -316,7 +316,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         }
 
         final Consumer<KeyboardEvent> handler = this.bindingToKeyboardEventHandler.get(binding);
-        if(null != handler) {
+        if (null != handler) {
             handler.accept(event);
         }
     }
@@ -510,11 +510,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             final SpreadsheetViewportComponentTableRowColumnHeaders columnHeaders = this.columnHeaders;
 
             if (showHeaders) {
-                if(false == thead.contains(columnHeaders)) {
+                if (false == thead.contains(columnHeaders)) {
                     thead.appendChild(columnHeaders);
                 }
             } else {
-                if(thead.contains(columnHeaders)) {
+                if (thead.contains(columnHeaders)) {
                     thead.removeChild(columnHeaders);
                 }
             }
@@ -558,8 +558,8 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                 height = height - context.spreadsheetViewportCache()
                     .rowHeight(row)
                     .pixelValue();
-                if(height <= 0) {
-                   break;
+                if (height <= 0) {
+                    break;
                 }
             }
 
@@ -592,7 +592,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             timings.add(String.valueOf(ended - tableRowCellsStart));
         }
 
-        if(SPREADSHEET_VIEWPORT_COMPONENT_TABLE) {
+        if (SPREADSHEET_VIEWPORT_COMPONENT_TABLE) {
             context.debug(this.getClass().getSimpleName() + ".refresh " + (ended - started) + "ms, row rendering timings: " + String.join(", ", timings));
         }
     }

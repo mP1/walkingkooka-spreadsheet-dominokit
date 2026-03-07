@@ -208,7 +208,7 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return PLUGIN_SET_DIALOG_COMPONENT;
     }
 }

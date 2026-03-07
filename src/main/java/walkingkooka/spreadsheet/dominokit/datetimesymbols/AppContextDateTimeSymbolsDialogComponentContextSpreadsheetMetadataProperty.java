@@ -82,7 +82,7 @@ public class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataP
     public boolean isMatch(final HistoryToken token) {
         return SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS.equals(
             token.metadataPropertyName()
-            .orElse(null)
+                .orElse(null)
         );
     }
 }

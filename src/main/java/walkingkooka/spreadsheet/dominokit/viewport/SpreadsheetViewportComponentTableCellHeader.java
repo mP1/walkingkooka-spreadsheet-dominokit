@@ -91,7 +91,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     @Override //
     final void refresh(final Predicate<SpreadsheetSelection> selectionTester,
                        final SpreadsheetViewportComponentTableContext context) {
-        if(context.shouldShowHeaders()) {
+        if (context.shouldShowHeaders()) {
             final SpreadsheetSelection selection = this.selection;
 
             this.th.setCssText(

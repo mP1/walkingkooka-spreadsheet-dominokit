@@ -631,7 +631,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_CELL_FIND_DIALOG_COMPONENT;
     }
 

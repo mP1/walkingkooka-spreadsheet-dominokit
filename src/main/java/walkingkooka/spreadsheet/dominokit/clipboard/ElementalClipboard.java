@@ -27,7 +27,7 @@ import jsinterop.base.Any;
  * A class for interacting with the clipboard to readClipboardItem and writeClipboardItem data.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API" target="_blank">MDN
- * Documentation</a>
+ *     Documentation</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Clipboard")
 public class ElementalClipboard {

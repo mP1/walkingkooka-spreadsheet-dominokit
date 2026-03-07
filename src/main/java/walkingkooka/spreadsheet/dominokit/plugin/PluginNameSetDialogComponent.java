@@ -233,7 +233,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        if(this.isOpen()) {
+        if (this.isOpen()) {
             // maybe should ignore metadata if it has the wrong SpreadsheetMetadata
             this.setText(
                 metadata.get(SpreadsheetMetadataPropertyName.PLUGINS)
@@ -397,7 +397,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     private final PluginNameSetDialogComponentContext context;
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return PLUGIN_NAME_SET_DIALOG_COMPONENT;
     }
 }

@@ -86,7 +86,7 @@ abstract class CheckboxComponentLike implements FormValueComponent<HTMLFieldSetE
     @Override
     public final void treePrintAlternateValues(final IndentingPrinter printer) {
         final String text = this.text();
-        if(false == CharSequences.isNullOrEmpty(text)) {
+        if (false == CharSequences.isNullOrEmpty(text)) {
             printer.indent();
             {
                 printer.print("text=");

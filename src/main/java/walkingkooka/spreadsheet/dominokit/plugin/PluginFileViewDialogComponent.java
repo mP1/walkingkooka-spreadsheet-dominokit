@@ -259,7 +259,7 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return PLUGIN_FILE_VIEW_DIALOG_COMPONENT;
     }
 }

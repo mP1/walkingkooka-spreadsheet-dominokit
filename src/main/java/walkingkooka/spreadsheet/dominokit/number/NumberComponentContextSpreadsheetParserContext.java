@@ -42,7 +42,7 @@ final class NumberComponentContextSpreadsheetParserContext implements Spreadshee
     private NumberComponentContextSpreadsheetParserContext(final NumberComponentContext context) {
         this.context = context;
     }
-    
+
     // DateTimeContextDelegator.........................................................................................
 
     @Override
@@ -53,7 +53,7 @@ final class NumberComponentContextSpreadsheetParserContext implements Spreadshee
     private final static DateTimeContext DATE_TIME_CONTEXT = DateTimeContexts.fake();
 
     // DecimalNumberContextDelegator....................................................................................
-    
+
     @Override
     public DecimalNumberContext decimalNumberContext() {
         return this.context;

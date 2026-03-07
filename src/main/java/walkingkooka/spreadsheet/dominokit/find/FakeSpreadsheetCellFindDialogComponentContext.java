@@ -138,7 +138,7 @@ public class FakeSpreadsheetCellFindDialogComponentContext extends FakeDialogCom
     public void setCurrency(final Currency currency) {
         throw new UnsupportedOperationException();
     }
-    
+
     @Override
     public Indentation indentation() {
         throw new UnsupportedOperationException();

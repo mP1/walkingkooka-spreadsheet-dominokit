@@ -35,7 +35,7 @@ public final class CurrencyDialogComponentContexts implements PublicStaticHelper
     public static CurrencyDialogComponentContext appContextMetadataCurrency(final AppContext context) {
         return AppContextCurrencyDialogComponentContextMetadataCurrency.with(context);
     }
-    
+
     /**
      * {@see FakeCurrencyDialogComponentContext}
      */

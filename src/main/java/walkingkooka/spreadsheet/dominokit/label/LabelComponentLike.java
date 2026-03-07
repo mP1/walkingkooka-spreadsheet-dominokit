@@ -33,7 +33,7 @@ abstract class LabelComponentLike implements ValueComponent<HTMLElement, String,
     public boolean isEditing() {
         return false;
     }
-    
+
     @Override
     public final Runnable addValueWatcher(final ValueWatcher<String> watcher) {
         throw new UnsupportedOperationException();
@@ -82,7 +82,7 @@ abstract class LabelComponentLike implements ValueComponent<HTMLElement, String,
 
         final String value = this.value()
             .orElse("");
-        if(false == value.isEmpty()) {
+        if (false == value.isEmpty()) {
             printer.indent();
             {
                 printer.println(

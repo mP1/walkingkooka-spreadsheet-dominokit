@@ -80,6 +80,6 @@ public interface SpreadsheetViewportContextDelegator extends SpreadsheetViewport
         return this.spreadsheetViewportContext()
             .showFormulasStyle(style);
     }
-    
+
     SpreadsheetViewportContext spreadsheetViewportContext();
 }

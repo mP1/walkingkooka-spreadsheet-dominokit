@@ -48,7 +48,7 @@ final class SuggestBoxComponentValidator<T> implements Validator<SuggestBox<T, S
         return this.validator.isValid(
             Optional.ofNullable(
                 component.isEmpty() ?
-                null :
+                    null :
                     component.getValue()
             )
         );

@@ -89,7 +89,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
                                                                         final List<ValidatorSelector> recentValidatorSelectors,
                                                                         final SpreadsheetViewportComponentContext context) {
         this.recentCurrencies = recentCurrencies;
-        
+
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterMenus = spreadsheetFormatterMenus;
 
@@ -127,7 +127,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<Currency> recentCurrencies;
-    
+
     @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         return this.recentSpreadsheetFormatterSelectors;

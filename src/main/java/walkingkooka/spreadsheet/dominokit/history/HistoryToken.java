@@ -4244,7 +4244,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         )
                                     );
                                 }
-                                
+
                                 if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken && false == this instanceof SpreadsheetCellDateTimeSymbolsUnselectHistoryToken) {
                                     saved = HistoryToken.cellDateTimeSymbolsSave(
                                         id,

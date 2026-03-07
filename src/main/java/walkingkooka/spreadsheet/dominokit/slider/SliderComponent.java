@@ -57,7 +57,7 @@ public final class SliderComponent extends SliderComponentLike {
             min
         ).show();
 
-        if(horizontal) {
+        if (horizontal) {
             this.slider.getInput()
                 .setWidth("7px");
         }
@@ -162,7 +162,7 @@ public final class SliderComponent extends SliderComponentLike {
     public double step() {
         return this.slider.getMin();
     }
-    
+
     // ValueComponent...................................................................................................
 
     @Override

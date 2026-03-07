@@ -27,7 +27,7 @@ final class BasicSpreadsheetViewportContext implements SpreadsheetViewportContex
     static BasicSpreadsheetViewportContext with(final TextStyle allCellsStyle,
                                                 final TextStyle selectedAllCellsStyle,
                                                 final TextStyle cellStyle,
-                                                final Function<TextStyle,TextStyle> selectedCellStyle,
+                                                final Function<TextStyle, TextStyle> selectedCellStyle,
                                                 final TextStyle columnStyle,
                                                 final TextStyle selectedColumnStyle,
                                                 final TextStyle rowStyle,

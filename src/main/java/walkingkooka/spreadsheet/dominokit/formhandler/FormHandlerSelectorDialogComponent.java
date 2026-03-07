@@ -220,7 +220,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return FORM_HANDLER_SELECTOR_DIALOG_COMPONENT;
     }
 }

@@ -73,11 +73,11 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         this.meta = meta;
         this.shift = shift;
     }
-    
+
     public String key() {
         return this.key;
     }
-    
+
     private final String key;
 
     public boolean isAlt() {
@@ -113,7 +113,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.shift
             );
     }
-    
+
     private final boolean control;
 
 
@@ -184,7 +184,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     @Override
     public String toString() {
-        if(null == this.toString) {
+        if (null == this.toString) {
             this.toString = ToStringBuilder.empty()
                 .separator("+")
                 .disable(ToStringBuilderOption.QUOTE)

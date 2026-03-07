@@ -95,6 +95,6 @@ final class AppContextLocaleDialogComponentContextMetadataLocale extends AppCont
             PROPERTY_NAME.equals(
                 token.metadataPropertyName()
                     .orElse(null)
-                );
+            );
     }
 }

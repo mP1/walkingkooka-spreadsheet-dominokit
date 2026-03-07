@@ -39,7 +39,7 @@ public final class SpreadsheetCellValueDialogComponentContexts implements Public
             refreshContext
         );
     }
-    
+
     /**
      * {@see FakeSpreadsheetCellValueDialogComponentContext}
      */

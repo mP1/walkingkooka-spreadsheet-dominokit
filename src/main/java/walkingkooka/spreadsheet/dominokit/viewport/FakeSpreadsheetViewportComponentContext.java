@@ -70,24 +70,24 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
-    public boolean canConvert(final Object value, 
+    @Override
+    public boolean canConvert(final Object value,
                               final Class<?> type) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
-    public <T> Either<T, String> convert(final Object value, 
+    @Override
+    public <T> Either<T, String> convert(final Object value,
                                          final Class<T> type) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public <T> Optional<T> environmentValue(final EnvironmentValueName<T> name) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
         throw new UnsupportedOperationException();
     }
@@ -122,7 +122,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     public void setIndentation(final Indentation indentation) {
         throw new UnsupportedOperationException();
     }
-    
+
     @Override
     public LineEnding lineEnding() {
         throw new UnsupportedOperationException();
@@ -158,7 +158,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
     }
@@ -174,19 +174,19 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
-    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorSelector selector, 
+    public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorSelector selector,
                                                           final ProviderContext providerContext) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public SpreadsheetComparator<?> spreadsheetComparator(final SpreadsheetComparatorName name,
-                                                          final List<?> values, 
+                                                          final List<?> values,
                                                           final ProviderContext context) {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
         throw new UnsupportedOperationException();
     }
@@ -211,7 +211,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
@@ -221,12 +221,12 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetFormatterFetcher spreadsheetFormatterFetcher() {
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Runnable addSpreadsheetFormatterFetcherWatcher(final SpreadsheetFormatterFetcherWatcher watcher) {
         throw new UnsupportedOperationException();
     }
@@ -236,7 +236,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
         throw new UnsupportedOperationException();
     }
@@ -251,7 +251,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }
@@ -289,7 +289,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public Optional<SpreadsheetSelection> resolveLabel(SpreadsheetLabelName spreadsheetLabelName) {
         throw new UnsupportedOperationException();
     }

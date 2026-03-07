@@ -178,7 +178,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_COLUMN_ROW_INSERT_COUNT_DIALOG_COMPONENT;
     }
 

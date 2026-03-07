@@ -639,7 +639,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
                 if (false == Objects.equals(currentId, newId)) {
                     this.clear();
 
-                    if(SPREADSHEET_VIEWPORT_CACHE) {
+                    if (SPREADSHEET_VIEWPORT_CACHE) {
                         context.debug(
                             "SpreadsheetViewportCache.onHistoryTokenChange id changed from " +
                                 currentId +
@@ -671,7 +671,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             } else {
                 this.clear();
 
-                if(SPREADSHEET_VIEWPORT_CACHE) {
+                if (SPREADSHEET_VIEWPORT_CACHE) {
                     context.debug("SpreadsheetViewportCache.onHistoryTokenChange clearing cache was " + currentId);
                 }
                 id = null;
@@ -695,7 +695,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             // history is probably a create spreadsheet id so clear cache
             this.clear();
 
-            if(SPREADSHEET_VIEWPORT_CACHE) {
+            if (SPREADSHEET_VIEWPORT_CACHE) {
                 this.context.debug(this.getClass().getSimpleName() + ".onSpreadsheetMetadata id changed from " + oldId + " to " + id + " clearing cache");
             }
         }

@@ -157,7 +157,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
     /**
      * The clipboard value is cells to {@link walkingkooka.datetime.DateTimeSymbols}.
      */
-    CURRENCY (
+    CURRENCY(
         Currency.class,
         SpreadsheetMediaTypes.JSON_CURRENCY,
         SpreadsheetCell::currency,

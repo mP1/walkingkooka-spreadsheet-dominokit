@@ -185,7 +185,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
             item.addFocusListener(
                 (e) -> context.pushHistoryToken(
                     item.historyToken(
-                            context.historyToken()
+                        context.historyToken()
                     )
                 )
             );
@@ -546,8 +546,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
      * Factory that creates a number text field to edit a integer {@link SpreadsheetMetadataPropertyName} value.
      */
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> number(final SpreadsheetMetadataPropertyName<Integer> propertyName,
-                                                               final int min,
-                                                               final int max) {
+                                                                  final int min,
+                                                                  final int max) {
         return SpreadsheetMetadataPanelComponentItem.number(
             propertyName,
             min,
@@ -560,8 +560,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
      * Factory that creates a single ROW.
      */
     private <T> SpreadsheetMetadataPanelComponentItem<?, ?, ?> readOnlyText(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                         final Optional<String> label,
-                                                                         final Function<T, String> formatter) {
+                                                                            final Optional<String> label,
+                                                                            final Function<T, String> formatter) {
         return SpreadsheetMetadataPanelComponentItem.readOnlyText(
             propertyName,
             label,

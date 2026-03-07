@@ -177,7 +177,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_CELL_REFERENCES_DIALOG_COMPONENT;
     }
 

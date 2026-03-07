@@ -164,7 +164,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     static ToolbarComponentItem<?> locale(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorLocale.with(context);
     }
-    
+
     /**
      * {@link ToolbarComponentItemAnchorParser}
      */

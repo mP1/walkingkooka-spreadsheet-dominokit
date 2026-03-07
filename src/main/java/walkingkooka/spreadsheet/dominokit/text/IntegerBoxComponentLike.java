@@ -38,11 +38,11 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
         super();
     }
 
-    public abstract  IntegerBoxComponent max(final int value);
+    public abstract IntegerBoxComponent max(final int value);
 
-    public abstract  IntegerBoxComponent min(final int value);
+    public abstract IntegerBoxComponent min(final int value);
 
-    public abstract  IntegerBoxComponent step(final int step);
+    public abstract IntegerBoxComponent step(final int step);
 
     public abstract IntegerBoxComponent pattern(final String pattern);
 

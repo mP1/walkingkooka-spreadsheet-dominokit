@@ -210,7 +210,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
     private final PluginUploadDialogComponentContext context;
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return PLUGIN_UPLOAD_DIALOG_COMPONENT;
     }
 }

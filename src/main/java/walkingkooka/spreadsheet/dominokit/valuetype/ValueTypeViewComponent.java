@@ -74,7 +74,7 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
                                 if (SpreadsheetValueType.isReference(valueType)) {
                                     color = WebColorName.ORANGE.color();
                                 } else {
-                                    if (valueType.isJson() ) {
+                                    if (valueType.isJson()) {
                                         color = WebColorName.SANDYBROWN.color();
                                     } else {
                                         if (valueType.isEmail() || valueType.isUrl()) {
@@ -95,7 +95,7 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
             }
 
             if (null != color) {
-                if(GWT.isScript()) {
+                if (GWT.isScript()) {
                     this.label.setCssProperty(
                         TextStylePropertyName.BACKGROUND_COLOR.value(),
                         color.text()

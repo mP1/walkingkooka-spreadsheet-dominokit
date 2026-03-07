@@ -37,7 +37,7 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     @Override
     default C setId(final String id) {
         this.suggestBoxComponent().setId(id);
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -52,7 +52,7 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     default C setLabel(final String label) {
         this.suggestBoxComponent().
             setLabel(label);
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -66,14 +66,14 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     default C alwaysShowHelperText() {
         this.suggestBoxComponent()
             .alwaysShowHelperText();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
     default C setHelperText(final Optional<String> text) {
         this.suggestBoxComponent()
             .setHelperText(text);
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -101,21 +101,21 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     default C hideMarginBottom() {
         this.suggestBoxComponent()
             .hideMarginBottom();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
     default C removeBorders() {
         this.suggestBoxComponent()
             .removeBorders();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
     default C removePadding() {
         this.suggestBoxComponent()
             .removePadding();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -128,14 +128,14 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     default C setDisabled(final boolean disabled) {
         this.suggestBoxComponent()
             .setDisabled(disabled);
-        return (C)this;
+        return (C) this;
     }
 
     @Override
     default C required() {
         this.suggestBoxComponent()
             .required();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
@@ -148,14 +148,14 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     default C optional() {
         this.suggestBoxComponent()
             .optional();
-        return (C)this;
+        return (C) this;
     }
 
     @Override
     default C validate() {
         this.suggestBoxComponent()
             .validate();
-        return (C)this;
+        return (C) this;
     }
 
     // HtmlComponentDelegator...........................................................................................
