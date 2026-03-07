@@ -17,83 +17,32 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.locale.LocaleContexts;
-import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.text.cursor.TextCursors;
-import walkingkooka.text.cursor.parser.Parser;
 
-import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * A {@link Function} that parsers any given text into a {@link SpreadsheetFormula}. The parser will be taken from an existing
- * {@link SpreadsheetCell#parser()} or falling back to {@link SpreadsheetMetadata#spreadsheetParser(SpreadsheetParserProvider, ProviderContext)} for the current {@link SpreadsheetCellReference}.
+ * A {@link Function} that accepts any text and always returns a {@link SpreadsheetFormula}. This function assumes the
+ * parent/enclosing {@link walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent} will call the server,
+ * and eventually refresh errors.
  */
 final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {
 
-    public static SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction with(final SpreadsheetViewportFormulaComponentContext context) {
-        Objects.requireNonNull(context, "context");
-
-        return new SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction(context);
+    public static SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction empty() {
+        return new SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction();
     }
 
-    private SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction(final SpreadsheetViewportFormulaComponentContext context) {
-        this.context = context;
+    private SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction() {
+        super();
     }
 
     @Override
     public SpreadsheetFormula apply(final String text) {
-        Parser<SpreadsheetParserContext> parser = null;
-
-        final SpreadsheetViewportFormulaComponentContext context = this.context;
-        final SpreadsheetViewportCache viewportCache = context.spreadsheetViewportCache();
-
-        final Optional<SpreadsheetCell> maybeCell = viewportCache.historyTokenCell();
-
-        if (maybeCell.isPresent()) {
-            final SpreadsheetCell cell = maybeCell.get();
-            parser = cell.parser()
-                .map(p -> context.spreadsheetParser(
-                        p,
-                        context
-                    )
-                ).orElse(null);
-        }
-
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
-        if (null == parser) {
-            parser = SpreadsheetFormulaParsers.valueOrExpression(
-                metadata.spreadsheetParser(
-                    context, // SpreadsheetParserProvider
-                    context // ProviderContext
-                )
-            );
-        }
-        final SpreadsheetParserContext parserContext = metadata.spreadsheetParserContext(
-            maybeCell,
-            LocaleContexts.fake(),
-            context
-        );
-
-        return SpreadsheetFormula.parse(
-            TextCursors.charSequence(text),
-            parser,
-            parserContext
-        );
+        return SpreadsheetFormula.EMPTY.setText(text); // text is not validated or syntax verified in anyway. This assumes server calls will eventually report errors.
     }
-
-    private final SpreadsheetViewportFormulaComponentContext context;
 
     @Override
     public String toString() {
-        return this.context.toString();
+        return this.getClass().getSimpleName();
     }
 }

@@ -17,69 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.environment.EnvironmentContext;
-import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.net.email.EmailAddress;
-import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
-import walkingkooka.text.LineEnding;
-
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Optional;
 
 public interface SpreadsheetViewportFormulaComponentContext extends RefreshContext,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetViewportCache,
     HasSpreadsheetMetadata,
-    HasSpreadsheetMetadataFetcher,
-    SpreadsheetParserProvider,
-    ProviderContext {
-
-    @Override
-    default SpreadsheetViewportFormulaComponentContext cloneEnvironment() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetViewportFormulaComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
-                                         final T value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default LineEnding lineEnding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setLineEnding(final LineEnding lineEnding) {
-        Objects.requireNonNull(lineEnding, "lineEnding");
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setLocale(final Locale locale) {
-        Objects.requireNonNull(locale, "locale");
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setUser(final Optional<EmailAddress> user) {
-        throw new UnsupportedOperationException();
-    }
+    HasSpreadsheetMetadataFetcher {
 }

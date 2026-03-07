@@ -67,7 +67,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
 
     private SpreadsheetViewportFormulaComponent(final SpreadsheetViewportFormulaComponentContext context) {
         this.formula = SpreadsheetFormulaComponent.empty(
-                SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.with(context)
+                SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction.empty()
             ).alwaysShowHelperText()
             .hideMarginBottom()
             .removeBorders()

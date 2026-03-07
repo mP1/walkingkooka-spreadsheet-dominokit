@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.currency.CurrencyLocaleContext;
-import walkingkooka.environment.EnvironmentContext;
-import walkingkooka.net.email.EmailAddress;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
@@ -32,10 +30,6 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
-import walkingkooka.text.LineEnding;
-
-import java.util.Locale;
-import java.util.Optional;
 
 public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDeltaFetcher,
     HasSpreadsheetFormatterFetcher,
@@ -51,36 +45,6 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     SpreadsheetCellLinksComponentContext,
     RecentValueSavesContext,
     SpreadsheetViewportContext {
-
-    @Override
-    default SpreadsheetViewportComponentContext cloneEnvironment() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default SpreadsheetViewportComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default LineEnding lineEnding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setLineEnding(final LineEnding lineEnding) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    default void setUser(final Optional<EmailAddress> user) {
-        throw new UnsupportedOperationException();
-    }
 
     /**
      * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails
