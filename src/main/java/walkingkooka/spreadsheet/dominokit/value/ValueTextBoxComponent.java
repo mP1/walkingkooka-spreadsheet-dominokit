@@ -68,7 +68,7 @@ public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFi
     /**
      * Sets a new {@link Function} will be used to parse String into values.
      */
-    private ValueTextBoxComponent<T> setParser(final Function<String, T> parser) {
+    public ValueTextBoxComponent<T> setParser(final Function<String, T> parser) {
         Objects.requireNonNull(parser, "parser");
 
         this.parser = parser;
