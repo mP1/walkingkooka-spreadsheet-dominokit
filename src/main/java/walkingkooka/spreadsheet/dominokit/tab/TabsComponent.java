@@ -56,7 +56,7 @@ public final class TabsComponent implements TabsComponentLike {
         CharSequences.failIfNullOrEmpty(id, "id");
         CharSequences.failIfNullOrEmpty(title, "title");
 
-        final Tab tab = Tab.create((String)null);
+        final Tab tab = Tab.create((String) null);
         this.tabs.add(tab);
 
         final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.with(

@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.key;
 
-import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Optional;
 

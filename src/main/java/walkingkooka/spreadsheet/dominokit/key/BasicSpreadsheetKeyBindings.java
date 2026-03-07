@@ -145,7 +145,7 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
             shiftedKey(Key.PageUp)
         );
     }
-    
+
     @Override
     public Set<KeyBinding> generalFormat() {
         return Sets.of(
@@ -345,7 +345,7 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
         return key(key)
             .setShift();
     }
-    
+
     private static KeyBinding control(final String key) {
         return KeyBinding.with(key)
             .setControl();
@@ -357,7 +357,7 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     private static KeyBinding formatter(final int number) {
-        if(number < 1 || number > 8) {
+        if (number < 1 || number > 8) {
             throw new IllegalArgumentException("Invalid number " + number);
         }
 

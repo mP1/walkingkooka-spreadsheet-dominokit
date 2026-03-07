@@ -93,7 +93,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 Cast.to(value)
             );
         }
-        
+
         if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken) {
             if (null != valueOrNull && false == valueOrNull instanceof DateTimeSymbols) {
                 this.reportInvalidSaveValue(

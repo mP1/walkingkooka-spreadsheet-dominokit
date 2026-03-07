@@ -77,7 +77,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
             tr.clear();
 
-            if(shouldShowHeaders) {
+            if (shouldShowHeaders) {
                 tr.appendChild(this.rowHeader);
             }
 
@@ -99,7 +99,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
 
                 rowWidth = rowWidth - td.width(context)
                     .pixelValue();
-                if(rowWidth <= 0) {
+                if (rowWidth <= 0) {
                     break;
                 }
             }

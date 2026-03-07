@@ -47,7 +47,7 @@ final class SchedulerCanGiveFocus implements CanGiveFocus,
      */
     @Override
     public void giveFocus(final Runnable giveFocus) {
-        if(SCHEDULER_CAN_GIVE_FOCUS) {
+        if (SCHEDULER_CAN_GIVE_FOCUS) {
             this.loggingContext.debug(this.getClass().getSimpleName() + ".giveFocus " + giveFocus);
         }
 

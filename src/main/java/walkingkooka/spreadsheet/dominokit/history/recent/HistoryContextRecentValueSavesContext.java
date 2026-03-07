@@ -136,7 +136,7 @@ final class HistoryContextRecentValueSavesContext implements RecentValueSavesCon
 
         List<T> values = Lists.empty();
         final HistoryTokenRecorder<T> recorder = (HistoryTokenRecorder<T>) this.typeToRecorder.get(type);
-        if(null != recorder) {
+        if (null != recorder) {
             values = recorder.values();
         }
 

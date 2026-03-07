@@ -448,35 +448,35 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
      */
     private LocaleComponent<DateTimeSymbols> localeLoad(final DateTimeSymbolsDialogComponentContext context) {
         return LocaleComponent.empty(
-            new LocaleComponentContext<DateTimeSymbols>() {
+                new LocaleComponentContext<DateTimeSymbols>() {
 
-                @Override
-                public void filter(final String startsWith,
-                                   final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
-                    DateTimeSymbolsDialogComponent.this.context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
-                }
+                    @Override
+                    public void filter(final String startsWith,
+                                       final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                        DateTimeSymbolsDialogComponent.this.context.findDateTimeSymbolsWithLocaleStartsWith(startsWith);
+                    }
 
-                @Override
-                public MenuItem<LocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final LocaleComponentSuggestionsValue<DateTimeSymbols> value) {
-                    return this.historyTokenMenuItem(
-                        ID,
-                        value,
-                        DateTimeSymbolsDialogComponent.this.context
-                    );
-                }
+                    @Override
+                    public MenuItem<LocaleComponentSuggestionsValue<DateTimeSymbols>> createMenuItem(final LocaleComponentSuggestionsValue<DateTimeSymbols> value) {
+                        return this.historyTokenMenuItem(
+                            ID,
+                            value,
+                            DateTimeSymbolsDialogComponent.this.context
+                        );
+                    }
 
-                @Override
-                public Optional<LocaleComponentSuggestionsValue<DateTimeSymbols>> toValue(final Locale locale) {
-                    throw new UnsupportedOperationException();
-                }
+                    @Override
+                    public Optional<LocaleComponentSuggestionsValue<DateTimeSymbols>> toValue(final Locale locale) {
+                        throw new UnsupportedOperationException();
+                    }
 
-                @Override
-                public void verifyOption(final LocaleComponentSuggestionsValue<DateTimeSymbols> value,
-                                         final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
-                    throw new UnsupportedOperationException();
+                    @Override
+                    public void verifyOption(final LocaleComponentSuggestionsValue<DateTimeSymbols> value,
+                                             final SuggestBoxComponent<LocaleComponentSuggestionsValue<DateTimeSymbols>> suggestBox) {
+                        throw new UnsupportedOperationException();
+                    }
                 }
-            }
-        ).setLabel("Load from Locale")
+            ).setLabel("Load from Locale")
             .optional();
     }
 
@@ -550,7 +550,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return DATE_TIME_SYMBOLS_DIALOG_COMPONENT;
     }
 

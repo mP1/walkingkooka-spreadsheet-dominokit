@@ -147,13 +147,13 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     }
 
     @Override
-    public final C addCssClasses(final CssClass...cssClass) {
+    public final C addCssClasses(final CssClass... cssClass) {
         this.style().addCss(cssClass);
         return (C) this;
     }
 
     @Override
-    public final C removeCssClasses(final CssClass...cssClass) {
+    public final C removeCssClasses(final CssClass... cssClass) {
         this.style().removeCss(cssClass);
         return (C) this;
     }

@@ -43,11 +43,11 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
     public static FlexLayoutComponent column() {
         final FlexLayoutComponent flex = new FlexLayoutComponent(true);
         flex.div.addCssClasses(
-            SpacingCss.dui_flex_col, // missing display: flex DOMINOKIT FIX
-            //SpacingCss.dui_v_full,
-            SpacingCss.dui_items_start,
-            GAP
-        ).setCssProperty("display", "flex")
+                SpacingCss.dui_flex_col, // missing display: flex DOMINOKIT FIX
+                //SpacingCss.dui_v_full,
+                SpacingCss.dui_items_start,
+                GAP
+            ).setCssProperty("display", "flex")
             .setCssProperty("flex-direction", "column");
         return flex;
     }

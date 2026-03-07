@@ -428,7 +428,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final boolean reload = width > this.viewportGridWidth || height > this.viewportGridHeight;
 
         final SpreadsheetViewportComponentContext context = this.context;
-        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+        if (SPREADSHEET_VIEWPORT_COMPONENT) {
             context.debug(this.getClass().getSimpleName() + ".setWidthAndHeight " + width + "x" + height + " was " + this.viewportGridWidth + "x" + this.viewportGridHeight + " reload: " + reload);
         }
 
@@ -439,7 +439,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
         this.reload = reload;
 
-        if(this.isOpen()) {
+        if (this.isOpen()) {
             this.refresh(context);
         } else {
             this.refreshLayout();
@@ -486,8 +486,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     public SpreadsheetViewport viewport(final Optional<AnchoredSpreadsheetSelection> anchoredSelection) {
         return this.context.home()
             .viewportRectangle(
-            this.viewportGridWidth,
-            this.viewportGridHeight
+                this.viewportGridWidth,
+                this.viewportGridHeight
             ).viewport()
             .setAnchoredSelection(anchoredSelection);
     }
@@ -533,12 +533,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         int gridWidth = width;
         int gridHeight = height;
 
-        if(shouldShowFormulaEditor) {
+        if (shouldShowFormulaEditor) {
             gridHeight = gridHeight -
                 (
                     GWT.isClient() ?
-                    this.formula.height() :
-                    FORMULA_HEIGHT
+                        this.formula.height() :
+                        FORMULA_HEIGHT
                 );
         }
 
@@ -551,7 +551,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         int viewportGridWidth = gridWidth;
         int viewportGridHeight = gridHeight;
 
-        if(this.shouldShowHeaders) {
+        if (this.shouldShowHeaders) {
             viewportGridWidth = viewportGridWidth - SpreadsheetViewportContext.ROW_HEADER_WIDTH_PIXELS;
             viewportGridHeight = viewportGridHeight - SpreadsheetViewportContext.COLUMN_HEADER_HEIGHT_PIXELS;
         }
@@ -667,7 +667,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             this.spreadsheetFormatterSelectorMenus = spreadsheetFormatterSelectorMenus;
         }
 
-        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+        if (SPREADSHEET_VIEWPORT_COMPONENT) {
             final long end = System.currentTimeMillis();
             this.context.debug(this.getClass().getSimpleName() + " refresh " + (end - start) + " ms");
         }
@@ -704,7 +704,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
-        if(GWT.isScript()) {
+        if (GWT.isScript()) {
             final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
                 .resolveIfLabelOrFail(
                     selection.selection()
@@ -735,13 +735,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                         element = element.firstElementChild;
                     }
 
-                    if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                    if (SPREADSHEET_VIEWPORT_COMPONENT) {
                         context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
                     }
                     element.focus();
                 }
             } else {
-                if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                if (SPREADSHEET_VIEWPORT_COMPONENT) {
                     context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
                 }
             }
@@ -944,7 +944,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      * refreshed.
      */
     private void reloadSpreadsheetMetadataIfViewportChanged(final SpreadsheetViewport viewport) {
-        if(false == viewport.rectangle().home().equalsIgnoreReferenceKind(this.context.home())) {
+        if (false == viewport.rectangle().home().equalsIgnoreReferenceKind(this.context.home())) {
             this.context.spreadsheetMetadataFetcher()
                 .getSpreadsheetMetadata(
                     this.metadata.getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID)
@@ -1040,14 +1040,14 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
                 if (metadata.isEmpty()) {
-                    if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                    if (SPREADSHEET_VIEWPORT_COMPONENT) {
                         context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary waiting for metadata");
                     }
                 } else {
                     this.loadViewportCells();
                 }
             } else {
-                if(SPREADSHEET_VIEWPORT_COMPONENT) {
+                if (SPREADSHEET_VIEWPORT_COMPONENT) {
                     context.debug(this.getClass().getSimpleName() + ".loadViewportCellsIfNecessary not ready, reload: " + reload + " width: " + width + " height: " + height + " metadata.isEmpty: " + metadata.isEmpty() + " open " + this.open);
                 }
             }
@@ -1066,7 +1066,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         final SpreadsheetViewport viewport = this.viewport()
             .setNavigations(this.navigations);
 
-        if(SPREADSHEET_VIEWPORT_COMPONENT) {
+        if (SPREADSHEET_VIEWPORT_COMPONENT) {
             context.debug(this.getClass().getSimpleName() + ".loadViewportCells id: " + id + " viewport: " + viewport);
         }
 

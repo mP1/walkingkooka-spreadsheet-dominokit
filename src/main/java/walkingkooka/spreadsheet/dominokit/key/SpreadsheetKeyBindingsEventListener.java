@@ -188,7 +188,7 @@ public final class SpreadsheetKeyBindingsEventListener implements EventListener,
 
     private void registerBindings(final Collection<KeyBinding> bindings,
                                   final Consumer<KeyboardEvent> handler) {
-        for(KeyBinding binding : bindings) {
+        for (KeyBinding binding : bindings) {
             this.bindingToKeyboardEventHandler.put(
                 binding,
                 handler
@@ -211,7 +211,7 @@ public final class SpreadsheetKeyBindingsEventListener implements EventListener,
         }
 
         final Consumer<KeyboardEvent> handler = this.bindingToKeyboardEventHandler.get(binding);
-        if(null != handler) {
+        if (null != handler) {
             handler.accept(event);
         }
     }
@@ -466,7 +466,7 @@ public final class SpreadsheetKeyBindingsEventListener implements EventListener,
                                    final T value) {
         final KeyboardContext context = this.context;
 
-        if(context.historyToken() instanceof SpreadsheetCellHistoryToken) {
+        if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCell cell = context.historyTokenCell()
                 .orElse(null);
 

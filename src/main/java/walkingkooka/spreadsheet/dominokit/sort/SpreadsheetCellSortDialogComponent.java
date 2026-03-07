@@ -641,7 +641,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_CELL_SORT_DIALOG_COMPONENT;
     }
 

@@ -41,7 +41,7 @@ abstract class AppContextDecimalNumberSymbolsDialogComponentContext implements D
     public final Runnable addDecimalNumberSymbolsFetcherWatcher(final DecimalNumberSymbolsFetcherWatcher watcher) {
         return this.context.addDecimalNumberSymbolsFetcherWatcher(watcher);
     }
-    
+
     @Override
     public final Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
         return this.context.addSpreadsheetDeltaFetcherWatcher(watcher);

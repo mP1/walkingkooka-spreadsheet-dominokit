@@ -30,7 +30,7 @@ import jsinterop.annotations.JsType;
  * used for clipboard operations.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/ClipboardItem">MDN
- * Documentation</a>
+ *     Documentation</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "ClipboardItem")
 public final class ElementalClipboardItem {

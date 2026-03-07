@@ -229,7 +229,7 @@ final class SpreadsheetSelectionMenuFormatter {
                         historyToken.formatter()
                             .setSaveValue(
                                 Optional.of(selector)
-                        )
+                            )
                     )
                 ).checked(
                     selector.equals(cellFormatter)

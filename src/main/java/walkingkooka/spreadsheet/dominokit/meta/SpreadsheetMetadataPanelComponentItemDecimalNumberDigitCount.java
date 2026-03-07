@@ -89,7 +89,7 @@ final class SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount extends
         this.integerBox.setValue(
             Optional.ofNullable(
                 metadata.getIgnoringDefaults(this.propertyName)
-                .orElse(null)
+                    .orElse(null)
             )
         );
 

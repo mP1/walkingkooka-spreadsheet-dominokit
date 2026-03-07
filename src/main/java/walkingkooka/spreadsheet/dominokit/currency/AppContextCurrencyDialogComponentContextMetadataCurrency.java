@@ -95,6 +95,6 @@ final class AppContextCurrencyDialogComponentContextMetadataCurrency extends App
             PROPERTY_NAME.equals(
                 token.metadataPropertyName()
                     .orElse(null)
-                );
+            );
     }
 }

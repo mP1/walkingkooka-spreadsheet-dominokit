@@ -125,7 +125,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         // NOP
     }
-    
+
     protected void visitCellDateTimeSymbolsSave(final SpreadsheetId id,
                                                 final SpreadsheetName name,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,

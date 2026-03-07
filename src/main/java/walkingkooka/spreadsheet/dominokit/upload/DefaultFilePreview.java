@@ -310,7 +310,7 @@ class DefaultFilePreview extends BaseDominoElement<HTMLElement, DefaultFilePrevi
     /**
      * @return The {@link HTMLElement} representing this file preview.
      * @dominokit-site-ignore {@inheritDoc}
-     * <p>Retrieves the HTML element of this file preview.
+     *     <p>Retrieves the HTML element of this file preview.
      */
     @Override
     public HTMLElement element() {

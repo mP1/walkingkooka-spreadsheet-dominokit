@@ -171,7 +171,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         final FormValueComponent<?, T, ?> value = this.value;
 
         // dont want to "clear" textbox components like AbsoluteUrl that are incomplete values (Urls) with "no value" but errors.
-        if(false == value.isEditing()) {
+        if (false == value.isEditing()) {
             value.setValue(
                 Cast.to(
                     formula.flatMap(SpreadsheetFormula::value)
@@ -321,7 +321,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_CELL_VALUE_DIALOG_COMPONENT;
     }
 

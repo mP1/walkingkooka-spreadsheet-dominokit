@@ -119,10 +119,10 @@ final class MissingConverterComponent implements ValueComponent<HTMLDivElement, 
         if (null != missingConverter) {
             flex.appendChild(
                 DivComponent.div()
-                        .appendText(
-                    missingConverter.name()
-                        .value()
-                )
+                    .appendText(
+                        missingConverter.name()
+                            .value()
+                    )
             );
 
             final FlexLayoutComponent rowFlex = FlexLayoutComponent.row();

@@ -738,7 +738,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return DECIMAL_NUMBER_SYMBOLS_DIALOG_COMPONENT;
     }
 

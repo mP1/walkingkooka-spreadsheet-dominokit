@@ -240,7 +240,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
                 v -> '-' + v.toString().toUpperCase()
             ).orElse("");
     }
-    
+
 
     final static String TOOLBAR_ID_PREFIX = "toolbar-";
 

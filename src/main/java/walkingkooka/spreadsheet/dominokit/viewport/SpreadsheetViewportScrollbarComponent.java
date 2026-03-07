@@ -101,7 +101,7 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
             .setFlex("1")
             .setMargin("0");
 
-        if(this instanceof SpreadsheetViewportScrollbarComponentColumns) {
+        if (this instanceof SpreadsheetViewportScrollbarComponentColumns) {
             this.slider.setMarginTop("-7px");
         }
 

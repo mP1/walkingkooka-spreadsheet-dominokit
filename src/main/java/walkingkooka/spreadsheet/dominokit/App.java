@@ -514,7 +514,7 @@ public class App implements EntryPoint,
             0,
             Integer.MAX_VALUE
         );
-        
+
         // load all Locales
         this.localeFetcher.getLocales(
             0,

@@ -279,7 +279,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
             }
         }
 
-        if(this.isDebugEnabled()) {
+        if (this.isDebugEnabled()) {
             this.context.debug(this.getClass().getSimpleName() + ".onSuccess " + method + " " + url + " " + contentTypeName + actualBodyLength);
         }
 

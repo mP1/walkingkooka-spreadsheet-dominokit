@@ -307,7 +307,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     }
 
     @Override
-    public  boolean shouldLogLifecycleChanges() {
+    public boolean shouldLogLifecycleChanges() {
         return CONVERTER_SELECTOR_DIALOG_COMPONENT;
     }
 }

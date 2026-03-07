@@ -400,7 +400,7 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
     private Text flag;
 
     private Set<String> flags;
-    
+
     // iconBefore | text Content | iconAfter
 
     // iconBefore......................................................................................................

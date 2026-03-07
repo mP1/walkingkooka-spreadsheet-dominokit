@@ -745,7 +745,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             )
         );
     }
-    
+
     public void patchCellsDateTimeSymbols(final SpreadsheetId id,
                                           final SpreadsheetSelection selection,
                                           final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> cellToDateTimeSymbols) {

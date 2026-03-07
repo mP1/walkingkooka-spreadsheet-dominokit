@@ -73,7 +73,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
         return this.elseIfDifferent(historyToken);
     }
-    
+
     /**
      * /label-create
      * /label/$label...

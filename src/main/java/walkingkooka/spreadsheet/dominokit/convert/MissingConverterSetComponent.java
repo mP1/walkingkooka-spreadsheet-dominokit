@@ -137,7 +137,7 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
 
         final CardComponent card = this.card;
 
-        if(null == missingConverterSet || missingConverterSet.isEmpty()) {
+        if (null == missingConverterSet || missingConverterSet.isEmpty()) {
             card.hide();
         } else {
             card.show();

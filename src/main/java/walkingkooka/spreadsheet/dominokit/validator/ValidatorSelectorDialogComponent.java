@@ -185,7 +185,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> save = this.save;
 
         // selector may have errors from a server response, dont want to clear/replace them.
-        if(false == selector.hasErrors()) {
+        if (false == selector.hasErrors()) {
             selector.validate();
         }
 

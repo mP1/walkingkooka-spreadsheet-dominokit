@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.tree.text.TextStyle;
 
 public class FakeSpreadsheetViewportContext implements SpreadsheetViewportContext {
-    
+
     public FakeSpreadsheetViewportContext() {
         super();
     }
@@ -60,7 +60,7 @@ public class FakeSpreadsheetViewportContext implements SpreadsheetViewportContex
         throw new UnsupportedOperationException();
     }
 
-    @Override 
+    @Override
     public TextStyle selectedRowStyle() {
         throw new UnsupportedOperationException();
     }
