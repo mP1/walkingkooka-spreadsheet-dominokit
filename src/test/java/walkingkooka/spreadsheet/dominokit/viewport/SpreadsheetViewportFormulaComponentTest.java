@@ -20,10 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.environment.EnvironmentContext;
-import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.net.Url;
-import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -46,11 +43,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.text.LineEnding;
 
 import java.util.Arrays;
-import java.util.Locale;
-import java.util.Optional;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
@@ -245,42 +239,6 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         @Override
         public void warn(final Object... values) {
             System.out.println(Arrays.toString(values));
-        }
-
-        @Override
-        public TestSpreadsheetViewportFormulaComponentContext cloneEnvironment() {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public TestSpreadsheetViewportFormulaComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
-                                            final T value) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public void setLineEnding(final LineEnding lineEnding) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public void setLocale(final Locale locale) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public void setUser(final Optional<EmailAddress> user) {
-            throw new UnsupportedOperationException();
         }
     }
 

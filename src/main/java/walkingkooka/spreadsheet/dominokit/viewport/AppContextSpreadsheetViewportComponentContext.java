@@ -19,10 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.CurrencyLocaleContextDelegator;
-import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.net.email.EmailAddress;
-import walkingkooka.plugin.ProviderContext;
-import walkingkooka.plugin.ProviderContextDelegator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -42,17 +38,12 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.text.LineEnding;
 
-import java.util.Currency;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -66,9 +57,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     CurrencyLocaleContextDelegator,
-    ProviderContextDelegator,
     SpreadsheetLabelNameResolver,
-    SpreadsheetParserProviderDelegator,
     RecentValueSavesContextDelegator,
     SpreadsheetViewportContextDelegator {
 
@@ -99,11 +88,6 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
-    public ProviderContext providerContext() {
-        return this.context;
-    }
-
-    @Override
     public SpreadsheetComparatorProvider spreadsheetComparatorProvider() {
         return this.context;
     }
@@ -126,11 +110,6 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     @Override
     public SpreadsheetMetadataFetcher spreadsheetMetadataFetcher() {
         return this.context.spreadsheetMetadataFetcher();
-    }
-
-    @Override
-    public SpreadsheetParserProvider spreadsheetParserProvider() {
-        return this.context;
     }
 
     @Override
@@ -172,57 +151,6 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     private final AppContext context;
-
-    // EnvironmentContext...............................................................................................
-
-    @Override
-    public <T> void setEnvironmentValue(final EnvironmentValueName<T> name,
-                                        final T value) {
-        this.context.setEnvironmentValue(
-            name,
-            value
-        );
-    }
-
-    @Override
-    public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
-        this.context.removeEnvironmentValue(name);
-    }
-
-    @Override
-    public Currency currency() {
-        return this.context.currency();
-    }
-
-    @Override
-    public void setCurrency(final Currency currency) {
-        this.context.setCurrency(currency);
-    }
-
-    @Override
-    public LineEnding lineEnding() {
-        return this.context.lineEnding();
-    }
-
-    @Override
-    public void setLineEnding(final LineEnding lineEnding) {
-        this.context.setLineEnding(lineEnding);
-    }
-
-    @Override
-    public Locale locale() {
-        return this.context.locale();
-    }
-
-    @Override
-    public void setLocale(final Locale locale) {
-        this.context.setLocale(locale);
-    }
-
-    @Override
-    public void setUser(final Optional<EmailAddress> user) {
-        this.context.setUser(user);
-    }
 
     // CurrencyLocaleContextDelegator...................................................................................
 

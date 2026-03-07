@@ -17,120 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.Either;
-import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.environment.EnvironmentValueWatcher;
-import walkingkooka.net.email.EmailAddress;
-import walkingkooka.plugin.ProviderContext;
-import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
-import walkingkooka.text.Indentation;
-
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.Currency;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
 
 public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshContext implements SpreadsheetViewportFormulaComponentContext {
 
     public FakeSpreadsheetViewportFormulaComponentContext() {
         super();
-    }
-
-    @Override
-    public PluginStore pluginStore() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public <T> Optional<T> environmentValue(final EnvironmentValueName<T> environmentValueName) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Set<EnvironmentValueName<?>> environmentValueNames() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Currency currency() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setCurrency(final Currency currency) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Indentation indentation() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setIndentation(final Indentation indentation) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public LocalDateTime now() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ZoneOffset timeOffset() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setTimeOffset(final ZoneOffset timeOffset) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<EmailAddress> user() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addEventValueWatcher(final EnvironmentValueWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addEventValueWatcherOnce(final EnvironmentValueWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean canConvert(final Object value,
-                              final Class<?> type) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public <T> Either<T, String> convert(final Object value,
-                                         final Class<T> type) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -170,34 +67,6 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
 
     @Override
     public SpreadsheetMetadata spreadsheetMetadata() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector spreadsheetParserSelector,
-                                               final ProviderContext providerContext) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName spreadsheetParserName,
-                                               final List<?> values,
-                                               final ProviderContext context) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetParserSelectorToken> spreadsheetParserNextToken(final SpreadsheetParserSelector spreadsheetParserSelector) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector(final SpreadsheetParserSelector spreadsheetParserSelector) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetParserInfoSet spreadsheetParserInfos() {
         throw new UnsupportedOperationException();
     }
 }

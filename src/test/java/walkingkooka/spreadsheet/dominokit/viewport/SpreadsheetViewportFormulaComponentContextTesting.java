@@ -17,17 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.plugin.ProviderContextTesting;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextTesting;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderTesting;
 
-public interface SpreadsheetViewportFormulaComponentContextTesting<C extends SpreadsheetViewportFormulaComponentContext> extends SpreadsheetParserProviderTesting<C>,
-    LoggingContextTesting<C>,
-    ProviderContextTesting<C> {
-
-
-    @Override
-    default C createSpreadsheetParserProvider() {
-        return this.createContext();
-    }
+public interface SpreadsheetViewportFormulaComponentContextTesting<C extends SpreadsheetViewportFormulaComponentContext>
+    extends LoggingContextTesting<C> {
 }
