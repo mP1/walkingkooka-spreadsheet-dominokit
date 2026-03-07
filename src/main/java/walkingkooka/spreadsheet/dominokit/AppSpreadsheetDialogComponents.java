@@ -33,6 +33,9 @@ import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogCompone
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponent;
 import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateComponentContext;
+import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateTimeComponentContext;
+import walkingkooka.spreadsheet.dominokit.datetime.AppContextTimeComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
@@ -160,7 +163,10 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             LocalDate.class,
             (id, c) -> DateComponent.empty(
                 id + SpreadsheetElementIds.DATE_PICKER,
-                context.now()::toLocalDate // HasNow
+                AppContextDateComponentContext.with(
+                    () -> context.now().toLocalDate(),
+                    context
+                )
             ),
             context
         );
@@ -170,7 +176,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             LocalDateTime.class,
             (id, c) -> DateTimeComponent.empty(
                 id + SpreadsheetElementIds.DATE_TIME_PICKER,
-                context::now // HasNow
+                AppContextDateTimeComponentContext.with(context)
             ),
             context
         );
@@ -210,7 +216,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             LocalTime.class,
             (id, c) -> TimeComponent.empty(
                 id + SpreadsheetElementIds.TIME_PICKER,
-                context.now()::toLocalTime // HasNow
+                AppContextTimeComponentContext.with(context)
             ),
             context
         );

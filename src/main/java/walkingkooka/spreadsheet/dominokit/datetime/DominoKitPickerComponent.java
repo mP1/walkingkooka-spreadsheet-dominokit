@@ -26,14 +26,15 @@ import org.dominokit.domino.ui.forms.FormsStyles;
 import org.dominokit.domino.ui.forms.TimeBox;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.LazyChild;
+import org.gwtproject.i18n.shared.cldr.DateTimeFormatInfo;
 import walkingkooka.text.CharSequences;
 
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.span;
@@ -41,15 +42,14 @@ import static org.dominokit.domino.ui.utils.Domino.span;
 /**
  * Abstract base class for date/datetime/time pickers.
  */
-abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V, C>> extends TemporalComponent<V, C> {
+abstract class DominoKitPickerComponent<V extends Temporal,
+    C extends DominoKitPickerComponent<V, C>> extends TemporalComponent<V, C> {
 
     /**
      * Creates a {@link DateBox} with an attached {@link org.dominokit.domino.ui.datepicker.Calendar}.
      */
-    // TODO DateTimeFormatInfo https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7000
-    // TODO DateComponent missing locale aware pattern https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/7004
-    static DateBox createDateBox() {
-        return DateBox.create() // DateTimeFormatInfo
+    static DateBox createDateBox(final DateTimeFormatInfo dateTimeFormatInfo) {
+        return DateBox.create(dateTimeFormatInfo)
             .withCalendar(
                 (parent, c) -> c.withHeader()
             );
@@ -58,8 +58,8 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
     /**
      * Creates a {@link TimeBox} with an attached {@link org.dominokit.domino.ui.timepicker.TimePicker}.
      */
-    static TimeBox createTimeBox() {
-        return TimeBox.create() // DateTimeFormatInfo
+    static TimeBox createTimeBox(final DateTimeFormatInfo dateTimeFormatInfo) {
+        return TimeBox.create(dateTimeFormatInfo)
             .withTimePicker(
                 (parent, c) -> c.withHeader()
             );
@@ -75,8 +75,8 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
 
     protected final List<String> errors = new ArrayList<>();
 
-    DominoKitPickerComponent(final Supplier<V> clearValue) {
-        this.clearValue = Objects.requireNonNull(clearValue, "clearValue");
+    DominoKitPickerComponent(final TemporalComponentContext<V> context) {
+        this.context = Objects.requireNonNull(context, "context");
 
         // AbstractFormElement
         this.bodyElement =
@@ -157,7 +157,7 @@ abstract class DominoKitPickerComponent<V, C extends DominoKitPickerComponent<V,
         return (C) this;
     }
 
-    final Supplier<V> clearValue;
+    final TemporalComponentContext<V> context;
 
     @Override
     public final C validate() {

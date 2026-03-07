@@ -26,7 +26,9 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.DateComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
+import walkingkooka.spreadsheet.dominokit.datetime.FakeDateComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
@@ -56,18 +58,28 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 public final class SpreadsheetCellValueDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellValueDialogComponent<LocalDate>>,
     SpreadsheetMetadataTesting {
 
     private static final String DATE_COMPONENT_ID = "Test123date-Date";
 
-    private static final Supplier<LocalDate> CLEAR_VALUE = () -> LocalDate.of(
+    private static final LocalDateTime DATE_TIME = LocalDateTime.of(
         1999,
         12,
-        31
+        31,
+        12,
+        58,
+        59
     );
+
+    private static final DateComponentContext DATE_COMPONENT_CONTEXT = new FakeDateComponentContext() {
+
+        @Override
+        public LocalDate clearValue() {
+            return DATE_TIME.toLocalDate();
+        }
+    };
 
     // isMatch..........................................................................................................
 
@@ -134,7 +146,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
             DateComponent.empty(
                 DATE_COMPONENT_ID,
-                CLEAR_VALUE
+                DATE_COMPONENT_CONTEXT
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValueType.DATE,
@@ -172,17 +184,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<LocalDate> dialog = SpreadsheetCellValueDialogComponent.with(
             DateComponent.empty(
                 DATE_COMPONENT_ID,
-                CLEAR_VALUE
+                DATE_COMPONENT_CONTEXT
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValueType.DATE,
-                Optional.of(
-                    LocalDate.of(
-                        2025,
-                        6,
-                        6
-                    )
-                ),
+                Optional.of(DATE_TIME.toLocalDate()),
                 context
             )
         );
@@ -194,14 +200,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateComponent\n" +
-                "        [2025-06-06] id=Test123date-Date\n" +
+                "        [1999-12-31] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-save-Link\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
                 "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%222025-06-06%22] id=Test123-undo-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -217,26 +223,12 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<LocalDateTime> dialog = SpreadsheetCellValueDialogComponent.with(
             DateTimeComponent.empty(
                 DATE_COMPONENT_ID,
-                () -> LocalDateTime.of(
-                    CLEAR_VALUE.get(),
-                    LocalTime.MIN
-                )
+                () -> DATE_TIME
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValueType.DATE_TIME,
                 Optional.of(
-                    LocalDateTime.of(
-                        LocalDate.of(
-                            2025,
-                            6,
-                            6
-                        ),
-                        LocalTime.of(
-                            12,
-                            58,
-                            59
-                        )
-                    )
+                    DATE_TIME
                 ),
                 context
             )
@@ -249,14 +241,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateTimeComponent\n" +
-                "        [2025-06-06T12:58:59] id=Test123date-Date\n" +
+                "        [1999-12-31T12:58:59] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%222025-06-06T12:58:59%22] id=Test123-save-Link\n" +
+                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-save-Link\n" +
                 "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/] id=Test123-clear-Link\n" +
                 "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/now] id=Test123-now-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%222025-06-06T12:58:59%22] id=Test123-undo-Link\n" +
+                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-undo-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -600,7 +592,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         return SpreadsheetCellValueDialogComponent.with(
             DateComponent.empty(
                 DATE_COMPONENT_ID,
-                CLEAR_VALUE
+                DATE_COMPONENT_CONTEXT
             ),
             new TestSpreadsheetCellValueDialogComponentContext<>(
                 ValueType.DATE,
