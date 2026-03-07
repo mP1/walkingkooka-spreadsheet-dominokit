@@ -88,7 +88,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         final HistoryToken historyToken = context.historyToken();
 
         if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-            context.debug("SpreadsheetViewportFormulaComponent.onFocus " + historyToken.anchoredSelectionOrEmpty());
+            context.debug(this.getClass().getSimpleName() + ".onFocus " + historyToken.anchoredSelectionOrEmpty());
         }
         context.pushHistoryToken(
             historyToken.formula()
@@ -101,7 +101,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         switch (Key.fromEvent(event)) {
             case Enter:
                 if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-                    context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ENTER");
+                    context.debug(this.getClass().getSimpleName() + ".onKeyDownEvent ENTER");
                 }
 
                 event.preventDefault();
@@ -118,7 +118,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
                 break;
             case Escape:
                 if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-                    context.debug("SpreadsheetViewportFormulaComponent.onKeyDownEvent ESCAPE restoring text");
+                    context.debug(this.getClass().getSimpleName() + ".onKeyDownEvent ESCAPE restoring text");
                 }
                 event.preventDefault();
                 this.onUndo();
@@ -254,7 +254,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
         final Optional<String> text = cell.map((c) -> c.formula().text());
 
         if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-            context.debug("SpreadsheetViewportFormulaComponent.refreshFormula " + cellReference + " text=" + text);
+            context.debug(this.getClass().getSimpleName() + ".refreshFormula " + cellReference + " text=" + text);
         }
 
         final SpreadsheetFormulaComponent formula = this.formula;
