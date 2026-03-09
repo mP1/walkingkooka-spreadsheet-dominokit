@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.currency.CurrencyContextTesting2;
 import walkingkooka.currency.CurrencyContexts;
+import walkingkooka.currency.FakeCanCurrencyExchangeRate;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcherWatchers;
@@ -193,6 +194,21 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
         );
     }
 
+    @Override
+    public void testExchangeRateWithNullFromFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testExchangeRateWithNullToFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testExchangeRateWithNullDateTimeFails() {
+        throw new UnsupportedOperationException();
+    }
+
     @Test
     public void testFindTextAfterOnCurrencyHateosResourceSet() {
         final AppCurrencyContext context = this.createContext();
@@ -237,9 +253,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
             HAS_CURRENCY_FETCHER_WATCHERS,
             CurrencyContexts.jre(
                 Currency.getInstance(locale),
-                (Currency from, Currency to) -> {
-                    throw new UnsupportedOperationException();
-                },
+                new FakeCanCurrencyExchangeRate(),
                 LocaleContexts.jre(locale)
             )
         );
