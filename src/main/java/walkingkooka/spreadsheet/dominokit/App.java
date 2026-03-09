@@ -30,6 +30,7 @@ import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.CurrencyLocaleContext;
+import walkingkooka.currency.FakeCanCurrencyExchangeRate;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
@@ -277,9 +278,7 @@ public class App implements EntryPoint,
 
     private final static CurrencyContext CURRENCY_CONTEXT = CurrencyContexts.jre(
         CURRENCY,
-        (Currency from, Currency to) -> {
-            throw new UnsupportedOperationException();
-        }, // exchange rate computer
+        new FakeCanCurrencyExchangeRate(), // exchange rate computer
         LOCALE_CONTEXT
     );
 
