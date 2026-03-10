@@ -22,14 +22,14 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 
 import java.util.Set;
 
-final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
+final class BasicSpreadsheetViewportKeyBindings implements SpreadsheetViewportKeyBindings {
 
     /**
      * Singleton
      */
-    final static BasicSpreadsheetKeyBindings INSTANCE = new BasicSpreadsheetKeyBindings();
+    final static BasicSpreadsheetViewportKeyBindings INSTANCE = new BasicSpreadsheetViewportKeyBindings();
 
-    private BasicSpreadsheetKeyBindings() {
+    private BasicSpreadsheetViewportKeyBindings() {
         super();
     }
 

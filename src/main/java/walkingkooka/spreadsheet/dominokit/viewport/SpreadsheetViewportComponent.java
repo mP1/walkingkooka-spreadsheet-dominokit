@@ -66,7 +66,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSelectHistory
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindings;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateLinkComponent;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -117,7 +117,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetViewportComponent empty(final SpreadsheetKeyBindings keyBindings,
+    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportKeyBindings keyBindings,
                                                      final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponent(
             Objects.requireNonNull(keyBindings, "keyBindings"),
@@ -125,7 +125,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         );
     }
 
-    private SpreadsheetViewportComponent(final SpreadsheetKeyBindings keyBindings,
+    private SpreadsheetViewportComponent(final SpreadsheetViewportKeyBindings keyBindings,
                                          final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
@@ -332,7 +332,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     // table............................................................................................................
 
-    private SpreadsheetViewportComponentTable table(final SpreadsheetKeyBindings keyBindings,
+    private SpreadsheetViewportComponentTable table(final SpreadsheetViewportKeyBindings keyBindings,
                                                     final SpreadsheetViewportContext context) {
         return SpreadsheetViewportComponentTable.empty(
             keyBindings,

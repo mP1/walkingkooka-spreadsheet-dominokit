@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindingses;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindingses;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -528,7 +528,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         this.navigation = null;
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
-            SpreadsheetKeyBindingses.basic(),
+            SpreadsheetViewportKeyBindingses.basic(),
             tableContext
         );
 
@@ -988,7 +988,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             );
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
-            SpreadsheetKeyBindingses.basic(),
+            SpreadsheetViewportKeyBindingses.basic(),
             tableContext
         );
 
