@@ -21,8 +21,10 @@ import elemental2.dom.KeyboardEvent;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -30,28 +32,120 @@ import java.util.Objects;
  */
 public final class KeyBinding implements Comparable<KeyBinding> {
 
+    private final static List<KeyBinding> CONSTANTS = Lists.array();
+
+    public static KeyBinding SHIFT_DOWN = registerConstant(
+        false, // alt
+        false, // control
+        false, // meta
+        true, // shift,
+        true // down NOT up
+    );
+
+    public static KeyBinding SHIFT_UP = registerConstant(
+        false, // alt
+        false, // control
+        false, // meta
+        true, // shift,
+        false // up NOT down
+    );
+
+    public static KeyBinding CONTROL_DOWN = registerConstant(
+        false, // alt
+        true, // control
+        false, // meta
+        false, // shift,
+        true // down NOT up
+    );
+
+    public static KeyBinding CONTROL_UP = registerConstant(
+        false, // alt
+        true, // control
+        false, // meta
+        false, // shift,
+        false // up NOT down
+    );
+
+    public static KeyBinding ALT_DOWN = registerConstant(
+        true, // alt
+        false, // control
+        false, // meta
+        false, // shift,
+        true // down NOT up
+    );
+
+    public static KeyBinding ALT_UP = registerConstant(
+        true, // alt
+        false, // control
+        false, // meta
+        false, // shift,
+        false // up NOT down
+    );
+
+    public static KeyBinding META_DOWN = registerConstant(
+        false, // alt
+        false, // control
+        true, // meta
+        false, // shift,
+        true // down NOT up
+    );
+
+    public static KeyBinding META_UP = registerConstant(
+        false, // alt
+        false, // control
+        true, // meta
+        false, // shift,
+        false // up NOT down
+    );
+
+    private static KeyBinding registerConstant(final boolean alt,
+                                               final boolean control,
+                                               final boolean meta,
+                                               final boolean shift,
+                                               final boolean down) {
+        final KeyBinding keyBinding = new KeyBinding(
+            "", // no key
+            alt,
+            control,
+            meta,
+            shift,
+            down
+        );
+        CONSTANTS.add(keyBinding);
+        return keyBinding;
+    }
+
     public static KeyBinding fromKeyEvent(final KeyboardEvent event) {
         Objects.requireNonNull(event, "event");
 
-        KeyBinding binding = KeyBinding.down(event.key);
+        final String key = event.key;
+        KeyBinding keyBinding = "keydown".equals(event.type) ?
+            KeyBinding.down(key) :
+            KeyBinding.up(key);
 
         if (event.altKey) {
-            binding = binding.setAlt();
+            keyBinding = keyBinding.setAlt();
         }
         if (event.ctrlKey) {
-            binding = binding.setControl();
+            keyBinding = keyBinding.setControl();
         }
         if (event.metaKey) {
-            binding = binding.setMeta();
+            keyBinding = keyBinding.setMeta();
         }
         if (event.shiftKey) {
-            binding = binding.setShift();
-        }
-        if("keydown".equals(event.type)) {
-            binding = binding.setDown();
+            keyBinding = keyBinding.setShift();
         }
 
-        return binding;
+        if(key.equals("")) {
+            for (final KeyBinding possible : CONSTANTS) {
+                if (possible.equals(keyBinding)) {
+                    keyBinding = possible;
+                    break;
+                }
+            }
+        }
+
+        return keyBinding;
     }
 
     public static KeyBinding down(final String key) {

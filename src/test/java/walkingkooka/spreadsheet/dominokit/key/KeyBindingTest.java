@@ -20,14 +20,83 @@ package walkingkooka.spreadsheet.dominokit.key;
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.compare.ComparableTesting2;
 import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.ConstantsTesting;
 import walkingkooka.reflect.JavaVisibility;
+
+import java.util.Set;
 
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
     ToStringTesting<KeyBinding>,
     ClassTesting<KeyBinding>,
-    ComparableTesting2<KeyBinding> {
+    ComparableTesting2<KeyBinding>,
+    ConstantsTesting<KeyBinding> {
+
+    @Test
+    public void testShiftDown() {
+        this.toStringAndCheck(
+            KeyBinding.SHIFT_DOWN,
+            "shift DOWN"
+        );
+    }
+
+    @Test
+    public void testShiftUp() {
+        this.toStringAndCheck(
+            KeyBinding.SHIFT_UP,
+            "shift UP"
+        );
+    }
+
+    @Test
+    public void testControlDown() {
+        this.toStringAndCheck(
+            KeyBinding.CONTROL_DOWN,
+            "control DOWN"
+        );
+    }
+
+    @Test
+    public void testControlUp() {
+        this.toStringAndCheck(
+            KeyBinding.CONTROL_UP,
+            "control UP"
+        );
+    }
+
+    @Test
+    public void testAltDown() {
+        this.toStringAndCheck(
+            KeyBinding.ALT_DOWN,
+            "alt DOWN"
+        );
+    }
+
+    @Test
+    public void testAltUp() {
+        this.toStringAndCheck(
+            KeyBinding.ALT_UP,
+            "alt UP"
+        );
+    }
+
+    @Test
+    public void testMetaDown() {
+        this.toStringAndCheck(
+            KeyBinding.META_DOWN,
+            "meta DOWN"
+        );
+    }
+
+    @Test
+    public void testMetaUp() {
+        this.toStringAndCheck(
+            KeyBinding.META_UP,
+            "meta UP"
+        );
+    }
 
     // setDown..........................................................................................................
 
@@ -157,6 +226,13 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Override
     public KeyBinding createComparable() {
         return KeyBinding.down("a");
+    }
+
+    // constants........................................................................................................
+
+    @Override
+    public Set<KeyBinding> intentionalDuplicateConstants() {
+        return Sets.empty();
     }
 
     // class............................................................................................................
