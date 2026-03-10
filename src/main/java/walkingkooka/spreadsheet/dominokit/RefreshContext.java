@@ -26,7 +26,7 @@ public interface RefreshContext extends CanGiveFocus,
     LoggingContext {
 
     /**
-     * Returns true of the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} for the {@link walkingkooka.spreadsheet.SpreadsheetId}
+     * Returns true of the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} for the {@link walkingkooka.spreadsheet.meta.SpreadsheetId}
      * in the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken} is present(loaded).
      */
     boolean isSpreadsheetMetadataLoaded();

@@ -37,8 +37,8 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Displays a dialog box allowing the user to edit and save a {@link walkingkooka.spreadsheet.SpreadsheetName}
- * for the selected {@link walkingkooka.spreadsheet.SpreadsheetId}.
+ * Displays a dialog box allowing the user to edit and save a {@link walkingkooka.spreadsheet.meta.SpreadsheetName}
+ * for the selected {@link walkingkooka.spreadsheet.meta.SpreadsheetId}.
  */
 public final class SpreadsheetNameDialogComponent implements DialogComponentLifecycle,
     SpreadsheetMetadataFetcherWatcher,
