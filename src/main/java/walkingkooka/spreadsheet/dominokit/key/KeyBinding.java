@@ -136,7 +136,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             keyBinding = keyBinding.setShift();
         }
 
-        if (key.equals("")) {
+        if (key.isEmpty()) {
             for (final KeyBinding possible : CONSTANTS) {
                 if (possible.equals(keyBinding)) {
                     keyBinding = possible;
