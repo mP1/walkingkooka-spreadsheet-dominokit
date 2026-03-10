@@ -402,6 +402,15 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     private String toString;
 
+    /**
+     * <pre>
+     * alt
+     * control
+     * meta
+     * shift
+     * alt+control+meta+shift
+     * </pre>
+     */
     public String toStringModifiers() {
         return ToStringBuilder.empty()
             .separator("+")
