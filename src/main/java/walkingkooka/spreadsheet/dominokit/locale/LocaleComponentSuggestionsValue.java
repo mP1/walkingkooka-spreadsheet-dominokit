@@ -136,7 +136,7 @@ public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
     // Comparable.......................................................................................................
 
     @Override
-    public int compareTo(final LocaleComponentSuggestionsValue other) {
+    public int compareTo(final LocaleComponentSuggestionsValue<T> other) {
         return LocaleContexts.CASE_SENSITIVITY.comparator()
             .compare(
                 this.text,
