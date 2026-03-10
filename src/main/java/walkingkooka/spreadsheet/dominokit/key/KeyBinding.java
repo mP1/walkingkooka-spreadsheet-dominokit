@@ -453,8 +453,25 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     // Comparable.......................................................................................................
 
+    /**
+     * Compares both {@link KeyBinding} ignoring any difference in the {@link #label()}, with only the key and modifiers
+     * being significant.
+     */
     @Override
     public int compareTo(final KeyBinding other) {
-        return this.toString().compareTo(other.toString());
+        return this.compareToString()
+            .compareTo(
+                other.compareToString()
+            );
     }
+
+    private String compareToString() {
+        if (null == this.compareToString) {
+            this.compareToString = this.setLabel("")
+                .toString();
+        }
+        return this.compareToString;
+    }
+
+    private String compareToString;
 }

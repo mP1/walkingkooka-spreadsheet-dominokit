@@ -409,6 +409,28 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
         );
     }
 
+    // Comparable.......................................................................................................
+
+    @Test
+    public void testComparableEqualsIgnoresLabel() {
+        final KeyBinding keyBinding = KeyBinding.down("A");
+
+        this.compareToAndCheckEquals(
+            keyBinding.setLabel("Label123"),
+            keyBinding
+        );
+    }
+
+    @Test
+    public void testComparableNotEqualsIgnoresLabel() {
+        final KeyBinding keyBinding = KeyBinding.down("A");
+
+        this.compareToAndCheckNotEquals(
+            keyBinding.setLabel("Label123"),
+            keyBinding.setShift()
+        );
+    }
+
     // ToString.........................................................................................................
 
     @Test
