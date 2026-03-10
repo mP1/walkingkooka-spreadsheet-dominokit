@@ -451,10 +451,6 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             .build();
     }
 
-    private void toStringModifiers0(final ToStringBuilder b) {
-
-    }
-
     // Comparable.......................................................................................................
 
     @Override
