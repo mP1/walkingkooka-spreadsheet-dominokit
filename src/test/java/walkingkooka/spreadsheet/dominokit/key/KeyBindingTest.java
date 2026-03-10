@@ -338,6 +338,73 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
         );
     }
 
+    // toStringModifiers................................................................................................
+
+    @Test
+    public void testToStringModifiers() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A"),
+            ""
+        );
+    }
+
+    @Test
+    public void testToStringModifiersAlt() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A")
+                .setAlt(),
+            "alt"
+        );
+    }
+
+    @Test
+    public void testToStringModifiersControl() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A")
+                .setControl(),
+            "control"
+        );
+    }
+
+    @Test
+    public void testToStringModifiersMeta() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A")
+                .setMeta(),
+            "meta"
+        );
+    }
+
+    @Test
+    public void testToStringModifiersShift() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A")
+                .setShift(),
+            "shift"
+        );
+    }
+
+    @Test
+    public void testToStringModifiersAltControlMetaShift() {
+        this.toStringModifiersAndCheck(
+            KeyBinding.up("A")
+                .setAlt()
+                .setControl()
+                .setMeta()
+                .setShift(),
+            "alt+control+meta+shift"
+        );
+    }
+
+    private void toStringModifiersAndCheck(final KeyBinding keyBinding,
+                                           final String expected) {
+        this.checkEquals(
+            expected,
+            keyBinding.toStringModifiers(),
+            keyBinding::toString
+        );
+    }
+
     // Comparable.......................................................................................................
 
     @Test
