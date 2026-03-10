@@ -383,6 +383,13 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             this.shift == other.shift;
     }
 
+    /**
+     * <pre>
+     * "a" DOWN
+     * Label123 "a" DOWN
+     * Label123 control+meta+shift "a" DOWN
+     * </pre>
+     */
     @Override
     public String toString() {
         if (null == this.toString) {
