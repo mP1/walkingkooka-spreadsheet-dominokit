@@ -136,7 +136,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             keyBinding = keyBinding.setShift();
         }
 
-        if(key.equals("")) {
+        if (key.equals("")) {
             for (final KeyBinding possible : CONSTANTS) {
                 if (possible.equals(keyBinding)) {
                     keyBinding = possible;
@@ -329,11 +329,20 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     private boolean equals0(final KeyBinding other) {
         return this.key.equals(other.key) &&
-            this.alt == other.alt &&
+            this.down == other.down &&
+            this.equalModifiers(other);
+    }
+
+    /**
+     * Returns true if the modifiers of this and the given {@link KeyBinding} match ignoring the key and down state.
+     */
+    public boolean equalModifiers(final KeyBinding other) {
+        Objects.requireNonNull(other, "other");
+
+        return this.alt == other.alt &&
             this.control == other.control &&
             this.meta == other.meta &&
-            this.shift == other.shift &&
-            this.down == other.down;
+            this.shift == other.shift;
     }
 
     @Override
