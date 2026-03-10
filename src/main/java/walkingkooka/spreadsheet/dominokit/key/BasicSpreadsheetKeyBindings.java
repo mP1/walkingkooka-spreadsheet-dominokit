@@ -338,7 +338,7 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     private static KeyBinding key(final Key key) {
-        return KeyBinding.with(key.toString());
+        return KeyBinding.down(key.toString());
     }
 
     private static KeyBinding shiftedKey(final Key key) {
@@ -347,7 +347,7 @@ final class BasicSpreadsheetKeyBindings implements SpreadsheetKeyBindings {
     }
 
     private static KeyBinding control(final String key) {
-        return KeyBinding.with(key)
+        return KeyBinding.down(key)
             .setControl();
     }
 

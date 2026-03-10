@@ -2,7 +2,7 @@
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * you may not use this file except in compliance down the License.
  * You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
@@ -33,7 +33,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     public static KeyBinding fromKeyEvent(final KeyboardEvent event) {
         Objects.requireNonNull(event, "event");
 
-        KeyBinding binding = KeyBinding.with(event.key);
+        KeyBinding binding = KeyBinding.down(event.key);
 
         if (event.altKey) {
             binding = binding.setAlt();
@@ -47,17 +47,32 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         if (event.shiftKey) {
             binding = binding.setShift();
         }
+        if("keydown".equals(event.type)) {
+            binding = binding.setDown();
+        }
 
         return binding;
     }
 
-    public static KeyBinding with(final String key) {
+    public static KeyBinding down(final String key) {
         return new KeyBinding(
             CharSequences.failIfNullOrEmpty(key, "key"),
             false, // alt
             false, // control
             false, // meta
-            false // shift
+            false, // shift,
+            true // down NOT up
+        );
+    }
+
+    public static KeyBinding up(final String key) {
+        return new KeyBinding(
+            CharSequences.failIfNullOrEmpty(key, "key"),
+            false, // alt
+            false, // control
+            false, // meta
+            false, // shift,
+            false // up NOT down
         );
     }
 
@@ -65,13 +80,16 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                        final boolean alt,
                        final boolean control,
                        final boolean meta,
-                       final boolean shift) {
+                       final boolean shift,
+                       final boolean down) {
         this.key = key;
 
         this.alt = alt;
         this.control = control;
         this.meta = meta;
         this.shift = shift;
+
+        this.down = down;
     }
 
     public String key() {
@@ -92,7 +110,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 true, // alt
                 this.control,
                 this.meta,
-                this.shift
+                this.shift,
+                this.down
             );
     }
 
@@ -110,7 +129,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.alt,
                 true, // control
                 this.meta,
-                this.shift
+                this.shift,
+                this.down
             );
     }
 
@@ -129,7 +149,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.alt,
                 this.control,
                 true, // meta
-                this.shift
+                this.shift,
+                this.down
             );
     }
 
@@ -147,12 +168,49 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.alt,
                 this.control,
                 this.meta,
-                true // shift
+                true, // shift
+                this.down
             );
     }
 
 
     private final boolean shift;
+
+    public boolean isDown() {
+        return this.down;
+    }
+
+    public KeyBinding setDown() {
+        return this.down == true ?
+            this :
+            new KeyBinding(
+                this.key,
+                this.alt,
+                this.control,
+                this.meta,
+                this.shift,
+                true // down
+            );
+    }
+
+    private final boolean down;
+
+    public boolean isUp() {
+        return false == this.isDown();
+    }
+
+    public KeyBinding setUp() {
+        return this.down == false ?
+            this :
+            new KeyBinding(
+                this.key,
+                this.alt,
+                this.control,
+                this.meta,
+                this.shift,
+                false // down
+            );
+    }
 
     // Object...........................................................................................................
 
@@ -163,7 +221,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             this.alt,
             this.control,
             this.meta,
-            this.shift
+            this.shift,
+            this.down
         );
     }
 
@@ -179,7 +238,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             this.alt == other.alt &&
             this.control == other.control &&
             this.meta == other.meta &&
-            this.shift == other.shift;
+            this.shift == other.shift &&
+            this.down == other.down;
     }
 
     @Override
@@ -195,6 +255,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 .separator(" ")
                 .enable(ToStringBuilderOption.QUOTE)
                 .value(this.key)
+                .disable(ToStringBuilderOption.QUOTE)
+                .value(this.down ? "DOWN" : "UP")
                 .build();
         }
         return this.toString;
