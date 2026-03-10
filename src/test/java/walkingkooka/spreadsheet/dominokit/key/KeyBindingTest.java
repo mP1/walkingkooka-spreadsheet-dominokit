@@ -158,6 +158,80 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
         );
     }
 
+    // isModifier......................................................................................................
+
+    @Test
+    public void testIsModifierWithAlt() {
+        this.isModifierAndCheck(
+            KeyBinding.down("Alt")
+                .setAlt(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsModifierWithControl() {
+        this.isModifierAndCheck(
+            KeyBinding.down("Control")
+                .setControl(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsModifierWithMeta() {
+        this.isModifierAndCheck(
+            KeyBinding.down("Meta")
+                .setMeta(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsModifierWithShift() {
+        this.isModifierAndCheck(
+            KeyBinding.down("Shift")
+                .setShift(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsModifierWithShiftAndControl() {
+        this.isModifierAndCheck(
+            KeyBinding.down("Shift")
+                .setShift()
+                .setControl(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsModifierWithLetter() {
+        this.isModifierAndCheck(
+            KeyBinding.down("A"),
+            false
+        );
+    }
+
+    @Test
+    public void testIsModifierWithLetterAndShiftModifier() {
+        this.isModifierAndCheck(
+            KeyBinding.down("A")
+                .setShift(),
+            false
+        );
+    }
+
+    private void isModifierAndCheck(final KeyBinding keyBinding,
+                                    final boolean expected) {
+        this.checkEquals(
+            keyBinding.isModifier(),
+            expected,
+            keyBinding::toString
+        );
+    }
+
     // equalModifiers...................................................................................................
 
     @Test

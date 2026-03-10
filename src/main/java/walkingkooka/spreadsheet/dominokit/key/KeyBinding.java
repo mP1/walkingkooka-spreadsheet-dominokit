@@ -342,6 +342,28 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             );
     }
 
+    /**
+     * Tests if this {@link KeyBinding} is actually for a ALT, CONTROL, META or SHIFT key events themselves and returns
+     * false for any other key.
+     */
+    public boolean isModifier() {
+        final boolean isModifier;
+
+        switch (this.key) {
+            case "Alt":
+            case "Control":
+            case "Meta":
+            case "Shift":
+                isModifier = true;
+                break;
+            default:
+                isModifier = false;
+                break;
+        }
+
+        return isModifier;
+    }
+
     // Object...........................................................................................................
 
     @Override
