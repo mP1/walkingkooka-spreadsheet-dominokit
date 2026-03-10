@@ -89,7 +89,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             this :
             new KeyBinding(
                 this.key,
-                true,
+                true, // alt
                 this.control,
                 this.meta,
                 this.shift
@@ -108,7 +108,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
             new KeyBinding(
                 this.key,
                 this.alt,
-                true,
+                true, // control
                 this.meta,
                 this.shift
             );
@@ -128,7 +128,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.key,
                 this.alt,
                 this.control,
-                true,
+                true, // meta
                 this.shift
             );
     }
@@ -147,7 +147,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                 this.alt,
                 this.control,
                 this.meta,
-                true
+                true // shift
             );
     }
 
