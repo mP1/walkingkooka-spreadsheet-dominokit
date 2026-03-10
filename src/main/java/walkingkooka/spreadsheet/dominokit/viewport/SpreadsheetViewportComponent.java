@@ -201,13 +201,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         );
 
         root.addKeyDownListener(
-            e -> this.onKeyEvent(
+            e -> this.onKeyDownEvent(
                 Js.cast(e)
             )
         );
 
         root.addKeyUpListener(
-            e -> this.onKeyEvent(
+            e -> this.onKeyUpEvent(
                 Js.cast(e)
             )
         );
@@ -231,7 +231,11 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.setShiftKeyDown(event.shiftKey);
     }
 
-    private void onKeyEvent(final KeyboardEvent event) {
+    private void onKeyDownEvent(final KeyboardEvent event) {
+        this.setShiftKeyDown(event.shiftKey);
+    }
+
+    private void onKeyUpEvent(final KeyboardEvent event) {
         this.setShiftKeyDown(event.shiftKey);
     }
 
