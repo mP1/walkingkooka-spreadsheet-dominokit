@@ -348,24 +348,39 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     @Override
     public String toString() {
         if (null == this.toString) {
-            this.toString = ToStringBuilder.empty()
-                .separator("+")
-                .disable(ToStringBuilderOption.QUOTE)
-                .value(this.alt ? "alt" : "")
-                .value(this.control ? "control" : "")
-                .value(this.meta ? "meta" : "")
-                .value(this.shift ? "shift" : "")
-                .separator(" ")
+            final ToStringBuilder b = ToStringBuilder.empty()
+                .separator("+");
+
+            this.toStringModifiers0(b);
+
+            b.separator(" ")
                 .enable(ToStringBuilderOption.QUOTE)
                 .value(this.key)
                 .disable(ToStringBuilderOption.QUOTE)
                 .value(this.down ? "DOWN" : "UP")
                 .build();
+
+            this.toString = b.build();
         }
         return this.toString;
     }
 
     private String toString;
+
+    public String toStringModifiers() {
+        final ToStringBuilder b = ToStringBuilder.empty();
+        this.toStringModifiers0(b);
+        return b.build();
+    }
+
+    private void toStringModifiers0(final ToStringBuilder b) {
+        b.separator("+")
+            .disable(ToStringBuilderOption.QUOTE)
+            .value(this.alt ? "alt" : "")
+            .value(this.control ? "control" : "")
+            .value(this.meta ? "meta" : "")
+            .value(this.shift ? "shift" : "");
+    }
 
     // Comparable.......................................................................................................
 
