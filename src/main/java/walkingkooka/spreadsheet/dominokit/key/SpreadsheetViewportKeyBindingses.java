@@ -20,28 +20,28 @@ package walkingkooka.spreadsheet.dominokit.key;
 import walkingkooka.reflect.PublicStaticHelper;
 
 /**
- * A collection of {@link SpreadsheetKeyBindings}.
+ * A collection of {@link SpreadsheetViewportKeyBindings}.
  */
-public final class SpreadsheetKeyBindingses implements PublicStaticHelper {
+public final class SpreadsheetViewportKeyBindingses implements PublicStaticHelper {
 
     /**
-     * {@see FakeSpreadsheetKeyBindings}
+     * {@see FakeSpreadsheetViewportKeyBindings}
      */
-    public static SpreadsheetKeyBindings basic() {
-        return BasicSpreadsheetKeyBindings.INSTANCE;
+    public static SpreadsheetViewportKeyBindings basic() {
+        return BasicSpreadsheetViewportKeyBindings.INSTANCE;
     }
 
     /**
-     * {@see FakeSpreadsheetKeyBindings}
+     * {@see FakeSpreadsheetViewportKeyBindings}
      */
-    public static SpreadsheetKeyBindings fake() {
-        return new FakeSpreadsheetKeyBindings();
+    public static SpreadsheetViewportKeyBindings fake() {
+        return new FakeSpreadsheetViewportKeyBindings();
     }
 
     /**
      * Stop creation
      */
-    private SpreadsheetKeyBindingses() {
+    private SpreadsheetViewportKeyBindingses() {
         throw new UnsupportedOperationException();
     }
 }

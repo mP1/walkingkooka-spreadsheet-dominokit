@@ -135,8 +135,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindingses;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindings;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindingses;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
@@ -509,17 +509,17 @@ public class App implements EntryPoint,
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
-        final SpreadsheetKeyBindings keyBindings = SpreadsheetKeyBindingses.basic();
+        final SpreadsheetViewportKeyBindings spreadsheetViewportKeyBindings = SpreadsheetViewportKeyBindingses.basic();
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(
-            keyBindings,
+            spreadsheetViewportKeyBindings,
             SpreadsheetViewportComponentContexts.appContext(this)
         );
 
         AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
-            keyBindings,
+            spreadsheetViewportKeyBindings,
             this.viewportComponent,
             this
         );

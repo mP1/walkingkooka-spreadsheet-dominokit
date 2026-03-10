@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.dom.THeadComponent;
 import walkingkooka.spreadsheet.dominokit.dom.TableComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyBindings;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindings;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -62,7 +62,7 @@ import java.util.function.Supplier;
  */
 final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
-    static SpreadsheetViewportComponentTable empty(final SpreadsheetKeyBindings keyBindings,
+    static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportKeyBindings keyBindings,
                                                    final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(
             keyBindings,
@@ -70,7 +70,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         );
     }
 
-    private SpreadsheetViewportComponentTable(final SpreadsheetKeyBindings keyBindings,
+    private SpreadsheetViewportComponentTable(final SpreadsheetViewportKeyBindings keyBindings,
                                               final SpreadsheetViewportComponentTableContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
 
