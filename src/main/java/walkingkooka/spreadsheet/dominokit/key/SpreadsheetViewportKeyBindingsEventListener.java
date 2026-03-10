@@ -49,19 +49,19 @@ import java.util.function.Consumer;
  * Maps well known Excel keyboard shortcuts
  * <pre>https://support.microsoft.com/en-au/office/keyboard-shortcuts-in-excel-1798d9d5-842a-42b8-9c99-9b7213f0040f</pre>
  */
-public final class SpreadsheetKeyBindingsEventListener implements EventListener,
+public final class SpreadsheetViewportKeyBindingsEventListener implements EventListener,
     Logging {
 
-    public static SpreadsheetKeyBindingsEventListener with(final SpreadsheetViewportKeyBindings bindings,
-                                                           final KeyboardContext context) {
-        return new SpreadsheetKeyBindingsEventListener(
+    public static SpreadsheetViewportKeyBindingsEventListener with(final SpreadsheetViewportKeyBindings bindings,
+                                                                   final KeyboardContext context) {
+        return new SpreadsheetViewportKeyBindingsEventListener(
             Objects.requireNonNull(bindings, "bindings"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetKeyBindingsEventListener(final SpreadsheetViewportKeyBindings bindings,
-                                                final KeyboardContext context) {
+    private SpreadsheetViewportKeyBindingsEventListener(final SpreadsheetViewportKeyBindings bindings,
+                                                        final KeyboardContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
         this.context = context;
 
