@@ -65,7 +65,7 @@ public final class SpreadsheetViewportKeyBindingsEventListenerTest implements Tr
     public void testWithNullSpreadsheetKeyBindingFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetKeyBindingsEventListener.with(
+            () -> SpreadsheetViewportKeyBindingsEventListener.with(
                 null,
                 KeyboardContexts.fake()
             )
@@ -76,7 +76,7 @@ public final class SpreadsheetViewportKeyBindingsEventListenerTest implements Tr
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetKeyBindingsEventListener.with(
+            () -> SpreadsheetViewportKeyBindingsEventListener.with(
                 SpreadsheetViewportKeyBindingses.fake(),
                 null
             )
@@ -2748,7 +2748,7 @@ public final class SpreadsheetViewportKeyBindingsEventListenerTest implements Tr
     private void handleEventAndCheck(final KeyboardEvent event,
                                      final TestKeyboardContext context,
                                      final HistoryToken expected) {
-        SpreadsheetKeyBindingsEventListener.with(
+        SpreadsheetViewportKeyBindingsEventListener.with(
             SpreadsheetViewportKeyBindingses.basic(),
             context
         ).handleEvent(event);
