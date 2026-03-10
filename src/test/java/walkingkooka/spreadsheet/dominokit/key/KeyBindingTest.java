@@ -28,6 +28,8 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
@@ -35,6 +37,40 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     ClassTesting<KeyBinding>,
     ComparableTesting2<KeyBinding>,
     ConstantsTesting<KeyBinding> {
+
+    @Test
+    public void testSetLabelWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> KeyBinding.ALT_UP.setLabel(null)
+        );
+    }
+
+    @Test
+    public void testSetLabelWithSame() {
+        final KeyBinding keyBinding = KeyBinding.ALT_UP;
+        assertSame(
+            keyBinding,
+            keyBinding.setLabel(keyBinding.label())
+        );
+    }
+
+    @Test
+    public void testSetLabelWithDifferent() {
+        final KeyBinding keyBinding = KeyBinding.ALT_UP;
+
+        final String label = "Label123";
+        final KeyBinding different = keyBinding.setLabel(label);
+        assertNotSame(
+            keyBinding,
+            different
+        );
+
+        this.toStringAndCheck(
+            different,
+            "Label123 alt UP"
+        );
+    }
 
     @Test
     public void testShiftDown() {
@@ -335,6 +371,47 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
                 .setMeta()
                 .setShift(),
             "alt+control+meta+shift \"a\" DOWN"
+        );
+    }
+
+    @Test
+    public void testToStringLabelKey() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setLabel("Label123"),
+            "Label123 \"a\" DOWN"
+        );
+    }
+
+    @Test
+    public void testToStringLabelKeyAlt() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setAlt()
+                .setLabel("Label123"),
+            "Label123 alt \"a\" DOWN"
+        );
+    }
+
+    @Test
+    public void testToStringLabelKeyShift() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setShift()
+                .setLabel("Label123"),
+            "Label123 shift \"a\" DOWN"
+        );
+    }
+
+    @Test
+    public void testToStringLabelKeyControlMetaShift() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setControl()
+                .setMeta()
+                .setShift()
+                .setLabel("Label123"),
+            "Label123 control+meta+shift \"a\" DOWN"
         );
     }
 
