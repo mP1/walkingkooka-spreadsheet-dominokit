@@ -29,21 +29,43 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     ClassTesting<KeyBinding>,
     ComparableTesting2<KeyBinding> {
 
+    // setDown..........................................................................................................
+
+    @Test
+    public void testSetDown() {
+        this.toStringAndCheck(
+            KeyBinding.up("a")
+                .setDown(),
+            "\"a\" DOWN"
+        );
+    }
+
+    // setUp............................................................................................................
+
+    @Test
+    public void testSetUp() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setUp(),
+            "\"a\" UP"
+        );
+    }
+
     // equals...........................................................................................................
 
     @Test
     public void testEqualsDifferentKey() {
         this.checkNotEquals(
-            KeyBinding.with("a"),
-            KeyBinding.with("b")
+            KeyBinding.down("a"),
+            KeyBinding.down("b")
         );
     }
 
     @Test
     public void testEqualsDifferentAlt() {
         this.checkNotEquals(
-            KeyBinding.with("a"),
-            KeyBinding.with("a")
+            KeyBinding.down("a"),
+            KeyBinding.down("a")
                 .setAlt()
         );
     }
@@ -51,8 +73,8 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Test
     public void testEqualsDifferentControl() {
         this.checkNotEquals(
-            KeyBinding.with("a"),
-            KeyBinding.with("a")
+            KeyBinding.down("a"),
+            KeyBinding.down("a")
                 .setControl()
         );
     }
@@ -60,8 +82,8 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Test
     public void testEqualsDifferentMeta() {
         this.checkNotEquals(
-            KeyBinding.with("a"),
-            KeyBinding.with("a")
+            KeyBinding.down("a"),
+            KeyBinding.down("a")
                 .setMeta()
         );
     }
@@ -69,40 +91,56 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Test
     public void testEqualsDifferentShift() {
         this.checkNotEquals(
-            KeyBinding.with("a"),
-            KeyBinding.with("a")
+            KeyBinding.down("a"),
+            KeyBinding.down("a")
                 .setShift()
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentDown() {
+        this.checkNotEquals(
+            KeyBinding.down("a"),
+            KeyBinding.up("a")
         );
     }
 
     // ToString.........................................................................................................
 
     @Test
-    public void testToStringKey() {
+    public void testToStringKeyDown() {
         this.toStringAndCheck(
-            KeyBinding.with("a"),
-            "\"a\""
+            KeyBinding.down("a"),
+            "\"a\" DOWN"
         );
     }
 
     @Test
-    public void testToStringKeyShift() {
+    public void testToStringKeyUp() {
         this.toStringAndCheck(
-            KeyBinding.with("a")
+            KeyBinding.up("a"),
+            "\"a\" UP"
+        );
+    }
+
+    @Test
+    public void testToStringKeyShiftDown() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
                 .setShift(),
-            "shift \"a\""
+            "shift \"a\" DOWN"
         );
     }
 
     @Test
-    public void testToStringKeyAltControlMetaShift() {
+    public void testToStringKeyAltControlMetaShiftDown() {
         this.toStringAndCheck(
-            KeyBinding.with("a")
+            KeyBinding.down("a")
                 .setAlt()
                 .setControl()
                 .setMeta()
                 .setShift(),
-            "alt+control+meta+shift \"a\""
+            "alt+control+meta+shift \"a\" DOWN"
         );
     }
 
@@ -111,14 +149,14 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Test
     public void testCompareLess() {
         this.compareToAndCheckLess(
-            KeyBinding.with("a"),
-            KeyBinding.with("b")
+            KeyBinding.down("a"),
+            KeyBinding.down("b")
         );
     }
 
     @Override
     public KeyBinding createComparable() {
-        return KeyBinding.with("a");
+        return KeyBinding.down("a");
     }
 
     // class............................................................................................................
