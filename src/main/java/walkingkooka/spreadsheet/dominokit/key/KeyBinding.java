@@ -32,6 +32,8 @@ import java.util.Objects;
  */
 public final class KeyBinding implements Comparable<KeyBinding> {
 
+    private final static String NO_LABEL = "";
+
     private final static List<KeyBinding> CONSTANTS = Lists.array();
 
     public static KeyBinding SHIFT_DOWN = registerConstant(
@@ -104,6 +106,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
                                                final boolean shift,
                                                final boolean down) {
         final KeyBinding keyBinding = new KeyBinding(
+            NO_LABEL,
             "", // no key
             alt,
             control,
@@ -150,6 +153,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     public static KeyBinding down(final String key) {
         return new KeyBinding(
+            NO_LABEL,
             CharSequences.failIfNullOrEmpty(key, "key"),
             false, // alt
             false, // control
@@ -161,6 +165,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     public static KeyBinding up(final String key) {
         return new KeyBinding(
+            NO_LABEL,
             CharSequences.failIfNullOrEmpty(key, "key"),
             false, // alt
             false, // control
@@ -170,12 +175,15 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         );
     }
 
-    private KeyBinding(final String key,
+    private KeyBinding(final String label,
+                       final String key,
                        final boolean alt,
                        final boolean control,
                        final boolean meta,
                        final boolean shift,
                        final boolean down) {
+        this.label = label;
+
         this.key = key;
 
         this.alt = alt;
@@ -185,6 +193,28 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
         this.down = down;
     }
+
+    public String label() {
+        return this.label;
+    }
+
+    public KeyBinding setLabel(final String label) {
+        Objects.requireNonNull(label, "label");
+
+        return this.label.equals(label) ?
+            this :
+            new KeyBinding(
+                label,
+                this.key,
+                this.alt,
+                this.control,
+                this.meta,
+                this.shift,
+                this.down
+            );
+    }
+
+    private final String label;
 
     public String key() {
         return this.key;
@@ -200,6 +230,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.alt ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 true, // alt
                 this.control,
@@ -219,6 +250,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.control ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 this.alt,
                 true, // control
@@ -239,6 +271,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.meta ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 this.alt,
                 this.control,
@@ -258,6 +291,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.shift ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 this.alt,
                 this.control,
@@ -278,6 +312,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.down == true ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 this.alt,
                 this.control,
@@ -297,6 +332,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         return this.down == false ?
             this :
             new KeyBinding(
+                this.label,
                 this.key,
                 this.alt,
                 this.control,
@@ -311,6 +347,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     @Override
     public int hashCode() {
         return Objects.hash(
+            this.label,
             this.key,
             this.alt,
             this.control,
@@ -328,7 +365,8 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     }
 
     private boolean equals0(final KeyBinding other) {
-        return this.key.equals(other.key) &&
+        return this.label.equals(other.label) &&
+            this.key.equals(other.key) &&
             this.down == other.down &&
             this.equalModifiers(other);
     }
@@ -348,19 +386,16 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     @Override
     public String toString() {
         if (null == this.toString) {
-            final ToStringBuilder b = ToStringBuilder.empty()
-                .separator("+");
-
-            this.toStringModifiers0(b);
-
-            b.separator(" ")
+            this.toString = ToStringBuilder.empty()
+                .disable(ToStringBuilderOption.QUOTE)
+                .value(this.label)
+                .separator(" ")
+                .value(this.toStringModifiers())
                 .enable(ToStringBuilderOption.QUOTE)
                 .value(this.key)
                 .disable(ToStringBuilderOption.QUOTE)
                 .value(this.down ? "DOWN" : "UP")
                 .build();
-
-            this.toString = b.build();
         }
         return this.toString;
     }
@@ -368,18 +403,18 @@ public final class KeyBinding implements Comparable<KeyBinding> {
     private String toString;
 
     public String toStringModifiers() {
-        final ToStringBuilder b = ToStringBuilder.empty();
-        this.toStringModifiers0(b);
-        return b.build();
-    }
-
-    private void toStringModifiers0(final ToStringBuilder b) {
-        b.separator("+")
+        return ToStringBuilder.empty()
+            .separator("+")
             .disable(ToStringBuilderOption.QUOTE)
             .value(this.alt ? "alt" : "")
             .value(this.control ? "control" : "")
             .value(this.meta ? "meta" : "")
-            .value(this.shift ? "shift" : "");
+            .value(this.shift ? "shift" : "")
+            .build();
+    }
+
+    private void toStringModifiers0(final ToStringBuilder b) {
+
     }
 
     // Comparable.......................................................................................................
