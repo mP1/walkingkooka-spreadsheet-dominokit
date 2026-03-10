@@ -28,6 +28,8 @@ import walkingkooka.reflect.JavaVisibility;
 
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
     ToStringTesting<KeyBinding>,
     ClassTesting<KeyBinding>,
@@ -117,6 +119,129 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
             KeyBinding.down("a")
                 .setUp(),
             "\"a\" UP"
+        );
+    }
+
+    // equalModifiers...................................................................................................
+
+    @Test
+    public void testEqualModifiersWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createObject()
+                .equalModifiers(null)
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentKey() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.down("B"),
+            true
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentDown() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.up("A"),
+            true
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentAlt() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.down("A")
+                .setAlt(),
+            false
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentControl() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.down("A")
+                .setControl(),
+            false
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentMeta() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.down("A")
+                .setMeta(),
+            false
+        );
+    }
+
+    @Test
+    public void testEqualModifiersDifferentShift() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A"),
+            KeyBinding.down("A")
+                .setShift(),
+            false
+        );
+    }
+
+    @Test
+    public void testEqualModifiersAlt() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A")
+                .setAlt(),
+            KeyBinding.down("B")
+                .setAlt(),
+            true
+        );
+    }
+
+    @Test
+    public void testEqualModifiersControl() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A")
+                .setControl(),
+            KeyBinding.down("B")
+                .setControl(),
+            true
+        );
+    }
+
+    @Test
+    public void testEqualModifiersMeta() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A")
+                .setMeta(),
+            KeyBinding.down("B")
+                .setMeta(),
+            true
+        );
+    }
+
+    @Test
+    public void testEqualModifiersShift() {
+        this.equalModifiersAndCheck(
+            KeyBinding.down("A")
+                .setShift(),
+            KeyBinding.down("B")
+                .setShift(),
+            true
+        );
+    }
+
+    private void equalModifiersAndCheck(final KeyBinding keyBinding,
+                                        final KeyBinding other,
+                                        final boolean expected) {
+        this.checkEquals(
+            expected,
+            keyBinding.equalModifiers(other),
+            () -> keyBinding + " equalModifiers " + other
         );
     }
 
