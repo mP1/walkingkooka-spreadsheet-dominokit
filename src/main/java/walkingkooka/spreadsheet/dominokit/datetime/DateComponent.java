@@ -69,11 +69,7 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
 
         this.dateBox.pauseChangeListeners();
         this.dateBox.setValue(
-            localDateToDate(
-                value.orElse(
-                    this.context.clearValue()
-                )
-            )
+            localDateToDate(value)
         );
         this.dateBox.resumeChangeListeners();
         return this;

@@ -163,10 +163,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             LocalDate.class,
             (id, c) -> DateComponent.empty(
                 id + SpreadsheetElementIds.DATE_PICKER,
-                AppContextDateComponentContext.with(
-                    () -> context.now().toLocalDate(),
-                    context
-                )
+                AppContextDateComponentContext.with(context)
             ),
             context
         );

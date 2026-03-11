@@ -33,12 +33,6 @@ public final class AppContextTimeComponentContext extends AppContextTemporalComp
     }
 
     @Override
-    public LocalTime clearValue() {
-        return this.context.now()
-            .toLocalTime();
-    }
-
-    @Override
     public String pattern() {
         return this.timePatternForLocale();
     }

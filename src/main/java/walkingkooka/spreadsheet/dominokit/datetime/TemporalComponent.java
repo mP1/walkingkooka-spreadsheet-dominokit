@@ -29,7 +29,6 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implements FormValueComponent<HTMLDivElement, V, C>,
     FormValueComponentTreePrintable<HTMLDivElement, C, V> {
@@ -47,14 +46,26 @@ abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implement
         );
     }
 
-    static Date localDateToDate(final LocalDate date) {
-        return new Date(
-            date.atStartOfDay()
-                .atZone(ZONE_ID)
-                .toInstant()
-                .toEpochMilli()
-        );
+    static Date localDateToDate(final Optional<LocalDate> date) {
+        return date.map(
+            d ->
+                new Date(
+                    d.atStartOfDay()
+                        .atZone(ZONE_ID)
+                        .toInstant()
+                        .toEpochMilli()
+                )
+        ).orElse(null);
     }
+
+//    static Date localDateToDate(final LocalDate date) {
+//        return new Date(
+//            date.atStartOfDay()
+//                .atZone(ZONE_ID)
+//                .toInstant()
+//                .toEpochMilli()
+//        );
+//    }
 
     /**
      * Helper that is used to translate {@link Date} from/to {@link LocalTime}.
@@ -69,30 +80,27 @@ abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implement
         );
     }
 
-    static Date localTimeToDate(final LocalTime time) {
-        return new Date(
-            time.atDate(LocalDate.EPOCH)
-                .atZone(ZONE_ID)
-                .toInstant()
-                .toEpochMilli()
-        );
+    static Date localTimeToDate(final Optional<LocalTime> time) {
+        return time.map(
+            t -> new Date(
+                t.atDate(LocalDate.EPOCH)
+                    .atZone(ZONE_ID)
+                    .toInstant()
+                    .toEpochMilli()
+            )
+        ).orElse(null);
     }
 
     static Optional<LocalDateTime> toLocalDateTime(final Optional<LocalDate> date,
-                                                   final Optional<LocalTime> time,
-                                                   final Supplier<LocalDateTime> clearValue) {
+                                                   final Optional<LocalTime> time) {
         final LocalDate dateOrNull = date.orElse(null);
         final LocalTime timeOrNull = time.orElse(null);
 
         return Optional.ofNullable(
-            null != dateOrNull || null != timeOrNull ?
+            null != dateOrNull && null != timeOrNull ?
                 LocalDateTime.of(
-                    null != dateOrNull ?
-                        dateOrNull :
-                        clearValue.get().toLocalDate(),
-                    null != timeOrNull ?
-                        timeOrNull :
-                        clearValue.get().toLocalTime()
+                    dateOrNull,
+                    timeOrNull
                 ) :
                 null
         );

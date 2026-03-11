@@ -78,13 +78,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
 
         final DateComponent dateComponent = DateComponent.empty(
             SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + SpreadsheetElementIds.DATE,
-            AppContextDateComponentContext.with(
-                () -> LocalDate.ofEpochDay(
-                    context.spreadsheetMetadata()
-                        .getOrFail(SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET)
-                ),
-                context
-            )
+            AppContextDateComponentContext.with(context)
         );
         dateComponent.addValueWatcher2(
             (Optional<LocalDate> newValue) ->

@@ -20,32 +20,17 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 import walkingkooka.datetime.DateTimeContext;
 
 import java.time.LocalDate;
-import java.util.Objects;
-import java.util.function.Supplier;
 
 public final class AppContextDateComponentContext extends AppContextTemporalComponentContext<LocalDate>
     implements DateComponentContext {
 
-    public static AppContextDateComponentContext with(final Supplier<LocalDate> clearValue,
-                                                      final DateTimeContext context) {
-        return new AppContextDateComponentContext(
-            Objects.requireNonNull(clearValue, "clearValue"),
-            context
-        );
+    public static AppContextDateComponentContext with(final DateTimeContext context) {
+        return new AppContextDateComponentContext(context);
     }
 
-    private AppContextDateComponentContext(final Supplier<LocalDate> clearValue,
-                                           final DateTimeContext context) {
+    private AppContextDateComponentContext(final DateTimeContext context) {
         super(context);
-        this.clearValue = clearValue;
     }
-
-    @Override
-    public LocalDate clearValue() {
-        return this.clearValue.get();
-    }
-
-    private final Supplier<LocalDate> clearValue;
 
     @Override
     public String pattern() {

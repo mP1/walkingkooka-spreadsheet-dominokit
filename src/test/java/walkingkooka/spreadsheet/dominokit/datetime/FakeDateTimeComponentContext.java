@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.datetime;
 
 import walkingkooka.datetime.DateTimeSymbols;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
 
 public class FakeDateTimeComponentContext implements DateTimeComponentContext {
@@ -35,11 +34,6 @@ public class FakeDateTimeComponentContext implements DateTimeComponentContext {
 
     @Override
     public Locale locale() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public LocalDateTime clearValue() {
         throw new UnsupportedOperationException();
     }
 

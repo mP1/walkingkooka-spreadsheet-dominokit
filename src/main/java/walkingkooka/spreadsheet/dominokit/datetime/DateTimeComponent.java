@@ -25,11 +25,12 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
  * A date picker that displays a calendar and time picker {@link LocalDateTime}.
@@ -65,13 +66,12 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
     @Override
     public Optional<LocalDateTime> value() {
         return toLocalDateTime(
-            dateToLocalDate(
+            Optional.ofNullable(
                 this.dateBox.getValue()
-            ),
-            dateToLocalTime(
+            ).flatMap(DateTimeComponent::dateToLocalDate),
+            Optional.of(
                 this.timeBox.getValue()
-            ),
-            this.context::clearValue
+            ).flatMap(DateTimeComponent::dateToLocalTime)
         );
     }
 
@@ -84,17 +84,13 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
         this.dateBox.setValue(
             localDateToDate(
-                value.orElse(
-                    this.context.clearValue()
-                ).toLocalDate()
+                value.map(LocalDateTime::toLocalDate)
             )
         );
 
         this.timeBox.setValue(
             localTimeToDate(
-                value.orElse(
-                    this.context.clearValue()
-                ).toLocalTime()
+                value.map(LocalDateTime::toLocalTime)
             )
         );
 
@@ -110,34 +106,45 @@ public final class DateTimeComponent extends DominoKitPickerComponent<LocalDateT
 
         final DateBox dateBox = this.dateBox;
         final TimeBox timeBox = this.timeBox;
-        final Supplier<LocalDateTime> clearValue = this.context::clearValue;
+
+        // both ChangeListeners only fire when both the date & time are either empty or present.
+        // firing when only one is set will cause the LocalDateTime to be cleared which will eventually clear both
+        // the date and time components, making it impossible to enter a LocalDateTime.
 
         final ChangeListener<Date> dateBoxChangeListener = (final Date oldValue,
                                                             final Date newValue) -> {
-            watcher.onValue(
-                toLocalDateTime(
-                    dateToLocalDate(newValue), // date
-                    dateToLocalTime(
-                        timeBox.getValue()
-                    ),
-                    clearValue
-                )
+            final Optional<LocalDate> date = dateToLocalDate(newValue);
+            final Optional<LocalTime> time = dateToLocalTime(
+                timeBox.getValue()
             );
+
+            if (date.isPresent() == time.isPresent()) {
+                watcher.onValue(
+                    toLocalDateTime(
+                        date,
+                        time
+                    )
+                );
+            }
         };
 
         this.dateBox.addChangeListener(dateBoxChangeListener);
 
         final ChangeListener<Date> timeBoxChangeListener = (final Date oldValue,
                                                             final Date newValue) -> {
-            watcher.onValue(
-                toLocalDateTime(
-                    dateToLocalDate(
-                        dateBox.getValue()
-                    ), // date
-                    dateToLocalTime(newValue), // time
-                    clearValue
-                )
+            final Optional<LocalDate> date = dateToLocalDate(
+                dateBox.getValue()
             );
+            final Optional<LocalTime> time = dateToLocalTime(newValue);
+
+            if (date.isPresent() == time.isPresent()) {
+                watcher.onValue(
+                    toLocalDateTime(
+                        date,
+                        time
+                    )
+                );
+            }
         };
 
         this.timeBox.addChangeListener(timeBoxChangeListener);

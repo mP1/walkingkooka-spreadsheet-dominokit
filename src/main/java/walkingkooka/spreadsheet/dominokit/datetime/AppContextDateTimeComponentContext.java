@@ -35,11 +35,6 @@ public final class AppContextDateTimeComponentContext extends AppContextTemporal
     }
 
     @Override
-    public LocalDateTime clearValue() {
-        return this.context.now();
-    }
-
-    @Override
     public String pattern() {
         final SimpleDateFormat simpleDateFormat = (SimpleDateFormat) DateFormat.getDateTimeInstance(
             DateFormat.SHORT,

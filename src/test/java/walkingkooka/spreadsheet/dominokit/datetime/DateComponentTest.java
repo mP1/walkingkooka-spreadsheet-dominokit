@@ -29,8 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class DateComponentTest implements FormValueComponentTesting<HTMLDivElement, LocalDate, DateComponent> {
 
-    private final static LocalDate CLEAR_VALUE = LocalDate.of(1999, 12, 31);
-
     // setId............................................................................................................
 
     @Test
@@ -70,7 +68,7 @@ public final class DateComponentTest implements FormValueComponentTesting<HTMLDi
             );
         this.valueAndCheck(
             component,
-            Optional.of(CLEAR_VALUE)
+            Optional.empty()
         );
     }
 
@@ -80,13 +78,7 @@ public final class DateComponentTest implements FormValueComponentTesting<HTMLDi
     public DateComponent createComponent() {
         return DateComponent.empty(
             "id",
-            new FakeDateComponentContext() {
-
-                @Override
-                public LocalDate clearValue() {
-                    return CLEAR_VALUE;
-                }
-            }
+            new FakeDateComponentContext()
         );
     }
 

@@ -70,11 +70,7 @@ public final class TimeComponent extends DominoKitPickerComponent<LocalTime, Tim
         // pause/set/unpause necessary otherwise when dialog resets the "cell" will also be saved with the reset value
         this.timeBox.pauseChangeListeners();
         this.timeBox.setValue(
-            localTimeToDate(
-                value.orElse(
-                    this.context.clearValue()
-                )
-            )
+            localTimeToDate(value)
         );
         this.timeBox.resumeChangeListeners();
 

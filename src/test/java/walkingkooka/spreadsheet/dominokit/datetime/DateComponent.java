@@ -34,16 +34,11 @@ public final class DateComponent extends TestTemporalComponent<LocalDate, DateCo
 
     public static DateComponent empty(final String id,
                                       final DateComponentContext context) {
-        return new DateComponent(
-            id,
-            context
-        );
+        return new DateComponent(id);
     }
 
-    private DateComponent(final String id,
-                          final DateComponentContext context) {
+    private DateComponent(final String id) {
         this.setId(id);
-        this.context = context;
     }
 
     @Override
@@ -77,16 +72,10 @@ public final class DateComponent extends TestTemporalComponent<LocalDate, DateCo
     @Override
     public DateComponent setValue(final Optional<LocalDate> value) {
         Objects.requireNonNull(value, "value");
-        this.value = value.isPresent() ?
-            value :
-            Optional.of(
-                this.context.clearValue()
-            );
+        this.value = value;
 
         return validate();
     }
-
-    private final DateComponentContext context;
 
     @Override
     public Optional<LocalDate> value() {
