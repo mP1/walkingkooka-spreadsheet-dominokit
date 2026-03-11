@@ -2429,6 +2429,17 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameKeyboard() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/keyboard",
+            HistoryToken.spreadsheetKeyboard(
+                ID,
+                NAME
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameReload() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/reload",

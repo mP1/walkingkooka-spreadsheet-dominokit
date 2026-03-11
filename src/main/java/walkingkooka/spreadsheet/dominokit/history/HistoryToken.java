@@ -214,6 +214,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment INSERT_BEFORE = UrlFragment.parse(INSERT_BEFORE_STRING);
 
+    final static String KEYBOARD_STRING = "keyboard";
+
+    final static UrlFragment KEYBOARD = UrlFragment.parse(KEYBOARD_STRING);
+
     final static String LABEL_CREATE_STRING = "create-label";
 
     final static UrlFragment LABEL_CREATE = UrlFragment.parse(LABEL_CREATE_STRING);
@@ -1895,6 +1899,21 @@ public abstract class HistoryToken implements HasUrlFragment {
         return SpreadsheetCreateHistoryToken.with();
     }
 
+    // spreadsheetKeyboard..............................................................................................
+
+    /**
+     * {@see SpreadsheetKeyboardHistoryToken}
+     */
+    public static SpreadsheetKeyboardHistoryToken spreadsheetKeyboard(final SpreadsheetId id,
+                                                                      final SpreadsheetName name) {
+        return SpreadsheetKeyboardHistoryToken.with(
+            id,
+            name
+        );
+    }
+
+    // spreadsheetList..................................................................................................
+
     /**
      * {@see SpreadsheetListReloadHistoryToken}
      */
@@ -3043,6 +3062,25 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
+    // KEYBOARD.........................................................................................................
+
+    public final HistoryToken keyboard() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetName name = spreadsheetNameHistoryToken.name();
+
+            historyToken = spreadsheetKeyboard(
+                id,
+                name
+            );
+        }
+
+        return this.elseIfDifferent(historyToken);
+    }
+    
     // LABEL............................................................................................................
 
     public final HistoryToken createLabel() {

@@ -530,6 +530,13 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
         // NOP
     }
 
+    // KEYBOARD.........................................................................................................
+
+    protected void visitKeyboard(final SpreadsheetId id,
+                                 final SpreadsheetName name) {
+        // NOP
+    }
+
     // METADATA.........................................................................................................
 
     protected <T> void visitMetadataPropertySave(final SpreadsheetId id,

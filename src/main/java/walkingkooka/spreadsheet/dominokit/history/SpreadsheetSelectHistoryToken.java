@@ -87,6 +87,9 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
             case FORM_STRING:
                 result = this.parseForm(cursor);
                 break;
+            case KEYBOARD_STRING:
+                result = this.keyboard();
+                break;
             case LABEL_CREATE_STRING:
                 result = this.parseLabelCreate(cursor);
                 break;
