@@ -56,13 +56,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
-import walkingkooka.spreadsheet.dominokit.key.KeyboardContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.number.NumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.number.WholeNumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCacheContext;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingsContext;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContext;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
@@ -111,7 +111,6 @@ public interface AppContext extends CanGiveFocus,
     HasValidatorFetcher,
     HistoryContext,
     JsonNodeMarshallUnmarshallContext,
-    KeyboardContext,
     LoggingContext,
     NumberComponentContext,
     ProviderContext,
@@ -122,6 +121,7 @@ public interface AppContext extends CanGiveFocus,
     SpreadsheetParserContext,
     SpreadsheetProvider,
     SpreadsheetViewportCacheContext,
+    SpreadsheetViewportComponentKeyBindingsContext,
     WholeNumberComponentContext {
 
     /**

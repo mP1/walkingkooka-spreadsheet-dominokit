@@ -99,7 +99,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
         this.keyboardEventListener = SpreadsheetViewportComponentKeyBindingsEventListener.with(
             context.spreadsheetViewportComponentKeyBindings(),
-            context // KeyboardContext
+            context // SpreadsheetViewportComponentKeyBindingsContext
         );
     }
 

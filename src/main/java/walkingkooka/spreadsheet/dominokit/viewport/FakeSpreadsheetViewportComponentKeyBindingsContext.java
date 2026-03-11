@@ -15,20 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Optional;
 
-public class FakeKeyboardContext extends FakeHistoryContext implements KeyboardContext {
+public class FakeSpreadsheetViewportComponentKeyBindingsContext extends FakeHistoryContext implements SpreadsheetViewportComponentKeyBindingsContext {
 
-    public FakeKeyboardContext() {
+    public FakeSpreadsheetViewportComponentKeyBindingsContext() {
         super();
     }
 
-    // KeyboardContext.......................................................................................
+    // SpreadsheetViewportComponentKeyBindingsContext.......................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {

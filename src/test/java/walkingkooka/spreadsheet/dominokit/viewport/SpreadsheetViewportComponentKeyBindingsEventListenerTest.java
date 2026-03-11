@@ -21,8 +21,6 @@ import elemental2.dom.KeyboardEvent;
 import org.dominokit.domino.ui.events.EventType;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.key.FakeKeyboardContext;
-import walkingkooka.spreadsheet.dominokit.key.KeyboardContexts;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -69,7 +67,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
             NullPointerException.class,
             () -> SpreadsheetViewportComponentKeyBindingsEventListener.with(
                 null,
-                KeyboardContexts.fake()
+                SpreadsheetViewportComponentKeyBindingsContexts.fake()
             )
         );
     }
@@ -93,7 +91,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -108,7 +106,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -133,7 +131,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -165,7 +163,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -191,7 +189,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -223,7 +221,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -249,7 +247,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -277,7 +275,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -292,7 +290,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -317,7 +315,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -349,7 +347,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -383,7 +381,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -398,7 +396,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -423,7 +421,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -455,7 +453,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -489,7 +487,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -504,7 +502,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -529,7 +527,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -561,7 +559,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -595,7 +593,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -610,7 +608,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -636,7 +634,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -669,7 +667,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -697,7 +695,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -712,7 +710,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -738,7 +736,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -771,7 +769,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -799,7 +797,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -814,7 +812,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -841,7 +839,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -875,7 +873,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -904,7 +902,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -919,7 +917,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -944,7 +942,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -970,7 +968,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1002,7 +1000,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1034,7 +1032,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1068,7 +1066,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1083,7 +1081,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1108,7 +1106,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1140,7 +1138,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1174,7 +1172,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1189,7 +1187,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1221,7 +1219,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1255,7 +1253,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1270,7 +1268,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1295,7 +1293,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1327,7 +1325,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1361,7 +1359,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1376,7 +1374,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1401,7 +1399,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1433,7 +1431,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1467,7 +1465,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1482,7 +1480,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1507,7 +1505,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1539,7 +1537,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1573,7 +1571,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1588,7 +1586,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1622,7 +1620,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1651,7 +1649,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1666,7 +1664,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1692,7 +1690,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1725,7 +1723,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1753,7 +1751,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1768,7 +1766,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1793,7 +1791,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1825,7 +1823,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1859,7 +1857,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1874,7 +1872,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1900,7 +1898,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1933,7 +1931,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -1961,7 +1959,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -1983,7 +1981,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2008,7 +2006,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2023,7 +2021,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2048,7 +2046,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2074,7 +2072,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2106,7 +2104,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2140,7 +2138,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2155,7 +2153,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2181,7 +2179,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2214,7 +2212,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2242,7 +2240,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2257,7 +2255,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2284,7 +2282,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2318,7 +2316,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2347,7 +2345,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2362,7 +2360,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2387,7 +2385,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2419,7 +2417,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2453,7 +2451,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2468,7 +2466,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2495,7 +2493,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2523,7 +2521,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2557,7 +2555,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2589,7 +2587,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2623,7 +2621,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.spreadsheetSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME
@@ -2638,7 +2636,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2663,7 +2661,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2695,7 +2693,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
 
         this.handleEventAndCheck(
             event,
-            new TestKeyboardContext(
+            new TestSpreadsheetViewportComponentKeyBindingsContext(
                 HistoryToken.cellSelect(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
@@ -2739,7 +2737,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     // handleEventAndCheck..............................................................................................
 
     private void handleEventAndCheck(final KeyboardEvent event,
-                                     final TestKeyboardContext context) {
+                                     final TestSpreadsheetViewportComponentKeyBindingsContext context) {
         this.handleEventAndCheck(
             event,
             context,
@@ -2748,7 +2746,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     }
 
     private void handleEventAndCheck(final KeyboardEvent event,
-                                     final TestKeyboardContext context,
+                                     final TestSpreadsheetViewportComponentKeyBindingsContext context,
                                      final HistoryToken expected) {
         SpreadsheetViewportComponentKeyBindingsEventListener.with(
             SpreadsheetViewportComponentKeyBindingses.basic(),
@@ -2770,25 +2768,25 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
         );
     }
 
-    private class TestKeyboardContext extends FakeKeyboardContext {
+    private class TestSpreadsheetViewportComponentKeyBindingsContext extends FakeSpreadsheetViewportComponentKeyBindingsContext {
 
-        TestKeyboardContext(final HistoryToken historyToken) {
+        TestSpreadsheetViewportComponentKeyBindingsContext(final HistoryToken historyToken) {
             this(
                 historyToken,
                 Optional.empty() // no cell
             );
         }
 
-        TestKeyboardContext(final HistoryToken historyToken,
-                            final SpreadsheetCell cell) {
+        TestSpreadsheetViewportComponentKeyBindingsContext(final HistoryToken historyToken,
+                                                           final SpreadsheetCell cell) {
             this(
                 historyToken,
                 Optional.of(cell)
             );
         }
 
-        TestKeyboardContext(final HistoryToken historyToken,
-                            final Optional<SpreadsheetCell> cell) {
+        TestSpreadsheetViewportComponentKeyBindingsContext(final HistoryToken historyToken,
+                                                           final Optional<SpreadsheetCell> cell) {
             this.historyToken = historyToken;
             this.cell = cell;
 

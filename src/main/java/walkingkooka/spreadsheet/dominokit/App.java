@@ -1252,7 +1252,7 @@ public class App implements EntryPoint,
         return MARSHALL_CONTEXT;
     }
 
-    // KeyboardContext..................................................................................................
+    // SpreadsheetViewportComponentKeyBindingsContext..................................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {

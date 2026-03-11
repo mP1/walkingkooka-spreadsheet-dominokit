@@ -24,7 +24,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
-import walkingkooka.spreadsheet.dominokit.key.KeyboardContext;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
@@ -55,7 +54,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
     Logging {
 
     public static SpreadsheetViewportComponentKeyBindingsEventListener with(final SpreadsheetViewportComponentKeyBindings bindings,
-                                                                            final KeyboardContext context) {
+                                                                            final SpreadsheetViewportComponentKeyBindingsContext context) {
         return new SpreadsheetViewportComponentKeyBindingsEventListener(
             Objects.requireNonNull(bindings, "bindings"),
             Objects.requireNonNull(context, "context")
@@ -63,7 +62,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
     }
 
     private SpreadsheetViewportComponentKeyBindingsEventListener(final SpreadsheetViewportComponentKeyBindings bindings,
-                                                                 final KeyboardContext context) {
+                                                                 final SpreadsheetViewportComponentKeyBindingsContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
         this.context = context;
 
@@ -365,7 +364,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
     }
 
     private void selectAll(final KeyboardEvent event) {
-        final KeyboardContext context = this.context;
+        final SpreadsheetViewportComponentKeyBindingsContext context = this.context;
 
         final HistoryToken historyToken = context.historyToken()
             .setSelection(
@@ -433,7 +432,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
      * Unconditionally sets a {@link SpreadsheetFormatterSelector} belonging to a {@link SpreadsheetCell}.
      */
     private <T> void setCellFormatter(final Optional<SpreadsheetFormatterSelector> formatter) {
-        final KeyboardContext context = this.context;
+        final SpreadsheetViewportComponentKeyBindingsContext context = this.context;
 
         context.pushHistoryToken(
             context.historyToken()
@@ -447,7 +446,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
      */
     private <T> void setCellStyle(final TextStylePropertyName<T> name,
                                   final T value) {
-        final KeyboardContext context = this.context;
+        final SpreadsheetViewportComponentKeyBindingsContext context = this.context;
 
         if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             context.pushHistoryToken(
@@ -466,7 +465,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
      */
     private <T> void flipCellStyle(final TextStylePropertyName<T> name,
                                    final T value) {
-        final KeyboardContext context = this.context;
+        final SpreadsheetViewportComponentKeyBindingsContext context = this.context;
 
         if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCell cell = context.historyTokenCell()
@@ -498,7 +497,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
         }
     }
 
-    private final KeyboardContext context;
+    private final SpreadsheetViewportComponentKeyBindingsContext context;
 
     // Object...........................................................................................................
 
