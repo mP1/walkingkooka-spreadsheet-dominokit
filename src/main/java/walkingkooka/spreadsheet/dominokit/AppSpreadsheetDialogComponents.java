@@ -51,6 +51,8 @@ import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogC
 import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardDialogComponent;
+import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponent;
@@ -125,6 +127,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         find(context);
 
         formatterParser(context);
+
+        keyboard(context);
 
         label(context);
 
@@ -334,6 +338,24 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     private static void find(final AppContext context) {
         SpreadsheetCellQueryDialogComponent.with(
             SpreadsheetCellQueryDialogComponentContexts.appContext(context)
+        );
+    }
+
+    private static void keyboard(final AppContext context) {
+        SpreadsheetKeyboardDialogComponent.with(
+            SpreadsheetKeyboardDialogComponentContexts.cell(context)
+        );
+
+        SpreadsheetKeyboardDialogComponent.with(
+            SpreadsheetKeyboardDialogComponentContexts.column(context)
+        );
+
+        SpreadsheetKeyboardDialogComponent.with(
+            SpreadsheetKeyboardDialogComponentContexts.row(context)
+        );
+
+        SpreadsheetKeyboardDialogComponent.with(
+            SpreadsheetKeyboardDialogComponentContexts.spreadsheet(context)
         );
     }
 
