@@ -127,26 +127,6 @@ abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implement
         return (C) this;
     }
 
-    public final C autocompleteOff() {
-        return (C) this;
-    }
-
-    public final C clearIcon() {
-        return (C) this;
-    }
-
-    public final C disableSpellcheck() {
-        return (C) this;
-    }
-
-    public final C enterFiresValueChange() {
-        return (C) this;
-    }
-
-    public final C magnifyingGlassIcon() {
-        return (C) this;
-    }
-
     // FormValueComponentTreePrintable..................................................................................
 
     @Override
