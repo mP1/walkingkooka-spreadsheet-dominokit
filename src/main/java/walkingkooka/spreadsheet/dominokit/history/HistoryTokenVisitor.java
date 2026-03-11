@@ -664,6 +664,12 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
         // NOP
     }
 
+    protected void visitRowKeyboard(final SpreadsheetId id,
+                                    final SpreadsheetName name,
+                                    final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+
     protected void visitRowMenu(final SpreadsheetId id,
                                 final SpreadsheetName name,
                                 final AnchoredSpreadsheetSelection anchoredSelection) {
