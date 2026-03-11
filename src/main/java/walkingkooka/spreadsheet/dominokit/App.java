@@ -519,7 +519,6 @@ public class App implements EntryPoint,
         AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
-            spreadsheetViewportComponentKeyBindings,
             this.viewportComponent,
             this
         );
