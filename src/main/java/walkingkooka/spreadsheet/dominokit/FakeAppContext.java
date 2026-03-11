@@ -67,6 +67,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
@@ -948,6 +949,13 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public Storage<SpreadsheetStorageContext> storage() {
+        throw new UnsupportedOperationException();
+    }
+
+    // HasSpreadsheetViewportComponentKeyBindings.......................................................................
+
+    @Override
+    public SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings() {
         throw new UnsupportedOperationException();
     }
 }
