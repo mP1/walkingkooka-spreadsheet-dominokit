@@ -15,13 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.reflect.ClassTesting;
+import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;

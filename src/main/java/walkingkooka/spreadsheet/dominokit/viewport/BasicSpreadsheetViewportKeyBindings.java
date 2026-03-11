@@ -15,10 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
+import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;

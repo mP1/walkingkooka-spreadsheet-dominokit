@@ -15,7 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
+
+import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 
 import java.util.Set;
 
