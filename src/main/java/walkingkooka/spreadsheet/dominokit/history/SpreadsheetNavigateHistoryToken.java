@@ -123,7 +123,8 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitNavigate(
             this.id,
-            this.name
+            this.name,
+            this.navigation
         );
     }
 }

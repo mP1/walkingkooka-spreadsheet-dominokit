@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.Form;
@@ -565,7 +566,8 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     // NAVIGATE.........................................................................................................
 
     protected void visitNavigate(final SpreadsheetId id,
-                                 final SpreadsheetName name) {
+                                 final SpreadsheetName name,
+                                 final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         // NOP
     }
 
