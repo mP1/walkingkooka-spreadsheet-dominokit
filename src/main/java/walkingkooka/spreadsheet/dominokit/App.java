@@ -509,7 +509,7 @@ public class App implements EntryPoint,
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
-        final SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings = SpreadsheetViewportComponentKeyBindingses.basic();
+        this.spreadsheetViewportComponentKeyBindings = SpreadsheetViewportComponentKeyBindingses.basic();
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(
             spreadsheetViewportComponentKeyBindings,
@@ -1777,4 +1777,13 @@ public class App implements EntryPoint,
     }
 
     private final SpreadsheetViewportCache viewportCache;
+
+    // HasSpreadsheetViewportComponentKeyBindings.......................................................................
+
+    @Override
+    public SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings() {
+        return this.spreadsheetViewportComponentKeyBindings;
+    }
+
+    private SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings;
 }
