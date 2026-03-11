@@ -1,0 +1,106 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.history;
+
+import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.text.cursor.TextCursor;
+
+import java.util.Objects;
+import java.util.Optional;
+
+
+/**
+ * This {@link HistoryToken} displays spreadsheetKeyboard help and possibly other options.
+ * <pre>
+ * /1/spreadsheetKeyboard
+ * /spreadsheet-id/spreadsheetKeyboard
+ * </pre>
+ */
+public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistoryToken {
+
+    static SpreadsheetKeyboardHistoryToken with(final SpreadsheetId id,
+                                                final SpreadsheetName name) {
+        return new SpreadsheetKeyboardHistoryToken(
+            id,
+            name
+        );
+    }
+
+    private SpreadsheetKeyboardHistoryToken(final SpreadsheetId id,
+                                            final SpreadsheetName name) {
+        super(
+            id,
+            name
+        );
+    }
+    
+    // /1/SpreadsheetName/keyboard
+    @Override
+    UrlFragment spreadsheetNameUrlFragment() {
+        return KEYBOARD;
+    }
+
+    @Override
+    HistoryToken parseNext(final String component,
+                           final TextCursor cursor) {
+        return this;
+    }
+
+    @Override
+    public HistoryToken clearAction() {
+        return spreadsheetSelect(
+            this.id,
+            this.name
+        );
+    }
+
+    @Override //
+    HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                  final SpreadsheetName name) {
+        return spreadsheetSelect(
+            id,
+            name
+        ).keyboard();
+    }
+
+    @Override
+    public HistoryToken setSaveValue(final Optional<?> value) {
+        Objects.requireNonNull(value, "value");
+
+        return this;
+    }
+
+    @Override
+    void onHistoryTokenChange0(final HistoryToken previous,
+                               final AppContext context) {
+        // NOP
+    }
+
+    // HistoryTokenVisitor..............................................................................................
+
+    @Override
+    void accept(final HistoryTokenVisitor visitor) {
+        visitor.visitKeyboard(
+            this.id,
+            this.name
+        );
+    }
+}
