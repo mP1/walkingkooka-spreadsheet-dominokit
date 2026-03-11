@@ -116,7 +116,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportKeyBindings keyBindings,
+    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                                      final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponent(
             Objects.requireNonNull(keyBindings, "keyBindings"),
@@ -124,7 +124,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         );
     }
 
-    private SpreadsheetViewportComponent(final SpreadsheetViewportKeyBindings keyBindings,
+    private SpreadsheetViewportComponent(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                          final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
@@ -335,7 +335,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
     // table............................................................................................................
 
-    private SpreadsheetViewportComponentTable table(final SpreadsheetViewportKeyBindings keyBindings,
+    private SpreadsheetViewportComponentTable table(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                                     final SpreadsheetViewportContext context) {
         return SpreadsheetViewportComponentTable.empty(
             keyBindings,

@@ -141,8 +141,8 @@ import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentContexts;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindings;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindingses;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingses;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContext;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextDelegator;
@@ -509,17 +509,17 @@ public class App implements EntryPoint,
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
-        final SpreadsheetViewportKeyBindings spreadsheetViewportKeyBindings = SpreadsheetViewportKeyBindingses.basic();
+        final SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings = SpreadsheetViewportComponentKeyBindingses.basic();
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(
-            spreadsheetViewportKeyBindings,
+            spreadsheetViewportComponentKeyBindings,
             SpreadsheetViewportComponentContexts.appContext(this)
         );
 
         AppSpreadsheetDialogComponents.register(this);
 
         this.layout = SpreadsheetAppLayout.prepare(
-            spreadsheetViewportKeyBindings,
+            spreadsheetViewportComponentKeyBindings,
             this.viewportComponent,
             this
         );

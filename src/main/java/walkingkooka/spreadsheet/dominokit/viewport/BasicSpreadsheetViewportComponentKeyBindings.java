@@ -26,14 +26,14 @@ import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Set;
 
-final class BasicSpreadsheetViewportKeyBindings implements SpreadsheetViewportKeyBindings {
+final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetViewportComponentKeyBindings {
 
     /**
      * Singleton
      */
-    final static BasicSpreadsheetViewportKeyBindings INSTANCE = new BasicSpreadsheetViewportKeyBindings();
+    final static BasicSpreadsheetViewportComponentKeyBindings INSTANCE = new BasicSpreadsheetViewportComponentKeyBindings();
 
-    private BasicSpreadsheetViewportKeyBindings() {
+    private BasicSpreadsheetViewportComponentKeyBindings() {
         super();
     }
 
