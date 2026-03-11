@@ -527,7 +527,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         this.navigation = null;
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
-            SpreadsheetViewportKeyBindingses.basic(),
+            SpreadsheetViewportComponentKeyBindingses.basic(),
             tableContext
         );
 
@@ -987,7 +987,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
             );
 
         final SpreadsheetViewportComponentTable component = SpreadsheetViewportComponentTable.empty(
-            SpreadsheetViewportKeyBindingses.basic(),
+            SpreadsheetViewportComponentKeyBindingses.basic(),
             tableContext
         );
 

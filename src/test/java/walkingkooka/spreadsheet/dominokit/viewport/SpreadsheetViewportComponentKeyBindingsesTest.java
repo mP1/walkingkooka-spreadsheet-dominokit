@@ -22,15 +22,15 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetViewportKeyBindingsesTest implements PublicStaticHelperTesting<SpreadsheetViewportKeyBindingses> {
+public final class SpreadsheetViewportComponentKeyBindingsesTest implements PublicStaticHelperTesting<SpreadsheetViewportComponentKeyBindingses> {
     @Override
     public boolean canHavePublicTypes(final Method method) {
         return false;
     }
 
     @Override
-    public Class<SpreadsheetViewportKeyBindingses> type() {
-        return SpreadsheetViewportKeyBindingses.class;
+    public Class<SpreadsheetViewportComponentKeyBindingses> type() {
+        return SpreadsheetViewportComponentKeyBindingses.class;
     }
 
     @Override

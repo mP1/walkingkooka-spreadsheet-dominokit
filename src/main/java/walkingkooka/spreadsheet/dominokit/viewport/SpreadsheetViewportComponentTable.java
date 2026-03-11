@@ -61,7 +61,7 @@ import java.util.function.Supplier;
  */
 final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<HTMLTableElement, SpreadsheetViewportComponentTable> {
 
-    static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportKeyBindings keyBindings,
+    static SpreadsheetViewportComponentTable empty(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                                    final SpreadsheetViewportComponentTableContext context) {
         return new SpreadsheetViewportComponentTable(
             keyBindings,
@@ -69,7 +69,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
         );
     }
 
-    private SpreadsheetViewportComponentTable(final SpreadsheetViewportKeyBindings keyBindings,
+    private SpreadsheetViewportComponentTable(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                               final SpreadsheetViewportComponentTableContext context) {
         this.bindingToKeyboardEventHandler = Maps.sorted();
 

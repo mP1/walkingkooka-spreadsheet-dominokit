@@ -585,7 +585,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
         };
 
         final SpreadsheetViewportComponent component = SpreadsheetViewportComponent.empty(
-            SpreadsheetViewportKeyBindingses.basic(),
+            SpreadsheetViewportComponentKeyBindingses.basic(),
             new FakeSpreadsheetViewportComponentContext() {
 
                 @Override

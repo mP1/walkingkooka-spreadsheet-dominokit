@@ -19,18 +19,18 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.reflect.JavaVisibility;
 
-public final class BasicSpreadsheetViewportKeyBindingsTest implements SpreadsheetViewportKeyBindingsTesting<BasicSpreadsheetViewportKeyBindings> {
+public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements SpreadsheetViewportComponentKeyBindingsTesting<BasicSpreadsheetViewportComponentKeyBindings> {
 
     @Override
-    public BasicSpreadsheetViewportKeyBindings createSpreadsheetKeyBinding() {
-        return BasicSpreadsheetViewportKeyBindings.INSTANCE;
+    public BasicSpreadsheetViewportComponentKeyBindings createSpreadsheetKeyBinding() {
+        return BasicSpreadsheetViewportComponentKeyBindings.INSTANCE;
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<BasicSpreadsheetViewportKeyBindings> type() {
-        return BasicSpreadsheetViewportKeyBindings.class;
+    public Class<BasicSpreadsheetViewportComponentKeyBindings> type() {
+        return BasicSpreadsheetViewportComponentKeyBindings.class;
     }
 
     @Override

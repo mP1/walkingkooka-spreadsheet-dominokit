@@ -35,8 +35,8 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindings;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindingsEventListener;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingsEventListener;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
@@ -52,7 +52,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
     //   formula,
     //   table holding spreadsheet cells
 
-    static SpreadsheetAppLayout prepare(final SpreadsheetViewportKeyBindings keyBindings,
+    static SpreadsheetAppLayout prepare(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                         final SpreadsheetViewportComponent viewportComponent,
                                         final AppContext context) {
         Objects.requireNonNull(context, "context");
@@ -92,7 +92,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return layout;
     }
 
-    private SpreadsheetAppLayout(final SpreadsheetViewportKeyBindings keyBindings,
+    private SpreadsheetAppLayout(final SpreadsheetViewportComponentKeyBindings keyBindings,
                                  final AppContext context) {
         super();
         context.addHistoryTokenWatcher(this);
@@ -103,7 +103,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
         this.context = context;
 
-        this.keyboardEventListener = SpreadsheetViewportKeyBindingsEventListener.with(
+        this.keyboardEventListener = SpreadsheetViewportComponentKeyBindingsEventListener.with(
             keyBindings,
             context
         );

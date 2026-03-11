@@ -25,7 +25,7 @@ import java.util.Set;
  * Defines {@link KeyBinding} for various {@link walkingkooka.spreadsheet.viewport.SpreadsheetViewport} keys, enabling
  * actions like bolding the selected cell, deleting a cell-range and more.
  */
-public interface SpreadsheetViewportKeyBindings {
+public interface SpreadsheetViewportComponentKeyBindings {
 
     Set<KeyBinding> bold();
 
