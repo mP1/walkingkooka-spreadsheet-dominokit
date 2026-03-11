@@ -117,6 +117,9 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                     parseCount(cursor)
                 );
                 break;
+            case KEYBOARD_STRING:
+                result = this.keyboard();
+                break;
             case MENU_STRING:
                 result = this.menu(
                     Optional.empty(), // no selection

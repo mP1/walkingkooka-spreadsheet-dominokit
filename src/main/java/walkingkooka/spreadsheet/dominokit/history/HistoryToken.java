@@ -1797,6 +1797,19 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetRowKeyboardHistoryToken}
+     */
+    public static SpreadsheetRowKeyboardHistoryToken rowKeyboard(final SpreadsheetId id,
+                                                                 final SpreadsheetName name,
+                                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetRowKeyboardHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetRowMenuHistoryToken}
      */
     public static SpreadsheetRowMenuHistoryToken rowMenu(final SpreadsheetId id,
@@ -3115,7 +3128,18 @@ public abstract class HistoryToken implements HasUrlFragment {
                             selection
                         );
                     } else {
-                        // TODO SpreadsheetRowHistoryToken
+                        if (this instanceof SpreadsheetRowHistoryToken) {
+                            historyToken = rowKeyboard(
+                                id,
+                                name,
+                                selection
+                            );
+                        } else {
+                            historyToken = spreadsheetKeyboard(
+                                id,
+                                name
+                            );
+                        }
                     }
                 }
             } else {
