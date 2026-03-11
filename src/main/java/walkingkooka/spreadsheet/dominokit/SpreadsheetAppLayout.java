@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
-import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingsEventListener;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -52,14 +51,10 @@ final class SpreadsheetAppLayout extends AppLayout implements
     //   formula,
     //   table holding spreadsheet cells
 
-    static SpreadsheetAppLayout prepare(final SpreadsheetViewportComponentKeyBindings keyBindings,
-                                        final SpreadsheetViewportComponent viewportComponent,
+    static SpreadsheetAppLayout prepare(final SpreadsheetViewportComponent viewportComponent,
                                         final AppContext context) {
         Objects.requireNonNull(context, "context");
-        final SpreadsheetAppLayout layout = new SpreadsheetAppLayout(
-            keyBindings,
-            context
-        );
+        final SpreadsheetAppLayout layout = new SpreadsheetAppLayout(context);
 
         layout.setOverFlowX("hidden")
             .setOverFlowY("hidden");
@@ -92,8 +87,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return layout;
     }
 
-    private SpreadsheetAppLayout(final SpreadsheetViewportComponentKeyBindings keyBindings,
-                                 final AppContext context) {
+    private SpreadsheetAppLayout(final AppContext context) {
         super();
         context.addHistoryTokenWatcher(this);
         Doms.setVisibility(
@@ -104,8 +98,8 @@ final class SpreadsheetAppLayout extends AppLayout implements
         this.context = context;
 
         this.keyboardEventListener = SpreadsheetViewportComponentKeyBindingsEventListener.with(
-            keyBindings,
-            context
+            context.spreadsheetViewportComponentKeyBindings(),
+            context // KeyboardContext
         );
     }
 
