@@ -512,7 +512,6 @@ public class App implements EntryPoint,
         this.spreadsheetViewportComponentKeyBindings = SpreadsheetViewportComponentKeyBindingses.basic();
 
         this.viewportComponent = SpreadsheetViewportComponent.empty(
-            spreadsheetViewportComponentKeyBindings,
             SpreadsheetViewportComponentContexts.appContext(this)
         );
 

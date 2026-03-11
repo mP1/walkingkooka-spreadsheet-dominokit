@@ -149,6 +149,13 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
         throw new UnsupportedOperationException();
     }
 
+    // HasSpreadsheetViewportComponentKeyBindings.......................................................................
+
+    @Override
+    public SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings() {
+        throw new UnsupportedOperationException();
+    }
+
     // SpreadsheetViewportContext.......................................................................................
 
     @Override

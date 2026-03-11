@@ -166,6 +166,13 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
         return this.context;
     }
 
+    // HasSpreadsheetViewportComponentKeyBindings.......................................................................
+
+    @Override
+    public SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings() {
+        return this.context.spreadsheetViewportComponentKeyBindings();
+    }
+
     // SpreadsheetViewportContextDelegator..............................................................................
 
     @Override

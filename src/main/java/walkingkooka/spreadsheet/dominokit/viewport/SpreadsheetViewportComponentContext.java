@@ -37,6 +37,7 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
     HasSpreadsheetMetadata,
     HasSpreadsheetMetadataFetcherWatchers,
     HasSpreadsheetViewportCache,
+    HasSpreadsheetViewportComponentKeyBindings,
     CurrencyLocaleContext,
     RefreshContext,
     SpreadsheetComparatorProvider,
