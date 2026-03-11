@@ -29,14 +29,14 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindings;
-import walkingkooka.spreadsheet.dominokit.key.SpreadsheetViewportKeyBindingsEventListener;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataHistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPanelComponentContexts;
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponent;
 import walkingkooka.spreadsheet.dominokit.toolbar.ToolbarComponentContexts;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindings;
+import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportKeyBindingsEventListener;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
