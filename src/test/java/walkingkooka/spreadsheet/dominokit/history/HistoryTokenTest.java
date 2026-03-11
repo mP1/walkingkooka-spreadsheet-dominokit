@@ -3037,6 +3037,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // cell/keyboard....................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameCellKeyboard() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/cell/A1/keyboard",
+            HistoryToken.cellKeyboard(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // cell/label.......................................................................................................
 
     @Test

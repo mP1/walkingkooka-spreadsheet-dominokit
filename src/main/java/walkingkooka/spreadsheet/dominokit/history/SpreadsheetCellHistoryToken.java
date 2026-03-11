@@ -525,6 +525,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case FORMULA_STRING:
                 result = this.formula();
                 break;
+            case KEYBOARD_STRING:
+                result = this.keyboard();
+                break;
             case LABEL_STRING:
                 result = this.labelMapping();
                 break;

@@ -236,6 +236,12 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
         // NOP
     }
 
+    protected void visitCellKeyboard(final SpreadsheetId id,
+                                     final SpreadsheetName name,
+                                     final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+
     protected void visitCellLabelList(final SpreadsheetId id,
                                       final SpreadsheetName name,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
