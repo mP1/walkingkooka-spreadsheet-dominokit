@@ -3986,6 +3986,20 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         );
     }
 
+    // column/keyboard..................................................................................................
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameColumnKeyboard() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/column/AA/keyboard",
+            HistoryToken.columnKeyboard(
+                ID,
+                NAME,
+                COLUMN.setDefaultAnchor()
+            )
+        );
+    }
+
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameColumnMenu() {
         this.parseStringAndCheck(
