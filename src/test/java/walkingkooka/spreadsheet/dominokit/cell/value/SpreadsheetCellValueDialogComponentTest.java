@@ -73,13 +73,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         59
     );
 
-    private static final DateComponentContext DATE_COMPONENT_CONTEXT = new FakeDateComponentContext() {
-
-        @Override
-        public LocalDate clearValue() {
-            return DATE_TIME.toLocalDate();
-        }
-    };
+    private static final DateComponentContext DATE_COMPONENT_CONTEXT = new FakeDateComponentContext();
 
     // isMatch..........................................................................................................
 
@@ -161,7 +155,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateComponent\n" +
-                "        [1999-12-31] id=Test123date-Date\n" +
+                "        [] id=Test123date-Date\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +

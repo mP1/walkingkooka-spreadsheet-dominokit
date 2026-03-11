@@ -30,11 +30,6 @@ public interface TemporalComponentContext<T extends Temporal> extends Context,
     HasLocale {
 
     /**
-     * The {@link Temporal} when the value is cleared or deleted.
-     */
-    T clearValue();
-
-    /**
      * The {@link DateTimeSymbols}.
      */
     DateTimeSymbols dateTimeSymbols();
