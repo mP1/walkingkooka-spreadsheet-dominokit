@@ -116,16 +116,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     LoadedSpreadsheetMetadataRequired,
     NopEmptyResponseFetcherWatcher {
 
-    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentKeyBindings keyBindings,
-                                                     final SpreadsheetViewportComponentContext context) {
+    public static SpreadsheetViewportComponent empty(final SpreadsheetViewportComponentContext context) {
         return new SpreadsheetViewportComponent(
-            Objects.requireNonNull(keyBindings, "keyBindings"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetViewportComponent(final SpreadsheetViewportComponentKeyBindings keyBindings,
-                                         final SpreadsheetViewportComponentContext context) {
+    private SpreadsheetViewportComponent(final SpreadsheetViewportComponentContext context) {
         this.context = context;
 
         this.formula = this.createFormula();
@@ -138,7 +135,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             );
 
         this.table = this.table(
-            keyBindings,
+            context.spreadsheetViewportComponentKeyBindings(),
             context
         );
 
