@@ -1352,6 +1352,19 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
+     * {@see SpreadsheetColumnKeyboardHistoryToken}
+     */
+    public static SpreadsheetColumnKeyboardHistoryToken columnKeyboard(final SpreadsheetId id,
+                                                                       final SpreadsheetName name,
+                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetColumnKeyboardHistoryToken.with(
+            id,
+            name,
+            anchoredSelection
+        );
+    }
+
+    /**
      * {@see SpreadsheetColumnMenuHistoryToken}
      */
     public static SpreadsheetColumnMenuHistoryToken columnMenu(final SpreadsheetId id,
@@ -3094,8 +3107,17 @@ public abstract class HistoryToken implements HasUrlFragment {
                         name,
                         selection
                     );
+                } else {
+                    if (this instanceof SpreadsheetColumnHistoryToken) {
+                        historyToken = columnKeyboard(
+                            id,
+                            name,
+                            selection
+                        );
+                    } else {
+                        // TODO SpreadsheetRowHistoryToken
+                    }
                 }
-                // TODO SpreadsheetColumnHistoryToken & SpreadsheetRowHistoryToken
             } else {
                 historyToken = spreadsheetKeyboard(
                     id,
@@ -3106,7 +3128,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return this.elseIfDifferent(historyToken);
     }
-    
+
     // LABEL............................................................................................................
 
     public final HistoryToken createLabel() {
