@@ -79,13 +79,7 @@ public final class SpreadsheetCellKeyboardHistoryToken extends SpreadsheetCellHi
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        context.spreadsheetDeltaFetcher()
-            .getCells(
-                this.id,
-                context.viewport(
-                    context.historyToken().anchoredSelectionOrEmpty()
-                )
-            );
+        // NOP
     }
 
     // HistoryTokenVisitor..............................................................................................
