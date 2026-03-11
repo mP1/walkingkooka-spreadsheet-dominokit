@@ -15,26 +15,26 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
 /**
  * A collection of factory methods that dispatch keyboard events, such as CONTROL+B setting/remove BOLD from a {@link walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference}.
  */
-public final class KeyboardContexts implements PublicStaticHelper {
+public final class SpreadsheetViewportComponentKeyBindingsContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeKeyboardContext}
+     * {@see FakeSpreadsheetViewportComponentKeyBindingsContext}
      */
-    public static KeyboardContext fake() {
-        return new FakeKeyboardContext();
+    public static SpreadsheetViewportComponentKeyBindingsContext fake() {
+        return new FakeSpreadsheetViewportComponentKeyBindingsContext();
     }
 
     /**
      * Stop creation
      */
-    private KeyboardContexts() {
+    private SpreadsheetViewportComponentKeyBindingsContexts() {
         throw new UnsupportedOperationException();
     }
 }

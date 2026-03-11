@@ -15,22 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.key;
+package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class KeyboardContextsTest implements PublicStaticHelperTesting<KeyboardContexts> {
+public final class SpreadsheetViewportComponentKeyBindingsContextsTest implements PublicStaticHelperTesting<SpreadsheetViewportComponentKeyBindingsContexts> {
     @Override
     public boolean canHavePublicTypes(final Method method) {
         return false;
     }
 
     @Override
-    public Class<KeyboardContexts> type() {
-        return KeyboardContexts.class;
+    public Class<SpreadsheetViewportComponentKeyBindingsContexts> type() {
+        return SpreadsheetViewportComponentKeyBindingsContexts.class;
     }
 
     @Override

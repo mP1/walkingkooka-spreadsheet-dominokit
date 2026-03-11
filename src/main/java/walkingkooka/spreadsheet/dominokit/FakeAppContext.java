@@ -923,7 +923,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // KeyboardContext.......................................................................................
+    // SpreadsheetViewportComponentKeyBindingsContext.......................................................................................
 
     @Override
     public Optional<SpreadsheetCell> historyTokenCell() {
