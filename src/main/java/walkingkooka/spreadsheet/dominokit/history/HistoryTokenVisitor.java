@@ -532,7 +532,8 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
 
     protected void visitFormSave(final SpreadsheetId id,
                                  final SpreadsheetName name,
-                                 final Form<SpreadsheetValidationReference> form) {
+                                 final Form<SpreadsheetValidationReference> form,
+                                 final Optional<SpreadsheetValidationReference> field) {
         // NOP
     }
 

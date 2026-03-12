@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
@@ -60,6 +61,11 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
     }
 
     final FormName formName;
+
+    @Override
+    Optional<SpreadsheetValidationReference> field() {
+        return NO_FIELD;
+    }
 
     // #/1/SpreadsheetName/form/FormName/delete
     @Override

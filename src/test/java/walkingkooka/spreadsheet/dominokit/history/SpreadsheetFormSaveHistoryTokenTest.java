@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.form.Form;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormSaveHistoryToken> {
@@ -48,7 +50,21 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
             () -> SpreadsheetFormSaveHistoryToken.with(
                 ID,
                 NAME,
-                null
+                null,
+                HistoryToken.NO_FIELD
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullFieldFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetFormSaveHistoryToken.with(
+                ID,
+                NAME,
+                FORM,
+                null // value
             )
         );
     }
@@ -108,13 +124,44 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         );
     }
 
+    @Test
+    public void testUrlFragmentWithFieldCell() {
+        this.urlFragmentAndCheck(
+            SpreadsheetFormSaveHistoryToken.with(
+                ID,
+                NAME,
+                FORM,
+                Optional.of(SpreadsheetSelection.A1)
+            ),
+            "/123/SpreadsheetName456/form/FormName123/field/A1/save/" +
+                JsonNodeMarshallContexts.basic()
+                    .marshall(FORM)
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithFieldLabel() {
+        this.urlFragmentAndCheck(
+            SpreadsheetFormSaveHistoryToken.with(
+                ID,
+                NAME,
+                FORM,
+                Optional.of(LABEL)
+            ),
+            "/123/SpreadsheetName456/form/FormName123/field/Label123/save/" +
+                JsonNodeMarshallContexts.basic()
+                    .marshall(FORM)
+        );
+    }
+
     @Override
     SpreadsheetFormSaveHistoryToken createHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name) {
         return SpreadsheetFormSaveHistoryToken.with(
             id,
             name,
-            FORM
+            FORM,
+            HistoryToken.NO_FIELD
         );
     }
 

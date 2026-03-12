@@ -1494,11 +1494,13 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public static SpreadsheetFormSaveHistoryToken formSave(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final Form<SpreadsheetValidationReference> form) {
+                                                           final Form<SpreadsheetValidationReference> form,
+                                                           final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSaveHistoryToken.with(
             id,
             name,
-            form
+            form,
+            field
         );
     }
 
@@ -2911,15 +2913,31 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         HistoryToken historyToken = this;
 
-        if (this instanceof SpreadsheetFormSelectHistoryToken) {
+        if (this instanceof SpreadsheetFormHistoryToken) {
             final SpreadsheetFormSelectHistoryToken spreadsheetFormSelectHistoryToken = this.cast(SpreadsheetFormSelectHistoryToken.class);
+            final SpreadsheetId spreadsheetId = spreadsheetFormSelectHistoryToken.id;
+            final SpreadsheetName spreadsheetName = spreadsheetFormSelectHistoryToken.name;
 
-            historyToken = formSelect(
-                spreadsheetFormSelectHistoryToken.id(),
-                spreadsheetFormSelectHistoryToken.name(),
-                spreadsheetFormSelectHistoryToken.formName,
-                field
-            );
+            if (this instanceof SpreadsheetFormSelectHistoryToken) {
+                historyToken = formSelect(
+                    spreadsheetId,
+                    spreadsheetName,
+                    this.cast(SpreadsheetFormSelectHistoryToken.class)
+                        .formName,
+                    field
+                );
+            } else {
+                if (this instanceof SpreadsheetFormSaveHistoryToken) {
+                    historyToken = formSelect(
+                        spreadsheetFormSelectHistoryToken.id(),
+                        spreadsheetFormSelectHistoryToken.name(),
+                        this.cast(SpreadsheetFormSaveHistoryToken.class)
+                            .form
+                            .name(),
+                        field
+                    );
+                }
+            }
         }
 
         return historyToken;
@@ -4324,7 +4342,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                             HistoryToken.parseJson(
                                 JsonNode.parse(value),
                                 SpreadsheetForms.FORM_CLASS
-                            )
+                            ),
+                            this.cast(SpreadsheetFormHistoryToken.class)
+                                .field()
                         );
                     }
 
