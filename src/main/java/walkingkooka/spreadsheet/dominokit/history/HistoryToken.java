@@ -353,6 +353,8 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     public final static Optional<SpreadsheetValidationReference> NO_FIELD = Optional.empty();
 
+    public final static Optional<SpreadsheetViewportHomeNavigationList> NO_NAVIGATION = Optional.empty();
+
     /**
      * {@see SpreadsheetCellClearAndFormulaHistoryToken}
      */
@@ -3811,7 +3813,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         navigation = this.cast(SpreadsheetRowNavigateHistoryToken.class)
                             .navigation;
                     } else {
-                        navigation = Optional.empty();
+                        navigation = NO_NAVIGATION;
                     }
                 }
             }

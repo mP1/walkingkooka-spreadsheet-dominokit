@@ -29,9 +29,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -85,15 +82,13 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
         );
     }
 
-    private final static Optional<SpreadsheetViewportHomeNavigationList> MISSING_NAVIGATION_LIST = Optional.empty();
-
     @Test
     public void testOnHistoryTokenWithSpreadsheetNavigate() {
         final TestAppContext context = new TestAppContext(
             HistoryToken.navigate(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                MISSING_NAVIGATION_LIST
+                HistoryToken.NO_NAVIGATION
             )
         );
 
@@ -132,7 +127,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("B2")
                     .setDefaultAnchor(),
-                MISSING_NAVIGATION_LIST
+                HistoryToken.NO_NAVIGATION
             )
         );
 
@@ -171,7 +166,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("C")
                     .setDefaultAnchor(),
-                MISSING_NAVIGATION_LIST
+                HistoryToken.NO_NAVIGATION
             )
         );
 
@@ -210,7 +205,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("99")
                     .setDefaultAnchor(),
-                MISSING_NAVIGATION_LIST
+                HistoryToken.NO_NAVIGATION
             )
         );
 

@@ -46,7 +46,7 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextColumnNavi
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),
-            Optional.empty()
+            HistoryToken.NO_NAVIGATION
         );
         this.isMatchAndCheck(
             this.createContext(historyToken),
