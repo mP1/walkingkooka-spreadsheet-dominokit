@@ -3182,7 +3182,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                Optional.empty()
+                HistoryToken.NO_NAVIGATION
             )
         );
     }
