@@ -20,6 +20,9 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+
+import java.util.Optional;
 
 import static org.junit.Assert.assertThrows;
 
@@ -34,6 +37,20 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
             () -> SpreadsheetFormSelectHistoryToken.with(
                 ID,
                 NAME,
+                null,
+                Optional.empty()
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullFieldFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetFormSelectHistoryToken.with(
+                ID,
+                NAME,
+                FORM_NAME,
                 null
             )
         );
@@ -58,7 +75,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
             SpreadsheetFormSelectHistoryToken.with(
                 ID,
                 NAME,
-                FORM_NAME
+                FORM_NAME,
+                Optional.empty() // SpreadsheetValidationReference
             )
         );
     }
@@ -84,13 +102,44 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         );
     }
 
+    @Test
+    public void testUrlFragmentWithFieldSpreadsheetCellReference() {
+        this.urlFragmentAndCheck(
+            SpreadsheetFormSelectHistoryToken.with(
+                ID,
+                NAME,
+                FORM_NAME,
+                Optional.of(
+                    SpreadsheetSelection.A1
+                )
+            ),
+            "/123/SpreadsheetName456/form/FormName123/field/A1"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithFieldSpreadsheetLabelName() {
+        this.urlFragmentAndCheck(
+            SpreadsheetFormSelectHistoryToken.with(
+                ID,
+                NAME,
+                FORM_NAME,
+                Optional.of(
+                    SpreadsheetSelection.labelName("Label123")
+                )
+            ),
+            "/123/SpreadsheetName456/form/FormName123/field/Label123"
+        );
+    }
+
     @Override
     SpreadsheetFormSelectHistoryToken createHistoryToken(final SpreadsheetId id,
                                                          final SpreadsheetName name) {
         return SpreadsheetFormSelectHistoryToken.with(
             id,
             name,
-            FORM_NAME
+            FORM_NAME,
+            Optional.empty()
         );
     }
 

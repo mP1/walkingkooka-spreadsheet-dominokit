@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
@@ -36,22 +37,26 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
 
     static SpreadsheetFormSelectHistoryToken with(final SpreadsheetId id,
                                                   final SpreadsheetName name,
-                                                  final FormName formName) {
+                                                  final FormName formName,
+                                                  final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSelectHistoryToken(
             id,
             name,
-            formName
+            formName,
+            field
         );
     }
 
     private SpreadsheetFormSelectHistoryToken(final SpreadsheetId id,
                                               final SpreadsheetName name,
-                                              final FormName formName) {
+                                              final FormName formName,
+                                              final Optional<SpreadsheetValidationReference> field) {
         super(
             id,
             name
         );
         this.formName = Objects.requireNonNull(formName, "formName");
+        this.field = Objects.requireNonNull(field, "field");
     }
 
     @Override
@@ -61,10 +66,23 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
 
     final FormName formName;
 
+    public Optional<SpreadsheetValidationReference> field() {
+        return this.field;
+    }
+
+    private final Optional<SpreadsheetValidationReference> field;
+
     // #/1/SpreadsheetName/form/FormName
+    // #/1/SpreadsheetName/form/FormName/field/A1
+    // #/1/SpreadsheetName/form/FormName/field/Label123
     @Override
     UrlFragment formUrlFragment() {
-        return this.formName.urlFragment();
+        return this.formName.urlFragment()
+            .appendSlashThen(
+                this.field.map(
+                        f -> FIELD.appendSlashThen(f.urlFragment()))
+                    .orElse(UrlFragment.EMPTY)
+            );
     }
 
     @Override //
@@ -73,7 +91,8 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
         return with(
             id,
             name,
-            this.formName
+            this.formName,
+            this.field
         );
     }
 
@@ -96,7 +115,8 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
         visitor.visitFormSelect(
             this.id,
             this.name,
-            this.formName
+            this.formName,
+            this.field
         );
     }
 }

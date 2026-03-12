@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
@@ -72,6 +73,9 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
             case WILDCARD_STRING:
                 historyToken = this.parseOffsetAndCount(cursor);
                 break;
+            case FIELD_STRING:
+                historyToken = this.parseField(cursor);
+                break;
             case DELETE_STRING:
                 historyToken = this.delete();
                 break;
@@ -87,4 +91,22 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
         return historyToken;
     }
 
+    private HistoryToken parseField(final TextCursor cursor) {
+        final String component = parseComponentOrEmpty(cursor);
+
+        HistoryToken historyToken = this;
+        try {
+            historyToken = this.setField(
+                Optional.ofNullable(
+                    component.isEmpty() ?
+                        null :
+                        SpreadsheetSelection.parseValidationReference(component)
+                )
+            );
+        } catch (final RuntimeException ignore) {
+            // ignore invalid field
+        }
+
+        return historyToken;
+    }
 }

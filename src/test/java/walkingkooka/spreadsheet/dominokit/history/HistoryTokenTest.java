@@ -4161,7 +4161,36 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             HistoryToken.formSelect(
                 ID,
                 NAME,
-                FormName.with("FormName123")
+                FormName.with("FormName123"),
+                Optional.empty() // field
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameFieldCell() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/field/A1",
+            HistoryToken.formSelect(
+                ID,
+                NAME,
+                FormName.with("FormName123"),
+                Optional.of(
+                    SpreadsheetSelection.A1
+                )
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameFieldLabel() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/field/Label123",
+            HistoryToken.formSelect(
+                ID,
+                NAME,
+                FormName.with("FormName123"),
+                Optional.of(LABEL)
             )
         );
     }
@@ -4185,7 +4214,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             HistoryToken.formSelect(
                 ID,
                 NAME,
-                FormName.with("FormName123")
+                FormName.with("FormName123"),
+                Optional.empty() // SpreadsheetValidationReference
             )
         );
     }

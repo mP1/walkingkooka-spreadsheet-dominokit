@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -216,7 +217,8 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                 token = HistoryToken.formSelect(
                     id,
                     name,
-                    FormName.with(component)
+                    FormName.with(component),
+                    Optional.<SpreadsheetValidationReference>empty()
                 );
                 break;
         }

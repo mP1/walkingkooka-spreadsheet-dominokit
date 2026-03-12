@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.form.Form;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormSaveHistoryToken> {
@@ -72,7 +74,8 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
             HistoryToken.formSelect(
                 ID,
                 NAME,
-                FORM_NAME
+                FORM_NAME,
+                Optional.empty() // SpreadsheetValidationReference
             )
         );
     }
