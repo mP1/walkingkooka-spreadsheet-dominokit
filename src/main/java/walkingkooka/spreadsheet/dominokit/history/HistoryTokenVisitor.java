@@ -30,10 +30,10 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
@@ -532,7 +532,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
 
     protected void visitFormSave(final SpreadsheetId id,
                                  final SpreadsheetName name,
-                                 final Form<SpreadsheetExpressionReference> form) {
+                                 final Form<SpreadsheetValidationReference> form) {
         // NOP
     }
 

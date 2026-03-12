@@ -40,12 +40,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolvers;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
@@ -4192,7 +4192,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameFormFormNameSaveForm() {
-        final Form<SpreadsheetExpressionReference> form = SpreadsheetForms.form(
+        final Form<SpreadsheetValidationReference> form = SpreadsheetForms.form(
             FormName.with("FormName123")
         ).setFields(
             Lists.of(

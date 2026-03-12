@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
@@ -1485,7 +1486,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public static SpreadsheetFormSaveHistoryToken formSave(final SpreadsheetId id,
                                                            final SpreadsheetName name,
-                                                           final Form<SpreadsheetExpressionReference> form) {
+                                                           final Form<SpreadsheetValidationReference> form) {
         return SpreadsheetFormSaveHistoryToken.with(
             id,
             name,
