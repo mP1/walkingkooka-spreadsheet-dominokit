@@ -33,6 +33,8 @@ import java.util.Optional;
  * The save form action saves a new or replaces an existing {@link Form}.
  * <pre>
  * #/1/SpreadsheetName/form/FormName/save/Form
+ * #/1/SpreadsheetName/form/FormName/field/A1/save/Form
+ * #/1/SpreadsheetName/form/FormName/field/LABEL123/save/Form
  * </pre>
  */
 public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistoryToken
@@ -40,22 +42,26 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
 
     static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final Form<SpreadsheetValidationReference> form) {
+                                                final Form<SpreadsheetValidationReference> form,
+                                                final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSaveHistoryToken(
             id,
             name,
-            form
+            form,
+            field
         );
     }
 
     private SpreadsheetFormSaveHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final Form<SpreadsheetValidationReference> form) {
+                                            final Form<SpreadsheetValidationReference> form,
+                                            final Optional<SpreadsheetValidationReference> field) {
         super(
             id,
             name
         );
         this.form = Objects.requireNonNull(form, "form");
+        this.field = Objects.requireNonNull(field, "field");
     }
 
     @Override
@@ -66,18 +72,32 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     }
 
     @Override
+    public Optional<SpreadsheetValidationReference> field() {
+        return this.field;
+    }
+
+    private final Optional<SpreadsheetValidationReference> field;
+
+    @Override
     public Form<SpreadsheetValidationReference> value() {
         return this.form;
     }
 
-    private final Form<SpreadsheetValidationReference> form;
+    final Form<SpreadsheetValidationReference> form;
 
     // #/1/SpreadsheetName/form/FormName/save/Form
+    // #/1/SpreadsheetName/form/FormName/field/A1/save/Form
+    // #/1/SpreadsheetName/form/FormName/field/LABEL123/save/Form
     @Override
     UrlFragment formUrlFragment() {
-        return this.form.name().urlFragment()
+        return this.form.name()
+            .urlFragment()
             .appendSlashThen(
-                SAVE).appendSlashThen(
+                this.field.map(
+                        f -> FIELD.appendSlashThen(f.urlFragment()))
+                    .orElse(UrlFragment.EMPTY)
+            ).appendSlashThen(SAVE)
+            .appendSlashThen(
                 UrlFragment.with(
                     MARSHALL_UNMARSHALL_CONTEXT.marshall(this.form)
                         .toString()
@@ -91,7 +111,8 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         return with(
             id,
             name,
-            this.form
+            this.form,
+            this.field
         );
     }
 
@@ -119,7 +140,8 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         visitor.visitFormSave(
             this.id,
             this.name,
-            this.form
+            this.form,
+            this.field
         );
     }
 }

@@ -4237,7 +4237,54 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             HistoryToken.formSave(
                 ID,
                 NAME,
-                form
+                form,
+                HistoryToken.NO_FIELD
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameFieldCellSaveForm() {
+        final Form<SpreadsheetValidationReference> form = SpreadsheetForms.form(
+            FormName.with("FormName123")
+        ).setFields(
+            Lists.of(
+                SpreadsheetForms.field(
+                    SpreadsheetSelection.A1
+                ).setLabel("LabelA1")
+            )
+        );
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/field/A1/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
+            HistoryToken.formSave(
+                ID,
+                NAME,
+                form,
+                Optional.of(SpreadsheetSelection.A1)
+            )
+        );
+    }
+
+    @Test
+    public void testParseSpreadsheetIdSpreadsheetNameFormFormNameFieldLabelSaveForm() {
+        final Form<SpreadsheetValidationReference> form = SpreadsheetForms.form(
+            FormName.with("FormName123")
+        ).setFields(
+            Lists.of(
+                SpreadsheetForms.field(
+                    SpreadsheetSelection.A1
+                ).setLabel("LabelA1")
+            )
+        );
+
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/form/FormName123/field/Label123/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
+            HistoryToken.formSave(
+                ID,
+                NAME,
+                form,
+                Optional.of(LABEL)
             )
         );
     }
