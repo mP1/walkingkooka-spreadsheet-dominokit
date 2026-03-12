@@ -183,6 +183,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment EDIT = UrlFragment.parse(EDIT_STRING);
 
+    final static String FIELD_STRING = "field";
+
+    final static UrlFragment FIELD = UrlFragment.parse(FIELD_STRING);
+
     final static String FILE_STRING = "file";
 
     final static UrlFragment FILE = UrlFragment.parse(FILE_STRING);
@@ -1473,11 +1477,13 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public static SpreadsheetFormSelectHistoryToken formSelect(final SpreadsheetId id,
                                                                final SpreadsheetName name,
-                                                               final FormName formName) {
+                                                               final FormName formName,
+                                                               final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSelectHistoryToken.with(
             id,
             name,
-            formName
+            formName,
+            field
         );
     }
 
@@ -2893,6 +2899,30 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
+    // FIELD............................................................................................................
+
+    /**
+     * Creates a {@link SpreadsheetFormSelectHistoryToken} with the given {@link SpreadsheetValidationReference}.
+     */
+    public final HistoryToken setField(final Optional<SpreadsheetValidationReference> field) {
+        Objects.requireNonNull(field, "field");
+
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetFormSelectHistoryToken) {
+            final SpreadsheetFormSelectHistoryToken spreadsheetFormSelectHistoryToken = this.cast(SpreadsheetFormSelectHistoryToken.class);
+
+            historyToken = formSelect(
+                spreadsheetFormSelectHistoryToken.id(),
+                spreadsheetFormSelectHistoryToken.name(),
+                spreadsheetFormSelectHistoryToken.formName,
+                field
+            );
+        }
+
+        return historyToken;
+    }
+    
     // FORMATTER........................................................................................................
 
     /**

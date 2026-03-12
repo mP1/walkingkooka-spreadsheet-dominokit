@@ -101,7 +101,8 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         return formSelect(
             this.id,
             this.name,
-            this.form.name()
+            this.form.name(),
+            Optional.<SpreadsheetValidationReference>empty() // no SpreadsheetViewportReference
         );
     }
 
