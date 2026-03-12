@@ -4162,7 +4162,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 FormName.with("FormName123"),
-                Optional.empty() // field
+                HistoryToken.NO_FIELD
             )
         );
     }
@@ -4215,7 +4215,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 FormName.with("FormName123"),
-                Optional.empty() // SpreadsheetValidationReference
+                HistoryToken.NO_FIELD
             )
         );
     }

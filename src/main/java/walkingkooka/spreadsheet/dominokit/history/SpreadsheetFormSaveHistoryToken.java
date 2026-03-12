@@ -102,7 +102,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
             this.id,
             this.name,
             this.form.name(),
-            Optional.<SpreadsheetValidationReference>empty() // no SpreadsheetValidationReference
+            NO_FIELD
         );
     }
 
