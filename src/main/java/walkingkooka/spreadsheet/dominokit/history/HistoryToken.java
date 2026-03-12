@@ -351,6 +351,8 @@ public abstract class HistoryToken implements HasUrlFragment {
         )
     );
 
+    public final static Optional<SpreadsheetValidationReference> NO_FIELD = Optional.empty();
+
     /**
      * {@see SpreadsheetCellClearAndFormulaHistoryToken}
      */
