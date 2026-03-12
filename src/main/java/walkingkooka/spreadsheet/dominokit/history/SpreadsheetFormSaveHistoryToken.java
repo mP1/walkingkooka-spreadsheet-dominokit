@@ -22,7 +22,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.validation.form.Form;
 import walkingkooka.validation.form.FormName;
 
@@ -36,11 +36,11 @@ import java.util.Optional;
  * </pre>
  */
 public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistoryToken
-    implements Value<Form<SpreadsheetExpressionReference>> {
+    implements Value<Form<SpreadsheetValidationReference>> {
 
     static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final Form<SpreadsheetExpressionReference> form) {
+                                                final Form<SpreadsheetValidationReference> form) {
         return new SpreadsheetFormSaveHistoryToken(
             id,
             name,
@@ -50,7 +50,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
 
     private SpreadsheetFormSaveHistoryToken(final SpreadsheetId id,
                                             final SpreadsheetName name,
-                                            final Form<SpreadsheetExpressionReference> form) {
+                                            final Form<SpreadsheetValidationReference> form) {
         super(
             id,
             name
@@ -66,11 +66,11 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     }
 
     @Override
-    public Form<SpreadsheetExpressionReference> value() {
+    public Form<SpreadsheetValidationReference> value() {
         return this.form;
     }
 
-    private final Form<SpreadsheetExpressionReference> form;
+    private final Form<SpreadsheetValidationReference> form;
 
     // #/1/SpreadsheetName/form/FormName/save/Form
     @Override

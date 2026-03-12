@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.validation.form.Form;
@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHistoryTokenTestCase<SpreadsheetFormSaveHistoryToken> {
 
-    private final static Form<SpreadsheetExpressionReference> FORM = SpreadsheetForms.form(FORM_NAME).setFields(
+    private final static Form<SpreadsheetValidationReference> FORM = SpreadsheetForms.form(FORM_NAME).setFields(
         Lists.of(
             SpreadsheetForms.field(
                 SpreadsheetSelection.A1

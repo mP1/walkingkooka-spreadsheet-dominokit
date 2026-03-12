@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaHttpMappings;
 import walkingkooka.spreadsheet.server.delta.SpreadsheetDeltaUrlQueryParameters;
 import walkingkooka.spreadsheet.server.net.SpreadsheetServerLinkRelations;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -1128,7 +1129,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     // POST /api/spreadsheet/SpreadsheetId/form/FormName
     public void postForm(final SpreadsheetId id,
                          final FormName formName,
-                         final Form<SpreadsheetExpressionReference> form) {
+                         final Form<SpreadsheetValidationReference> form) {
         this.postDelta(
             formUrl(
                 id,
