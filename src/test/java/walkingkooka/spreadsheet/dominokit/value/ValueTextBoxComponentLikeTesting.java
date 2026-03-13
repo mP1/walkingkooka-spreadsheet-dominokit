@@ -19,5 +19,43 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponentLike<C, V>, V> extends FormValueComponentTesting<HTMLFieldSetElement, V, C> {
+
+    // stringValue......................................................................................................
+
+    default void stringValueAndCheck(final C component) {
+        this.stringValueAndCheck(
+            component,
+            Optional.empty()
+        );
+    }
+
+    default void stringValueAndCheck(final C component,
+                                     final V expected) {
+        this.stringValueAndCheck(
+            component,
+            Optional.of(expected)
+        );
+    }
+
+    default void stringValueAndCheck(final C component,
+                                     final Optional<V> expected) {
+        this.checkEquals(
+            expected,
+            component.stringValue()
+        );
+    }
+
+    // setStringValue...................................................................................................
+
+    default void setStringValueWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent().setStringValue(null)
+        );
+    }
 }
