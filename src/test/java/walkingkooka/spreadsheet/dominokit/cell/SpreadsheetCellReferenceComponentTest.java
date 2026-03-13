@@ -112,7 +112,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
     }
 
     @Test
-    public void testSetStringValue() {
+    public void testSetStringValueWithCell() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setStringValue(
@@ -124,6 +124,22 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [C3] id=cell-id\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithAbsoluteMixedCaseCell() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "$D4"
+                    )
+                ),
+            "SpreadsheetCellReferenceComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [$D4] id=cell-id\n"
         );
     }
 
