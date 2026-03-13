@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.validator;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.validation.provider.ValidatorInfoSet;
 import walkingkooka.validation.provider.ValidatorProviders;
 
 import java.util.Optional;
 
-public final class ValidatorInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValidatorInfoSet, ValidatorInfoSetComponent> {
+public final class ValidatorInfoSetComponentTest implements ValueTextBoxComponentLikeTesting<ValidatorInfoSetComponent,  ValidatorInfoSet> {
 
     @Test
     public void testParseAndText() {

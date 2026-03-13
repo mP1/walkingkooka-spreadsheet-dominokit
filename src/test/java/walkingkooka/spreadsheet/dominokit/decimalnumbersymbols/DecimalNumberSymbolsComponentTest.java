@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class DecimalNumberSymbolsComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, DecimalNumberSymbols, DecimalNumberSymbolsComponent> {
+public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComponentLikeTesting<DecimalNumberSymbolsComponent, DecimalNumberSymbols> {
 
     @Test
     public void testParseAndText() {

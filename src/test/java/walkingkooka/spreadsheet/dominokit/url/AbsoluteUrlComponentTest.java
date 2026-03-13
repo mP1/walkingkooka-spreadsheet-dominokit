@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.url;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class AbsoluteUrlComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, AbsoluteUrl, AbsoluteUrlComponent> {
+public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLikeTesting<AbsoluteUrlComponent, AbsoluteUrl> {
 
     @Test
     public void testClearValue() {

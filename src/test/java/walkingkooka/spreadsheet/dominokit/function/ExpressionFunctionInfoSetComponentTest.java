@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.function;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
 import java.util.Optional;
 
-public final class ExpressionFunctionInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ExpressionFunctionInfoSet, ExpressionFunctionInfoSetComponent> {
+public final class ExpressionFunctionInfoSetComponentTest implements ValueTextBoxComponentLikeTesting<ExpressionFunctionInfoSetComponent, ExpressionFunctionInfoSet> {
 
     @Test
     public void testParseAndText() {

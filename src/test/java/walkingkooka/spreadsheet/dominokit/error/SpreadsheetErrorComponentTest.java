@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.error;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetError;
 import walkingkooka.spreadsheet.value.SpreadsheetErrorKind;
 
 import java.util.Optional;
 
-public final class SpreadsheetErrorComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetError, SpreadsheetErrorComponent> {
+public final class SpreadsheetErrorComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetErrorComponent, SpreadsheetError> {
 
     private final static SpreadsheetError ERROR = SpreadsheetErrorKind.DIV0.setMessage("Hello Error 123");
 

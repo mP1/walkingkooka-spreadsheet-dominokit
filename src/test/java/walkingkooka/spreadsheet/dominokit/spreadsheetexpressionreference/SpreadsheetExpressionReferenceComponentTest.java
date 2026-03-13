@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Optional;
 
-public final class SpreadsheetExpressionReferenceComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetExpressionReference, SpreadsheetExpressionReferenceComponent> {
+public final class SpreadsheetExpressionReferenceComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetExpressionReferenceComponent, SpreadsheetExpressionReference> {
 
     @Test
     public void testSetStringValueWithCell() {

@@ -17,18 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.csv;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DateFormatSymbols;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class CsvStringListComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, CsvStringList, CsvStringListComponent> {
+public final class CsvStringListComponentTest implements ValueTextBoxComponentLikeTesting<CsvStringListComponent, CsvStringList> {
 
     private final CsvStringList MONTH_NAMES_LIST = CsvStringList.EMPTY.setElements(
         DateTimeSymbols.fromDateFormatSymbols(
