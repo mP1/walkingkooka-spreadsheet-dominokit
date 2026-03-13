@@ -123,24 +123,24 @@ public final class TextBoxComponent extends TextBoxComponentLike
     private boolean required;
 
     @Override
-    public Validator<Optional<String>> validator() {
+    public Optional<Validator<Optional<String>>> validator() {
         return this.validator;
     }
 
     @Override
-    public TextBoxComponent setValidator(final Validator<Optional<String>> validator) {
+    public TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator) {
         this.validator = validator;
         return this;
     }
 
-    private Validator<Optional<String>> validator;
+    private Optional<Validator<Optional<String>>> validator = Optional.empty();
 
     @Override
     public TextBoxComponent validate() {
         this.setErrors(
             this.validateAndGetErrors(
                 value,
-                Optional.ofNullable(this.validator)
+                this.validator
             )
         );
         return this;

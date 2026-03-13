@@ -236,7 +236,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
-    public Validator<Optional<String>> validator() {
+    public Optional<Validator<Optional<String>>> validator() {
         final Set<Validator<TextBox>> validators = this.textBox.getValidators();
 
         Validator<Optional<String>> validator = null;
@@ -252,17 +252,22 @@ public final class TextBoxComponent extends TextBoxComponentLike
             }
         }
 
-        return validator;
+        return Optional.ofNullable(validator);
     }
 
     @Override
-    public TextBoxComponent setValidator(final Validator<Optional<String>> validator) {
+    public TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator) {
         final TextBox textBox = this.textBox;
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();
-        textBox.addValidator(
-            TextBoxComponentValidator.with(validator)
-        );
+
+        if (validator.isPresent()) {
+            textBox.addValidator(
+                TextBoxComponentValidator.with(
+                    validator.get()
+                )
+            );
+        }
         return this;
     }
 

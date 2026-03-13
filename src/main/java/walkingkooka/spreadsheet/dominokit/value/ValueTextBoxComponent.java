@@ -167,7 +167,9 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     private void setTextBoxValidator(final Validator<Optional<String>> validator) {
         this.validatorChange = this.validatorChange | false == validator.equals(this.textBox.validator());
 
-        this.textBox.setValidator(validator);
+        this.textBox.setValidator(
+            Optional.of(validator)
+        );
     }
 
     @Override
