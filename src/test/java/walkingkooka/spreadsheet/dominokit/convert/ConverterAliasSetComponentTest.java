@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.convert;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.convert.provider.ConverterProviders;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class ConverterAliasSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ConverterAliasSet, ConverterAliasSetComponent> {
+public final class ConverterAliasSetComponentTest implements ValueTextBoxComponentLikeTesting<ConverterAliasSetComponent, ConverterAliasSet> {
 
     @Test
     public void testParseAndText() {

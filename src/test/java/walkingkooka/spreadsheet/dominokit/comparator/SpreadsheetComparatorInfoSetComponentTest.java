@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.comparator;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviders;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorInfoSetComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetComparatorInfoSet, SpreadsheetComparatorInfoSetComponent> {
+public final class SpreadsheetComparatorInfoSetComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetComparatorInfoSetComponent, SpreadsheetComparatorInfoSet> {
 
     @Test
     public void testParseAndText() {

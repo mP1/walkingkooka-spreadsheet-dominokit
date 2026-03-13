@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.email;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class EmailAddressComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, EmailAddress, EmailAddressComponent> {
+public final class EmailAddressComponentTest implements ValueTextBoxComponentLikeTesting<EmailAddressComponent, EmailAddress> {
 
     @Test
     public void testClearValue() {

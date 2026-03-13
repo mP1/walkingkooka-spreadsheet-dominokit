@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightEqualsSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
@@ -37,7 +38,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFormulaParserTokenComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetFormulaParserToken, SpreadsheetFormulaParserTokenComponent>,
+public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetFormulaParserTokenComponent, SpreadsheetFormulaParserToken>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetFormulaParsers.conditionRight(

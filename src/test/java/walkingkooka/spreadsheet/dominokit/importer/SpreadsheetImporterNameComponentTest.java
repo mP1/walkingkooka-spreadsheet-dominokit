@@ -21,11 +21,12 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 
 import java.util.Optional;
 
-public final class SpreadsheetImporterNameComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetImporterName, SpreadsheetImporterNameComponent> {
+public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetImporterNameComponent, SpreadsheetImporterName> {
 
     @Test
     public void testSetStringValue() {

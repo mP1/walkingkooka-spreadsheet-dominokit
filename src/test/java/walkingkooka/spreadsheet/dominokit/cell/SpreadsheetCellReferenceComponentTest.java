@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -28,7 +27,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellReferenceComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SpreadsheetCellReferenceComponent> {
+public final class SpreadsheetCellReferenceComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetCellReferenceComponent, SpreadsheetCellReference> {
 
     // with.............................................................................................................
 

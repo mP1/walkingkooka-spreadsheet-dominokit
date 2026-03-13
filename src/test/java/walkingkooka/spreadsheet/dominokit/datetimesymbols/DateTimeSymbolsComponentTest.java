@@ -17,17 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DateFormatSymbols;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class DateTimeSymbolsComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, DateTimeSymbols, DateTimeSymbolsComponent> {
+public final class DateTimeSymbolsComponentTest implements ValueTextBoxComponentLikeTesting<DateTimeSymbolsComponent, DateTimeSymbols> {
 
     @Test
     public void testParseAndText() {

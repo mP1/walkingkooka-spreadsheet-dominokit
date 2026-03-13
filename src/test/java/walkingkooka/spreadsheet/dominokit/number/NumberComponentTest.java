@@ -17,21 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.number;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.math.MathContext;
 import java.util.Optional;
 
-public final class NumberComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ExpressionNumber, NumberComponent> {
+public final class NumberComponentTest implements ValueTextBoxComponentLikeTesting<NumberComponent, ExpressionNumber> {
 
     private final static ExpressionNumberKind EXPRESSION_NUMBER_KIND = ExpressionNumberKind.BIG_DECIMAL;
 

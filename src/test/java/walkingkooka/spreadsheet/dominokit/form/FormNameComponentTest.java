@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Optional;
 
-public final class FormNameComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, FormName, FormNameComponent> {
+public final class FormNameComponentTest implements ValueTextBoxComponentLikeTesting<FormNameComponent, FormName> {
 
     @Test
     public void testSetValue() {
