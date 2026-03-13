@@ -42,6 +42,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
@@ -232,6 +233,22 @@ public final class TextBoxComponent extends TextBoxComponentLike
     @Override
     public String label() {
         return this.textBox.getLabel();
+    }
+
+    @Override
+    public Validator<Optional<String>> validator() {
+        final Set<Validator<TextBox>> validators = this.textBox.getValidators();
+
+        Validator<Optional<String>> validator = null;
+
+        if (false == validators.isEmpty()) {
+            final TextBoxComponentValidator textBoxComponentValidator = (TextBoxComponentValidator)
+                validators.iterator()
+                    .next();
+            validator = textBoxComponentValidator.validator;
+        }
+
+        return validator;
     }
 
     @Override
