@@ -49,7 +49,7 @@ final class TextBoxComponentValidator implements Validator<TextBox> {
         );
     }
 
-    private final Validator<Optional<String>> validator;
+    final Validator<Optional<String>> validator;
 
     @Override
     public String toString() {
