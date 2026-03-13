@@ -61,6 +61,24 @@ public interface ValueComponentTesting<E extends HTMLElement, V, C extends Value
         );
     }
 
+    default void setValueAndCheck(final C component,
+                                  final V value) {
+        this.setValueAndCheck(
+            component,
+            Optional.of(value)
+        );
+    }
+
+    default void setValueAndCheck(final C component,
+                                  final Optional<V> value) {
+        component.setValue(value);
+
+        this.valueAndCheck(
+            component,
+            value
+        );
+    }
+
     // isDisabled.......................................................................................................
 
     default void isDisabledAndCheck(final C component,
