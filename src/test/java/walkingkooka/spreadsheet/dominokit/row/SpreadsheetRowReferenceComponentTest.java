@@ -43,6 +43,22 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueTextBoxC
     }
 
     @Test
+    public void testSetStringValueWithAbsoluteRow() {
+        this.treePrintAndCheck(
+            SpreadsheetRowReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "$123"
+                    )
+                ),
+            "SpreadsheetRowReferenceComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [$123]\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
             SpreadsheetRowReferenceComponent.empty()
