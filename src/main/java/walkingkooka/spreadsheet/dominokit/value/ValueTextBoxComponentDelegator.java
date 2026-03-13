@@ -32,7 +32,7 @@ import java.util.Optional;
  * A helper interface that implements delegator methods for a wrapped {@link ValueTextBoxComponent}.
  */
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
-    extends FormValueComponent<HTMLFieldSetElement, V, C>,
+    extends ValueTextBoxComponentLike<C, V>,
     HtmlComponentDelegator<HTMLFieldSetElement, C>,
     HasEventListeners<V, C> {
 
