@@ -59,6 +59,22 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
     }
 
     @Test
+    public void testSetStringValueWithExtraWhitespaceEtc() {
+        this.treePrintAndCheck(
+            TextStyleComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "  color:  #111;  text-align:  left;"
+                    )
+                ),
+            "TextStyleComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [  color:  #111;  text-align:  left;]\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithInvalidText() {
         this.treePrintAndCheck(
             TextStyleComponent.empty()
