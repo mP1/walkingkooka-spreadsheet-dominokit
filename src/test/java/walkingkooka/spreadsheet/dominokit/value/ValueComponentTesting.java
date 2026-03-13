@@ -79,6 +79,14 @@ public interface ValueComponentTesting<E extends HTMLElement, V, C extends Value
         );
     }
 
+    // clearValue.......................................................................................................
+
+    default void clearValueAndCheck(final C component) {
+        component.clearValue();
+
+        this.valueAndCheck(component);
+    }
+
     // isDisabled.......................................................................................................
 
     default void isDisabledAndCheck(final C component,
