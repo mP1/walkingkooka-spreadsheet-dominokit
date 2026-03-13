@@ -32,15 +32,13 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueTextBoxC
             SpreadsheetRowReferenceComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "Hello"
+                        "123"
                     )
                 ),
             "SpreadsheetRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Hello]\n" +
-                "      Errors\n" +
-                "        Invalid character 'H' at 0\n"
+                "      [123]\n"
         );
     }
 
