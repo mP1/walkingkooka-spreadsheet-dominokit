@@ -58,4 +58,44 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
             () -> this.createComponent().setStringValue(null)
         );
     }
+
+    default void setStringValueAndCheck(final C component,
+                                        final String stringValue) {
+        this.setStringValueAndCheck(
+            component,
+            Optional.of(stringValue),
+            Optional.empty()
+        );
+    }
+
+    default void setStringValueAndCheck(final C component,
+                                        final String stringValue,
+                                        final V expected) {
+        this.setStringValueAndCheck(
+            component,
+            Optional.of(stringValue),
+            Optional.of(expected)
+        );
+    }
+
+    default void setStringValueAndCheck(final C component,
+                                        final String stringValue,
+                                        final Optional<V> expected) {
+        this.setStringValueAndCheck(
+            component,
+            Optional.of(stringValue),
+            expected
+        );
+    }
+
+    default void setStringValueAndCheck(final C component,
+                                        final Optional<String> stringValue,
+                                        final Optional<V> expected) {
+        component.setStringValue(stringValue);
+
+        this.valueAndCheck(
+            component,
+            expected
+        );
+    }
 }
