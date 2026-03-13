@@ -56,14 +56,20 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
 
     @Test
     public void testSetValue() {
-        this.checkEquals(
-            Optional.of("AB12"),
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        SpreadsheetSelection.parseCell("AB12")
-                    )
-                ).stringValue()
+        this.setValueAndCheck(
+            this.createComponent(),
+            SpreadsheetSelection.parseCell("AB12")
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        final String text = "AB12";
+
+        this.setStringValueAndCheck(
+            this.createComponent(),
+            text,
+            SpreadsheetSelection.parseCell(text)
         );
     }
 
