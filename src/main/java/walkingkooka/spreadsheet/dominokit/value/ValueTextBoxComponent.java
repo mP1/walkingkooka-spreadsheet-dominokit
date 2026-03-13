@@ -38,7 +38,7 @@ import java.util.function.Function;
  * A text box that supports a typed value using a {@link Function} as a parser. Any thrown exception messages become
  * the validation fail messages. it is possible to replace the default validator mentioned above using {@link #setValidator(Validator)}.
  */
-public final class ValueTextBoxComponent<T> implements FormValueComponent<HTMLFieldSetElement, T, ValueTextBoxComponent<T>>,
+public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike<ValueTextBoxComponent<T>, T>,
     HtmlComponentDelegator<HTMLFieldSetElement, ValueTextBoxComponent<T>>,
     HasEventListeners<T, ValueTextBoxComponent<T>> {
 
