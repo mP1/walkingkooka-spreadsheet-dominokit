@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.form;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.text.CharSequences;
+import walkingkooka.validation.form.FormField;
 
 import java.util.Optional;
 
@@ -50,6 +52,25 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      []\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithLengthGreaterThanMax() {
+        this.treePrintAndCheck(
+            FormFieldLabelComponent.empty()
+                .setValue(
+                    Optional.of(
+                        CharSequences.repeating('a', FormField.MAX_LABEL_LENGTH + 1)
+                            .toString()
+                    )
+                ),
+            "FormFieldLabelComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]\n" +
+                "      Errors\n" +
+                "        Length 51 of \"label\" not between 0..50 = \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\n"
         );
     }
 
