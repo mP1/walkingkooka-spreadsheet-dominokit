@@ -110,6 +110,22 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
         );
     }
 
+    @Test
+    public void testSetStringValueMixedCellRangeCaseText() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "$C$3:d4"
+                    )
+                ),
+            "SpreadsheetCellRangeReferenceComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [$C$3:d4] id=cell-range-id\n"
+        );
+    }
+
     // createComponent..................................................................................................
 
     @Override
