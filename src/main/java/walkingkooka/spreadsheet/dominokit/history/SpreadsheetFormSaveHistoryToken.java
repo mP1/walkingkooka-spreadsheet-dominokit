@@ -71,12 +71,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         );
     }
 
-    @Override
-    public Optional<SpreadsheetValidationReference> field() {
-        return this.field;
-    }
-
-    private final Optional<SpreadsheetValidationReference> field;
+    final Optional<SpreadsheetValidationReference> field;
 
     @Override
     public Form<SpreadsheetValidationReference> value() {

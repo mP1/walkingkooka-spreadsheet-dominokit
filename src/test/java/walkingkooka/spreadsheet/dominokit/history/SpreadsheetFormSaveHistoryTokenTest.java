@@ -21,6 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
@@ -98,6 +100,45 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
     public void testDelete() {
         this.deleteAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // field............................................................................................................
+
+    @Test
+    public void testFieldNameWhenMissing() {
+        this.fieldAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testFieldNameWhenCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        this.fieldAndCheck(
+            SpreadsheetFormSaveHistoryToken.with(
+                ID,
+                NAME,
+                FORM,
+                Optional.of(cell)
+            ),
+            cell
+        );
+    }
+
+    @Test
+    public void testFieldNameWhenLabel() {
+        final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
+
+        this.fieldAndCheck(
+            SpreadsheetFormSaveHistoryToken.with(
+                ID,
+                NAME,
+                FORM,
+                Optional.of(label)
+            ),
+            label
         );
     }
 

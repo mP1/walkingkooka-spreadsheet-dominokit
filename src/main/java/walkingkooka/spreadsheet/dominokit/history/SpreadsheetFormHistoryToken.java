@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.validation.form.FormName;
 
@@ -47,8 +46,6 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
     }
 
     public abstract Optional<FormName> formName();
-
-    abstract Optional<SpreadsheetValidationReference> field();
 
     @Override
     public HistoryToken setSaveValue(final Optional<?> value) {
