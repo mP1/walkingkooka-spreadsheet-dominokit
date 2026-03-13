@@ -35,7 +35,7 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
     }
 
     default void stringValueAndCheck(final C component,
-                                     final V expected) {
+                                     final String expected) {
         this.stringValueAndCheck(
             component,
             Optional.of(expected)
@@ -43,7 +43,7 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
     }
 
     default void stringValueAndCheck(final C component,
-                                     final Optional<V> expected) {
+                                     final Optional<String> expected) {
         this.checkEquals(
             expected,
             component.stringValue()
