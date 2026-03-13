@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
@@ -90,6 +92,43 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
                 NAME,
                 FORM_NAME
             )
+        );
+    }
+
+    @Test
+    public void testFieldNameWhenMissing() {
+        this.fieldAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public void testFieldNameWhenCell() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        this.fieldAndCheck(
+            SpreadsheetFormSelectHistoryToken.with(
+                ID,
+                NAME,
+                FORM_NAME,
+                Optional.of(cell)
+            ),
+            cell
+        );
+    }
+
+    @Test
+    public void testFieldNameWhenLabel() {
+        final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
+
+        this.fieldAndCheck(
+            SpreadsheetFormSelectHistoryToken.with(
+                ID,
+                NAME,
+                FORM_NAME,
+                Optional.of(label)
+            ),
+            label
         );
     }
 

@@ -66,12 +66,7 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
 
     final FormName formName;
 
-    @Override
-    public Optional<SpreadsheetValidationReference> field() {
-        return this.field;
-    }
-
-    private final Optional<SpreadsheetValidationReference> field;
+    final Optional<SpreadsheetValidationReference> field;
 
     // #/1/SpreadsheetName/form/FormName
     // #/1/SpreadsheetName/form/FormName/field/A1

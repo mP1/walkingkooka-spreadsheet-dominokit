@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
@@ -271,6 +272,32 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.delete(),
             () -> token + " delete"
+        );
+    }
+
+    // field............................................................................................................
+
+    final void fieldAndCheck(final HistoryToken token) {
+        this.fieldAndCheck(
+            token,
+            HistoryToken.NO_FIELD
+        );
+    }
+
+    final void fieldAndCheck(final HistoryToken token,
+                             final SpreadsheetValidationReference expected) {
+        this.fieldAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void fieldAndCheck(final HistoryToken token,
+                             final Optional<SpreadsheetValidationReference> expected) {
+        this.checkEquals(
+            expected,
+            token.field(),
+            () -> token + " field"
         );
     }
 

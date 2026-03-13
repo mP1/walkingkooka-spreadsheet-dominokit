@@ -21,7 +21,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
@@ -61,11 +60,6 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
     @Override
     public Optional<FormName> formName() {
         return Optional.empty();
-    }
-
-    @Override
-    Optional<SpreadsheetValidationReference> field() {
-        return NO_FIELD;
     }
 
     // #/1/SpreadsheetName/form/

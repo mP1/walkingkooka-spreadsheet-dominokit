@@ -2907,6 +2907,22 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     // FIELD............................................................................................................
 
+    public final Optional<SpreadsheetValidationReference> field() {
+        final Optional<SpreadsheetValidationReference> field;
+
+        if (this instanceof SpreadsheetFormSelectHistoryToken) {
+            field = this.cast(SpreadsheetFormSelectHistoryToken.class).field;
+        } else {
+            if (this instanceof SpreadsheetFormSaveHistoryToken) {
+                field = this.cast(SpreadsheetFormSaveHistoryToken.class).field;
+            } else {
+                field = NO_FIELD;
+            }
+        }
+
+        return field;
+    }
+
     /**
      * Creates a {@link SpreadsheetFormSelectHistoryToken} with the given {@link SpreadsheetValidationReference}.
      */
