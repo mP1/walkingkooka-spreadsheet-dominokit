@@ -373,8 +373,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         return TextBoxComponent.empty()
             .setId(ID + '-' + CaseKind.CAMEL.change(id, CaseKind.PASCAL) + SpreadsheetElementIds.TEXT_BOX)
             .setLabel(label)
-            .setValidator(SpreadsheetValidators.required())
-            .clearIcon()
+            .setValidator(
+                Optional.of(
+                    SpreadsheetValidators.required()
+                )
+            ).clearIcon()
             .addValueWatcher2(
                 (Optional<String> value) ->
                     this.refreshDecimalNumberSymbols(

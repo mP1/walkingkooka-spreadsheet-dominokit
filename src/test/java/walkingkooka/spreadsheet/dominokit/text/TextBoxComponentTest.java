@@ -119,8 +119,10 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    SpreadsheetValidators.optional(
-                        SpreadsheetValidators.fake()
+                    Optional.of(
+                        SpreadsheetValidators.optional(
+                            SpreadsheetValidators.fake()
+                        )
                     )
                 ),
             "TextBoxComponent\n" +
@@ -135,10 +137,11 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                 .setLabel("Label123")
                 .setValue(
                     Optional.of("!")
-                )
-                .setValidator(
-                    SpreadsheetValidators.optional(
-                        SpreadsheetValidators.fake()
+                ).setValidator(
+                    Optional.of(
+                        SpreadsheetValidators.optional(
+                            SpreadsheetValidators.fake()
+                        )
                     )
                 ).setValue(Optional.empty()),
             "TextBoxComponent\n" +
@@ -152,12 +155,14 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    new Validator<>() {
-                        @Override
-                        public ValidationResult isValid(final Optional<String> component) {
-                            return ValidationResult.valid();
+                    Optional.of(
+                        new Validator<>() {
+                            @Override
+                            public ValidationResult isValid(final Optional<String> component) {
+                                return ValidationResult.valid();
+                            }
                         }
-                    }
+                    )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
                 "  Label123 [Value456]\n"
@@ -170,10 +175,12 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    SpreadsheetValidators.tryCatch(
-                        (s) -> {
-                            throw new InvalidCharacterException(s, 2);
-                        }
+                    Optional.of(
+                        SpreadsheetValidators.tryCatch(
+                            (s) -> {
+                                throw new InvalidCharacterException(s, 2);
+                            }
+                        )
                     )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
@@ -189,12 +196,14 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             TextBoxComponent.empty()
                 .setLabel("Label123")
                 .setValidator(
-                    new Validator<>() {
-                        @Override
-                        public ValidationResult isValid(final Optional<String> component) {
-                            return ValidationResult.invalid("Error message 123");
+                    Optional.of(
+                        new Validator<>() {
+                            @Override
+                            public ValidationResult isValid(final Optional<String> component) {
+                                return ValidationResult.invalid("Error message 123");
+                            }
                         }
-                    }
+                    )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
                 "  Label123 [Value456]\n" +
