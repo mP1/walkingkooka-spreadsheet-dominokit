@@ -82,6 +82,20 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
     }
 
     @Test
+    public void testSetStringValueDifferentCase() {
+        this.treePrintAndCheck(
+            AbsoluteUrlComponent.empty()
+                .setStringValue(
+                    Optional.of("HTTPS://example.com")
+                ),
+            "AbsoluteUrlComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [HTTPS://example.com]\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
             AbsoluteUrlComponent.empty()
