@@ -97,5 +97,9 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
             component,
             expected
         );
+
+        if(expected.isEmpty()) {
+            this.valueAndCheck(component);
+        }
     }
 }
