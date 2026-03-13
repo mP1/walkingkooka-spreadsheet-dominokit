@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 
 import java.util.Optional;
 
@@ -107,10 +108,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         this.fieldAndCheck(
-            SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
-                FORM_NAME,
+            this.createHistoryToken(
                 Optional.of(cell)
             ),
             cell
@@ -122,10 +120,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
 
         this.fieldAndCheck(
-            SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
-                FORM_NAME,
+            this.createHistoryToken(
                 Optional.of(label)
             ),
             label
@@ -144,10 +139,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     @Test
     public void testUrlFragmentWithFieldSpreadsheetCellReference() {
         this.urlFragmentAndCheck(
-            SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
-                FORM_NAME,
+            this.createHistoryToken(
                 Optional.of(
                     SpreadsheetSelection.A1
                 )
@@ -159,10 +151,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     @Test
     public void testUrlFragmentWithFieldSpreadsheetLabelName() {
         this.urlFragmentAndCheck(
-            SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
-                FORM_NAME,
+            this.createHistoryToken(
                 Optional.of(
                     SpreadsheetSelection.labelName("Label123")
                 )
@@ -179,6 +168,15 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
             name,
             FORM_NAME,
             Optional.empty()
+        );
+    }
+
+    private SpreadsheetFormSelectHistoryToken createHistoryToken(final Optional<SpreadsheetValidationReference> field) {
+        return SpreadsheetFormSelectHistoryToken.with(
+            ID,
+            NAME,
+            FORM_NAME,
+            field
         );
     }
 
