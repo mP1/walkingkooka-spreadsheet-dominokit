@@ -63,6 +63,26 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
     }
 
     @Test
+    public void testSetValueDoesntRefreshStringValue() {
+        final ValueTextBoxComponent<SpreadsheetCellReference> component = this.createComponent();
+
+        final String text = "ab12";
+        component.setStringValue(
+            Optional.of(text)
+        );
+
+        this.setValueAndCheck(
+            component,
+            SpreadsheetSelection.parseCell("AB12")
+        );
+
+        this.stringValueAndCheck(
+            component,
+            text
+        );
+    }
+
+    @Test
     public void testSetStringValue() {
         final String text = "AB12";
 

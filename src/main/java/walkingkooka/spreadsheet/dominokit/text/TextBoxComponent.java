@@ -242,10 +242,14 @@ public final class TextBoxComponent extends TextBoxComponentLike
         Validator<Optional<String>> validator = null;
 
         if (false == validators.isEmpty()) {
-            final TextBoxComponentValidator textBoxComponentValidator = (TextBoxComponentValidator)
-                validators.iterator()
-                    .next();
-            validator = textBoxComponentValidator.validator;
+            final Validator<TextBox> textBoxValidator = validators.iterator()
+                .next();
+
+            // check necessary because active validator might be another (internal) Validator.
+            if (textBoxValidator instanceof TextBoxComponentValidator) {
+                final TextBoxComponentValidator textBoxComponentValidator = (TextBoxComponentValidator) textBoxValidator;
+                validator = textBoxComponentValidator.validator;
+            }
         }
 
         return validator;
