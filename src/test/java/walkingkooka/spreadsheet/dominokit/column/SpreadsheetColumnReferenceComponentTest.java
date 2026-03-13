@@ -27,7 +27,7 @@ import java.util.Optional;
 public final class SpreadsheetColumnReferenceComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetColumnReferenceComponent, SpreadsheetColumnReference> {
 
     @Test
-    public void testSetStringValue() {
+    public void testSetStringValueUpperCase() {
         this.treePrintAndCheck(
             SpreadsheetColumnReferenceComponent.empty()
                 .setStringValue(
@@ -39,6 +39,38 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueTextB
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [AB]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueLowerCase() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "ab"
+                    )
+                ),
+            "SpreadsheetColumnReferenceComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [ab]\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueAbsoluteColumnMixedCase() {
+        this.treePrintAndCheck(
+            SpreadsheetColumnReferenceComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "$Ab"
+                    )
+                ),
+            "SpreadsheetColumnReferenceComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [$Ab]\n"
         );
     }
 
