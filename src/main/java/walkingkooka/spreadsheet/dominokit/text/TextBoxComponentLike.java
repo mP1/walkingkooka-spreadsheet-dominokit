@@ -20,9 +20,12 @@ package walkingkooka.spreadsheet.dominokit.text;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+
+import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
@@ -31,6 +34,8 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     TextBoxComponentLike() {
         super();
     }
+
+    public abstract TextBoxComponent setValidator(final Validator<Optional<String>> validator);
 
     // HasEventListeners................................................................................................
 

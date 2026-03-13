@@ -234,6 +234,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this.textBox.getLabel();
     }
 
+    @Override
     public TextBoxComponent setValidator(final Validator<Optional<String>> validator) {
         final TextBox textBox = this.textBox;
         textBox.setAutoValidation(true);
