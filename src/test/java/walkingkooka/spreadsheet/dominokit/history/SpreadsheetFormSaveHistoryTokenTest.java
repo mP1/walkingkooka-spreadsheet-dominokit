@@ -117,10 +117,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         this.fieldAndCheck(
-            SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
-                FORM,
+            this.createHistoryToken(
                 Optional.of(cell)
             ),
             cell
@@ -132,10 +129,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
 
         this.fieldAndCheck(
-            SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
-                FORM,
+            this.createHistoryToken(
                 Optional.of(label)
             ),
             label
@@ -168,10 +162,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
     @Test
     public void testUrlFragmentWithFieldCell() {
         this.urlFragmentAndCheck(
-            SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
-                FORM,
+            this.createHistoryToken(
                 Optional.of(SpreadsheetSelection.A1)
             ),
             "/123/SpreadsheetName456/form/FormName123/field/A1/save/" +
@@ -183,10 +174,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
     @Test
     public void testUrlFragmentWithFieldLabel() {
         this.urlFragmentAndCheck(
-            SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
-                FORM,
+            this.createHistoryToken(
                 Optional.of(LABEL)
             ),
             "/123/SpreadsheetName456/form/FormName123/field/Label123/save/" +
@@ -203,6 +191,15 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
             name,
             FORM,
             HistoryToken.NO_FIELD
+        );
+    }
+
+    private SpreadsheetFormSaveHistoryToken createHistoryToken(final Optional<SpreadsheetValidationReference> field) {
+        return SpreadsheetFormSaveHistoryToken.with(
+            ID,
+            NAME,
+            FORM,
+            field
         );
     }
 
