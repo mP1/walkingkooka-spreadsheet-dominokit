@@ -38,6 +38,33 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
     }
 
     @Test
+    public void testSetStringValueInvalidJson() {
+        this.treePrintAndCheck(
+            FormComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "{\n" +
+                            "        \"name\": \"Form123\",\n" +
+                            "        \"fields\": [\n" +
+                            "          {\n" +
+                            "            \"reference\": {\n"
+                    )
+                ),
+            "FormComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [{\n" +
+                "              \"name\": \"Form123\",\n" +
+                "              \"fields\": [\n" +
+                "                {\n" +
+                "                  \"reference\": {\n" +
+                "      ]\n" +
+                "      Errors\n" +
+                "        Invalid character '\\n' at 87 expected [OBJECT_PROPERTY, {[WHITESPACE], \",\", OBJECT_PROPERTY_REQUIRED}], [WHITESPACE], \"}\"\n"
+        );
+    }
+
+    @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
             FormComponent.empty()
