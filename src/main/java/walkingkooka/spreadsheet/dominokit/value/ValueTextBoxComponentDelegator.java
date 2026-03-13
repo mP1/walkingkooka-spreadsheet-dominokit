@@ -257,11 +257,13 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
             .value();
     }
 
+    @Override
     default Optional<String> stringValue() {
         return this.valueTextBoxComponent()
             .stringValue();
     }
 
+    @Override
     default C setStringValue(final Optional<String> stringValue) {
         this.valueTextBoxComponent()
             .setStringValue(stringValue);
