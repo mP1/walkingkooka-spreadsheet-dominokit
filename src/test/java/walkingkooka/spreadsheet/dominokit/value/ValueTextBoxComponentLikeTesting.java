@@ -25,6 +25,30 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponentLike<C, V>, V> extends FormValueComponentTesting<HTMLFieldSetElement, V, C> {
 
+    // value............................................................................................................
+
+    @Override
+    default void valueAndCheck(final C component,
+                               final Optional<V> expected) {
+        FormValueComponentTesting.super.valueAndCheck(
+            component,
+            expected
+        );
+
+        if(expected.isPresent()) {
+            this.checkNotEquals(
+                Optional.empty(),
+                component.stringValue(),
+                component::toString
+            );
+        } else {
+            this.stringValueAndCheck(
+                component,
+                Optional.empty()
+            );
+        }
+    }
+
     // stringValue......................................................................................................
 
     default void stringValueAndCheck(final C component) {
