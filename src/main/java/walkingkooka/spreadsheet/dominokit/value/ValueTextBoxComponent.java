@@ -361,6 +361,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
      * Sets the given {@link String value} on the wrapped {@link org.dominokit.domino.ui.forms.TextBox} skipping any
      * validation or conversion.
      */
+    @Override
     public ValueTextBoxComponent<T> setStringValue(final Optional<String> value) {
         this.textBox.setValue(value);
         return this;
@@ -369,6 +370,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     /**
      * Returns the original entered text.
      */
+    @Override
     public Optional<String> stringValue() {
         return this.textBox.value();
     }
