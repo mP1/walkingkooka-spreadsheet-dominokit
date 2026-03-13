@@ -214,6 +214,25 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
         );
     }
 
+    @Test
+    public void testSetStringValueWithExtraWhitespace() {
+        this.treePrintAndCheck(
+            CsvStringListComponent.empty(
+                2,
+                4,
+                CsvStringListComponent.EXCLUSIVE
+            ).setStringValue(
+                Optional.of(
+                    "  Monday,  Tuesday,  Wednesday"
+                )
+            ),
+            "CsvStringListComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [  Monday,  Tuesday,  Wednesday]\n"
+        );
+    }
+
     // ValueComponent...................................................................................................
 
     @Override
