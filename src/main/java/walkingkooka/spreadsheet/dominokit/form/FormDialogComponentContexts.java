@@ -22,6 +22,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class FormDialogComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@see FakeFormDialogComponentContext}
+     */
+    public static FakeFormDialogComponentContext fake() {
+        return new FakeFormDialogComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private FormDialogComponentContexts() {
