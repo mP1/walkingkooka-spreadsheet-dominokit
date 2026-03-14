@@ -31,7 +31,7 @@ public interface FormHandlerSelectorDialogComponentContext extends ComponentLife
     DialogComponentContext {
 
     /**
-     * Provides the UNDO text.
+     * Provides the UNDO {@link FormHandlerSelector}.
      */
     Optional<FormHandlerSelector> undo();
 
