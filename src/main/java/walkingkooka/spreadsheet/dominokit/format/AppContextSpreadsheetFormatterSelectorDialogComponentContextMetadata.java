@@ -46,9 +46,9 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
 
     @Override
     public String dialogTitle() {
-        return this.spreadsheetMetadataPropertyNameDialogTitle(
-            this.spreadsheetMetadataPropertyName()
-        );
+        return this.spreadsheetMetadataPropertyName()
+            .map(this::spreadsheetMetadataPropertyNameDialogTitle)
+            .orElse("");
     }
 
     @Override
@@ -61,19 +61,16 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
      */
     @Override
     public Optional<SpreadsheetFormatterSelector> undo() {
-        return Cast.to(
-            this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(
-                    this.spreadsheetMetadataPropertyName()
-                )
-        );
+        return this.spreadsheetMetadataPropertyName()
+            .flatMap(p -> this.context.spreadsheetMetadata()
+                .getIgnoringDefaults(p)
+            );
     }
 
-    private SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> spreadsheetMetadataPropertyName() {
+    private Optional<SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector>> spreadsheetMetadataPropertyName() {
         return Cast.to(
             this.historyToken()
             .metadataPropertyName()
-            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()))
         );
     }
 
