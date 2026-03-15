@@ -325,13 +325,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         this.links.setValue(
             textBox.value()
         );
-//
-//        if (textBox.hasErrors()) {
-//            this.save.disabled();
-//        } else {
-//            this.save.setValue(selector);
-//        }
-//        );
 
         this.refreshEdit(
             textBox.stringValue()
