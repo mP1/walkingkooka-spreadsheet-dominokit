@@ -20,22 +20,17 @@ package walkingkooka.spreadsheet.dominokit.convert;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.UrlPath;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-
-import java.util.Optional;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link ConverterSelectorDialogComponent} provided various inputs.
  */
 public interface ConverterSelectorDialogComponentContext extends ComponentLifecycleMatcher,
-    DialogComponentContext {
-
-    /**
-     * Provides the UNDO text.
-     */
-    Optional<ConverterSelector> undo();
+    DialogComponentContext,
+    DialogAnchorListComponentContext<ConverterSelector> {
 
     /**
      * Attempts to verify this {@link String} is valid and able to convert all the basic values.
