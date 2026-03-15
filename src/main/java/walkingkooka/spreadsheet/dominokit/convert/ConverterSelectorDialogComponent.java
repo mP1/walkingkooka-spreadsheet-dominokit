@@ -31,8 +31,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
@@ -41,8 +40,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -83,10 +80,13 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
         this.selector = this.selector();
 
-        this.save = this.saveValueAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+            this.idPrefix(),
+            context // DialogAnchorListComponentContext
+        ).save()
+            .clearLink()
+            .undo()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -115,13 +115,8 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         );
 
         return dialog.appendChild(this.selector)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            ).appendChild(this.missing);
+            .appendChild(this.links)
+            .appendChild(this.missing);
     }
 
     @Override
@@ -172,32 +167,15 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
     void refreshSaveLink(final Optional<ConverterSelector> list) {
         this.selector.validate();
-        if (this.selector.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(list);
-        }
+
+        this.links.setValue(
+            this.selector.hasErrors() ?
+                Optional.empty() :
+                list
+        );
     }
 
-    /**
-     * A SAVE link which will be updated each time the {@link #selector} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ConverterSelector> save;
-
-    /**
-     * A CLEAR link which will save an empty {@link ConverterSelector}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ConverterSelector> clear;
-
-    /**
-     * A UNDO link which will be updated each time the {@link ConverterSelector} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ConverterSelector> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<ConverterSelector> links;
 
     // FetcherWatcher...................................................................................................
 
@@ -286,7 +264,6 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         final Optional<ConverterSelector> undo = this.context.undo();
         this.selector.setValue(undo);
         this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
 
         this.refreshTitleAndLinks();
     }
@@ -295,15 +272,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         final ConverterSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
 
-        final HistoryToken historyToken = context.historyToken();
-
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     @Override

@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
@@ -47,13 +48,6 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 public HistoryToken historyToken() {
                     return context.historyToken();
                 }
-
-                @Override
-                public Optional<ConverterSelector> undo() {
-                    return Optional.of(
-                        ConverterSelector.parse("hello-converter")
-                    );
-                }
             }
         );
 
@@ -68,14 +62,15 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "      ConverterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [hello-converter] id=ConverterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=ConverterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/] id=ConverterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/hello-converter] id=ConverterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
+                "            [undo-converter] id=ConverterSelector-TextBox\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/undo-converter] id=ConverterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
         );
     }
 
@@ -96,6 +91,13 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
         public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
             return () -> {
             };
+        }
+
+        @Override
+        public Optional<ConverterSelector> undo() {
+            return Optional.of(
+                ConverterSelector.parse("undo-converter")
+            );
         }
 
         @Override
@@ -124,6 +126,11 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return SpreadsheetMetadata.EMPTY;
             }
         };
     }
