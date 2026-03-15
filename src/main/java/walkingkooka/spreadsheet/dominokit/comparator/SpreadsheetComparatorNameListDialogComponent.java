@@ -22,15 +22,13 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -65,10 +63,13 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
 
         this.comparatorNameList = this.comparatorNameList();
 
-        this.save = this.saveValueAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).save()
+            .clearLink()
+            .undo()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -97,13 +98,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
         );
 
         return dialog.appendChild(this.comparatorNameList)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -135,34 +130,18 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
 
     // dialog links.....................................................................................................
 
+    private final DialogAnchorListComponent<SpreadsheetComparatorNameList> links;
+
     void refreshSaveLink(final Optional<SpreadsheetComparatorNameList> list) {
-        this.comparatorNameList.validate();
-        if (this.comparatorNameList.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(list);
-        }
+        final SpreadsheetComparatorNameListComponent comparatorNameList = this.comparatorNameList;
+        comparatorNameList.validate();
+
+        this.links.setValue(
+            comparatorNameList.hasErrors() ?
+                Optional.<SpreadsheetComparatorNameList>empty() :
+                list
+        );
     }
-
-    /**
-     * A SAVE link which will be updated each time the {@link #comparatorNameList} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> save;
-
-    /**
-     * A CLEAR link which will save an empty {@link SpreadsheetComparatorNameList}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> clear;
-
-    /**
-     * A UNDO link which will be updated each time the {@link SpreadsheetComparatorNameList} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetComparatorNameList> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
@@ -202,7 +181,6 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
         final Optional<SpreadsheetComparatorNameList> undo = this.context.undo();
         this.comparatorNameList.setValue(undo);
         this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
 
         this.refreshTitleAndLinks();
     }
@@ -211,15 +189,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
         final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
 
-        final HistoryToken historyToken = context.historyToken();
-
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     @Override

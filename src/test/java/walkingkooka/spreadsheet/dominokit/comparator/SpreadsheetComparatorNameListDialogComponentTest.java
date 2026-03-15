@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -26,6 +27,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
@@ -67,13 +70,14 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [day-of-month] id=SpreadsheetComparatorNameList-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
         );
     }
 
@@ -112,6 +116,14 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return SpreadsheetMetadata.EMPTY.set(
+                    SpreadsheetMetadataPropertyName.COMPARATORS,
+                    SpreadsheetComparatorAliasSet.parse("undo-comparator-1")
+                );
             }
         };
     }
