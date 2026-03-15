@@ -306,7 +306,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
                 Optional.<SpreadsheetFormatterSelector>empty()
         );
 
-        this.refreshTitleAndLinks();
+        this.refreshTitleTabsAndFormatterNames();
     }
 
     @Override
@@ -392,10 +392,10 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         );
         this.refreshLinks();
 
-        this.refreshTitleAndLinks();
+        this.refreshTitleTabsAndFormatterNames();
     }
 
-    private void refreshTitleAndLinks() {
+    private void refreshTitleTabsAndFormatterNames() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
 
@@ -410,8 +410,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
                 this.formatterName
             )
         );
-
-        this.links.refresh(context);
     }
 
     private Optional<SpreadsheetFormatterName> formatterName;
