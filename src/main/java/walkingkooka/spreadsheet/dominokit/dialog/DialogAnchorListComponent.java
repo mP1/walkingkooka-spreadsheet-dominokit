@@ -107,8 +107,15 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     public DialogAnchorListComponent<T> save() {
         if (null == this.save) {
             this.save = this.saveValueAnchor(this.context);
+
             this.refreshList();
         }
+        return this;
+    }
+
+    public DialogAnchorListComponent<T> saveAutoDisableWhenMissingValue() {
+        this.save();
+        this.save.autoDisableWhenMissingValue();
         return this;
     }
 
