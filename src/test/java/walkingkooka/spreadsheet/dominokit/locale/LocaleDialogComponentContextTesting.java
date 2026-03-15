@@ -36,28 +36,28 @@ public interface LocaleDialogComponentContextTesting<C extends LocaleDialogCompo
         );
     }
 
-    // undoLocale.......................................................................................................
+    // undoAndCheck.....................................................................................................
 
-    default void undoLocaleAndCheck(final C context) {
-        this.undoLocaleAndCheck(
+    default void undoAndCheck(final C context) {
+        this.undoAndCheck(
             context,
             Optional.empty()
         );
     }
 
-    default void undoLocaleAndCheck(final C context,
-                                    final Locale expected) {
-        this.undoLocaleAndCheck(
+    default void undoAndCheck(final C context,
+                              final Locale expected) {
+        this.undoAndCheck(
             context,
             Optional.ofNullable(expected)
         );
     }
 
-    default void undoLocaleAndCheck(final C context,
-                                    final Optional<Locale> expected) {
+    default void undoAndCheck(final C context,
+                              final Optional<Locale> expected) {
         this.checkEquals(
             expected,
-            context.undoLocale()
+            context.undo()
         );
     }
 

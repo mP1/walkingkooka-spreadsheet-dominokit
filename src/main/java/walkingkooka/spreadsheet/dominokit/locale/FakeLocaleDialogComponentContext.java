@@ -40,7 +40,7 @@ public class FakeLocaleDialogComponentContext extends FakeDialogComponentContext
     }
 
     @Override
-    public Optional<Locale> undoLocale() {
+    public Optional<Locale> undo() {
         throw new UnsupportedOperationException();
     }
 
