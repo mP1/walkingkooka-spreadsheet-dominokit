@@ -69,10 +69,12 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
         );
     }
 
-    private SpreadsheetMetadataPropertyName<?> spreadsheetMetadataPropertyName() {
-        return this.historyToken()
+    private SpreadsheetMetadataPropertyName<SpreadsheetFormatterSelector> spreadsheetMetadataPropertyName() {
+        return Cast.to(
+            this.historyToken()
             .metadataPropertyName()
-            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()));
+            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()))
+        );
     }
 
     @Override
