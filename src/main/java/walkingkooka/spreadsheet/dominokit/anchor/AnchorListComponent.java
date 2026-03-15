@@ -15,13 +15,12 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.link;
+package walkingkooka.spreadsheet.dominokit.anchor;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
