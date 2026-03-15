@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.anchor;
+package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
