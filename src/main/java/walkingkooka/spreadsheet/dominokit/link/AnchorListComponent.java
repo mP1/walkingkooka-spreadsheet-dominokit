@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
@@ -30,7 +31,8 @@ import walkingkooka.text.printer.IndentingPrinter;
  * the anchors must be done externally.
  * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link DialogComponent}.
  */
-public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, AnchorListComponent> {
+public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, AnchorListComponent>,
+    CanBeEmpty {
 
     public static AnchorListComponent empty() {
         return new AnchorListComponent();
@@ -79,5 +81,12 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
             this.root.printTree(printer);
         }
         printer.outdent();
+    }
+
+    // CanBeEmpty.......................................................................................................
+
+    @Override
+    public boolean isEmpty() {
+        return this.root.isEmpty();
     }
 }

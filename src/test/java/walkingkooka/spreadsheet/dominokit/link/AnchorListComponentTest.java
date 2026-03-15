@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.link;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.CanBeEmptyTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,7 +31,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement> {
+public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement>,
+    CanBeEmptyTesting {
 
     private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
@@ -104,6 +106,27 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
                 "      \"Again\" [#/1/SpreadsheetName111]\n"
+        );
+    }
+
+    // CanBeEmpty.......................................................................................................
+
+    @Test
+    public void testIsEmptyWhenEmpty() {
+        this.isEmptyAndCheck(
+            AnchorListComponent.empty(),
+            true
+        );
+    }
+
+    @Test
+    public void testIsEmptyWhenNotEmpty() {
+        this.isEmptyAndCheck(
+            AnchorListComponent.empty()
+                .appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                ),
+            false
         );
     }
 
