@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -34,10 +34,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSet
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
@@ -112,11 +109,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
         this.textBox = this.textBox();
 
-        this.save = this.<SpreadsheetFormatterSelector>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponent
+            ).saveAutoDisableWhenMissingValue()
+            .undo()
+            .clearLink()
+            .close();
 
         this.dialog = this.dialogCreate();
 
@@ -155,13 +154,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             .appendChild(this.appender)
             .appendChild(this.removeOrReplace)
             .appendChild(this.textBox)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -205,7 +198,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         return SpreadsheetFormatterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshSaveLink
+                (v) -> this.refreshLinks()
             );
     }
 
@@ -307,19 +300,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
                 Lists.of(message)
         );
 
-        // enable SAVE if no error exists
-        //final String text = this.text();
-        //if (text.isEmpty() || hasNoError) {
+        this.links.setValue(
+            this.textBox.stringValue().isEmpty() || hasNoError ?
+                edit.selector() :
+                Optional.<SpreadsheetFormatterSelector>empty()
+        );
 
-        if (this.textBox.stringValue().isEmpty() || hasNoError) {
-            this.save.setValue(
-                edit.selector()
-            );
-        } else {
-            this.save.clearValue();
-        }
-
-        this.refreshTitleTabsClearClose();
+        this.refreshTitleAndLinks();
     }
 
     @Override
@@ -331,15 +318,20 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
     // dialog links.....................................................................................................
 
-    void refreshSaveLink(final Optional<SpreadsheetFormatterSelector> selector) {
+    void refreshLinks() {
         final SpreadsheetFormatterSelectorComponent textBox = this.textBox;
 
         textBox.validate();
-        if (textBox.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(selector);
-        }
+        this.links.setValue(
+            textBox.value()
+        );
+//
+//        if (textBox.hasErrors()) {
+//            this.save.disabled();
+//        } else {
+//            this.save.setValue(selector);
+//        }
+//        );
 
         this.refreshEdit(
             textBox.stringValue()
@@ -347,25 +339,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         );
     }
 
-    /**
-     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> save;
-
-    /**
-     * A UNDO link which will be updated each time the {@link SpreadsheetFormatterSelector} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> undo;
-
-    /**
-     * A CLEAR link which will save an empty {@link SpreadsheetFormatterSelector}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetFormatterSelector> clear;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<SpreadsheetFormatterSelector> links;
 
     // SpreadsheetDeltaFetcherWatcher................................................................................
 
@@ -413,19 +387,17 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     @Override
     public void refresh(final RefreshContext context) {
         // setText will trigger a refresh of table, appender, removeOrReplace
-        final Optional<SpreadsheetFormatterSelector> undo = this.context.undo();
-        this.textBox.setValue(undo);
-        this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
+        this.textBox.setValue(
+            this.context.undo()
+        );
+        this.refreshLinks();
 
-        this.refreshTitleTabsClearClose();
+        this.refreshTitleAndLinks();
     }
 
-    private void refreshTitleTabsClearClose() {
+    private void refreshTitleAndLinks() {
         final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
-
-        final HistoryToken historyToken = context.historyToken();
 
         if (null != this.tabs) {
             this.tabs.refresh(context);
@@ -439,13 +411,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             )
         );
 
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     private Optional<SpreadsheetFormatterName> formatterName;
