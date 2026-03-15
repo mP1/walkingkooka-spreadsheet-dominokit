@@ -21,15 +21,12 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
@@ -65,10 +62,13 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
 
         this.selector = this.selector();
 
-        this.save = this.saveValueAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponent
+            ).saveAutoDisableWhenMissingValue()
+            .undo()
+            .clearLink()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -97,13 +97,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
         );
 
         return dialog.appendChild(this.selector)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -124,7 +118,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
         return FormHandlerSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshSaveLink
+                this::refreshLinks
             );
     }
 
@@ -135,34 +129,17 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
 
     // dialog links.....................................................................................................
 
-    void refreshSaveLink(final Optional<FormHandlerSelector> list) {
+    void refreshLinks(final Optional<FormHandlerSelector> list) {
         this.selector.validate();
-        if (this.selector.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(list);
-        }
+
+        this.links.setValue(
+            this.selector.hasErrors() ?
+                Optional.<FormHandlerSelector>empty() :
+                list
+        );
     }
 
-    /**
-     * A SAVE link which will be updated each time the {@link #selector} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<FormHandlerSelector> save;
-
-    /**
-     * A CLEAR link which will save an empty {@link FormHandlerSelector}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<FormHandlerSelector> clear;
-
-    /**
-     * A UNDO link which will be updated each time the {@link FormHandlerSelector} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<FormHandlerSelector> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<FormHandlerSelector> links;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
@@ -198,25 +175,9 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
     public void refresh(final RefreshContext context) {
         final Optional<FormHandlerSelector> undo = this.context.undo();
         this.selector.setValue(undo);
-        this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
+        this.refreshLinks(undo);
 
-        this.refreshTitleAndLinks();
-    }
-
-    private void refreshTitleAndLinks() {
-        final FormHandlerSelectorDialogComponentContext context = this.context;
         this.context.refreshDialogTitle(this);
-
-        final HistoryToken historyToken = context.historyToken();
-
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
     }
 
     @Override

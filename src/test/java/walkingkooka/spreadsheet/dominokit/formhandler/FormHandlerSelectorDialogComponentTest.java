@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
 
@@ -67,13 +68,14 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [hello-form-handler] id=FormHandlerSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=FormHandlerSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=FormHandlerSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=FormHandlerSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=FormHandlerSelector-close-Link\n"
         );
     }
 
@@ -112,6 +114,11 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
             @Override
             public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
                 return null;
+            }
+
+            @Override
+            public SpreadsheetMetadata spreadsheetMetadata() {
+                return SpreadsheetMetadata.EMPTY;
             }
         };
     }
