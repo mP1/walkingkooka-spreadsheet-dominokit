@@ -103,13 +103,14 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "          LocaleComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -164,13 +165,14 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "          LocaleComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              [English (Australian)]\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -180,7 +182,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
             LocaleDialogComponentContexts.appContextSpreadsheetMetadataLocale(
                 this.appContext(
                     historyToken,
-                    null
+                    Optional.empty()
                 )
             )
         );

@@ -19,21 +19,17 @@ package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 import java.util.Locale;
-import java.util.Optional;
 
 public interface LocaleDialogComponentContext extends DialogComponentContext,
     LocaleContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetDeltaFetcherWatchers,
-    HasSpreadsheetMetadataFetcherWatchers {
-
-    /**
-     * Provides the {@link Locale} for the undo link.
-     */
-    Optional<Locale> undoLocale();
+    HasSpreadsheetMetadataFetcherWatchers,
+    DialogAnchorListComponentContext<Locale> {
 }

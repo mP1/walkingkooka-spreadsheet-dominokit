@@ -47,7 +47,7 @@ final class AppContextLocaleDialogComponentContextCellLocale extends AppContextL
     }
 
     @Override
-    public Optional<Locale> undoLocale() {
+    public Optional<Locale> undo() {
         return this.context.spreadsheetViewportCache()
             .historyTokenCell()
             .flatMap(SpreadsheetCell::locale);

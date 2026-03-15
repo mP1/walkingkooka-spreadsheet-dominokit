@@ -24,8 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -33,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -70,14 +68,16 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
     private LocaleDialogComponent(final LocaleDialogComponentContext context) {
         this.context = context;
 
-        this.save = this.<Locale>saveValueAnchor(context);
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponent
+            ).save()
+            .undo()
+            .clearLink()
+            .close();
 
         // locale after save because locale passes a method reference to #save
         this.locale = this.locale();
-
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
 
@@ -98,13 +98,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
         ).appendChild(
             FlexLayoutComponent.row()
                 .appendChild(this.locale)
-        ).appendChild(
-            AnchorListComponent.empty()
-                .appendChild(this.save)
-                .appendChild(this.clear)
-                .appendChild(this.undo)
-                .appendChild(this.close)
-        );
+        ).appendChild(this.links);
     }
 
     private final DialogComponent dialog;
@@ -198,46 +192,15 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                 }
             ).optional()
             .addValueWatcher2(
-                this.save::setValue
+                (v) -> this.links.setValue(v) // Using method reference throws NPE in GWT
             );
     }
 
     private final LocaleComponent<Locale> locale;
 
-    // save.............................................................................................................
+    // links............................................................................................................
 
-    private final HistoryTokenSaveValueAnchorComponent<Locale> save;
-
-    // clear.............................................................................................................
-
-    private void refreshClear() {
-        this.clear.clearValue();
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<Locale> clear;
-
-    // undo.............................................................................................................
-
-    private void refreshUndo() {
-        this.undo.setValue(
-            this.context.undoLocale()
-        );
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<Locale> undo;
-
-    // close............................................................................................................
-
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<Locale> links;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -263,13 +226,11 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<Locale> undoLocale = this.context.undoLocale();
+        final Optional<Locale> undoLocale = this.context.undo();
 
         this.locale.setValue(undoLocale);
-        this.save.setValue(undoLocale);
-        this.refreshClear();
-        this.refreshUndo();
-        this.refreshClose();
+
+        this.links.setValue(undoLocale);
     }
 
     @Override
