@@ -47,7 +47,7 @@ final class AppContextCurrencyDialogComponentContextCellCurrency extends AppCont
     }
 
     @Override
-    public Optional<Currency> undoCurrency() {
+    public Optional<Currency> undo() {
         return this.context.spreadsheetViewportCache()
             .historyTokenCell()
             .flatMap(SpreadsheetCell::currency);

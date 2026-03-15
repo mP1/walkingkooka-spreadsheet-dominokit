@@ -48,7 +48,7 @@ final class AppContextCurrencyDialogComponentContextMetadataCurrency extends App
     }
 
     @Override
-    public Optional<Currency> undoCurrency() {
+    public Optional<Currency> undo() {
         return this.context.spreadsheetMetadata()
             .get(PROPERTY_NAME);
     }

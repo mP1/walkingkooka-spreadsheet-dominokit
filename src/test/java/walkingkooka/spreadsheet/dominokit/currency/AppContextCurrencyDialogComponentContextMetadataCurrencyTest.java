@@ -49,13 +49,13 @@ public final class AppContextCurrencyDialogComponentContextMetadataCurrencyTest 
         );
     }
 
-    // undoCurrency.......................................................................................................
+    // undo.............................................................................................................
 
     private final static Currency CURRENCY = Currency.getInstance("AUD");
 
     @Test
-    public void testUndoCurrency() {
-        this.undoCurrencyAndCheck(
+    public void testUndo() {
+        this.undoAndCheck(
             this.createContext(),
             CURRENCY
         );
