@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.format;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetFormatterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -29,13 +30,12 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEditContext;
 
-import java.util.Optional;
-
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link SpreadsheetFormatterSelectorDialogComponent} provided various inputs.
  */
 public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanGiveFocus,
     ComponentLifecycleMatcher,
+    DialogAnchorListComponentContext<SpreadsheetFormatterSelector>,
     HasSpreadsheetFormatterFetcherWatchers,
     DialogComponentContext,
     SpreadsheetFormatterProvider,
@@ -47,11 +47,6 @@ public interface SpreadsheetFormatterSelectorDialogComponentContext extends CanG
      * Tabs should only be shown when editing a metadata formatter.
      */
     boolean shouldShowTabs();
-
-    /**
-     * Provides the UNDO
-     */
-    Optional<SpreadsheetFormatterSelector> undo();
 
     /**
      * Invokes the server end point

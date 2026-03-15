@@ -163,13 +163,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "            [date] id=SpreadsheetFormatterSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -297,13 +298,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -452,13 +454,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -628,13 +631,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -730,13 +734,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -847,13 +852,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -997,13 +1003,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20yyyy/mm/dd] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20dd/mm/yyyy] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateFormatter/save/date%20yyyy/mm/dd] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1166,13 +1173,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1356,13 +1364,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/errorFormatter/save/badge-error%20text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1546,13 +1555,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%200.%23;0.%23;0] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%20$%230.00] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberFormatter/save/number%200.%23;0.%23;0] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1662,13 +1672,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@%20%22Hello%22] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/textFormatter/save/text%20@] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
@@ -1793,13 +1804,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm:ss] id=SpreadsheetFormatterSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20hh:mm:ss] id=SpreadsheetFormatterSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetFormatterSelector-close-Link\n"
         );
     }
 
