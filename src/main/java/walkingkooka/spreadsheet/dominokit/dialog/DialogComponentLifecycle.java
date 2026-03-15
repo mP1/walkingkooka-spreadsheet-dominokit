@@ -20,12 +20,6 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import org.dominokit.domino.ui.dialogs.Dialog;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -33,75 +27,13 @@ import walkingkooka.text.printer.TreePrintable;
  * A specialized {@link HistoryTokenAwareComponentLifecycle} that adds some basic support for {@link DialogComponent}.
  */
 public interface DialogComponentLifecycle extends HistoryTokenAwareComponentLifecycle,
+    DialogComponentAnchors,
     TreePrintable {
 
     /**
      * Getter that returns the {@link DialogComponent}. This is required by the other default methods.
      */
     DialogComponent dialog();
-
-    /**
-     * Base id that should be used for all components within this dialog.
-     */
-    String idPrefix();
-
-    /**
-     * Creates a {@link HistoryTokenAnchorComponent} with the given text and also generates an ID.
-     */
-    default HistoryTokenAnchorComponent anchor(final String text) {
-        return HistoryTokenAnchorComponent.empty()
-            .setId(
-                this.idPrefix() +
-                    CaseKind.TITLE.change(
-                        text,
-                        CaseKind.KEBAB
-                    ) + SpreadsheetElementIds.LINK)
-            .setTextContent(text);
-    }
-
-
-    /**
-     * Creates a {@link HistoryTokenSaveValueAnchorComponent} with a label of "Clear".
-     */
-    default <TT> HistoryTokenSaveValueAnchorComponent<TT> clearValueAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.<TT>with(
-            this.idPrefix() +
-                "clear" +
-                SpreadsheetElementIds.LINK,
-            historyContext
-        ).setTextContent("Clear");
-    }
-
-    /**
-     * Factory that creates an Anchor which will close, it will need to be updated with a closed {@link HistoryToken}.
-     */
-    default HistoryTokenAnchorComponent closeAnchor() {
-        return this.anchor("Close");
-    }
-
-    /**
-     * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
-     */
-    default <TT> HistoryTokenSaveValueAnchorComponent<TT> saveValueAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.<TT>with(
-            this.idPrefix() +
-                "save" +
-                SpreadsheetElementIds.LINK,
-            historyContext
-        ).setTextContent("Save");
-    }
-
-    /**
-     * Creates a {@link HistoryTokenSaveValueAnchorComponent}.
-     */
-    default <TT> HistoryTokenSaveValueAnchorComponent<TT> undoAnchor(final HistoryContext historyContext) {
-        return HistoryTokenSaveValueAnchorComponent.<TT>with(
-            this.idPrefix() +
-                "undo" +
-                SpreadsheetElementIds.LINK,
-            historyContext
-        ).setTextContent("Undo");
-    }
 
     // HistoryTokenAwareComponentLifecycle..............................................................................................
 
