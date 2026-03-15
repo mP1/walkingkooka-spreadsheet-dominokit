@@ -107,13 +107,14 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
                 "          CurrencyComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
         );
     }
 
@@ -168,13 +169,14 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
                 "          CurrencyComponent\n" +
                 "            SuggestBoxComponent\n" +
                 "              [Australian Dollar]\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
         );
     }
 
@@ -184,7 +186,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
             CurrencyDialogComponentContexts.appContextMetadataCurrency(
                 this.appContext(
                     historyToken,
-                    null
+                    Optional.of(CURRENCY)
                 )
             )
         );

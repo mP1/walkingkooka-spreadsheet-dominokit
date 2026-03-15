@@ -24,8 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -33,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -70,14 +68,16 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
     private CurrencyDialogComponent(final CurrencyDialogComponentContext context) {
         this.context = context;
 
-        this.save = this.saveValueAnchor(context);
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponent
+            ).save()
+            .undo()
+            .clearLink()
+            .close();
 
         // currency after save because currency passes a method reference to #save
         this.currency = this.currency();
-
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
 
         this.dialog = this.dialogCreate();
 
@@ -98,13 +98,7 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
         ).appendChild(
             FlexLayoutComponent.row()
                 .appendChild(this.currency)
-        ).appendChild(
-            AnchorListComponent.empty()
-                .appendChild(this.save)
-                .appendChild(this.clear)
-                .appendChild(this.undo)
-                .appendChild(this.close)
-        );
+        ).appendChild(this.links);
     }
 
     private final DialogComponent dialog;
@@ -198,46 +192,15 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
                 }
             ).optional()
             .addValueWatcher2(
-                this.save::setValue
+                (v) -> this.links.setValue(v) // TODO method reference throws NPE in GWT
             );
     }
 
     private final CurrencyComponent<Currency> currency;
 
-    // save.............................................................................................................
+    // links............................................................................................................
 
-    private final HistoryTokenSaveValueAnchorComponent<Currency> save;
-
-    // clear.............................................................................................................
-
-    private void refreshClear() {
-        this.clear.clearValue();
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<Currency> clear;
-
-    // undo.............................................................................................................
-
-    private void refreshUndo() {
-        this.undo.setValue(
-            this.context.undoCurrency()
-        );
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<Currency> undo;
-
-    // close............................................................................................................
-
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<Currency> links;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -263,13 +226,10 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<Currency> undoCurrency = this.context.undoCurrency();
+        final Optional<Currency> undoCurrency = this.context.undo();
 
         this.currency.setValue(undoCurrency);
-        this.save.setValue(undoCurrency);
-        this.refreshClear();
-        this.refreshUndo();
-        this.refreshClose();
+        this.links.setValue(undoCurrency);
     }
 
     @Override

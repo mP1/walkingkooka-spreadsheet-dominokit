@@ -19,21 +19,17 @@ package walkingkooka.spreadsheet.dominokit.currency;
 
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 
 import java.util.Currency;
-import java.util.Optional;
 
 public interface CurrencyDialogComponentContext extends DialogComponentContext,
     CurrencyContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetDeltaFetcherWatchers,
-    HasSpreadsheetMetadataFetcherWatchers {
-
-    /**
-     * Provides the {@link Currency} for the undo link.
-     */
-    Optional<Currency> undoCurrency();
+    HasSpreadsheetMetadataFetcherWatchers,
+    DialogAnchorListComponentContext<Currency> {
 }

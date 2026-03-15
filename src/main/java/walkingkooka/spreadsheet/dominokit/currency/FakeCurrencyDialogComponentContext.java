@@ -40,7 +40,7 @@ public class FakeCurrencyDialogComponentContext extends FakeDialogComponentConte
     }
 
     @Override
-    public Optional<Currency> undoCurrency() {
+    public Optional<Currency> undo() {
         throw new UnsupportedOperationException();
     }
 

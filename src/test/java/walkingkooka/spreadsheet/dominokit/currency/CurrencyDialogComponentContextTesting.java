@@ -36,28 +36,28 @@ public interface CurrencyDialogComponentContextTesting<C extends CurrencyDialogC
         );
     }
 
-    // undoCurrency.......................................................................................................
+    // undo.............................................................................................................
 
-    default void undoCurrencyAndCheck(final C context) {
-        this.undoCurrencyAndCheck(
+    default void undoAndCheck(final C context) {
+        this.undoAndCheck(
             context,
             Optional.empty()
         );
     }
 
-    default void undoCurrencyAndCheck(final C context,
-                                      final Currency expected) {
-        this.undoCurrencyAndCheck(
+    default void undoAndCheck(final C context,
+                              final Currency expected) {
+        this.undoAndCheck(
             context,
             Optional.ofNullable(expected)
         );
     }
 
-    default void undoCurrencyAndCheck(final C context,
-                                      final Optional<Currency> expected) {
+    default void undoAndCheck(final C context,
+                              final Optional<Currency> expected) {
         this.checkEquals(
             expected,
-            context.undoCurrency()
+            context.undo()
         );
     }
 
