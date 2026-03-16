@@ -153,13 +153,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            [date] id=SpreadsheetParserSelector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -277,13 +278,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -422,13 +424,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -588,13 +591,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number $#0.00] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -695,13 +699,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time hh:mm] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -831,13 +836,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20yyyy/mm/dd] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20yyyy/mm/dd] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -986,13 +992,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1162,13 +1169,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [number $#0.00] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%200.%23;0.%23;0] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%200.%23;0.%23;0] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1279,13 +1287,14 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [time hh:mm] id=SpreadsheetParserSelector-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
-                "            \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss] id=SpreadsheetParserSelector-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 

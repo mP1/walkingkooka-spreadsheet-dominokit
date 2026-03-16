@@ -44,9 +44,9 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
 
     @Override
     public String dialogTitle() {
-        return this.spreadsheetMetadataPropertyNameDialogTitle(
-            this.propertyName()
-        );
+        return this.propertyName()
+            .map(this::spreadsheetMetadataPropertyNameDialogTitle)
+            .orElse("");
     }
 
     @Override
@@ -59,18 +59,18 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
      */
     @Override
     public Optional<SpreadsheetParserSelector> undo() {
-        return Cast.to(
-            this.context.spreadsheetMetadata()
-                .getIgnoringDefaults(
-                    this.propertyName()
-                )
-        );
+        return this.propertyName()
+            .flatMap(
+                p -> this.context.spreadsheetMetadata()
+                    .get(p)
+            );
     }
 
-    private SpreadsheetMetadataPropertyName<?> propertyName() {
-        return this.historyToken()
+    private Optional<SpreadsheetMetadataPropertyName<SpreadsheetParserSelector>> propertyName() {
+        return Cast.to(
+            this.historyToken()
             .metadataPropertyName()
-            .orElseThrow(() -> new IllegalStateException("Missing " + SpreadsheetMetadataPropertyName.class.getSimpleName()));
+        );
     }
 
     // ComponentLifecycleMatcher........................................................................................
