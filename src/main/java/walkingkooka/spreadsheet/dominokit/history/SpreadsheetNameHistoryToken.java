@@ -84,7 +84,8 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     // HasUrlFragment...................................................................................................
 
-    @Override final UrlFragment spreadsheetUrlFragment() {
+    @Override //
+    final UrlFragment spreadsheetUrlFragment() {
         return this.id
             .urlFragment()
             .appendSlashThen(
