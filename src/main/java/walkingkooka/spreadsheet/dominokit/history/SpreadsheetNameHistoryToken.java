@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.naming.HasName;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -31,19 +30,13 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HasName<SpreadsheetName>,
-    HistoryTokenWatcher {
+public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
     SpreadsheetNameHistoryToken(final SpreadsheetId id,
                                 final SpreadsheetName name) {
         super(id);
 
         this.name = Objects.requireNonNull(name, "name");
-    }
-
-    @Override
-    public final SpreadsheetName name() {
-        return this.name;
     }
 
     final HistoryToken replaceName(final SpreadsheetName name) {

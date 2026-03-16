@@ -212,9 +212,9 @@ public final class JarEntryInfoListDialogComponent implements DialogComponentLif
 
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        final PluginSelectHistoryToken select = context.historyToken()
-            .cast(PluginSelectHistoryToken.class);
-        this.pluginName = select.name();
+        this.pluginName = context.historyToken()
+            .pluginName()
+            .orElse(null);
 
         this.context.listJarEntries(
             this.pluginName

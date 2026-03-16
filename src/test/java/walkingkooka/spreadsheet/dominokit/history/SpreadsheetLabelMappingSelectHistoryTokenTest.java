@@ -148,14 +148,15 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
 
     @Test
     public void testDelete() {
-        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final Optional<SpreadsheetLabelName> labelName = token.labelName();
+        final SpreadsheetLabelMappingHistoryToken historyToken = this.createHistoryToken();
+        final Optional<SpreadsheetLabelName> labelName = historyToken.labelName();
 
         this.deleteAndCheck(
-            token,
+            historyToken,
             HistoryToken.labelMappingDelete(
-                token.id(),
-                token.name(),
+                historyToken.id(),
+                historyToken.name()
+                    .orElse(null),
                 labelName.get()
             )
         );
@@ -163,16 +164,17 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
 
     @Test
     public void testSetSaveValueCell() {
-        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final Optional<SpreadsheetLabelName> labelName = token.labelName();
+        final SpreadsheetLabelMappingHistoryToken historyToken = this.createHistoryToken();
+        final Optional<SpreadsheetLabelName> labelName = historyToken.labelName();
         final SpreadsheetCellReference cell = SpreadsheetSelection.parseCell("B2");
 
         this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             cell.toString(),
             HistoryToken.labelMappingSave(
-                token.id(),
-                token.name(),
+                historyToken.id(),
+                historyToken.name()
+                    .orElse(null),
                 labelName.get()
                     .setLabelMappingReference(cell)
             )
@@ -181,16 +183,17 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
 
     @Test
     public void testSetSaveValueCellRange() {
-        final SpreadsheetLabelMappingHistoryToken token = this.createHistoryToken();
-        final Optional<SpreadsheetLabelName> labelName = token.labelName();
+        final SpreadsheetLabelMappingHistoryToken historyToken = this.createHistoryToken();
+        final Optional<SpreadsheetLabelName> labelName = historyToken.labelName();
         final SpreadsheetCellRangeReference cells = SpreadsheetSelection.parseCellRange("C3:D4");
 
         this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             cells.toString(),
             HistoryToken.labelMappingSave(
-                token.id(),
-                token.name(),
+                historyToken.id(),
+                historyToken.name()
+                    .orElse(null),
                 labelName.get()
                     .setLabelMappingReference(cells)
             )
