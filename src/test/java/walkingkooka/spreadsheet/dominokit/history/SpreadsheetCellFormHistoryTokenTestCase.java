@@ -58,15 +58,6 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
-    final void formNameAndCheck(final SpreadsheetCellFormHistoryToken token,
-                                final FormName expected) {
-        this.checkEquals(
-            expected,
-            token.formName(),
-            token.urlFragment()::toString
-        );
-    }
-
     // delete...........................................................................................................
 
     @Test

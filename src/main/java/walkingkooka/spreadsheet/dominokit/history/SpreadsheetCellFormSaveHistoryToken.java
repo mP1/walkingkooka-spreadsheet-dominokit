@@ -99,7 +99,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
             this.id,
             this.name,
             this.anchoredSelection(),
-            this.formName()
+            this.formName
         );
     }
 

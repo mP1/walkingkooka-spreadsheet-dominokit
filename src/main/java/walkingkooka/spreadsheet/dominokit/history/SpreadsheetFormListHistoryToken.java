@@ -21,10 +21,8 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Selects a Form for viewing or editing.
@@ -56,11 +54,6 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
     }
 
     final HistoryTokenOffsetAndCount offsetAndCount;
-
-    @Override
-    public Optional<FormName> formName() {
-        return Optional.empty();
-    }
 
     // #/1/SpreadsheetName/form/
     // #/1/SpreadsheetName/form/*/offset/0/count/1

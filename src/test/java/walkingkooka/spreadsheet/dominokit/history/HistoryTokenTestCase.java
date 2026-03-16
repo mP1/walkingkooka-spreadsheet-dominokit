@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
+import walkingkooka.validation.form.FormName;
 
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -310,6 +311,25 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.setQuery(find),
             () -> token + " setFind " + find
+        );
+    }
+
+    // formName.........................................................................................................
+
+    final void formNameAndCheck(final HistoryToken token,
+                                final FormName expected) {
+        this.formNameAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void formNameAndCheck(final HistoryToken token,
+                                final Optional<FormName> expected) {
+        this.checkEquals(
+            expected,
+            token.formName(),
+            token.urlFragment()::toString
         );
     }
 

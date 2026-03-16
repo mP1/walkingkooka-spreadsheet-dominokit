@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.cursor.TextCursor;
-import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -44,8 +43,6 @@ public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistory
             name
         );
     }
-
-    public abstract Optional<FormName> formName();
 
     @Override
     public HistoryToken setSaveValue(final Optional<?> value) {

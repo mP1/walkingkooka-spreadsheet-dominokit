@@ -20,33 +20,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.junit.jupiter.api.Test;
 import walkingkooka.validation.form.FormName;
 
-import java.util.Optional;
-
 public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetFormHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
     final static FormName FORM_NAME = FormName.with("FormName123");
 
     SpreadsheetFormHistoryTokenTestCase() {
         super();
-    }
-
-    // formName.........................................................................................................
-
-    final void formNameAndCheck(final SpreadsheetFormHistoryToken token,
-                                final FormName expected) {
-        this.formNameAndCheck(
-            token,
-            Optional.of(expected)
-        );
-    }
-
-    final void formNameAndCheck(final SpreadsheetFormHistoryToken token,
-                                final Optional<FormName> expected) {
-        this.checkEquals(
-            expected,
-            token.formName(),
-            token.urlFragment()::toString
-        );
     }
 
     // close............................................................................................................
