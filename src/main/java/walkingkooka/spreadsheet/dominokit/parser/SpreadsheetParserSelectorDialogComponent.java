@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -35,10 +35,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterTableComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
@@ -110,11 +107,13 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
         this.textBox = this.textBox();
 
-        this.save = this.<SpreadsheetParserSelector>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponent
+            ).saveAutoDisableWhenMissingValue()
+            .undo()
+            .clearLink()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -151,13 +150,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             .appendChild(this.appender)
             .appendChild(this.removeOrReplace)
             .appendChild(this.textBox)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -201,7 +194,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         return SpreadsheetParserSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshSaveLink
+                this::refreshLinks
             );
     }
 
@@ -308,29 +301,26 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
                 Lists.of(message)
         );
 
-        // enable SAVE if no error exists
-        if (this.textBox.stringValue().isEmpty() || hasNoError) {
-            this.save.setValue(
-                edit.selector()
-            );
-        } else {
-            this.save.clearValue();
-        }
+        this.links.setValue(
+            this.textBox.stringValue().isEmpty() || hasNoError ?
+                edit.selector() :
+                Optional.<SpreadsheetParserSelector>empty()
+        );
 
         this.refreshTitleTabsClearClose();
     }
 
     // dialog links.....................................................................................................
 
-    void refreshSaveLink(final Optional<SpreadsheetParserSelector> selector) {
+    void refreshLinks(final Optional<SpreadsheetParserSelector> selector) {
         final SpreadsheetParserSelectorComponent textBox = this.textBox;
 
         textBox.validate();
-        if (textBox.hasErrors()) {
-            this.save.disabled();
-        } else {
-            this.save.setValue(selector);
-        }
+        this.links.setValue(
+            textBox.hasErrors() ?
+                Optional.<SpreadsheetParserSelector>empty() :
+                selector
+        );
 
         this.refreshEdit(
             textBox.stringValue()
@@ -338,25 +328,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         );
     }
 
-    /**
-     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> save;
-
-    /**
-     * A UNDO link which will be updated each time the {@link #textBox} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> undo;
-
-    /**
-     * A CLEAR link which will save an empty {@link SpreadsheetParserSelector}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetParserSelector> clear;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<SpreadsheetParserSelector> links;
 
     // SpreadsheetDeltaFetcherWatcher...................................................................................
 
@@ -405,8 +377,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     public void refresh(final RefreshContext context) {
         final Optional<SpreadsheetParserSelector> undo = this.context.undo();
         this.textBox.setValue(undo);
-        this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
+        this.refreshLinks(undo);
 
         this.refreshTitleTabsClearClose();
     }
@@ -414,8 +385,6 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     private void refreshTitleTabsClearClose() {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
-
-        final HistoryToken historyToken = context.historyToken();
 
         if (null != this.tabs) {
             this.tabs.refresh(context);
@@ -429,13 +398,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             )
         );
 
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     private Optional<SpreadsheetParserName> parserName;
