@@ -80,8 +80,8 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
     // new id/name but still metadata+property+value select
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                        final SpreadsheetName name) {
         return with(
             id,
             name,

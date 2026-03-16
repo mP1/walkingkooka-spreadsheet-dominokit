@@ -67,8 +67,8 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                        final SpreadsheetName name) {
         return with(
             id,
             name

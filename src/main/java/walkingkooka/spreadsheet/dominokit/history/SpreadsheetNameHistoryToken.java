@@ -40,7 +40,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     final HistoryToken replaceName(final SpreadsheetName name) {
-        return this.replaceIdAndName(
+        return this.replaceSpreadsheetIdAndSpreadsheetName(
             this.id,
             name
         );

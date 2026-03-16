@@ -47,8 +47,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final AnchoredSpreadsheetSelection anchoredSelection;
 
     @Override //
-    final HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                        final SpreadsheetName name) {
+    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                              final SpreadsheetName name) {
         return this.replaceIdNameAnchoredSelection(
             id,
             name,
