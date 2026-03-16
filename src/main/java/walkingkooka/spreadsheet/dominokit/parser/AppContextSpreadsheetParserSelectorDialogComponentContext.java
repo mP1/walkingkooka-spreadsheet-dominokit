@@ -68,30 +68,30 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     }
 
     @Override
-    public Locale locale() {
+    public final Locale locale() {
         return this.context.locale();
     }
 
     @Override
-    public SpreadsheetParserSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
+    public final SpreadsheetParserSelectorDialogComponentContext setObjectPostProcessor(final JsonNodeMarshallContextObjectPostProcessor processor) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SpreadsheetParserSelectorDialogComponentContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
+    public final SpreadsheetParserSelectorDialogComponentContext setPreProcessor(final JsonNodeUnmarshallContextPreProcessor processor) {
         throw new UnsupportedOperationException();
     }
 
     // SpreadsheetParserContext.........................................................................................
 
     @Override
-    public boolean canNumbersHaveGroupSeparator() {
+    public final boolean canNumbersHaveGroupSeparator() {
         return this.context.canNumbersHaveGroupSeparator();
     }
 
     @Override
-    public InvalidCharacterException invalidCharacterException(final Parser<?> parser,
-                                                               final TextCursor cursor) {
+    public final InvalidCharacterException invalidCharacterException(final Parser<?> parser,
+                                                                     final TextCursor cursor) {
         return this.context.invalidCharacterException(
             parser,
             cursor
@@ -99,7 +99,7 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
     }
 
     @Override
-    public char valueSeparator() {
+    public final char valueSeparator() {
         return this.context.valueSeparator();
     }
 
