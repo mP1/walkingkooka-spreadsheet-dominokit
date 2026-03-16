@@ -25,8 +25,7 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -34,7 +33,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
@@ -85,10 +83,13 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
                 (e) -> this.onTextBox(this.text())
             );
 
-        this.save = this.<PluginNameSet>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).saveAutoDisableWhenMissingValue()
+            .clearLink()
+            .undo()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -119,12 +120,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
             ).appendChild(this.add.setFilterValueWatcher(this::addFilterOnValue))
             .appendChild(this.remove.setFilterValueWatcher(this::removeFilterOnValue))
             .appendChild(this.textBox)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -215,20 +211,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     // dialog links.....................................................................................................
 
-    /**
-     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<PluginNameSet> save;
-
-    /**
-     * A RESET link which saves the original {@link PluginNameSet} value when the dialog appeared
-     */
-    private final HistoryTokenSaveValueAnchorComponent<PluginNameSet> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<PluginNameSet> links;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
@@ -315,11 +298,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     public void openGiveFocus(final RefreshContext context) {
         final PluginNameSetDialogComponentContext dialogContext = this.context;
 
-        this.refreshUndo(
-            dialogContext.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.PLUGINS)
-                .orElse(PluginNameSet.EMPTY)
-        );
+        this.links.setValue(dialogContext.undo());
 
         final SpreadsheetMetadataPropertySelectHistoryToken<?> propertySelectHistoryToken = context.historyToken()
             .cast(SpreadsheetMetadataPropertySelectHistoryToken.class);
@@ -338,12 +317,6 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
         context.giveFocus(
             this.textBox::focus
-        );
-    }
-
-    private void refreshUndo(final PluginNameSet plugins) {
-        this.undo.setValue(
-            Optional.of(plugins)
         );
     }
 
@@ -367,8 +340,6 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     private void refreshLinks(final PluginNameSet currentPluginNames) {
         final PluginNameSetDialogComponentContext context = this.context;
 
-        final HistoryToken historyToken = context.historyToken();
-
         final PluginNameSet filterMatchPluginNames = this.filterMatchPluginNames;
 
         this.add.refresh(
@@ -383,15 +354,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
             context
         );
 
-        this.save.setValue(
-            Optional.of(currentPluginNames)
-        );
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     private final PluginNameSetDialogComponentContext context;

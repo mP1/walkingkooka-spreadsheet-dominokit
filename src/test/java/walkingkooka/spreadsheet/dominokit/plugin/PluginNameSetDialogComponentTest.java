@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.TreeSet;
 
@@ -145,12 +146,14 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [] id=PluginNameSet-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
@@ -192,12 +195,14 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [plugin111] id=PluginNameSet-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
@@ -240,12 +245,14 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [plugin111] id=PluginNameSet-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111] id=PluginNameSet-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/plugin111,plugin222] id=PluginNameSet-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/plugins/save/] id=PluginNameSet-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/plugins/save/undo-plugin1,undo-plugin2,undo-plugin3] id=PluginNameSet-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginNameSet-close-Link\n"
         );
     }
 
@@ -326,6 +333,13 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
+        }
+
+        @Override
+        public Optional<PluginNameSet> undo() {
+            return Optional.of(
+                PluginNameSet.parse("undo-plugin1, undo-plugin2, undo-plugin3")
+            );
         }
 
         // HistoryContext..........................................................................................

@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.plugin;
 
 
+import walkingkooka.plugin.PluginNameSet;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
@@ -33,6 +35,7 @@ public interface PluginNameSetDialogComponentContext
     extends DialogComponentContext,
     AddPluginNameSetComponentContext,
     RemovePluginNameSetComponentContext,
+    DialogAnchorListComponentContext<PluginNameSet>,
     HasPluginFetcherWatchers,
     HasSpreadsheetMetadataFetcherWatchers,
     HasSpreadsheetMetadata {
