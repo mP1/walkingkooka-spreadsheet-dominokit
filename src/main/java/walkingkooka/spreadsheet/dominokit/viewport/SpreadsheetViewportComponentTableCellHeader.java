@@ -65,7 +65,7 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
             anchor.historyToken()
-                .map(t -> t.setIdAndName(id, name))
+                .map(t -> t.setSpreadsheetIdAndSpreadsheetName(id, name))
         );
     }
 

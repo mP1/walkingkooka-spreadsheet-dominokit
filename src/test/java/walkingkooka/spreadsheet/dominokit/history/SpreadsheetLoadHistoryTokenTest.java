@@ -52,7 +52,7 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
     public void testSetIdNameDifferentId() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             differentId,
             NAME,
             HistoryToken.spreadsheetSelect(differentId, NAME)

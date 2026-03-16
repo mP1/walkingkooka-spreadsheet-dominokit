@@ -33,7 +33,7 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
 
     @Test
     public final void testSetIdName() {
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             ID,
             NAME,
             HistoryToken.spreadsheetSelect(ID, NAME)

@@ -37,8 +37,8 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
     }
 
     @Test
-    public final void testSetIdAndName() {
-        this.setIdAndNameAndCheck(
+    public final void testSetSpreadsheetIdAndSpreadsheetName() {
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             this.createHistoryToken(),
             ID,
             NAME,

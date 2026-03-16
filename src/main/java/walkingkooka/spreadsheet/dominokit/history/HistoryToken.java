@@ -3089,43 +3089,6 @@ public abstract class HistoryToken implements HasUrlFragment {
         return Optional.ofNullable(token);
     }
 
-    // ID...............................................................................................................
-
-    /**
-     * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
-     * creating a new instance if necessary.
-     */
-    public final HistoryToken setIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name) {
-        Objects.requireNonNull(id, "id");
-        Objects.requireNonNull(name, "name");
-
-        HistoryToken token = null;
-
-        if (this instanceof SpreadsheetNameHistoryToken) {
-            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            if (id.equals(spreadsheetNameHistoryToken.id) && name.equals(spreadsheetNameHistoryToken.name)) {
-                token = this;
-            }
-        }
-
-        if (null == token) {
-            token = this.replaceIdAndName(
-                id,
-                name
-            );
-        }
-
-        return token;
-    }
-
-    /**
-     * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
-     * entire history token.
-     */
-    abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name);
-
     // INSERT...........................................................................................................
 
     /**
@@ -4937,6 +4900,43 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return spreadsheetFormatterSelector;
     }
+
+    // spreadsheetId....................................................................................................
+
+    /**
+     * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
+     * creating a new instance if necessary.
+     */
+    public final HistoryToken setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                                 final SpreadsheetName name) {
+        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(name, "name");
+
+        HistoryToken token = null;
+
+        if (this instanceof SpreadsheetNameHistoryToken) {
+            final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+            if (id.equals(spreadsheetNameHistoryToken.id) && name.equals(spreadsheetNameHistoryToken.name)) {
+                token = this;
+            }
+        }
+
+        if (null == token) {
+            token = this.replaceIdAndName(
+                id,
+                name
+            );
+        }
+
+        return token;
+    }
+
+    /**
+     * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
+     * entire history token.
+     */
+    abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
+                                           final SpreadsheetName name);
 
     // spreadsheetName..................................................................................................
 

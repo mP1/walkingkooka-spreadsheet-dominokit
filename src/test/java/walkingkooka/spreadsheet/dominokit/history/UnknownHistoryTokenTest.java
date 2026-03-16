@@ -32,7 +32,7 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
 
     @Test
     public void testIdName() {
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             ID,
             NAME,
             HistoryToken.spreadsheetSelect(ID, NAME)

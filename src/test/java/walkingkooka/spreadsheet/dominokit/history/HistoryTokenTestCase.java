@@ -333,14 +333,14 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // setIdAndName.....................................................................................................
+    // setSpreadsheetIdAndSpreadsheetName.....................................................................................................
 
     @Test
-    public final void testSetIdAndNameNullIdFails() {
+    public final void testSetSpreadsheetIdAndSpreadsheetNameWithNullSpreadsheetIdFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken()
-                .setIdAndName(
+                .setSpreadsheetIdAndSpreadsheetName(
                     null,
                     NAME
                 )
@@ -348,21 +348,21 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     }
 
     @Test
-    public final void testSetIdAndNameNullNameFails() {
+    public final void testSetSpreadsheetIdAndSpreadsheetNameWithNullSpreadsheetNameFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken()
-                .setIdAndName(
+                .setSpreadsheetIdAndSpreadsheetName(
                     ID,
                     null
                 )
         );
     }
 
-    final void setIdAndNameAndCheck(final SpreadsheetId id,
-                                    final SpreadsheetName name,
-                                    final HistoryToken expected) {
-        this.setIdAndNameAndCheck(
+    final void setSpreadsheetIdSpreadsheetNameAndCheck(final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final HistoryToken expected) {
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             this.createHistoryToken(),
             id,
             name,
@@ -370,13 +370,13 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    final void setIdAndNameAndCheck(final HistoryToken token,
-                                    final SpreadsheetId id,
-                                    final SpreadsheetName name,
-                                    final HistoryToken expected) {
+    final void setSpreadsheetIdSpreadsheetNameAndCheck(final HistoryToken token,
+                                                       final SpreadsheetId id,
+                                                       final SpreadsheetName name,
+                                                       final HistoryToken expected) {
         this.checkEquals(
             expected,
-            token.setIdAndName(
+            token.setSpreadsheetIdAndSpreadsheetName(
                 id,
                 name
             ),
