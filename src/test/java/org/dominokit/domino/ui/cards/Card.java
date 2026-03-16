@@ -60,6 +60,11 @@ public class Card extends BaseCard<Card> implements IsElement<Element>,
         return this;
     }
 
+    public IsElement<?> removeChild(final IsElement<?> child) {
+        this.components.remove(child);
+        return this;
+    }
+
     @Override
     public Card withHeader(final ChildHandler<Card, CardHeader> handler) {
         // nop

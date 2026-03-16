@@ -71,6 +71,66 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
         );
     }
 
+    @Test
+    public void testAppendChildRemoveChild() {
+        this.treePrintAndCheck(
+            CardComponent.empty()
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value123")
+                        )
+                ).removeChild(0),
+            ""
+        );
+    }
+
+    @Test
+    public void testAppendChildRemoveChildAppendChild() {
+        this.treePrintAndCheck(
+            CardComponent.empty()
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value111")
+                        )
+                ).removeChild(0)
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value222")
+                        )
+                ),
+            "CardComponent\n" +
+                "  Card\n" +
+                "    TextBoxComponent\n" +
+                "      [Value222]\n"
+        );
+    }
+
+    @Test
+    public void testAppendChildRemoveAllChildrenAppendChild() {
+        this.treePrintAndCheck(
+            CardComponent.empty()
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value111")
+                        )
+                ).removeAllChildren()
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value222")
+                        )
+                ),
+            "CardComponent\n" +
+                "  Card\n" +
+                "    TextBoxComponent\n" +
+                "      [Value222]\n"
+        );
+    }
+
     // ClassTesting.....................................................................................................
 
     @Override

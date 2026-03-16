@@ -184,8 +184,8 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
     @Override
     public CardComponent removeChild(final int index) {
         final IsElement<?> child = this.children.remove(index);
-        this.card.getAppendTarget()
-            .removeChild(child.element());
+        this.card.removeChild(child);
+
         return this;
     }
 
