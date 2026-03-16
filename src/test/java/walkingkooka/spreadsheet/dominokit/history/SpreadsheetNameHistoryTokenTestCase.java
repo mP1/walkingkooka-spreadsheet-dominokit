@@ -230,21 +230,21 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         );
     }
 
-    // setName..........................................................................................................
+    // setSpreadsheetName..........................................................................................................
 
     @Test
-    public final void testSetName() {
-        this.setNameAndCheck(
+    public final void testSetSpreadsheetName() {
+        this.setSpreadsheetNameAndCheck(
             NAME,
             this.createHistoryToken(ID, NAME)
         );
     }
 
     @Test
-    public final void testSetNameDifferentName() {
+    public final void testSetSpreadsheetNameWithDifferent() {
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
-        this.setNameAndCheck(
+        this.setSpreadsheetNameAndCheck(
             differentName,
             this.createHistoryToken(
                 ID,
