@@ -36,10 +36,6 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
         this.name = Objects.requireNonNull(name, "name");
     }
 
-    public final PluginName name() {
-        return this.name;
-    }
-
     final PluginName name;
 
     @Override //

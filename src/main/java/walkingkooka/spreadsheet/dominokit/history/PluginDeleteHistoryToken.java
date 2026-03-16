@@ -61,7 +61,7 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken imple
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.pluginFetcher()
-            .deletePlugin(this.name());
+            .deletePlugin(this.name);
         context.pushHistoryToken(previous);
     }
 

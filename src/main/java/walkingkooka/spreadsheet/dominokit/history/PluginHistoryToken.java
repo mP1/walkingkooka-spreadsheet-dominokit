@@ -78,7 +78,7 @@ public abstract class PluginHistoryToken extends HistoryToken {
             final PluginNameHistoryToken pluginNameHistoryToken = this.cast(PluginNameHistoryToken.class);
 
             historyToken = HistoryToken.pluginSave(
-                pluginNameHistoryToken.name(),
+                pluginNameHistoryToken.name,
                 (String) valueOrNull
             );
         }

@@ -22,7 +22,6 @@ import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponen
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 
 import java.util.Optional;
 
@@ -49,7 +48,7 @@ public final class PluginSelectAnchorComponent implements ValueHistoryTokenAncho
      */
     private Optional<PluginName> getter(final HistoryTokenAnchorComponent anchor) {
         return anchor.historyToken()
-            .map(t -> t.cast(PluginSelectHistoryToken.class).name());
+            .flatMap(HistoryToken::pluginName);
     }
 
     private void setter(final Optional<PluginName> value,

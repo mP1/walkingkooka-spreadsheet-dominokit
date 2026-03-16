@@ -52,7 +52,8 @@ final class AppContextJarEntryInfoListDialogComponentContext implements JarEntry
     public PluginName pluginName() {
         return this.historyToken()
             .cast(PluginSelectHistoryToken.class)
-            .name();
+            .pluginName()
+            .get();
     }
 
     @Override

@@ -83,7 +83,8 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
         final PluginFileViewHistoryToken historyToken = context.historyToken()
             .cast(PluginFileViewHistoryToken.class);
 
-        final PluginName pluginName = historyToken.name();
+        final PluginName pluginName = historyToken.pluginName()
+            .orElse(null);
         final JarEntryInfoName filename = historyToken.file()
             .get();
 
@@ -128,7 +129,8 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
         final PluginFileViewHistoryToken historyToken = context.historyToken()
             .cast(PluginFileViewHistoryToken.class);
 
-        final PluginName pluginName = historyToken.name();
+        final PluginName pluginName = historyToken.pluginName()
+            .orElse(null);
         final JarEntryInfoName filename = historyToken.file()
             .get();
 
