@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.validation.form.Form;
-import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -62,13 +61,6 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
         );
         this.form = Objects.requireNonNull(form, "form");
         this.field = Objects.requireNonNull(field, "field");
-    }
-
-    @Override
-    public Optional<FormName> formName() {
-        return Optional.of(
-            this.form.name()
-        );
     }
 
     final Optional<SpreadsheetValidationReference> field;

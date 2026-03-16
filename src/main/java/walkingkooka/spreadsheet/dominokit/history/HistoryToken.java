@@ -2983,6 +2983,37 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
+    // FORM.............................................................................................................
+
+    public final Optional<FormName> formName() {
+        final FormName formName;
+
+        if (this instanceof SpreadsheetFormDeleteHistoryToken) {
+            formName = this.cast(SpreadsheetFormDeleteHistoryToken.class)
+                .formName;
+        } else {
+            if (this instanceof SpreadsheetFormSelectHistoryToken) {
+                formName = this.cast(SpreadsheetFormSelectHistoryToken.class)
+                    .formName;
+            } else {
+                if (this instanceof SpreadsheetFormSaveHistoryToken) {
+                    formName = this.cast(SpreadsheetFormSaveHistoryToken.class)
+                        .form
+                        .name();
+                } else {
+                    if (this instanceof SpreadsheetCellFormHistoryToken) {
+                        formName = this.cast(SpreadsheetCellFormHistoryToken.class)
+                            .formName;
+                    } else {
+                        formName = null;
+                    }
+                }
+            }
+        }
+
+        return Optional.ofNullable(formName);
+    }
+
     // FORMULA..........................................................................................................
 
     public final HistoryToken formula() {
@@ -4493,8 +4524,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        this.cast(SpreadsheetCellFormHistoryToken.class)
-                                            .formName(),
+                                        this.formName()
+                                            .orElse(null),
                                         parseJson(
                                             value.isEmpty() ?
                                                 JsonNode.object() :

@@ -59,11 +59,6 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
         this.field = Objects.requireNonNull(field, "field");
     }
 
-    @Override
-    public Optional<FormName> formName() {
-        return Optional.of(this.formName);
-    }
-
     final FormName formName;
 
     final Optional<SpreadsheetValidationReference> field;

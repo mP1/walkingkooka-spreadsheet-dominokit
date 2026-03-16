@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.validation.form.FormName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * An action that deletes the named {@link walkingkooka.validation.form.Form}.
@@ -52,11 +51,6 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
             name
         );
         this.formName = Objects.requireNonNull(formName, "formName");
-    }
-
-    @Override
-    public Optional<FormName> formName() {
-        return Optional.of(this.formName);
     }
 
     final FormName formName;

@@ -46,10 +46,6 @@ public abstract class SpreadsheetCellFormHistoryToken extends SpreadsheetCellHis
         this.formName = Objects.requireNonNull(formName, "formName");
     }
 
-    public final FormName formName() {
-        return this.formName;
-    }
-
     final FormName formName;
 
     @Override //
