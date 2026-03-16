@@ -90,14 +90,13 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     // historyToken helpers.............................................................................................
 
     final HistoryToken selectionSelect() {
-        final HistoryToken selection = HistoryToken.selection(
-            this.id,
-            this.name,
-            this.anchoredSelection()
+        return this.elseIfDifferent(
+            HistoryToken.selection(
+                this.id,
+                this.name,
+                this.anchoredSelection()
+            )
         );
-        return this.equals(selection) ?
-            this :
-            selection;
     }
 
     final void deltaClearSelectionAndPushViewportHistoryToken(final AppContext context) {
