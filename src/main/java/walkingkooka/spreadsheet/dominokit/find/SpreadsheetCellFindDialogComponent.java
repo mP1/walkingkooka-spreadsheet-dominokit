@@ -311,7 +311,9 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 context.historyToken()
                     .cast(SpreadsheetCellFindHistoryToken.class)
             );
-        } catch (final Exception ignore) {
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
+        } catch (final RuntimeException ignore) {
             token = null;
         }
 
