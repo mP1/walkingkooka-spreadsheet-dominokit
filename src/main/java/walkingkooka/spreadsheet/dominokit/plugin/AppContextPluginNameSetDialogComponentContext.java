@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
@@ -27,8 +28,10 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.OptionalInt;
 
 final class AppContextPluginNameSetDialogComponentContext implements PluginNameSetDialogComponentContext,
@@ -49,6 +52,12 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
     @Override
     public String dialogTitle() {
         return "Plugins";
+    }
+
+    @Override
+    public Optional<PluginNameSet> undo() {
+        return this.spreadsheetMetadata()
+            .get(SpreadsheetMetadataPropertyName.PLUGINS);
     }
 
     // HasPluginFetcher.................................................................................................
