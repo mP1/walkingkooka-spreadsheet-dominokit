@@ -39,7 +39,7 @@ final class HistoryTokenSelectionSpreadsheetSelectionVisitor extends Spreadsheet
     static HistoryToken selectionToken(final SpreadsheetNameHistoryToken historyToken,
                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         final HistoryTokenSelectionSpreadsheetSelectionVisitor visitor = new HistoryTokenSelectionSpreadsheetSelectionVisitor(
-            historyToken.id(),
+            historyToken.id,
             historyToken.name,
             anchoredSelection.anchor()
         );
