@@ -4126,7 +4126,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Returns a {@link PluginName} if one is available.
      */
-    public Optional<PluginName> pluginName() {
+    public final Optional<PluginName> pluginName() {
         PluginName pluginName = null;
 
         if (this instanceof PluginNameHistoryToken) {
