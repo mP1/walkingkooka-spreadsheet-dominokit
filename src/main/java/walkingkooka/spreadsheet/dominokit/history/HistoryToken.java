@@ -3104,7 +3104,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            if (id.equals(spreadsheetNameHistoryToken.id()) && name.equals(spreadsheetNameHistoryToken.name())) {
+            if (id.equals(spreadsheetNameHistoryToken.id()) && name.equals(spreadsheetNameHistoryToken.name)) {
                 token = this;
             }
         }
