@@ -889,7 +889,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormulaGetterAndExpression() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),\"*formula*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(\"*formula*\",cellFormula())"
         );
 
         final AppContext appContext = this.appContext(
@@ -978,14 +978,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [1+textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
+                "            Query [1+textMatch(\"*formula*\",cellFormula())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
