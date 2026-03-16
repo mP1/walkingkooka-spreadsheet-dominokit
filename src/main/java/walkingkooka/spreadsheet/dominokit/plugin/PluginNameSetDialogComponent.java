@@ -305,7 +305,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
         // load latest metadata
         dialogContext.loadSpreadsheetMetadata(
-            propertySelectHistoryToken.id()
+            propertySelectHistoryToken.spreadsheetId()
         );
 
         dialogContext.pluginFilter(

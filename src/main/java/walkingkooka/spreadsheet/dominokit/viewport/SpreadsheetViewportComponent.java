@@ -642,7 +642,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
                             this.context.spreadsheetFormatterFetcher()
                                 .getCellFormatterMenu(
-                                    spreadsheetCellSelectHistoryToken.id(),
+                                    spreadsheetCellSelectHistoryToken.spreadsheetId(),
                                     currentSelection
                                 );
                         }

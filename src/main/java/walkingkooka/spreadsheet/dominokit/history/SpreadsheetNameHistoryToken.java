@@ -134,7 +134,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     /**
-     * This method is only called if the {@link SpreadsheetMetadata} for the {@link #id()} has already been loaded.
+     * This method is only called if the {@link SpreadsheetMetadata} for the {@link #spreadsheetId()} has already been loaded.
      */
     abstract void onHistoryTokenChange0(final HistoryToken previous,
                                         final AppContext context);

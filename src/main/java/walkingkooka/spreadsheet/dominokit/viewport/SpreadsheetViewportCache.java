@@ -634,7 +634,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             final SpreadsheetId currentId = this.spreadsheetId;
 
             if (historyToken instanceof SpreadsheetIdHistoryToken) {
-                final SpreadsheetId newId = historyToken.cast(SpreadsheetIdHistoryToken.class).id();
+                final SpreadsheetId newId = historyToken.cast(SpreadsheetIdHistoryToken.class).spreadsheetId();
 
                 if (false == Objects.equals(currentId, newId)) {
                     this.clear();

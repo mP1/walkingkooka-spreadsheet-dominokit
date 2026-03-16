@@ -55,7 +55,7 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
             .getLabelMapping(
                 context.historyToken()
                     .cast(SpreadsheetIdHistoryToken.class)
-                    .id(),
+                    .spreadsheetId(),
                 name
             );
     }
@@ -84,7 +84,7 @@ final class AppContextSpreadsheetLabelMappingDialogComponentContext implements S
             .getLabelMappingsFindByName(
                 context.historyToken()
                     .cast(SpreadsheetIdHistoryToken.class)
-                    .id(),
+                    .spreadsheetId(),
                 text,
                 offset,
                 count

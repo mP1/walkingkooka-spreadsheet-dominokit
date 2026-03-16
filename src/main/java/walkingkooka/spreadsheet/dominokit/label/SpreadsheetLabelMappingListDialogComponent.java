@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaLabelsTableComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
@@ -29,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 
 import java.util.Objects;
@@ -175,7 +175,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements DialogC
         this.context.loadLabelMappings(
             this.context.historyToken()
                 .cast(SpreadsheetIdHistoryToken.class)
-                .id(),
+                .spreadsheetId(),
             offsetAndCount
         );
     }

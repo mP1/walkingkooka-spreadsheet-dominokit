@@ -97,7 +97,7 @@ public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
 
         if (historyToken instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id();
+            final SpreadsheetId id = spreadsheetNameHistoryToken.spreadsheetId();
             if (false == id.equals(this.id)) {
                 this.id = id;
                 clearValues = true;

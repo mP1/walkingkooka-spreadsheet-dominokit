@@ -164,7 +164,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
         final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellReferenceListHistoryToken.class);
 
-        final SpreadsheetId id = historyToken.id();
+        final SpreadsheetId id = historyToken.spreadsheetId();
         final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()
             .selection()
             .toCellRange();

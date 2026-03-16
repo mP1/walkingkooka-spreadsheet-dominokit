@@ -165,7 +165,7 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
                 .getEdit(
                     this.context.historyToken()
                         .cast(SpreadsheetIdHistoryToken.class)
-                        .id(), // id
+                        .spreadsheetId(), // id
                     text
                 )
         );
