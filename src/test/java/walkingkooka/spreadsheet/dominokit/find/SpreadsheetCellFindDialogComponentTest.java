@@ -767,7 +767,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormulaGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),\"*formula*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(\"*formula*\",cellFormula())"
         );
 
         final AppContext appContext = this.appContext(
@@ -856,14 +856,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellFormula(),\"*formula*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*formula*\",cellFormula())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormula(),%22*formula*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1011,7 +1011,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormulaGetterOrFormatterGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))"
+            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
         );
 
         final AppContext appContext = this.appContext(
@@ -1100,14 +1100,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(textMatch(cellFormula(),\"*formula*\"),textMatch(cellFormatter(),\"*formatter*\"))] id=query-TextBox\n" +
+                "            Query [or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),textMatch(cellFormatter(),%22*formatter*%22))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1133,7 +1133,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormulaGetterOrTrue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),\"*formula*\"),true())"
+            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(\"*formula*\",cellFormula()),true())"
         );
 
         final AppContext appContext = this.appContext(
@@ -1222,14 +1222,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(textMatch(cellFormula(),\"*formula*\"),true())] id=query-TextBox\n" +
+                "            Query [or(textMatch(\"*formula*\",cellFormula()),true())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellFormula(),%22*formula*%22),true())] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellFormula(),%22*formula*%22),true())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1255,7 +1255,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithDateTimeSymbols() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),\"*Hello*\"),1)"
+            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(\"*Hello*\",cellDateTimeSymbols()),1)"
         );
 
         final AppContext appContext = this.appContext(
@@ -1344,14 +1344,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(textMatch(cellDateTimeSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
+                "            Query [or(textMatch(\"*Hello*\",cellDateTimeSymbols()),1)] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(cellDateTimeSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1499,7 +1499,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormatterGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),\"*formatter*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(\"*formatter*\",cellFormatter())"
         );
 
         final AppContext appContext = this.appContext(
@@ -1588,14 +1588,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellFormatter(),\"*formatter*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*formatter*\",cellFormatter())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormatter(),%22*formatter*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormatter(),%22*formatter*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1621,7 +1621,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithParserGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),\"*parser*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(\"*parser*\",cellParser())"
         );
 
         final AppContext appContext = this.appContext(
@@ -1710,14 +1710,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellParser(),\"*parser*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*parser*\",cellParser())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellParser(),%22*parser*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellParser(),%22*parser*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1743,7 +1743,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithStyleGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),\"*style*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(\"*style*\",cellStyle())"
         );
 
         final AppContext appContext = this.appContext(
@@ -1832,14 +1832,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellStyle(),\"*style*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*style*\",cellStyle())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellStyle(),%22*style*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellStyle(),%22*style*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2109,7 +2109,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithFormattedValueGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),\"*formatted-value*\")"
+            "/123/SpreadsheetName456/cell/A1/find/query/textMatch(\"*formatted-value*\",cellFormattedValue())"
         );
 
         final AppContext appContext = this.appContext(
@@ -2198,14 +2198,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellFormattedValue(),\"*formatted-value*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*formatted-value*\",cellFormattedValue())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellFormattedValue(),%22*formatted-value*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
