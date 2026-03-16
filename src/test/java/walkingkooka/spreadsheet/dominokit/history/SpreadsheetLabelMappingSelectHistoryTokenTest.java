@@ -155,7 +155,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             historyToken,
             HistoryToken.labelMappingDelete(
                 historyToken.id(),
-                historyToken.name()
+                historyToken.spreadsheetName()
                     .orElse(null),
                 labelName.get()
             )
@@ -173,7 +173,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             cell.toString(),
             HistoryToken.labelMappingSave(
                 historyToken.id(),
-                historyToken.name()
+                historyToken.spreadsheetName()
                     .orElse(null),
                 labelName.get()
                     .setLabelMappingReference(cell)
@@ -192,7 +192,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             cells.toString(),
             HistoryToken.labelMappingSave(
                 historyToken.id(),
-                historyToken.name()
+                historyToken.spreadsheetName()
                     .orElse(null),
                 labelName.get()
                     .setLabelMappingReference(cells)

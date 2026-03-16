@@ -60,7 +60,7 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
 
                 if (historyToken instanceof SpreadsheetNameHistoryToken) {
                     nameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
-                    final SpreadsheetName name = nameHistoryToken.name()
+                    final SpreadsheetName name = nameHistoryToken.spreadsheetName()
                         .orElse(null);
 
                     nameHistoryToken = HistoryToken.spreadsheetRenameSelect(

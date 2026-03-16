@@ -54,7 +54,7 @@ final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename ext
     @Override
     public Optional<SpreadsheetName> spreadsheetName() {
         return this.historyToken()
-                .name();
+                .spreadsheetName();
     }
 
     // ComponentLifecycleMatcher........................................................................................

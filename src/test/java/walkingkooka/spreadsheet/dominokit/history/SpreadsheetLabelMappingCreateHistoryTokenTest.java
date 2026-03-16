@@ -34,7 +34,7 @@ public final class SpreadsheetLabelMappingCreateHistoryTokenTest extends Spreads
         this.checkEquals(ID, token.id(), "id");
         this.checkEquals(
             NAME,
-            token.name()
+            token.spreadsheetName()
                 .orElse(null),
             "name"
         );

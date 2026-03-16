@@ -3824,35 +3824,6 @@ public abstract class HistoryToken implements HasUrlFragment {
         return historyToken;
     }
 
-    // name.............................................................................................................
-
-    /**
-     * Getter that returns the {@link SpreadsheetName}.
-     */
-    public final Optional<SpreadsheetName> name() {
-        final SpreadsheetName name;
-
-        if(this instanceof SpreadsheetNameHistoryToken) {
-            name = this.cast(SpreadsheetNameHistoryToken.class)
-                .name;
-        } else {
-            name = null;
-        }
-
-        return Optional.ofNullable(name);
-    }
-
-    /**
-     * Sets or replaces the current {@link SpreadsheetName}.
-     */
-    public final HistoryToken setSpreadsheetName(final SpreadsheetName name) {
-        Objects.requireNonNull(name, "name");
-
-        return this instanceof SpreadsheetNameHistoryToken ?
-            this.cast(SpreadsheetNameHistoryToken.class).replaceName(name) :
-            this;
-    }
-
     // navigation.......................................................................................................
 
     /**
@@ -4966,6 +4937,37 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return spreadsheetFormatterSelector;
     }
+
+    // spreadsheetName..................................................................................................
+
+    /**
+     * Getter that returns the {@link SpreadsheetName}.
+     */
+    public final Optional<SpreadsheetName> spreadsheetName() {
+        final SpreadsheetName name;
+
+        if(this instanceof SpreadsheetNameHistoryToken) {
+            name = this.cast(SpreadsheetNameHistoryToken.class)
+                .name;
+        } else {
+            name = null;
+        }
+
+        return Optional.ofNullable(name);
+    }
+
+    /**
+     * Sets or replaces the current {@link SpreadsheetName}.
+     */
+    public final HistoryToken setSpreadsheetName(final SpreadsheetName name) {
+        Objects.requireNonNull(name, "name");
+
+        return this instanceof SpreadsheetNameHistoryToken ?
+            this.cast(SpreadsheetNameHistoryToken.class).replaceName(name) :
+            this;
+    }
+
+    // spreadsheetParserSelector........................................................................................
 
     public final Optional<SpreadsheetParserSelector> spreadsheetParserSelector() {
         Optional<SpreadsheetParserSelector> spreadsheetParserSelector = Optional.empty();
