@@ -86,7 +86,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
             .postVerify(
                 this.context.historyToken()
                     .cast(SpreadsheetIdHistoryToken.class)
-                    .id(),
+                    .spreadsheetId(),
                 this.propertyName,
                 selector
             );
@@ -100,7 +100,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
                     SpreadsheetUrlPathTemplate.SPREADSHEET_ID,
                     this.historyToken()
                         .cast(SpreadsheetIdHistoryToken.class)
-                        .id(),
+                        .spreadsheetId(),
                     SpreadsheetUrlPathTemplate.SPREADSHEET_METADATA_PROPERTY_NAME,
                     this.propertyName
                 )

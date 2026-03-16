@@ -221,7 +221,7 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
                     final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;
                     context.spreadsheetMetadataFetcher()
                         .patchMetadata(
-                            spreadsheetIdHistoryToken.id(),
+                            spreadsheetIdHistoryToken.spreadsheetId(),
                             SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION.patch(
                                 selection.orElse(null)
                             )

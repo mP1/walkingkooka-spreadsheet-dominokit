@@ -97,7 +97,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                 public void onSuccess(final List<ClipboardTextItem> items) {
                     final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
                     final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                    final SpreadsheetId id = that.id();
+                    final SpreadsheetId id = that.spreadsheetId();
                     final SpreadsheetCellClipboardKind kind = that.kind();
 
                     for (final ClipboardTextItem item : items) {

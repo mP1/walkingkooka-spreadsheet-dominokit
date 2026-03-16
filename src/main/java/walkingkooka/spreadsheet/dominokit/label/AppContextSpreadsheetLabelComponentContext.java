@@ -51,7 +51,7 @@ final class AppContextSpreadsheetLabelComponentContext implements SpreadsheetLab
             .getLabelMappingsFindByName(
                 context.historyToken()
                     .cast(SpreadsheetIdHistoryToken.class)
-                    .id(),
+                    .spreadsheetId(),
                 text,
                 offset,
                 count

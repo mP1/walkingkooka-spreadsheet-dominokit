@@ -71,7 +71,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextCell ext
             this.throttler.add(
                 () -> this.context.spreadsheetFormatterFetcher()
                     .getCellFormatterEdit(
-                        spreadsheetCellFormatterHistoryToken.id(), // id
+                        spreadsheetCellFormatterHistoryToken.spreadsheetId(), // id
                         spreadsheetCellFormatterHistoryToken.selection()
                             .get()
                             .toExpressionReference(),

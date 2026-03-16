@@ -85,7 +85,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
             this.throttler.add(
                 () -> context.spreadsheetFormatterFetcher()
                     .getMetadataFormatterEdit(
-                        spreadsheetMetadataPropertyHistoryToken.id(), // id
+                        spreadsheetMetadataPropertyHistoryToken.spreadsheetId(), // id
                         Cast.to(
                             spreadsheetMetadataPropertyHistoryToken.metadataPropertyName()
                                 .orElse(null)

@@ -48,7 +48,7 @@ final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename ext
     @Override
     public SpreadsheetId spreadsheetId() {
         return this.historyToken().cast(SpreadsheetRenameHistoryToken.class)
-            .id();
+            .spreadsheetId();
     }
 
     @Override

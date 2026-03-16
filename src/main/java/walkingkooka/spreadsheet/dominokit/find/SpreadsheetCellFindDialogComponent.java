@@ -618,7 +618,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
             .cast(SpreadsheetCellFindHistoryToken.class);
 
-        final SpreadsheetId id = historyToken.id();
+        final SpreadsheetId id = historyToken.spreadsheetId();
         final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()
             .selection()
             .toCellRange();

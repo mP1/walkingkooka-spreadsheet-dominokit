@@ -64,7 +64,7 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
                         .orElse(null);
 
                     nameHistoryToken = HistoryToken.spreadsheetRenameSelect(
-                        nameHistoryToken.id(),
+                        nameHistoryToken.spreadsheetId(),
                         name
                     );
                     nameText = name.text();

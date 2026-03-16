@@ -138,7 +138,8 @@ public interface AppContext extends CanGiveFocus,
 
         final HistoryToken token = this.historyToken();
         if (token instanceof SpreadsheetNameHistoryToken) {
-            loaded = token.cast(SpreadsheetNameHistoryToken.class).id()
+            loaded = token.cast(SpreadsheetNameHistoryToken.class)
+                .spreadsheetId()
                 .equals(
                     this.spreadsheetMetadata()
                         .id()

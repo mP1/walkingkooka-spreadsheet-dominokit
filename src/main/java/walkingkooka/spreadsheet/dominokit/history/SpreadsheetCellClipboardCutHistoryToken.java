@@ -106,7 +106,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                 public void onSuccess() {
                     final SpreadsheetCellClipboardCutHistoryToken that = SpreadsheetCellClipboardCutHistoryToken.this;
                     final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                    final SpreadsheetId id = that.id();
+                    final SpreadsheetId id = that.spreadsheetId();
                     final AnchoredSpreadsheetSelection anchoredSelection = that.anchoredSelection();
                     final SpreadsheetSelection selection = anchoredSelection.selection();
 
