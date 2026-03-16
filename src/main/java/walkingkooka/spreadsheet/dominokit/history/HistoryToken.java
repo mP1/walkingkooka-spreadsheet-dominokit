@@ -4922,7 +4922,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         if (null == token) {
-            token = this.replaceIdAndName(
+            token = this.replaceSpreadsheetIdAndSpreadsheetName(
                 id,
                 name
             );
@@ -4935,8 +4935,8 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
-    abstract HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                           final SpreadsheetName name);
+    abstract HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                                 final SpreadsheetName name);
 
     // spreadsheetName..................................................................................................
 

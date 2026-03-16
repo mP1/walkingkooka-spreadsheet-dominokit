@@ -42,8 +42,8 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
     abstract UrlFragment renameUrlFragment();
 
     @Override //
-    final HistoryToken replaceIdAndName(final SpreadsheetId id,
-                                        final SpreadsheetName name) {
+    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                              final SpreadsheetName name) {
         return HistoryToken.spreadsheetSelect(
             id,
             name
