@@ -28,7 +28,7 @@ import java.util.Optional;
 public final class CardComponentTest implements HtmlComponentTesting<CardComponent, HTMLDivElement> {
 
     @Test
-    public void testTreePrintWhenEmpty() {
+    public void testEmpty() {
         this.treePrintAndCheck(
             CardComponent.empty(),
             ""
@@ -36,7 +36,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
     }
 
     @Test
-    public void testTreePrintWithoutTitle() {
+    public void testAppendChild() {
         this.treePrintAndCheck(
             CardComponent.empty()
                 .appendChild(
@@ -53,7 +53,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
     }
 
     @Test
-    public void testTreePrintWithTitle() {
+    public void testSetTitleAppendChild() {
         this.treePrintAndCheck(
             CardComponent.empty()
                 .setTitle("CardTitle123")
