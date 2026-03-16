@@ -39,7 +39,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
 
     @Test
     public void testSetIdName() {
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             ID,
             NAME,
             HistoryToken.spreadsheetSelect(ID, NAME)
@@ -50,7 +50,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     public void testSetIdNameDifferentId() {
         final SpreadsheetId differentId = SpreadsheetId.with(9999);
 
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             differentId,
             NAME,
             HistoryToken.spreadsheetSelect(differentId, NAME)
@@ -61,7 +61,7 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
     public void testSetIdNameDifferentName() {
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
-        this.setIdAndNameAndCheck(
+        this.setSpreadsheetIdSpreadsheetNameAndCheck(
             ID,
             differentName,
             HistoryToken.spreadsheetSelect(ID, differentName)

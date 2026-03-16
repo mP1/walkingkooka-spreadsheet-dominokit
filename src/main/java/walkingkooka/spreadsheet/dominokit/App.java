@@ -1376,7 +1376,7 @@ public class App implements EntryPoint,
                 final Optional<AnchoredSpreadsheetSelection> anchoredSpreadsheetSelection = metadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
 
                 final HistoryToken idNameSelectionHistoryToken = historyToken
-                    .setIdAndName(
+                    .setSpreadsheetIdAndSpreadsheetName(
                         id,
                         name
                     ).setAnchoredSelection(anchoredSpreadsheetSelection);
