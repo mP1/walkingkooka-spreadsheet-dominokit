@@ -707,11 +707,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1/bottom-right] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -758,7 +758,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
