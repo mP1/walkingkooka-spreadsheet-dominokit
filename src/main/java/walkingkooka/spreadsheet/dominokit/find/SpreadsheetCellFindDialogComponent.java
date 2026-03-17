@@ -235,6 +235,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 .query()
                 .query(),
             this.formula.value(),
+            Optional.empty(), // currency
             this.dateTimeSymbols.value(),
             this.decimalNumberSymbols.value(),
             this.formatter.value(),

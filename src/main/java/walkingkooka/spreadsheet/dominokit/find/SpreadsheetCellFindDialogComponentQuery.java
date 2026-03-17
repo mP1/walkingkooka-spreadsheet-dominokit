@@ -49,6 +49,7 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
 
     static Optional<SpreadsheetFormula> query(final Optional<SpreadsheetCellQuery> query,
                                               final Optional<TextMatch> formula,
+                                              final Optional<TextMatch> currency,
                                               final Optional<TextMatch> dateTimeSymbols,
                                               final Optional<TextMatch> decimalNumberSymbols,
                                               final Optional<TextMatch> formatter,
@@ -67,6 +68,13 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
             token, // old
             formula,
             SpreadsheetExpressionFunctions.CELL_FORMULA,
+            or
+        );
+
+        token = replaceTextMatchOr(
+            token, // old
+            currency,
+            SpreadsheetExpressionFunctions.CELL_CURRENCY,
             or
         );
 

@@ -45,6 +45,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -62,6 +63,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -75,10 +77,29 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     }
 
     @Test
+    public void testQueryWithEmptyAndCurrency() {
+        this.queryAndCheck(
+            "", // query
+            "", // formula
+            "*CURRENCY*", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*CURRENCY*\",cellCurrency())"
+        );
+    }
+
+    @Test
     public void testQueryWithEmptyAndFormatter() {
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -96,6 +117,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -113,6 +135,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -130,6 +153,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -147,6 +171,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -166,6 +191,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -183,6 +209,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -196,10 +223,29 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     }
 
     @Test
+    public void testQueryWithNotEmptyAndCurrency() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "", // formula
+            "*CURRENCY*", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),textMatch(\"*CURRENCY*\",cellCurrency()))"
+        );
+    }
+
+    @Test
     public void testQueryWithNotEmptyAndDateTimeSymbols() {
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "*dateTimeSymbols*", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -217,6 +263,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "*decimalNumberSymbols*", // decimalNumberSymbols
             "", // formatter
@@ -234,6 +281,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -251,6 +299,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -268,6 +317,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -285,6 +335,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -302,6 +353,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -321,6 +373,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -338,6 +391,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*new*", // formatter
@@ -355,6 +409,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*old*\",cellParser())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -372,6 +427,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*old*\",cellStyle())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -389,6 +445,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -406,6 +463,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -423,6 +481,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -442,6 +501,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormula())", // query
             "*new*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -459,6 +519,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*old*\",cellFormula()),cellValue()<10)", // query
             "*new*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -472,10 +533,29 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     }
 
     @Test
+    public void testQueryWithQueryFormatterAndCurrency() {
+        this.queryAndCheck(
+            "1+textMatch(\"*OLD*\",cellCurrency())", // query
+            "", // formula
+            "*NEW*", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "1+textMatch(\"*NEW*\",cellCurrency())"
+        );
+    }
+
+    @Test
     public void testQueryWithQueryFormatterAndFormatter() {
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormatter())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*new*", // formatter
@@ -493,6 +573,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellParser())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -510,6 +591,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellStyle())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -527,6 +609,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -544,6 +627,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "cellValue()<111", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -561,6 +645,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "999+(cellValue()<111)", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -578,6 +663,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "999+(cellValue()<(111+222))", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -595,6 +681,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -612,6 +699,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "1+22+textMatch(\"*old*\",cellFormattedValue())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -631,6 +719,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -648,6 +737,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -665,6 +755,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -682,6 +773,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -699,6 +791,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "", // query
             "*formula*", // formula
+            "*currency*", // currency
             "*dateTimeSymbols*", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatted*", // formatter
@@ -707,17 +800,36 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))"
         );
     }
 
     // non empty query and two wizard fields............................................................................
 
     @Test
+    public void testQueryWithNotEmptyAndFormulaAndCurrency() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "*formula*", // formula
+            "*currency*", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*currency*\",cellCurrency())))"
+        );
+    }
+
+    @Test
     public void testQueryWithNotEmptyAndFormulaAndDateTimeSymbols() {
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // currency
             "MONDAY", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -735,6 +847,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -752,6 +865,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -769,6 +883,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -786,6 +901,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -803,6 +919,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -820,6 +937,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "oldQuery()", // query
             "*formula*", // formula
+            "*currency*", // currency
             "*dateTimeSymbols*", // dateTimeSymbols
             "decimalNumberSymbols", // decimalNumberSymbols
             "*formatted*", // formatter
@@ -828,7 +946,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))))"
         );
     }
 
@@ -839,6 +957,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*formula*\",cellFormula())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -856,6 +975,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -873,6 +993,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -890,6 +1011,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "textMatch(\"*formatter*\",cellFormatter())", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -907,6 +1029,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -924,6 +1047,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -941,6 +1065,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
             "*formula*", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
@@ -958,6 +1083,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
         this.queryAndCheck(
             "or(or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
             "", // formula
+            "", // currency
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
@@ -972,6 +1098,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
 
     private void queryAndCheck(final String query,
                                final String formula,
+                               final String currency,
                                final String dateTimeSymbols,
                                final String decimalNumberSymbols,
                                final String formatter,
@@ -988,6 +1115,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
                     SpreadsheetCellQuery.parse(query)
             ), // query
             textMatch(formula),
+            textMatch(currency),
             textMatch(dateTimeSymbols),
             textMatch(decimalNumberSymbols),
             textMatch(formatter),
@@ -1019,6 +1147,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
 
     private void queryAndCheck(final Optional<SpreadsheetCellQuery> query,
                                final Optional<TextMatch> formula,
+                               final Optional<TextMatch> currency,
                                final Optional<TextMatch> dateTimeSymbols,
                                final Optional<TextMatch> decimalNumberSymbols,
                                final Optional<TextMatch> formatter,
@@ -1034,6 +1163,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
                 SpreadsheetCellFindDialogComponentQuery.query(
                     query,
                     formula,
+                    currency,
                     dateTimeSymbols,
                     decimalNumberSymbols,
                     formatter,
