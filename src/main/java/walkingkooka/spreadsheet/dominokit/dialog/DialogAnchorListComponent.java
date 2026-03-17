@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -36,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -84,6 +86,10 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
         this.appendChildIfNotNull(this.clear);
         this.appendChildIfNotNull(this.undo);
         this.appendChildIfNotNull(this.close);
+
+        this.children.forEach(
+            this.list::appendChild
+        );
 
         this.refreshClearUndoClose();
     }
@@ -179,6 +185,18 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
      * A CLOSE link which will close the dialog.
      */
     private HistoryTokenAnchorComponent close;
+
+    // appendChild......................................................................................................
+
+    public DialogAnchorListComponent<T> appendChild(final AnchorComponent<?, ?> child) {
+        Objects.requireNonNull(child, "child");
+
+        this.children.add(child);
+        this.refreshList();
+        return this;
+    }
+
+    private final List<AnchorComponent<?, ?>> children = Lists.array();
 
     // HistoryTokenWatcher..............................................................................................
 
