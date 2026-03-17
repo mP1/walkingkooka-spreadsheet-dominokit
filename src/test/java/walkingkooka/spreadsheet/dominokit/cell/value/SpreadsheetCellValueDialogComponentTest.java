@@ -452,11 +452,6 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return null;
-        }
-
-        @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
             return this.deltaFetcherWatchers.add(watcher);
         }
@@ -470,11 +465,28 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         }
 
         @Override
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return this.historyTokenWatchers.add(watcher);
+        }
+
+        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+        @Override
         public HistoryToken historyToken() {
             return historyToken;
         }
 
-        private final HistoryToken historyToken;
+        private HistoryToken historyToken;
+
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            final HistoryToken previous = this.historyToken;
+            this.historyToken = token;
+            this.historyTokenWatchers.onHistoryTokenChange(
+                previous,
+                this
+            );
+        }
 
         @Override
         public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
@@ -548,6 +560,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         @Override
         public HistoryToken historyToken() {
             return this.context.historyToken();
+        }
+
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            this.context.pushHistoryToken(token);
         }
 
         private final AppContext context;

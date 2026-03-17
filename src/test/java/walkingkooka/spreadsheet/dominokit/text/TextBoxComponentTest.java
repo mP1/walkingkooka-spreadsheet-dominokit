@@ -111,6 +111,43 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
         this.valueAndCheck(box, value);
     }
 
+    @Test
+    public void testSetValueSameWithValueWatcher() {
+        final Optional<String> value = Optional.of("value123");
+
+        final TextBoxComponent box = this.createComponent()
+            .setValue(value)
+            .addValueWatcher2(
+                v -> {
+                    throw new UnsupportedOperationException();
+                }
+            ).setValue(value);
+        this.valueAndCheck(box, value);
+    }
+
+    @Test
+    public void testSetValueDifferentWithValueWatcher() {
+        this.firedValue = null;
+
+        final Optional<String> value = Optional.of("value123");
+
+        final TextBoxComponent box = this.createComponent()
+            .addValueWatcher2(
+                v -> {
+                    this.firedValue = v;
+                }
+            ).setValue(value);
+        this.valueAndCheck(box, value);
+
+        this.checkEquals(
+            value,
+            this.firedValue,
+            "firedValue"
+        );
+    }
+
+    private Optional<String> firedValue;
+
     // validator........................................................................................................
 
     @Test

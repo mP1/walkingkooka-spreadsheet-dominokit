@@ -707,11 +707,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1/bottom-right] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -758,7 +758,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
                 "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/bottom-right/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2442,7 +2442,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))] id=query-TextBox\n" +
+                "            Query [or(or(or(or(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2486,11 +2486,6 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return null;
-        }
-
-        @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
             return this.deltaFetcherWatchers.add(watcher);
         }
@@ -2504,11 +2499,28 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
         }
 
         @Override
-        public HistoryToken historyToken() {
-            return historyToken;
+        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            return this.historyTokenWatchers.add(watcher);
         }
 
-        private final HistoryToken historyToken;
+        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            final HistoryToken previous = this.historyToken;
+            this.historyToken = token;
+            this.historyTokenWatchers.onHistoryTokenChange(
+                previous,
+                this
+            );
+        }
+
+        @Override
+        public HistoryToken historyToken() {
+            return this.historyToken;
+        }
+
+        private HistoryToken historyToken;
 
         @Override
         public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
@@ -2562,6 +2574,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
         @Override
         public HistoryToken historyToken() {
             return this.context.historyToken();
+        }
+
+        @Override
+        public void pushHistoryToken(final HistoryToken token) {
+            this.context.pushHistoryToken(token);
         }
 
         @Override
