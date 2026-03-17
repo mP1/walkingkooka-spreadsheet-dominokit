@@ -35,6 +35,16 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
         super();
     }
 
+    public abstract TextBoxComponent autocompleteOff();
+
+    public abstract TextBoxComponent clearIcon();
+
+    public abstract TextBoxComponent disableSpellcheck();
+
+    public abstract TextBoxComponent enterFiresValueChange();
+
+    public abstract TextBoxComponent magnifyingGlassIcon();
+
     public abstract Optional<Validator<Optional<String>>> validator();
 
     public abstract TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator);
