@@ -49,6 +49,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -67,6 +68,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -85,6 +87,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -103,12 +106,32 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
             "", // validator
             "", // formattedValue
             "textMatch(\"*formatter*\",cellFormatter())"
+        );
+    }
+
+    @Test
+    public void testQueryWithEmptyAndLocale() {
+        this.queryAndCheck(
+            "", // query
+            "", // formula
+            "", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "*LOCALE*", // locale
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*LOCALE*\",cellLocale())"
         );
     }
 
@@ -121,6 +144,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
@@ -139,6 +163,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "*style*", // style
             "", // value
@@ -157,6 +182,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<111", // value
@@ -175,6 +201,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -195,6 +222,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -213,6 +241,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -231,6 +260,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -249,6 +279,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "*dateTimeSymbols*", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -267,6 +298,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "*decimalNumberSymbols*", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -285,6 +317,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -303,6 +336,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
@@ -321,6 +355,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "*style*", // style
             "", // value
@@ -339,6 +374,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<111", // value
@@ -357,6 +393,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -377,6 +414,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -395,12 +433,32 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*new*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
             "", // validator
             "", // formattedValue
             "textMatch(\"*new*\",cellFormatter())"
+        );
+    }
+
+    @Test
+    public void testQueryFormatterAndLocale() {
+        this.queryAndCheck(
+            "textMatch(\"*old*\",cellLocale())", // query
+            "", // formula
+            "", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "*NEW*", // locale
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "textMatch(\"*NEW*\",cellLocale())"
         );
     }
 
@@ -413,6 +471,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*new*", // parser
             "", // style
             "", // value
@@ -431,6 +490,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "*new*", // style
             "", // value
@@ -449,6 +509,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             ">222", // value
@@ -467,6 +528,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<333", // value
@@ -485,6 +547,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -505,6 +568,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -523,6 +587,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -541,6 +606,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -559,12 +625,32 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*new*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
             "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellFormatter())"
+        );
+    }
+
+    @Test
+    public void testQueryWithQueryLocale() {
+        this.queryAndCheck(
+            "1+textMatch(\"*OLD*\",cellLocale())", // query
+            "", // formula
+            "", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "*NEW*", // locale
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "1+textMatch(\"*NEW*\",cellLocale())"
         );
     }
 
@@ -577,6 +663,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*new*", // parser
             "", // style
             "", // value
@@ -595,6 +682,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "*new*", // style
             "", // value
@@ -613,6 +701,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -631,6 +720,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<333", // value
@@ -649,6 +739,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<333", // value
@@ -667,6 +758,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<333", // value
@@ -685,6 +777,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -703,6 +796,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -723,6 +817,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -741,6 +836,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
@@ -759,6 +855,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*parser*", // parser
             "*style*", // style
             "", // value
@@ -777,6 +874,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<10", // value
@@ -795,12 +893,13 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "*dateTimeSymbols*", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatted*", // formatter
+            "*locale*", // locale
             "*parser*", // parser
             "*style*", // style
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))"
+            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*locale*\",cellLocale()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))"
         );
     }
 
@@ -815,6 +914,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -833,6 +933,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "MONDAY", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -851,6 +952,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -869,12 +971,32 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
             "", // validator
             "", // formattedValue
             "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
+        );
+    }
+
+    @Test
+    public void testQueryWithNotEmptyAndFormulaLocale() {
+        this.queryAndCheck(
+            "oldQuery()", // query
+            "*formula*", // formula
+            "", // currency
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "*locale*", // locale
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*locale*\",cellLocale())))"
         );
     }
 
@@ -887,6 +1009,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*parser*", // parser
             "*style*", // style
             "", // value
@@ -905,6 +1028,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -923,6 +1047,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "<10", // value
@@ -941,12 +1066,13 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "*dateTimeSymbols*", // dateTimeSymbols
             "decimalNumberSymbols", // decimalNumberSymbols
             "*formatted*", // formatter
+            "*locale*", // locale
             "*parser*", // parser
             "*style*", // style
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))))"
+            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*locale*\",cellLocale()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))))"
         );
     }
 
@@ -961,6 +1087,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -979,6 +1106,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -997,6 +1125,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -1015,6 +1144,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -1033,6 +1163,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -1051,6 +1182,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "", // parser
             "", // style
             "", // value
@@ -1069,6 +1201,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
@@ -1087,6 +1220,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // dateTimeSymbols
             "", // decimalNumberSymbols
             "*formatter*", // formatter
+            "", // locale
             "*parser*", // parser
             "", // style
             "", // value
@@ -1102,6 +1236,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
                                final String dateTimeSymbols,
                                final String decimalNumberSymbols,
                                final String formatter,
+                               final String locale,
                                final String parser,
                                final String style,
                                final String value,
@@ -1119,6 +1254,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             textMatch(dateTimeSymbols),
             textMatch(decimalNumberSymbols),
             textMatch(formatter),
+            textMatch(locale),
             textMatch(parser),
             textMatch(style),
             Optional.ofNullable(
@@ -1151,6 +1287,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
                                final Optional<TextMatch> dateTimeSymbols,
                                final Optional<TextMatch> decimalNumberSymbols,
                                final Optional<TextMatch> formatter,
+                               final Optional<TextMatch> locale,
                                final Optional<TextMatch> parser,
                                final Optional<TextMatch> style,
                                final Optional<ConditionRightSpreadsheetFormulaParserToken> value,
@@ -1167,6 +1304,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
                     dateTimeSymbols,
                     decimalNumberSymbols,
                     formatter,
+                    locale,
                     parser,
                     style,
                     value,
