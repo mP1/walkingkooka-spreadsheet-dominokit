@@ -239,6 +239,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
             this.dateTimeSymbols.value(),
             this.decimalNumberSymbols.value(),
             this.formatter.value(),
+            Optional.empty(), // TODO locale
             this.parser.value(),
             this.style.value(),
             this.value.value(),

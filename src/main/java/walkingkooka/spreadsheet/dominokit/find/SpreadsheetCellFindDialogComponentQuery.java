@@ -53,6 +53,7 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
                                               final Optional<TextMatch> dateTimeSymbols,
                                               final Optional<TextMatch> decimalNumberSymbols,
                                               final Optional<TextMatch> formatter,
+                                              final Optional<TextMatch> locale,
                                               final Optional<TextMatch> parser,
                                               final Optional<TextMatch> style,
                                               final Optional<ConditionRightSpreadsheetFormulaParserToken> value,
@@ -96,6 +97,13 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
             token, // old
             formatter,
             SpreadsheetExpressionFunctions.CELL_FORMATTER,
+            or
+        );
+
+        token = replaceTextMatchOr(
+            token, // old
+            locale,
+            SpreadsheetExpressionFunctions.CELL_LOCALE,
             or
         );
 
