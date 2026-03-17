@@ -98,6 +98,9 @@ final class SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisit
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMULA, wizard.formula)) {
                 break;
             }
+            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_CURRENCY, wizard.currency)) {
+                break;
+            }
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_DATE_TIME_SYMBOLS, wizard.dateTimeSymbols)) {
                 break;
             }

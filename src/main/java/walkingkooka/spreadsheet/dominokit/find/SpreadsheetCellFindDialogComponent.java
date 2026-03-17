@@ -77,6 +77,8 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         this.valueType = this.valueType();
 
         this.formula = this.formula();
+
+        this.currency = this.currency();
         this.dateTimeSymbols = this.dateTimeSymbols();
         this.decimalNumberSymbols = this.decimalNumberSymbols();
         this.formatter = this.formatter();
@@ -123,15 +125,18 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                     .appendChild(this.formula)
             ).appendChild(
                 RowComponent.columnSpan3()
+                    .appendChild(this.currency)
                     .appendChild(this.dateTimeSymbols)
                     .appendChild(this.decimalNumberSymbols)
                     .appendChild(this.formatter)
-                    .appendChild(this.parser)
             ).appendChild(
                 RowComponent.columnSpan3()
+                    .appendChild(this.parser)
                     .appendChild(this.style)
                     .appendChild(this.value)
                     .appendChild(this.validator)
+            ).appendChild(
+                RowComponent.columnSpan3()
                     .appendChild(this.formattedValue)
             ).appendChild(this.query)
             .appendChild(
@@ -235,7 +240,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 .query()
                 .query(),
             this.formula.value(),
-            Optional.empty(), // currency
+            this.currency.value(),
             this.dateTimeSymbols.value(),
             this.decimalNumberSymbols.value(),
             this.formatter.value(),
@@ -336,6 +341,16 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     }
 
     final TextMatchComponent formula;
+
+    // currency.........................................................................................................
+
+    private TextMatchComponent currency() {
+        return textMatchComponent(
+            "Currency"
+        );
+    }
+
+    final TextMatchComponent currency;
 
     // formatter..........................................................................................................
 
