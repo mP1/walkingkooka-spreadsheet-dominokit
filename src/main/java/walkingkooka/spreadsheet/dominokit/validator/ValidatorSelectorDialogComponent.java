@@ -22,18 +22,16 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.value.SpreadsheetError;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -69,10 +67,13 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
         this.selector = this.selector();
 
-        this.save = this.saveValueAnchor(context);
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .clearLink()
+            .close();
 
         this.dialog = this.dialogCreate();
     }
@@ -102,13 +103,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
         return dialog.appendChild(this.validators)
             .appendChild(this.selector)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.clear)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -140,7 +135,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         return ValidatorSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshSaveLink
+                this::refreshLinks
             );
     }
 
@@ -180,37 +175,22 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     // dialog links.....................................................................................................
 
-    void refreshSaveLink(final Optional<ValidatorSelector> value) {
+    void refreshLinks(final Optional<ValidatorSelector> value) {
         final ValidatorSelectorComponent selector = this.selector;
-        final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> save = this.save;
 
         // selector may have errors from a server response, dont want to clear/replace them.
         if (false == selector.hasErrors()) {
             selector.validate();
         }
 
-        save.setValue(value);
+        this.links.setValue(
+            selector.hasErrors() ?
+                Optional.empty() :
+                value
+        );
     }
 
-    /**
-     * A SAVE link which will be updated each time the {@link #selector} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> save;
-
-    /**
-     * A CLEAR link which will save an empty {@link ValidatorSelector}.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> clear;
-
-    /**
-     * A UNDO link which will be updated each time the {@link ValidatorSelector} is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<ValidatorSelector> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<ValidatorSelector> links;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -243,9 +223,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         this.refreshSelectorValue();
         this.copySelectorErrorMessages();
 
-        this.refreshSaveLink(undo);
-        this.undo.setValue(undo);
-
+        this.refreshLinks(undo);
         this.refreshTitleAndLinks();
     }
 
@@ -253,15 +231,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         final ValidatorSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
 
-        final HistoryToken historyToken = context.historyToken();
-
-        this.clear.clearValue();
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
-        );
+        this.links.refresh(context);
     }
 
     @Override
