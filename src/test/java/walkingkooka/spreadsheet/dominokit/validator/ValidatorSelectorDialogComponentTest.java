@@ -104,7 +104,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
                 "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
                 "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
                 "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
@@ -166,7 +166,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
                 "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
                 "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
                 "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
@@ -329,7 +329,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
                 "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
                 "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
                 "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"

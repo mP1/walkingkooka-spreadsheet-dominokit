@@ -147,15 +147,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     final ValidatorSelectorComponent selector;
 
     /**
-     * Refreshes the {@link #selector} with the latest value.
-     */
-    private void refreshSelectorValue() {
-        final Optional<ValidatorSelector> value = this.context.undo();
-        this.selector.setValue(value);
-        this.validators.setValue(value);
-    }
-
-    /**
      * Copy any error messages for the {@link ValidatorSelector}.
      */
     private void copySelectorErrorMessages() {
@@ -173,6 +164,10 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                     ).orElse(Lists.empty())
             );
         }
+
+        if(selector.hasErrors()) {
+            this.links.disableSave();
+        }
     }
 
     // dialog links.....................................................................................................
@@ -180,16 +175,20 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     void refreshLinks(final Optional<ValidatorSelector> value) {
         final ValidatorSelectorComponent selector = this.selector;
 
-        // selector may have errors from a server response, dont want to clear/replace them.
-        if (false == selector.hasErrors()) {
-            selector.validate();
-        }
-
         this.links.setValue(
             selector.hasErrors() ?
                 Optional.empty() :
                 value
         );
+
+        // selector may have errors from a server response, dont want to clear/replace them.
+        if (false == selector.hasErrors()) {
+            selector.validate();
+        }
+
+        if (selector.hasErrors()) {
+            this.links.disableSave();
+        }
     }
 
     private final DialogAnchorListComponent<ValidatorSelector> links;
@@ -222,11 +221,14 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     public void refresh(final RefreshContext context) {
         final Optional<ValidatorSelector> undo = this.context.undo();
 
-        this.refreshSelectorValue();
-        this.copySelectorErrorMessages();
+        final Optional<ValidatorSelector> value = this.context.undo();
+        this.selector.setValue(value);
+        this.validators.setValue(value);
 
         this.refreshLinks(undo);
         this.refreshTitleAndLinks();
+
+        this.copySelectorErrorMessages();
     }
 
     private void refreshTitleAndLinks() {
