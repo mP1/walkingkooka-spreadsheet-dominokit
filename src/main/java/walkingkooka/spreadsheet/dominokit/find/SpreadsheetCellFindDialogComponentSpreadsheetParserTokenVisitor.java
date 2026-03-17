@@ -110,6 +110,9 @@ final class SpreadsheetCellFindDialogComponentSpreadsheetFormulaParserTokenVisit
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMATTER, wizard.formatter)) {
                 break;
             }
+            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_LOCALE, wizard.locale)) {
+                break;
+            }
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_PARSER, wizard.parser)) {
                 break;
             }

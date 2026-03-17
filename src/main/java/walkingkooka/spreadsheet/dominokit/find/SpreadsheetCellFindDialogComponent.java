@@ -82,6 +82,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         this.dateTimeSymbols = this.dateTimeSymbols();
         this.decimalNumberSymbols = this.decimalNumberSymbols();
         this.formatter = this.formatter();
+        this.locale = this.locale();
         this.parser = this.parser();
         this.style = this.style();
         this.value = this.value();
@@ -131,12 +132,13 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                     .appendChild(this.formatter)
             ).appendChild(
                 RowComponent.columnSpan3()
+                    .appendChild(this.locale)
                     .appendChild(this.parser)
                     .appendChild(this.style)
                     .appendChild(this.value)
-                    .appendChild(this.validator)
             ).appendChild(
                 RowComponent.columnSpan3()
+                    .appendChild(this.validator)
                     .appendChild(this.formattedValue)
             ).appendChild(this.query)
             .appendChild(
@@ -244,7 +246,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
             this.dateTimeSymbols.value(),
             this.decimalNumberSymbols.value(),
             this.formatter.value(),
-            Optional.empty(), // TODO locale
+            this.locale.value(),
             this.parser.value(),
             this.style.value(),
             this.value.value(),
@@ -382,6 +384,16 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
     final TextMatchComponent formatter;
 
+    // locale...........................................................................................................
+
+    private TextMatchComponent locale() {
+        return textMatchComponent(
+            "Locale"
+        );
+    }
+
+    final TextMatchComponent locale;
+    
     // parser...........................................................................................................
 
     private TextMatchComponent parser() {
