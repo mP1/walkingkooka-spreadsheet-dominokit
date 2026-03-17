@@ -2605,7 +2605,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [*validator123*] id=SpreadsheetCellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2613,7 +2613,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(cellValidator(),\"*validator123*\")] id=query-TextBox\n" +
+                "            Query [textMatch(\"*validator123*\",cellValidator())] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2867,7 +2867,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [*validator*] id=SpreadsheetCellFind-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2875,7 +2875,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(or(or(or(or(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox\n" +
+                "            Query [or(or(or(or(or(or(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*validator*\",cellValidator())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
