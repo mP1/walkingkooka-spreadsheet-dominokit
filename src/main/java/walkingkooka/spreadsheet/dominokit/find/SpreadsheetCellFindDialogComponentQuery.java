@@ -321,28 +321,32 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
                 );
             }
         } else {
-            // try replace any previous cellXXX() conditionRight
-            token = old.replaceIf(
-                SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
-                (e) -> cellValue(
-                    conditionRight
-                ) // mapper
-            );
+            // query might have value but value might be missing.
+            if(null != conditionRight) {
 
-            // if replace DID NOT happened then create OR expression(old, cellValue(component.value, cellXXX)
-            if (old.equals(token) && null != conditionRight) {
-                // append ors at the end to create expressions like
-                //
-                // or(1, or(2,3))
-                //
-                // and NOT
-                //
-                // or(or(1,or(2,3))
-                or.add(
-                    cellValue(
+                // try replace any previous cellXXX() conditionRight
+                token = old.replaceIf(
+                    SpreadsheetCellFindDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.INSTANCE, // predicate
+                    (e) -> cellValue(
                         conditionRight
-                    )
+                    ) // mapper
                 );
+
+                // if replace DID NOT happened then create OR expression(old, cellValue(component.value, cellXXX)
+                if (old.equals(token) && null != conditionRight) {
+                    // append ors at the end to create expressions like
+                    //
+                    // or(1, or(2,3))
+                    //
+                    // and NOT
+                    //
+                    // or(or(1,or(2,3))
+                    or.add(
+                        cellValue(
+                            conditionRight
+                        )
+                    );
+                }
             }
         }
 
