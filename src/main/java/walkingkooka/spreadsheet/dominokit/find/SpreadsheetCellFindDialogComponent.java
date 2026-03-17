@@ -44,6 +44,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
@@ -266,6 +267,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                 .cast(SpreadsheetCellFindHistoryToken.class)
                 .setSelection(
                     this.cellRange.value()
+                        .map(SpreadsheetSelection::toScalarIfUnit)
                 ).setQuery(cellFindQuery)
                 .cast(SpreadsheetCellFindHistoryToken.class)
         );
