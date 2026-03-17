@@ -104,6 +104,11 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
         public String dialogTitle() {
             return "Converter Title123";
         }
+
+        @Override
+        public void verifySelector(final String selector) {
+            // NOP!
+        }
     }
 
     private AppContext appContext(final String historyToken) {

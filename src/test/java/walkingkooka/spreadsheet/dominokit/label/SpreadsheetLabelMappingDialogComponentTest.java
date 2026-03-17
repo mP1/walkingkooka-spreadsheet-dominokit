@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -401,19 +402,33 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
             }
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
-            }
-
-            @Override
             public void giveFocus(final Runnable focus) {
                 // nop
             }
 
             @Override
-            public HistoryToken historyToken() {
-                return historyToken;
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return this.historyTokenWatchers.add(watcher);
             }
+
+            private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+
+            @Override
+            public HistoryToken historyToken() {
+                return currentHistoryToken;
+            }
+
+            @Override
+            public void pushHistoryToken(final HistoryToken token) {
+                final HistoryToken previous = this.currentHistoryToken;
+                this.currentHistoryToken = token;
+                this.historyTokenWatchers.onHistoryTokenChange(
+                    previous,
+                    this
+                );
+            }
+
+            private HistoryToken currentHistoryToken = historyToken;
 
             @Override
             public Locale locale() {

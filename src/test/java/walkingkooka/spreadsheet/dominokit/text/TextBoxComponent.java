@@ -26,6 +26,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -77,9 +78,17 @@ public final class TextBoxComponent extends TextBoxComponentLike
     @Override
     public TextBoxComponent setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
-        this.value = EMPTY_STRING.equals(value) ?
+
+        final Optional<String> oldValue = this.value;
+        final Optional<String> newValue = EMPTY_STRING.equals(value) ?
             Optional.empty() :
             value;
+        this.value = newValue;
+
+        // only if value changed
+        if(false == oldValue.equals(newValue)) {
+            this.watchers.onValue(newValue);
+        }
 
         return validate();
     }
@@ -272,8 +281,10 @@ public final class TextBoxComponent extends TextBoxComponentLike
     public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        return () -> {};
+        return this.watchers.add(watcher);
     }
+
+    private final ValueWatchers<String> watchers = ValueWatchers.empty();
 
     // FormValueComponentTreePrintable..................................................................................
 
