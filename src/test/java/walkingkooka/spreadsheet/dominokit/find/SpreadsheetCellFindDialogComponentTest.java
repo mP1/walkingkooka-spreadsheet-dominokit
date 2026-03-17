@@ -1745,7 +1745,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [*Hello*] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1775,7 +1775,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(textMatch(cellDecimalNumberSymbols(),\"*Hello*\"),1)] id=query-TextBox\n" +
+                "            Query [or(textMatch(\"*Hello*\",cellDecimalNumberSymbols()),1)] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
