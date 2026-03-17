@@ -49,7 +49,8 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     ValueComponent<HTMLDivElement, T, DialogAnchorListComponent<T>>,
     DialogComponentAnchors,
     HistoryTokenWatcher,
-    ComponentRefreshable {
+    ComponentRefreshable,
+    ValueWatcher<T> {
 
     public static <T> DialogAnchorListComponent<T> empty(final String idPrefix,
                                                          final DialogAnchorListComponentContext<T> context) {
@@ -322,6 +323,13 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     @Override
     public DialogAnchorListComponent<T> blur() {
         throw new UnsupportedOperationException();
+    }
+
+    // ValueWatcher.....................................................................................................
+
+    @Override
+    public void onValue(final Optional<T> value) {
+        this.setValue(value);
     }
 
     // TreePrintable....................................................................................................
