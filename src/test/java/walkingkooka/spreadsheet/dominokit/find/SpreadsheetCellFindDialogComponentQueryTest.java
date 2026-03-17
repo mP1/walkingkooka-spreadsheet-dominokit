@@ -455,6 +455,23 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     }
 
     @Test
+    public void testQueryWithQueryFormulaAndValue() {
+        this.queryAndCheck(
+            "or(textMatch(\"*old*\",cellFormula()),cellValue()<10)", // query
+            "*new*", // formula
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "or(textMatch(\"*new*\",cellFormula()),cellValue()<10)"
+        );
+    }
+
+    @Test
     public void testQueryWithQueryFormatterAndFormatter() {
         this.queryAndCheck(
             "1+textMatch(\"*old*\",cellFormatter())", // query
@@ -502,6 +519,23 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // validator
             "", // formattedValue
             "1+textMatch(\"*new*\",cellStyle())"
+        );
+    }
+
+    @Test
+    public void testQueryWithQueryValue() {
+        this.queryAndCheck(
+            "cellValue()<111", // query
+            "", // formula
+            "", // dateTimeSymbols
+            "", // decimalNumberSymbols
+            "", // formatter
+            "", // parser
+            "", // style
+            "", // value
+            "", // validator
+            "", // formattedValue
+            "cellValue()<111"
         );
     }
 
