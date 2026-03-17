@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -428,6 +429,88 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    // appendChild......................................................................................................
+
+    @Test
+    public void testAppendChildWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .appendChild(null)
+        );
+    }
+
+    @Test
+    public void testAppendChild() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .appendChild(
+                HistoryTokenAnchorComponent.empty()
+                    .setTextContent("111")
+            );
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"111\" DISABLED\n"
+        );
+    }
+
+    @Test
+    public void testAppendChild2() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .appendChild(
+                HistoryTokenAnchorComponent.empty()
+                    .setTextContent("Click!")
+                    .setHistoryToken(
+                        Optional.of(
+                            HistoryToken.parseString("/2/SpreadsheetName222/cell/A1/locale")
+                        )
+                    )
+            ).appendChild(
+                HistoryTokenAnchorComponent.empty()
+                    .setTextContent("222")
+            );
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Click!\" [#/2/SpreadsheetName222/cell/A1/locale]\n" +
+                "        \"222\" DISABLED\n"
+        );
+    }
+
+    @Test
+    public void testAppendChildSaveUndoClearValueClose() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .undo()
+            .clearLink()
+            .close()
+            .appendChild(
+                HistoryTokenAnchorComponent.empty()
+                    .setTextContent("111")
+            );
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n" +
+                "        \"111\" DISABLED\n"
         );
     }
 
