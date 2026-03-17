@@ -1375,6 +1375,128 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     }
 
     @Test
+    public void testOnHistoryTokenChangeWithQueryWithFormulaAndValue() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(\"*formula*\",cellFormula()),cellValue()<10)"
+        );
+
+        final AppContext appContext = this.appContext(
+            Optional.empty(), // no highlighting query
+            historyToken
+        );
+
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            appContext,
+            "SpreadsheetCellFindDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Find\n" +
+                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "      RowComponent\n" +
+                "        SpreadsheetCellRangeReferenceComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "        SpreadsheetCellRangeReferencePathComponent\n" +
+                "          SelectComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
+                "        ValueTypeEditComponent\n" +
+                "          SelectComponent\n" +
+                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              email\n" +
+                "              error(spreadsheet)\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
+                "              url\n" +
+                "              whole-number\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "      RowComponent\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "      RowComponent\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Value [<10] id=SpreadsheetCellFind-value-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "      SpreadsheetFormulaComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            Query [or(textMatch(\"*formula*\",cellFormula()),cellValue()<10)] id=query-TextBox\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "      SpreadsheetDeltaCellsTableComponent\n" +
+                "        CardComponent\n" +
+                "          Card\n" +
+                "            DataTableComponent\n" +
+                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenChangeWithQueryWithDecimalNumberSymbols() {
         final HistoryToken historyToken = HistoryToken.parseString(
             "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(cellDecimalNumberSymbols(),\"*Hello*\"),1)"
