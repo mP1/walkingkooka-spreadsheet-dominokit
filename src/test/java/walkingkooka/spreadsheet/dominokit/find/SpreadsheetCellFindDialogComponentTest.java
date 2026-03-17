@@ -161,6 +161,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -170,11 +174,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -290,6 +294,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -299,11 +307,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -419,6 +427,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -428,11 +440,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -546,6 +558,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -555,11 +571,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -707,6 +723,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -716,11 +736,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -865,6 +885,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -874,11 +898,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -992,6 +1016,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1001,11 +1029,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1119,6 +1147,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1128,11 +1160,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1246,6 +1278,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1255,11 +1291,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1373,6 +1409,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1382,11 +1422,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1500,6 +1540,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1509,11 +1553,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1627,6 +1671,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1636,11 +1684,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [<10] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1754,6 +1802,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1763,11 +1815,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1881,6 +1933,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1890,11 +1946,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1910,6 +1966,137 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
                 "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "      SpreadsheetDeltaCellsTableComponent\n" +
+                "        CardComponent\n" +
+                "          Card\n" +
+                "            DataTableComponent\n" +
+                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              COLUMN(S)\n" +
+                "                Cell\n" +
+                "                Formula\n" +
+                "                Value\n" +
+                "                Formatted\n" +
+                "                Links\n" +
+                "              CHILDREN\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "              PLUGINS\n" +
+                "                BodyScrollPlugin\n"
+        );
+    }
+
+    @Test
+    public void testOnHistoryTokenChangeWithQueryWithLocale() {
+        final HistoryToken historyToken = HistoryToken.parseString(
+            "/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(\"*en-AU*\",cellLocale()),1)"
+        );
+
+        final AppContext appContext = this.appContext(
+            Optional.empty(), // no highlighting query
+            historyToken
+        );
+
+        final SpreadsheetCellFindDialogComponent dialog = SpreadsheetCellFindDialogComponent.with(
+            new TestSpreadsheetCellFindDialogComponentContext(appContext)
+        );
+        this.onHistoryTokenChangeAndCheck(
+            dialog,
+            appContext,
+            "SpreadsheetCellFindDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Find\n" +
+                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "      RowComponent\n" +
+                "        SpreadsheetCellRangeReferenceComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "        SpreadsheetCellRangeReferencePathComponent\n" +
+                "          SelectComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "              LRTD\n" +
+                "              RLTD\n" +
+                "              LRBU\n" +
+                "              RLBU\n" +
+                "              TDLR\n" +
+                "              TDRL\n" +
+                "              BULR\n" +
+                "              BURL\n" +
+                "        ValueTypeEditComponent\n" +
+                "          SelectComponent\n" +
+                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "              *\n" +
+                "              boolean\n" +
+                "              date\n" +
+                "              date-time\n" +
+                "              email\n" +
+                "              error(spreadsheet)\n" +
+                "              number\n" +
+                "              text\n" +
+                "              time\n" +
+                "              url\n" +
+                "              whole-number\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "      RowComponent\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "      RowComponent\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Locale [*en-AU*] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "      SpreadsheetFormulaComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            Query [or(textMatch(\"*en-AU*\",cellLocale()),1)] id=query-TextBox\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/or(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/or(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2008,6 +2195,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [*parser*] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2017,11 +2208,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2135,6 +2326,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2144,11 +2339,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2262,6 +2457,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2271,11 +2470,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [<999] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2389,6 +2588,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2398,11 +2601,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2516,6 +2719,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2525,11 +2732,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2570,7 +2777,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChangeWithQueryWithAllWizardFields() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))"
+            "/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*locale*\",cellLocale()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue())))))))))"
         );
 
         final AppContext appContext = this.appContext(
@@ -2643,6 +2850,10 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
+                "              Locale [*locale*] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "        TextMatchComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
                 "              Parser [*parser*] id=SpreadsheetCellFind-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2652,11 +2863,11 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [<10] id=SpreadsheetCellFind-value-TextBox\n" +
+                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
-                "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2664,14 +2875,14 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [or(or(or(or(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox\n" +
+                "            Query [or(or(or(or(or(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=SpreadsheetCellFind-find-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=SpreadsheetCellFind-reset-Link\n" +
+                "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-find-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue()))))))))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
