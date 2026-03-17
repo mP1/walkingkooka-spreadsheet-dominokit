@@ -65,7 +65,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
         this.validators = this.validators();
 
-        this.selector = this.selector();
+        this.selector = this.selector()
+            .addValueWatcher2(this::refreshLinks);
 
         this.links = DialogAnchorListComponent.empty(
                 this.idPrefix(),
@@ -142,7 +143,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     /**
      * The {@link ValidatorSelectorComponent} that holds the {@link ValidatorSelector} in text form.
      */
-    private final ValidatorSelectorComponent selector;
+    // @VisibleForTesting
+    final ValidatorSelectorComponent selector;
 
     /**
      * Refreshes the {@link #selector} with the latest value.
