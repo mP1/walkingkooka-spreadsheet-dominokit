@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
-import java.util.Optional;
-
 public interface SpreadsheetNameDialogComponentContext extends DialogComponentContext,
+    DialogAnchorListComponentContext<SpreadsheetName>,
     ComponentLifecycleMatcher,
     HasSpreadsheetMetadataFetcherWatchers {
 
@@ -34,6 +34,4 @@ public interface SpreadsheetNameDialogComponentContext extends DialogComponentCo
     boolean shouldLoadSpreadsheetMetadata();
 
     SpreadsheetId spreadsheetId();
-
-    Optional<SpreadsheetName> spreadsheetName();
 }
