@@ -52,6 +52,128 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
     SpreadsheetMetadataTesting {
 
     @Test
+    public void testSetStringValue() {
+        final TestAppContext context = new TestAppContext(
+            HistoryToken.cellValidatorSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
+            new TestValidatorSelectorDialogComponentContext(context) {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public Optional<ValidatorSelector> undo() {
+                    return Optional.of(
+                        ValidatorSelector.parse("hello-validator-111")
+                    );
+                }
+
+                @Override
+                public SpreadsheetViewportCache spreadsheetViewportCache() {
+                    return context.spreadsheetViewportCache();
+                }
+            }
+        );
+
+        dialog.selector.setStringValue(
+            Optional.of("new-validator-222")
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ValidatorSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
+                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              id=ValidatorSelector-links\n" +
+                "        ValidatorSelectorComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              [new-validator-222] id=ValidatorSelector-TextBox\n" +
+                "        DialogAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
+                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithError() {
+        final TestAppContext context = new TestAppContext(
+            HistoryToken.cellValidatorSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
+            new TestValidatorSelectorDialogComponentContext(context) {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public Optional<ValidatorSelector> undo() {
+                    return Optional.of(
+                        ValidatorSelector.parse("hello-validator-111")
+                    );
+                }
+
+                @Override
+                public SpreadsheetViewportCache spreadsheetViewportCache() {
+                    return context.spreadsheetViewportCache();
+                }
+            }
+        );
+
+        dialog.selector.setStringValue(
+            Optional.of("new-validator-222!")
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ValidatorSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
+                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              id=ValidatorSelector-links\n" +
+                "        ValidatorSelectorComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              [new-validator-222!] id=ValidatorSelector-TextBox\n" +
+                "              Errors\n" +
+                "                Invalid character '!' at 17\n" +
+                "        DialogAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
+                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenChange() {
         final TestAppContext context = new TestAppContext(
             HistoryToken.cellValidatorSelect(
