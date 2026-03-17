@@ -100,6 +100,49 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             box,
             Optional.empty()
         );
+        this.treePrintAndCheck(
+            box,
+            "TextBoxComponent\n" +
+                "  []\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithEmptyRequired() {
+        final Optional<String> value = Optional.of("");
+
+        final TextBoxComponent box = this.createComponent()
+            .required()
+            .setValue(value);
+        this.valueAndCheck(
+            box,
+            Optional.empty()
+        );
+        this.treePrintAndCheck(
+            box,
+            "TextBoxComponent\n" +
+                "  [] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithEmptyRequired2() {
+        final Optional<String> value = Optional.of("");
+
+        final TextBoxComponent box = this.createComponent()
+            .required()
+            .setValue(
+                Optional.of("not empty no errors")
+            ).setValue(value);
+        this.valueAndCheck(
+            box,
+            Optional.empty()
+        );
+        this.treePrintAndCheck(
+            box,
+            "TextBoxComponent\n" +
+                "  [] REQUIRED\n"
+        );
     }
 
     @Test
@@ -109,6 +152,12 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
         final TextBoxComponent box = this.createComponent()
             .setValue(value);
         this.valueAndCheck(box, value);
+
+        this.treePrintAndCheck(
+            box,
+            "TextBoxComponent\n" +
+                "  [value123]\n"
+        );
     }
 
     @Test
