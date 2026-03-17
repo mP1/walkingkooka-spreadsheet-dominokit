@@ -21,13 +21,11 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -57,12 +55,14 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
         context.addHistoryTokenWatcher(this);
         this.context = context;
 
-        this.name = this.name();
+        this.links = DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .close();
 
-        this.save = this.<SpreadsheetName>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.name = this.name();
 
         this.dialog = this.dialogCreate();
 
@@ -80,12 +80,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
                 DialogComponent.INCLUDE_CLOSE,
                 this.context
             ).appendChild(this.name)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -112,59 +107,21 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
         return SpreadsheetNameComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::setName
+                this::refreshLinks
             );
-    }
-
-    private void setName(final Optional<SpreadsheetName> name) {
-        this.name.setValue(name);
-        this.refreshSave(name);
     }
 
     /**
      * The {@link SpreadsheetNameComponent} that holds the {@link walkingkooka.spreadsheet.SpreadsheetName}.
      */
-    private final SpreadsheetNameComponent name;
+    // @VisibleForTesting
+    final SpreadsheetNameComponent name;
 
-    // save.............................................................................................................
+    // link.............................................................................................................   // links............................................................................................................
 
-    private void refreshSave(final Optional<SpreadsheetName> name) {
-        this.save.setValue(name);
-    }
+    private final DialogAnchorListComponent<SpreadsheetName> links;
 
-    /**
-     * A SAVE link which will be updated each time the name box is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> save;
-
-    // undo.............................................................................................................
-
-    private void refreshUndo(final Optional<SpreadsheetName> name) {
-        this.undo.setValue(name);
-    }
-
-    /**
-     * A UNDO link which will be updated each time the name is saved.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<SpreadsheetName> undo;
-
-    // close............................................................................................................
-
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
-
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     @Override
     public ComponentLifecycleMatcher componentLifecycleMatcher() {
@@ -182,7 +139,10 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
 
         final SpreadsheetId id = dialogContext.spreadsheetId();
         this.spreadsheetId = id;
-        this.setName(dialogContext.spreadsheetName());
+
+        this.refreshLinks(
+            dialogContext.undo()
+        );
 
         if (dialogContext.shouldLoadSpreadsheetMetadata()) {
             dialogContext.loadSpreadsheetMetadata(id);
@@ -193,11 +153,14 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<SpreadsheetName> name = this.context.spreadsheetName();
-        this.refreshSave(name);
-        this.refreshUndo(name);
+        this.refreshLinks(
+            this.context.undo()
+        );
+    }
 
-        this.refreshClose();
+    private void refreshLinks(final Optional<SpreadsheetName> name) {
+        this.name.setValue(name);
+        this.links.setValue(name);
     }
 
     private final SpreadsheetNameDialogComponentContext context;

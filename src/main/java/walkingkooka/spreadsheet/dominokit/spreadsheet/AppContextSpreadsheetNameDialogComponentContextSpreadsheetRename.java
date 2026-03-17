@@ -23,10 +23,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRenameSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename extends AppContextNameDialogComponentContext {
 
@@ -49,12 +47,6 @@ final class AppContextSpreadsheetNameDialogComponentContextSpreadsheetRename ext
     public SpreadsheetId spreadsheetId() {
         return this.historyToken().cast(SpreadsheetRenameHistoryToken.class)
             .spreadsheetId();
-    }
-
-    @Override
-    public Optional<SpreadsheetName> spreadsheetName() {
-        return this.historyToken()
-                .spreadsheetName();
     }
 
     // ComponentLifecycleMatcher........................................................................................

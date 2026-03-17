@@ -26,11 +26,103 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
+import java.util.Optional;
+
 public final class SpreadsheetNameDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetNameDialogComponent>,
     SpreadsheetMetadataTesting {
 
     @Test
-    public void testOnHistoryTokenChangeOpenUsesHistoryTokenName() {
+    public void testClearValue() {
+        final AppContext context = new FakeAppContext() {
+
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.spreadsheetRenameSelect(
+                    SpreadsheetNameDialogComponentTest.SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                );
+            }
+        };
+
+        final SpreadsheetNameDialogComponent dialog = SpreadsheetNameDialogComponent.with(
+            SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+        );
+
+        dialog.name.clearValue();
+
+        this.treePrintAndCheck(
+            dialog,
+            "SpreadsheetNameDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=SpreadsheetName-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetNameComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [] id=SpreadsheetName-TextBox\n" +
+                "            Errors\n" +
+                "              Empty \"name\"\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        final AppContext context = new FakeAppContext() {
+
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return null;
+            }
+
+            @Override
+            public HistoryToken historyToken() {
+                return HistoryToken.spreadsheetRenameSelect(
+                    SpreadsheetNameDialogComponentTest.SPREADSHEET_ID,
+                    SPREADSHEET_NAME
+                );
+            }
+        };
+
+        final SpreadsheetNameDialogComponent dialog = SpreadsheetNameDialogComponent.with(
+            SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+        );
+
+        dialog.name.setStringValue(
+            Optional.of("DifferentSpreadsheetName222")
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "SpreadsheetNameDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=SpreadsheetName-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetNameComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [DifferentSpreadsheetName222] id=SpreadsheetName-TextBox\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/rename/save/DifferentSpreadsheetName222] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnHistoryTokenSpreadsheetRenameSelectHistoryTokenChangeOpenUsesHistoryTokenName() {
         final AppContext context = new FakeAppContext() {
 
             @Override
@@ -62,12 +154,13 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [SpreadsheetName1] id=SpreadsheetName-TextBox\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
         );
     }
 

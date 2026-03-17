@@ -24,6 +24,9 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+
+import java.util.Optional;
 
 abstract class AppContextNameDialogComponentContext implements SpreadsheetNameDialogComponentContext,
     DialogComponentContextDelegator,
@@ -47,6 +50,12 @@ abstract class AppContextNameDialogComponentContext implements SpreadsheetNameDi
     @Override
     public final HasSpreadsheetMetadataFetcherWatchers hasSpreadsheetMetadataFetcherWatchers() {
         return this.context;
+    }
+
+    @Override
+    public final Optional<SpreadsheetName> undo() {
+        return this.historyToken()
+            .spreadsheetName();
     }
 
     // DialogComponentContext...........................................................................................
