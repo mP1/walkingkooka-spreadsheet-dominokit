@@ -514,6 +514,31 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
+    // ValueWatcher.....................................................................................................
+
+    @Test
+    public void testOnValue() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close();
+
+        component.onValue(VALUE);
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
     @Override
     public DialogAnchorListComponent<Locale> createComponent() {
         return DialogAnchorListComponent.empty(
