@@ -109,13 +109,14 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              [hello-validator] id=ValidatorSelector-TextBox\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "        DialogAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -202,13 +203,14 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "              [hello-validator] id=ValidatorSelector-TextBox\n" +
                 "              Errors\n" +
                 "                Validator Fail Message 123\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "        DialogAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-save-Link\n" +
+                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
