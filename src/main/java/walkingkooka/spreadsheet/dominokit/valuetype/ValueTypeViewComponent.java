@@ -34,6 +34,9 @@ import walkingkooka.validation.ValueType;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * A read only {@link ValueComponent} that supports displaying a {@link ValueType}
+ */
 public final class ValueTypeViewComponent implements ValueComponent<HTMLElement, ValueType, ValueTypeViewComponent>,
     HtmlComponentDelegator<HTMLElement, ValueTypeViewComponent> {
 
