@@ -92,11 +92,9 @@ public final class TextBoxComponent extends TextBoxComponentLike
         // only if value changed
         if(false == oldValue.equals(newValue)) {
             this.watchers.onValue(newValue);
-
-            this.validate();
         }
 
-        return validate();
+        return this.validate();
     }
 
     private final static Optional<String> EMPTY_STRING = Optional.of("");
