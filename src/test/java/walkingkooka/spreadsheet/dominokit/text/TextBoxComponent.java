@@ -212,7 +212,8 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
-    @Override public Optional<String> helperText() {
+    @Override
+    public Optional<String> helperText() {
         return this.helperText;
     }
 
