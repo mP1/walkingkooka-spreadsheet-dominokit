@@ -99,7 +99,7 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
     }
 
     @Test
-    public void testTreePrintWithEnAu() {
+    public void testSetValue() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(
@@ -112,6 +112,34 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
                 "    [English (Australia)] REQUIRED\n"
         );
     }
+
+    @Test
+    public void testSetValueWithValueWatcher() {
+        this.firedValue = null;
+
+        final Optional<Locale> value = Optional.of(ENAU);
+
+        this.treePrintAndCheck(
+            this.createComponent()
+                .addValueWatcher2(
+                    (v) -> {
+                        this.firedValue = v;
+                    }
+                ).setValue(value),
+            "LocaleComponent\n" +
+                "  SuggestBoxComponent\n" +
+                "    [English (Australia)] REQUIRED\n"
+        );
+
+        this.checkEquals(
+            value,
+            this.firedValue,
+            "fired value"
+
+        );
+    }
+
+    private Object firedValue;
 
     @Override
     public void testAllMethodsVisibility() {
