@@ -46,12 +46,11 @@ public final class SpreadsheetColumnOrRowReferenceBoundedComponentTest implement
     }
 
     @Test
-    public void testTreePrintWithColumnWithin() {
+    public void testSetValueWithColumnWithin() {
         this.treePrintAndCheck(
             this.createComponent(
                     SpreadsheetSelection.parseColumnOrColumnRange("B:D")
-                )
-                .setValue(
+                ).setValue(
                     Optional.of(
                         SpreadsheetSelection.parseColumn("C")
                     )
@@ -63,12 +62,11 @@ public final class SpreadsheetColumnOrRowReferenceBoundedComponentTest implement
     }
 
     @Test
-    public void testTreePrintWithRowWithin() {
+    public void testSetValueWithRowWithin() {
         this.treePrintAndCheck(
             this.createComponent(
                     SpreadsheetSelection.parseRowOrRowRange("2:4")
-                )
-                .setValue(
+                ).setValue(
                     Optional.of(
                         SpreadsheetSelection.parseRow("3")
                     )
@@ -78,6 +76,42 @@ public final class SpreadsheetColumnOrRowReferenceBoundedComponentTest implement
                 "    [3] REQUIRED\n"
         );
     }
+
+    @Test
+    public void testSetValueWithValueWatcher() {
+        this.firedValue = null;
+
+        final SpreadsheetColumnOrRowReferenceBoundedComponent component = this.createComponent()
+            .addValueWatcher2(
+                (v) -> {
+                    this.firedValue = v;
+                }
+            );
+
+        final Optional<SpreadsheetColumnOrRowReference> value = Optional.of(
+            SpreadsheetSelection.parseColumn("B")
+        );
+
+        this.setValueAndCheck(
+            component,
+            value
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetColumnOrRowReferenceBoundedComponent\n" +
+                "  SuggestBoxComponent\n" +
+                "    [B] REQUIRED\n"
+        );
+
+        this.checkEquals(
+            value,
+            this.firedValue,
+            "firedValue"
+        );
+    }
+
+    private Object firedValue;
 
     @Override
     public void testAllMethodsVisibility() {
