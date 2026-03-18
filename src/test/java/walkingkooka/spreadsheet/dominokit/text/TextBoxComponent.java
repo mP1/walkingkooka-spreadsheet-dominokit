@@ -47,6 +47,10 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return new TextBoxComponent();
     }
 
+    private TextBoxComponent() {
+        super();
+    }
+
     @Override
     public TextBoxComponent setId(final String id) {
         CharSequences.failIfNullOrEmpty(id, "id");
