@@ -204,6 +204,7 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
             .addValueWatcher(watcher);
     }
 
+    @Override
     default C addValueWatcher2(final ValueWatcher<V> watcher) {
         this.valueTextBoxComponent()
             .addValueWatcher2(watcher);
