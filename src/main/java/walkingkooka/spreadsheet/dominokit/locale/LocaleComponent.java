@@ -95,7 +95,10 @@ public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HT
         Objects.requireNonNull(watcher, "watcher");
 
         return this.suggestBox.addValueWatcher(
-            v -> v.map(HasLocale::locale)
+            v ->
+                watcher.onValue(
+                    v.map(HasLocale::locale)
+                )
         );
     }
 
