@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -25,7 +24,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * An event that captures the new value and {@link AppContext}.
+ * An event that captures a new or different value probably belonging to a {@link ValueComponent}.
  */
 final class ValueWatcherEvent<T> implements Consumer<ValueWatcher<T>> {
 
