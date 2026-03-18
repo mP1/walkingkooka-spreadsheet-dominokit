@@ -1,0 +1,58 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.value;
+
+import walkingkooka.text.CharSequences;
+
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * An event that captures a new or different value probably belonging to a {@link ValueComponent}.
+ */
+final class ValueWatcherValueEvent<T> extends ValueWatcherEvent<T> {
+
+    static <T> ValueWatcherValueEvent<T> with(final Optional<T> value) {
+        return new ValueWatcherValueEvent<>(
+            Objects.requireNonNull(value, "value")
+        );
+    }
+
+    private ValueWatcherValueEvent(final Optional<T> value) {
+        this.value = value;
+    }
+
+    @Override
+    public void accept(final ValueWatcher<T> watcher) {
+        this.fire(watcher);
+    }
+
+    private void fire(final ValueWatcher<T> watcher) {
+        watcher.onValue(
+            this.value
+        );
+    }
+
+    private final Optional<T> value;
+
+    @Override
+    public String toString() {
+        return CharSequences.quoteIfChars(this.value)
+            .toString();
+    }
+}
