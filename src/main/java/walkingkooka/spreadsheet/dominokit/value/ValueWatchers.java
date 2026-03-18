@@ -58,7 +58,7 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
     @Override
     public void onValue(final Optional<T> value) {
         this.fire(
-            ValueWatcherEvent.with(value)
+            ValueWatcherValueEvent.with(value)
         );
     }
 

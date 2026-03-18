@@ -17,13 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import java.util.function.Consumer;
+import walkingkooka.Cast;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-/**
- * Base class for all {@link ValueWatcher} events.
- */
-abstract class ValueWatcherEvent<T> implements Consumer<ValueWatcher<T>> {
+public final class ValueWatcherValueEventTest implements ClassTesting<ValueWatcherValueEvent<Void>> {
 
-    ValueWatcherEvent() {
+    // class............................................................................................................
+
+    @Override
+    public Class<ValueWatcherValueEvent<Void>> type() {
+        return Cast.to(ValueWatcherValueEvent.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
