@@ -299,4 +299,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
     public void treePrintAlternateValues(final IndentingPrinter printer) {
         // NOP
     }
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.value.orElse("");
+    }
 }
