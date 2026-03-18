@@ -53,6 +53,72 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
         SPREADSHEET_ID
     );
 
+    @Test
+    public void testLocaleComponentSetValue() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        final AppContext context = this.appContext(
+            HistoryToken.cellLocaleSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                cell.setDefaultAnchor()
+            ),
+            Optional.empty() // no locale
+        );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetMetadata(
+                METADATA
+            );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        cell.setFormula(SpreadsheetFormula.EMPTY) // no locale
+                    )
+                )
+            );
+
+        final LocaleDialogComponent dialog = LocaleDialogComponent.with(
+            LocaleDialogComponentContexts.appContextCellLocale(context)
+        );
+
+        dialog.onHistoryTokenChange(
+            context.historyToken(),
+            context
+        );
+
+        dialog.locale.setValue(
+            Optional.of(
+                Locale.FRENCH // only a few locales "work".
+            )
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "LocaleDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    A1: Locale\n" +
+                "    id=Locale-Dialog includeClose=true\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          LocaleComponent\n" +
+                "            SuggestBoxComponent\n" +
+                "              [French]\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/fr] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+        );
+    }
+
     // onHistoryToken...................................................................................................
 
     @Test
