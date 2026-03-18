@@ -60,6 +60,64 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
     // onHistoryToken...................................................................................................
 
     @Test
+    public void testSetValue() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        final AppContext context = this.appContext(
+            HistoryToken.cellCurrencySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                cell.setDefaultAnchor()
+            ),
+            Optional.empty() // no currency
+        );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetMetadata(
+                METADATA
+            );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        cell.setFormula(SpreadsheetFormula.EMPTY) // no currency
+                    )
+                )
+            );
+
+        final CurrencyDialogComponent component = CurrencyDialogComponent.with(
+            CurrencyDialogComponentContexts.appContextCellCurrency(context)
+        );
+
+        component.currency.setValue(
+            Optional.of(NZD)
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "CurrencyDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=Currency-Dialog includeClose=true CLOSED\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          CurrencyComponent\n" +
+                "            SuggestBoxComponent\n" +
+                "              [New Zealand Dollar]\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/NZD] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenWithSpreadsheetCellCurrencySelectHistoryTokenMissingCurrency() {
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 

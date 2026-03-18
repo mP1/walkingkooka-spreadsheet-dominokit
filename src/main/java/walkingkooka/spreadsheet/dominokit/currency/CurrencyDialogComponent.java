@@ -196,7 +196,8 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
             );
     }
 
-    private final CurrencyComponent<Currency> currency;
+    // @VisibleForTesting
+    final CurrencyComponent<Currency> currency;
 
     // links............................................................................................................
 
