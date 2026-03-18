@@ -362,19 +362,17 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "    id=SpreadsheetLabelMapping-Dialog includeClose=true\n" +
                 "      SpreadsheetLabelComponent\n" +
                 "        SuggestBoxComponent\n" +
-                "          Label [Label999] id=SpreadsheetLabelMapping-label-TextBox REQUIRED\n" +
+                "          Label [LoadedLabel123] id=SpreadsheetLabelMapping-label-TextBox REQUIRED\n" +
                 "      SpreadsheetExpressionReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Cell, cell range or Label [] id=SpreadsheetLabelMapping-reference-TextBox\n" +
-                "            Errors\n" +
-                "              Empty \"text\"\n" +
+                "            Cell, cell range or Label [C3] id=SpreadsheetLabelMapping-reference-TextBox\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
+                "            \"Save\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-undo-Link\n" +
-                "            \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
+                "            \"Delete\" [#/1/SpreadsheetName111/label/LoadedLabel123/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
                 "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }

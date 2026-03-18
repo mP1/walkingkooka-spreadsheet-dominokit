@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.text.HasText;
 
 import java.util.List;
@@ -153,8 +154,16 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
     public SuggestBoxComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
+        final Optional<T> oldValue = this.value;
         this.value = value;
-        this.validate();
+
+        // only if value changed
+        if(false == oldValue.equals(value)) {
+            this.watchers.onValue(value);
+
+            this.validate();
+        }
+
         return this;
     }
 
@@ -167,10 +176,10 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        return () -> {};
+        return this.watchers.add(watcher);
     }
+
+    private final ValueWatchers<T> watchers = ValueWatchers.empty();
 
     // isDisabled.......................................................................................................
 

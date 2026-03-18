@@ -50,6 +50,48 @@ public final class SuggestBoxComponentTest implements FormValueComponentTesting<
     };
 
     @Test
+    public void testSetValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetSelection.A1
+                    )
+                ),
+            "SuggestBoxComponent\n" +
+                "  [A1] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithValueWatcher() {
+        this.firedValue = null;
+
+        final Optional<SpreadsheetCellReference> value = Optional.of(
+            SpreadsheetSelection.A1
+        );
+
+        this.treePrintAndCheck(
+            this.createComponent()
+                .addValueWatcher2(
+                    v -> {
+                        this.firedValue = v;
+                    }
+                ).setValue(value),
+            "SuggestBoxComponent\n" +
+                "  [A1] REQUIRED\n"
+        );
+
+        this.checkEquals(
+            value,
+            this.firedValue,
+            "fired value"
+        );
+    }
+
+    private Optional<SpreadsheetCellReference> firedValue;
+
+    @Test
     public void testOptionalValidationPass() {
         this.treePrintAndCheck(
             this.createComponent()
