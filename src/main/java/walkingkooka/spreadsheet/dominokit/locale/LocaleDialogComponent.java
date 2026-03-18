@@ -191,9 +191,7 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                     }
                 }
             ).optional()
-            .addValueWatcher2(
-                (v) -> this.links.setValue(v) // Using method reference throws NPE in GWT
-            );
+            .addValueWatcher2(this.links);
     }
 
     // @VisibleForTesting
