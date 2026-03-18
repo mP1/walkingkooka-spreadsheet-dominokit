@@ -95,7 +95,9 @@ public final class CurrencyComponent<T> implements SuggestBoxComponentDelegator<
         Objects.requireNonNull(watcher, "watcher");
 
         return this.suggestBox.addValueWatcher(
-            v -> v.map(HasCurrency::currency)
+            v -> watcher.onValue(
+                v.map(HasCurrency::currency)
+            )
         );
     }
 
