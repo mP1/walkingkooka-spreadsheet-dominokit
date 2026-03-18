@@ -229,22 +229,27 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
     public TextBoxComponent autocompleteOff() {
         return this;
     }
 
+    @Override
     public TextBoxComponent clearIcon() {
         return this;
     }
 
+    @Override
     public TextBoxComponent disableSpellcheck() {
         return this;
     }
 
+    @Override
     public TextBoxComponent enterFiresValueChange() {
         return this;
     }
 
+    @Override
     public TextBoxComponent magnifyingGlassIcon() {
         return this;
     }

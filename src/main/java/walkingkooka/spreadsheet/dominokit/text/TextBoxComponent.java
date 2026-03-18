@@ -83,6 +83,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
     public TextBoxComponent autocompleteOff() {
         this.textBox.getInputElement()
             .element()
@@ -90,6 +91,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
     public TextBoxComponent clearIcon() {
         this.textBox.apply(
             self -> self.appendChild(
@@ -105,6 +107,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
+    @Override
     public TextBoxComponent disableSpellcheck() {
         this.textBox.getInputElement()
             .element()
@@ -113,17 +116,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
-    public TextBoxComponent focus() {
-        this.textBox.focus();
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent blur() {
-        this.textBox.blur();
-        return this;
-    }
-
     public TextBoxComponent enterFiresValueChange() {
         return this.addKeyDownListener(
             (final Event event) -> {
@@ -131,9 +123,9 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 switch (Key.fromEvent(keyboardEvent)) {
                     case Enter:
                         event.preventDefault();
-                        textBox.triggerChangeListeners(
-                            textBox.getValue(), // old ???
-                            textBox.getValue()// new
+                        this.textBox.triggerChangeListeners(
+                            this.textBox.getValue(), // old ???
+                            this.textBox.getValue()// new
                         );
                         break;
                     default:
@@ -144,6 +136,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         );
     }
 
+    @Override
     public TextBoxComponent magnifyingGlassIcon() {
         this.textBox.apply(
             self -> self.appendChild(
@@ -156,6 +149,18 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 )
             )
         );
+        return this;
+    }
+
+    @Override
+    public TextBoxComponent focus() {
+        this.textBox.focus();
+        return this;
+    }
+
+    @Override
+    public TextBoxComponent blur() {
+        this.textBox.blur();
         return this;
     }
 
