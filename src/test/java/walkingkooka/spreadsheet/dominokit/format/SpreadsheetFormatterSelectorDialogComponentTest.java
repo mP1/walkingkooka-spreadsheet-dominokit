@@ -75,7 +75,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -160,14 +160,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [date] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" DISABLED id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-save-Link\n" +
                 "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
                 "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
                 "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"
@@ -180,7 +180,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -297,7 +297,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -317,7 +317,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -453,7 +453,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -473,7 +473,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -630,7 +630,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -650,7 +650,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -733,7 +733,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -753,7 +753,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/cell/A1/formatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextCell.with(context)
             ),
@@ -851,7 +851,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -871,7 +871,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/dateFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1002,7 +1002,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1022,7 +1022,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/dateTimeFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1172,7 +1172,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1192,7 +1192,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/errorFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1363,7 +1363,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1383,7 +1383,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/numberFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1554,7 +1554,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1574,7 +1574,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/textFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1671,7 +1671,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1691,7 +1691,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/timeFormatter")
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSetSelectorTextAndCheck(
             SpreadsheetFormatterSelectorDialogComponent.with(
                 AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata.with(context)
             ),
@@ -1803,7 +1803,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1931,10 +1931,10 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
         );
     }
 
-    private void onHistoryTokenChangeAndSetTextAndCheck(final SpreadsheetFormatterSelectorDialogComponent dialog,
-                                                        final String text,
-                                                        final AppContext context,
-                                                        final String expected) {
+    private void onHistoryTokenChangeAndSetSelectorTextAndCheck(final SpreadsheetFormatterSelectorDialogComponent dialog,
+                                                                final String text,
+                                                                final AppContext context,
+                                                                final String expected) {
         this.checkEquals(
             false,
             dialog.isMatch(NOT_MATCHED),
@@ -1946,7 +1946,13 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             context
         );
 
-        dialog.setText(text);
+        dialog.selector.setStringValue(
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    text
+            )
+        );
 
         this.treePrintAndCheck(
             dialog,
