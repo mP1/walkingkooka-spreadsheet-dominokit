@@ -196,7 +196,8 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
             );
     }
 
-    private final LocaleComponent<Locale> locale;
+    // @VisibleForTesting
+    final LocaleComponent<Locale> locale;
 
     // links............................................................................................................
 
