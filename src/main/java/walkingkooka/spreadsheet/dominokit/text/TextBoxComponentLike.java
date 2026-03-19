@@ -45,7 +45,34 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     public abstract TextBoxComponent magnifyingGlassIcon();
 
-    public abstract Optional<Validator<Optional<String>>> validator();
+    @Override
+    public final TextBoxComponent optional() {
+        this.required = false;
+
+        this.validate();
+        return (TextBoxComponent) this;
+    }
+
+    @Override
+    public final TextBoxComponent required() {
+        this.required = true;
+
+        this.validate();
+        return (TextBoxComponent) this;
+    }
+
+    @Override
+    public boolean isRequired() {
+        return this.required;
+    }
+
+    boolean required;
+
+    public final Optional<Validator<Optional<String>>> validator() {
+        return this.validator;
+    }
+
+    Optional<Validator<Optional<String>>> validator = Optional.empty();
 
     public abstract TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator);
 

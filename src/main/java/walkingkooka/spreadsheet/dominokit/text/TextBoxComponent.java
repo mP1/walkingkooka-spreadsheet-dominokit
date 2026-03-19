@@ -36,13 +36,13 @@ import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 
@@ -60,6 +60,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
     private TextBoxComponent() {
         this.textBox = new TextBox()
             .setEmptyAsNull(true);
+        this.required();
     }
 
     @Override
@@ -240,28 +241,13 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this.textBox.getLabel();
     }
 
-    @Override
-    public Optional<Validator<Optional<String>>> validator() {
-        final Set<Validator<TextBox>> validators = this.textBox.getValidators();
-
-        Validator<Optional<String>> validator = null;
-
-        if (false == validators.isEmpty()) {
-            final Validator<TextBox> textBoxValidator = validators.iterator()
-                .next();
-
-            // check necessary because active validator might be another (internal) Validator.
-            if (textBoxValidator instanceof TextBoxComponentValidator) {
-                final TextBoxComponentValidator textBoxComponentValidator = (TextBoxComponentValidator) textBoxValidator;
-                validator = textBoxComponentValidator.validator;
-            }
-        }
-
-        return Optional.ofNullable(validator);
-    }
+    // validator........................................................................................................
 
     @Override
     public TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator) {
+        final Optional<Validator<Optional<String>>> oldValidator = this.validator;
+        this.validator = validator;
+
         final TextBox textBox = this.textBox;
         textBox.setAutoValidation(true);
         textBox.getValidators().clear();
@@ -272,9 +258,21 @@ public final class TextBoxComponent extends TextBoxComponentLike
                     validator.get()
                 )
             );
+
+            if (false == validator.equals(oldValidator)) {
+                this.validate();
+            }
         }
         return this;
     }
+
+    @Override
+    public TextBoxComponent validate() {
+        this.textBox.validate();
+        return this;
+    }
+
+    private Optional<Validator<Optional<String>>> validator = Optional.empty();
 
     // IsElement........................................................................................................
 
@@ -289,10 +287,22 @@ public final class TextBoxComponent extends TextBoxComponentLike
     public TextBoxComponent setValue(final Optional<String> value) {
         Objects.requireNonNull(value, "value");
 
+        final String newValue = value.map(v -> CharSequences.isNullOrEmpty(v) ? null : v)
+            .orElse(null);
+        final String oldValue = this.textBox.getValue();
+
         this.textBox.withValue(
-            value.orElse(null),
+            newValue,
             true // silent dont fire change listeners.
         );
+
+        // only if value changed
+        if (false == Objects.equals(oldValue, newValue)) {
+            this.validate();
+
+            this.watchers.onValue(value);
+        }
+
         return this;
     }
 
@@ -334,6 +344,8 @@ public final class TextBoxComponent extends TextBoxComponentLike
             inputListener
         );
 
+        final Runnable watcherRemover = watchers.add(watcher);
+
         return () -> {
             textBox.removeEventListener(
                 EventType.keydown,
@@ -343,8 +355,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 EventType.input,
                 inputListener
             );
+            watcherRemover.run();
         };
     }
+
+    private final ValueWatchers<String> watchers = ValueWatchers.empty();
 
     // ValueComponent...................................................................................................
 
@@ -356,27 +371,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
     @Override
     public TextBoxComponent setDisabled(final boolean disabled) {
         this.textBox.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TextBoxComponent optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        return false;
-    }
-
-    @Override
-    public TextBoxComponent validate() {
-        this.textBox.validate();
         return this;
     }
 
