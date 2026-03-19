@@ -465,6 +465,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
                     ) +
                     SpreadsheetElementIds.TEXT_BOX
             ).setLabel(label)
+            .optional()
             .addValueWatcher2(this::refreshQueryAndFindFromWizardFieldsAndServerFind);
     }
 
