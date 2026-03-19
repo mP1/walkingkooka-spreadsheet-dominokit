@@ -173,20 +173,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     // dialog links.....................................................................................................
 
     void refreshLinks(final Optional<ValidatorSelector> value) {
-        final ValidatorSelectorComponent selector = this.selector;
-
-        this.links.setValue(
-            selector.hasErrors() ?
-                Optional.empty() :
-                value
-        );
-
-        // selector may have errors from a server response, dont want to clear/replace them.
-        if (false == selector.hasErrors()) {
-            selector.validate();
-        }
-
-        if (selector.hasErrors()) {
+        this.links.setValue(value);
+        if (this.selector.hasErrors()) {
             this.links.disableSave();
         }
     }

@@ -38,7 +38,7 @@ public final class FormNameComponentTest implements ValueTextBoxComponentLikeTes
             "FormNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Form123]\n"
+                "      [Form123] REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class FormNameComponentTest implements ValueTextBoxComponentLikeTes
             "FormNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"name\"\n"
         );

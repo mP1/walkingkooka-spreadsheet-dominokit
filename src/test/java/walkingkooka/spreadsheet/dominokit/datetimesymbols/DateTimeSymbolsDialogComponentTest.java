@@ -71,37 +71,37 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox\n" +
+                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 2\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month names [] id=DateTimeSymbols-monthNames-TextBox\n" +
+                "                Month names [] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 12 or more\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox\n" +
+                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 12 or more\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox\n" +
+                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 7\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox\n" +
+                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 7\n" +
                 "          DateTimeSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols []\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
                 "      LocaleComponent\n" +
@@ -148,27 +148,27 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                AM/PM [am,pm] id=DateTimeSymbols-ampms-TextBox\n" +
+                "                AM/PM [am,pm] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month names [January,February,March,April,May,June,July,August,September,October,November,December] id=DateTimeSymbols-monthNames-TextBox\n" +
+                "                Month names [January,February,March,April,May,June,July,August,September,October,November,December] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month name abbreviations [Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.] id=DateTimeSymbols-monthNameAbbreviations-TextBox\n" +
+                "                Month name abbreviations [Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names [Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday] id=DateTimeSymbols-weekDayNames-TextBox\n" +
+                "                Week day names [Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names Abbreviations [Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox\n" +
+                "                Week day names Abbreviations [Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
                 "          DateTimeSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [\"am,pm\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\"]\n" +
+                "                Date Time Symbols [\"am,pm\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\"] REQUIRED\n" +
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
@@ -213,37 +213,37 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox\n" +
+                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 2\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month names [] id=DateTimeSymbols-monthNames-TextBox\n" +
+                "                Month names [] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 12 or more\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox\n" +
+                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 12 or more\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox\n" +
+                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 7\n" +
                 "          CsvStringListComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox\n" +
+                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Require 7\n" +
                 "          DateTimeSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols []\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 5 tokens but got 0\n" +
                 "      LocaleComponent\n" +

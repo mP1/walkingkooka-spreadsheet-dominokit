@@ -48,7 +48,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
             "CardComponent\n" +
                 "  Card\n" +
                 "    TextBoxComponent\n" +
-                "      [Value123]\n"
+                "      [Value123] REQUIRED\n"
         );
     }
 
@@ -67,7 +67,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
                 "  Card\n" +
                 "    CardTitle123\n" +
                 "      TextBoxComponent\n" +
-                "        [Value123]\n"
+                "        [Value123] REQUIRED\n"
         );
     }
 
@@ -104,7 +104,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
             "CardComponent\n" +
                 "  Card\n" +
                 "    TextBoxComponent\n" +
-                "      [Value222]\n"
+                "      [Value222] REQUIRED\n"
         );
     }
 
@@ -127,7 +127,7 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
             "CardComponent\n" +
                 "  Card\n" +
                 "    TextBoxComponent\n" +
-                "      [Value222]\n"
+                "      [Value222] REQUIRED\n"
         );
     }
 

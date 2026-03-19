@@ -38,7 +38,7 @@ public final class SpreadsheetParserSelectorComponentTest implements ValueTextBo
             "SpreadsheetParserSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello]\n"
+                "      [hello] REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetParserSelectorComponentTest implements ValueTextBo
             "SpreadsheetParserSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [invalid123!]\n" +
+                "      [invalid123!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );

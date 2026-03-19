@@ -52,7 +52,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetExporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json]\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json] REQUIRED\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetExporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !]\n" +
+                "      [https://www.example.com/Hello !] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -86,7 +86,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetExporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 hello, bad:// Hello2]\n" +
+                "      [https://www.example.com/1 hello, bad:// Hello2] REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -104,7 +104,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetExporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 hello, https://example.com/2 bad!]\n" +
+                "      [https://www.example.com/1 hello, https://example.com/2 bad!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 58\n"
         );

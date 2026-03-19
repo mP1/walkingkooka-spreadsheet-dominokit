@@ -48,7 +48,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueText
             "SpreadsheetExporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 exporter1, exporter2]\n"
+                "      [alias1 exporter1, exporter2] REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueText
             "SpreadsheetExporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 exporter1, 9]\n" +
+                "      [alias1 exporter1, 9] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 18\n"
         );

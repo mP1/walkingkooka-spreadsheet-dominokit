@@ -38,7 +38,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1]\n"
+                "      [A1] REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$A$1]\n"
+                "      [$A$1] REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1:B2]\n"
+                "      [A1:B2] REQUIRED\n"
         );
     }
 
@@ -86,7 +86,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Label123]\n"
+                "      [Label123] REQUIRED\n"
         );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!]\n" +
+                "      [Invalid123!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );
@@ -120,7 +120,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$A]\n" +
+                "      [$A] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '$' at 0\n"
         );
@@ -138,7 +138,7 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
             "SpreadsheetExpressionReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123]\n" +
+                "      [123] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 0\n"
         );

@@ -17,11 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 
@@ -51,7 +48,7 @@ public final class SpreadsheetImporterAliasSetComponentTest implements ValueText
             "SpreadsheetImporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 importer1, importer2]\n"
+                "      [alias1 importer1, importer2] REQUIRED\n"
         );
     }
 
@@ -67,7 +64,7 @@ public final class SpreadsheetImporterAliasSetComponentTest implements ValueText
             "SpreadsheetImporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 importer1, 9]\n" +
+                "      [alias1 importer1, 9] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 18\n"
         );

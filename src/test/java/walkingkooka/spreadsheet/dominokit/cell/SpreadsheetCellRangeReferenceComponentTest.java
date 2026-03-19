@@ -52,7 +52,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=cell-range-id\n" +
+                "      [] id=cell-range-id REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -70,7 +70,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1:B2] id=cell-range-id\n"
+                "      [A1:B2] id=cell-range-id REQUIRED\n"
         );
     }
 
@@ -88,7 +88,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [!invalid] id=cell-range-id\n" +
+                "      [!invalid] id=cell-range-id REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
         );
@@ -106,7 +106,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [C3:D4] id=cell-range-id\n"
+                "      [C3:D4] id=cell-range-id REQUIRED\n"
         );
     }
 
@@ -122,7 +122,7 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
             "SpreadsheetCellRangeReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$C$3:d4] id=cell-range-id\n"
+                "      [$C$3:d4] id=cell-range-id REQUIRED\n"
         );
     }
 

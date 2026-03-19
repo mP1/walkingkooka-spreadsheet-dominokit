@@ -59,7 +59,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [January,February,March,April,May,June,July,August,September,October,November,December]\n"
+                "      [January,February,March,April,May,June,July,August,September,October,November,December] REQUIRED\n"
         );
     }
 
@@ -103,7 +103,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday,\"Tuesday]\n" +
+                "      [Monday,\"Tuesday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Missing terminating '\"'\n"
         );
@@ -124,7 +124,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday]\n" +
+                "      [Monday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Require 2 or more\n"
         );
@@ -145,7 +145,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday]\n" +
+                "      [Monday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Require 2\n"
         );
@@ -166,7 +166,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Require 3 or less\n"
         );
@@ -187,7 +187,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Require 2\n"
         );
@@ -208,7 +208,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Monday, Tuesday, Wednesday, Thursday]\n" +
+                "      [Monday, Tuesday, Wednesday, Thursday] REQUIRED\n" +
                 "      Errors\n" +
                 "        Require less than 4\n"
         );
@@ -229,7 +229,7 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
             "CsvStringListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [  Monday,  Tuesday,  Wednesday]\n"
+                "      [  Monday,  Tuesday,  Wednesday] REQUIRED\n"
         );
     }
 

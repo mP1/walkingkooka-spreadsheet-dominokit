@@ -37,7 +37,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             TextBoxComponent.empty()
                 .setLabel("Label123"),
             "TextBoxComponent\n" +
-                "  Label123 []\n"
+                "  Label123 [] REQUIRED\n"
         );
     }
 
@@ -48,7 +48,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  Label123 [Value456]\n"
+                "  Label123 [Value456] REQUIRED\n"
         );
     }
 
@@ -58,7 +58,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
             TextBoxComponent.empty()
                 .setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  [Value456]\n"
+                "  [Value456] REQUIRED\n"
         );
     }
 
@@ -69,7 +69,7 @@ public final class FormValueComponentTreePrintableTest implements TreePrintableT
                 .setValue(Optional.of("Value456"))
                 .setCssText("background-color: lavender;"),
             "TextBoxComponent\n" +
-                "  [Value456]\n"
+                "  [Value456] REQUIRED\n"
         );
     }
 

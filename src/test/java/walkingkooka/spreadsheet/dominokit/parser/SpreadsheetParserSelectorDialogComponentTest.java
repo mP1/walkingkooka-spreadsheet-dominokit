@@ -150,7 +150,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [date] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      DialogAnchorListComponent\n" +
@@ -277,7 +277,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -423,7 +423,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -590,7 +590,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -698,7 +698,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -835,7 +835,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -991,7 +991,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1168,7 +1168,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1286,7 +1286,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetParserSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetParserSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

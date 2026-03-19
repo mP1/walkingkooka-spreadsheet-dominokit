@@ -63,7 +63,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=SpreadsheetName-TextBox\n" +
+                "            [] id=SpreadsheetName-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"name\"\n" +
                 "      DialogAnchorListComponent\n" +
@@ -110,7 +110,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [DifferentSpreadsheetName222] id=SpreadsheetName-TextBox\n" +
+                "            [DifferentSpreadsheetName222] id=SpreadsheetName-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -153,7 +153,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [SpreadsheetName1] id=SpreadsheetName-TextBox\n" +
+                "            [SpreadsheetName1] id=SpreadsheetName-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

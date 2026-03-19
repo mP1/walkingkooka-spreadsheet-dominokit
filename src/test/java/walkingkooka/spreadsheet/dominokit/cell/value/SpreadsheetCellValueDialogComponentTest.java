@@ -275,7 +275,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "      EmailAddressComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [user123@example.com]\n" +
+                "            [user123@example.com] REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -311,7 +311,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      TextBoxComponent\n" +
-                "        [HelloTextValue] id=TextBox-Text\n" +
+                "        [HelloTextValue] id=TextBox-Text REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -346,7 +346,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    HelloDialogTitle\n" +
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      TextBoxComponent\n" +
-                "        [] id=TextBox-Text\n" +
+                "        [] id=TextBox-Text REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -430,7 +430,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "      AbsoluteUrlComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [https://example.com/path1/k1%3Dv2]\n" +
+                "            [https://example.com/path1/k1%3Dv2] REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +

@@ -99,12 +99,12 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [new-validator-222] id=ValidatorSelector-TextBox\n" +
+                "              [new-validator-222] id=ValidatorSelector-TextBox REQUIRED\n" +
                 "        DialogAnchorListComponent\n" +
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              ROW\n" +
-                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/new-validator-222] id=ValidatorSelector-save-Link\n" +
                 "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
                 "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
                 "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
@@ -159,7 +159,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [new-validator-222!] id=ValidatorSelector-TextBox\n" +
+                "              [new-validator-222!] id=ValidatorSelector-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Invalid character '!' at 17\n" +
                 "        DialogAnchorListComponent\n" +
@@ -230,7 +230,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [hello-validator] id=ValidatorSelector-TextBox\n" +
+                "              [hello-validator] id=ValidatorSelector-TextBox REQUIRED\n" +
                 "        DialogAnchorListComponent\n" +
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
@@ -322,7 +322,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "        ValidatorSelectorComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [hello-validator] id=ValidatorSelector-TextBox\n" +
+                "              [hello-validator] id=ValidatorSelector-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Validator Fail Message 123\n" +
                 "        DialogAnchorListComponent\n" +

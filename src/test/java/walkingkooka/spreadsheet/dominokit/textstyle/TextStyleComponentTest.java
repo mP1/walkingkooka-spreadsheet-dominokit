@@ -38,7 +38,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: left;]\n"
+                "      [color: #111; text-align: left;] REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: left;]\n"
+                "      [color: #111; text-align: left;] REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [  color:  #111;  text-align:  left;]\n"
+                "      [  color:  #111;  text-align:  left;] REQUIRED\n"
         );
     }
 
@@ -86,7 +86,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: XYZ;]\n" +
+                "      [color: #111; text-align: XYZ;] REQUIRED\n" +
                 "      Errors\n" +
                 "        Unknown value \"XYZ\"\n"
         );
@@ -100,7 +100,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] REQUIRED\n"
         );
     }
 

@@ -36,7 +36,7 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueTextBo
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello-comparator]\n"
+                "      [hello-comparator] REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueTextBo
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [!@#]\n" +
+                "      [!@#] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
         );

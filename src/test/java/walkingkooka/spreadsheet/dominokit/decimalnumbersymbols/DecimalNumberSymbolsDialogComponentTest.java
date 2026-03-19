@@ -71,71 +71,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
+                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
+                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
+                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
+                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
+                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
+                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
+                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
+                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
+                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
+                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
+                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols []\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
                 "      LocaleComponent\n" +
@@ -182,47 +182,47 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [-] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
+                "                Negative sign [-] id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [+] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
+                "                Positive sign [+] id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [0] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
+                "                Zero digit [0] id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [$] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
+                "            Currency [$] id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [.] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
+                "                Decimal separator [.] id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [e] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
+                "            Exponent [e] id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [,] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
+                "                Group separator [,] id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [∞] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
+                "            Infinity [∞] id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [.] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [.] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [NaN] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
+                "            Nan [NaN] id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [%] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
+                "                Percent symbol [%] id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [‰] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
+                "                Permill symbol [‰] id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰]\n" +
+                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰] REQUIRED\n" +
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
@@ -267,71 +267,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox\n" +
+                "                Negative sign [] id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox\n" +
+                "                Positive sign [] id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox\n" +
+                "                Zero digit [] id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox\n" +
+                "            Currency [] id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox\n" +
+                "                Decimal separator [] id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox\n" +
+                "            Exponent [] id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox\n" +
+                "                Group separator [] id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox\n" +
+                "            Infinity [] id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox\n" +
+                "                Monetary decimal separator [] id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox\n" +
+                "            Nan [] id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox\n" +
+                "                Percent symbol [] id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox\n" +
+                "                Permill symbol [] id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols []\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
                 "      LocaleComponent\n" +

@@ -67,7 +67,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
                 "      FormHandlerSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [hello-form-handler] id=FormHandlerSelector-TextBox\n" +
+                "            [hello-form-handler] id=FormHandlerSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
