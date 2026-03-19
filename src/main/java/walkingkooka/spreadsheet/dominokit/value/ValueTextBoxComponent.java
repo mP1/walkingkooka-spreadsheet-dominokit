@@ -62,8 +62,6 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
             .enterFiresValueChange();
         this.setParser(parser);
         this.setFormatter(formatter);
-
-        this.validatorChange = false; // reset required because required -> setValidator will set #validatorChange=true
     }
 
     /**
@@ -130,46 +128,40 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
 
     @Override
     public ValueTextBoxComponent<T> optional() {
-        this.setTextBoxValidator(
-            SpreadsheetValidators.optional(this.validator)
+        this.textBox.optional();
+        this.textBox.setValidator(
+            Optional.of(this.validator)
         );
-        this.required = false;
         return this;
     }
 
     @Override
     public ValueTextBoxComponent<T> required() {
-        this.setTextBoxValidator(this.validator);
-        this.required = true;
+        this.textBox.required();
+        this.textBox.setValidator(
+            Optional.of(this.validator)
+        );
         return this;
     }
 
     @Override
     public boolean isRequired() {
-        return this.required;
+        return this.textBox.isRequired();
     }
-
-    private boolean required;
 
     public Validator<Optional<String>> validator() {
         return this.validator;
     }
 
     public ValueTextBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
-        this.setTextBoxValidator(validator);
+        this.textBox.setValidator(
+            Optional.of(validator)
+        );
         this.validator = validator;
         return this;
     }
 
     private Validator<Optional<String>> validator;
-
-    private void setTextBoxValidator(final Validator<Optional<String>> validator) {
-        this.validatorChange = this.validatorChange | false == validator.equals(this.textBox.validator());
-
-        this.textBox.setValidator(
-            Optional.of(validator)
-        );
-    }
 
     @Override
     public ValueTextBoxComponent<T> validate() {
@@ -321,9 +313,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         Objects.requireNonNull(value, "value");
 
         // dont refresh textBox#setValue if value is the "same".
-        if (this.validatorChange || false == value.equals(this.value())) {
-            this.validatorChange = false;
-
+        if (false == value.equals(this.value())) {
             this.textBox.setValue(
                 value.map(this.formatter::apply)
             );

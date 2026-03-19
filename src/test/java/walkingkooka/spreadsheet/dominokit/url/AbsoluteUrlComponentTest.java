@@ -50,7 +50,9 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      []\n" +
+                "      Errors\n" +
+                "        no protocol: \n"
         );
     }
 
@@ -63,7 +65,9 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      []\n" +
+                "      Errors\n" +
+                "        no protocol: \n"
         );
     }
 
