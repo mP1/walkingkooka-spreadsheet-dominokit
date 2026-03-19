@@ -48,7 +48,7 @@ public final class ValidatorAliasSetComponentTest implements ValueTextBoxCompone
             "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 validator1, validator2]\n"
+                "      [alias1 validator1, validator2] REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class ValidatorAliasSetComponentTest implements ValueTextBoxCompone
             "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 validator1, 9]\n" +
+                "      [alias1 validator1, 9] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 19\n"
         );

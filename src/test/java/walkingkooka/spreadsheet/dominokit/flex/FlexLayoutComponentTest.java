@@ -45,9 +45,9 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
             "FlexLayoutComponent\n" +
                 "  ROW\n" +
                 "    TextBoxComponent\n" +
-                "      [Value111]\n" +
+                "      [Value111] REQUIRED\n" +
                 "    TextBoxComponent\n" +
-                "      [Value222]\n"
+                "      [Value222] REQUIRED\n"
         );
     }
 
@@ -71,9 +71,9 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
                 "  ROW\n" +
                 "    id=Id123\n" +
                 "      TextBoxComponent\n" +
-                "        [Value111]\n" +
+                "        [Value111] REQUIRED\n" +
                 "      TextBoxComponent\n" +
-                "        [Value222]\n"
+                "        [Value222] REQUIRED\n"
         );
     }
 

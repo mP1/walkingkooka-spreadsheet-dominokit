@@ -36,7 +36,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello]\n"
+                "      [hello] REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello!]\n" +
+                "      [hello!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 5\n"
         );
@@ -66,7 +66,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [ hello!]\n" +
+                "      [ hello!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ' ' at 0\n"
         );

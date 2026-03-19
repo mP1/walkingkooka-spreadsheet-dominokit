@@ -247,19 +247,19 @@ public final class DataTableComponentTest implements ClassTesting<DataTableCompo
                 "        \"ABC\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
-                "        []\n" +
+                "        [] REQUIRED\n" +
                 "    ROW 1\n" +
                 "      TextComponent\n" +
                 "        \"DEF\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
-                "        []\n" +
+                "        [] REQUIRED\n" +
                 "    ROW 2\n" +
                 "      TextComponent\n" +
                 "        \"GHI\"\n" +
                 "      [#/1/SpreadsheetName123/cell/A1]\n" +
                 "      TextBoxComponent\n" +
-                "        []\n"
+                "        [] REQUIRED\n"
         );
     }
 

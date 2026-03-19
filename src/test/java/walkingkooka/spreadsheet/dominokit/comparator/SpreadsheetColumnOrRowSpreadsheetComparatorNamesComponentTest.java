@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=text]\n"
+                "      [A=text] REQUIRED\n"
         );
     }
 
@@ -52,7 +52,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=hello,tree]\n"
+                "      [A=hello,tree] REQUIRED\n"
         );
     }
 
@@ -66,7 +66,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [!A=hello]\n" +
+                "      [!A=hello] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
         );
@@ -82,7 +82,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=!hello]\n" +
+                "      [A=!hello] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 2\n"
         );

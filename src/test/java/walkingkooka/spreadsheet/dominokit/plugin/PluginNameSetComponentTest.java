@@ -48,7 +48,7 @@ public final class PluginNameSetComponentTest implements ValueTextBoxComponentLi
             "PluginNameSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [plugin1, plugin2]\n"
+                "      [plugin1, plugin2] REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class PluginNameSetComponentTest implements ValueTextBoxComponentLi
             "PluginNameSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [plugin111, 9]\n" +
+                "      [plugin111, 9] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 11\n"
         );

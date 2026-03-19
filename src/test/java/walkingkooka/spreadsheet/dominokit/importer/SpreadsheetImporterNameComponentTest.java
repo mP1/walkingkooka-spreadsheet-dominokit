@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 
@@ -40,7 +38,7 @@ public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxC
             "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello]\n"
+                "      [hello] REQUIRED\n"
         );
     }
 
@@ -56,7 +54,7 @@ public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxC
             "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [invalid123!]\n" +
+                "      [invalid123!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );

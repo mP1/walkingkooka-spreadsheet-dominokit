@@ -17,10 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.importer;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProviders;
@@ -54,7 +52,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json]\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json] REQUIRED\n"
         );
     }
 
@@ -70,7 +68,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !]\n" +
+                "      [https://www.example.com/Hello !] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -88,7 +86,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello hello, bad://example.com]\n" +
+                "      [https://www.example.com/hello hello, bad://example.com] REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -106,7 +104,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 good, https://example.com/2 bad!]\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );

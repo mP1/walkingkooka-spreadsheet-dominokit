@@ -46,9 +46,9 @@ public class RowComponentTest implements HtmlComponentTesting<RowComponent, HTML
                 ),
             "RowComponent\n" +
                 "  TextBoxComponent\n" +
-                "    Hello1 []\n" +
+                "    Hello1 [] REQUIRED\n" +
                 "  TextBoxComponent\n" +
-                "    Hello2 []\n"
+                "    Hello2 [] REQUIRED\n"
         );
     }
 

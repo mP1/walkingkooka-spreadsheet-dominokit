@@ -56,7 +56,7 @@ public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComp
             "DecimalNumberSymbolsComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [-,+,0,¤,.,E,\",\",∞,.,NaN,%,‰]\n"
+                "      [-,+,0,¤,.,E,\",\",∞,.,NaN,%,‰] REQUIRED\n"
         );
     }
 
@@ -72,7 +72,7 @@ public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComp
             "DecimalNumberSymbolsComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello, !]\n" +
+                "      [hello, !] REQUIRED\n" +
                 "      Errors\n" +
                 "        Expected 12 tokens but got 2\n"
         );

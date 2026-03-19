@@ -66,9 +66,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      TextBoxComponent\n" +
-                "        [NOT onGiveFocus]\n" +
+                "        [NOT onGiveFocus] REQUIRED\n" +
                 "      TextBoxComponent\n" +
-                "        [NOT refreshed]\n"
+                "        [NOT refreshed] REQUIRED\n"
         );
 
         // dialog never opened or closed
@@ -94,9 +94,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
                 "      TextBoxComponent\n" +
-                "        [onGiveFocus]\n" +
+                "        [onGiveFocus] REQUIRED\n" +
                 "      TextBoxComponent\n" +
-                "        [refreshed]\n"
+                "        [refreshed] REQUIRED\n"
         );
 
         // dialog should be opened but never closed.
@@ -123,9 +123,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "    Title456\n" +
                 "    id=id123 includeClose=true\n" +
                 "      TextBoxComponent\n" +
-                "        [onGiveFocus]\n" +
+                "        [onGiveFocus] REQUIRED\n" +
                 "      TextBoxComponent\n" +
-                "        [refreshed]\n"
+                "        [refreshed] REQUIRED\n"
         );
 
         // dialog should be opened but never closed.
@@ -146,9 +146,9 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    id=id123 includeClose=true CLOSED\n" +
                 "      TextBoxComponent\n" +
-                "        [onGiveFocus]\n" +
+                "        [onGiveFocus] REQUIRED\n" +
                 "      TextBoxComponent\n" +
-                "        [refreshed]\n"
+                "        [refreshed] REQUIRED\n"
         );
 
         // dialog should now be closed

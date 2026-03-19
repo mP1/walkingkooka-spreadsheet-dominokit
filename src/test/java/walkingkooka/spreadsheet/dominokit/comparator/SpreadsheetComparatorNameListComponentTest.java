@@ -48,7 +48,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueTe
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, month-of-year]\n"
+                "      [day-of-month, month-of-year] REQUIRED\n"
         );
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueTe
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, !@#]\n" +
+                "      [day-of-month, !@#] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 14\n"
         );

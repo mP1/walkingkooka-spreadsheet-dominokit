@@ -34,7 +34,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"EmailAddress\"\n"
         );
@@ -49,9 +49,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
-                "      Errors\n" +
-                "        Empty \"EmailAddress\"\n"
+                "      []\n"
         );
     }
 
@@ -64,9 +62,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
-                "      Errors\n" +
-                "        Empty \"EmailAddress\"\n"
+                "      []\n"
         );
     }
 
@@ -80,7 +76,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [user111@example.com]\n"
+                "      [user111@example.com] REQUIRED\n"
         );
     }
 
@@ -96,7 +92,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [user222@]\n" +
+                "      [user222@] REQUIRED\n" +
                 "      Errors\n" +
                 "        Email missing host\n"
         );
@@ -114,7 +110,7 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [user333@example.com]\n"
+                "      [user333@example.com] REQUIRED\n"
         );
     }
 

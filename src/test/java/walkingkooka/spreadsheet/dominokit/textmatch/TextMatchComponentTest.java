@@ -33,7 +33,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] REQUIRED\n"
         );
     }
 
@@ -47,7 +47,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [   ]\n"
+                "      [   ] REQUIRED\n"
         );
     }
 
@@ -65,7 +65,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [starts* ends* *contains*]\n"
+                "      [starts* ends* *contains*] REQUIRED\n"
         );
     }
 

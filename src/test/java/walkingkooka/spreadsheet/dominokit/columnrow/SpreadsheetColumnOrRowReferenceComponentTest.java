@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [AB]\n"
+                "      [AB] REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1!]\n" +
+                "      [A1!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 1\n"
         );
@@ -72,7 +72,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [C:D]\n" +
+                "      [C:D] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
         );
@@ -90,7 +90,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1]\n"
+                "      [1] REQUIRED\n"
         );
     }
 
@@ -106,7 +106,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1:2]\n" +
+                "      [1:2] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
         );
@@ -124,7 +124,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Z9]\n" +
+                "      [Z9] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 1\n"
         );

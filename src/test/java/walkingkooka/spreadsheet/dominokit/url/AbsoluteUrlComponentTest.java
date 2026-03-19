@@ -35,7 +35,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        no protocol: \n"
         );
@@ -50,9 +50,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
-                "      Errors\n" +
-                "        no protocol: \n"
+                "      []\n"
         );
     }
 
@@ -65,9 +63,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
-                "      Errors\n" +
-                "        no protocol: \n"
+                "      []\n"
         );
     }
 
@@ -81,7 +77,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://example.com]\n"
+                "      [https://example.com] REQUIRED\n"
         );
     }
 
@@ -95,7 +91,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [HTTPS://example.com]\n"
+                "      [HTTPS://example.com] REQUIRED\n"
         );
     }
 
@@ -111,7 +107,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://]\n" +
+                "      [https://] REQUIRED\n" +
                 "      Errors\n" +
                 "        Missing host name\n"
         );
@@ -129,7 +125,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://example.com/path1/k2%3Dv2]\n"
+                "      [https://example.com/path1/k2%3Dv2] REQUIRED\n"
         );
     }
 

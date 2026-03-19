@@ -62,9 +62,9 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             "DialogComponent\n" +
                 "  id=id123 includeClose=true\n" +
                 "    TextBoxComponent\n" +
-                "      [Value111] id=TextBoxId111\n" +
+                "      [Value111] id=TextBoxId111 REQUIRED\n" +
                 "    TextBoxComponent\n" +
-                "      [Value222] id=TextBoxId222\n"
+                "      [Value222] id=TextBoxId222 REQUIRED\n"
         );
     }
 
@@ -91,7 +91,7 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
             "DialogComponent\n" +
                 "  id=id123 includeClose=true CLOSED\n" +
                 "    TextBoxComponent\n" +
-                "      [Value111] id=TextBoxId111\n"
+                "      [Value111] id=TextBoxId111 REQUIRED\n"
         );
     }
 

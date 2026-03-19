@@ -145,7 +145,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=PluginNameSet-TextBox\n" +
+                "            [] id=PluginNameSet-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -194,7 +194,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [plugin111] id=PluginNameSet-TextBox\n" +
+                "            [plugin111] id=PluginNameSet-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -244,7 +244,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
                 "      PluginNameSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [plugin111] id=PluginNameSet-TextBox\n" +
+                "            [plugin111] id=PluginNameSet-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

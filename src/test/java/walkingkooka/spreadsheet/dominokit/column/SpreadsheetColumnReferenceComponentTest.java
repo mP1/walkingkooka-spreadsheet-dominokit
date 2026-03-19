@@ -38,7 +38,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueTextB
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [AB]\n"
+                "      [AB] REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueTextB
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [ab]\n"
+                "      [ab] REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueTextB
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$Ab]\n"
+                "      [$Ab] REQUIRED\n"
         );
     }
 
@@ -86,7 +86,7 @@ public final class SpreadsheetColumnReferenceComponentTest implements ValueTextB
             "SpreadsheetColumnReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!]\n" +
+                "      [Invalid123!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid column \"Invalid\" not between \"A\" and \"XFD\"\n"
         );

@@ -160,7 +160,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [date] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      DialogAnchorListComponent\n" +
@@ -297,7 +297,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -453,7 +453,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -630,7 +630,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -733,7 +733,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -851,7 +851,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1002,7 +1002,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [date dd/mm/yyyy] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1172,7 +1172,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1363,7 +1363,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1554,7 +1554,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [number $#0.00] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1671,7 +1671,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [text @ \"Hello\"] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1803,7 +1803,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox\n" +
+                "            [time hh:mm] id=SpreadsheetFormatterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

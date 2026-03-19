@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.formula;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightEqualsSpreadsheetFormulaParserToken;
@@ -232,7 +230,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -250,7 +248,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1+2]\n"
+                "      [=1+2] REQUIRED\n"
         );
     }
 
@@ -266,7 +264,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [>3]\n"
+                "      [>3] REQUIRED\n"
         );
     }
 
@@ -282,7 +280,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=\"Hello\"]\n"
+                "      [=\"Hello\"] REQUIRED\n"
         );
     }
 
@@ -298,7 +296,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=123.0]\n"
+                "      [=123.0] REQUIRED\n"
         );
     }
 
@@ -314,7 +312,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1999/12/31]\n"
+                "      [=1999/12/31] REQUIRED\n"
         );
     }
 
@@ -330,7 +328,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1999/12/31 12:58]\n"
+                "      [=1999/12/31 12:58] REQUIRED\n"
         );
     }
 
@@ -346,7 +344,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=12:58:59]\n"
+                "      [=12:58:59] REQUIRED\n"
         );
     }
 
@@ -362,7 +360,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1.25+]\n" +
+                "      [=1.25+] REQUIRED\n" +
                 "      Errors\n" +
                 "        End of text, expected LAMBDA_FUNCTION | NAMED_FUNCTION | \"TRUE\" | \"FALSE\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"\n"
         );

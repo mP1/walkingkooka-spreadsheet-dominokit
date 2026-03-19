@@ -276,7 +276,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    SpreadsheetFormulaComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          [=1+2]\n" +
+                "          [=1+2] REQUIRED\n" +
                 "  TABLE\n" +
                 "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +
@@ -348,7 +348,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    SpreadsheetFormulaComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          [] DISABLED\n" +
+                "          [] DISABLED REQUIRED\n" +
                 "  TABLE\n" +
                 "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +
@@ -420,7 +420,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "    SpreadsheetFormulaComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          [] DISABLED\n" +
+                "          [] DISABLED REQUIRED\n" +
                 "  TABLE\n" +
                 "    id=\"viewport\" style=\"overflow-x: hidden; overflow-y: hidden;\"\n" +
                 "      THEAD\n" +

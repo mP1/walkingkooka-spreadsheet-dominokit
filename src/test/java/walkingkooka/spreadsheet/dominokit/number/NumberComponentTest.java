@@ -42,7 +42,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n" +
+                "      [] id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -57,9 +57,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n" +
-                "      Errors\n" +
-                "        Empty \"text\"\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -72,9 +70,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n" +
-                "      Errors\n" +
-                "        Empty \"text\"\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -88,7 +84,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n" +
+                "      [] id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -105,9 +101,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n" +
-                "      Errors\n" +
-                "        Empty \"text\"\n"
+                "      [] id=TestId123-TextBox\n"
         );
     }
 
@@ -121,7 +115,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0] id=TestId123-TextBox\n"
+                "      [0] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -135,7 +129,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123] id=TestId123-TextBox\n"
+                "      [123] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -149,7 +143,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [12345678901234567890] id=TestId123-TextBox\n"
+                "      [12345678901234567890] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -163,7 +157,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [45.75] id=TestId123-TextBox\n"
+                "      [45.75] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -177,7 +171,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [8E+2] id=TestId123-TextBox\n"
+                "      [8E+2] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -193,7 +187,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [abcdef] id=TestId123-TextBox\n" +
+                "      [abcdef] id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'a' at 0\n"
         );
@@ -211,7 +205,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123XYZ] id=TestId123-TextBox\n" +
+                "      [123XYZ] id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'X' at 3\n"
         );
@@ -229,7 +223,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123.5] id=TestId123-TextBox\n"
+                "      [123.5] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -245,7 +239,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [456] id=TestId123-TextBox\n"
+                "      [456] id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -262,7 +256,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0] id=TestId123-TextBox\n"
+                "      [0] id=TestId123-TextBox REQUIRED\n"
         );
     }
 

@@ -34,9 +34,22 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
+        );
+    }
+
+    @Test
+    public void testClearValueOptional() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .optional()
+                .clearValue(),
+            "CharacterComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      []\n"
         );
     }
 
@@ -50,7 +63,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n" +
+                "      [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
         );
@@ -66,7 +79,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1]\n" +
+                "      [1] REQUIRED\n" +
                 "      Errors\n" +
                 "        Not a letter\n"
         );
@@ -82,7 +95,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A]\n"
+                "      [A] REQUIRED\n"
         );
     }
 

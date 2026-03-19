@@ -103,7 +103,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
         this.treePrintAndCheck(
             box,
             "TextBoxComponent\n" +
-                "  []\n"
+                "  [] REQUIRED\n"
         );
     }
 
@@ -156,7 +156,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
         this.treePrintAndCheck(
             box,
             "TextBoxComponent\n" +
-                "  [value123]\n"
+                "  [value123] REQUIRED\n"
         );
     }
 
@@ -210,6 +210,22 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                             SpreadsheetValidators.fake()
                         )
                     )
+                ).optional(),
+            "TextBoxComponent\n" +
+                "  Label123 []\n"
+        );
+    }
+
+    @Test
+    public void testOptionalValidationPass2() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setLabel("Label123")
+                .optional()
+                .setValidator(
+                    Optional.of(
+                        SpreadsheetValidators.fake()
+                    )
                 ),
             "TextBoxComponent\n" +
                 "  Label123 []\n"
@@ -226,12 +242,58 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                 ).setValidator(
                     Optional.of(
                         SpreadsheetValidators.optional(
-                            SpreadsheetValidators.fake()
+                            (Optional<String> value) ->
+                                    ValidationResult.invalid("Optional validator error 123")
                         )
                     )
-                ).setValue(Optional.empty()),
+                ).setValue(Optional.empty())
+                .optional(),
             "TextBoxComponent\n" +
                 "  Label123 []\n"
+        );
+    }
+
+    @Test
+    public void testRequiredValidationPass() {
+        final String value = "PassValue111";
+
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    Optional.of(
+                        (Optional<String> v) ->
+                            value.equals(v.orElse(null)) ?
+                                ValidationResult.valid() :
+                                ValidationResult.invalid("Expected " + value + " but got " + v.orElse(null))
+                    )
+                ).setValue(
+                    Optional.of(value)
+                ).required(),
+            "TextBoxComponent\n" +
+                "  Label123 [PassValue111] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testRequiredClearValueValidationPass() {
+        final String value = "";
+
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setLabel("Label123")
+                .setValidator(
+                    Optional.of(
+                        (Optional<String> v) ->
+                            v.isEmpty() ?
+                                ValidationResult.valid() :
+                                ValidationResult.invalid("Expected empty but got " + v.orElse(null))
+                    )
+                ).setValue(
+                    Optional.of(value)
+                ).required(),
+            "TextBoxComponent\n" +
+                "  Label123 [] REQUIRED\n"
         );
     }
 
@@ -251,7 +313,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                     )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  Label123 [Value456]\n"
+                "  Label123 [Value456] REQUIRED\n"
         );
     }
 
@@ -270,7 +332,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                     )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  Label123 [Value456]\n" +
+                "  Label123 [Value456] REQUIRED\n" +
                 "  Errors\n" +
                 "    Invalid character 'l' at 2\n"
         );
@@ -292,7 +354,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                     )
                 ).setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  Label123 [Value456]\n" +
+                "  Label123 [Value456] REQUIRED\n" +
                 "  Errors\n" +
                 "    Error message 123\n"
         );
@@ -305,7 +367,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                 .setLabel("Label123")
                 .setValue(Optional.of("Value456")),
             "TextBoxComponent\n" +
-                "  Label123 [Value456]\n"
+                "  Label123 [Value456] REQUIRED\n"
         );
     }
 
@@ -315,7 +377,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             TextBoxComponent.empty()
                 .magnifyingGlassIcon(),
             "TextBoxComponent\n" +
-                "  []\n"
+                "  [] REQUIRED\n"
         );
     }
 

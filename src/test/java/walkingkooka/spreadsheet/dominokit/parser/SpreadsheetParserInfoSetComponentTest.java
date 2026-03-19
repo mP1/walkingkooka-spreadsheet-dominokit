@@ -51,7 +51,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBox
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-date full-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-date-time full-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-time full-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-date long-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-date-time long-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-time long-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-date medium-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-date-time medium-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-time medium-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-date short-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-date-time short-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-time short-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/whole-number whole-number]\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-date full-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-date-time full-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/full-time full-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-date long-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-date-time long-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/long-time long-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-date medium-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-date-time medium-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/medium-time medium-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-date short-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-date-time short-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/short-time short-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/time time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetParser/whole-number whole-number] REQUIRED\n"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBox
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !]\n" +
+                "      [https://www.example.com/Hello !] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -85,7 +85,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBox
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello hello, bad://example.com/2]\n" +
+                "      [https://www.example.com/hello hello, bad://example.com/2] REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -103,7 +103,7 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBox
             "SpreadsheetParserInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 good, https://example.com/2 bad!]\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );
