@@ -62,7 +62,6 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
             .enterFiresValueChange();
         this.setParser(parser);
         this.setFormatter(formatter);
-        this.required();
 
         this.validatorChange = false; // reset required because required -> setValidator will set #validatorChange=true
     }
