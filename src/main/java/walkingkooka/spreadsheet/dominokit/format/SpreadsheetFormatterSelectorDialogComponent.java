@@ -107,7 +107,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTokenComponent.empty(ID + "-removeOrReplace-");
 
-        this.textBox = this.textBox();
+        this.selector = this.selector();
 
         this.links = DialogAnchorListComponent.empty(
                 this.idPrefix(),
@@ -153,7 +153,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             .appendChild(this.table)
             .appendChild(this.appender)
             .appendChild(this.removeOrReplace)
-            .appendChild(this.textBox)
+            .appendChild(this.selector)
             .appendChild(this.links);
     }
 
@@ -189,56 +189,24 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
     private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
 
-    // textBox..........................................................................................................
+    // selector..........................................................................................................
 
     /**
      * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
      */
-    private SpreadsheetFormatterSelectorComponent textBox() {
+    private SpreadsheetFormatterSelectorComponent selector() {
         return SpreadsheetFormatterSelectorComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                (v) -> this.refreshLinks()
+                (v) -> this.onSelectorValue(v)
             );
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.ofNullable(
-                text.isEmpty() ?
-                    null :
-                    text
-            )
-        );
-        this.refreshEdit(text);
-    }
-
-    /**
-     * Handles updates to the {@link SpreadsheetFormatterSelectorComponent}
-     */
-    private void refreshEdit(final String text) {
-        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
-
-        final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
-            text,
-            context
-        );
-
-        this.onSpreadsheetFormatterSelectorEdit(
-            edit,
-            context
-        );
-
-        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
-        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
-        context.loadSpreadsheetFormattersEdit(text);
     }
 
     /**
      * The {@link SpreadsheetFormatterSelectorComponent} that holds the {@link SpreadsheetFormatterSelector} in text form.
      */
-    private final SpreadsheetFormatterSelectorComponent textBox;
+    // @VisibleForTesting
+    final SpreadsheetFormatterSelectorComponent selector;
 
     // SpreadsheetFormatterFetcherWatcher...............................................................................
 
@@ -294,17 +262,23 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
-        this.textBox.setErrors(
-            hasNoError ?
-                Lists.empty() :
-                Lists.of(message)
-        );
+//        this.selector.setErrors(
+//            hasNoError ?
+//                Lists.empty() :
+//                Lists.of(message)
+//        );
 
-        this.links.setValue(
-            this.textBox.stringValue().isEmpty() || hasNoError ?
-                edit.selector() :
-                Optional.<SpreadsheetFormatterSelector>empty()
-        );
+        if(this.selector.stringValue().isEmpty() || hasNoError) {
+            this.links.setValue(
+                this.selector.stringValue().isEmpty() || hasNoError ?
+                    edit.selector() :
+                    Optional.<SpreadsheetFormatterSelector>empty()
+            );
+        } else {
+            this.selector.setErrors(
+                Lists.of(message)
+            );
+        }
 
         this.refreshTitleTabsAndFormatterNames();
     }
@@ -318,18 +292,31 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
     // dialog links.....................................................................................................
 
-    void refreshLinks() {
-        final SpreadsheetFormatterSelectorComponent textBox = this.textBox;
+    void onSelectorValue(final Optional<SpreadsheetFormatterSelector> selector) {
+        if(this.selector.hasErrors()) {
+            this.links.disableSave();
+        } else {
+            this.links.setValue(selector);
+        }
 
-        textBox.validate();
-        this.links.setValue(
-            textBox.value()
+        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
+
+        final String text = selector.map(SpreadsheetFormatterSelector::text)
+            .orElse("");
+
+        final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
+            text,
+            context
         );
 
-        this.refreshEdit(
-            textBox.stringValue()
-                .orElse("")
+        this.onSpreadsheetFormatterSelectorEdit(
+            edit,
+            context
         );
+
+        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
+        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
+        context.loadSpreadsheetFormattersEdit(text);
     }
 
     private final DialogAnchorListComponent<SpreadsheetFormatterSelector> links;
@@ -370,7 +357,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-            this.textBox::focus
+            this.selector::focus
         );
     }
 
@@ -379,11 +366,9 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
      */
     @Override
     public void refresh(final RefreshContext context) {
-        // setText will trigger a refresh of table, appender, removeOrReplace
-        this.textBox.setValue(
+        this.selector.setValue(
             this.context.undo()
         );
-        this.refreshLinks();
 
         this.refreshTitleTabsAndFormatterNames();
     }
