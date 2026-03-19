@@ -247,7 +247,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*formula*\",cellFormula()))"
+            "OR(oldQuery(),textMatch(\"*formula*\",cellFormula()))"
         );
     }
 
@@ -266,7 +266,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*CURRENCY*\",cellCurrency()))"
+            "OR(oldQuery(),textMatch(\"*CURRENCY*\",cellCurrency()))"
         );
     }
 
@@ -285,7 +285,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))"
+            "OR(oldQuery(),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))"
         );
     }
 
@@ -304,7 +304,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))"
+            "OR(oldQuery(),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))"
         );
     }
 
@@ -323,7 +323,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*formatter*\",cellFormatter()))"
+            "OR(oldQuery(),textMatch(\"*formatter*\",cellFormatter()))"
         );
     }
 
@@ -342,7 +342,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*parser*\",cellParser()))"
+            "OR(oldQuery(),textMatch(\"*parser*\",cellParser()))"
         );
     }
 
@@ -361,7 +361,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*style*\",cellStyle()))"
+            "OR(oldQuery(),textMatch(\"*style*\",cellStyle()))"
         );
     }
 
@@ -380,7 +380,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<111", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),cellValue()<111)"
+            "OR(oldQuery(),cellValue()<111)"
         );
     }
 
@@ -399,7 +399,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
+            "OR(oldQuery(),textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
     }
 
@@ -581,7 +581,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithQueryFormulaAndValue() {
         this.queryAndCheck(
-            "or(textMatch(\"*old*\",cellFormula()),cellValue()<10)", // query
+            "OR(textMatch(\"*old*\",cellFormula()),cellValue()<10)", // query
             "*new*", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -593,7 +593,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*new*\",cellFormula()),cellValue()<10)"
+            "OR(textMatch(\"*new*\",cellFormula()),cellValue()<10)"
         );
     }
 
@@ -823,7 +823,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))"
         );
     }
 
@@ -842,7 +842,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))"
+            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))"
         );
     }
 
@@ -861,7 +861,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle()))"
+            "OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle()))"
         );
     }
 
@@ -880,7 +880,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "or(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
+            "OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue()))"
         );
     }
 
@@ -899,7 +899,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*locale*\",cellLocale()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))"
+            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*currency*\",cellCurrency()),OR(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*locale*\",cellLocale()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))"
         );
     }
 
@@ -920,7 +920,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*currency*\",cellCurrency())))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*currency*\",cellCurrency())))"
         );
     }
 
@@ -939,7 +939,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"MONDAY\",cellDateTimeSymbols())))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"MONDAY\",cellDateTimeSymbols())))"
         );
     }
 
@@ -958,7 +958,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())))"
         );
     }
 
@@ -977,7 +977,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))))"
         );
     }
 
@@ -996,7 +996,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*locale*\",cellLocale())))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*locale*\",cellLocale())))"
         );
     }
 
@@ -1015,7 +1015,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle())))"
+            "OR(oldQuery(),OR(textMatch(\"*parser*\",cellParser()),textMatch(\"*style*\",cellStyle())))"
         );
     }
 
@@ -1034,7 +1034,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "*validator123*", // validator
             "", // formattedValue
-            "or(oldQuery(),textMatch(\"*validator123*\",cellValidator()))"
+            "OR(oldQuery(),textMatch(\"*validator123*\",cellValidator()))"
         );
     }
 
@@ -1053,7 +1053,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
+            "OR(oldQuery(),OR(cellValue()<10,textMatch(\"*formattedValue*\",cellFormattedValue())))"
         );
     }
 
@@ -1072,7 +1072,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "<10", // value
             "*validator*", // validator
             "*formattedValue*", // formattedValue
-            "or(oldQuery(),or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*currency*\",cellCurrency()),or(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),or(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),or(textMatch(\"*formatted*\",cellFormatter()),or(textMatch(\"*locale*\",cellLocale()),or(textMatch(\"*parser*\",cellParser()),or(textMatch(\"*style*\",cellStyle()),or(cellValue()<10,or(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))))"
+            "OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*currency*\",cellCurrency()),OR(textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()),OR(textMatch(\"decimalNumberSymbols\",cellDecimalNumberSymbols()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*locale*\",cellLocale()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10,OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formattedValue*\",cellFormattedValue()))))))))))))"
         );
     }
 
@@ -1100,7 +1100,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithFormulaDateTimeSymbolsRemoved() {
         this.queryAndCheck(
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))", // query
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*dateTimeSymbols*\",cellDateTimeSymbols()))", // query
             "*formula*", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1119,7 +1119,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithFormulaDecimalNumberSymbolsRemoved() {
         this.queryAndCheck(
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))", // query
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*decimalNumberSymbols*\",cellDecimalNumberSymbols()))", // query
             "*formula*", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1157,7 +1157,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithFormulaFormatterRemoved() {
         this.queryAndCheck(
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "*formula*", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1176,7 +1176,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithFormulaRemovedFormatter() {
         this.queryAndCheck(
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))", // query
             "", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1195,7 +1195,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
     @Test
     public void testQueryWithFormulaFormatterRemovedParser() {
         this.queryAndCheck(
-            "or(textMatch(\"*formula*\",cellFormula()),or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
+            "OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser())))", // query
             "*formula*", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1207,14 +1207,14 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*parser*\",cellParser()))" // query
+            "OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*parser*\",cellParser()))" // query
         );
     }
 
     @Test
     public void testQueryWithFormulaRemovedFormatterParser() {
         this.queryAndCheck(
-            "or(or(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
+            "OR(OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter())),textMatch(\"*parser*\",cellParser()))", // query
             "", // formula
             "", // currency
             "", // dateTimeSymbols
@@ -1226,7 +1226,7 @@ public final class SpreadsheetCellFindDialogComponentQueryTest implements Public
             "", // value
             "", // validator
             "", // formattedValue
-            "or(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))" // query
+            "OR(textMatch(\"*formatter*\",cellFormatter()),textMatch(\"*parser*\",cellParser()))" // query
         );
     }
 
