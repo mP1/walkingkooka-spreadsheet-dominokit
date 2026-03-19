@@ -80,17 +80,21 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
     // list.............................................................................................................
 
+    /**
+     * Refresh the list in the following order, provided they have been added: save, clear, undo, appended children and then close
+     */
     private void refreshList() {
         this.list.removeAllChildren();
 
         this.appendChildIfNotNull(this.save);
         this.appendChildIfNotNull(this.clear);
         this.appendChildIfNotNull(this.undo);
-        this.appendChildIfNotNull(this.close);
 
         this.children.forEach(
             this.list::appendChild
         );
+
+        this.appendChildIfNotNull(this.close);
 
         this.refreshClearUndoClose();
     }
