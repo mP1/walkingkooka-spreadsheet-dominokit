@@ -262,11 +262,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
-//        this.selector.setErrors(
-//            hasNoError ?
-//                Lists.empty() :
-//                Lists.of(message)
-//        );
 
         if(this.selector.stringValue().isEmpty() || hasNoError) {
             this.links.setValue(
