@@ -24,7 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -44,8 +43,6 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
     private final static String ID_PREFIX = "Test123-";
 
     private final static Optional<Locale> VALUE = Optional.of(LOCALE);
-
-    private final static RefreshContext REFRESH_CONTEXT = new FakeRefreshContext();
 
     // with.............................................................................................................
 
