@@ -436,7 +436,12 @@ final class SpreadsheetCellFindDialogComponentQuery implements PublicStaticHelpe
         return out;
     }
 
-    private final static String OR = SpreadsheetExpressionFunctions.OR.value();
+    /**
+     * Because {@link ExpressionFunctionName} are case-insensitive use UPPER-CASE form to make them more visible
+     * within query.
+     */
+    private final static String OR = SpreadsheetExpressionFunctions.OR.value()
+        .toUpperCase();
 
     /**
      * Creates a call to the OR function with the two given {@link ParserToken}
