@@ -1429,7 +1429,13 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             context
         );
 
-        dialog.setText(text);
+        dialog.selector.setStringValue(
+            Optional.ofNullable(
+                text.isEmpty() ?
+                    null :
+                    text
+            )
+        );
 
         this.treePrintAndCheck(
             dialog,
