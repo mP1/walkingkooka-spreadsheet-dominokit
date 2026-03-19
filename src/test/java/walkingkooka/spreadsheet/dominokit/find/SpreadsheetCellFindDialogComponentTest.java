@@ -110,7 +110,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -174,6 +174,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -243,7 +245,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -307,6 +309,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -376,7 +380,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -440,6 +444,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -507,7 +513,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -571,6 +577,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -672,7 +680,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -736,6 +744,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -834,7 +844,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -898,6 +908,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -965,7 +977,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1029,6 +1041,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1096,7 +1110,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1160,6 +1174,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1227,7 +1243,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1291,6 +1307,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1358,7 +1376,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1422,6 +1440,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1489,7 +1509,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1553,6 +1573,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1620,7 +1642,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1751,7 +1773,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1815,6 +1837,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -1882,7 +1906,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -1946,6 +1970,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2013,7 +2039,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2077,6 +2103,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2144,7 +2172,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2208,6 +2236,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2275,7 +2305,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2339,6 +2369,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2406,7 +2438,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2537,7 +2569,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2601,6 +2633,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2668,7 +2702,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
@@ -2732,6 +2766,8 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Errors\n" +
+                "                Empty \"text\"\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
@@ -2799,7 +2835,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox\n" +
+                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
                 "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +

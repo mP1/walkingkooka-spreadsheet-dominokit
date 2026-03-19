@@ -57,7 +57,9 @@ public final class WholeNumberComponentTest implements ValueTextBoxComponentLike
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n"
+                "      [] id=TestId123-TextBox\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
@@ -70,7 +72,9 @@ public final class WholeNumberComponentTest implements ValueTextBoxComponentLike
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n"
+                "      [] id=TestId123-TextBox\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
@@ -101,7 +105,9 @@ public final class WholeNumberComponentTest implements ValueTextBoxComponentLike
             "WholeNumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=TestId123-TextBox\n"
+                "      [] id=TestId123-TextBox\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 

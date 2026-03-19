@@ -49,7 +49,9 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      []\n" +
+                "      Errors\n" +
+                "        Empty \"EmailAddress\"\n"
         );
     }
 
@@ -62,7 +64,9 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
             "EmailAddressComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      []\n" +
+                "      Errors\n" +
+                "        Empty \"EmailAddress\"\n"
         );
     }
 
