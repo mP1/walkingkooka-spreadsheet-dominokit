@@ -22,6 +22,8 @@ import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import org.junit.jupiter.api.Test;
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
@@ -30,7 +32,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TextBoxComponent> {
+public final class TextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TextBoxComponent>,
+    ToStringTesting<TextBoxComponent> {
 
     // setId............................................................................................................
 
@@ -386,6 +389,91 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
     @Override
     public TextBoxComponent createComponent() {
         return TextBoxComponent.empty();
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToStringEmptyValue() {
+        this.toStringAndCheck(
+            this.createComponent(),
+            "[] REQUIRED"
+        );
+    }
+
+    @Test
+    public void testToStringValue() {
+        this.toStringAndCheck(
+            TextBoxComponent.empty()
+                .setValue(
+                    Optional.of("Value333")
+                ),
+            "[Value333] REQUIRED"
+        );
+    }
+
+    @Test
+    public void testToStringOptional() {
+        this.toStringAndCheck(
+            this.createComponent()
+                .optional(),
+            "[]"
+        );
+    }
+
+    @Test
+    public void testToStringDisabledValue() {
+        this.toStringAndCheck(
+            this.createComponent()
+                .disabled()
+                .setValue(
+                    Optional.of("Value111")
+                ),
+            "[Value111] DISABLED REQUIRED"
+        );
+    }
+
+    @Test
+    public void testToStringIdLabelRequiredValue() {
+        this.toStringAndCheck(
+            TextBoxComponent.empty()
+                .setId("id111")
+                .setLabel("Label222")
+                .required()
+                .setValue(
+                    Optional.of("Value333")
+                ),
+            "Label222 [Value333] id=id111 REQUIRED"
+        );
+    }
+
+    @Test
+    public void testToStringValueAndErrors() {
+        this.toStringAndCheck(
+            TextBoxComponent.empty()
+                .setValue(
+                    Optional.of("Value333")
+                ).setErrors(
+                    Lists.of(
+                        "Error111",
+                        "Error222"
+                    )
+                ),
+            "[Value333] REQUIRED Errors=\"Error111\", \"Error222\""
+        );
+    }
+
+    @Test
+    public void testToStringHelperText() {
+        this.toStringAndCheck(
+            TextBoxComponent.empty()
+                .setHelperText(
+                    Optional.of("Helper111")
+                ).setValue(
+                    Optional.of("Value222")
+                ),
+            "[Value222] helperText=\"Helper111\" REQUIRED"
+        );
     }
 
     // ClassTesting.....................................................................................................
