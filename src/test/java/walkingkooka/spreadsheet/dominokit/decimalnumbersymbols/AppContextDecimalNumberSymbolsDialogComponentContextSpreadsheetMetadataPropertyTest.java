@@ -100,10 +100,10 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
         );
     }
 
-    // load.............................................................................................................
+    // undo.............................................................................................................
 
     @Test
-    public void testLoadDecimalNumberSymbols() {
+    public void testUndo() {
         final Optional<DecimalNumberSymbols> decimalNumberSymbols = Optional.of(DECIMAL_NUMBER_SYMBOLS);
 
         final AppContext appContext = new FakeAppContext() {
@@ -161,7 +161,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
                     .set(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS, DECIMAL_NUMBER_SYMBOLS)
             );
 
-        this.loadDecimalNumberSymbolsAndCheck(
+        this.undoAndCheck(
             AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(appContext),
             decimalNumberSymbols
         );

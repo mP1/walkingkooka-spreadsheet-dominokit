@@ -141,14 +141,15 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DecimalNumberSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 
@@ -226,14 +227,15 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=DecimalNumberSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 
@@ -337,14 +339,15 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=DecimalNumberSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/decimalNumberSymbols/save/] id=DecimalNumberSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DecimalNumberSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DecimalNumberSymbols-close-Link\n"
         );
     }
 

@@ -105,10 +105,10 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest 
         );
     }
 
-    // load.............................................................................................................
+    // undo.............................................................................................................
 
     @Test
-    public void testLoadDecimalNumberSymbols() {
+    public void testUndo() {
         final Optional<DecimalNumberSymbols> decimalNumberSymbols = Optional.of(DECIMAL_NUMBER_SYMBOLS);
 
         final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -168,7 +168,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextCellTest 
                 )
             );
 
-        this.loadDecimalNumberSymbolsAndCheck(
+        this.undoAndCheck(
             AppContextDecimalNumberSymbolsDialogComponentContextCell.with(
                 appContext
             ),
