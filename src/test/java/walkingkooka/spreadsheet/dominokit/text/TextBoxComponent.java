@@ -120,34 +120,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
-    public TextBoxComponent optional() {
-        this.required = false;
-
-        this.validate();
-        return this;
-    }
-
-    @Override
-    public TextBoxComponent required() {
-        this.required = true;
-
-        this.validate();
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.required;
-    }
-
-    private boolean required;
-
-    @Override
-    public Optional<Validator<Optional<String>>> validator() {
-        return this.validator;
-    }
-
-    @Override
     public TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator) {
         final boolean shouldValidate = false == this.validator.equals(validator);
         this.validator = validator;
@@ -159,11 +131,10 @@ public final class TextBoxComponent extends TextBoxComponentLike
         return this;
     }
 
-    private Optional<Validator<Optional<String>>> validator = Optional.empty();
-
     @Override
     public TextBoxComponent validate() {
-        if(false == this.required && this.value.isEmpty()) {
+        final Optional<String> value = this.value();
+        if(false == this.required && value.isEmpty()) {
             this.clearErrors();
         } else {
             this.setErrors(
@@ -173,7 +144,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 )
             );
         }
-        return this;
+        return (TextBoxComponent) this;
     }
 
     @Override
