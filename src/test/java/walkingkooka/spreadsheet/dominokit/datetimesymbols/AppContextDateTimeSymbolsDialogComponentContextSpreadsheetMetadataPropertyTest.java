@@ -127,7 +127,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
     // load.............................................................................................................
 
     @Test
-    public void testLoadDateTimeSymbols() {
+    public void testUndo() {
         final Optional<DateTimeSymbols> dateTimeSymbols = Optional.of(DATE_TIME_SYMBOLS);
 
         final AppContext appContext = new FakeAppContext() {
@@ -185,7 +185,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
                     .set(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS, DATE_TIME_SYMBOLS)
             );
 
-        this.loadDateTimeSymbolsAndCheck(
+        this.undoAndCheck(
             AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.with(appContext),
             dateTimeSymbols
         );

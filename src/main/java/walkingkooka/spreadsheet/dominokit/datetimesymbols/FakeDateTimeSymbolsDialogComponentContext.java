@@ -53,7 +53,7 @@ public class FakeDateTimeSymbolsDialogComponentContext extends FakeDialogCompone
     }
 
     @Override
-    public Optional<DateTimeSymbols> loadDateTimeSymbols() {
+    public Optional<DateTimeSymbols> undo() {
         throw new UnsupportedOperationException();
     }
 

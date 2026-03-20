@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.csv.CsvStringListComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentContext;
@@ -105,16 +104,11 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
 
         this.dateTimeSymbols = this.dateTimeSymbols();
 
-        this.localeLoad = this.localeLoad(context);
-
-        this.save = this.<DateTimeSymbols>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
+        this.localeLoad = this.localeLoad();
 
         this.copyDefaults = this.copyDefaultValueAnchor(context);
 
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = this.links();
 
         this.dialog = this.dialogCreate();
 
@@ -143,14 +137,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 .appendChild(this.dateTimeSymbols)
         ).appendChild(
             this.localeLoad
-        ).appendChild(
-            AnchorListComponent.empty()
-                .appendChild(this.save)
-                .appendChild(this.clear)
-                .appendChild(this.undo)
-                .appendChild(this.copyDefaults)
-                .appendChild(this.close)
-        );
+        ).appendChild(this.links);
     }
 
     private final DialogComponent dialog;
@@ -316,10 +303,6 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 Optional.of(dateTimeSymbols)
             );
 
-            this.refreshDateTimeSymbolsComponentsAndSave(
-                Optional.of(dateTimeSymbols)
-            );
-
         } catch (final RuntimeException ignore) {
             // unable to update #dateTimeSymbols
             ignore.printStackTrace();
@@ -342,14 +325,14 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         return DateTimeSymbolsComponent.empty()
             .setLabel("Date Time Symbols")
             .addValueWatcher2(
-                this::refreshDateTimeSymbolsComponentsAndSave
+                this::onDateTimeSymbolsValue
             );
     }
 
     /**
      * Refreshes other components after a {@link #dateTimeSymbols} change listener event using its new {@link DateTimeSymbols}.
      */
-    private void refreshDateTimeSymbolsComponentsAndSave(final Optional<DateTimeSymbols> maybeDateTimeSymbols) {
+    private void onDateTimeSymbolsValue(final Optional<DateTimeSymbols> maybeDateTimeSymbols) {
         if (maybeDateTimeSymbols.isPresent()) {
             final DateTimeSymbols dateTimeSymbols = maybeDateTimeSymbols.get();
 
@@ -378,7 +361,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                     dateTimeSymbols.weekDayNameAbbreviations()
                 )
             );
-            this.save.setValue(
+            this.links.setValue(
                 Optional.of(dateTimeSymbols)
             );
         } else {
@@ -402,14 +385,10 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         this.weekDayNameAbbreviations.clearValue();
         this.dateTimeSymbols.clearValue();
 
-        this.save.clearValue();
+        this.links.clearValue();
     }
 
     private final DateTimeSymbolsComponent dateTimeSymbols;
-
-    // save.............................................................................................................
-
-    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> save;
 
     // copyDefaults.....................................................................................................
 
@@ -433,20 +412,13 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     }
 
     private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> copyDefaults;
-    // clear.............................................................................................................
-
-    private void refreshClear() {
-        this.clear.clearValue();
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> clear;
 
     // loadLocale.......................................................................................................
 
     /**
      * A locale drop down that when selected loads the symbols for the selected Locale.
      */
-    private LocaleComponent<DateTimeSymbols> localeLoad(final DateTimeSymbolsDialogComponentContext context) {
+    private LocaleComponent<DateTimeSymbols> localeLoad() {
         return LocaleComponent.empty(
                 new LocaleComponentContext<DateTimeSymbols>() {
 
@@ -487,28 +459,20 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
      */
     private final LocaleComponent<DateTimeSymbols> localeLoad;
 
-    // undo.............................................................................................................
+    // links............................................................................................................
 
-    private void refreshUndo() {
-        this.undo.setValue(
-            this.context.loadDateTimeSymbols()
-        );
+    private DialogAnchorListComponent<DateTimeSymbols> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                this.context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .clearLink()
+            .appendChild(this.copyDefaults)
+            .close();
     }
 
-    private final HistoryTokenSaveValueAnchorComponent<DateTimeSymbols> undo;
-
-    // close............................................................................................................
-
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<DateTimeSymbols> links;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -539,14 +503,10 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<DateTimeSymbols> dateTimeSymbols = this.context.loadDateTimeSymbols();
+        final Optional<DateTimeSymbols> dateTimeSymbols = this.context.undo();
         this.dateTimeSymbols.setValue(dateTimeSymbols);
-        this.refreshDateTimeSymbolsComponentsAndSave(dateTimeSymbols);
 
         this.refreshCopyDefaults();
-        this.refreshClear();
-        this.refreshUndo();
-        this.refreshClose();
     }
 
     @Override

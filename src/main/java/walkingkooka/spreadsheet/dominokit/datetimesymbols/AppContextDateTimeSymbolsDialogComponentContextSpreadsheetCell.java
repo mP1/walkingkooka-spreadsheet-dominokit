@@ -53,7 +53,7 @@ final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell exten
     }
 
     @Override
-    public Optional<DateTimeSymbols> loadDateTimeSymbols() {
+    public Optional<DateTimeSymbols> undo() {
         final AppContext context = this.context;
 
         return context.spreadsheetViewportCache()

@@ -107,14 +107,15 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=DateTimeSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DateTimeSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DateTimeSymbols-close-Link\n"
         );
     }
 
@@ -172,14 +173,15 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DateTimeSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DateTimeSymbols-close-Link\n"
         );
     }
 
@@ -249,14 +251,15 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" DISABLED id=DateTimeSymbols-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
-                "            \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DateTimeSymbols-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/spreadsheet] id=DateTimeSymbols-close-Link\n"
         );
     }
 
