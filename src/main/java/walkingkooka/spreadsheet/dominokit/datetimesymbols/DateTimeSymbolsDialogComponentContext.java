@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -32,6 +33,7 @@ import java.util.Optional;
  */
 public interface DateTimeSymbolsDialogComponentContext extends
     DialogComponentContext,
+    DialogAnchorListComponentContext,
     ComponentLifecycleMatcher {
 
     /**
@@ -43,11 +45,6 @@ public interface DateTimeSymbolsDialogComponentContext extends
      * Calls the server to find {@link DateTimeSymbols} for the locale startsWith parameter
      */
     void findDateTimeSymbolsWithLocaleStartsWith(final String startsWith);
-
-    /**
-     * Gets the current {@link DateTimeSymbols}
-     */
-    Optional<DateTimeSymbols> loadDateTimeSymbols();
 
     /**
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}

@@ -137,7 +137,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
     // load.............................................................................................................
 
     @Test
-    public void testLoadDateTimeSymbols() {
+    public void testUndo() {
         final Optional<DateTimeSymbols> dateTimeSymbols = Optional.of(DATE_TIME_SYMBOLS);
 
         final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -197,7 +197,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
                 )
             );
 
-        this.loadDateTimeSymbolsAndCheck(
+        this.undoAndCheck(
             AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell.with(
                 appContext
             ),

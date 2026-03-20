@@ -54,7 +54,7 @@ public class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataP
     }
 
     @Override
-    public Optional<DateTimeSymbols> loadDateTimeSymbols() {
+    public Optional<DateTimeSymbols> undo() {
         return this.context.spreadsheetMetadata()
             .get(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
     }

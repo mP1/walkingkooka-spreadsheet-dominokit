@@ -49,11 +49,11 @@ public interface DateTimeSymbolsDialogComponentContextTesting<C extends DateTime
         );
     }
 
-    default void loadDateTimeSymbolsAndCheck(final C context,
-                                             final Optional<DateTimeSymbols> expected) {
+    default void undoAndCheck(final C context,
+                              final Optional<DateTimeSymbols> expected) {
         this.checkEquals(
             expected,
-            context.loadDateTimeSymbols()
+            context.undo()
         );
     }
 
