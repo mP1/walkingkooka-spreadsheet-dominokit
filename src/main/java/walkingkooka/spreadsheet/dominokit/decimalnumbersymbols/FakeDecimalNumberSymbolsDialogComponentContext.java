@@ -53,7 +53,7 @@ public class FakeDecimalNumberSymbolsDialogComponentContext extends FakeDialogCo
     }
 
     @Override
-    public Optional<DecimalNumberSymbols> loadDecimalNumberSymbols() {
+    public Optional<DecimalNumberSymbols> undo() {
         throw new UnsupportedOperationException();
     }
 

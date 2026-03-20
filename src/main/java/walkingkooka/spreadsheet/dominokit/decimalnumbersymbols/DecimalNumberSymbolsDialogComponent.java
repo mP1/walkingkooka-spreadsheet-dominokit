@@ -29,9 +29,9 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.character.CharacterComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
@@ -40,7 +40,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentContext;
@@ -121,16 +120,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
         this.decimalNumberSymbols = this.decimalNumberSymbols();
 
-        this.localeLoad = this.localeLoad(context);
-
-        this.save = this.<DecimalNumberSymbols>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
+        this.localeLoad = this.localeLoad();
 
         this.copyDefaults = this.copyDefaultValueAnchor(context);
 
-        this.clear = this.clearValueAnchor(context);
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = this.links();
 
         this.dialog = this.dialogCreate();
 
@@ -166,14 +160,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 .appendChild(this.decimalNumberSymbols)
         ).appendChild(
             this.localeLoad
-        ).appendChild(
-            AnchorListComponent.empty()
-                .appendChild(this.save)
-                .appendChild(this.clear)
-                .appendChild(this.undo)
-                .appendChild(this.copyDefaults)
-                .appendChild(this.close)
-        );
+        ).appendChild(this.links);
     }
 
     private final DialogComponent dialog;
@@ -480,7 +467,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 Optional.of(decimalNumberSymbols)
             );
 
-            this.refreshDecimalNumberSymbolsComponentsAndSave(
+            this.decimalNumberSymbolsOnValue(
                 Optional.of(decimalNumberSymbols)
             );
 
@@ -520,14 +507,14 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         return DecimalNumberSymbolsComponent.empty()
             .setLabel("Date Time Symbols")
             .addValueWatcher2(
-                this::refreshDecimalNumberSymbolsComponentsAndSave
+                this::decimalNumberSymbolsOnValue
             );
     }
 
     /**
      * Refreshes other components after a {@link #decimalNumberSymbols} change listener event using its new {@link DecimalNumberSymbols}.
      */
-    private void refreshDecimalNumberSymbolsComponentsAndSave(final Optional<DecimalNumberSymbols> maybeDecimalNumberSymbols) {
+    private void decimalNumberSymbolsOnValue(final Optional<DecimalNumberSymbols> maybeDecimalNumberSymbols) {
         if (maybeDecimalNumberSymbols.isPresent()) {
             final DecimalNumberSymbols decimalNumberSymbols = maybeDecimalNumberSymbols.get();
 
@@ -568,7 +555,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 Optional.of(decimalNumberSymbols.permillSymbol())
             );
 
-            this.save.setValue(
+            this.links.setValue(
                 Optional.of(decimalNumberSymbols)
             );
         } else {
@@ -602,7 +589,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     /**
      * A locale drop down that when selected loads the symbols for the selected Locale.
      */
-    private LocaleComponent<DecimalNumberSymbols> localeLoad(final DecimalNumberSymbolsDialogComponentContext context) {
+    private LocaleComponent<DecimalNumberSymbols> localeLoad() {
         return LocaleComponent.empty(
                 new LocaleComponentContext<DecimalNumberSymbols>() {
 
@@ -643,10 +630,6 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
      */
     private final LocaleComponent<DecimalNumberSymbols> localeLoad;
 
-    // save.............................................................................................................
-
-    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> save;
-
     // copyDefaults.....................................................................................................
 
     /**
@@ -670,36 +653,20 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> copyDefaults;
 
-    // clear............................................................................................................
+    // links............................................................................................................
 
-    private void refreshClear() {
-        this.clear.clearValue();
+    private DialogAnchorListComponent<DecimalNumberSymbols> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                this.context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .clearLink()
+            .appendChild(this.copyDefaults)
+            .close();
     }
 
-    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> clear;
-
-    // undo.............................................................................................................
-
-    private void refreshUndo() {
-        this.undo.setValue(
-            this.context.loadDecimalNumberSymbols()
-        );
-    }
-
-    private final HistoryTokenSaveValueAnchorComponent<DecimalNumberSymbols> undo;
-
-    // close............................................................................................................
-
-    private void refreshClose() {
-        this.close.setHistoryToken(
-            Optional.of(
-                this.context.historyToken()
-                    .close()
-            )
-        );
-    }
-
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<DecimalNumberSymbols> links;
 
     // HistoryTokenAwareComponentLifecycle..............................................................................
 
@@ -730,14 +697,11 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<DecimalNumberSymbols> decimalNumberSymbols = this.context.loadDecimalNumberSymbols();
-        this.decimalNumberSymbols.setValue(decimalNumberSymbols);
-        this.refreshDecimalNumberSymbolsComponentsAndSave(decimalNumberSymbols);
+        this.decimalNumberSymbols.setValue(
+            this.context.undo()
+        );
 
         this.refreshCopyDefaults();
-        this.refreshClear();
-        this.refreshUndo();
-        this.refreshClose();
     }
 
     @Override

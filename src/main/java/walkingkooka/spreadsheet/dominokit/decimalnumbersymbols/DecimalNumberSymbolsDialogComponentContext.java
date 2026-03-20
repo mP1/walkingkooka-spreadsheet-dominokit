@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
 
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DecimalNumberSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -31,6 +32,7 @@ import java.util.Optional;
  */
 public interface DecimalNumberSymbolsDialogComponentContext extends
     DialogComponentContext,
+    DialogAnchorListComponentContext<DecimalNumberSymbols>,
     ComponentLifecycleMatcher {
 
     /**
@@ -42,11 +44,6 @@ public interface DecimalNumberSymbolsDialogComponentContext extends
      * Calls the server to find {@link DecimalNumberSymbols} for the locale startsWith parameter
      */
     void findDecimalNumberSymbolsWithLocaleStartsWith(final String startsWith);
-
-    /**
-     * Gets the current {@link DecimalNumberSymbols}
-     */
-    Optional<DecimalNumberSymbols> loadDecimalNumberSymbols();
 
     /**
      * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}

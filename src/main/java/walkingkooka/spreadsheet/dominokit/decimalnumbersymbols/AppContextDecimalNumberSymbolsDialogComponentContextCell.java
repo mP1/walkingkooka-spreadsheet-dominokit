@@ -53,7 +53,7 @@ final class AppContextDecimalNumberSymbolsDialogComponentContextCell extends App
     }
 
     @Override
-    public Optional<DecimalNumberSymbols> loadDecimalNumberSymbols() {
+    public Optional<DecimalNumberSymbols> undo() {
         final AppContext context = this.context;
 
         return context.spreadsheetViewportCache()

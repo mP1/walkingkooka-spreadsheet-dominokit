@@ -26,11 +26,11 @@ import java.util.Optional;
 public interface DecimalNumberSymbolsDialogComponentContextTesting<C extends DecimalNumberSymbolsDialogComponentContext> extends DialogComponentContextTesting<C>,
     ComponentLifecycleMatcherTesting {
 
-    default void loadDecimalNumberSymbolsAndCheck(final C context,
-                                                  final Optional<DecimalNumberSymbols> expected) {
+    default void undoAndCheck(final C context,
+                              final Optional<DecimalNumberSymbols> expected) {
         this.checkEquals(
             expected,
-            context.loadDecimalNumberSymbols()
+            context.undo()
         );
     }
 
