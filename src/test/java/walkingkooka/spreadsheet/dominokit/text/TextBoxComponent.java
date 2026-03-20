@@ -144,7 +144,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 )
             );
         }
-        return (TextBoxComponent) this;
+        return this;
     }
 
     @Override
