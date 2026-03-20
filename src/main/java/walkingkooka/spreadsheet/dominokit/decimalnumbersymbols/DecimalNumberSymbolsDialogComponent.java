@@ -584,8 +584,6 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
     // localeLoad.......................................................................................................
 
-    // loadLocale.......................................................................................................
-
     /**
      * A locale drop down that when selected loads the symbols for the selected Locale.
      */
