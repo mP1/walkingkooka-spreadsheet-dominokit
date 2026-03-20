@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.cell.value;
 
+import walkingkooka.Cast;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
@@ -28,6 +30,7 @@ import java.util.Optional;
  * The {@link SpreadsheetCellValueDialogComponentContext} for the {@link SpreadsheetCellValueDialogComponent}
  */
 public interface SpreadsheetCellValueDialogComponentContext<T> extends DialogComponentContext,
+    DialogAnchorListComponentContext<T>,
     HasSpreadsheetDeltaFetcherWatchers {
 
     /**
@@ -44,4 +47,13 @@ public interface SpreadsheetCellValueDialogComponentContext<T> extends DialogCom
      * Get the current cell if available, which will be useful to get the value and errors.
      */
     Optional<SpreadsheetCell> cell();
+
+    @Override
+    default Optional<T> undo() {
+        return this.cell()
+            .flatMap((SpreadsheetCell cell) -> Cast.to(
+                cell.formula()
+                    .value())
+            );
+    }
 }
