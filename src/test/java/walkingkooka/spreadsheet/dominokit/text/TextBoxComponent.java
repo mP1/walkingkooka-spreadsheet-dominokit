@@ -22,6 +22,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.ToStringBuilder;
+import walkingkooka.ToStringBuilderOption;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
@@ -295,6 +297,50 @@ public final class TextBoxComponent extends TextBoxComponentLike
 
     @Override
     public String toString() {
-        return this.value.orElse("");
+        final ToStringBuilder b = ToStringBuilder.empty()
+            .valueSeparator(" ")
+            .disable(ToStringBuilderOption.QUOTE)
+            .labelSeparator(" ");
+
+        final String label = this.label();
+        if (null != label) {
+            b.label(label);
+        }
+
+        b.value(
+            "[" +
+                this.value()
+                    .map(Object::toString)
+                    .orElse("") +
+                "]"
+        );
+
+        b.labelSeparator("=");
+        b.label("id");
+        b.value(
+            this.id()
+        );
+
+        b.enable(ToStringBuilderOption.QUOTE);
+        b.label("helperText");
+        b.value(
+            this.helperText()
+        );
+
+        b.disable(ToStringBuilderOption.QUOTE);
+        if (this.isDisabled()) {
+            b.value("DISABLED");
+        }
+
+        if (this.isRequired()) {
+            b.value("REQUIRED");
+        }
+
+        b.enable(ToStringBuilderOption.QUOTE)
+                .valueSeparator(", ");
+        b.label("Errors");
+        b.value(this.errors);
+
+        return b.build();
     }
 }
