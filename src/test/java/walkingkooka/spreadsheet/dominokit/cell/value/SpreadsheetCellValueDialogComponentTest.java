@@ -156,14 +156,15 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateComponent\n" +
                 "        [] id=Test123date-Date\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
-                "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
+                "              \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -195,14 +196,15 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateComponent\n" +
                 "        [1999-12-31] id=Test123date-Date\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
-                "            \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-undo-Link\n" +
+                "              \"Today\" [#/1/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -236,14 +238,15 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      DateTimeComponent\n" +
                 "        [1999-12-31T12:58:59] id=Test123date-Date\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/] id=Test123-clear-Link\n" +
-                "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/now] id=Test123-now-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-undo-Link\n" +
+                "              \"Now\" [#/1/SpreadsheetName456/cell/A1/value/date-time/save/now] id=Test123-now-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -276,13 +279,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [user123@example.com] REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/email/save/] id=Test123-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/email/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
     
@@ -312,13 +316,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      TextBoxComponent\n" +
                 "        [HelloTextValue] id=TextBox-Text REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -347,13 +352,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      TextBoxComponent\n" +
                 "        [] id=TextBox-Text REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -391,14 +397,15 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "    id=Test123-Dialog includeClose=true\n" +
                 "      TimeComponent\n" +
                 "        [12:58:59] id=TestTime123\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/time/save/] id=Test123-clear-Link\n" +
-                "            \"Now\" [#/1/SpreadsheetName456/cell/A1/value/time/save/now] id=Test123-now-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/time/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
+                "              \"Now\" [#/1/SpreadsheetName456/cell/A1/value/time/save/now] id=Test123-now-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -431,13 +438,14 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [https://example.com/path1/k1%3Dv2] REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-save-Link\n" +
-                "            \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/url/save/] id=Test123-clear-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName456/cell/A1/value/url/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName456/cell/A1/value/url/save/%22https://example.com/path1/k1%253Dv2%22] id=Test123-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
 
