@@ -568,8 +568,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 "        TR\n" +
                 "          SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "            TH\n" +
-                "              id=\"viewport-select-all-cells\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "                \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "              id=\"viewport-cell-*\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "            TH\n" +
                 "              id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
@@ -633,8 +633,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         this.checkEquals(
             true,
-            printTree.contains("select-all"),
-            "TR should contain select-all\n" + printTree
+            printTree.contains("cell-*"),
+            "TR should contain cell-*\n" + printTree
         );
 
         this.checkEquals(
@@ -671,8 +671,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                 "        TR\n" +
                 "          SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "            TH\n" +
-                "              id=\"viewport-select-all-cells\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "                \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "              id=\"viewport-cell-*\" style=\"box-sizing: border-box; color: #111111; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "          SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "            TH\n" +
                 "              id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #222222; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
@@ -736,8 +736,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         this.checkEquals(
             true,
-            printTree.contains("select-all"),
-            "TR should contain select-all\n" + printTree
+            printTree.contains("cell-*"),
+            "TR should contain cell-*\n" + printTree
         );
 
         this.checkEquals(
@@ -809,8 +809,8 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
 
         this.checkEquals(
             false,
-            printTree.contains("select-all"),
-            "TR should be missing select-all\n" + printTree
+            printTree.contains("cell-*"),
+            "TR should be missing cell-*\n" + printTree
         );
 
         this.checkEquals(

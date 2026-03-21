@@ -42,8 +42,8 @@ public final class SpreadsheetViewportComponentTableCellHeaderSelectAllTest exte
             ),
             "SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "  TH\n" +
-                "    id=\"viewport-select-all-cells\" style=\"box-sizing: border-box; color: black; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n"
+                "    id=\"viewport-cell-*\" style=\"box-sizing: border-box; color: black; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n"
         );
     }
 
@@ -57,8 +57,8 @@ public final class SpreadsheetViewportComponentTableCellHeaderSelectAllTest exte
             ),
             "SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "  TH\n" +
-                "    id=\"viewport-select-all-cells\" style=\"background-color: white; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n"
+                "    id=\"viewport-cell-*\" style=\"background-color: white; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n"
         );
     }
 
@@ -71,8 +71,8 @@ public final class SpreadsheetViewportComponentTableCellHeaderSelectAllTest exte
             ),
             "SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "  TH\n" +
-                "    id=\"viewport-select-all-cells\" style=\"background-color: white; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n"
+                "    id=\"viewport-cell-*\" style=\"background-color: white; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "      \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n"
         );
     }
 

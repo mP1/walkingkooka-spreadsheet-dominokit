@@ -62,7 +62,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     public void testIdWithAllCells() {
         this.idAndCheck(
             SpreadsheetSelection.ALL_CELLS,
-            "viewport-select-all-cells"
+            "viewport-cell-*"
         );
     }
 
@@ -182,7 +182,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     @Test
     public void testParseElementIdWithSelectAllCells() {
         this.parseStringAndCheck(
-            "viewport-select-all-cells",
+            "viewport-cell-*",
             SpreadsheetSelection.ALL_CELLS
         );
     }
@@ -300,8 +300,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "              TH\n" +
-                "                id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "                id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #333333; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
@@ -372,8 +372,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "              TH\n" +
-                "                id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "                id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #333333; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +
@@ -444,8 +444,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "          TR\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "              TH\n" +
-                "                id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "                id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "                  \"All\" [#/1/SpreadsheetName111/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "            SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "              TH\n" +
                 "                id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 50px; width: 50px;\"\n" +

@@ -1127,7 +1127,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      */
     final static String ID_PREFIX = ID + "-";
 
-    // viewport-select-all-cells
+    // viewport-cell-*
     // viewport-cell-A1
     // viewport-column-A
     // viewport-row-1
@@ -1146,7 +1146,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      * <br>
      * This is the inverse of {@link #id(SpreadsheetSelection)}.
      * <pre>
-     * viewport-select-all-cells
+     * viewport-cell-*
      * viewport-cell-A1
      * viewport-column-A
      * viewport-row-1
@@ -1195,7 +1195,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         return Optional.ofNullable(selection);
     }
 
-    final static String SELECT_ALL_ID = ID_PREFIX + "select-all-cells";
+    final static String SELECT_ALL_ID = ID_PREFIX + "cell-*";
 
     // TreePrintable....................................................................................................
 
