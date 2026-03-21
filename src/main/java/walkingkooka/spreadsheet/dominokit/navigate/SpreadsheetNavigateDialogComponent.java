@@ -21,6 +21,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
@@ -30,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -64,13 +64,9 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
         context.addHistoryTokenWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
-        final String idPrefix = this.idPrefix();
+        this.home = this.home();
 
-        this.home = SpreadsheetCellReferenceComponent.with(
-            idPrefix + "home" + SpreadsheetElementIds.TEXT_BOX
-        ).addValueWatcher2(
-            (v) -> this.refreshLinks()
-        );
+        final String idPrefix = this.idPrefix();
 
         this.save = HistoryTokenAnchorComponent.empty()
             .setId(
@@ -133,9 +129,44 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
         return this.context;
     }
 
-    // dialog links.....................................................................................................
+    // home.............................................................................................................
+
+    private SpreadsheetCellReferenceComponent home() {
+        return SpreadsheetCellReferenceComponent.with(
+                this.idPrefix() + "home" + SpreadsheetElementIds.TEXT_BOX
+            ).
+
+            addValueWatcher2(
+                this::onHomeValue
+            );
+    }
+
+    private void onHomeValue(final Optional<SpreadsheetCellReference> cell) {
+        final SpreadsheetNavigateDialogComponentContext context = this.context;
+
+        final HistoryToken historyToken = context.historyToken();
+
+        this.save.setValue(
+            cell.map(
+                c ->
+                    historyToken.setNavigation(
+                        Optional.of(
+                            SpreadsheetViewportHomeNavigationList.with(c)
+                        )
+                    )
+            )
+        );
+
+        this.close.setHistoryToken(
+            Optional.of(
+                historyToken.close()
+            )
+        );
+    }
 
     private final SpreadsheetCellReferenceComponent home;
+
+    // dialog links.....................................................................................................
 
     private final HistoryTokenAnchorComponent save;
 
@@ -177,35 +208,8 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        this.refreshLinks();
-    }
-
-    private void refreshLinks() {
-        this.refreshLinks(
+        this.onHomeValue(
             this.home.value()
-        );
-    }
-
-    private void refreshLinks(final Optional<SpreadsheetCellReference> cell) {
-        final SpreadsheetNavigateDialogComponentContext context = this.context;
-
-        final HistoryToken historyToken = context.historyToken();
-
-        this.save.setValue(
-            cell.map(
-                c ->
-                    historyToken.setNavigation(
-                        Optional.of(
-                            SpreadsheetViewportHomeNavigationList.with(c)
-                        )
-                    )
-            )
-        );
-
-        this.close.setHistoryToken(
-            Optional.of(
-                historyToken.close()
-            )
         );
     }
 
