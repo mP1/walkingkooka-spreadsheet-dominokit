@@ -100,7 +100,9 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
                     ).setIncludeFrozenColumnsRows(true)
                 );
 
-            context.pushHistoryToken(previous);
+            context.pushHistoryToken(
+                this.clear()
+            );
         }
     }
 

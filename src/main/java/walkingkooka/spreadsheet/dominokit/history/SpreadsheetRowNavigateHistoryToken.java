@@ -117,7 +117,9 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
                     ).setIncludeFrozenColumnsRows(true)
                 );
 
-            context.pushHistoryToken(previous);
+            context.pushHistoryToken(
+                this.clear()
+            );
         }
     }
 
