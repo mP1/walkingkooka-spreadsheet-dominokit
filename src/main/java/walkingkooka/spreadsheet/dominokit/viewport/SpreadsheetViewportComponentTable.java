@@ -37,8 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
@@ -241,49 +239,11 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
             final Optional<SpreadsheetSelection> maybeSelection = SpreadsheetViewportComponent.parseElementId(walk.id);
             if (maybeSelection.isPresent()) {
-                final SpreadsheetSelection selection = maybeSelection.get();
-                if (selection.isCell()) {
-                    final SpreadsheetCellReference cell = selection.toCell();
-
-                    this.context.pushNavigation(
-                        shiftKeyDown ?
-                            SpreadsheetViewportNavigation.extendCell(
-                                cell
-                            ) :
-                            SpreadsheetViewportNavigation.cell(
-                                cell
-                            )
-                    );
-                    break;
-                }
-                if(selection.isColumn()) {
-                    final SpreadsheetColumnReference column = selection.toColumn();
-
-                    this.context.pushNavigation(
-                        shiftKeyDown ?
-                            SpreadsheetViewportNavigation.extendColumn(
-                                column
-                            ) :
-                            SpreadsheetViewportNavigation.column(
-                                column
-                            )
-                    );
-                    break; 
-                }
-                if(selection.isRow()) {
-                    final SpreadsheetRowReference row = selection.toRow();
-
-                    this.context.pushNavigation(
-                        shiftKeyDown ?
-                            SpreadsheetViewportNavigation.extendRow(
-                                row
-                            ) :
-                            SpreadsheetViewportNavigation.row(
-                                row
-                            )
-                    );
-                    break;
-                }
+                this.context.pushNavigation(
+                    maybeSelection.get()
+                        .toSpreadsheetViewportNavigation(shiftKeyDown)
+                );
+                break;
             }
 
             walk = walk.parentElement;
