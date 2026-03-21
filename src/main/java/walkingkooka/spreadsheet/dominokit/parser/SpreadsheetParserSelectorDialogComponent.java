@@ -105,7 +105,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTokenComponent.empty(ID + "-removeOrReplace-");
 
-        this.textBox = this.textBox();
+        this.selector = this.selector();
 
         this.links = DialogAnchorListComponent.empty(
                 this.idPrefix(),
@@ -149,7 +149,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             .appendChild(this.table)
             .appendChild(this.appender)
             .appendChild(this.removeOrReplace)
-            .appendChild(this.textBox)
+            .appendChild(this.selector)
             .appendChild(this.links);
     }
 
@@ -185,41 +185,35 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
     private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> removeOrReplace;
 
-    // textBox..........................................................................................................
+    // selector..........................................................................................................
 
     /**
      * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
      */
-    private SpreadsheetParserSelectorComponent textBox() {
+    private SpreadsheetParserSelectorComponent selector() {
         return SpreadsheetParserSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshLinks
+                this::onSelectorValue
             );
     }
 
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.ofNullable(
-                text.isEmpty() ?
-                    null :
-                    text
-            )
-        );
-        this.refreshEdit(text);
-    }
-
-    /**
-     * Handles updates to the {@link SpreadsheetParserSelectorComponent}
-     */
-    private void refreshEdit(final String text) {
+    private void onSelectorValue(final Optional<SpreadsheetParserSelector> selector) {
         final SpreadsheetParserSelectorDialogComponentContext context = this.context;
+
+        final String text = selector.map(SpreadsheetParserSelector::text)
+            .orElse("");
 
         final SpreadsheetParserSelectorEdit edit = SpreadsheetParserSelectorEdit.parse(
             text,
             context
         );
+
+        if (this.selector.hasErrors()) {
+            this.links.disableSave();
+        } else {
+            this.links.setValue(selector);
+        }
 
         // couldnt get edit in browser, try server
         if (edit.message().startsWith("Unknown ")) {
@@ -235,7 +229,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     /**
      * The {@link SpreadsheetParserSelectorComponent} that holds the {@link SpreadsheetParserSelector} in text form.
      */
-    private final SpreadsheetParserSelectorComponent textBox;
+    // @VisibleForTesting
+    final SpreadsheetParserSelectorComponent selector;
 
     // SpreadsheetParserFetcherWatcher..................................................................................
 
@@ -295,14 +290,14 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
-        this.textBox.setErrors(
+        this.selector.setErrors(
             hasNoError ?
                 Lists.empty() :
                 Lists.of(message)
         );
 
         this.links.setValue(
-            this.textBox.stringValue().isEmpty() || hasNoError ?
+            this.selector.stringValue().isEmpty() || hasNoError ?
                 edit.selector() :
                 Optional.<SpreadsheetParserSelector>empty()
         );
@@ -311,22 +306,6 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     }
 
     // dialog links.....................................................................................................
-
-    void refreshLinks(final Optional<SpreadsheetParserSelector> selector) {
-        final SpreadsheetParserSelectorComponent textBox = this.textBox;
-
-        textBox.validate();
-        this.links.setValue(
-            textBox.hasErrors() ?
-                Optional.<SpreadsheetParserSelector>empty() :
-                selector
-        );
-
-        this.refreshEdit(
-            textBox.stringValue()
-                .orElse("")
-        );
-    }
 
     private final DialogAnchorListComponent<SpreadsheetParserSelector> links;
 
@@ -366,7 +345,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-            this.textBox::focus
+            this.selector::focus
         );
     }
 
@@ -375,9 +354,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<SpreadsheetParserSelector> undo = this.context.undo();
-        this.textBox.setValue(undo);
-        this.refreshLinks(undo);
+        this.selector.setValue(
+            this.context.undo()
+        );
 
         this.refreshTitleTabsClearClose();
     }
