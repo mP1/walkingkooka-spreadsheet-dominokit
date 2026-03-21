@@ -33,7 +33,7 @@ final class SpreadsheetViewportComponentTableCellHeaderSelectAll extends Spreads
 
     private SpreadsheetViewportComponentTableCellHeaderSelectAll(final SpreadsheetViewportComponentTableContext context) {
         super(
-            SpreadsheetViewportComponent.ID_PREFIX + "select-all-cells", // id// css
+            SpreadsheetViewportComponent.SELECT_ALL_ID, // id// css
             SpreadsheetSelection.ALL_CELLS, // selection
             "All", // link text
             context
