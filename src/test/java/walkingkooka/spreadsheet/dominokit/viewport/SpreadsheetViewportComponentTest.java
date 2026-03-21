@@ -59,6 +59,14 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     // id...............................................................................................................
 
     @Test
+    public void testIdWithAllCells() {
+        this.idAndCheck(
+            SpreadsheetSelection.ALL_CELLS,
+            "viewport-select-all-cells"
+        );
+    }
+
+    @Test
     public void testIdWithCell() {
         this.idAndCheck(
             SpreadsheetSelection.A1,
@@ -168,6 +176,14 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
         this.parseStringAndCheck(
             id,
             Optional.empty()
+        );
+    }
+
+    @Test
+    public void testParseElementIdWithSelectAllCells() {
+        this.parseStringAndCheck(
+            "viewport-select-all-cells",
+            SpreadsheetSelection.ALL_CELLS
         );
     }
 

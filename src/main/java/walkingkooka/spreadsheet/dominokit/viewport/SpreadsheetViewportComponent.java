@@ -1127,50 +1127,66 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
      */
     final static String ID_PREFIX = ID + "-";
 
+    // viewport-select-all-cells
+    // viewport-cell-A1
     // viewport-column-A
+    // viewport-row-1
     public static String id(final SpreadsheetSelection selection) {
-        return ID_PREFIX +
-            selection.textLabel().toLowerCase() +
-            "-" +
-            selection.toString().toUpperCase();
+        return SpreadsheetSelection.ALL_CELLS.equalsIgnoreReferenceKind(selection) ?
+            SELECT_ALL_ID :
+            ID_PREFIX +
+                selection.textLabel().toLowerCase() +
+                "-" +
+                selection.toStringMaybeStar()
+                    .toUpperCase();
     }
 
     /**
      * Takes an id hopefully sourced from a {@link SpreadsheetViewportComponent} descendant element and tries to extract a {@link SpreadsheetSelection}.
      * <br>
      * This is the inverse of {@link #id(SpreadsheetSelection)}.
+     * <pre>
+     * viewport-select-all-cells
+     * viewport-cell-A1
+     * viewport-column-A
+     * viewport-row-1
+     * </pre>
      */
     static Optional<SpreadsheetSelection> parseElementId(final String id) {
         SpreadsheetSelection selection = null;
 
-        if (null != id && id.startsWith(ID_PREFIX)) {
-            // viewport-cell-A1 -> cell-A1
-            final String selectionTypeAndSelection = id.substring(ID_PREFIX.length());
-            final int dash = selectionTypeAndSelection.indexOf('-');
-            if (-1 != dash) {
-                final Function<String, SpreadsheetSelection> parser;
+        if (SELECT_ALL_ID.equals(id)) {
+            selection = SpreadsheetSelection.ALL_CELLS;
+        } else {
+            if (null != id && id.startsWith(ID_PREFIX)) {
+                // viewport-cell-A1 -> cell-A1
+                final String selectionTypeAndSelection = id.substring(ID_PREFIX.length());
+                final int dash = selectionTypeAndSelection.indexOf('-');
+                if (-1 != dash) {
+                    final Function<String, SpreadsheetSelection> parser;
 
-                switch (selectionTypeAndSelection.substring(0, dash)) {
-                    case "cell":
-                        parser = SpreadsheetSelection::parseCell;
-                        break;
-                    case "column":
-                        parser = SpreadsheetSelection::parseColumn;
-                        break;
-                    case "row":
-                        parser = SpreadsheetSelection::parseRow;
-                        break;
-                    default:
-                        parser = null;
-                        break;
-                }
-                if (null != parser) {
-                    try {
-                        selection = parser.apply(
-                            selectionTypeAndSelection.substring(dash + 1)
-                        );
-                    } catch (final RuntimeException ignore) {
-                        // nop
+                    switch (selectionTypeAndSelection.substring(0, dash)) {
+                        case "cell":
+                            parser = SpreadsheetSelection::parseCell;
+                            break;
+                        case "column":
+                            parser = SpreadsheetSelection::parseColumn;
+                            break;
+                        case "row":
+                            parser = SpreadsheetSelection::parseRow;
+                            break;
+                        default:
+                            parser = null;
+                            break;
+                    }
+                    if (null != parser) {
+                        try {
+                            selection = parser.apply(
+                                selectionTypeAndSelection.substring(dash + 1)
+                            );
+                        } catch (final RuntimeException ignore) {
+                            // nop
+                        }
                     }
                 }
             }
@@ -1178,6 +1194,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
         return Optional.ofNullable(selection);
     }
+
+    final static String SELECT_ALL_ID = ID_PREFIX + "select-all-cells";
 
     // TreePrintable....................................................................................................
 
