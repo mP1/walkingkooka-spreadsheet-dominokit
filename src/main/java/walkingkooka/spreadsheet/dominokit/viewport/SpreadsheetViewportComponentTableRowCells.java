@@ -53,8 +53,8 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
     }
 
     @Override
-    void setIdAndName(final SpreadsheetId id,
-                      final SpreadsheetName name) {
+    void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                            final SpreadsheetName name) {
         this.rowHeader.setSpreadsheetIdAndSpreadsheetName(id, name);
         this.columnToCells.values()
             .forEach(c -> c.setSpreadsheetIdAndSpreadsheetName(id, name));
