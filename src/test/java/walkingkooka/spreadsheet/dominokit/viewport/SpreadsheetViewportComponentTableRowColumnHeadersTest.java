@@ -65,8 +65,8 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "      TH\n" +
-                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "        id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "      TH\n" +
                 "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
@@ -88,8 +88,8 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "      TH\n" +
-                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "        id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "      TH\n" +
                 "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
@@ -110,8 +110,8 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "      TH\n" +
-                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "        id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "      TH\n" +
                 "        id=\"viewport-column-A\" style=\"box-sizing: border-box; color: #333333; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
@@ -133,8 +133,8 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
                 "  TR\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSelectAll\n" +
                 "      TH\n" +
-                "        id=\"viewport-select-all-cells\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
-                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-select-all-cells-Link\n" +
+                "        id=\"viewport-cell-*\" style=\"background-color: #111111; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 80px; width: 80px;\"\n" +
+                "          \"All\" [#/1/SpreadsheetName222/cell/*/bottom-right] id=viewport-cell-*-Link\n" +
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetColumn\n" +
                 "      TH\n" +
                 "        id=\"viewport-column-A\" style=\"background-color: #222222; box-sizing: border-box; height: 30px; min-height: 30px; min-width: 100px; width: 100px;\"\n" +
