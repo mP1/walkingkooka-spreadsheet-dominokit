@@ -40,8 +40,8 @@ abstract class SpreadsheetViewportComponentTableRow<T extends SpreadsheetViewpor
         this.tr = HtmlElementComponent.tr();
     }
 
-    abstract void setIdAndName(final SpreadsheetId id,
-                               final SpreadsheetName name);
+    abstract void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                     final SpreadsheetName name);
 
     abstract void refresh(final SpreadsheetViewportWindows windows,
                           final Predicate<SpreadsheetSelection> selected,

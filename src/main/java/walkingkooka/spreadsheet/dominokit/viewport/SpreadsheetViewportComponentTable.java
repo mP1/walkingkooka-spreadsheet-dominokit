@@ -482,13 +482,13 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
             this.id = id;
             this.name = name;
 
-            this.columnHeaders.setIdAndName(
+            this.columnHeaders.setSpreadsheetIdAndSpreadsheetName(
                 id,
                 name
             );
 
             this.rowsToTableRowCells.values()
-                .forEach(r -> r.setIdAndName(id, name));
+                .forEach(r -> r.setSpreadsheetIdAndSpreadsheetName(id, name));
         }
 
         // column headings

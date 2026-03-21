@@ -45,8 +45,8 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
     }
 
     @Override
-    void setIdAndName(final SpreadsheetId id,
-                      final SpreadsheetName name) {
+    void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                            final SpreadsheetName name) {
         this.selectAll.setSpreadsheetIdAndSpreadsheetName(id, name);
         this.columnToHeaders.values()
             .forEach(c -> c.setSpreadsheetIdAndSpreadsheetName(id, name));
