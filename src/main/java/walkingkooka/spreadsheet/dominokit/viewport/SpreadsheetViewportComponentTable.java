@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
@@ -251,6 +252,34 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
                             ) :
                             SpreadsheetViewportNavigation.cell(
                                 cell
+                            )
+                    );
+                    break;
+                }
+                if(selection.isColumn()) {
+                    final SpreadsheetColumnReference column = selection.toColumn();
+
+                    this.context.pushNavigation(
+                        shiftKeyDown ?
+                            SpreadsheetViewportNavigation.extendColumn(
+                                column
+                            ) :
+                            SpreadsheetViewportNavigation.column(
+                                column
+                            )
+                    );
+                    break; 
+                }
+                if(selection.isRow()) {
+                    final SpreadsheetRowReference row = selection.toRow();
+
+                    this.context.pushNavigation(
+                        shiftKeyDown ?
+                            SpreadsheetViewportNavigation.extendRow(
+                                row
+                            ) :
+                            SpreadsheetViewportNavigation.row(
+                                row
                             )
                     );
                     break;
