@@ -889,6 +889,13 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         if (maybeSpreadsheetViewport.isPresent()) {
             final SpreadsheetViewport viewport = maybeSpreadsheetViewport.get();
 
+            // required otherwise scrollbars will have an incorrect "home"
+            this.metadata = this.metadata.set(
+                SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                viewport.rectangle()
+                    .home()
+            );
+
             this.synchronizeSpreadsheetDeltaViewportSelectionHistoryToken(viewport);
             this.reloadSpreadsheetMetadataIfViewportChanged(viewport);
         }
