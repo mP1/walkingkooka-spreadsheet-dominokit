@@ -60,8 +60,8 @@ abstract class SpreadsheetViewportComponentTableCellHeader<S extends Spreadsheet
     }
 
     @Override //
-    final void setIdAndName(final SpreadsheetId id,
-                            final SpreadsheetName name) {
+    final void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                  final SpreadsheetName name) {
         final HistoryTokenAnchorComponent anchor = this.anchor;
         anchor.setHistoryToken(
             anchor.historyToken()

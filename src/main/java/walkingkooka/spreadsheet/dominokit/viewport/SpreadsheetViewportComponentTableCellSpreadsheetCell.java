@@ -73,8 +73,8 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
     }
 
     @Override
-    void setIdAndName(final SpreadsheetId id,
-                      final SpreadsheetName name) {
+    void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                            final SpreadsheetName name) {
         // nop
     }
 

@@ -41,8 +41,8 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
         super();
     }
 
-    abstract void setIdAndName(final SpreadsheetId id,
-                               final SpreadsheetName name);
+    abstract void setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+                                                     final SpreadsheetName name);
 
     final void refresh(final SpreadsheetViewportComponentTableContext context) {
         this.refresh(
