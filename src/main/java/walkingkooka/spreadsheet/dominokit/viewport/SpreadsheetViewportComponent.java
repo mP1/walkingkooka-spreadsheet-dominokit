@@ -1133,7 +1133,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     // viewport-row-1
     public static String id(final SpreadsheetSelection selection) {
         return SpreadsheetSelection.ALL_CELLS.equalsIgnoreReferenceKind(selection) ?
-            SELECT_ALL_ID :
+            SELECT_ALL_CELLS_ID :
             ID_PREFIX +
                 selection.textLabel().toLowerCase() +
                 "-" +
@@ -1155,7 +1155,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     static Optional<SpreadsheetSelection> parseElementId(final String id) {
         SpreadsheetSelection selection = null;
 
-        if (SELECT_ALL_ID.equals(id)) {
+        if (SELECT_ALL_CELLS_ID.equals(id)) {
             selection = SpreadsheetSelection.ALL_CELLS;
         } else {
             if (null != id && id.startsWith(ID_PREFIX)) {
@@ -1195,7 +1195,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         return Optional.ofNullable(selection);
     }
 
-    final static String SELECT_ALL_ID = ID_PREFIX + "cell-*";
+    final static String SELECT_ALL_CELLS_ID = ID_PREFIX + "cell-*";
 
     // TreePrintable....................................................................................................
 
