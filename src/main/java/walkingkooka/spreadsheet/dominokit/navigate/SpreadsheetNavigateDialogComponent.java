@@ -181,6 +181,7 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
 
     @Override
     public void dialogReset() {
+        this.home.clearValue();
         this.undo.clear();
     }
 
