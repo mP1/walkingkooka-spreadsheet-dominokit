@@ -510,9 +510,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             case DELETE_STRING:
                 result = this.delete();
                 break;
-            case FIND_STRING:
-                result = this.parseFind(cursor);
-                break;
             case FORM_STRING:
                 result = this.parseForm(cursor);
                 break;
@@ -551,6 +548,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 break;
             case PASTE_STRING:
                 result = this.parsePaste(cursor);
+                break;
+            case QUERY_STRING:
+                result = this.parseQuery(cursor);
                 break;
             case REFERENCES_STRING:
                 result = this.parseReferences(cursor);
@@ -625,18 +625,6 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         return token;
     }
 
-    private HistoryToken parseFind(final TextCursor cursor) {
-        final TextCursorSavePoint save = cursor.save();
-        cursor.end();
-
-        final String queryText = save.textBetween()
-            .toString();
-
-        return this.setQuery(
-            SpreadsheetCellFindQuery.parse(queryText)
-        );
-    }
-
     private HistoryToken parseForm(final TextCursor cursor) {
         final String formName = parseComponentOrNull(cursor);
 
@@ -677,6 +665,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         return token;
+    }
+
+    private HistoryToken parseQuery(final TextCursor cursor) {
+        final TextCursorSavePoint save = cursor.save();
+        cursor.end();
+
+        final String queryText = save.textBetween()
+            .toString();
+
+        return this.setQuery(
+            SpreadsheetCellFindQuery.parse(queryText)
+        );
     }
 
     private HistoryToken parseValue(final TextCursor cursor) {
