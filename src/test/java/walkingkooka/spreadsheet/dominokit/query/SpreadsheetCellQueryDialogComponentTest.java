@@ -104,7 +104,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -237,7 +237,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -370,7 +370,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -501,7 +501,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -666,7 +666,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -828,7 +828,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -959,7 +959,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1090,7 +1090,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1221,7 +1221,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1352,7 +1352,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1483,7 +1483,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1614,7 +1614,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1745,7 +1745,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -1876,7 +1876,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2007,7 +2007,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2138,7 +2138,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2269,7 +2269,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2400,7 +2400,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2531,7 +2531,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2662,7 +2662,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2793,7 +2793,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             appContext,
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    Find\n" +
+                "    Query\n" +
                 "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
@@ -2996,7 +2996,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
 
         @Override
         public String dialogTitle() {
-            return "Find";
+            return "Query";
         }
 
         @Override

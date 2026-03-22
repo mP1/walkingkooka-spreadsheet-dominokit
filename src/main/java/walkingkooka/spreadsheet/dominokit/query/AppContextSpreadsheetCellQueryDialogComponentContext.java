@@ -63,7 +63,7 @@ final class AppContextSpreadsheetCellQueryDialogComponentContext implements Spre
 
     @Override
     public String dialogTitle() {
-        return this.selectionDialogTitle("Find");
+        return this.selectionDialogTitle("Query");
     }
 
     // SpreadsheetCellLabelsAnchorComponentContext......................................................................
