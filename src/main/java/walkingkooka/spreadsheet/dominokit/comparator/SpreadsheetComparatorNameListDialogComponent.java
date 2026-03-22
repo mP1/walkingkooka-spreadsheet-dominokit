@@ -119,8 +119,19 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
         return SpreadsheetComparatorNameListComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::refreshSaveLink
+                this::onComparatorNameListValue
             );
+    }
+
+    private void onComparatorNameListValue(final Optional<SpreadsheetComparatorNameList> list) {
+        final SpreadsheetComparatorNameListComponent comparatorNameList = this.comparatorNameList;
+        comparatorNameList.validate();
+
+        this.links.setValue(
+            comparatorNameList.hasErrors() ?
+                Optional.<SpreadsheetComparatorNameList>empty() :
+                list
+        );
     }
 
     /**
@@ -131,17 +142,6 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
     // dialog links.....................................................................................................
 
     private final DialogAnchorListComponent<SpreadsheetComparatorNameList> links;
-
-    void refreshSaveLink(final Optional<SpreadsheetComparatorNameList> list) {
-        final SpreadsheetComparatorNameListComponent comparatorNameList = this.comparatorNameList;
-        comparatorNameList.validate();
-
-        this.links.setValue(
-            comparatorNameList.hasErrors() ?
-                Optional.<SpreadsheetComparatorNameList>empty() :
-                list
-        );
-    }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
@@ -178,18 +178,15 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
      */
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<SpreadsheetComparatorNameList> undo = this.context.undo();
-        this.comparatorNameList.setValue(undo);
-        this.refreshSaveLink(undo);
+        final SpreadsheetComparatorNameListDialogComponentContext spreadsheetComparatorNameListDialogComponentContext = this.context;
 
-        this.refreshTitleAndLinks();
-    }
+        this.comparatorNameList.setValue(
+            spreadsheetComparatorNameListDialogComponentContext.undo()
+        );
 
-    private void refreshTitleAndLinks() {
-        final SpreadsheetComparatorNameListDialogComponentContext context = this.context;
-        context.refreshDialogTitle(this);
+        spreadsheetComparatorNameListDialogComponentContext.refreshDialogTitle(this);
 
-        this.links.refresh(context);
+        this.links.refresh(spreadsheetComparatorNameListDialogComponentContext);
     }
 
     @Override
