@@ -201,8 +201,10 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         return context.textBox()
             .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                (e) -> this.selectorOnValue(this.selector.stringValue()
-                    .orElse(""))
+                (e) -> this.selectorOnValue(
+                    this.selector.stringValue()
+                        .orElse("")
+                )
             );
     }
 
@@ -245,8 +247,10 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
         this.selector.setStringValue(
-            Optional.of(this.context.metadataAliasSetLike()
-                .text())
+            Optional.of(
+                this.context.metadataAliasSetLike()
+                    .text()
+            )
         );
     }
 
@@ -281,7 +285,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.refreshUndo(this.context.pluginAliasSetLike());
 
-        // load the latest ProviderAliasSetLike
         this.context.loadPluginInfoSetLike();
     }
 
@@ -312,8 +315,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     private void refreshLinks(final AS metadataAliases) {
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
 
-        final HistoryToken historyToken = context.historyToken();
-
         final AS providerAliases = context.pluginAliasSetLike();
 
         this.add.refresh(
@@ -334,7 +335,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.close.setHistoryToken(
             Optional.of(
-                historyToken.close()
+                context.historyToken()
+                    .close()
             )
         );
     }
