@@ -186,7 +186,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [matchXyz()] id=query-TextBox REQUIRED\n" +
+                "            Query [matchXyz()] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -319,7 +319,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [matchXyz()] id=query-TextBox REQUIRED\n" +
+                "            Query [matchXyz()] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -452,7 +452,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [] id=query-TextBox REQUIRED\n" +
+                "            Query [] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -583,7 +583,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [matchXyz()] id=query-TextBox REQUIRED\n" +
+                "            Query [matchXyz()] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -748,7 +748,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [matchXyz()] id=query-TextBox REQUIRED\n" +
+                "            Query [matchXyz()] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -910,7 +910,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*formula*\",cellFormula())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*formula*\",cellFormula())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1041,7 +1041,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [1+textMatch(\"*formula*\",cellFormula())] id=query-TextBox REQUIRED\n" +
+                "            Query [1+textMatch(\"*formula*\",cellFormula())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1172,7 +1172,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*formula*\",cellFormula()),textMatch(\"*formatter*\",cellFormatter()))] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1303,7 +1303,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*formula*\",cellFormula()),true())] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*formula*\",cellFormula()),true())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1434,7 +1434,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*AUD*\",cellCurrency()),1)] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*AUD*\",cellCurrency()),1)] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1565,7 +1565,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*Hello*\",cellDateTimeSymbols()),1)] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*Hello*\",cellDateTimeSymbols()),1)] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1696,7 +1696,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1827,7 +1827,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*Hello*\",cellDecimalNumberSymbols()),1)] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*Hello*\",cellDecimalNumberSymbols()),1)] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -1958,7 +1958,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*formatter*\",cellFormatter())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*formatter*\",cellFormatter())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2089,7 +2089,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(textMatch(\"*en-AU*\",cellLocale()),1)] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(textMatch(\"*en-AU*\",cellLocale()),1)] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2220,7 +2220,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*parser*\",cellParser())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*parser*\",cellParser())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2351,7 +2351,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*style*\",cellStyle())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*style*\",cellStyle())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2482,7 +2482,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [cellValue()<999] id=query-TextBox REQUIRED\n" +
+                "            Query [cellValue()<999] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2613,7 +2613,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*validator123*\",cellValidator())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*validator123*\",cellValidator())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2744,7 +2744,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*formatted-value*\",cellFormattedValue())] id=query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*formatted-value*\",cellFormattedValue())] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -2875,7 +2875,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(OR(OR(OR(OR(OR(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*validator*\",cellValidator())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=query-TextBox REQUIRED\n" +
+                "            Query [OR(OR(OR(OR(OR(OR(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*validator*\",cellValidator())),textMatch(\"*formattedValue*\",cellFormattedValue()))] id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
