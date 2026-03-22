@@ -316,6 +316,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
 
     @Override
     public final void printTree(final IndentingPrinter printer) {
+        printer.lineStart();
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
