@@ -94,37 +94,36 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.modifiedTimestamp());
         items.add(this.locale());
 
+        // text
+        items.add(this.textFormatter());
+        items.add(this.valueSeparator());
+
         // Number
+        items.add(this.currency());
+        items.add(this.decimalNumberDigitCount());
+        items.add(this.decimalNumberSymbols());
         items.add(this.expressionNumberKind());
         items.add(this.precision());
         items.add(this.roundingMode());
 
-        items.add(this.valueSeparator());
+        items.add(this.numberFormatter());
+        items.add(this.numberParser());
 
-        items.add(this.currency());
-
+        items.add(this.dateTimeSymbols());
         items.add(this.dateTimeOffset());
         items.add(this.defaultYear());
         items.add(this.twoDigitYear());
 
-        items.add(this.decimalNumberDigitCount());
-
-        items.add(this.dateTimeSymbols());
         items.add(this.dateFormatter());
         items.add(this.dateParser());
 
         items.add(this.dateTimeFormatter());
         items.add(this.dateTimeParser());
 
-        items.add(this.decimalNumberSymbols());
-        items.add(this.numberFormatter());
-        items.add(this.numberParser());
-
-        items.add(this.textFormatter());
-
         items.add(this.timeFormatter());
         items.add(this.timeParser());
 
+        // plugins
         items.add(this.plugins());
 
         items.add(this.comparators());
@@ -137,9 +136,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.parsers());
         items.add(this.validators());
 
-        items.add(this.queryConverter());
-        items.add(this.queryFunctions());
-
         items.add(this.formulaConverter());
         items.add(this.formulaFunctions());
 
@@ -147,6 +143,9 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.formattingFunctions());
 
         items.add(this.defaultFormHandler());
+
+        items.add(this.queryConverter());
+        items.add(this.queryFunctions());
 
         items.add(this.scriptingFunctions());
         items.add(this.scriptingConverter());
