@@ -45,8 +45,8 @@ import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymb
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFindDialogComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellFindDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellQueryDialogComponent;
+import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellQueryDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogComponent;
@@ -332,8 +332,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void find(final AppContext context) {
-        SpreadsheetCellFindDialogComponent.with(
-            SpreadsheetCellFindDialogComponentContexts.appContext(context)
+        SpreadsheetCellQueryDialogComponent.with(
+            SpreadsheetCellQueryDialogComponentContexts.appContext(context)
         );
     }
 
