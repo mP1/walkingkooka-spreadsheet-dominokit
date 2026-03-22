@@ -99,11 +99,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.remove = RemovePluginAliasSetLikeComponent.empty(ID + "-remove-");
 
-        this.textBox = context.textBox()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addValueWatcher2(
-                (e) -> this.onTextBox(this.text())
-            );
+        this.selector = this.selector(context);
 
         this.save = this.<AS>saveValueAnchor(context)
             .autoDisableWhenMissingValue();
@@ -144,7 +140,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
                 context.dialogTitle()
             ).appendChild(this.add.setFilterValueWatcher(this::addFilterOnValue))
             .appendChild(this.remove.setFilterValueWatcher(this::removeFilterOnValue))
-            .appendChild(this.textBox)
+            .appendChild(this.selector)
             .appendChild(
                 AnchorListComponent.empty()
                     .appendChild(this.save)
@@ -199,12 +195,21 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
         );
     }
 
-    // textBox..........................................................................................................
+    // selector.........................................................................................................
+
+    private ValueTextBoxComponentDelegator<?, AS> selector(final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
+        return context.textBox()
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addValueWatcher2(
+                (e) -> this.selectorOnValue(this.selector.stringValue()
+                    .orElse(""))
+            );
+    }
 
     /**
      * Handles updates to the {@link PluginAliasSetLike} component. If parsing fails all links are not refreshed.
      */
-    private void onTextBox(final String text) {
+    private void selectorOnValue(final String text) {
         try {
             this.refreshLinks(
                 this.context.parseAliasSetLike(text)
@@ -215,30 +220,14 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     /**
-     * Retrieves the current {@link PluginAliasSetLike} in text form.
-     */
-    private String text() {
-        return this.textBox.stringValue()
-            .orElse("");
-    }
-
-    // @VisibleForTesting
-    void setText(final String text) {
-        this.textBox.setStringValue(
-            Optional.of(text)
-        );
-        this.onTextBox(text);
-    }
-
-    /**
      * The {@link ValueTextBoxComponentDelegator} that holds the {@link PluginAliasSetLike} in text form.
      */
-    private final ValueTextBoxComponentDelegator<?, AS> textBox;
+    final ValueTextBoxComponentDelegator<?, AS> selector;
 
     // dialog links.....................................................................................................
 
     /**
-     * A SAVE link which will be updated each time the {@link #textBox} is also updated.
+     * A SAVE link which will be updated each time the {@link #selector} is also updated.
      */
     private final HistoryTokenSaveValueAnchorComponent<AS> save;
 
@@ -255,9 +244,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
     public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.setText(
-            this.context.metadataAliasSetLike()
-                .text()
+        this.selector.setStringValue(
+            Optional.of(this.context.metadataAliasSetLike()
+                .text())
         );
     }
 
@@ -287,7 +276,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     @Override
     public void openGiveFocus(final RefreshContext context) {
         context.giveFocus(
-            this.textBox::focus
+            this.selector::focus
         );
 
         this.refreshUndo(this.context.pluginAliasSetLike());
@@ -312,9 +301,11 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     }
 
     private void refreshLinks() {
-        final Optional<AS> metadataAliases = this.textBox.value();
         this.refreshLinks(
-            metadataAliases.orElse(this.context.emptyAliasSetLike())
+            this.selector.value()
+                .orElse(
+                    this.context.emptyAliasSetLike()
+                )
         );
     }
 
