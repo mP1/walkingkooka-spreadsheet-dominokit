@@ -302,18 +302,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
-    // setFind..........................................................................................................
-
-    final void setFindAndCheck(final HistoryToken token,
-                               final SpreadsheetCellFindQuery find,
-                               final HistoryToken expected) {
-        this.checkEquals(
-            expected,
-            token.setQuery(find),
-            () -> token + " setFind " + find
-        );
-    }
-
     // formName.........................................................................................................
 
     final void formNameAndCheck(final HistoryToken token,
@@ -330,6 +318,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.formName(),
             token.urlFragment()::toString
+        );
+    }
+
+    // setQuery.........................................................................................................
+
+    final void setQueryAndCheck(final HistoryToken token,
+                                final SpreadsheetCellFindQuery query,
+                                final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            token.setQuery(query),
+            () -> token + " setQuery " + query
         );
     }
 
