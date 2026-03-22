@@ -94,15 +94,6 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemLinkCellFind}
-     */
-    static ToolbarComponentItem<?> findCells(final ToolbarComponentContext context) {
-        return ToolbarComponentItemAnchorCellQuery.with(
-            context
-        );
-    }
-
-    /**
      * {@link ToolbarComponentItemAnchorFormatter}
      */
     static ToolbarComponentItem<?> formatter(final ToolbarComponentContext context) {
@@ -177,6 +168,15 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
      */
     static ToolbarComponentItem<?> plugin(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorPlugin.with(context);
+    }
+
+    /**
+     * {@see ToolbarComponentItemAnchorCellQuery}
+     */
+    static ToolbarComponentItem<?> queryCells(final ToolbarComponentContext context) {
+        return ToolbarComponentItemAnchorCellQuery.with(
+            context
+        );
     }
 
     /**

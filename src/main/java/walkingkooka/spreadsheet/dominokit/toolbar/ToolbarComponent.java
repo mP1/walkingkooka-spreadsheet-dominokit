@@ -137,7 +137,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.showGridLines(context),
             ToolbarComponentItem.autoHideScrollbars(context),
             // finding/sorting/highlighting
-            ToolbarComponentItem.findCells(context),
+            ToolbarComponentItem.queryCells(context),
             ToolbarComponentItem.highlightCells(context),
             // SORT
             ToolbarComponentItem.sort(context),
