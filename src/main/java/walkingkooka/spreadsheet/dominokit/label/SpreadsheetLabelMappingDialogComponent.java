@@ -22,6 +22,7 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
@@ -37,13 +38,14 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingCreateH
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingSelectHistoryToken;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -142,18 +144,26 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
             .setLabel("Label")
             .required()
             .addValueWatcher2(
-                (value) -> {
-                    // history change will trigger a load label if necessary
-                    this.loaded = null;
+                new ValueWatcher<>() {
+                    @Override
+                    public void onValue(final Optional<SpreadsheetLabelName> value) {
+                        // history change will trigger a load label if necessary
+                        SpreadsheetLabelMappingDialogComponent.this.loaded = null;
 
-                    final HistoryToken historyToken = context.historyToken();
-                    if (historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
-                        context.pushHistoryToken(
-                            historyToken.setLabelName(value)
-                        );
-                    } else {
-                        this.labelName.setValue(value);
-                        this.refreshLinks();
+                        final HistoryToken historyToken = context.historyToken();
+                        if (historyToken instanceof SpreadsheetLabelMappingHistoryToken) {
+                            context.pushHistoryToken(
+                                historyToken.setLabelName(value)
+                            );
+                        } else {
+                            SpreadsheetLabelMappingDialogComponent.this.labelName.setValue(value);
+                            SpreadsheetLabelMappingDialogComponent.this.refreshLinks();
+                        }
+                    }
+
+                    @Override
+                    public void onErrors(final Optional<List<String>> errors) {
+                        // TODO
                     }
                 }
             );

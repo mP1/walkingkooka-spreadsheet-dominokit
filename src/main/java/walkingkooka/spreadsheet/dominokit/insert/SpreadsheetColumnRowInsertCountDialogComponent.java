@@ -27,8 +27,10 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.value.SpreadsheetColumnOrRow;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -110,7 +112,17 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
             .setLabel("Count")
             .required()
             .addValueWatcher2(
-                (e) -> this.refreshInsert()
+                new ValueWatcher<Integer>() {
+                    @Override
+                    public void onValue(final Optional<Integer> value) {
+                        SpreadsheetColumnRowInsertCountDialogComponent.this.refreshInsert();
+                    }
+
+                    @Override
+                    public void onErrors(final Optional<List<String>> errors) {
+                        // NOP
+                    }
+                }
             );
     }
 

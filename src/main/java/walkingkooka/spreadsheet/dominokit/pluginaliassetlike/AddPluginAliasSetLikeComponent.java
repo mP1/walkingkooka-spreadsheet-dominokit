@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcherIgnoresErrors;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -71,6 +72,12 @@ public final class AddPluginAliasSetLikeComponent<N extends Name & Comparable<N>
         this.root = CardComponent.empty()
             .setTitle("Add")
             .appendChild(this.flex);
+    }
+
+    AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueWatcher(final ValueWatcherIgnoresErrors<String> watcher) {
+        return this.setFilterValueWatcher(
+            (ValueWatcher<String>) watcher
+        );
     }
 
     AddPluginAliasSetLikeComponent<N, I, IS, S, A, AS> setFilterValueWatcher(final ValueWatcher<String> watcher) {

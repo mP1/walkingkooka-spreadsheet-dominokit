@@ -19,10 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.text.CharSequences;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class ValueWatchersTest implements ClassTesting<ValueWatchers<String>> {
@@ -32,7 +34,7 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
     // add..............................................................................................................
 
     @Test
-    public void testAddAndFire() {
+    public void testAddAndFireOnValue() {
         final ValueWatchers<String> watchers = ValueWatchers.empty();
 
         final TestValueWatcher watcher = new TestValueWatcher();
@@ -49,7 +51,7 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
     }
 
     @Test
-    public void testAddAndFire2() {
+    public void testAddAndFireOnValue2() {
         final ValueWatchers<String> watchers = ValueWatchers.empty();
 
         final TestValueWatcher watcher = new TestValueWatcher();
@@ -72,6 +74,28 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         );
     }
 
+    @Test
+    public void testAddAndFireOnError() {
+        final ValueWatchers<String> watchers = ValueWatchers.empty();
+
+        final TestValueWatcher watcher = new TestValueWatcher();
+        watchers.add(watcher);
+
+        watchers.onErrors(
+            Optional.of(
+                Lists.of(
+                    "Error1",
+                    "Error2"
+                )
+            )
+        );
+
+        this.checkEquals(
+            "onErrors [\"Error1\", \"Error2\"]",
+            watcher.toString()
+        );
+    }
+
     private static final class TestValueWatcher implements ValueWatcher<String> {
 
         private final StringBuilder b = new StringBuilder();
@@ -79,6 +103,11 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         @Override
         public void onValue(final Optional<String> value) {
             this.b.append("onValue " + CharSequences.quoteIfChars(value));
+        }
+
+        @Override
+        public void onErrors(final Optional<List<String>> errors) {
+            this.b.append("onErrors " + CharSequences.quoteIfChars(errors));
         }
 
         @Override

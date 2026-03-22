@@ -17,12 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import java.util.List;
-import java.util.Optional;
+import walkingkooka.Cast;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
 
-public interface ValueWatcher<T> {
+public final class ValueWatcherErrorEventTest implements ClassTesting<ValueWatcherErrorEvent<Void>> {
 
-    void onValue(final Optional<T> value);
+    // class............................................................................................................
 
-    void onErrors(final Optional<List<String>> errors);
+    @Override
+    public Class<ValueWatcherErrorEvent<Void>> type() {
+        return Cast.to(ValueWatcherErrorEvent.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
+    }
 }

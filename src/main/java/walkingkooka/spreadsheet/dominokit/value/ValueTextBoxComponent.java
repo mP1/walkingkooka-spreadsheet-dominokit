@@ -295,7 +295,19 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         Objects.requireNonNull(watcher, "watcher");
 
         return this.textBox.addValueWatcher(
-            (text) -> watcher.onValue(this.value())
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<String> value) {
+                    watcher.onValue(
+                        ValueTextBoxComponent.this.value()
+                    );
+                }
+
+                @Override
+                public void onErrors(final Optional<List<String>> errors) {
+                    watcher.onErrors(errors);
+                }
+            }
         );
     }
 

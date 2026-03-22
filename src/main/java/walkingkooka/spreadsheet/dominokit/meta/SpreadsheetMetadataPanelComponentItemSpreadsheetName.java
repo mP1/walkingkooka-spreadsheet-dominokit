@@ -24,8 +24,12 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a {@link SpreadsheetNameComponent}.
@@ -52,10 +56,20 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
         this.spreadsheetNameComponent = SpreadsheetNameComponent.empty()
             .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                (v) -> this.save(
-                    v.map(SpreadsheetName::value)
-                        .orElse("")
-                )
+                new ValueWatcher<>() {
+                    @Override
+                    public void onValue(final Optional<SpreadsheetName> value) {
+                        SpreadsheetMetadataPanelComponentItemSpreadsheetName.this.save(
+                            value.map(SpreadsheetName::value)
+                                .orElse("")
+                        );
+                    }
+
+                    @Override
+                    public void onErrors(final Optional<List<String>> errors) {
+                        // NOP
+                    }
+                }
             );
         list.appendChild(
             this.li()
