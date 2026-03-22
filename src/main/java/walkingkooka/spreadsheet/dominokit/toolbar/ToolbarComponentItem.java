@@ -43,12 +43,15 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     CanBeEmpty {
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars}
      */
     static ToolbarComponentItem<?> autoHideScrollbars(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanAutoHideScrollbars.with(context);
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> bold(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.FONT_WEIGHT,
@@ -62,6 +65,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleClear}
+     */
     static ToolbarComponentItem<?> clearStyle(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleClear.with(
             context
@@ -69,14 +75,14 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@link ToolbarComponentItemAnchorLocale}
+     * {@link ToolbarComponentItemAnchorCurrency}
      */
     static ToolbarComponentItem<?> currency(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorCurrency.with(context);
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorDateTimeSymbols}
+     * {@link ToolbarComponentItemAnchorDateTimeSymbols}
      */
     static ToolbarComponentItem<?> dateTimeSymbols(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorDateTimeSymbols.with(
@@ -85,7 +91,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorDecimalNumberSymbols}
+     * {@link ToolbarComponentItemAnchorDecimalNumberSymbols}
      */
     static ToolbarComponentItem<?> decimalNumberSymbols(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorDecimalNumberSymbols.with(
@@ -101,7 +107,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanHideZeroValues}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanHideZeroValues}
      */
     static ToolbarComponentItem<?> hideZeroValues(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanHideZeroValues.with(
@@ -110,7 +116,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting}
      */
     static ToolbarComponentItem<?> highlightCells(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting.with(
@@ -118,6 +124,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> italics(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.FONT_STYLE,
@@ -132,7 +141,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemLinkLabelCreate}
+     * {@link ToolbarComponentItemAnchorLabelCreate}
      */
     static ToolbarComponentItem<?> labelCreate(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorLabelCreate.with(
@@ -141,7 +150,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see SpreadsheetToolbarComponentItemLinkLabelList}
+     * {@link ToolbarComponentItemAnchorLabelList}
      */
     static ToolbarComponentItem<?> labelList(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorLabelList.with(
@@ -171,7 +180,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorCellQuery}
+     * {@link ToolbarComponentItemAnchorCellQuery}
      */
     static ToolbarComponentItem<?> queryCells(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorCellQuery.with(
@@ -187,28 +196,28 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanShowFormulas}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanShowFormulaEditor}
      */
     static ToolbarComponentItem<?> showFormulaEditor(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanShowFormulaEditor.with(context);
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanShowFormulas}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanShowFormulas}
      */
     static ToolbarComponentItem<?> showFormulas(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanShowFormulas.with(context);
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanShowGridLines}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanShowGridLines}
      */
     static ToolbarComponentItem<?> showGridLines(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanShowGridLines.with(context);
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanShowHeadings}
+     * {@link ToolbarComponentItemAnchorMetadataBooleanShowHeadings}
      */
     static ToolbarComponentItem<?> showHeadings(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorMetadataBooleanShowHeadings.with(context);
@@ -221,6 +230,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         return ToolbarComponentItemAnchorSort.with(context);
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> strikeThru(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_DECORATION_LINE,
@@ -241,6 +253,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         return ToolbarComponentItemAnchorSwagger.with(context);
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textAlignLeft(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_ALIGN,
@@ -254,6 +269,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textAlignCenter(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_ALIGN,
@@ -267,6 +285,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textAlignRight(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_ALIGN,
@@ -280,6 +301,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textAlignJustify(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_ALIGN,
@@ -293,6 +317,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textCaseCapitalize(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_TRANSFORM,
@@ -306,6 +333,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textCaseLowercase(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_TRANSFORM,
@@ -319,6 +349,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> textCaseUppercase(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_TRANSFORM,
@@ -332,6 +365,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> underline(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.TEXT_DECORATION_LINE,
@@ -352,6 +388,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         return ToolbarComponentItemAnchorValidator.with(context);
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> verticalAlignTop(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.VERTICAL_ALIGN,
@@ -365,6 +404,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> verticalAlignMiddle(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.VERTICAL_ALIGN,
@@ -378,6 +420,9 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
         );
     }
 
+    /**
+     * {@link ToolbarComponentItemAnchorTextStyleProperty}
+     */
     static ToolbarComponentItem<?> verticalAlignBottom(final ToolbarComponentContext context) {
         return ToolbarComponentItemAnchorTextStyleProperty.with(
             TextStylePropertyName.VERTICAL_ALIGN,
