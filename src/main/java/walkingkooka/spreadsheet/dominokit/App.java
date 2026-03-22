@@ -667,7 +667,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetComparatorInfoSet(final SpreadsheetComparatorInfoSet infos) {
         this.spreadsheetComparatorInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private SpreadsheetComparatorInfoSet spreadsheetComparatorInfoSet;
@@ -696,7 +696,7 @@ public class App implements EntryPoint,
     @Override
     public void onConverterInfoSet(final ConverterInfoSet infos) {
         this.converterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private ConverterInfoSet converterInfoSet;
@@ -1017,7 +1017,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetExporterInfoSet(final SpreadsheetExporterInfoSet infos) {
         this.spreadsheetExporterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private SpreadsheetExporterInfoSet spreadsheetExporterInfoSet;
@@ -1046,7 +1046,7 @@ public class App implements EntryPoint,
     @Override
     public void onExpressionFunctionInfoSet(final ExpressionFunctionInfoSet infos) {
         this.expressionFunctionInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private ExpressionFunctionInfoSet expressionFunctionInfoSet;
@@ -1102,7 +1102,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetFormatterInfoSet(final SpreadsheetFormatterInfoSet infos) {
         this.spreadsheetFormatterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private SpreadsheetFormatterInfoSet spreadsheetFormatterInfoSet;
@@ -1172,7 +1172,7 @@ public class App implements EntryPoint,
     @Override
     public void onFormHandlerInfoSet(final FormHandlerInfoSet infos) {
         this.formHandlerInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private FormHandlerInfoSet formHandlerInfoSet;
@@ -1210,7 +1210,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetImporterInfoSet(final SpreadsheetImporterInfoSet infos) {
         this.spreadsheetImporterInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private SpreadsheetImporterInfoSet spreadsheetImporterInfoSet;
@@ -1332,7 +1332,7 @@ public class App implements EntryPoint,
             final SpreadsheetMetadata previousMetadata = this.spreadsheetMetadata;
             this.spreadsheetMetadata = metadata;
 
-            this.refreshSpreadsheetProvider();
+            this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
 
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
@@ -1477,7 +1477,7 @@ public class App implements EntryPoint,
     @Override
     public void onSpreadsheetParserInfoSet(final SpreadsheetParserInfoSet infos) {
         this.spreadsheetParserInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private SpreadsheetParserInfoSet spreadsheetParserInfoSet;
@@ -1551,7 +1551,7 @@ public class App implements EntryPoint,
     @Override
     public SpreadsheetProvider spreadsheetProvider() {
         if(null == this.spreadsheetProvider) {
-            this.refreshSpreadsheetProvider();
+            this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
         }
         return this.spreadsheetProvider;
     }
@@ -1559,14 +1559,14 @@ public class App implements EntryPoint,
     @Override
     public SpreadsheetProvider systemSpreadsheetProvider() {
         if(null == this.systemSpreadsheetProvider) {
-            this.refreshSpreadsheetProvider();
+            this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
         }
         return this.systemSpreadsheetProvider;
     }
 
     private SpreadsheetProvider systemSpreadsheetProvider;
 
-    private void refreshSpreadsheetProvider() {
+    private void refreshSpreadsheetProviderAndSystemSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             PluginStores.fake(),
             this, // CurrencyLocaleContext
@@ -1685,7 +1685,7 @@ public class App implements EntryPoint,
                 this.providerContext // ProviderContext
             );
         } catch (final RuntimeException cause) {
-            this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
+            this.warn("App.refreshSpreadsheetProviderAndSystemSpreadsheetProvider Failed to create SpreadsheetFormatterContext=" + cause.getMessage(), cause);
             this.formatterContext = FORMATTER_CONTEXT;
         }
 
@@ -1696,7 +1696,7 @@ public class App implements EntryPoint,
                 this // HasNow
             );
         } catch (final RuntimeException cause) {
-            this.warn("App.refreshSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause);
+            this.warn("App.refreshSpreadsheetProviderAndSystemSpreadsheetProvider Failed to create SpreadsheetParserContext=" + cause.getMessage(), cause);
             this.parserContext = SpreadsheetParserContexts.fake();
         }
     }
@@ -1736,7 +1736,7 @@ public class App implements EntryPoint,
     @Override
     public void onValidatorInfoSet(final ValidatorInfoSet infos) {
         this.validatorInfoSet = infos;
-        this.refreshSpreadsheetProvider();
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
     }
 
     private ValidatorInfoSet validatorInfoSet;
