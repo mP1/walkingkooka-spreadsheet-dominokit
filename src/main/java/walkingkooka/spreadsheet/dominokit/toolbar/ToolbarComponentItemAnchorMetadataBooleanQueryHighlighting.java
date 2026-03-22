@@ -34,7 +34,7 @@ final class ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting extends T
 
     private ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.FIND_HIGHLIGHT_ID,
+            ToolbarComponent.QUERY_HIGHLIGHT_ID,
             Optional.of(
                 SpreadsheetIcons.highlight()
             ),
