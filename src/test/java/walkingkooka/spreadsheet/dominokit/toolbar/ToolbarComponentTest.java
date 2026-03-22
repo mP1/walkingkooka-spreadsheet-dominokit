@@ -194,7 +194,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-flag-checkered \"Create Label\" [#/1/Spreadsheet123/create-label] id=toolbar-labelCreate-Link\n" +
@@ -318,7 +318,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/sort/edit] id=toolbar-sort-Link\n" +
@@ -379,7 +379,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/column/B:C/right/sort/edit] id=toolbar-sort-Link\n" +
@@ -440,7 +440,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
-                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
+                "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
                 "      mdi-sort \"Sort\" [#/1/Spreadsheet123/row/3:4/bottom/sort/edit] id=toolbar-sort-Link\n" +

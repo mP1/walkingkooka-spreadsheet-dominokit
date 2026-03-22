@@ -254,8 +254,6 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
 
     final static String FIND_CELLS_ID = TOOLBAR_ID_PREFIX + "findCells";
 
-    final static String FIND_HIGHLIGHT_ID = TOOLBAR_ID_PREFIX + "findHighlight";
-
     final static String FORMATTER_ID = TOOLBAR_ID_PREFIX + "formatter";
 
     final static String HIDE_ZERO_VALUES_ID = TOOLBAR_ID_PREFIX + "hideZeroValues";
@@ -269,6 +267,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     final static String PARSER_ID = TOOLBAR_ID_PREFIX + "parser";
 
     final static String PLUGIN_ID = TOOLBAR_ID_PREFIX + "plugin";
+
+    final static String QUERY_HIGHLIGHT_ID = TOOLBAR_ID_PREFIX + "highlight";
 
     final static String RELOAD_ID = TOOLBAR_ID_PREFIX + "reload";
 
