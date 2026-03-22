@@ -102,7 +102,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \"31/12/99, 12:58 pm\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] id=locale-LinkSpreadsheetMetadataPanelComponentItemEnum\n" +
+                "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] id=metadata-locale-LinkSpreadsheetMetadataPanelComponentItemEnum\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
                 "        LI\n" +
@@ -178,7 +178,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \",\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] id=currency-LinkSpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
+                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] id=metadata-currency-LinkSpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
                 "        LI\n" +
@@ -236,41 +236,41 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "              TooltipComponent\n" +
                 "                \"9\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=datetimesymbols-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateFormatter] id=dateformatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateParser\" [#/1/SpreadsheetName111/spreadsheet/dateParser] id=dateparser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateTimeFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateTimeFormatter] id=datetimeformatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateTimeParser\" [#/1/SpreadsheetName111/spreadsheet/dateTimeParser] id=datetimeparser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"decimalNumberSymbols\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberSymbols] id=decimalnumbersymbols-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"numberFormatter\" [#/1/SpreadsheetName111/spreadsheet/numberFormatter] id=numberformatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=numberparser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=textformatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"timeFormatter\" [#/1/SpreadsheetName111/spreadsheet/timeFormatter] id=timeformatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"timeParser\" [#/1/SpreadsheetName111/spreadsheet/timeParser] id=timeparser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"plugins\" [#/1/SpreadsheetName111/spreadsheet/plugins] id=plugins-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"comparators\" [#/1/SpreadsheetName111/spreadsheet/comparators] id=comparators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"converters\" [#/1/SpreadsheetName111/spreadsheet/converters] id=converters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"exporters\" [#/1/SpreadsheetName111/spreadsheet/exporters] id=exporters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"functions\" [#/1/SpreadsheetName111/spreadsheet/functions] id=functions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formatters\" [#/1/SpreadsheetName111/spreadsheet/formatters] id=formatters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formHandlers\" [#/1/SpreadsheetName111/spreadsheet/formHandlers] id=formhandlers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"importers\" [#/1/SpreadsheetName111/spreadsheet/importers] id=importers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"parsers\" [#/1/SpreadsheetName111/spreadsheet/parsers] id=parsers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"validators\" [#/1/SpreadsheetName111/spreadsheet/validators] id=validators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=queryconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=queryfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formulaConverter\" [#/1/SpreadsheetName111/spreadsheet/formulaConverter] id=formulaconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formulaFunctions\" [#/1/SpreadsheetName111/spreadsheet/formulaFunctions] id=formulafunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formattingConverter\" [#/1/SpreadsheetName111/spreadsheet/formattingConverter] id=formattingconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"formattingFunctions\" [#/1/SpreadsheetName111/spreadsheet/formattingFunctions] id=formattingfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"defaultFormHandler\" [#/1/SpreadsheetName111/spreadsheet/defaultFormHandler] id=defaultformhandler-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"scriptingFunctions\" [#/1/SpreadsheetName111/spreadsheet/scriptingFunctions] id=scriptingfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"scriptingConverter\" [#/1/SpreadsheetName111/spreadsheet/scriptingConverter] id=scriptingconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"sortComparators\" [#/1/SpreadsheetName111/spreadsheet/sortComparators] id=sortcomparators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"sortConverter\" [#/1/SpreadsheetName111/spreadsheet/sortConverter] id=sortconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"validationConverter\" [#/1/SpreadsheetName111/spreadsheet/validationConverter] id=validationconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"validationFunctions\" [#/1/SpreadsheetName111/spreadsheet/validationFunctions] id=validationfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"validationValidators\" [#/1/SpreadsheetName111/spreadsheet/validationValidators] id=validationvalidators-Link"
+                "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=metadata-dateTimeSymbols-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"dateFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateFormatter] id=metadata-dateFormatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"dateParser\" [#/1/SpreadsheetName111/spreadsheet/dateParser] id=metadata-dateParser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"dateTimeFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateTimeFormatter] id=metadata-dateTimeFormatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"dateTimeParser\" [#/1/SpreadsheetName111/spreadsheet/dateTimeParser] id=metadata-dateTimeParser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"decimalNumberSymbols\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberSymbols] id=metadata-decimalNumberSymbols-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"numberFormatter\" [#/1/SpreadsheetName111/spreadsheet/numberFormatter] id=metadata-numberFormatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=metadata-numberParser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"timeFormatter\" [#/1/SpreadsheetName111/spreadsheet/timeFormatter] id=metadata-timeFormatter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"timeParser\" [#/1/SpreadsheetName111/spreadsheet/timeParser] id=metadata-timeParser-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"plugins\" [#/1/SpreadsheetName111/spreadsheet/plugins] id=metadata-plugins-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"comparators\" [#/1/SpreadsheetName111/spreadsheet/comparators] id=metadata-comparators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"converters\" [#/1/SpreadsheetName111/spreadsheet/converters] id=metadata-converters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"exporters\" [#/1/SpreadsheetName111/spreadsheet/exporters] id=metadata-exporters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"functions\" [#/1/SpreadsheetName111/spreadsheet/functions] id=metadata-functions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formatters\" [#/1/SpreadsheetName111/spreadsheet/formatters] id=metadata-formatters-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formHandlers\" [#/1/SpreadsheetName111/spreadsheet/formHandlers] id=metadata-formHandlers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"importers\" [#/1/SpreadsheetName111/spreadsheet/importers] id=metadata-importers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"parsers\" [#/1/SpreadsheetName111/spreadsheet/parsers] id=metadata-parsers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"validators\" [#/1/SpreadsheetName111/spreadsheet/validators] id=metadata-validators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=metadata-queryConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=metadata-queryFunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formulaConverter\" [#/1/SpreadsheetName111/spreadsheet/formulaConverter] id=metadata-formulaConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formulaFunctions\" [#/1/SpreadsheetName111/spreadsheet/formulaFunctions] id=metadata-formulaFunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formattingConverter\" [#/1/SpreadsheetName111/spreadsheet/formattingConverter] id=metadata-formattingConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"formattingFunctions\" [#/1/SpreadsheetName111/spreadsheet/formattingFunctions] id=metadata-formattingFunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"defaultFormHandler\" [#/1/SpreadsheetName111/spreadsheet/defaultFormHandler] id=metadata-defaultFormHandler-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"scriptingFunctions\" [#/1/SpreadsheetName111/spreadsheet/scriptingFunctions] id=metadata-scriptingFunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"scriptingConverter\" [#/1/SpreadsheetName111/spreadsheet/scriptingConverter] id=metadata-scriptingConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"sortComparators\" [#/1/SpreadsheetName111/spreadsheet/sortComparators] id=metadata-sortComparators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"sortConverter\" [#/1/SpreadsheetName111/spreadsheet/sortConverter] id=metadata-sortConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"validationConverter\" [#/1/SpreadsheetName111/spreadsheet/validationConverter] id=metadata-validationConverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"validationFunctions\" [#/1/SpreadsheetName111/spreadsheet/validationFunctions] id=metadata-validationFunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"validationValidators\" [#/1/SpreadsheetName111/spreadsheet/validationValidators] id=metadata-validationValidators-Link"
         );
     }
 
