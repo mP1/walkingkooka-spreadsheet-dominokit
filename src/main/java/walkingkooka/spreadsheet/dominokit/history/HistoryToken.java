@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogC
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -861,7 +861,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static SpreadsheetCellQueryHistoryToken cellQuery(final SpreadsheetId id,
                                                              final SpreadsheetName name,
                                                              final AnchoredSpreadsheetSelection anchoredSelection,
-                                                             final SpreadsheetCellFindQuery query) {
+                                                             final SpreadsheetCellQueryRequest query) {
         return SpreadsheetCellQueryHistoryToken.with(
             id,
             name,
@@ -4107,7 +4107,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Creates a {@link SpreadsheetCellQueryHistoryToken} with the given parameters.
      */
-    public final HistoryToken setQuery(final SpreadsheetCellFindQuery query) {
+    public final HistoryToken setQuery(final SpreadsheetCellQueryRequest query) {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {
@@ -4449,7 +4449,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,
-                                        SpreadsheetCellFindQuery.parse(value)
+                                        SpreadsheetCellQueryRequest.parse(value)
                                     );
                                 }
 

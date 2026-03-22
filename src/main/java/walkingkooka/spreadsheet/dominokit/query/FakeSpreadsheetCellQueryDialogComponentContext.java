@@ -25,7 +25,7 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -68,7 +68,7 @@ public class FakeSpreadsheetCellQueryDialogComponentContext extends FakeDialogCo
     @Override
     public void findCells(final SpreadsheetId id,
                           final SpreadsheetCellRangeReference cells,
-                          final SpreadsheetCellFindQuery find) {
+                          final SpreadsheetCellQueryRequest find) {
         throw new UnsupportedOperationException();
     }
 

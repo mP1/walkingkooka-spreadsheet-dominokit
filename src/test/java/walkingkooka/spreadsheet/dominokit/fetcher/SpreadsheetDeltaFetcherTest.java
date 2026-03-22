@@ -27,8 +27,8 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
@@ -919,7 +919,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
             () -> SpreadsheetDeltaFetcher.findCellsUrl(
                 null,
                 CELLS,
-                SpreadsheetCellFindQuery.empty()
+                SpreadsheetCellQueryRequest.empty()
             )
         );
     }
@@ -931,7 +931,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
             () -> SpreadsheetDeltaFetcher.findCellsUrl(
                 ID,
                 null,
-                SpreadsheetCellFindQuery.empty()
+                SpreadsheetCellQueryRequest.empty()
             )
         );
     }
@@ -953,7 +953,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setPath(PATH),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR")
         );
@@ -964,7 +964,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setOffset(OFFSET),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?offset=12")
         );
@@ -975,7 +975,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setCount(COUNT),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?count=34")
         );
@@ -986,7 +986,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setValueType(
                     Optional.of(
                         SpreadsheetValueType.NUMBER)
@@ -1000,7 +1000,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setQuery(QUERY),
             Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789()")
         );
@@ -1011,7 +1011,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
         this.getFindCellsUrlAndCheck(
             ID,
             CELLS,
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
                 .setPath(PATH)
                 .setOffset(OFFSET)
                 .setCount(COUNT)
@@ -1023,7 +1023,7 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
     private void getFindCellsUrlAndCheck(final SpreadsheetId id,
                                          final SpreadsheetCellRangeReference cells,
-                                         final SpreadsheetCellFindQuery find,
+                                         final SpreadsheetCellQueryRequest find,
                                          final RelativeUrl expected) {
         this.checkEquals(
             expected,

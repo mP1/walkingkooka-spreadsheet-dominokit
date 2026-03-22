@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
@@ -119,7 +119,7 @@ final class AppContextSpreadsheetCellQueryDialogComponentContext implements Spre
     @Override
     public void findCells(final SpreadsheetId id,
                           final SpreadsheetCellRangeReference cells,
-                          final SpreadsheetCellFindQuery find) {
+                          final SpreadsheetCellQueryRequest find) {
         this.context.spreadsheetDeltaFetcher()
             .getFindCells(
                 id,

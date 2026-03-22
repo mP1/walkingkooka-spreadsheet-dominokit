@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportFormulaComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.engine.SpreadsheetEngineEvaluation;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -348,7 +348,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
 
     public void getFindCells(final SpreadsheetId id,
                              final SpreadsheetCellRangeReference cells,
-                             final SpreadsheetCellFindQuery find) {
+                             final SpreadsheetCellQueryRequest find) {
         this.get(
             findCellsUrl(
                 id,
@@ -361,7 +361,7 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
     // @VisibleForTesting
     static RelativeUrl findCellsUrl(final SpreadsheetId id,
                                     final SpreadsheetCellRangeReference cells,
-                                    final SpreadsheetCellFindQuery find) {
+                                    final SpreadsheetCellQueryRequest find) {
         return SpreadsheetMetadataFetcher.url(id)
             .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
             .appendPathName(

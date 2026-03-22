@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponentContext;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
@@ -56,7 +56,7 @@ public interface SpreadsheetCellQueryDialogComponentContext extends HistoryConte
      */
     void findCells(final SpreadsheetId id,
                    final SpreadsheetCellRangeReference cells,
-                   final SpreadsheetCellFindQuery find);
+                   final SpreadsheetCellQueryRequest find);
 
     @Override
     default SpreadsheetCellQueryDialogComponentContext cloneEnvironment() {

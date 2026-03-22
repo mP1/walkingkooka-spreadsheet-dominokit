@@ -21,7 +21,7 @@ import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_orange;
@@ -43,7 +43,7 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
     public final static CssClass BADGE_NON_ZERO_COLOR = dui_bg_orange;
 
     /**
-     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellFindQuery} query.
+     * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellQueryRequest} query.
      */
     public final static Color HIGHLIGHT_COLOR = WebColorName.YELLOW.color();
 
