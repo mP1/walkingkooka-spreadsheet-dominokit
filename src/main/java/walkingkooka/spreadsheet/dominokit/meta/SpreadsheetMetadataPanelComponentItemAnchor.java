@@ -23,7 +23,6 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.text.CaseKind;
 
 import java.util.Optional;
 
@@ -50,10 +49,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
         final HistoryToken historyToken = context.historyToken();
 
         this.anchor = historyToken.link(
-            CaseKind.KEBAB.change(
-                propertyName.value(),
-                CaseKind.CAMEL
-            )
+            SpreadsheetMetadataPanelComponent.id(propertyName)
         ).setTextContent(
             propertyName.text()
         ).setHistoryToken(
