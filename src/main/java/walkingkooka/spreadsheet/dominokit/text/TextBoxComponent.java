@@ -33,6 +33,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
+import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -253,9 +254,15 @@ public final class TextBoxComponent extends TextBoxComponentLike
         textBox.getValidators().clear();
 
         if (validator.isPresent()) {
+            final Validator<Optional<String>> validatorNotNull = validator.get();
+
             textBox.addValidator(
                 TextBoxComponentValidator.with(
-                    validator.get()
+                    this.required ?
+                        validatorNotNull :
+                        SpreadsheetValidators.optional(
+                            validatorNotNull
+                        )
                 )
             );
 
