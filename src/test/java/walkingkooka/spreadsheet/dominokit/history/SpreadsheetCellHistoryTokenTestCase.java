@@ -134,22 +134,6 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         );
     }
 
-    // setFind..........................................................................................................
-
-    @Test
-    public final void testSetFind() {
-        this.setFindAndCheck(
-            this.createHistoryToken(),
-            SpreadsheetCellFindQuery.empty(), // query
-            HistoryToken.cellQuery(
-                ID,
-                NAME,
-                CELL.setDefaultAnchor(),
-                SpreadsheetCellFindQuery.empty()
-            )
-        );
-    }
-
     // formatter........................................................................................................
 
     @Test
@@ -177,6 +161,22 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 SELECTION
             ),
             token.formula()
+        );
+    }
+
+    // setQuery.........................................................................................................
+
+    @Test
+    public final void testSetQuery() {
+        this.setQueryAndCheck(
+            this.createHistoryToken(),
+            SpreadsheetCellFindQuery.empty(), // query
+            HistoryToken.cellQuery(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                SpreadsheetCellFindQuery.empty()
+            )
         );
     }
 
