@@ -504,8 +504,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
      * If a {@link SpreadsheetMetadataPropertyName#QUERY} is present, enable the anchor with the query, otherwise
      * disable it.
      */
-    private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,
-                                              final RefreshContext context) {
+    private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.QUERY)
             .orElse(null);
@@ -636,7 +635,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
 
         this.refreshFind(historyToken);
         this.refreshReset(historyToken);
-        this.refreshLoadHighlightingQuery(historyToken, context);
+        this.refreshLoadHighlightingQuery(historyToken);
         this.refreshSaveAsHighlightingQuery(historyToken);
         this.refreshClose(historyToken);
 
