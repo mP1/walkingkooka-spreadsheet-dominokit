@@ -119,10 +119,10 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@see ToolbarComponentItemAnchorMetadataBooleanFindHighlighting}
+     * {@see ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting}
      */
     static ToolbarComponentItem<?> highlightCells(final ToolbarComponentContext context) {
-        return ToolbarComponentItemAnchorMetadataBooleanFindHighlighting.with(
+        return ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting.with(
             context
         );
     }

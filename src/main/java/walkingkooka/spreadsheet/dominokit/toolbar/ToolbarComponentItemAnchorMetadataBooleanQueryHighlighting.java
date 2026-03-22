@@ -26,13 +26,13 @@ import java.util.Optional;
 /**
  * When clicked, updates the {@link SpreadsheetMetadataPropertyName#QUERY_HIGHLIGHTING} with the opposite of its current value.
  */
-final class ToolbarComponentItemAnchorMetadataBooleanFindHighlighting extends ToolbarComponentItemAnchorMetadataBoolean<ToolbarComponentItemAnchorMetadataBooleanFindHighlighting> {
+final class ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting extends ToolbarComponentItemAnchorMetadataBoolean<ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting> {
 
-    static ToolbarComponentItemAnchorMetadataBooleanFindHighlighting with(final ToolbarComponentContext context) {
-        return new ToolbarComponentItemAnchorMetadataBooleanFindHighlighting(context);
+    static ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting with(final ToolbarComponentContext context) {
+        return new ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting(context);
     }
 
-    private ToolbarComponentItemAnchorMetadataBooleanFindHighlighting(final ToolbarComponentContext context) {
+    private ToolbarComponentItemAnchorMetadataBooleanQueryHighlighting(final ToolbarComponentContext context) {
         super(
             ToolbarComponent.FIND_HIGHLIGHT_ID,
             Optional.of(
