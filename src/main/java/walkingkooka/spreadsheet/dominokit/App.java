@@ -324,7 +324,8 @@ public class App implements EntryPoint,
         );
 
         // metadata
-        this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+        this.clearSpreadsheetMetadata();
+
         this.metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
         this.spreadsheetMetadataFetcher = SpreadsheetMetadataFetcher.with(
             this.metadataFetcherWatchers,
@@ -609,7 +610,12 @@ public class App implements EntryPoint,
 
     @Override
     public void clearSpreadsheetMetadata() {
-        this.spreadsheetMetadata = SpreadsheetMetadata.EMPTY;
+        this.spreadsheetMetadata = SpreadsheetMetadata.NON_LOCALE_DEFAULTS.set(
+            SpreadsheetMetadataPropertyName.LOCALE,
+            LOCALE
+        ).loadFromLocale(
+            CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT)
+        );
     }
 
     // CanGiveFocus.....................................................................................................
