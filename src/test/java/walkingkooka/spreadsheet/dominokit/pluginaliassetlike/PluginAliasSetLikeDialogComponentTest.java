@@ -42,6 +42,7 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public final class PluginAliasSetLikeDialogComponentTest implements DialogComponentLifecycleTesting<PluginAliasSetLikeDialogComponent<ExpressionFunctionName,
@@ -71,7 +72,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             )
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSelectorSetStringValueAndCheck(
             PluginAliasSetLikeDialogComponent.with(
                 this.dialogContext(context)
             ),
@@ -117,7 +118,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             )
         );
 
-        this.onHistoryTokenChangeAndSetTextAndCheck(
+        this.onHistoryTokenChangeAndSelectorSetStringValueAndCheck(
             PluginAliasSetLikeDialogComponent.with(
                 this.dialogContext(context)
             ),
@@ -161,10 +162,10 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
         );
     }
 
-    private void onHistoryTokenChangeAndSetTextAndCheck(final PluginAliasSetLikeDialogComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> dialog,
-                                                        final String text,
-                                                        final AppContext context,
-                                                        final String expected) {
+    private void onHistoryTokenChangeAndSelectorSetStringValueAndCheck(final PluginAliasSetLikeDialogComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> dialog,
+                                                                       final String text,
+                                                                       final AppContext context,
+                                                                       final String expected) {
         this.checkEquals(
             false,
             dialog.isMatch(NOT_MATCHED),
@@ -176,7 +177,9 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             context
         );
 
-        dialog.setText(text);
+        dialog.selector.setStringValue(
+            Optional.of(text)
+        );
 
         this.treePrintAndCheck(
             dialog,
