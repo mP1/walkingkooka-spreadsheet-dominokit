@@ -211,7 +211,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 SpreadsheetFormulaComponentFunctions.expressionParser(
                     this::spreadsheetParserContext
                 )
-            ).setId("query" + SpreadsheetElementIds.TEXT_BOX)
+            ).setId(ID_PREFIX + "query" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Query")
             .addValueWatcher2(
                 (v) -> this.setAndRefresh(
