@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ValueWatcherIgnoresErrors<T> extends ValueWatcher<T> {
 
     @Override
-    default void onErrors(final Optional<List<String>> errors) {
+    default void onErrors(final List<String> errors) {
         // NOP
     }
 }

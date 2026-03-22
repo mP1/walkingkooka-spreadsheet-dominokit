@@ -64,7 +64,7 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
     }
 
     @Override
-    public void onErrors(final Optional<List<String>> errors) {
+    public void onErrors(final List<String> errors) {
         this.fire(
             ValueWatcherErrorEvent.with(errors)
         );

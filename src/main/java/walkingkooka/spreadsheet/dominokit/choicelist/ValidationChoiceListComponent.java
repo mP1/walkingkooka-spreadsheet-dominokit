@@ -258,7 +258,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                 }
 
                 @Override
-                public void onErrors(final Optional<List<String>> errors) {
+                public void onErrors(final List<String> errors) {
                     watcher.onErrors(errors);
                 }
             }

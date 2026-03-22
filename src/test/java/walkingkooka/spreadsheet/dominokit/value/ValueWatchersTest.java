@@ -82,11 +82,9 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         watchers.add(watcher);
 
         watchers.onErrors(
-            Optional.of(
-                Lists.of(
-                    "Error1",
-                    "Error2"
-                )
+            Lists.of(
+                "Error1",
+                "Error2"
             )
         );
 
@@ -106,7 +104,7 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         }
 
         @Override
-        public void onErrors(final Optional<List<String>> errors) {
+        public void onErrors(final List<String> errors) {
             this.b.append("onErrors " + CharSequences.quoteIfChars(errors));
         }
 

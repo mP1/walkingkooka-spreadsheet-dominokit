@@ -24,5 +24,5 @@ public interface ValueWatcher<T> {
 
     void onValue(final Optional<T> value);
 
-    void onErrors(final Optional<List<String>> errors);
+    void onErrors(final List<String> errors);
 }
