@@ -51,9 +51,9 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     }
 
     @Override //
-    final HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
-                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
+    final HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+                                                                            final SpreadsheetName name,
+                                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.replace(
             id,
             name,
