@@ -110,12 +110,12 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close();
     }
 
-    public static MdiIcon cellsFind() {
-        return Icons.magnify();
-    }
-
     public static MdiIcon cellsLock() {
         return Icons.clock_plus_outline();
+    }
+
+    public static MdiIcon cellsQuery() {
+        return Icons.magnify();
     }
 
     public static MdiIcon cellsUnlock() {
