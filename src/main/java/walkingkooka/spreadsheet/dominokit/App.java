@@ -317,18 +317,6 @@ public class App implements EntryPoint,
         this.canGiveFocus = CanGiveFocuses.scheduler(this.loggingContext);
         AppUncaughtExceptionHandler.with(this.loggingContext);
 
-        this.spreadsheetProvider = SpreadsheetProviders.basic(
-            ConverterProviders.empty(),
-            ExpressionFunctionProviders.empty(SpreadsheetExpressionFunctions.NAME_CASE_SENSITIVITY),
-            SpreadsheetComparatorProviders.empty(),
-            SpreadsheetExporterProviders.empty(),
-            SpreadsheetFormatterProviders.empty(),
-            FormHandlerProviders.empty(),
-            SpreadsheetImporterProviders.empty(),
-            SpreadsheetParserProviders.empty(),
-            ValidatorProviders.empty()
-        );
-
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.DEFAULT,
             CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT),
@@ -1562,6 +1550,9 @@ public class App implements EntryPoint,
 
     @Override
     public SpreadsheetProvider spreadsheetProvider() {
+        if(null == this.spreadsheetProvider) {
+            this.refreshSpreadsheetProvider();
+        }
         return this.spreadsheetProvider;
     }
 
