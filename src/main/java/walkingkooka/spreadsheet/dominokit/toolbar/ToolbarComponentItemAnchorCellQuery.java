@@ -30,22 +30,22 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-final class ToolbarComponentItemAnchorCellFind extends ToolbarComponentItemAnchor<ToolbarComponentItemAnchorCellFind>
+final class ToolbarComponentItemAnchorCellQuery extends ToolbarComponentItemAnchor<ToolbarComponentItemAnchorCellQuery>
     implements NopComponentLifecycleOpenGiveFocus,
     NopComponentLifecycleRefresh {
 
-    static ToolbarComponentItemAnchorCellFind with(final ToolbarComponentContext context) {
-        return new ToolbarComponentItemAnchorCellFind(context);
+    static ToolbarComponentItemAnchorCellQuery with(final ToolbarComponentContext context) {
+        return new ToolbarComponentItemAnchorCellQuery(context);
     }
 
-    private ToolbarComponentItemAnchorCellFind(final ToolbarComponentContext context) {
+    private ToolbarComponentItemAnchorCellQuery(final ToolbarComponentContext context) {
         super(
-            ToolbarComponent.FIND_CELLS_ID,
+            ToolbarComponent.QUERY_CELLS_ID,
             Optional.of(
                 SpreadsheetIcons.cellsFind()
             ),
-            "Find",
-            "Find cells...",
+            "Query",
+            "Run query, finding cells etc...",
             context
         );
     }
