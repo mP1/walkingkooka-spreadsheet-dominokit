@@ -97,7 +97,7 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
      * {@see SpreadsheetToolbarComponentItemLinkCellFind}
      */
     static ToolbarComponentItem<?> findCells(final ToolbarComponentContext context) {
-        return ToolbarComponentItemAnchorCellFind.with(
+        return ToolbarComponentItemAnchorCellQuery.with(
             context
         );
     }

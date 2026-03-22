@@ -191,9 +191,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Query\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-queryCells-Link\n" +
                 "        TooltipComponent\n" +
-                "          \"Find cells...\"\n" +
+                "          \"Run query, finding cells etc...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
@@ -315,9 +315,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/query] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Query\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/query] id=toolbar-queryCells-Link\n" +
                 "        TooltipComponent\n" +
-                "          \"Find cells...\"\n" +
+                "          \"Run query, finding cells etc...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
@@ -376,9 +376,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Query\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-queryCells-Link\n" +
                 "        TooltipComponent\n" +
-                "          \"Find cells...\"\n" +
+                "          \"Run query, finding cells etc...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
@@ -437,9 +437,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Query\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-queryCells-Link\n" +
                 "        TooltipComponent\n" +
-                "          \"Find cells...\"\n" +
+                "          \"Run query, finding cells etc...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-highlight-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Enable cell highlighting\"\n" +
