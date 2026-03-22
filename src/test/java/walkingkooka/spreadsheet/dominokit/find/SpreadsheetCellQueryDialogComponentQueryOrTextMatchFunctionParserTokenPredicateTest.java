@@ -28,9 +28,9 @@ import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
-public final class SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate, ParserToken>,
-    ToStringTesting<SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
-    ClassTesting<SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
+public final class SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate, ParserToken>,
+    ToStringTesting<SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
+    ClassTesting<SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
     SpreadsheetMetadataTesting {
 
     @Test
@@ -99,8 +99,8 @@ public final class SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionPar
 
 
     @Override
-    public SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate createPredicate() {
-        return SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+    public SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate createPredicate() {
+        return SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
             0,
             SpreadsheetExpressionFunctions.CELL_FORMULA
         );
@@ -111,7 +111,7 @@ public final class SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionPar
     @Test
     public void testToStringWithParameterIndex0() {
         this.toStringAndCheck(
-            SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+            SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
                 0,
                 SpreadsheetExpressionFunctions.CELL_FORMULA
             ),
@@ -122,7 +122,7 @@ public final class SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionPar
     @Test
     public void testToStringWithParameterIndex1() {
         this.toStringAndCheck(
-            SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
+            SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.with(
                 1,
                 SpreadsheetExpressionFunctions.CELL_FORMATTER
             ),
@@ -133,8 +133,8 @@ public final class SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionPar
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate> type() {
-        return SpreadsheetCellFindDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.class;
+    public Class<SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate> type() {
+        return SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate.class;
     }
 
     @Override

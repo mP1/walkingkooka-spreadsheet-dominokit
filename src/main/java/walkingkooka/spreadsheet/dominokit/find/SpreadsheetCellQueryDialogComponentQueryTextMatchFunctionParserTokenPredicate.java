@@ -29,13 +29,13 @@ import java.util.function.Predicate;
 /**
  * A {@link Predicate} that matches a textMatch function call that also contains a cellXXX getter function.
  */
-final class SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate implements Predicate<ParserToken> {
+final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate implements Predicate<ParserToken> {
 
-    static SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate with(final ExpressionFunctionName getter) {
-        return new SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate(getter);
+    static SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate with(final ExpressionFunctionName getter) {
+        return new SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate(getter);
     }
 
-    private SpreadsheetCellFindDialogComponentQueryTextMatchFunctionParserTokenPredicate(final ExpressionFunctionName getter) {
+    private SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate(final ExpressionFunctionName getter) {
         this.getter = getter;
     }
 
