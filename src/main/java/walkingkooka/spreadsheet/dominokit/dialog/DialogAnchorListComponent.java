@@ -337,7 +337,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     }
 
     @Override
-    public void onErrors(final Optional<List<String>> errors) {
+    public void onErrors(final List<String> errors) {
         this.disableSave();
     }
 

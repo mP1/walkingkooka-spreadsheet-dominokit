@@ -238,7 +238,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
                 }
 
                 @Override
-                public void onErrors(final Optional<List<String>> errors) {
+                public void onErrors(final List<String> errors) {
                     // NOP
                 }
             }

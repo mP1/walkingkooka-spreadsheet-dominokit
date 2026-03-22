@@ -119,7 +119,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
                     }
 
                     @Override
-                    public void onErrors(final Optional<List<String>> errors) {
+                    public void onErrors(final List<String> errors) {
                         // NOP
                     }
                 }

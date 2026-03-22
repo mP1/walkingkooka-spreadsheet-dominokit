@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * An event that captures a new or different errors probably belonging to a {@link ValueComponent} that also implements
@@ -27,13 +26,13 @@ import java.util.Optional;
  */
 final class ValueWatcherErrorEvent<T> extends ValueWatcherEvent<T> {
 
-    static <T> ValueWatcherErrorEvent<T> with(final Optional<List<String>> errors) {
+    static <T> ValueWatcherErrorEvent<T> with(final List<String> errors) {
         return new ValueWatcherErrorEvent<>(
             Objects.requireNonNull(errors, "errors")
         );
     }
 
-    private ValueWatcherErrorEvent(final Optional<List<String>> errors) {
+    private ValueWatcherErrorEvent(final List<String> errors) {
         this.errors = errors;
     }
 
@@ -48,7 +47,7 @@ final class ValueWatcherErrorEvent<T> extends ValueWatcherEvent<T> {
         );
     }
 
-    private final Optional<List<String>> errors;
+    private final List<String> errors;
 
     // Object...........................................................................................................
 

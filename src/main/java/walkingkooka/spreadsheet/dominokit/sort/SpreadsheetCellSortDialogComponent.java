@@ -361,7 +361,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
                     }
 
                     @Override
-                    public void onErrors(final Optional<List<String>> errors) {
+                    public void onErrors(final List<String> errors) {
                         // NOP
                     }
                 }

@@ -162,7 +162,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
                     }
 
                     @Override
-                    public void onErrors(final Optional<List<String>> errors) {
+                    public void onErrors(final List<String> errors) {
                         // TODO
                     }
                 }
