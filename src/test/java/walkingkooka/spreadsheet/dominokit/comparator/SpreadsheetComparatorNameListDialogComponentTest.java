@@ -69,7 +69,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "      SpreadsheetComparatorNameListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [day-of-month] id=SpreadsheetComparatorNameList-TextBox REQUIRED\n" +
+                "            [day-of-month] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
