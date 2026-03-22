@@ -28,7 +28,7 @@ import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfo;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionSelector;
 
-public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctionsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions,
+public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctionsTest implements PluginAliasSetLikeDialogComponentContextTesting<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions,
     ExpressionFunctionName,
     ExpressionFunctionInfo,
     ExpressionFunctionInfoSet,
@@ -36,8 +36,8 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
     ExpressionFunctionAlias,
     ExpressionFunctionAliasSet> {
     @Override
-    public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions createContext() {
-        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.with(AppContexts.fake());
+    public AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions createContext() {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions.with(AppContexts.fake());
     }
 
     // isMatch..........................................................................................................
@@ -57,13 +57,13 @@ public final class AppContextPluginAliasSetLikeDialogComponentContextExpressionF
 
     @Override
     public SpreadsheetMetadataPropertyName<ExpressionFunctionAliasSet> metadataPropertyName() {
-        return SpreadsheetMetadataPropertyName.FIND_FUNCTIONS;
+        return SpreadsheetMetadataPropertyName.QUERY_FUNCTIONS;
     }
 
     // Class............................................................................................................
 
     @Override
-    public Class<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions> type() {
-        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.class;
+    public Class<AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions> type() {
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions.class;
     }
 }

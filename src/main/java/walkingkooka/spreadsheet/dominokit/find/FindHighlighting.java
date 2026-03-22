@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Objects;
 
 /**
- * Utility methods concerned with building UI elements for {@link SpreadsheetMetadataPropertyName#FIND_HIGHLIGHTING}.
+ * Utility methods concerned with building UI elements for {@link SpreadsheetMetadataPropertyName#QUERY_HIGHLIGHTING}.
  */
 public final class FindHighlighting implements PublicStaticHelper {
 
@@ -32,7 +32,7 @@ public final class FindHighlighting implements PublicStaticHelper {
         Objects.requireNonNull(context, "context");
 
         return context.spreadsheetMetadata()
-            .get(SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING)
+            .get(SpreadsheetMetadataPropertyName.QUERY_HIGHLIGHTING)
             .orElse(false);
     }
 

@@ -322,15 +322,6 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER,
             SpreadsheetImporterAliasSet.parse("clipboard-importer1")
         ).set(
-            SpreadsheetMetadataPropertyName.FIND_FUNCTIONS,
-            SpreadsheetExpressionFunctions.parseAliasSet("find-function1")
-        ).set(
-            SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING,
-            true
-        ).set(
-            SpreadsheetMetadataPropertyName.QUERY,
-            SpreadsheetCellQuery.parse("findQuery2()")
-        ).set(
             SpreadsheetMetadataPropertyName.FORM_HANDLERS,
             FormHandlerAliasSet.parse("form-handler3")
         ).set(
@@ -351,6 +342,15 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         ).set(
             SpreadsheetMetadataPropertyName.PLUGINS,
             PluginNameSet.parse("plugins5")
+        ).set(
+            SpreadsheetMetadataPropertyName.QUERY_FUNCTIONS,
+            SpreadsheetExpressionFunctions.parseAliasSet("query-function1")
+        ).set(
+            SpreadsheetMetadataPropertyName.QUERY_HIGHLIGHTING,
+            true
+        ).set(
+            SpreadsheetMetadataPropertyName.QUERY,
+            SpreadsheetCellQuery.parse("queryQuery2()")
         ).set(
             SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
             SpreadsheetSelection.A1

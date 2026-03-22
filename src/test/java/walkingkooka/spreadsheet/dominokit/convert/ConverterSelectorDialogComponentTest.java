@@ -39,7 +39,7 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
     @Test
     public void testOnHistoryTokenChange() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/findConverter"
+            "/1/Spreadsheet123/spreadsheet/queryConverter"
         );
 
         final ConverterSelectorDialogComponent dialog = ConverterSelectorDialogComponent.with(
@@ -67,9 +67,9 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/undo-converter] id=ConverterSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/] id=ConverterSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/findConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
                 "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
         );
     }
@@ -144,7 +144,7 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
     public ConverterSelectorDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
         return ConverterSelectorDialogComponent.with(
             ConverterSelectorDialogComponentContexts.appContext(
-                SpreadsheetMetadataPropertyName.FIND_CONVERTER,
+                SpreadsheetMetadataPropertyName.QUERY_CONVERTER,
                 this.appContext(historyToken.toString())
             )
         );

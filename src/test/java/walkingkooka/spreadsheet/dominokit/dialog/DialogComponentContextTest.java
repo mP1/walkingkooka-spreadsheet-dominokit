@@ -318,10 +318,10 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
     }
 
     @Test
-    public void testSpreadsheetMetadataPropertyNameDialogTitleWithFindConverter() {
+    public void testSpreadsheetMetadataPropertyNameDialogTitleWithQueryConverter() {
         this.spreadsheetMetadataPropertyNameDialogTitleAndCheck(
-            SpreadsheetMetadataPropertyName.FIND_CONVERTER,
-            "Spreadsheet: Find Converter (findConverter)"
+            SpreadsheetMetadataPropertyName.QUERY_CONVERTER,
+            "Spreadsheet: Query Converter (queryConverter)"
         );
     }
 

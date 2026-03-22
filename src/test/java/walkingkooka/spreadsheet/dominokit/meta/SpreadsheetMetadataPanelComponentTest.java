@@ -257,8 +257,8 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "    \"importers\" [#/1/SpreadsheetName111/spreadsheet/importers] id=importers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"parsers\" [#/1/SpreadsheetName111/spreadsheet/parsers] id=parsers-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"validators\" [#/1/SpreadsheetName111/spreadsheet/validators] id=validators-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"findConverter\" [#/1/SpreadsheetName111/spreadsheet/findConverter] id=findconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"findFunctions\" [#/1/SpreadsheetName111/spreadsheet/findFunctions] id=findfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=queryconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=queryfunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"formulaConverter\" [#/1/SpreadsheetName111/spreadsheet/formulaConverter] id=formulaconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"formulaFunctions\" [#/1/SpreadsheetName111/spreadsheet/formulaFunctions] id=formulafunctions-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"formattingConverter\" [#/1/SpreadsheetName111/spreadsheet/formattingConverter] id=formattingconverter-LinkSpreadsheetMetadataPanelComponentItemAnchor\n" +
