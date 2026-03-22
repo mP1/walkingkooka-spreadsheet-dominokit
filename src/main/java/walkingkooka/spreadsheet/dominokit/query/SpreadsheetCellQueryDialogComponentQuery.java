@@ -37,9 +37,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Helper that provides methods to update the FORM query from other wizard fields,
- * AND (TODO)
- * Update wizard fields from the query
+ * Helper that provides methods to update the FORM query from other wizard fields
  */
 final class SpreadsheetCellQueryDialogComponentQuery implements PublicStaticHelper {
 
