@@ -82,9 +82,9 @@ public final class SpreadsheetRowSortEditHistoryToken extends SpreadsheetRowSort
     }
 
     @Override
-    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+                                                                      final SpreadsheetName name,
+                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowSortEditHistoryToken(
             id,
             name,

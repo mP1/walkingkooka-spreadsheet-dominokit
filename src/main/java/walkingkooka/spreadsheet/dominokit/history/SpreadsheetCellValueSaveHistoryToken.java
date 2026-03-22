@@ -84,9 +84,9 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     }
 
     @Override
-    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+                                                                      final SpreadsheetName name,
+                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueSaveHistoryToken(
             id,
             name,

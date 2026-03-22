@@ -49,16 +49,16 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     @Override //
     final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
                                                               final SpreadsheetName name) {
-        return this.replaceIdNameAnchoredSelection(
+        return this.replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(
             id,
             name,
             this.anchoredSelection
         );
     }
 
-    abstract HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
-                                                         final AnchoredSpreadsheetSelection anchoredSelection);
+    abstract HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+                                                                               final SpreadsheetName name,
+                                                                               final AnchoredSpreadsheetSelection anchoredSelection);
 
     // parse............................................................................................................
 

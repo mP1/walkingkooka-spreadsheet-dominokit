@@ -68,9 +68,9 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     }
 
     @Override
-    HistoryToken replaceIdNameAnchoredSelection(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection anchoredSelection) {
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+                                                                      final SpreadsheetName name,
+                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsSaveHistoryToken(
             id,
             name,
