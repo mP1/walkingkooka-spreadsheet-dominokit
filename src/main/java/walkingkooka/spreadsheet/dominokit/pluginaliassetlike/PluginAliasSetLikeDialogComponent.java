@@ -27,15 +27,13 @@ import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -101,10 +99,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
         this.selector = this.selector(context);
 
-        this.save = this.<AS>saveValueAnchor(context)
-            .autoDisableWhenMissingValue();
-        this.undo = this.undoAnchor(context);
-        this.close = this.closeAnchor();
+        this.links = this.links();
 
         this.dialog = this.dialogCreate();
     }
@@ -141,12 +136,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             ).appendChild(this.add.setFilterValueWatcher(this::addFilterOnValue))
             .appendChild(this.remove.setFilterValueWatcher(this::removeFilterOnValue))
             .appendChild(this.selector)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .appendChild(this.save)
-                    .appendChild(this.undo)
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     @Override
@@ -228,20 +218,17 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     // dialog links.....................................................................................................
 
-    /**
-     * A SAVE link which will be updated each time the {@link #selector} is also updated.
-     */
-    private final HistoryTokenSaveValueAnchorComponent<AS> save;
+    private DialogAnchorListComponent<AS> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                this.context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .clearLink()
+            .close();
+    }
 
-    /**
-     * A UNDO link which saves the original {@link PluginAliasSetLike} value when the dialog appeared
-     */
-    private final HistoryTokenSaveValueAnchorComponent<AS> undo;
-
-    /**
-     * A CLOSE link which will close the dialog.
-     */
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<AS> links;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
     @Override
@@ -283,15 +270,9 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             this.selector::focus
         );
 
-        this.refreshUndo(this.context.pluginAliasSetLike());
+        this.links.refresh(context);
 
         this.context.loadPluginInfoSetLike();
-    }
-
-    private void refreshUndo(final AS aliases) {
-        this.undo.setValue(
-            Optional.of(aliases)
-        );
     }
 
     /**
@@ -314,7 +295,6 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     private void refreshLinks(final AS metadataAliases) {
         final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context = this.context;
-
         final AS providerAliases = context.pluginAliasSetLike();
 
         this.add.refresh(
@@ -329,15 +309,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             context
         );
 
-        this.save.setValue(
+        this.links.setValue(
             Optional.of(metadataAliases)
-        );
-
-        this.close.setHistoryToken(
-            Optional.of(
-                context.historyToken()
-                    .close()
-            )
         );
     }
 

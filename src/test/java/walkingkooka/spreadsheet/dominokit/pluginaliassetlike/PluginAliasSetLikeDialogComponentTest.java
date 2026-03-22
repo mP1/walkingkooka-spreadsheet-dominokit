@@ -97,12 +97,14 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [] id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
@@ -153,12 +155,14 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            [name1] id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-save-Link\n" +
-                "            \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
-                "            \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
