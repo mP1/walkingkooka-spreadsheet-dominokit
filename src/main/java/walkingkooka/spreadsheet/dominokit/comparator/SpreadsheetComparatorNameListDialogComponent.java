@@ -117,7 +117,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
      */
     private SpreadsheetComparatorNameListComponent comparatorNameList() {
         return SpreadsheetComparatorNameListComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID + "-namesList" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
                 this::onComparatorNameListValue
             );
