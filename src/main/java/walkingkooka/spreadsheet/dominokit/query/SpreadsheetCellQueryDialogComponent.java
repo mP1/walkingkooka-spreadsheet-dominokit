@@ -665,7 +665,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return SPREADSHEET_CELL_FIND_DIALOG_COMPONENT;
+        return SPREADSHEET_CELL_QUERY_DIALOG_COMPONENT;
     }
 
     // UI...............................................................................................................
