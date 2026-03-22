@@ -35,8 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -66,7 +66,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),
-            SpreadsheetCellFindQuery.empty()
+            SpreadsheetCellQueryRequest.empty()
         );
 
         this.isMatchAndCheck(
@@ -3057,7 +3057,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
         @Override
         public void findCells(final SpreadsheetId id,
                               final SpreadsheetCellRangeReference cells,
-                              final SpreadsheetCellFindQuery find) {
+                              final SpreadsheetCellQueryRequest find) {
             // nop
         }
     }

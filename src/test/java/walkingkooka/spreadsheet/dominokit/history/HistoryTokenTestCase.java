@@ -31,7 +31,7 @@ import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.MethodAttributes;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -324,7 +324,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // setQuery.........................................................................................................
 
     final void setQueryAndCheck(final HistoryToken token,
-                                final SpreadsheetCellFindQuery query,
+                                final SpreadsheetCellQueryRequest query,
                                 final HistoryToken expected) {
         this.checkEquals(
             expected,

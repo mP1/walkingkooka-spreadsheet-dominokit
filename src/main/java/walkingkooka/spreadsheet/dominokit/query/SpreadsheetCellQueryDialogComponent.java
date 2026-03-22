@@ -35,8 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryTok
 import walkingkooka.spreadsheet.dominokit.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponent;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -263,7 +263,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 .orElse(null);
         }
 
-        final SpreadsheetCellFindQuery cellFindQuery = SpreadsheetCellFindQuery.empty()
+        final SpreadsheetCellQueryRequest cellFindQuery = SpreadsheetCellQueryRequest.empty()
             .setPath(this.path.value())
             .setValueType(this.valueType.value())
             .setQuery(
@@ -609,7 +609,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
             )
         );
 
-        final SpreadsheetCellFindQuery findQuery = historyToken.query();
+        final SpreadsheetCellQueryRequest findQuery = historyToken.query();
 
         this.path.setValue(
             findQuery.path()
@@ -643,9 +643,9 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellQueryHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getFindCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFindQuery)}.
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getFindCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellQueryRequest)}.
      */
-    private void findCells(final SpreadsheetCellFindQuery query) {
+    private void findCells(final SpreadsheetCellQueryRequest query) {
         final SpreadsheetCellQueryDialogComponentContext context = this.context;
 
         final SpreadsheetCellQueryHistoryToken historyToken = context.historyToken()

@@ -23,7 +23,7 @@ import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -675,7 +675,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             .toString();
 
         return this.setQuery(
-            SpreadsheetCellFindQuery.parse(queryText)
+            SpreadsheetCellQueryRequest.parse(queryText)
         );
     }
 

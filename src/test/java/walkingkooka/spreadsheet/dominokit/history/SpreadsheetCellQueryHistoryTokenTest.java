@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
+import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellQueryHistoryToken> {
-    private final static SpreadsheetCellFindQuery FIND = SpreadsheetCellFindQuery.empty()
+    private final static SpreadsheetCellQueryRequest FIND = SpreadsheetCellQueryRequest.empty()
         .setPath(
             Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
         ).setOffset(OptionalInt.of(123))
@@ -76,7 +76,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
             SpreadsheetCellRangeReferencePath.BULR
         );
 
-        final SpreadsheetCellFindQuery find = SpreadsheetCellFindQuery.empty()
+        final SpreadsheetCellQueryRequest find = SpreadsheetCellQueryRequest.empty()
             .setPath(path);
 
         this.checkEquals(
@@ -97,18 +97,18 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
     public void testSetSaveValueWithFormula() {
         final SpreadsheetCellQueryHistoryToken token = this.createHistoryToken()
             .setQuery(
-                SpreadsheetCellFindQuery.parse("/path/LRTD/offset/123/count/456/value-type/*/query/old()")
+                SpreadsheetCellQueryRequest.parse("/path/LRTD/offset/123/count/456/value-type/*/query/old()")
             ).cast(SpreadsheetCellQueryHistoryToken.class);
 
         final String text = "/query/textMatch(\"*1*\",cellFormula())";
 
         this.setSaveStringValueAndCheck(
             token.setQuery(
-                SpreadsheetCellFindQuery.empty()
+                SpreadsheetCellQueryRequest.empty()
             ),
             text,
             token.setQuery(
-                SpreadsheetCellFindQuery.parse(text)
+                SpreadsheetCellQueryRequest.parse(text)
             )
         );
     }
@@ -163,7 +163,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
                 ID,
                 NAME,
                 anchoredSpreadsheetSelection,
-                SpreadsheetCellFindQuery.empty()
+                SpreadsheetCellQueryRequest.empty()
             ),
             UrlFragment.with(expected),
             anchoredSpreadsheetSelection::toString
@@ -418,7 +418,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
                 ID,
                 NAME,
                 SELECTION,
-                SpreadsheetCellFindQuery.empty()
+                SpreadsheetCellQueryRequest.empty()
                     .setPath(path)
                     .setOffset(offset)
                     .setCount(count)
