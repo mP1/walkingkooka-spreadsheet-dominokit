@@ -45,7 +45,6 @@ import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
 
@@ -671,7 +670,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     // UI...............................................................................................................
 
-    private final static String ID = SpreadsheetCell.class.getSimpleName() + "Find";
+    private final static String ID = SpreadsheetCellQuery.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
 

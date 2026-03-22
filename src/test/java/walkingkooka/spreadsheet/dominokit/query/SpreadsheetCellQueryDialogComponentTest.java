@@ -105,15 +105,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -124,7 +124,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -139,50 +139,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -190,16 +190,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -209,8 +209,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -238,15 +238,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -257,7 +257,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -272,50 +272,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -323,16 +323,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -342,8 +342,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -371,15 +371,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -390,7 +390,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -405,50 +405,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -456,16 +456,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/query/query/highlightQuery()] id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" DISABLED id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/query/query/highlightQuery()] id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" DISABLED id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -475,8 +475,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -502,15 +502,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -521,7 +521,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -536,50 +536,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -587,16 +587,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -606,8 +606,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -667,15 +667,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -686,7 +686,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -701,50 +701,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -752,16 +752,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -770,8 +770,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-cells-A1-Link\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellFind-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-cells-A1-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellQuery-cells-A1-formula-Link\n" +
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
@@ -779,14 +779,14 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=SpreadsheetCellFind-cells-A1-value-Link\n" +
-                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=SpreadsheetCellFind-cells-A1-createLabel-Link\n" +
-                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=SpreadsheetCellFind-cells-A1-label-Link\n" +
-                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=SpreadsheetCellFind-cells-A1-references-Link\n" +
-                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=SpreadsheetCellFind-cells-A1-delete-Link\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=SpreadsheetCellQuery-cells-A1-value-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=SpreadsheetCellQuery-cells-A1-createLabel-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (3) id=SpreadsheetCellQuery-cells-A1-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (1) id=SpreadsheetCellQuery-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=SpreadsheetCellQuery-cells-A1-delete-Link\n" +
                 "                ROW 1\n" +
-                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=SpreadsheetCellFind-cells-B2-Link\n" +
-                "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=SpreadsheetCellFind-cells-B2-formula-Link\n" +
+                "                  \"B2\" [#/123/SpreadsheetName456/cell/B2] id=SpreadsheetCellQuery-cells-B2-Link\n" +
+                "                  \"=2\" [#/123/SpreadsheetName456/cell/B2/formula] id=SpreadsheetCellQuery-cells-B2-formula-Link\n" +
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
@@ -794,16 +794,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Value\" DISABLED id=SpreadsheetCellFind-cells-B2-value-Link\n" +
-                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=SpreadsheetCellFind-cells-B2-createLabel-Link\n" +
-                "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=SpreadsheetCellFind-cells-B2-label-Link\n" +
-                "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=SpreadsheetCellFind-cells-B2-references-Link\n" +
-                "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=SpreadsheetCellFind-cells-B2-delete-Link\n" +
+                "                          \"Value\" DISABLED id=SpreadsheetCellQuery-cells-B2-value-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/B2/label] id=SpreadsheetCellQuery-cells-B2-createLabel-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/B2/labels] (0) id=SpreadsheetCellQuery-cells-B2-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/B2/references] (0) id=SpreadsheetCellQuery-cells-B2-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/B2/delete] id=SpreadsheetCellQuery-cells-B2-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" [#/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -829,15 +829,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -848,7 +848,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -863,50 +863,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -914,16 +914,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -933,8 +933,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -960,15 +960,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -979,7 +979,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -994,50 +994,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1045,16 +1045,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1064,8 +1064,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1091,15 +1091,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1110,7 +1110,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1125,50 +1125,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [*formatter*] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [*formatter*] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1176,16 +1176,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1195,8 +1195,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1222,15 +1222,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1241,7 +1241,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1256,50 +1256,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1307,16 +1307,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1326,8 +1326,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1353,15 +1353,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1372,7 +1372,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1387,50 +1387,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [*AUD*] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [*AUD*] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1438,16 +1438,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1457,8 +1457,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1484,15 +1484,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1503,7 +1503,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1518,50 +1518,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [*Hello*] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [*Hello*] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1569,16 +1569,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1588,8 +1588,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1615,15 +1615,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1634,7 +1634,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1649,50 +1649,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [<10] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [<10] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1700,16 +1700,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1719,8 +1719,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1746,15 +1746,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1765,7 +1765,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1780,50 +1780,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [*Hello*] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [*Hello*] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1831,16 +1831,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1850,8 +1850,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -1877,15 +1877,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -1896,7 +1896,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -1911,50 +1911,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [*formatter*] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [*formatter*] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1962,16 +1962,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -1981,8 +1981,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2008,15 +2008,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2027,7 +2027,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2042,50 +2042,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [*en-AU*] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [*en-AU*] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2093,16 +2093,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2112,8 +2112,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2139,15 +2139,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2158,7 +2158,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2173,50 +2173,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [*parser*] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [*parser*] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2224,16 +2224,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2243,8 +2243,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2270,15 +2270,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2289,7 +2289,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2304,50 +2304,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [*style*] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [*style*] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2355,16 +2355,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2374,8 +2374,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2401,15 +2401,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2420,7 +2420,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2435,50 +2435,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [<999] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [<999] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2486,16 +2486,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/cellValue()%3C999] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/cellValue()%3C999] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/cellValue()%3C999] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/cellValue()%3C999] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/cellValue()%3C999] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/cellValue()%3C999] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2505,8 +2505,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2532,15 +2532,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2551,7 +2551,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2566,50 +2566,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [*validator123*] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [*validator123*] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2617,16 +2617,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2636,8 +2636,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2663,15 +2663,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2682,7 +2682,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2697,50 +2697,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [*formatted-value*] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [*formatted-value*] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2748,16 +2748,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2767,8 +2767,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
@@ -2794,15 +2794,15 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             "SpreadsheetCellQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
-                "    id=SpreadsheetCellFind-Dialog includeClose=true\n" +
+                "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
                 "      RowComponent\n" +
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellFind-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellFind-cell-range-path-\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
                 "              LRTD\n" +
                 "              RLTD\n" +
                 "              LRBU\n" +
@@ -2813,7 +2813,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              BURL\n" +
                 "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellFind-value-type-\n" +
+                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
                 "              *\n" +
                 "              boolean\n" +
                 "              date\n" +
@@ -2828,50 +2828,50 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formula [*formula*] id=SpreadsheetCellFind-formula-TextBox\n" +
+                "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Currency [] id=SpreadsheetCellFind-currency-TextBox\n" +
+                "              Currency [] id=SpreadsheetCellQuery-currency-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellFind-datetimesymbols-TextBox\n" +
+                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellFind-decimalnumbersymbols-TextBox\n" +
+                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatter [*formatted*] id=SpreadsheetCellFind-formatter-TextBox\n" +
+                "              Formatter [*formatted*] id=SpreadsheetCellQuery-formatter-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Locale [*locale*] id=SpreadsheetCellFind-locale-TextBox\n" +
+                "              Locale [*locale*] id=SpreadsheetCellQuery-locale-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Parser [*parser*] id=SpreadsheetCellFind-parser-TextBox\n" +
+                "              Parser [*parser*] id=SpreadsheetCellQuery-parser-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Style [*style*] id=SpreadsheetCellFind-style-TextBox\n" +
+                "              Style [*style*] id=SpreadsheetCellQuery-style-TextBox\n" +
                 "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [<10] id=SpreadsheetCellFind-value-TextBox\n" +
+                "              Value [<10] id=SpreadsheetCellQuery-value-TextBox\n" +
                 "      RowComponent\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Validator [*validator*] id=SpreadsheetCellFind-validator-TextBox\n" +
+                "              Validator [*validator*] id=SpreadsheetCellQuery-validator-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Formatted [*formattedValue*] id=SpreadsheetCellFind-formatted-TextBox\n" +
+                "              Formatted [*formattedValue*] id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2879,16 +2879,16 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-run-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-reset-Link\n" +
-                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
+                "            \"Run\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-run-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            DataTableComponent\n" +
-                "              id=SpreadsheetCellFind-cells-Table\n" +
+                "              id=SpreadsheetCellQuery-cells-Table\n" +
                 "              COLUMN(S)\n" +
                 "                Cell\n" +
                 "                Formula\n" +
@@ -2898,8 +2898,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
-                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellFind-previous-Link\n" +
-                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellFind-next-Link\n" +
+                "                    mdi-arrow-left \"previous\" DISABLED id=SpreadsheetCellQuery-previous-Link\n" +
+                "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellQuery-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n"
         );
