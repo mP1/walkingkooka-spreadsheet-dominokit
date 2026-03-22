@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;

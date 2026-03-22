@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;

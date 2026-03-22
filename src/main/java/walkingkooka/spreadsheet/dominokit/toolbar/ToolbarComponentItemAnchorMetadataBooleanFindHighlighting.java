@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.find.QueryHighlighting;
+import walkingkooka.spreadsheet.dominokit.query.QueryHighlighting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;

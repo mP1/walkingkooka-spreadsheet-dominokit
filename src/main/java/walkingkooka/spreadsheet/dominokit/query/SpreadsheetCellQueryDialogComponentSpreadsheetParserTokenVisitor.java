@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;

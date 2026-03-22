@@ -15,27 +15,26 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class QueryHighlightingTest implements PublicStaticHelperTesting<QueryHighlighting> {
+public final class SpreadsheetCellRangeReferencePathComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellRangeReferencePathComponentContexts> {
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 
     @Override
-    public Class<QueryHighlighting> type() {
-        return QueryHighlighting.class;
+    public Class<SpreadsheetCellRangeReferencePathComponentContexts> type() {
+        return SpreadsheetCellRangeReferencePathComponentContexts.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
         return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
     }
 }

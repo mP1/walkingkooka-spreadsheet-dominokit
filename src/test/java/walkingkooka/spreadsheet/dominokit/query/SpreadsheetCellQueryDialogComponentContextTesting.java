@@ -15,9 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public class FakeSpreadsheetCellRangeReferencePathComponentContext extends FakeHistoryContext implements SpreadsheetCellRangeReferencePathComponentContext {
+public interface SpreadsheetCellQueryDialogComponentContextTesting<C extends SpreadsheetCellQueryDialogComponentContext> extends DialogComponentContextTesting<C>,
+    SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
+    SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
 }
