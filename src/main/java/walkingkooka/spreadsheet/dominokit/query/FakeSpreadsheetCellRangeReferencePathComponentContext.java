@@ -15,9 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public interface SpreadsheetCellRangeReferencePathComponentContext extends HistoryContext {
+public class FakeSpreadsheetCellRangeReferencePathComponentContext extends FakeHistoryContext implements SpreadsheetCellRangeReferencePathComponentContext {
 }

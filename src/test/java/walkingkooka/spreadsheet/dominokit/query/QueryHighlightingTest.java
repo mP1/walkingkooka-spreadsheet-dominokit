@@ -15,13 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
-import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public interface SpreadsheetCellQueryDialogComponentContextTesting<C extends SpreadsheetCellQueryDialogComponentContext> extends DialogComponentContextTesting<C>,
-    SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
-    SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
+import java.lang.reflect.Method;
+
+public final class QueryHighlightingTest implements PublicStaticHelperTesting<QueryHighlighting> {
+
+    @Override
+    public Class<QueryHighlighting> type() {
+        return QueryHighlighting.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 }

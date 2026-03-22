@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.find;
+package walkingkooka.spreadsheet.dominokit.query;
 
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;

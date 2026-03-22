@@ -45,8 +45,6 @@ import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymb
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellQueryDialogComponent;
-import walkingkooka.spreadsheet.dominokit.find.SpreadsheetCellQueryDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerSelectorDialogComponent;
@@ -77,6 +75,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.PluginUploadDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponent;
+import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
