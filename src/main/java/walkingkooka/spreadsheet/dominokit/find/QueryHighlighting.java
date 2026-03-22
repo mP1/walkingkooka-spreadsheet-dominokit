@@ -26,7 +26,7 @@ import java.util.Objects;
 /**
  * Utility methods concerned with building UI elements for {@link SpreadsheetMetadataPropertyName#QUERY_HIGHLIGHTING}.
  */
-public final class FindHighlighting implements PublicStaticHelper {
+public final class QueryHighlighting implements PublicStaticHelper {
 
     public static boolean isEnabled(final HasSpreadsheetMetadata context) {
         Objects.requireNonNull(context, "context");
@@ -48,7 +48,7 @@ public final class FindHighlighting implements PublicStaticHelper {
     /**
      * Stop creation
      */
-    private FindHighlighting() {
+    private QueryHighlighting() {
         throw new UnsupportedOperationException();
     }
 }
