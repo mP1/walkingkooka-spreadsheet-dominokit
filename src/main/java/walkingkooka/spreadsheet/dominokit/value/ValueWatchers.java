@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.watch.Watchers;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -59,6 +60,13 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
     public void onValue(final Optional<T> value) {
         this.fire(
             ValueWatcherValueEvent.with(value)
+        );
+    }
+
+    @Override
+    public void onErrors(final Optional<List<String>> errors) {
+        this.fire(
+            ValueWatcherErrorEvent.with(errors)
         );
     }
 

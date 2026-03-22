@@ -20,9 +20,10 @@ package walkingkooka.spreadsheet.dominokit.value;
 import java.util.List;
 import java.util.Optional;
 
-public interface ValueWatcher<T> {
+public interface ValueWatcherIgnoresErrors<T> extends ValueWatcher<T> {
 
-    void onValue(final Optional<T> value);
-
-    void onErrors(final Optional<List<String>> errors);
+    @Override
+    default void onErrors(final Optional<List<String>> errors) {
+        // NOP
+    }
 }

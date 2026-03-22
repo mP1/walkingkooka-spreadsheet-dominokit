@@ -249,9 +249,19 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
         Objects.requireNonNull(watcher, "watcher");
 
         return this.select.addValueWatcher(
-            (final Optional<ValidationChoice> value) -> watcher.onValue(
-                value.map(ValidationChoice::value)
-            )
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<ValidationChoice> value) {
+                    watcher.onValue(
+                        value.map(ValidationChoice::value)
+                    );
+                }
+
+                @Override
+                public void onErrors(final Optional<List<String>> errors) {
+                    watcher.onErrors(errors);
+                }
+            }
         );
     }
 
