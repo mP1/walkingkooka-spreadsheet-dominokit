@@ -103,6 +103,29 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "        \"31/12/99, 12:58 pm\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] id=metadata-locale-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
+                "    DIV\n" +
+                "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
+                "        \",\"\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] id=metadata-currency-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount\n" +
+                "    UL\n" +
+                "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
+                "        LI\n" +
+                "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "            IntegerBoxComponent\n" +
+                "              [8]\n" +
+                "               min: 0 step: 1\n" +
+                "        LI\n" +
+                "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
+                "            \"default\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberDigitCount/save/] id=metadata-decimalNumberDigitCount-default-Link\n" +
+                "              TooltipComponent\n" +
+                "                \"9\"\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"decimalNumberSymbols\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberSymbols] id=metadata-decimalNumberSymbols-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemEnum\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
@@ -174,12 +197,12 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            \"default\" [#/1/SpreadsheetName111/spreadsheet/roundingMode/save/] id=metadata-roundingMode-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"Half Up\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
-                "    DIV\n" +
-                "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
-                "        \",\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] id=metadata-currency-Link\n" +
+                "    \"numberFormatter\" [#/1/SpreadsheetName111/spreadsheet/numberFormatter] id=metadata-numberFormatter-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=metadata-numberParser-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=metadata-dateTimeSymbols-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
@@ -224,21 +247,6 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            \"default\" [#/1/SpreadsheetName111/spreadsheet/twoDigitYear/save/] id=metadata-twoDigitYear-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"20\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount\n" +
-                "    UL\n" +
-                "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
-                "        LI\n" +
-                "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "            IntegerBoxComponent\n" +
-                "              [8]\n" +
-                "               min: 0 step: 1\n" +
-                "        LI\n" +
-                "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "            \"default\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberDigitCount/save/] id=metadata-decimalNumberDigitCount-default-Link\n" +
-                "              TooltipComponent\n" +
-                "                \"9\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=metadata-dateTimeSymbols-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"dateFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateFormatter] id=metadata-dateFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
@@ -247,14 +255,6 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "    \"dateTimeFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateTimeFormatter] id=metadata-dateTimeFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"dateTimeParser\" [#/1/SpreadsheetName111/spreadsheet/dateTimeParser] id=metadata-dateTimeParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"decimalNumberSymbols\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberSymbols] id=metadata-decimalNumberSymbols-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"numberFormatter\" [#/1/SpreadsheetName111/spreadsheet/numberFormatter] id=metadata-numberFormatter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=metadata-numberParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"timeFormatter\" [#/1/SpreadsheetName111/spreadsheet/timeFormatter] id=metadata-timeFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
@@ -280,10 +280,6 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"validators\" [#/1/SpreadsheetName111/spreadsheet/validators] id=metadata-validators-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=metadata-queryConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=metadata-queryFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"formulaConverter\" [#/1/SpreadsheetName111/spreadsheet/formulaConverter] id=metadata-formulaConverter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"formulaFunctions\" [#/1/SpreadsheetName111/spreadsheet/formulaFunctions] id=metadata-formulaFunctions-Link\n" +
@@ -293,6 +289,10 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "    \"formattingFunctions\" [#/1/SpreadsheetName111/spreadsheet/formattingFunctions] id=metadata-formattingFunctions-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"defaultFormHandler\" [#/1/SpreadsheetName111/spreadsheet/defaultFormHandler] id=metadata-defaultFormHandler-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=metadata-queryConverter-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=metadata-queryFunctions-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"scriptingFunctions\" [#/1/SpreadsheetName111/spreadsheet/scriptingFunctions] id=metadata-scriptingFunctions-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
