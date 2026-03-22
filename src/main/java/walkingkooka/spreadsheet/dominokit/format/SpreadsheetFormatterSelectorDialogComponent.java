@@ -202,6 +202,33 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             );
     }
 
+    private void onSelectorValue(final Optional<SpreadsheetFormatterSelector> selector) {
+        if(this.selector.hasErrors()) {
+            this.links.disableSave();
+        } else {
+            this.links.setValue(selector);
+        }
+
+        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
+
+        final String text = selector.map(SpreadsheetFormatterSelector::text)
+            .orElse("");
+
+        final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
+            text,
+            context
+        );
+
+        this.onSpreadsheetFormatterSelectorEdit(
+            edit,
+            context
+        );
+
+        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
+        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
+        context.loadSpreadsheetFormattersEdit(text);
+    }
+
     /**
      * The {@link SpreadsheetFormatterSelectorComponent} that holds the {@link SpreadsheetFormatterSelector} in text form.
      */
@@ -286,33 +313,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     }
 
     // dialog links.....................................................................................................
-
-    void onSelectorValue(final Optional<SpreadsheetFormatterSelector> selector) {
-        if(this.selector.hasErrors()) {
-            this.links.disableSave();
-        } else {
-            this.links.setValue(selector);
-        }
-
-        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
-
-        final String text = selector.map(SpreadsheetFormatterSelector::text)
-            .orElse("");
-
-        final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
-            text,
-            context
-        );
-
-        this.onSpreadsheetFormatterSelectorEdit(
-            edit,
-            context
-        );
-
-        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
-        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
-        context.loadSpreadsheetFormattersEdit(text);
-    }
 
     private final DialogAnchorListComponent<SpreadsheetFormatterSelector> links;
 
