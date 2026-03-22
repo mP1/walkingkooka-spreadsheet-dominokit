@@ -1558,6 +1558,9 @@ public class App implements EntryPoint,
 
     @Override
     public SpreadsheetProvider systemSpreadsheetProvider() {
+        if(null == this.systemSpreadsheetProvider) {
+            this.refreshSpreadsheetProvider();
+        }
         return this.systemSpreadsheetProvider;
     }
 
