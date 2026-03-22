@@ -501,7 +501,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     // loadHighlightingQuery............................................................................................
 
     /**
-     * If a {@link SpreadsheetMetadataPropertyName#FIND_QUERY} is present, enable the anchor with the query, otherwise
+     * If a {@link SpreadsheetMetadataPropertyName#QUERY} is present, enable the anchor with the query, otherwise
      * disable it.
      */
     private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,

@@ -103,7 +103,7 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        // previously SpreadsheetMetadataPropertyName#FIND_QUERY was patched
+        // previously SpreadsheetMetadataPropertyName#QUERY was patched
         // which is now wrong.
     }
 
