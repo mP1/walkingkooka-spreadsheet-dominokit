@@ -42,7 +42,7 @@ final class ToolbarComponentItemAnchorCellQuery extends ToolbarComponentItemAnch
         super(
             ToolbarComponent.QUERY_CELLS_ID,
             Optional.of(
-                SpreadsheetIcons.cellsFind()
+                SpreadsheetIcons.cellsQuery()
             ),
             "Query",
             "Run query, finding cells etc...",
