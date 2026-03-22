@@ -24,6 +24,7 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocus;
@@ -31,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
@@ -46,6 +48,7 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
     ComponentLifecycleMatcher,
     CanGiveFocus,
     DialogComponentContext,
+    DialogAnchorListComponentContext<AS>,
     AddPluginAliasSetLikeComponentContext,
     RemovePluginAliasSetLikeComponentContext {
 
@@ -89,4 +92,14 @@ public interface PluginAliasSetLikeDialogComponentContext<N extends Name & Compa
      * Getter that fetches the {@link PluginAliasSetLike} sourced from the provider.
      */
     AS pluginAliasSetLike();
+
+    @Override
+    default Optional<AS> undo() {
+        final AS plugins = this.pluginAliasSetLike();
+        return Optional.ofNullable(
+            plugins.isEmpty() ?
+                null :
+                plugins
+        );
+    }
 }
