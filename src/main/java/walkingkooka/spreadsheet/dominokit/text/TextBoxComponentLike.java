@@ -49,6 +49,7 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     public final TextBoxComponent optional() {
         this.required = false;
 
+        this.setValidator(this.validator());
         this.validate();
         return (TextBoxComponent) this;
     }
@@ -57,6 +58,7 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     public final TextBoxComponent required() {
         this.required = true;
 
+        this.setValidator(this.validator());
         this.validate();
         return (TextBoxComponent) this;
     }
