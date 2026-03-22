@@ -35,7 +35,7 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
     }
 
     @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+    public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
         return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
@@ -49,7 +49,7 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public final SpreadsheetMetadata spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 
@@ -65,7 +65,7 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
     // toString.........................................................................................................
 
     @Override
-    public String toString() {
+    public final String toString() {
         return this.context.toString();
     }
 }
