@@ -193,7 +193,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -326,7 +326,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/highlightQuery()] id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -590,7 +590,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -755,7 +755,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/path/BULR/offset/1234/count/5678/value-type/date/query/matchXyz()] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/offset/1234/count/5678/query/matchXyz()] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/matchXyz()] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -917,7 +917,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1048,7 +1048,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/1+textMatch(%22*formula*%22,cellFormula())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1179,7 +1179,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),textMatch(%22*formatter*%22,cellFormatter()))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1310,7 +1310,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),true())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1441,7 +1441,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*AUD*%22,cellCurrency()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1572,7 +1572,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*Hello*%22,cellDateTimeSymbols()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1703,7 +1703,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*formula*%22,cellFormula()),cellValue()%3C10)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1834,7 +1834,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(cellDecimalNumberSymbols(),%22*Hello*%22),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -1965,7 +1965,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatter*%22,cellFormatter())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2096,7 +2096,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(textMatch(%22*en-AU*%22,cellLocale()),1)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2227,7 +2227,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*parser*%22,cellParser())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2358,7 +2358,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*style*%22,cellStyle())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2489,7 +2489,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/cellValue()%3C999] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/cellValue()%3C999] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/cellValue()%3C999] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2620,7 +2620,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(cellValidator(),%22*validator123*%22)] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2751,7 +2751,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2882,7 +2882,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 "            \"Find\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-find-Link\n" +
                 "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/find/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellFind-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/findQuery/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formattedValue*%22,cellFormattedValue())))))))))] id=SpreadsheetCellFind-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellFind-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2968,7 +2968,7 @@ public final class SpreadsheetCellFindDialogComponentTest implements DialogCompo
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetId.parse("123")
             ).setOrRemove(
-                SpreadsheetMetadataPropertyName.FIND_QUERY,
+                SpreadsheetMetadataPropertyName.QUERY,
                 highlightingQuery.orElse(null)
             );
         }

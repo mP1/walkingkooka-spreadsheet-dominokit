@@ -328,7 +328,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             SpreadsheetMetadataPropertyName.FIND_HIGHLIGHTING,
             true
         ).set(
-            SpreadsheetMetadataPropertyName.FIND_QUERY,
+            SpreadsheetMetadataPropertyName.QUERY,
             SpreadsheetCellQuery.parse("findQuery2()")
         ).set(
             SpreadsheetMetadataPropertyName.FORM_HANDLERS,

@@ -507,7 +507,8 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
     private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token,
                                               final RefreshContext context) {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
-        final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.FIND_QUERY).orElse(null);
+        final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.QUERY)
+            .orElse(null);
 
         this.loadHighlightingQuery.setHistoryToken(
             Optional.ofNullable(
@@ -537,7 +538,7 @@ public final class SpreadsheetCellFindDialogComponent implements DialogComponent
         this.saveAsHighlightingQuery.setHistoryToken(
             Optional.ofNullable(
                 query.isPresent() ?
-                    token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.FIND_QUERY)
+                    token.setMetadataPropertyName(SpreadsheetMetadataPropertyName.QUERY)
                         .setSaveValue(query) :
                     null
             )
