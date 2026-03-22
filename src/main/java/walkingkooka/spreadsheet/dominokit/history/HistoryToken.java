@@ -191,10 +191,6 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment FILE = UrlFragment.parse(FILE_STRING);
 
-    final static String FIND_STRING = "find";
-
-    final static UrlFragment FIND = UrlFragment.parse(FIND_STRING);
-
     final static String FORM_STRING = "form";
 
     final static UrlFragment FORM = UrlFragment.parse(FORM_STRING);
@@ -266,6 +262,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     final static String PLUGIN_UPLOAD_STRING = "plugin-upload";
 
     final static UrlFragment PLUGIN_UPLOAD = UrlFragment.parse(PLUGIN_UPLOAD_STRING);
+
+    final static String QUERY_STRING = "query";
+
+    final static UrlFragment QUERY = UrlFragment.parse(QUERY_STRING);
 
     final static String REFERENCES_STRING = "references";
 

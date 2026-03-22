@@ -191,7 +191,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
@@ -315,7 +315,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/find] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
@@ -376,7 +376,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
@@ -437,7 +437,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-arrow-bottom-right \"Auto hide scrollbars\" [#/1/Spreadsheet123/spreadsheet/autoHideScrollbars/save/true] id=toolbar-autoHideScrollbars-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Always show scrollbars\"\n" +
-                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/find] id=toolbar-findCells-Link\n" +
+                "      mdi-magnify \"Find\" [#/1/Spreadsheet123/cell/*/bottom-right/query] id=toolbar-findCells-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Find cells...\"\n" +
                 "      mdi-spotlight-beam \"Highlight\" [#/1/Spreadsheet123/spreadsheet/queryHighlighting/save/true] id=toolbar-findHighlight-Link\n" +
