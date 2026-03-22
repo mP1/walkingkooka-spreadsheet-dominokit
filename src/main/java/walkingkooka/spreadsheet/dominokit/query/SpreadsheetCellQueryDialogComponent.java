@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponentFun
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponent;
@@ -238,7 +238,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
     private void refreshQueryAndFindFromWizardFieldsAndServerFind(final Optional<?> ignored) {
         final Optional<SpreadsheetFormula> formula = SpreadsheetCellQueryDialogComponentQuery.query(
             this.context.historyToken()
-                .cast(SpreadsheetCellFindHistoryToken.class)
+                .cast(SpreadsheetCellQueryHistoryToken.class)
                 .query()
                 .query(),
             this.formula.value(),
@@ -273,12 +273,12 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
         this.refreshFind(
             this.context.historyToken()
-                .cast(SpreadsheetCellFindHistoryToken.class)
+                .cast(SpreadsheetCellQueryHistoryToken.class)
                 .setSelection(
                     this.cellRange.value()
                         .map(SpreadsheetSelection::toScalarIfUnit)
                 ).setQuery(cellFindQuery)
-                .cast(SpreadsheetCellFindHistoryToken.class)
+                .cast(SpreadsheetCellQueryHistoryToken.class)
         );
         this.findCells(cellFindQuery);
     }
@@ -312,7 +312,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
      * Each time a component of the find is updated, a new {@link HistoryToken} is pushed, which will cause a search
      * and refresh of the UI.
      */
-    private void setAndRefresh(final Function<SpreadsheetCellFindHistoryToken, HistoryToken> historyTokenSetter) {
+    private void setAndRefresh(final Function<SpreadsheetCellQueryHistoryToken, HistoryToken> historyTokenSetter) {
         final SpreadsheetCellQueryDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
@@ -320,7 +320,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         try {
             token = historyTokenSetter.apply(
                 context.historyToken()
-                    .cast(SpreadsheetCellFindHistoryToken.class)
+                    .cast(SpreadsheetCellQueryHistoryToken.class)
             );
         } catch (final UnsupportedOperationException rethrow) {
             throw rethrow;
@@ -329,7 +329,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         }
 
         // only update history token if setter was successful.
-        if (token instanceof SpreadsheetCellFindHistoryToken) {
+        if (token instanceof SpreadsheetCellQueryHistoryToken) {
             context.pushHistoryToken(token);
         }
     }
@@ -471,7 +471,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     // find.............................................................................................................
 
-    private void refreshFind(final SpreadsheetCellFindHistoryToken historyToken) {
+    private void refreshFind(final SpreadsheetCellQueryHistoryToken historyToken) {
         this.find.setHistoryToken(
             Optional.of(historyToken)
         );
@@ -481,7 +481,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     // reset............................................................................................................
 
-    private void refreshReset(final SpreadsheetCellFindHistoryToken historyToken) {
+    private void refreshReset(final SpreadsheetCellQueryHistoryToken historyToken) {
         this.reset.setHistoryToken(
             Optional.of(
                 historyToken.setQuery(
@@ -504,7 +504,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
      * If a {@link SpreadsheetMetadataPropertyName#QUERY} is present, enable the anchor with the query, otherwise
      * disable it.
      */
-    private void refreshLoadHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
+    private void refreshLoadHighlightingQuery(final SpreadsheetCellQueryHistoryToken token) {
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.QUERY)
             .orElse(null);
@@ -530,7 +530,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
     /**
      * Creates a link which will save the QUERY text box value as it will be used as the highlighting query.
      */
-    private void refreshSaveAsHighlightingQuery(final SpreadsheetCellFindHistoryToken token) {
+    private void refreshSaveAsHighlightingQuery(final SpreadsheetCellQueryHistoryToken token) {
         final Optional<SpreadsheetCellQuery> query = token.query()
             .query();
 
@@ -548,7 +548,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     // close............................................................................................................
 
-    private void refreshClose(final SpreadsheetCellFindHistoryToken token) {
+    private void refreshClose(final SpreadsheetCellQueryHistoryToken token) {
         this.close.setHistoryToken(
             Optional.of(token.close())
         );
@@ -575,7 +575,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellFindHistoryToken;
+        return token instanceof SpreadsheetCellQueryHistoryToken;
     }
 
     @Override
@@ -597,8 +597,8 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetCellFindHistoryToken.class);
+        final SpreadsheetCellQueryHistoryToken historyToken = context.historyToken()
+            .cast(SpreadsheetCellQueryHistoryToken.class);
 
         this.refreshTable(historyToken);
 
@@ -643,14 +643,14 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
     }
 
     /**
-     * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellFindHistoryToken}
+     * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellQueryHistoryToken}
      * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getFindCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellFindQuery)}.
      */
     private void findCells(final SpreadsheetCellFindQuery query) {
         final SpreadsheetCellQueryDialogComponentContext context = this.context;
 
-        final SpreadsheetCellFindHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetCellFindHistoryToken.class);
+        final SpreadsheetCellQueryHistoryToken historyToken = context.historyToken()
+            .cast(SpreadsheetCellQueryHistoryToken.class);
 
         final SpreadsheetId id = historyToken.spreadsheetId();
         final SpreadsheetCellRangeReference cells = historyToken.anchoredSelection()

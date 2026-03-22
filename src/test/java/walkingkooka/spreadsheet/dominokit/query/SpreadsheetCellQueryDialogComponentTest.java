@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFindHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellFindQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -62,7 +62,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
 
     @Test
     public void testIsMatchWithSpreadsheetCellFindHistoryToken() {
-        final SpreadsheetCellFindHistoryToken historyToken = HistoryToken.cellFind(
+        final SpreadsheetCellQueryHistoryToken historyToken = HistoryToken.cellQuery(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor(),

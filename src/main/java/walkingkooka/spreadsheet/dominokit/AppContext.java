@@ -245,7 +245,7 @@ public interface AppContext extends CanGiveFocus,
      */
     SpreadsheetViewportCache spreadsheetViewportCache();
 
-    // cellFind.........................................................................................................
+    // cellQuery.........................................................................................................
 
     /**
      * Returns a {@link UrlQueryString} that includes the viewport/window
