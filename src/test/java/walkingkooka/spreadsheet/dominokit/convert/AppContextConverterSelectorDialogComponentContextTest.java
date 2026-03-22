@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class AppContextConverterSelectorDialogComponentContextTest implements ConverterSelectorDialogComponentContextTesting<AppContextConverterSelectorDialogComponentContext> {
 
-    private final static SpreadsheetMetadataPropertyName<ConverterSelector> PROPERTY_NAME = SpreadsheetMetadataPropertyName.FIND_CONVERTER;
+    private final static SpreadsheetMetadataPropertyName<ConverterSelector> PROPERTY_NAME = SpreadsheetMetadataPropertyName.QUERY_CONVERTER;
 
     @Test
     public void testWithNullPropertyNameFails() {
@@ -54,19 +54,6 @@ public final class AppContextConverterSelectorDialogComponentContextTest impleme
     // isMatch..........................................................................................................
 
     @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFindConverter() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.FIND_CONVERTER
-            ),
-            true
-        );
-    }
-
-    @Test
     public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenFormattingConverter() {
         this.isMatchAndCheck(
             this.createContext(),
@@ -76,6 +63,19 @@ public final class AppContextConverterSelectorDialogComponentContextTest impleme
                 SpreadsheetMetadataPropertyName.FORMATTING_CONVERTER
             ),
             false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataPropertySelectHistoryTokenQueryConverter() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.metadataPropertySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetMetadataPropertyName.QUERY_CONVERTER
+            ),
+            true
         );
     }
 

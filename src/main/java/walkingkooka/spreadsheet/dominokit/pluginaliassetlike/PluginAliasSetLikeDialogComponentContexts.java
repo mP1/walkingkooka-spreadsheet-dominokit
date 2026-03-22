@@ -123,7 +123,7 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
      * {@see AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSet}
      */
     public static PluginAliasSetLikeDialogComponentContext<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet> findFunctions(final AppContext context) {
-        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetFindFunctions.with(context);
+        return AppContextPluginAliasSetLikeDialogComponentContextExpressionFunctionAliasSetQueryFunctions.with(context);
     }
 
     /**

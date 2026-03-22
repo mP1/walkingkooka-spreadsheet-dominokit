@@ -137,8 +137,8 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         items.add(this.parsers());
         items.add(this.validators());
 
-        items.add(this.findConverter());
-        items.add(this.findFunctions());
+        items.add(this.queryConverter());
+        items.add(this.queryFunctions());
 
         items.add(this.formulaConverter());
         items.add(this.formulaFunctions());
@@ -412,18 +412,6 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> findConverter() {
-        return link(
-            SpreadsheetMetadataPropertyName.FIND_CONVERTER
-        );
-    }
-
-    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> findFunctions() {
-        return link(
-            SpreadsheetMetadataPropertyName.FIND_FUNCTIONS
-        );
-    }
-
     private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> formulaConverter() {
         return link(
             SpreadsheetMetadataPropertyName.FORMULA_CONVERTER
@@ -469,6 +457,18 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<SpreadsheetParserAliasSet, ?, ?> parsers() {
         return link(
             SpreadsheetMetadataPropertyName.PARSERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ConverterSelector, ?, ?> queryConverter() {
+        return link(
+            SpreadsheetMetadataPropertyName.QUERY_CONVERTER
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<ExpressionFunctionAliasSet, ?, ?> queryFunctions() {
+        return link(
+            SpreadsheetMetadataPropertyName.QUERY_FUNCTIONS
         );
     }
 
