@@ -37,6 +37,100 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
     SpreadsheetMetadataTesting {
 
     @Test
+    public void testSetStringInvalid() {
+        final AppContext context = this.appContext(
+            "/1/Spreadsheet123/spreadsheet/sortComparators"
+        );
+
+        final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
+            new TestSpreadsheetComparatorNameListDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public Optional<SpreadsheetComparatorNameList> undo() {
+                    return Optional.of(
+                        SpreadsheetComparatorNameList.parse("day-of-month")
+                    );
+                }
+            }
+        );
+
+        dialog.comparatorNameList.setStringValue(
+            Optional.of("day-of-month!!!")
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "SpreadsheetComparatorNameListDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=SpreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetComparatorNameListComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [day-of-month!!!] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
+                "            Errors\n" +
+                "              Invalid character '!' at 12\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=SpreadsheetComparatorNameList-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testSetString() {
+        final AppContext context = this.appContext(
+            "/1/Spreadsheet123/spreadsheet/sortComparators"
+        );
+
+        final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
+            new TestSpreadsheetComparatorNameListDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public Optional<SpreadsheetComparatorNameList> undo() {
+                    return Optional.of(
+                        SpreadsheetComparatorNameList.parse("day-of-month")
+                    );
+                }
+            }
+        );
+
+        dialog.comparatorNameList.setStringValue(
+            Optional.of("month-of-year")
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "SpreadsheetComparatorNameListDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=SpreadsheetComparatorNameList-Dialog includeClose=true CLOSED\n" +
+                "      SpreadsheetComparatorNameListComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [month-of-year] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/month-of-year] id=SpreadsheetComparatorNameList-save-Link\n" +
+                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+        );
+    }
+
+    @Test
     public void testOnHistoryTokenChange() {
         final AppContext context = this.appContext(
             "/1/Spreadsheet123/spreadsheet/sortComparators"

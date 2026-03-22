@@ -124,20 +124,18 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
     }
 
     private void onComparatorNameListValue(final Optional<SpreadsheetComparatorNameList> list) {
-        final SpreadsheetComparatorNameListComponent comparatorNameList = this.comparatorNameList;
-        comparatorNameList.validate();
+        this.links.setValue(list);
 
-        this.links.setValue(
-            comparatorNameList.hasErrors() ?
-                Optional.<SpreadsheetComparatorNameList>empty() :
-                list
-        );
+        if(this.comparatorNameList.hasErrors()) {
+            this.links.disableSave();
+        }
     }
 
     /**
      * The {@link SpreadsheetComparatorNameListComponent} that holds the {@link SpreadsheetComparatorNameList} in text form.
      */
-    private final SpreadsheetComparatorNameListComponent comparatorNameList;
+    // @VisibleForTesting
+    final SpreadsheetComparatorNameListComponent comparatorNameList;
 
     // dialog links.....................................................................................................
 
