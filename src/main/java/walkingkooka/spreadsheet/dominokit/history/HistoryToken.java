@@ -563,21 +563,6 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     /**
-     * {@see SpreadsheetCellFindHistoryToken}
-     */
-    public static SpreadsheetCellFindHistoryToken cellFind(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
-                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                           final SpreadsheetCellFindQuery query) {
-        return SpreadsheetCellFindHistoryToken.with(
-            id,
-            name,
-            anchoredSelection,
-            query
-        );
-    }
-
-    /**
      * {@see SpreadsheetCellFormSaveHistoryToken}
      */
     public static SpreadsheetCellFormSaveHistoryToken cellFormSave(final SpreadsheetId id,
@@ -867,6 +852,21 @@ public abstract class HistoryToken implements HasUrlFragment {
             id,
             name,
             anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellQueryHistoryToken}
+     */
+    public static SpreadsheetCellQueryHistoryToken cellQuery(final SpreadsheetId id,
+                                                             final SpreadsheetName name,
+                                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                                             final SpreadsheetCellFindQuery query) {
+        return SpreadsheetCellQueryHistoryToken.with(
+            id,
+            name,
+            anchoredSelection,
+            query
         );
     }
 
@@ -2519,7 +2519,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         this instanceof SpreadsheetCellCurrencyHistoryToken ||
                         this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
-                        this instanceof SpreadsheetCellFindHistoryToken ||
+                        this instanceof SpreadsheetCellQueryHistoryToken ||
                         this instanceof SpreadsheetCellFormHistoryToken ||
                         this instanceof SpreadsheetCellFormatterHistoryToken ||
                         this instanceof SpreadsheetCellLabelHistoryToken ||
@@ -4105,18 +4105,18 @@ public abstract class HistoryToken implements HasUrlFragment {
     // QUERY............................................................................................................
 
     /**
-     * Creates a {@link SpreadsheetCellFindHistoryToken} with the given parameters.
+     * Creates a {@link SpreadsheetCellQueryHistoryToken} with the given parameters.
      */
     public final HistoryToken setQuery(final SpreadsheetCellFindQuery query) {
         HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {
-            if (this instanceof SpreadsheetCellFindHistoryToken) {
-                final SpreadsheetCellFindHistoryToken findHistoryToken = (SpreadsheetCellFindHistoryToken) this;
+            if (this instanceof SpreadsheetCellQueryHistoryToken) {
+                final SpreadsheetCellQueryHistoryToken findHistoryToken = (SpreadsheetCellQueryHistoryToken) this;
                 historyToken = findHistoryToken.setQuery0(query);
             } else {
                 final SpreadsheetCellHistoryToken cell = (SpreadsheetCellHistoryToken) this;
-                historyToken = cellFind(
+                historyToken = cellQuery(
                     cell.spreadsheetId(),
                     cell.name,
                     cell.anchoredSelection(),
@@ -4444,8 +4444,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                                     );
                                 }
 
-                                if (this instanceof SpreadsheetCellFindHistoryToken) {
-                                    saved = HistoryToken.cellFind(
+                                if (this instanceof SpreadsheetCellQueryHistoryToken) {
+                                    saved = HistoryToken.cellQuery(
                                         id,
                                         name,
                                         anchoredSpreadsheetSelection,

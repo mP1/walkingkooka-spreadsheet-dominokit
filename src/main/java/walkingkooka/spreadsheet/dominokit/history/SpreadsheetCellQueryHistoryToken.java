@@ -34,13 +34,13 @@ import java.util.Objects;
  * http://localhost:12345/api/spreadsheet-id/spreadsheet-name/cell/cell-Or-cell-range-OR-label/find/path/LR-TB/offset/0/count/0/value-type/any/query/formula-expression-to-execute-for-each-candidate-cell.
  * </pre>
  */
-public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistoryToken {
+public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellFindHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
-                                                final AnchoredSpreadsheetSelection anchoredSelection,
-                                                final SpreadsheetCellFindQuery query) {
-        return new SpreadsheetCellFindHistoryToken(
+    static SpreadsheetCellQueryHistoryToken with(final SpreadsheetId id,
+                                                 final SpreadsheetName name,
+                                                 final AnchoredSpreadsheetSelection anchoredSelection,
+                                                 final SpreadsheetCellFindQuery query) {
+        return new SpreadsheetCellQueryHistoryToken(
             id,
             name,
             anchoredSelection,
@@ -48,10 +48,10 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         );
     }
 
-    private SpreadsheetCellFindHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
-                                            final AnchoredSpreadsheetSelection anchoredSelection,
-                                            final SpreadsheetCellFindQuery query) {
+    private SpreadsheetCellQueryHistoryToken(final SpreadsheetId id,
+                                             final SpreadsheetName name,
+                                             final AnchoredSpreadsheetSelection anchoredSelection,
+                                             final SpreadsheetCellFindQuery query) {
         super(
             id,
             name,
@@ -64,12 +64,12 @@ public final class SpreadsheetCellFindHistoryToken extends SpreadsheetCellHistor
         return this.query;
     }
 
-    SpreadsheetCellFindHistoryToken setQuery0(final SpreadsheetCellFindQuery query) {
+    SpreadsheetCellQueryHistoryToken setQuery0(final SpreadsheetCellFindQuery query) {
         Objects.requireNonNull(query, "query");
 
         return this.query.equals(query) ?
             this :
-            new SpreadsheetCellFindHistoryToken(
+            new SpreadsheetCellQueryHistoryToken(
                 this.id,
                 this.name,
                 this.anchoredSelection(),

@@ -141,7 +141,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.setFindAndCheck(
             this.createHistoryToken(),
             SpreadsheetCellFindQuery.empty(), // query
-            HistoryToken.cellFind(
+            HistoryToken.cellQuery(
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),

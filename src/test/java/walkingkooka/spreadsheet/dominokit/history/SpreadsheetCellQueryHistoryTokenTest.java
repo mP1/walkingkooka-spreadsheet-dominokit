@@ -36,7 +36,7 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellFindHistoryToken> {
+public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellHistoryTokenTestCase<SpreadsheetCellQueryHistoryToken> {
     private final static SpreadsheetCellFindQuery FIND = SpreadsheetCellFindQuery.empty()
         .setPath(
             Optional.of(SpreadsheetCellRangeReferencePath.LRTD)
@@ -62,7 +62,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testSetQueryWithSame() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken();
+        final SpreadsheetCellQueryHistoryToken token = this.createHistoryToken();
 
         assertSame(
             token,
@@ -80,7 +80,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
             .setPath(path);
 
         this.checkEquals(
-            SpreadsheetCellFindHistoryToken.with(
+            SpreadsheetCellQueryHistoryToken.with(
                 ID,
                 NAME,
                 SELECTION,
@@ -95,10 +95,10 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testSetSaveValueWithFormula() {
-        final SpreadsheetCellFindHistoryToken token = this.createHistoryToken()
+        final SpreadsheetCellQueryHistoryToken token = this.createHistoryToken()
             .setQuery(
                 SpreadsheetCellFindQuery.parse("/path/LRTD/offset/123/count/456/value-type/*/query/old()")
-            ).cast(SpreadsheetCellFindHistoryToken.class);
+            ).cast(SpreadsheetCellQueryHistoryToken.class);
 
         final String text = "/query/textMatch(\"*1*\",cellFormula())";
 
@@ -159,7 +159,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     private void urlFragmentAndCheck2(final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection,
                                       final String expected) {
         this.urlFragmentAndCheck(
-            SpreadsheetCellFindHistoryToken.with(
+            SpreadsheetCellQueryHistoryToken.with(
                 ID,
                 NAME,
                 anchoredSpreadsheetSelection,
@@ -414,7 +414,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
                                 final Optional<SpreadsheetCellQuery> query) {
         this.parseAndCheck(
             url,
-            SpreadsheetCellFindHistoryToken.with(
+            SpreadsheetCellQueryHistoryToken.with(
                 ID,
                 NAME,
                 SELECTION,
@@ -459,10 +459,10 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     // helpers..........................................................................................................
 
     @Override
-    SpreadsheetCellFindHistoryToken createHistoryToken(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
-                                                       final AnchoredSpreadsheetSelection selection) {
-        return SpreadsheetCellFindHistoryToken.with(
+    SpreadsheetCellQueryHistoryToken createHistoryToken(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final AnchoredSpreadsheetSelection selection) {
+        return SpreadsheetCellQueryHistoryToken.with(
             id,
             name,
             selection,
@@ -471,7 +471,7 @@ public final class SpreadsheetCellFindHistoryTokenTest extends SpreadsheetCellHi
     }
 
     @Override
-    public Class<SpreadsheetCellFindHistoryToken> type() {
-        return SpreadsheetCellFindHistoryToken.class;
+    public Class<SpreadsheetCellQueryHistoryToken> type() {
+        return SpreadsheetCellQueryHistoryToken.class;
     }
 }
