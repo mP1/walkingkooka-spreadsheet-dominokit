@@ -19,12 +19,11 @@ package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
@@ -33,10 +32,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
-import java.util.Optional;
 
 /**
- * A modal dialog that displays the references for the selected cells.
+ * A modal dialog that displays the refreshReferences for the selected cells.
  */
 public final class SpreadsheetCellReferencesDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired {
@@ -53,7 +51,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     private SpreadsheetCellReferencesDialogComponent(final SpreadsheetCellReferencesDialogComponentContext context) {
         this.context = context;
 
-        this.close = this.closeAnchor();
+        this.links = this.links();
 
         this.table = SpreadsheetDeltaCellsTableComponent.with(
             ID_PREFIX,
@@ -68,7 +66,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, with a table showing the references and the links such as CLOSE.
+     * Creates the modal dialog, with a table showing the refreshReferences and the links such as CLOSE.
      */
     private DialogComponent dialogCreate() {
         final SpreadsheetCellReferencesDialogComponentContext context = this.context;
@@ -78,12 +76,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
                 DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.table)
-            .appendChild(
-                AnchorListComponent.empty()
-                    .setCssProperty("margin-top", "5px")
-                    .setCssProperty("margin-left", "-5px")
-                    .appendChild(this.close)
-            );
+            .appendChild(this.links);
     }
 
     private final DialogComponent dialog;
@@ -99,17 +92,18 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     // @VisibleForTesting.
     final SpreadsheetDeltaCellsTableComponent table;
 
-    // close............................................................................................................
+    // links............................................................................................................
 
-    private void refreshClose(final SpreadsheetCellReferenceListHistoryToken token) {
-        this.close.setHistoryToken(
-            Optional.of(token.close())
-        );
+    private DialogAnchorListComponent<?> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                this.context // DialogAnchorListComponentContext
+            ).close();
     }
 
-    private final HistoryTokenAnchorComponent close;
+    private final DialogAnchorListComponent<?> links;
 
-    // DialogComponentLifecycle..............................................................................
+    // DialogComponentLifecycle.........................................................................................
 
     @Override
     public DialogComponent dialog() {
@@ -149,16 +143,14 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()
-            .cast(SpreadsheetCellReferenceListHistoryToken.class);
+        final HistoryToken historyToken = context.historyToken();
 
-        this.refreshClose(historyToken);
         this.refreshTable(historyToken);
 
-        this.references(historyToken.offsetAndCount());
+        this.refreshReferences(historyToken.offsetAndCount());
     }
 
-    private void references(final HistoryTokenOffsetAndCount offsetAndCount) {
+    private void refreshReferences(final HistoryTokenOffsetAndCount offsetAndCount) {
         final SpreadsheetCellReferencesDialogComponentContext context = this.context;
 
         final SpreadsheetCellReferenceListHistoryToken historyToken = context.historyToken()

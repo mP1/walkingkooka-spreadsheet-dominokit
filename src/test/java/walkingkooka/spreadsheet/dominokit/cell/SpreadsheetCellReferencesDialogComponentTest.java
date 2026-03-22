@@ -116,10 +116,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
     }
 
@@ -159,10 +160,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
@@ -232,10 +234,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                    \"next\" DISABLED mdi-arrow-right id=SpreadsheetCellReferences-next-Link\n" +
                 "              PLUGINS\n" +
                 "                BodyScrollPlugin\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
     }
 

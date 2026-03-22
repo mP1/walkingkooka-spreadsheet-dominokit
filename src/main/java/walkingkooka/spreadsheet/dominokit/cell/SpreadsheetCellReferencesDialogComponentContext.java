@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.cell;
 
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
@@ -25,19 +26,27 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 
+import java.util.Optional;
+
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetCellReferencesDialogComponent}.
  */
 public interface SpreadsheetCellReferencesDialogComponentContext extends SpreadsheetDeltaCellsTableComponentContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
-    DialogComponentContext {
+    DialogComponentContext,
+    DialogAnchorListComponentContext<Void> {
 
     int REFERENCES_MAX_COUNT = 20;
 
     @Override
     default String dialogTitle() {
         return "Cell References";
+    }
+
+    @Override
+    default Optional<Void> undo() {
+        throw new UnsupportedOperationException();
     }
 
     /**
