@@ -21,6 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLUListElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -49,7 +50,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
         this.list = list;
 
         this.spreadsheetNameComponent = SpreadsheetNameComponent.empty()
-            .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + "-TextBox")
+            .setId(SpreadsheetMetadataPanelComponent.id(PROPERTY_NAME) + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
                 (v) -> this.save(
                     v.map(SpreadsheetName::value)
