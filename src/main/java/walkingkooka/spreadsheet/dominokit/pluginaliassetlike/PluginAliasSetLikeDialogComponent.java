@@ -199,7 +199,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     private ValueTextBoxComponentDelegator<?, AS> selector(final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
         return context.textBox()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
                 (e) -> this.selectorOnValue(this.selector.stringValue()
                     .orElse(""))
