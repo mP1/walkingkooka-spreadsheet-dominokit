@@ -89,7 +89,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         this.validator = this.validator();
         this.formattedValue = this.formattedValue();
 
-        this.find = this.anchor("Find");
+        this.run = this.anchor("Run");
         this.reset = this.anchor("Reset");
         this.loadHighlightingQuery = this.anchor("Load Highlighting Query");
         this.saveAsHighlightingQuery = this.anchor("Save as Highlighting Query");
@@ -145,7 +145,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 AnchorListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
-                    .appendChild(this.find)
+                    .appendChild(this.run)
                     .appendChild(this.reset)
                     .appendChild(this.loadHighlightingQuery)
                     .appendChild(this.saveAsHighlightingQuery)
@@ -472,12 +472,12 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
     // find.............................................................................................................
 
     private void refreshFind(final SpreadsheetCellQueryHistoryToken historyToken) {
-        this.find.setHistoryToken(
+        this.run.setHistoryToken(
             Optional.of(historyToken)
         );
     }
 
-    private final HistoryTokenAnchorComponent find;
+    private final HistoryTokenAnchorComponent run;
 
     // reset............................................................................................................
 
