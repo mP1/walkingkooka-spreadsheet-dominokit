@@ -22,11 +22,11 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class FindHighlightingTest implements PublicStaticHelperTesting<FindHighlighting> {
+public final class QueryHighlightingTest implements PublicStaticHelperTesting<QueryHighlighting> {
 
     @Override
-    public Class<FindHighlighting> type() {
-        return FindHighlighting.class;
+    public Class<QueryHighlighting> type() {
+        return QueryHighlighting.class;
     }
 
     @Override

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.find.FindHighlighting;
+import walkingkooka.spreadsheet.dominokit.find.QueryHighlighting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Optional;
@@ -51,6 +51,6 @@ final class ToolbarComponentItemAnchorMetadataBooleanFindHighlighting extends To
 
     @Override
     String tooltipText(final boolean disabled) {
-        return FindHighlighting.label(disabled);
+        return QueryHighlighting.label(disabled);
     }
 }
