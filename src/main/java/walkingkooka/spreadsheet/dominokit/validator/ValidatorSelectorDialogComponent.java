@@ -128,7 +128,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      */
     private ValidatorSelectorComponent selector() {
         return ValidatorSelectorComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX);
+            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX);
     }
 
     /**
