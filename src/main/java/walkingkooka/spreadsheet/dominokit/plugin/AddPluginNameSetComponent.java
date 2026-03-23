@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.card.CardComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcherIgnoresErrors;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -61,12 +60,6 @@ public final class AddPluginNameSetComponent implements HtmlComponentDelegator<H
 
     Optional<String> filterValue() {
         return this.root.filterValue();
-    }
-
-    AddPluginNameSetComponent setFilterValueWatcher(final ValueWatcherIgnoresErrors<String> watcher) {
-        return this.setFilterValueWatcher(
-            (ValueWatcher<String>) watcher
-        );
     }
 
     AddPluginNameSetComponent setFilterValueWatcher(final ValueWatcher<String> watcher) {

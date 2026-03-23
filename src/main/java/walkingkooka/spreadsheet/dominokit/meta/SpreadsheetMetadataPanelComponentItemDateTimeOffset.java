@@ -33,11 +33,9 @@ import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -83,21 +81,11 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             AppContextDateComponentContext.with(context)
         );
         dateComponent.addValueWatcher2(
-            new ValueWatcher<>() {
-                @Override
-                public void onValue(final Optional<LocalDate> value) {
-                    SpreadsheetMetadataPanelComponentItemDateTimeOffset.this.save(
-                        toLong(value)
-                            .map(Object::toString)
-                            .orElse("")
-                    );
-                }
-
-                @Override
-                public void onErrors(final List<String> errors) {
-                    // NOP
-                }
-            }
+            value -> SpreadsheetMetadataPanelComponentItemDateTimeOffset.this.save(
+                toLong(value)
+                    .map(Object::toString)
+                    .orElse("")
+            )
         );
         this.dateComponent = dateComponent;
 

@@ -167,7 +167,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/cell/A1/formatter/save/date] id=SpreadsheetFormatterSelector-save-Link\n" +
+                "              \"Save\" DISABLED id=SpreadsheetFormatterSelector-save-Link\n" +
                 "              \"Clear\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-clear-Link\n" +
                 "              \"Undo\" [#/1/Spreadsheet1/cell/A1/formatter/save/] id=SpreadsheetFormatterSelector-undo-Link\n" +
                 "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetFormatterSelector-close-Link\n"

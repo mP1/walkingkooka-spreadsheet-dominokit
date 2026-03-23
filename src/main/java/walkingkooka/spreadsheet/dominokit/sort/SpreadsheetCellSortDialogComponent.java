@@ -42,7 +42,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnSortSaveHisto
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortEditHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSortSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
@@ -354,17 +353,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
             );
 
             names.addValueWatcher2(
-                new ValueWatcher<>() {
-                    @Override
-                    public void onValue(final Optional<SpreadsheetColumnOrRowSpreadsheetComparatorNames> value) {
-                        SpreadsheetCellSortDialogComponent.this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names);
-                    }
-
-                    @Override
-                    public void onErrors(final List<String> errors) {
-                        // NOP
-                    }
-                }
+                (v) -> SpreadsheetCellSortDialogComponent.this.onSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent(names)
             );
             parent.appendChild(names);
         }

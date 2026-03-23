@@ -96,6 +96,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         if(false == oldValue.equals(newValue)) {
             this.validate();
 
+            // watchers can also test if validation reported any errors
             this.watchers.onValue(newValue);
         }
 

@@ -300,6 +300,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             this.selector.setErrors(
                 Lists.of(message)
             );
+            this.links.disableSave();
         }
 
         this.refreshTitleTabsAndFormatterNames();

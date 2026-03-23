@@ -30,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -231,17 +230,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
         final IntegerBoxComponent integerBox = IntegerBoxComponent.empty();
 
         integerBox.addValueWatcher2(
-            new ValueWatcher<>() {
-                @Override
-                public void onValue(final Optional<Integer> value) {
-                    SpreadsheetMetadataPanelComponentItem.this.saveIntegerValue(integerBox);
-                }
-
-                @Override
-                public void onErrors(final List<String> errors) {
-                    // NOP
-                }
-            }
+            v -> SpreadsheetMetadataPanelComponentItem.this.saveIntegerValue(integerBox)
         ).clear();
 
         return integerBox.setCssProperty("width", TEXT_BOX_WIDTH)

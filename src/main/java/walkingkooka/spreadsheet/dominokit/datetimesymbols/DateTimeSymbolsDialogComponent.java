@@ -466,6 +466,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
                 this.idPrefix(),
                 this.context // DialogAnchorListComponentContext
             ).save()
+            .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()
             .appendChild(this.copyDefaults)
@@ -503,8 +504,9 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
 
-        final Optional<DateTimeSymbols> dateTimeSymbols = this.context.undo();
-        this.dateTimeSymbols.setValue(dateTimeSymbols);
+        this.dateTimeSymbols.setValue(
+            this.context.undo()
+        );
 
         this.refreshCopyDefaults();
     }

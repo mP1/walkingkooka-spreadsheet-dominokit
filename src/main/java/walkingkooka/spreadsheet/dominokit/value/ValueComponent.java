@@ -39,21 +39,7 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         return this.setValue(Optional.empty());
     }
 
-    default Runnable addValueWatcher(final ValueWatcherIgnoresErrors<V> watcher) {
-        return this.addValueWatcher(
-            (ValueWatcher<V>) watcher
-        );
-    }
-
     Runnable addValueWatcher(final ValueWatcher<V> watcher);
-
-    default C addValueWatcher2(final ValueWatcherIgnoresErrors<V> watcher,
-                               final Consumer<Runnable> remover) {
-        return this.addValueWatcher2(
-            (ValueWatcher<V>) watcher,
-            remover
-        );
-    }
 
     default C addValueWatcher2(final ValueWatcher<V> watcher,
                                final Consumer<Runnable> remover) {
@@ -61,12 +47,6 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
             this.addValueWatcher(watcher)
         );
         return (C) this;
-    }
-
-    default C addValueWatcher2(final ValueWatcherIgnoresErrors<V> watcher) {
-        return this.addValueWatcher2(
-            (ValueWatcher<V>) watcher
-        );
     }
 
     default C addValueWatcher2(final ValueWatcher<V> watcher) {
