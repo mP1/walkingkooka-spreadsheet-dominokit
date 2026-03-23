@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.value.SpreadsheetError;
+import walkingkooka.spreadsheet.value.SpreadsheetErrorKind;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -112,7 +113,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
     }
 
     @Test
-    public void testSetStringValueWithError() {
+    public void testSetStringValueWithSelectorSyntaxError() {
         final TestAppContext context = new TestAppContext(
             HistoryToken.cellValidatorSelect(
                 SPREADSHEET_ID,
@@ -243,7 +244,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
     }
 
     @Test
-    public void testOnSpreadsheetDeltaWhenCellWithError() {
+    public void testOnSpreadsheetDeltaWhenCellWithValidationError() {
         final TestAppContext context = new TestAppContext(
             HistoryToken.cellValidatorSelect(
                 SPREADSHEET_ID,
@@ -323,8 +324,97 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              [hello-validator] id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "        DialogAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnSpreadsheetDeltaWhenCellWithValidatorSelectorError() {
+        final TestAppContext context = new TestAppContext(
+            HistoryToken.cellValidatorSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        context.metadataWatchers.onSpreadsheetMetadata(
+            context.spreadsheetMetadata()
+        );
+
+        final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
+            new TestValidatorSelectorDialogComponentContext(context) {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+
+                @Override
+                public Optional<ValidatorSelector> undo() {
+                    return Optional.of(
+                        ValidatorSelector.parse("hello-validator")
+                    );
+                }
+
+                @Override
+                public SpreadsheetViewportCache spreadsheetViewportCache() {
+                    return context.spreadsheetViewportCache();
+                }
+            }
+        );
+
+        dialog.onHistoryTokenChange(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            context
+        );
+        dialog.refresh(context);
+
+        context.deltaWatchers.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    SpreadsheetSelection.A1.setFormula(
+                        SpreadsheetFormula.EMPTY.setError(
+                            Optional.of(
+                                SpreadsheetErrorKind.VALIDATION.setMessage("Bad Validator")
+                            )
+                        )
+                    )
+                )
+            )
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ValidatorSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Validator Title123\n" +
+                "    id=ValidatorSelector-Dialog includeClose=true\n" +
+                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              id=ValidatorSelector-links\n" +
+                "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
+                "        ValidatorSelectorComponent\n" +
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              [hello-validator] id=ValidatorSelector-selector-TextBox REQUIRED\n" +
                 "              Errors\n" +
-                "                Validator Fail Message 123\n" +
+                "                Bad Validator\n" +
                 "        DialogAnchorListComponent\n" +
                 "          AnchorListComponent\n" +
                 "            FlexLayoutComponent\n" +
