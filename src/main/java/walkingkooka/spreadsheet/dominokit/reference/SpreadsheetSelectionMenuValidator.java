@@ -151,8 +151,7 @@ final class SpreadsheetSelectionMenuValidator {
                 )
             ).historyToken(
                 Optional.of(
-                    historyToken.validator()
-                        .clearSaveValue()
+                    historyToken.clearSaveValue()
                 )
             )
         );
