@@ -65,16 +65,10 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
         this.validators = this.validators();
 
-        this.selector = this.selector()
-            .addValueWatcher2(this::refreshLinks);
+        this.selector = this.selector();
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).save()
-            .undo()
-            .clearLink()
-            .close();
+        this.links = this.links();
+        this.selector.addValueWatcher2(this.links);
 
         this.dialog = this.dialogCreate();
     }
@@ -134,10 +128,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      */
     private ValidatorSelectorComponent selector() {
         return ValidatorSelectorComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addValueWatcher2(
-                this::refreshLinks
-            );
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX);
     }
 
     /**
@@ -172,11 +163,15 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     // dialog links.....................................................................................................
 
-    void refreshLinks(final Optional<ValidatorSelector> value) {
-        this.links.setValue(value);
-        if (this.selector.hasErrors()) {
-            this.links.disableSave();
-        }
+    private DialogAnchorListComponent<ValidatorSelector> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .clearLink()
+            .close()
+            .setComponentWithErrors(this.selector);
     }
 
     private final DialogAnchorListComponent<ValidatorSelector> links;
@@ -213,7 +208,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         this.selector.setValue(value);
         this.validators.setValue(value);
 
-        this.refreshLinks(undo);
         this.refreshTitleAndLinks();
 
         this.copySelectorErrorMessages();
