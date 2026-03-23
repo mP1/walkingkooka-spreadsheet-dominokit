@@ -194,7 +194,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         );
     }
 
-    private final CharacterComponent negativeSign;
+    // @VisibleForTesting
+    final CharacterComponent negativeSign;
 
     // positiveSign.....................................................................................................
 
@@ -582,7 +583,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         this.links.clearValue();
     }
 
-    private final DecimalNumberSymbolsComponent decimalNumberSymbols;
+    // @VisibleForTesting
+    final DecimalNumberSymbolsComponent decimalNumberSymbols;
 
     // localeLoad.......................................................................................................
 
