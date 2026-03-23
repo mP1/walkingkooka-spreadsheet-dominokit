@@ -93,8 +93,7 @@ final class SpreadsheetSelectionMenuLocale {
                 )
             ).historyToken(
                 Optional.of(
-                    historyToken.locale()
-                        .clearSaveValue()
+                    historyToken.clearSaveValue()
                 )
             )
         );
