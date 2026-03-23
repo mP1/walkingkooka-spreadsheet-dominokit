@@ -664,7 +664,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
             .undo()
             .clearLink()
             .appendChild(this.copyDefaults)
-            .close();
+            .close()
+            .setComponentWithErrors(this.decimalNumberSymbols);
     }
 
     private final DialogAnchorListComponent<DecimalNumberSymbols> links;
