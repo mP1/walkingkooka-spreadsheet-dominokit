@@ -23,6 +23,7 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentRefreshable;
+import walkingkooka.spreadsheet.dominokit.ComponentWithErrors;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -78,6 +79,20 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     }
 
     private final String idPrefix;
+
+    /**
+     * Sets the {@link ComponentWithErrors} which will provide errors, whenever a new value is {@link #setValue(Optional)}
+     * or via {@link #onValue(Optional)}. If one or more errors are present the {@link #save} will be disabled.
+     */
+    public DialogAnchorListComponent<T> setComponentWithErrors(final ComponentWithErrors<?> hasErrors) {
+        Objects.requireNonNull(hasErrors, "hasErrors");
+
+        this.hasErrors = hasErrors;
+        this.refreshList();
+        return this;
+    }
+
+    private ComponentWithErrors<?> hasErrors;
 
     // list.............................................................................................................
 
@@ -228,7 +243,19 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
         final HistoryTokenSaveValueAnchorComponent<T> save = this.save;
         if (null != save) {
-            save.setValue(value);
+            final List<String> errors;
+            final ComponentWithErrors<?> hasErrors = this.hasErrors;
+            if (null != hasErrors) {
+                errors = hasErrors.errors();
+            } else {
+                errors = Lists.empty();
+            }
+
+            if (errors.isEmpty()) {
+                save.setValue(value);
+            } else {
+                save.disabled();
+            }
         }
         this.refreshClearUndoClose();
         return this;

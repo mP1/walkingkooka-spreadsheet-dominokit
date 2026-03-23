@@ -20,8 +20,10 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.FakeComponentWithErrors;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -31,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -76,6 +79,17 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 ID_PREFIX,
                 null
             )
+        );
+    }
+
+    // setComponentWithErrors...........................................................................................
+
+    @Test
+    public void testSetComponentWithErrorsWithNull() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setComponentWithErrors(null)
         );
     }
 
@@ -358,28 +372,21 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
-    // onHistory........................................................................................................
-
     @Test
-    public void testOnHistoryTokenWithoutSave() {
+    public void testSetValueAndSetComponentWithErrorsAndNoErrors() {
         final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .saveAutoDisableWhenMissingValue()
             .clearLink()
             .undo()
-            .close();
-
-        final HistoryToken previous = component.context.historyToken();
-        component.context.pushHistoryToken(
-            HistoryToken.parseString("/2/SpreadsheetName222/cell/A1/locale")
-        );
-
-        component.onHistoryTokenChange(
-            previous,
-            new FakeAppContext()
-        );
-
-        component.refresh(
-            new FakeRefreshContext()
-        );
+            .close()
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.empty();
+                    }
+                }
+            ).setValue(VALUE);
 
         this.treePrintAndCheck(
             component,
@@ -387,11 +394,45 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
+
+    @Test
+    public void testSetValueAndSetComponentWithErrorsAndSeveralErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .saveAutoDisableWhenMissingValue()
+            .clearLink()
+            .undo()
+            .close()
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.of(
+                            "Error111"
+                        );
+                    }
+                }
+            ).setValue(VALUE);
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" + // disabled because of errors
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    // onHistoryToken...................................................................................................
 
     @Test
     public void testOnHistoryToken() {
@@ -463,6 +504,56 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
         );
     }
+
+    @Test
+    public void testOnHistoryTokenAfterSetValueAndNewErrors() {
+        this.errors = Lists.empty();
+
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .setValue(VALUE)
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return DialogAnchorListComponentTest.this.errors;
+                    }
+                }
+            );
+
+        this.errors = Lists.of("Error111");
+
+        final HistoryToken previous = component.context.historyToken();
+        component.context.pushHistoryToken(
+            HistoryToken.parseString("/2/SpreadsheetName222/cell/A1/locale")
+        );
+
+        component.onHistoryTokenChange(
+            previous,
+            new FakeAppContext()
+        );
+
+        component.refresh(
+            new FakeRefreshContext()
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    private List<String> errors;
 
     // appendChild......................................................................................................
 
@@ -613,6 +704,68 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnValueWithoutErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.empty();
+                    }
+                }
+            );
+
+        component.onValue(VALUE);
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnValueWithErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.of("Error111");
+                    }
+                }
+            );
+
+        component.onValue(VALUE);
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" +
                 "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
