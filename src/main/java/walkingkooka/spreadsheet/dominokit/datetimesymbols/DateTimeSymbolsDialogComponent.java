@@ -173,7 +173,8 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         );
     }
 
-    private final CsvStringListComponent ampms;
+    // @VisibleForTesting
+    final CsvStringListComponent ampms;
 
     // monthNames.......................................................................................................
 
@@ -388,7 +389,8 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
         this.links.clearValue();
     }
 
-    private final DateTimeSymbolsComponent dateTimeSymbols;
+    // @VisibleForTesting
+    final DateTimeSymbolsComponent dateTimeSymbols;
 
     // copyDefaults.....................................................................................................
 

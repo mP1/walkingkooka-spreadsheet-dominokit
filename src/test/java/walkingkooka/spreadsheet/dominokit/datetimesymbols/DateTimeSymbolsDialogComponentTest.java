@@ -35,9 +35,230 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 public final class DateTimeSymbolsDialogComponentTest implements DialogComponentLifecycleTesting<DateTimeSymbolsDialogComponent>,
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
+
+    // DateTimeSymbolsComponent.setStringValue..........................................................................
+
+    @Test
+    public void testDateTimeSymbolsComponentClearValue() {
+        final AppContext context = this.appContext(
+            HistoryToken.cellDateTimeSymbolsSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            DATE_TIME_SYMBOLS
+        );
+
+        final DateTimeSymbolsDialogComponent component = DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.cell(context)
+        );
+        component.dateTimeSymbols.clearValue();
+
+        this.treePrintAndCheck(
+            component,
+            "DateTimeSymbolsDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=DateTimeSymbols-Dialog includeClose=true CLOSED\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 2\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month names [] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          DateTimeSymbolsComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
+                "                Errors\n" +
+                "                  Expected 5 tokens but got 0\n" +
+                "      LocaleComponent\n" +
+                "        SuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DateTimeSymbols-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testDateTimeSymbolsComponentSetValue() {
+        final AppContext context = this.appContext(
+            HistoryToken.cellDateTimeSymbolsSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            DATE_TIME_SYMBOLS
+        );
+
+        final DateTimeSymbolsDialogComponent component = DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.cell(context)
+        );
+        component.dateTimeSymbols.setValue(
+            LOCALE_CONTEXT.dateTimeSymbolsForLocale(LOCALE)
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "DateTimeSymbolsDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=DateTimeSymbols-Dialog includeClose=true CLOSED\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                AM/PM [am,pm] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month names [January,February,March,April,May,June,July,August,September,October,November,December] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month name abbreviations [Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names [Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names Abbreviations [Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
+                "          DateTimeSymbolsComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Date Time Symbols [\"am,pm\",\"January,February,March,April,May,June,July,August,September,October,November,December\",\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\",\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\",\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\"] REQUIRED\n" +
+                "      LocaleComponent\n" +
+                "        SuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DateTimeSymbols-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testDateTimeSymbolsComponentSetStringValueInvalid() {
+        final AppContext context = this.appContext(
+            HistoryToken.cellDateTimeSymbolsSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            DATE_TIME_SYMBOLS
+        );
+
+        final DateTimeSymbolsDialogComponent component = DateTimeSymbolsDialogComponent.with(
+            DateTimeSymbolsDialogComponentContexts.cell(context)
+        );
+        component.ampms.setStringValue(
+            Optional.of("ampm,AMPM")
+        );
+        component.dateTimeSymbols.setStringValue(
+            Optional.of("Invalid")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "DateTimeSymbolsDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    id=DateTimeSymbols-Dialog includeClose=true CLOSED\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                AM/PM [] id=DateTimeSymbols-ampms-TextBox REQUIRED\n" + // cleared by invalid #dateTimeSymbols.setStringValue
+                "                Errors\n" +
+                "                  Require 2\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month names [] id=DateTimeSymbols-monthNames-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Month name abbreviations [] id=DateTimeSymbols-monthNameAbbreviations-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 12 or more\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names [] id=DateTimeSymbols-weekDayNames-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          CsvStringListComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Week day names Abbreviations [] id=DateTimeSymbols-weekDayNameAbbreviations-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Require 7\n" +
+                "          DateTimeSymbolsComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Date Time Symbols [] REQUIRED\n" +
+                "                Errors\n" +
+                "                  Expected 5 tokens but got 0\n" +
+                "      LocaleComponent\n" +
+                "        SuggestBoxComponent\n" +
+                "          Load from Locale []\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=DateTimeSymbols-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/dateTimeSymbols/save/] id=DateTimeSymbols-undo-Link\n" +
+                "              \"Copy Defaults\" DISABLED id=DateTimeSymbols-copyDefaults-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=DateTimeSymbols-close-Link\n"
+        );
+    }
 
     // onHistoryToken...................................................................................................
 
