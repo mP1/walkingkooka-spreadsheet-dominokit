@@ -119,7 +119,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         );
     }
 
-    private final ValidatorSelectorNameAnchorListComponent validators;
+    // @VisibleForTesting
+    final ValidatorSelectorNameAnchorListComponent validators;
 
     // textBox..........................................................................................................
 
@@ -148,7 +149,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
                 this.context.spreadsheetViewportCache()
                     .historyTokenCell()
                     .map(c -> c.formula()
-                        .error()
+                        .validationError()
                         .map(SpreadsheetError::message)
                         .stream()
                         .collect(Collectors.toList())
