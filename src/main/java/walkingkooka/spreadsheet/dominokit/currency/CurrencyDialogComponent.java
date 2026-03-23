@@ -79,6 +79,8 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
         // currency after save because currency passes a method reference to #save
         this.currency = this.currency();
 
+        this.links.setComponentWithErrors(this.currency);
+
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
