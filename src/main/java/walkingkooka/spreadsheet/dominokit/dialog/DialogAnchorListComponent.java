@@ -336,14 +336,6 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
         this.setValue(value);
     }
 
-    @Override
-    public void onErrors(final List<String> errors) {
-        if(false == errors.isEmpty()) {
-            this.disableSave();
-            this.refreshClearUndoClose();
-        }
-    }
-
     // TreePrintable....................................................................................................
 
     @Override

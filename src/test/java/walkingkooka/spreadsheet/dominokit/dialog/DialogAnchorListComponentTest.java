@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
@@ -579,60 +578,6 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
-        );
-    }
-
-    @Test
-    public void testOnErrorWithNoErrors() {
-        final DialogAnchorListComponent<Locale> component = this.createComponent()
-            .save()
-            .clearLink()
-            .undo()
-            .close()
-            .setValue(VALUE);
-
-        component.onErrors(
-            Lists.empty()
-        );
-
-        this.treePrintAndCheck(
-            component,
-            "DialogAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
-        );
-    }
-
-    @Test
-    public void testOnErrorWithErrorsDisablesSave() {
-        final DialogAnchorListComponent<Locale> component = this.createComponent()
-            .save()
-            .clearLink()
-            .undo()
-            .close()
-            .setValue(VALUE);
-
-        component.onErrors(
-            Lists.of(
-                "Errors123"
-            )
-        );
-
-        this.treePrintAndCheck(
-            component,
-            "DialogAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Save\" DISABLED id=Test123-save-Link\n" +
                 "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"

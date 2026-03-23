@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
-import java.util.List;
 import java.util.Optional;
 
 public class FakeValueWatcher<T> implements ValueWatcher<T> {
@@ -28,11 +27,6 @@ public class FakeValueWatcher<T> implements ValueWatcher<T> {
 
     @Override
     public void onValue(final Optional<T> value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void onErrors(final List<String> errors) {
         throw new UnsupportedOperationException();
     }
 }

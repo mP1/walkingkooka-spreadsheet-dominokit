@@ -578,6 +578,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
         this.percentSymbol.clearValue();
         this.permillSymbol.clearValue();
         this.decimalNumberSymbols.clearValue();
+
+        this.links.clearValue();
     }
 
     private final DecimalNumberSymbolsComponent decimalNumberSymbols;
@@ -658,6 +660,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
                 this.idPrefix(),
                 this.context // DialogAnchorListComponentContext
             ).save()
+            .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()
             .appendChild(this.copyDefaults)

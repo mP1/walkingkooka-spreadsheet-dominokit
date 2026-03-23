@@ -305,9 +305,10 @@ public final class TextBoxComponent extends TextBoxComponentLike
 
         // only if value changed
         if (false == Objects.equals(oldValue, newValue)) {
-            this.watchers.onValue(value);
-
             this.validate();
+
+            // watchers can also test if validation reported any errors
+            this.watchers.onValue(value);
         }
 
         return this;
