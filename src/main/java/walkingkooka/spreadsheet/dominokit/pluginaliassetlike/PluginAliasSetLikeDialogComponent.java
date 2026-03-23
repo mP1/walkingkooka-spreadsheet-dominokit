@@ -225,7 +225,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
             ).save()
             .undo()
             .clearLink()
-            .close();
+            .close()
+            .setComponentWithErrors(this.selector);
     }
 
     private final DialogAnchorListComponent<AS> links;
