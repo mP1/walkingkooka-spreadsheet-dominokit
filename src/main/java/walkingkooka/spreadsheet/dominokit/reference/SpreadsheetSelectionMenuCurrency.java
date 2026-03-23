@@ -93,8 +93,7 @@ final class SpreadsheetSelectionMenuCurrency {
                 )
             ).historyToken(
                 Optional.of(
-                    historyToken.currency()
-                        .clearSaveValue()
+                    historyToken.clearSaveValue()
                 )
             )
         );
