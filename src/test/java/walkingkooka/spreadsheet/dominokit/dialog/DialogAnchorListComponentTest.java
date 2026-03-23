@@ -358,6 +358,41 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
+    // onHistory........................................................................................................
+
+    @Test
+    public void testOnHistoryTokenWithoutSave() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .clearLink()
+            .undo()
+            .close();
+
+        final HistoryToken previous = component.context.historyToken();
+        component.context.pushHistoryToken(
+            HistoryToken.parseString("/2/SpreadsheetName222/cell/A1/locale")
+        );
+
+        component.onHistoryTokenChange(
+            previous,
+            new FakeAppContext()
+        );
+
+        component.refresh(
+            new FakeRefreshContext()
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
     @Test
     public void testOnHistoryToken() {
         final DialogAnchorListComponent<Locale> component = this.createComponent()
@@ -386,7 +421,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Save\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-save-Link\n" +
                 "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
@@ -422,7 +457,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Save\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
                 "        \"Clear\" [#/2/SpreadsheetName222/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/2/SpreadsheetName222/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/2/SpreadsheetName222/cell/A1] id=Test123-close-Link\n"
