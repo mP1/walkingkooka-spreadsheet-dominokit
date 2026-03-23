@@ -202,20 +202,17 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<ValidatorSelector> value = this.context.undo();
+        final ValidatorSelectorDialogComponentContext dialogComponentContext = this.context;
+
+        final Optional<ValidatorSelector> value = dialogComponentContext.undo();
         this.selector.setValue(value);
         this.validators.setValue(value);
 
-        this.refreshTitleAndLinks();
+        dialogComponentContext.refreshDialogTitle(this);
+
+        this.links.refresh(dialogComponentContext);
 
         this.copySelectorErrorMessages();
-    }
-
-    private void refreshTitleAndLinks() {
-        final ValidatorSelectorDialogComponentContext context = this.context;
-        context.refreshDialogTitle(this);
-
-        this.links.refresh(context);
     }
 
     @Override
