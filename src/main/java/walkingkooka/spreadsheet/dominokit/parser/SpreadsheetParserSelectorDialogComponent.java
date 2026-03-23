@@ -107,13 +107,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
         this.selector = this.selector();
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponent
-            ).saveAutoDisableWhenMissingValue()
-            .undo()
-            .clearLink()
-            .close();
+        this.links = this.links();
 
         this.dialog = this.dialogCreate();
     }
@@ -306,6 +300,17 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     }
 
     // dialog links.....................................................................................................
+
+    private DialogAnchorListComponent<SpreadsheetParserSelector> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                this.context // DialogAnchorListComponentContext
+            ).saveAutoDisableWhenMissingValue()
+            .undo()
+            .clearLink()
+            .close()
+            .setComponentWithErrors(this.selector);
+    }
 
     private final DialogAnchorListComponent<SpreadsheetParserSelector> links;
 
