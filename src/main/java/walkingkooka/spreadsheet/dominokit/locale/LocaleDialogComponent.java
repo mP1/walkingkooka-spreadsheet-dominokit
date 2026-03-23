@@ -79,6 +79,8 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
         // locale after save because locale passes a method reference to #save
         this.locale = this.locale();
 
+        this.links.setComponentWithErrors(this.locale);
+
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
