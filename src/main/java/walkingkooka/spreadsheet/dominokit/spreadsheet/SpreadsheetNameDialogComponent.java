@@ -55,14 +55,9 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
         context.addHistoryTokenWatcher(this);
         this.context = context;
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).save()
-            .undo()
-            .close();
-
         this.name = this.name();
+
+        this.links = this.links();
 
         this.dialog = this.dialogCreate();
 
@@ -118,6 +113,16 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     final SpreadsheetNameComponent name;
 
     // link.............................................................................................................   // links............................................................................................................
+
+    private DialogAnchorListComponent<SpreadsheetName> links() {
+        return DialogAnchorListComponent.empty(
+                this.idPrefix(),
+                context // DialogAnchorListComponentContext
+            ).save()
+            .undo()
+            .close()
+            .setComponentWithErrors(this.name);
+    }
 
     private final DialogAnchorListComponent<SpreadsheetName> links;
 
