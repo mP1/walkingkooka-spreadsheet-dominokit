@@ -177,8 +177,7 @@ final class SpreadsheetSelectionMenuFormatter {
                 )
             ).historyToken(
                 Optional.of(
-                    historyToken.formatter()
-                        .clearSaveValue()
+                    historyToken.clearSaveValue()
                 )
             )
         );
@@ -226,8 +225,7 @@ final class SpreadsheetSelectionMenuFormatter {
                         label + " " + text
                 ).historyToken(
                     Optional.of(
-                        historyToken.formatter()
-                            .setSaveValue(
+                        historyToken.setSaveValue(
                                 Optional.of(selector)
                             )
                     )
