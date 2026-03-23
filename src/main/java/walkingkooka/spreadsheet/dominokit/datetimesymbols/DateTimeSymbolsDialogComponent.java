@@ -470,7 +470,8 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
             .undo()
             .clearLink()
             .appendChild(this.copyDefaults)
-            .close();
+            .close()
+            .setComponentWithErrors(this.dateTimeSymbols);
     }
 
     private final DialogAnchorListComponent<DateTimeSymbols> links;
