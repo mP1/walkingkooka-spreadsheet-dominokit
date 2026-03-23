@@ -66,6 +66,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
         this.idPrefix = idPrefix;
         this.list = AnchorListComponent.empty();
+        this.value = Optional.empty();
 
         context.addHistoryTokenWatcher(this);
         this.context = context;
@@ -208,6 +209,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
+        this.setValue(this.value);
         this.refreshClearUndoClose();
     }
 
