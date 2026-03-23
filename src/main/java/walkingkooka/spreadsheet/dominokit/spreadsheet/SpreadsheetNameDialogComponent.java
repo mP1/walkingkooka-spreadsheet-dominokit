@@ -107,7 +107,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     }
 
     /**
-     * The {@link SpreadsheetNameComponent} that holds the {@link walkingkooka.spreadsheet.SpreadsheetName}.
+     * The {@link SpreadsheetNameComponent} that holds the {@link walkingkooka.spreadsheet.meta.SpreadsheetName}.
      */
     // @VisibleForTesting
     final SpreadsheetNameComponent name;
