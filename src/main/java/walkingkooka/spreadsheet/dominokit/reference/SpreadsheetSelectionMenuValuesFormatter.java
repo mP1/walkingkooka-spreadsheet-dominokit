@@ -131,16 +131,7 @@ final class SpreadsheetSelectionMenuValuesFormatter extends SpreadsheetSelection
 
     @Override //
     String recentText(final SpreadsheetFormatterSelector formatter) {
-        final String label = CaseKind.kebabToTitle(
-            formatter.name()
-                .value()
-        );
-
-        final String text = formatter.valueText();
-
-        return text.isEmpty() ?
-                    label :
-                    label + " " + text;
+        return selectorToMenuItemText(formatter);
     }
 
     @Override

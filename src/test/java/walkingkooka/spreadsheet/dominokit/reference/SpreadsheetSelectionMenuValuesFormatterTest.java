@@ -85,8 +85,8 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
                 "    -----\n" +
                 "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Date (date recent-1A)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date (date recent-2B)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -142,8 +142,8 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
                 "    -----\n" +
                 "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Date (date recent-1A)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date (date recent-2B)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -369,8 +369,8 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
                 "    -----\n" +
                 "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Date (date recent-1A)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date (date recent-2B)\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
