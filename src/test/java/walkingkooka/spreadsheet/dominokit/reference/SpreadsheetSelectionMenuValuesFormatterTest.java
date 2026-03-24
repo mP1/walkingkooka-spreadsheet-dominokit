@@ -20,35 +20,29 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 import java.util.Optional;
 
-public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetSelectionMenuFormatter> {
+public final class SpreadsheetSelectionMenuValuesFormatterTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesFormatter, SpreadsheetFormatterSelector> {
 
     @Test
     public void testBuildRecents() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetCellFormatterSelectHistoryToken historyToken = HistoryToken.cellFormatterSelect(
             SpreadsheetId.with(1),
             SpreadsheetName.with("Spreadsheet123"),
             AnchoredSpreadsheetSelection.with(
@@ -77,27 +71,28 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             context
         );
 
-        SpreadsheetSelectionMenuFormatter.build(
+        SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildRecentsChecked() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetCellFormatterSelectHistoryToken historyToken = HistoryToken.cellFormatterSelect(
             SpreadsheetId.with(1),
             SpreadsheetName.with("Spreadsheet123"),
             AnchoredSpreadsheetSelection.with(
@@ -133,27 +128,28 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             context
         );
 
-        SpreadsheetSelectionMenuFormatter.build(
+        SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildMenus() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetCellFormatterSelectHistoryToken historyToken = HistoryToken.cellFormatterSelect(
             SpreadsheetId.with(1),
             SpreadsheetName.with("Spreadsheet123"),
             AnchoredSpreadsheetSelection.with(
@@ -194,30 +190,31 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             context
         );
 
-        SpreadsheetSelectionMenuFormatter.build(
+        SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date\" id=test-formatter-date-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Text\" id=test-formatter-text-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n"
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    \"Date\" id=test-Formatter-date-SubMenu\n" +
+                "      \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "    \"Text\" id=test-Formatter-text-SubMenu\n" +
+                "      \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildMenusChecked() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetCellFormatterSelectHistoryToken historyToken = HistoryToken.cellFormatterSelect(
             SpreadsheetId.with(1),
             SpreadsheetName.with("Spreadsheet123"),
             AnchoredSpreadsheetSelection.with(
@@ -265,30 +262,31 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             context
         );
 
-        SpreadsheetSelectionMenuFormatter.build(
+        SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date\" id=test-formatter-date-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-formatter-date-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Text\" id=test-formatter-text-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n"
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    \"Date\" id=test-Formatter-date-SubMenu\n" +
+                "      \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "    \"Text\" id=test-Formatter-text-SubMenu\n" +
+                "      \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildRecentsAndMenus() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
+        final SpreadsheetCellFormatterSelectHistoryToken historyToken = HistoryToken.cellFormatterSelect(
             SpreadsheetId.with(1),
             SpreadsheetName.with("Spreadsheet123"),
             AnchoredSpreadsheetSelection.with(
@@ -347,84 +345,36 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
             context
         );
 
-        SpreadsheetSelectionMenuFormatter.build(
+        SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Date\" id=test-formatter-date-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-formatter-date-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-formatter-date-MenuItem\n" +
-                "  \"Date Time\" id=test-formatter-date-time-SubMenu\n" +
-                "    \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-formatter-date-time-MenuItem\n" +
-                "    \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-formatter-date-time-MenuItem\n" +
-                "    \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-formatter-date-time-MenuItem\n" +
-                "  \"Text\" id=test-formatter-text-SubMenu\n" +
-                "    \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-formatter-text-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    \"Date\" id=test-Formatter-date-SubMenu\n" +
+                "      \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "    \"Date Time\" id=test-Formatter-date-time-SubMenu\n" +
+                "      \"Short\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-Formatter-date-time-MenuItem\n" +
+                "      \"Medium\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-Formatter-date-time-MenuItem\n" +
+                "      \"Long\" [/1/Spreadsheet123/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-Formatter-date-time-MenuItem\n" +
+                "    \"Text\" id=test-Formatter-text-SubMenu\n" +
+                "      \"Default text\" [/1/Spreadsheet123/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
-    @Test
-    public void testCellFormulaHistoryToken() {
-        final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.cellFormula(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("Spreadsheet123"),
-            AnchoredSpreadsheetSelection.with(
-                SpreadsheetSelection.A1,
-                SpreadsheetViewportAnchor.NONE
-            )
-        );
-
-        final SpreadsheetSelectionMenuContext context = this.context(
-            historyToken,
-            Lists.of(
-                SpreadsheetFormatterSelector.parse("date recent-1A"),
-                SpreadsheetFormatterSelector.parse("date recent-2B")
-            ),
-            Lists.empty(),
-            Optional.empty() // selectionSummary
-        );
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Cell-MenuId",
-                "Cell A1 Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenuFormatter.build(
-            historyToken,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck(
-            menu,
-            "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Date recent-1A\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-1A] id=test-formatter-recent-0-MenuItem\n" +
-                "  \"Date recent-2B\" [/1/Spreadsheet123/cell/A1/formatter/save/date%20recent-2B] id=test-formatter-recent-1-MenuItem\n"
-        );
-    }
-
-    private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
+    private SpreadsheetSelectionMenuContext context(final SpreadsheetCellFormatterSelectHistoryToken historyToken,
                                                     final List<SpreadsheetFormatterSelector> recentFormatters,
                                                     final List<SpreadsheetFormatterMenu> menus,
                                                     final Optional<SpreadsheetCell> selectionSummary) {
@@ -460,12 +410,7 @@ public final class SpreadsheetSelectionMenuFormatterTest implements TreePrintabl
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectionMenuFormatter> type() {
-        return SpreadsheetSelectionMenuFormatter.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetSelectionMenuValuesFormatter> type() {
+        return SpreadsheetSelectionMenuValuesFormatter.class;
     }
 }

@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -328,23 +329,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         subMenu.disableIfEmpty();
     }
 
-    private static void formatter(final HistoryToken historyToken,
-                                  final SpreadsheetContextMenu menu,
-                                  final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "formatter" + SpreadsheetElementIds.SUB_MENU,
-            "Formatter"
-        );
-
-        SpreadsheetSelectionMenuFormatter.build(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-            subMenu,
-            context
-        );
-
-        subMenu.disableIfEmpty();
-    }
-
     private static void currency(final HistoryToken historyToken,
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
@@ -378,7 +362,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         ).build();
     }
 
-    // locale...........................................................................................................
+    private static void formatter(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
+        SpreadsheetSelectionMenuValues.formatter(
+            historyToken.formatter()
+                .cast(SpreadsheetCellFormatterHistoryToken.class),
+            menu,
+            context
+        ).build();
+    }
 
     private static void locale(final HistoryToken historyToken,
                                final SpreadsheetContextMenu menu,
