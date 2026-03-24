@@ -41,7 +41,7 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             HistoryToken.cellCurrencySelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
@@ -59,7 +59,7 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             HistoryToken.cellFormula(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ).currency()
                 .cast(SpreadsheetCellCurrencySelectHistoryToken.class),
             Lists.empty(), // recentCurrencies
@@ -78,7 +78,7 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             HistoryToken.cellCurrencySelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentCurrencies
             Optional.of(
@@ -103,7 +103,7 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             HistoryToken.cellCurrencySelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.of(
                 Currency.getInstance("AUD"),
