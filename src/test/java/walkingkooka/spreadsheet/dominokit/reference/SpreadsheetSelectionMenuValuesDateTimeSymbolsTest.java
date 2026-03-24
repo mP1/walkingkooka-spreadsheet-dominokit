@@ -55,7 +55,7 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             HistoryToken.cellDateTimeSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentDateTimeSymbols
             Optional.empty(), // summary
@@ -73,7 +73,7 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             HistoryToken.cellFormula(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
-                    SpreadsheetSelection.A1.setDefaultAnchor()
+                    CELL
                 ).dateTimeSymbols()
                 .cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class),
             Lists.empty(), // recentDateTimeSymbols
@@ -92,7 +92,7 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             HistoryToken.cellDateTimeSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentDateTimeSymbols
             Optional.of(
@@ -115,7 +115,7 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             HistoryToken.cellDateTimeSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.of(
                 DATE_TIME_SYMBOLS_AU,
