@@ -423,6 +423,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.close();
     }
 
+    public static MdiIcon value() {
+        return Icons.numeric();
+    }
+
     public static MdiIcon valueRemove() {
         return Icons.close();
     }
