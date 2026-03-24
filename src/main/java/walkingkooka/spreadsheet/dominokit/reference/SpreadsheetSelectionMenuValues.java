@@ -167,32 +167,36 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
     }
 
     final void recents() {
-        this.separator();
+        final Collection<T> values = this.recentValues();
+        if (false == values.isEmpty()) {
 
-        int i = 0;
+            this.separator();
 
-        final HistoryToken historyToken = this.historyToken;
-        final SpreadsheetContextMenu menu = this.menu;
+            int i = 0;
 
-        final Predicate<T> checked = this.spreadsheetCellValuePredicate();
+            final HistoryToken historyToken = this.historyToken;
+            final SpreadsheetContextMenu menu = this.menu;
 
-        for (final T value : this.recentValues()) {
-            menu.item(
-                SpreadsheetContextMenuItem.with(
-                    this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
-                    this.recentText(value)
-                ).historyToken(
-                    Optional.of(
-                        historyToken.setSaveValue(
-                            Optional.of(value)
+            final Predicate<T> checked = this.spreadsheetCellValuePredicate();
+
+            for (final T value : values) {
+                menu.item(
+                    SpreadsheetContextMenuItem.with(
+                        this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
+                        this.recentText(value)
+                    ).historyToken(
+                        Optional.of(
+                            historyToken.setSaveValue(
+                                Optional.of(value)
+                            )
                         )
+                    ).checked(
+                        checked.test(value)
                     )
-                ).checked(
-                    checked.test(value)
-                )
-            );
+                );
 
-            i++;
+                i++;
+            }
         }
     }
 
