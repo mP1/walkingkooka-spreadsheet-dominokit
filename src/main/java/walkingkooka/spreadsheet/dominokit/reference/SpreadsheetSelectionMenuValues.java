@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -96,6 +97,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
+    static SpreadsheetSelectionMenuValues<TextStyleProperty<?>> style(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                                      final SpreadsheetContextMenu menu,
+                                                                      final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesStyle.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
     static SpreadsheetSelectionMenuValues<ValidatorSelector> validator(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                                                        final SpreadsheetContextMenu menu,
                                                                        final SpreadsheetSelectionMenuContext context) {
@@ -126,6 +137,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
             "Value" :
             this.type()
                 .getSimpleName()
+                .replace(TextStyleProperty.class.getSimpleName(), "Style")
                 .replace("Spreadsheet", "")
                 .replace("Selector", "");
 
@@ -135,11 +147,13 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.menu = Objects.requireNonNull(menu, "menu")
             .subMenu(
                 idPrefix + SpreadsheetElementIds.SUB_MENU,
-                this.isValue() ?
-                    "Value" :
-                    this.isValueType() ?
-                        "Value Type" :
-                        selectorTextFix(title)
+                this.isStyle() ?
+                    "Style" :
+                    this.isValue() ?
+                        "Value" :
+                        this.isValueType() ?
+                            "Value Type" :
+                            selectorTextFix(title)
             );
 
         this.context = Objects.requireNonNull(context, "context");
@@ -149,12 +163,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.values();
         this.clear();
 
-        // Value & ValueType dont have edit links
-        if (false == this.isValue() && false == this.isValueType()) {
+        // Style & Value & ValueType dont have edit links
+        if (false == (this.isStyle() || this.isValue() || this.isValueType())) {
             this.edit();
         }
 
         this.recents();
+    }
+
+    private boolean isStyle() {
+        return this instanceof SpreadsheetSelectionMenuValuesStyle;
     }
 
     private boolean isValue() {
@@ -212,17 +230,32 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
             final Predicate<T> checked = this.spreadsheetCellValuePredicate();
 
+            final boolean isStyle = this.isStyle();
+
             for (final T value : values) {
+                final HistoryToken saveHistoryToken;
+
+                // YUCK special case for style
+                if(isStyle) {
+                    final TextStyleProperty<?> textStyleProperty = (TextStyleProperty<?>) value;
+
+                    saveHistoryToken = historyToken.setStylePropertyName(
+                        textStyleProperty.name()
+                    ).setSaveValue(
+                        textStyleProperty.value()
+                    );
+                } else {
+                    saveHistoryToken = historyToken.setSaveValue(
+                        Optional.of(value)
+                    );
+                }
+
                 menu.item(
                     SpreadsheetContextMenuItem.with(
                         this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
                         this.recentText(value)
                     ).historyToken(
-                        Optional.of(
-                            historyToken.setSaveValue(
-                                Optional.of(value)
-                            )
-                        )
+                        Optional.of(saveHistoryToken)
                     ).checked(
                         checked.test(value)
                     )
