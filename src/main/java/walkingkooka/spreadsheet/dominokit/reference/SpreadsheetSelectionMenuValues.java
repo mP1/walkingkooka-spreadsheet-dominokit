@@ -20,14 +20,17 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
+import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Collection;
 import java.util.Currency;
@@ -81,6 +84,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
+    static SpreadsheetSelectionMenuValues<ValidatorSelector> validator(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                                       final SpreadsheetContextMenu menu,
+                                                                       final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesValidator.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
     SpreadsheetSelectionMenuValues(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
@@ -95,7 +108,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.menu = Objects.requireNonNull(menu, "menu")
             .subMenu(
                 idPrefix + SpreadsheetElementIds.SUB_MENU,
-                title
+                selectorTextFix(title)
             );
 
         this.context = Objects.requireNonNull(context, "context");
@@ -211,6 +224,25 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
     final String idPrefix;
 
     abstract Class<T> type();
+
+    // helper...........................................................................................................
+
+    static String selectorToMenuItemText(final PluginSelectorLike<?> selector) {
+        return CaseKind.kebabToTitle(
+            selectorTextFix(
+                selector.name()
+                .value()
+            )
+        );
+    }
+
+    // ValidatorSelector -> Validator
+    private static String selectorTextFix(final String text) {
+        return text.replace(
+            "Selector",
+            ""
+        );
+    }
 
     // TreePrintable....................................................................................................
 
