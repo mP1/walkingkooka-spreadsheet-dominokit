@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.hidezerovalues.HideZeroValues;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -345,15 +346,16 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
         final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "currency" + SpreadsheetElementIds.SUB_MENU,
+            context.idPrefix() + "Currency" + SpreadsheetElementIds.SUB_MENU,
             "Currency"
         );
 
-        SpreadsheetSelectionMenuCurrency.build(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+        SpreadsheetSelectionMenuValues.currency(
+            historyToken.currency()
+                .cast(SpreadsheetCellCurrencySelectHistoryToken.class),
             subMenu,
             context
-        );
+        ).build();
 
         subMenu.disableIfEmpty();
     }

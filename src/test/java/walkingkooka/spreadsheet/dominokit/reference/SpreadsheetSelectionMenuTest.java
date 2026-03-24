@@ -150,10 +150,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -1702,10 +1702,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -3256,10 +3256,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -4809,10 +4809,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -6362,10 +6362,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -7915,10 +7915,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -9456,10 +9456,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -11092,10 +11092,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
      "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
      "  -----\n",
-     "  \"Currency\" id=test-currency-SubMenu\n" +
-     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-currency-clear-MenuItem\n" +
+     "  \"Currency\" id=test-Currency-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
      "    -----\n" +
-     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-currency-edit-MenuItem\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-Currency-edit-MenuItem\n" +
      "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
      "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
      "  \"Formatter\" id=test-formatter-SubMenu\n" +
@@ -12633,10 +12633,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n",
-                "  \"Currency\" id=test-currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-Currency-edit-MenuItem\n" +
                 "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +

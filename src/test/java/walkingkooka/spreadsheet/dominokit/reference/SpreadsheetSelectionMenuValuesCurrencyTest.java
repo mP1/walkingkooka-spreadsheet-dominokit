@@ -20,42 +20,35 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Currency;
 import java.util.List;
 import java.util.Optional;
 
-public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetSelectionMenuCurrency> {
+public final class SpreadsheetSelectionMenuValuesCurrencyTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesCurrency, Currency> {
 
     @Test
     public void testBuild() {
         this.buildAndCheck(
-            HistoryToken.selection(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
+            HistoryToken.cellCurrencySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/currency] id=test-currency-edit-MenuItem\n"
+                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -63,25 +56,26 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
     public void testBuildWithSpreadsheetCellFormulaHistoryToken() {
         this.buildAndCheck(
             HistoryToken.cellFormula(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
-            ),
+            ).currency()
+                .cast(SpreadsheetCellCurrencySelectHistoryToken.class),
             Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/currency] id=test-currency-edit-MenuItem\n"
+                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithChecked() {
         this.buildAndCheck(
-            HistoryToken.selection(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
+            HistoryToken.cellCurrencySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             Lists.empty(), // recentCurrencies
@@ -94,18 +88,18 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
                     )
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/currency] id=test-currency-edit-MenuItem\n"
+                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithRecentCurrencies() {
         this.buildAndCheck(
-            HistoryToken.selection(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
+            HistoryToken.cellCurrencySelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             Lists.of(
@@ -114,16 +108,16 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
             ), // recentCurrencies
             Optional.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/currency/save/] id=test-currency-clear-MenuItem\n" +
+                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/currency] id=test-currency-edit-MenuItem\n" +
+                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  -----\n" +
-                "  \"Australian Dollar\" [/1/Spreadsheet123/cell/A1/currency/save/AUD] id=test-currency-recent-0-MenuItem\n" +
-                "  \"New Zealand Dollar\" [/1/Spreadsheet123/cell/A1/currency/save/NZD] id=test-currency-recent-1-MenuItem\n"
+                "  \"Australian Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/AUD] id=test-Currency-recent-0-MenuItem\n" +
+                "  \"New Zealand Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/NZD] id=test-Currency-recent-1-MenuItem\n"
         );
     }
 
-    private void buildAndCheck(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+    private void buildAndCheck(final SpreadsheetCellHistoryToken historyToken,
                                final List<Currency> recentCurrencies,
                                final Optional<SpreadsheetCell> summary,
                                final String expected) {
@@ -143,11 +137,11 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
             context
         );
 
-        SpreadsheetSelectionMenuCurrency.build(
+        SpreadsheetSelectionMenuValuesCurrency.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
@@ -192,12 +186,7 @@ public final class SpreadsheetSelectionMenuCurrencyTest implements TreePrintable
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectionMenuCurrency> type() {
-        return SpreadsheetSelectionMenuCurrency.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetSelectionMenuValuesCurrency> type() {
+        return SpreadsheetSelectionMenuValuesCurrency.class;
     }
 }

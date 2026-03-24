@@ -27,6 +27,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Collection;
+import java.util.Currency;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -34,6 +35,16 @@ import java.util.Optional;
  * Template class that provides helpers to create numerous sub-menus and their items.
  */
 abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
+
+    static SpreadsheetSelectionMenuValues<Currency> currency(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                             final SpreadsheetContextMenu menu,
+                                                             final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesCurrency.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
 
     SpreadsheetSelectionMenuValues(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,
