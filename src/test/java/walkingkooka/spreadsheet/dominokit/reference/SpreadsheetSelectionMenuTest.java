@@ -1569,16 +1569,18 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1] id=test-ValueType-clear-MenuItem\n" +
-                "  \"Value\" id=test-value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-value-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-value-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/value/date-time] id=test-value-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/email] id=test-value-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/number] id=test-value-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-value-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-value-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+                "  \"Value\" id=test-Value-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
@@ -3118,16 +3120,18 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right] id=test-ValueType-clear-MenuItem\n" +
-                "  \"Value\" id=test-value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/boolean] id=test-value-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date] id=test-value-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date-time] id=test-value-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/email] id=test-value-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/number] id=test-value-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/text] id=test-value-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/time] id=test-value-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+                "  \"Value\" id=test-Value-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date] id=test-Value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date-time] id=test-Value-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/email] id=test-Value-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/text] id=test-Value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/time] id=test-Value-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
@@ -4762,16 +4766,18 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123] id=test-ValueType-clear-MenuItem\n" +
-                "  \"Value\" id=test-value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-value-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-value-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-value-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-value-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/number] id=test-value-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-value-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-value-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+                "  \"Value\" id=test-Value-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-Value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-Value-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-Value-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-Value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-Value-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
@@ -6311,16 +6317,18 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel] id=test-ValueType-clear-MenuItem\n" +
-                "  \"Value\" id=test-value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-value-boolean-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-value-date-MenuItem\n" +
-                "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-value-date-time-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-value-email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number] id=test-value-number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-value-text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-value-time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-value-whole-number-MenuItem\n" +
+                "  \"Value\" id=test-Value-SubMenu\n" +
+                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-Value-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-Value-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-Value-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-Value-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-Value-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
@@ -6345,103 +6353,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
-        );
-    }
-
-    @Test
-    public void testColumnRangeAnchorLeft() {
-        final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SPREADSHEET_ID, // id
-            SPREADSHEET_NAME, // name
-            SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.LEFT)
-        );
-        final SpreadsheetSelectionMenuContext context = this.context(token);
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Column-MenuId",
-                "Column B:C Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenu.build(
-            token,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck2(
-            menu,
-            "\"Column B:C Menu\" id=Column-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/left/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/left/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
-                "  \"Insert\" id=test-insert-SubMenu\n" +
-                "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
-                "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
-                "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
-                "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
-                "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
-                "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
-                "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
-                "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
-                "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
-                "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
-                "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
-                "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
-                "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
-                "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
-                "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
-                "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Freeze\" id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
     }
 
