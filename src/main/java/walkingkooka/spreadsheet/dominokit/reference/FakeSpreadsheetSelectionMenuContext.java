@@ -58,6 +58,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
     }
 
     @Override
+    public List<DecimalNumberSymbols> recentDecimalNumberSymbols() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
         throw new UnsupportedOperationException();
     }
