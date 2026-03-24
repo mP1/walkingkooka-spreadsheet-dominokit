@@ -28,6 +28,7 @@ import jsinterop.base.Js;
 import org.gwtproject.core.shared.GWT;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
@@ -779,6 +780,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
                 menu,
                 SpreadsheetViewportComponentSpreadsheetSelectionMenuContext.with(
                     recentValueSavesContext.recentValueSaves(Currency.class),
+                    recentValueSavesContext.recentValueSaves(DateTimeSymbols.class),
                     recentValueSavesContext.recentValueSaves(SpreadsheetFormatterSelector.class),
                     spreadsheetFormatterSelectorMenus,
                     recentValueSavesContext.recentValueSaves(Locale.class),
