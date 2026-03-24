@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -367,7 +367,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                   final SpreadsheetSelectionMenuContext context) {
         SpreadsheetSelectionMenuValues.formatter(
             historyToken.formatter()
-                .cast(SpreadsheetCellFormatterHistoryToken.class),
+                .cast(SpreadsheetCellFormatterSelectHistoryToken.class),
             menu,
             context
         ).build();
