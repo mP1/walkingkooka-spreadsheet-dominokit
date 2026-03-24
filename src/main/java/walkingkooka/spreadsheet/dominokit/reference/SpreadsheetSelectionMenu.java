@@ -358,7 +358,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void dateTimeSymbols(final HistoryToken historyToken,
                                         final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
-        SpreadsheetSelectionMenuValuesDateTimeSymbols.with(
+        SpreadsheetSelectionMenuValues.dateTimeSymbols(
             historyToken.dateTimeSymbols()
                 .cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class),
             menu,
@@ -396,7 +396,7 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void locale(final HistoryToken historyToken,
                                final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
-        SpreadsheetSelectionMenuValuesLocale.with(
+        SpreadsheetSelectionMenuValues.locale(
             historyToken.locale()
                 .cast(SpreadsheetCellLocaleSelectHistoryToken.class),
             menu,
