@@ -22,6 +22,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintableTesting,
@@ -31,6 +33,8 @@ public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends Spreadshe
     final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.parse("1");
 
     final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
+
+    final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
     SpreadsheetSelectionMenuValuesTestCase() {
         super();
