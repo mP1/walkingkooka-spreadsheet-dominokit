@@ -117,6 +117,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
+    static SpreadsheetSelectionMenuValues<Object> value(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                        final SpreadsheetContextMenu menu,
+                                                        final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesValue.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
     static SpreadsheetSelectionMenuValues<ValueType> valueType(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                                                final SpreadsheetContextMenu menu,
                                                                final SpreadsheetSelectionMenuContext context) {

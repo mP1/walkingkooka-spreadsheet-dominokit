@@ -420,24 +420,24 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         ).build();
     }
 
-    // valueTypes.......................................................................................................
+    // value............................................................................................................
 
-    private static void valueTypes(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                                   final SpreadsheetContextMenu menu,
-                                   final SpreadsheetSelectionMenuContext context) {
-        SpreadsheetSelectionMenuValues.valueType(
+    private static void value(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
+        SpreadsheetSelectionMenuValues.value(
             historyToken,
             menu,
             context
         ).build();
     }
 
-    // value............................................................................................................
+    // valueTypes.......................................................................................................
 
-    private static void value(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                              final SpreadsheetContextMenu menu,
-                              final SpreadsheetSelectionMenuContext context) {
-        SpreadsheetSelectionMenuValuesValue.with(
+    private static void valueTypes(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                   final SpreadsheetContextMenu menu,
+                                   final SpreadsheetSelectionMenuContext context) {
+        SpreadsheetSelectionMenuValues.valueType(
             historyToken,
             menu,
             context
