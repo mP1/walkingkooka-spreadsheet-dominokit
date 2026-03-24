@@ -20,28 +20,24 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
-import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuValuesTest.TestSpreadsheetSelectionMenuValues;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetSelectionMenuValuesTest implements TreePrintableTesting,
-    ClassTesting<SpreadsheetSelectionMenuValues<Locale>> {
+public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelectionMenuValuesTestCase<TestSpreadsheetSelectionMenuValues, Locale> {
 
     private final static String ID_PREFIX = "Test123-";
 
@@ -182,12 +178,12 @@ public final class SpreadsheetSelectionMenuValuesTest implements TreePrintableTe
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectionMenuValues<Locale>> type() {
-        return Cast.to(SpreadsheetSelectionMenuValues.class);
+    public void testTestNaming() {
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<TestSpreadsheetSelectionMenuValues> type() {
+        return TestSpreadsheetSelectionMenuValues.class;
     }
 }
