@@ -19,12 +19,18 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintableTesting,
     ClassTesting<M>,
     SpreadsheetMetadataTesting {
+
+    final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.parse("1");
+
+    final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
 
     SpreadsheetSelectionMenuValuesTestCase() {
         super();
