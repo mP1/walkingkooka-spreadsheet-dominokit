@@ -111,7 +111,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         super();
         this.historyToken = Objects.requireNonNull(historyToken, "historyToken");
 
-        final String title = this instanceof SpreadsheetSelectionMenuValuesValue ?
+        final String title = this.isValue() ?
             "Value" :
             this.type().getSimpleName();
 
@@ -121,9 +121,9 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.menu = Objects.requireNonNull(menu, "menu")
             .subMenu(
                 idPrefix + SpreadsheetElementIds.SUB_MENU,
-                this instanceof SpreadsheetSelectionMenuValuesValue ?
+                this.isValue() ?
                     "Value" :
-                    this instanceof SpreadsheetSelectionMenuValuesValueType ?
+                    this.isValueType() ?
                         "Value Type" :
                         selectorTextFix(title)
             );
@@ -136,11 +136,19 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.clear();
 
         // Value & ValueType dont have edit links
-        if (false == this instanceof SpreadsheetSelectionMenuValuesValue && false == this instanceof SpreadsheetSelectionMenuValuesValueType) {
+        if (false == this.isValue() && false == this.isValueType()) {
             this.edit();
         }
 
         this.recents();
+    }
+
+    private boolean isValue() {
+        return this instanceof SpreadsheetSelectionMenuValuesValue;
+    }
+
+    private boolean isValueType() {
+        return this instanceof SpreadsheetSelectionMenuValuesValueType;
     }
 
     abstract void values();
