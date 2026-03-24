@@ -69,13 +69,13 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-ValidatorSelector-edit-MenuItem\n"
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
@@ -119,13 +119,13 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] CHECKED id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] CHECKED id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-ValidatorSelector-edit-MenuItem\n"
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
@@ -165,16 +165,16 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
         this.treePrintAndCheck(
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-ValidatorSelector-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-ValidatorSelector-recent-0-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-recent-1-MenuItem\n"
+                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-recent-0-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-recent-1-MenuItem\n"
         );
     }
 

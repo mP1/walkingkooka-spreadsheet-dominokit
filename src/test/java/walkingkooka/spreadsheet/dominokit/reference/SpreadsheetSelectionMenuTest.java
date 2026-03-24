@@ -1581,14 +1581,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1] id=test-Value-clear-MenuItem\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-ValidatorSelector-hello-validator-3-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-ValidatorSelector-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
@@ -3132,14 +3132,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right] id=test-Value-clear-MenuItem\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-3] id=test-ValidatorSelector-hello-validator-3-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-ValidatorSelector-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-Validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
@@ -4778,14 +4778,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123] id=test-Value-clear-MenuItem\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-ValidatorSelector-hello-validator-3-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-ValidatorSelector-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-Validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
@@ -6329,14 +6329,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel] id=test-Value-clear-MenuItem\n" +
-                "  \"Validator\" id=test-ValidatorSelector-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-ValidatorSelector-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-ValidatorSelector-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-ValidatorSelector-hello-validator-3-MenuItem\n" +
+                "  \"Validator\" id=test-Validator-SubMenu\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/] id=test-ValidatorSelector-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-ValidatorSelector-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-Validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
