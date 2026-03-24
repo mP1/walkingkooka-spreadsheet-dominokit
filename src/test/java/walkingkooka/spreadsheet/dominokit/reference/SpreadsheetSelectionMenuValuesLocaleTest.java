@@ -20,32 +20,26 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetSelectionMenuLocale> {
+public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesLocale, Locale> {
 
     @Test
     public void testBuild() {
         this.buildAndCheck(
-            HistoryToken.selection(
+            HistoryToken.cellLocaleSelect(
                 SpreadsheetId.with(1),
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
@@ -53,9 +47,10 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             Optional.empty(), // summary
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -66,20 +61,22 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
                 SpreadsheetId.with(1),
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
-            ),
+            ).locale()
+                .cast(SpreadsheetCellLocaleSelectHistoryToken.class),
             Optional.empty(), // summary
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithChecked() {
         this.buildAndCheck(
-            HistoryToken.selection(
+            HistoryToken.cellLocaleSelect(
                 SpreadsheetId.with(1),
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
@@ -94,16 +91,17 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             ),
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n"
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithRecents() {
         this.buildAndCheck(
-            HistoryToken.selection(
+            HistoryToken.cellLocaleSelect(
                 SpreadsheetId.with(1),
                 SpreadsheetName.with("Spreadsheet123"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
@@ -114,16 +112,17 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
                 Locale.forLanguageTag("en-NZ")
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"English (Australia)\" [/1/Spreadsheet123/cell/A1/locale/save/en-AU] id=test-locale-recent-0-MenuItem\n" +
-                "  \"English (New Zealand)\" [/1/Spreadsheet123/cell/A1/locale/save/en-NZ] id=test-locale-recent-1-MenuItem\n"
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"English (Australia)\" [/1/Spreadsheet123/cell/A1/locale/save/en-AU] id=test-Locale-recent-0-MenuItem\n" +
+                "    \"English (New Zealand)\" [/1/Spreadsheet123/cell/A1/locale/save/en-NZ] id=test-Locale-recent-1-MenuItem\n"
         );
     }
 
-    private void buildAndCheck(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+    private void buildAndCheck(final SpreadsheetCellLocaleSelectHistoryToken historyToken,
                                final Optional<SpreadsheetCell> summary,
                                final List<Locale> recents,
                                final String expected) {
@@ -143,11 +142,11 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
             context
         );
 
-        SpreadsheetSelectionMenuLocale.build(
+        SpreadsheetSelectionMenuValuesLocale.with(
             historyToken,
             menu,
             context
-        );
+        ).build();
 
         this.treePrintAndCheck(
             menu,
@@ -192,12 +191,7 @@ public final class SpreadsheetSelectionMenuLocaleTest implements TreePrintableTe
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetSelectionMenuLocale> type() {
-        return SpreadsheetSelectionMenuLocale.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<SpreadsheetSelectionMenuValuesLocale> type() {
+        return SpreadsheetSelectionMenuValuesLocale.class;
     }
 }

@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -406,18 +407,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void locale(final HistoryToken historyToken,
                                final SpreadsheetContextMenu menu,
                                final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "locale" + SpreadsheetElementIds.SUB_MENU,
-            "Locale"
-        );
-
-        SpreadsheetSelectionMenuLocale.build(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-            subMenu,
+        SpreadsheetSelectionMenuValuesLocale.with(
+            historyToken.locale()
+                .cast(SpreadsheetCellLocaleSelectHistoryToken.class),
+            menu,
             context
-        );
-
-        subMenu.disableIfEmpty();
+        ).build();
     }
 
     // hideIfZero...........................................................................................................

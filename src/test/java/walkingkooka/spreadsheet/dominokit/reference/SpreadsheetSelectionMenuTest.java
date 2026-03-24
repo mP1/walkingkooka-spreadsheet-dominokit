@@ -160,10 +160,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -1712,10 +1712,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -3266,10 +3266,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -4819,10 +4819,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -6372,10 +6372,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -7925,10 +7925,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -9466,10 +9466,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -11102,10 +11102,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
      "    -----\n" +
      "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
-     "  \"Locale\" id=test-locale-SubMenu\n" +
-     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-locale-clear-MenuItem\n" +
+     "  \"Locale\" id=test-Locale-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-Locale-clear-MenuItem\n" +
      "    -----\n" +
-     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-locale-edit-MenuItem\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-Locale-edit-MenuItem\n" +
      "  \"Style\" id=test-style-SubMenu\n" +
      "    \"Alignment\" id=test-alignment-SubMenu\n" +
      "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
@@ -12643,10 +12643,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
-                "  \"Locale\" id=test-locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-locale-clear-MenuItem\n" +
+                "  \"Locale\" id=test-Locale-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Style\" id=test-style-SubMenu\n" +
                 "    \"Alignment\" id=test-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-left-MenuItem\n" +
