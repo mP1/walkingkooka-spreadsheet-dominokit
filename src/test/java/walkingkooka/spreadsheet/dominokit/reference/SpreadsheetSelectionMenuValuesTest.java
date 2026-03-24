@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
@@ -28,9 +29,11 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuValuesTest.TestSpreadsheetSelectionMenuValues;
+import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Collection;
 import java.util.List;
@@ -196,6 +199,42 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
                     this.recentValues.get(0)
             );
         }
+    }
+
+    // selectorToMenuItemText...........................................................................................
+
+    @Test
+    public void testSelectorToMenuItemTextWithSpreadsheetFormatterSelector() {
+        this.selectorToMenuItemTextAndCheck(
+            SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
+                .spreadsheetFormatterSelector(),
+            "Date"
+        );
+    }
+
+    @Test
+    public void testSelectorToMenuItemTextWithValidatorSelector() {
+        this.selectorToMenuItemTextAndCheck(
+            ValidatorSelector.parse("hello-validator"),
+            "Hello Validator"
+        );
+    }
+
+    @Test
+    public void testSelectorToMenuItemTextWithValidatorSelectorAndParametersIgnored() {
+        this.selectorToMenuItemTextAndCheck(
+            ValidatorSelector.parse("hello-validator \"abc123\""),
+            "Hello Validator"
+        );
+    }
+
+    private void selectorToMenuItemTextAndCheck(final PluginSelectorLike<?> selector,
+                                                final String expected) {
+        this.checkEquals(
+            expected,
+            SpreadsheetSelectionMenuValues.selectorToMenuItemText(selector),
+            selector::toString
+        );
     }
 
     // class............................................................................................................
