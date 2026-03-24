@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Collection;
 import java.util.Locale;
@@ -65,6 +66,11 @@ final class SpreadsheetSelectionMenuValuesLocale extends SpreadsheetSelectionMen
     String recentText(final Locale locale) {
         return context.localeText(locale)
             .orElse(locale.toLanguageTag());
+    }
+
+    @Override
+    Optional<Locale> spreadsheetCellValue(final SpreadsheetCell cell) {
+        return cell.locale();
     }
 
     @Override //
