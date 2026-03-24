@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintable,
+public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintableTesting,
     ClassTesting<M>,
     SpreadsheetMetadataTesting {
 
