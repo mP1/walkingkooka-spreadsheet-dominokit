@@ -190,7 +190,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
     @Override
     public final void printTree(final IndentingPrinter printer) {
-        printer.print(this.type().getSimpleName());
+        printer.print(this.getClass().getSimpleName());
         printer.indent();
         {
             this.menu.printTree(printer);
