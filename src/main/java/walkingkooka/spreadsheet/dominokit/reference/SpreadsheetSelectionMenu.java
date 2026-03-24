@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectH
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -423,18 +424,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void validator(final HistoryToken historyToken,
                                   final SpreadsheetContextMenu menu,
                                   final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "validator" + SpreadsheetElementIds.SUB_MENU,
-            "Validator"
-        );
-
-        SpreadsheetSelectionMenuValidator.build(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-            subMenu,
+        SpreadsheetSelectionMenuValues.validator(
+            historyToken.validator()
+                .cast(SpreadsheetCellValidatorSelectHistoryToken.class),
+            menu,
             context
-        );
-
-        subMenu.disableIfEmpty();
+        ).build();
     }
 
     // valueTypes.......................................................................................................
