@@ -28,6 +28,7 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.Collection;
 import java.util.Currency;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -40,6 +41,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                                                              final SpreadsheetContextMenu menu,
                                                              final SpreadsheetSelectionMenuContext context) {
         return SpreadsheetSelectionMenuValuesCurrency.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
+    static SpreadsheetSelectionMenuValues<Locale> locale(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                         final SpreadsheetContextMenu menu,
+                                                         final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesLocale.with(
             historyToken,
             menu,
             context
