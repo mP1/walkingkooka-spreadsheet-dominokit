@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -26,17 +29,34 @@ import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.text.CaseKind;
 import walkingkooka.validation.ValueType;
 
+import java.util.Collection;
 import java.util.Optional;
 
-/**
- * Creates a sub menu containing value items.
- */
-final class SpreadsheetSelectionMenuValue {
+final class SpreadsheetSelectionMenuValuesValue extends SpreadsheetSelectionMenuValues<Object> {
 
-    static void build(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                      final SpreadsheetContextMenu menu,
-                      final SpreadsheetSelectionMenuContext context) {
-        final String idPrefix = context.idPrefix() + "value-";
+    static SpreadsheetSelectionMenuValuesValue with(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                    final SpreadsheetContextMenu menu,
+                                                    final SpreadsheetSelectionMenuContext context) {
+        return new SpreadsheetSelectionMenuValuesValue(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
+    private SpreadsheetSelectionMenuValuesValue(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                final SpreadsheetContextMenu menu,
+                                                final SpreadsheetSelectionMenuContext context) {
+        super(historyToken, menu, context);
+    }
+
+    @Override
+    void values() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = this.historyToken;
+        final SpreadsheetContextMenu menu = this.menu;
+        final SpreadsheetSelectionMenuContext context = this.context;
+
+        final String idPrefix = context.idPrefix() + "Value-";
 
         final SpreadsheetCell summary = context.selectionSummary()
             .orElse(null);
@@ -79,10 +99,31 @@ final class SpreadsheetSelectionMenuValue {
         menu.disableIfEmpty();
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetSelectionMenuValue() {
+    @Override
+    Optional<Icon<?>> clearIcon() {
+        return Optional.of(
+            SpreadsheetIcons.valueRemove()
+        );
+    }
+
+    @Override //
+    Collection<Object> recentValues() {
+        return Lists.empty();
+    }
+
+    @Override //
+    String recentText(final Object value) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    Optional<Object> spreadsheetCellValue(final SpreadsheetCell cell) {
+        return cell.formula()
+            .value();
+    }
+
+    @Override //
+    Class<Object> type() {
+        return Object.class;
     }
 }

@@ -449,14 +449,11 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void value(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                               final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
-        SpreadsheetSelectionMenuValue.build(
+        SpreadsheetSelectionMenuValuesValue.with(
             historyToken,
-            menu.subMenu(
-                context.idPrefix() + "value" + SpreadsheetElementIds.SUB_MENU,
-                "Value"
-            ),
+            menu,
             context
-        );
+        ).build();
     }
 
     // delete...........................................................................................................
