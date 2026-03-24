@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -357,24 +358,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void dateTimeSymbols(final HistoryToken historyToken,
                                         final SpreadsheetContextMenu menu,
                                         final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-            SpreadsheetContextMenuItem.with(
-                context.idPrefix() + "dateTimeSymbols" + SpreadsheetElementIds.MENU_ITEM,
-                "DateTimeSymbols"
-            ).icon(
-                Optional.of(
-                    SpreadsheetIcons.dateTimeSymbols()
-                )
-            ).historyToken(
-                Optional.of(
-                    historyToken.dateTimeSymbols()
-                )
-            ).checked(
-                context.selectionSummary()
-                    .flatMap(SpreadsheetCell::dateTimeSymbols)
-                    .isPresent()
-            )
-        );
+        SpreadsheetSelectionMenuValuesDateTimeSymbols.with(
+            historyToken.dateTimeSymbols()
+                .cast(SpreadsheetCellDateTimeSymbolsSelectHistoryToken.class),
+            menu,
+            context
+        ).build();
     }
 
     private static void decimalNumberSymbols(final HistoryToken historyToken,
