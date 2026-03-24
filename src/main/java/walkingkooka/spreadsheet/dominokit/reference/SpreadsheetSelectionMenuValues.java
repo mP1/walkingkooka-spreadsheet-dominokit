@@ -132,22 +132,13 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
     }
 
     final void build() {
-        final SpreadsheetContextMenu menu = this.menu;
-
         this.values();
-
-        menu.separator();
-
         this.clear();
 
-        this.menu.separator();
-
         // Value & ValueType dont have edit links
-        if(false == this instanceof SpreadsheetSelectionMenuValuesValue && false == this instanceof SpreadsheetSelectionMenuValuesValueType) {
+        if (false == this instanceof SpreadsheetSelectionMenuValuesValue && false == this instanceof SpreadsheetSelectionMenuValuesValueType) {
             this.edit();
         }
-
-        menu.separator();
 
         this.recents();
     }
