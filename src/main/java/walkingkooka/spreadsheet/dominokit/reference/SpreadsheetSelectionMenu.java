@@ -345,19 +345,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void currency(final HistoryToken historyToken,
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "Currency" + SpreadsheetElementIds.SUB_MENU,
-            "Currency"
-        );
-
         SpreadsheetSelectionMenuValues.currency(
             historyToken.currency()
                 .cast(SpreadsheetCellCurrencySelectHistoryToken.class),
-            subMenu,
+            menu,
             context
         ).build();
-
-        subMenu.disableIfEmpty();
     }
 
     private static void dateTimeSymbols(final HistoryToken historyToken,

@@ -51,10 +51,19 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                                    final SpreadsheetSelectionMenuContext context) {
         super();
         this.historyToken = Objects.requireNonNull(historyToken, "historyToken");
-        this.menu = Objects.requireNonNull(menu, "menu");
-        this.context = Objects.requireNonNull(context, "context");
 
-        this.idPrefix = context.idPrefix() + this.type().getSimpleName() + "-";
+        final String title = this.type().getSimpleName();
+
+        final String idPrefix = context.idPrefix() + title;
+        this.idPrefix = idPrefix + "-";
+
+        this.menu = Objects.requireNonNull(menu, "menu")
+            .subMenu(
+                idPrefix + SpreadsheetElementIds.SUB_MENU,
+                title
+            );
+
+        this.context = Objects.requireNonNull(context, "context");
     }
 
     final void build() {

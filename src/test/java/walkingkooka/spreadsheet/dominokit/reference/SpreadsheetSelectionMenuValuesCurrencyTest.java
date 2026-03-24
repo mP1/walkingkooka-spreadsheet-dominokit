@@ -46,9 +46,10 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -64,9 +65,10 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             Lists.empty(), // recentCurrencies
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -88,9 +90,10 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
                     )
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -108,12 +111,13 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             ), // recentCurrencies
             Optional.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
-                "  (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
-                "  -----\n" +
-                "  \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Australian Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/AUD] id=test-Currency-recent-0-MenuItem\n" +
-                "  \"New Zealand Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/NZD] id=test-Currency-recent-1-MenuItem\n"
+                "  \"Currency\" id=test-Currency-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
+                "    -----\n" +
+                "    \"Australian Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/AUD] id=test-Currency-recent-0-MenuItem\n" +
+                "    \"New Zealand Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/NZD] id=test-Currency-recent-1-MenuItem\n"
         );
     }
 
