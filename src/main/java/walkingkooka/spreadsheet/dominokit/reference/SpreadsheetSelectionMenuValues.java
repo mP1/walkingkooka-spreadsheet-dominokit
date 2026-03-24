@@ -134,7 +134,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
     abstract void values();
 
-    final void clear() {
+    private void clear() {
         this.separator();
 
         this.menu.item(
@@ -153,7 +153,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
     abstract Optional<Icon<?>> clearIcon();
 
-    final void edit() {
+    private void edit() {
         this.separator();
 
         this.menu.item(
@@ -166,7 +166,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
-    final void recents() {
+    private void recents() {
         final Collection<T> values = this.recentValues();
         if (false == values.isEmpty()) {
 
