@@ -40,17 +40,17 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
     public void testBuild() {
         this.buildAndCheck(
             HistoryToken.cellLocaleSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.empty(), // summary
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -58,18 +58,18 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
     public void testBuildWithSpreadsheetCellFormulaHistoryToken() {
         this.buildAndCheck(
             HistoryToken.cellFormula(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ).locale()
                 .cast(SpreadsheetCellLocaleSelectHistoryToken.class),
             Optional.empty(), // summary
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -78,7 +78,7 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
         this.buildAndCheck(
             HistoryToken.cellLocaleSelect(
                 SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
+                SpreadsheetName.with("SpreadsheetName111"),
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             Optional.of(
@@ -92,9 +92,9 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -102,9 +102,9 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
     public void testBuildWithRecents() {
         this.buildAndCheck(
             HistoryToken.cellLocaleSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.empty(), // summary
             Lists.of(
@@ -113,12 +113,12 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"English (Australia)\" [/1/Spreadsheet123/cell/A1/locale/save/en-AU] id=test-Locale-recent-0-MenuItem\n" +
-                "    \"English (New Zealand)\" [/1/Spreadsheet123/cell/A1/locale/save/en-NZ] id=test-Locale-recent-1-MenuItem\n"
+                "    \"English (Australia)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=test-Locale-recent-0-MenuItem\n" +
+                "    \"English (New Zealand)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=test-Locale-recent-1-MenuItem\n"
         );
     }
 
