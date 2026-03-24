@@ -58,6 +58,10 @@ final class SpreadsheetSelectionMenuValuesFormatter extends SpreadsheetSelection
 
     @Override
     void values() {
+        final SpreadsheetAnchoredSelectionHistoryToken historyToken = this.historyToken;
+        final SpreadsheetContextMenu menu = this.menu;
+        final SpreadsheetSelectionMenuContext context = this.context;
+
         final Map<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameToMenus = context.spreadsheetFormatterMenus()
             .stream()
             .collect(
@@ -83,7 +87,7 @@ final class SpreadsheetSelectionMenuValuesFormatter extends SpreadsheetSelection
         // sort SpreadsheetFormatterName
         for (final Entry<SpreadsheetFormatterName, List<SpreadsheetFormatterMenu>> nameAndMenus : new TreeMap<>(nameToMenus).entrySet()) {
             final SpreadsheetFormatterName name = nameAndMenus.getKey();
-            final String nameMenuId = idPrefix + name.value();
+            final String nameMenuId = this.idPrefix + name.value();
 
             final SpreadsheetContextMenu nameMenu = menu.subMenu(
                 nameMenuId + SpreadsheetElementIds.SUB_MENU,
