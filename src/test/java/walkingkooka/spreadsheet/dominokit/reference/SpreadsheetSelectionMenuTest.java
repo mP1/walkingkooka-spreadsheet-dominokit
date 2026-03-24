@@ -165,10 +165,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
@@ -1716,10 +1716,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
@@ -3362,10 +3362,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
@@ -4913,10 +4913,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
-                "  \"Formatter\" id=test-formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
+                "  \"Formatter\" id=test-Formatter-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +

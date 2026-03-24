@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -69,6 +70,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                                                                                      final SpreadsheetContextMenu menu,
                                                                                      final SpreadsheetSelectionMenuContext context) {
         return SpreadsheetSelectionMenuValuesDecimalNumberSymbols.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
+    static SpreadsheetSelectionMenuValues<SpreadsheetFormatterSelector> formatter(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                                                 final SpreadsheetContextMenu menu,
+                                                                                 final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
             context
