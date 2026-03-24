@@ -24,10 +24,8 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFact
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.validation.ValueType;
@@ -41,24 +39,24 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
     public void testBuild() {
         this.buildAndCheck(
             HistoryToken.cellValueTypeSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/Spreadsheet123/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
-                "    \"Date\" [/1/Spreadsheet123/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
-                "    \"Date Time\" [/1/Spreadsheet123/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
-                "    \"Email\" [/1/Spreadsheet123/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
-                "    \"Number\" [/1/Spreadsheet123/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
-                "    \"Text\" [/1/Spreadsheet123/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
-                "    \"Time\" [/1/Spreadsheet123/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
-                "    \"Url\" [/1/Spreadsheet123/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/Spreadsheet123/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );
     }
 
@@ -66,24 +64,24 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
     public void testBuildWithSpreadsheetCellFormulaHistoryToken() {
         this.buildAndCheck(
             HistoryToken.cellFormula(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/Spreadsheet123/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
-                "    \"Date\" [/1/Spreadsheet123/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
-                "    \"Date Time\" [/1/Spreadsheet123/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
-                "    \"Email\" [/1/Spreadsheet123/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
-                "    \"Number\" [/1/Spreadsheet123/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
-                "    \"Text\" [/1/Spreadsheet123/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
-                "    \"Time\" [/1/Spreadsheet123/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
-                "    \"Url\" [/1/Spreadsheet123/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/Spreadsheet123/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/formula/save/] id=test-ValueType-clear-MenuItem\n"
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formula/save/] id=test-ValueType-clear-MenuItem\n"
         );
     }
 
@@ -91,9 +89,9 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
     public void testBuildWithChecked() {
         this.buildAndCheck(
             HistoryToken.cellValueTypeSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(
@@ -104,17 +102,17 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/Spreadsheet123/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
-                "    \"Date\" [/1/Spreadsheet123/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
-                "    \"Date Time\" [/1/Spreadsheet123/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
-                "    \"Email\" [/1/Spreadsheet123/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
-                "    \"Number\" [/1/Spreadsheet123/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
-                "    \"Text\" [/1/Spreadsheet123/cell/A1/valueType/save/text] CHECKED id=test-ValueTypes-text-MenuItem\n" +
-                "    \"Time\" [/1/Spreadsheet123/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
-                "    \"Url\" [/1/Spreadsheet123/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/Spreadsheet123/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] CHECKED id=test-ValueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );
     }
 
@@ -122,24 +120,24 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
     public void testBuildWithRecents() {
         this.buildAndCheck(
             HistoryToken.cellValueTypeSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("Spreadsheet123"),
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL
             ),
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/Spreadsheet123/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
-                "    \"Date\" [/1/Spreadsheet123/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
-                "    \"Date Time\" [/1/Spreadsheet123/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
-                "    \"Email\" [/1/Spreadsheet123/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
-                "    \"Number\" [/1/Spreadsheet123/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
-                "    \"Text\" [/1/Spreadsheet123/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
-                "    \"Time\" [/1/Spreadsheet123/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
-                "    \"Url\" [/1/Spreadsheet123/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/Spreadsheet123/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
+                "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
+                "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
+                "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
+                "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );
     }
 
