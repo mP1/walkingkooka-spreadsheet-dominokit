@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
@@ -154,7 +155,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -1630,7 +1634,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             SpreadsheetComparatorNameList.EMPTY,
             Lists.empty(),
             Lists.empty(),
-            Lists.empty(), // recentCurrencies
+            Lists.empty(),
+            Lists.empty(),
             Lists.empty(), // recentLocales
             Lists.of(
                 parsePattern.spreadsheetParserSelector()
@@ -1706,7 +1711,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -3182,6 +3190,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(), // recent formatters
             Lists.empty(),
             Lists.empty(), // recentCurrencies
+            Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -3260,7 +3269,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] CHECKED id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -4735,6 +4747,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(), // recent formatters
             Lists.empty(),
             Lists.empty(), // recentCurrencies
+            Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -4813,7 +4826,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -6288,6 +6304,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(), // recent formatters
             Lists.empty(),
             Lists.empty(), // recentCurrencies
+            Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -6366,7 +6383,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -7844,6 +7864,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(), // recent formatters
             Lists.empty(),
             Lists.empty(), // recentCurrencies
+            Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -7919,7 +7940,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -9460,7 +9484,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -11096,7 +11123,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
      "    -----\n" +
      "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-Currency-edit-MenuItem\n" +
-     "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+     "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
      "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
      "  \"Formatter\" id=test-formatter-SubMenu\n" +
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -12637,7 +12667,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-Currency-edit-MenuItem\n" +
-                "  (mdi-earth) \"DateTimeSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-dateTimeSymbols-MenuItem\n" +
+                "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
@@ -14571,6 +14604,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 .map(SpreadsheetComparatorInfo::name)
                 .collect(Collectors.toList()),
             Lists.empty(), // recentCurrencies
+            Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // format patterns
             Lists.empty(), // SpreadsheetFormatterMenu
             Lists.empty(), // locales
@@ -14584,6 +14618,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     private SpreadsheetSelectionMenuContext context(final HistoryToken historyToken,
                                                     final List<SpreadsheetComparatorName> sortComparatorNames,
                                                     final List<Currency> recentCurrencies,
+                                                    final List<DateTimeSymbols> recentDateTimeSymbols,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                     final List<Locale> locales,
@@ -14660,6 +14695,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<Currency> recentCurrencies() {
                 return recentCurrencies;
+            }
+
+            @Override
+            public List<DateTimeSymbols> recentDateTimeSymbols() {
+                return recentDateTimeSymbols;
             }
 
             @Override
