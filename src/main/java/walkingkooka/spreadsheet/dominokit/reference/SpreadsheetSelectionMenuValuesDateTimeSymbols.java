@@ -22,6 +22,7 @@ import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -64,6 +65,11 @@ final class SpreadsheetSelectionMenuValuesDateTimeSymbols extends SpreadsheetSel
     @Override //
     String recentText(final DateTimeSymbols symbols) {
         return symbols.text(); // TODO need a better text such as Locale.AU and 'DIFFERENT_PLUS'
+    }
+
+    @Override
+    Optional<DateTimeSymbols> spreadsheetCellValue(final SpreadsheetCell cell) {
+        return cell.dateTimeSymbols();
     }
 
     @Override //

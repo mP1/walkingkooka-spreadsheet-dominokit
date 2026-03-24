@@ -28,7 +28,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuValuesTest.TestSpreadsheetSelectionMenuValues;
+import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Collection;
 import java.util.List;
@@ -52,6 +54,13 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
             @Override
             public String idPrefix() {
                 return ID_PREFIX;
+            }
+
+            @Override
+            public Optional<SpreadsheetCell> selectionSummary() {
+                return Optional.of(
+                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                );
             }
         };
 
@@ -95,6 +104,13 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
             public String idPrefix() {
                 return ID_PREFIX;
             }
+
+            @Override
+            public Optional<SpreadsheetCell> selectionSummary() {
+                return Optional.of(
+                    SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                );
+            }
         };
 
         final SpreadsheetSelectionMenuValues<Locale> menuValues = new TestSpreadsheetSelectionMenuValues(
@@ -123,7 +139,7 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"English (Australia)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-Locale-recent-0-MenuItem\n" +
+                "    \"English (Australia)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-AU] CHECKED id=Test123-Locale-recent-0-MenuItem\n" +
                 "    \"English (Canada)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-CA] id=Test123-Locale-recent-1-MenuItem\n"
         );
     }
@@ -170,6 +186,15 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
         @Override
         Class<Locale> type() {
             return Locale.class;
+        }
+
+        @Override
+        Optional<Locale> spreadsheetCellValue(final SpreadsheetCell cell) {
+            return Optional.ofNullable(
+                this.recentValues.isEmpty() ?
+                    null :
+                    this.recentValues.get(0)
+            );
         }
     }
 

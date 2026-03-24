@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -32,6 +33,7 @@ import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Template class that provides helpers to create numerous sub-menus and their items.
@@ -148,6 +150,8 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         final HistoryToken historyToken = this.historyToken;
         final SpreadsheetContextMenu menu = this.menu;
 
+        final Predicate<T> checked = this.spreadsheetCellValuePredicate();
+
         for (final T value : this.recentValues()) {
             menu.item(
                 SpreadsheetContextMenuItem.with(
@@ -159,6 +163,8 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                             Optional.of(value)
                         )
                     )
+                ).checked(
+                    checked.test(value)
                 )
             );
 
@@ -172,6 +178,15 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
      * Provides the text for the recent menu item given a recent {@link Object}.
      */
     abstract String recentText(final T value);
+
+    final Predicate<T> spreadsheetCellValuePredicate() {
+        final T value = this.context.selectionSummary()
+            .flatMap(this::spreadsheetCellValue)
+            .orElse(null);
+        return (T other) -> other.equals(value);
+    }
+
+    abstract Optional<T> spreadsheetCellValue(final SpreadsheetCell cell);
 
     final SpreadsheetAnchoredSelectionHistoryToken historyToken;
 
