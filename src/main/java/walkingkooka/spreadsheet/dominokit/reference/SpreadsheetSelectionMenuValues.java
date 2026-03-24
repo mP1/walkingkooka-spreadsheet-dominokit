@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
@@ -54,6 +55,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                                                                            final SpreadsheetContextMenu menu,
                                                                            final SpreadsheetSelectionMenuContext context) {
         return SpreadsheetSelectionMenuValuesDateTimeSymbols.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
+    static SpreadsheetSelectionMenuValues<DecimalNumberSymbols> decimalNumberSymbols(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                                                     final SpreadsheetContextMenu menu,
+                                                                                     final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesDecimalNumberSymbols.with(
             historyToken,
             menu,
             context

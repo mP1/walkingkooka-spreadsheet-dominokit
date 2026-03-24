@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
@@ -64,6 +65,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+// too avoid javac String literal too long
+// replace
+// TR\n",
+// with
+// TR\n" +
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
     TreePrintableTesting,
     SpreadsheetMetadataTesting {
@@ -150,7 +156,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -159,7 +165,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -1581,9 +1590,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -1606,16 +1615,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -1632,6 +1641,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         final SpreadsheetSelectionMenuContext context = this.context(
             token,
             SpreadsheetComparatorNameList.EMPTY,
+            Lists.empty(),
             Lists.empty(),
             Lists.empty(),
             Lists.empty(),
@@ -1706,7 +1716,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -1715,7 +1725,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -3137,9 +3150,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -3162,16 +3175,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -3191,6 +3204,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(),
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
+            Lists.empty(), // recentDecimalNumberSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -3264,7 +3278,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -3273,7 +3287,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -4695,9 +4712,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -4720,16 +4737,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -4748,6 +4765,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(),
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
+            Lists.empty(), // recentDecimalNumberSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -4821,7 +4839,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -4830,7 +4848,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] CHECKED id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -6252,9 +6273,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -6277,16 +6298,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -6305,6 +6326,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(),
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
+            Lists.empty(), // recentDecimalNumberSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -6378,7 +6400,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -6387,7 +6409,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -7812,9 +7837,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator 111\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-111] id=test-validator-recent-0-MenuItem\n" +
                 "    \"Validator 222\" [/1/SpreadsheetName-1/cell/A1/validator/save/validator-222] id=test-validator-recent-1-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -7837,16 +7862,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -7865,6 +7890,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(),
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
+            Lists.empty(), // recentDecimalNumberSymbols
             Lists.empty(), // recentLocales
             Lists.empty(), // recent parsers
             Lists.empty(), // recentTextStyleProperties
@@ -7935,7 +7961,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -7944,7 +7970,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -9366,9 +9395,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -9391,16 +9420,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -9479,7 +9508,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -9488,7 +9517,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -10910,9 +10942,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -10935,7 +10967,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -11032,16 +11064,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/labels] id=test-labels-list-MenuItem\n" +
                 "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -11118,7 +11150,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
      "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
      "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  \"Currency\" id=test-Currency-SubMenu\n" +
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
      "    -----\n" +
@@ -11127,7 +11159,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
      "    -----\n" +
      "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-     "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+     "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+     "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+     "    -----\n" +
+     "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
      "  \"Formatter\" id=test-formatter-SubMenu\n" +
      "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-formatter-clear-MenuItem\n" +
      "    -----\n" +
@@ -12549,9 +12584,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "    -----\n" +
      "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-validator-edit-MenuItem\n" +
      "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  \"Insert\" id=test-insert-SubMenu\n" +
      "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
      "      \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -12574,16 +12609,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
      "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
      "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
      "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
      "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  \"Labels\" [1] id=test-label-SubMenu\n" +
      "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
      "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
      "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
      "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
-     "  -----\n",
+     "  -----\n" +
      "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -12662,7 +12697,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
                 "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
@@ -12671,7 +12706,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
-                "  (mdi-earth) \"DecimalNumberSymbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-decimalNumberSymbols-MenuItem\n" +
+                "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-formatter-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-formatter-clear-MenuItem\n" +
                 "    -----\n" +
@@ -14093,20 +14131,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-validator-edit-MenuItem\n" +
                 "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu DISABLED\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
                 "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
                 "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
                 "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
                 "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
         );
     }
@@ -14141,7 +14179,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Column B:C Menu\" id=Column-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/left/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/left/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -14153,7 +14191,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -14202,7 +14240,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -14238,7 +14276,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Column B:C Menu\" id=Column-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/right/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/right/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
@@ -14250,7 +14288,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
@@ -14299,7 +14337,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -14335,7 +14373,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
@@ -14347,7 +14385,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -14396,7 +14434,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -14432,7 +14470,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/top/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/top/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
@@ -14444,7 +14482,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -14493,7 +14531,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -14529,7 +14567,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
                 "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/bottom/clear] id=test-clear-MenuItem\n" +
                 "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/bottom/delete] id=test-delete-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
                 "      \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
@@ -14541,7 +14579,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
                 "      \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
                 "      \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
@@ -14590,7 +14628,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
-                "  -----\n",
+                "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
         );
@@ -14605,6 +14643,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 .collect(Collectors.toList()),
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
+            Lists.empty(), // recentDecimalNumberSymbols
             Lists.empty(), // format patterns
             Lists.empty(), // SpreadsheetFormatterMenu
             Lists.empty(), // locales
@@ -14619,6 +14658,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                                                     final List<SpreadsheetComparatorName> sortComparatorNames,
                                                     final List<Currency> recentCurrencies,
                                                     final List<DateTimeSymbols> recentDateTimeSymbols,
+                                                    final List<DecimalNumberSymbols> recentDecimalNumberSymbols,
                                                     final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                     final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                     final List<Locale> locales,
@@ -14700,6 +14740,11 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<DateTimeSymbols> recentDateTimeSymbols() {
                 return recentDateTimeSymbols;
+            }
+
+            @Override
+            public List<DecimalNumberSymbols> recentDecimalNumberSymbols() {
+                return recentDecimalNumberSymbols;
             }
 
             @Override

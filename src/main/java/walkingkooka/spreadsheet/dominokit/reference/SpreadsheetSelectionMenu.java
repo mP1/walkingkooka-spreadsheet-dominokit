@@ -30,13 +30,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellCurrencySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
-import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 
@@ -369,26 +369,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
     private static void decimalNumberSymbols(final HistoryToken historyToken,
                                              final SpreadsheetContextMenu menu,
                                              final SpreadsheetSelectionMenuContext context) {
-        menu.item(
-            SpreadsheetContextMenuItem.with(
-                context.idPrefix() +
-                    "decimalNumberSymbols" +
-                    SpreadsheetElementIds.MENU_ITEM,
-                "DecimalNumberSymbols"
-            ).icon(
-                Optional.of(
-                    SpreadsheetIcons.decimalNumberSymbols()
-                )
-            ).historyToken(
-                Optional.of(
-                    historyToken.decimalNumberSymbols()
-                )
-            ).checked(
-                context.selectionSummary()
-                    .flatMap(SpreadsheetCell::decimalNumberSymbols)
-                    .isPresent()
-            )
-        );
+        SpreadsheetSelectionMenuValues.decimalNumberSymbols(
+            historyToken.decimalNumberSymbols()
+                .cast(SpreadsheetCellDecimalNumberSymbolsHistoryToken.class),
+            menu,
+            context
+        ).build();
     }
 
     // locale...........................................................................................................
