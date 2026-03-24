@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.reference;
 import walkingkooka.Context;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.color.ColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -68,6 +69,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
      * Returns recent {@link DateTimeSymbols}.
      */
     List<DateTimeSymbols> recentDateTimeSymbols();
+
+    /**
+     * Returns recent {@link DecimalNumberSymbols}.
+     */
+    List<DecimalNumberSymbols> recentDecimalNumberSymbols();
 
     /**
      * Returns recent {@link SpreadsheetFormatterSelector}.

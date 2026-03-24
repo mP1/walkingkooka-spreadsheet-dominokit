@@ -21,6 +21,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.CurrencyLocaleContextDelegator;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAlias;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
@@ -63,6 +64,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     static SpreadsheetViewportComponentSpreadsheetSelectionMenuContext with(final List<Currency> recentCurrencies,
                                                                             final List<DateTimeSymbols> recentDateTimeSymbols,
+                                                                            final List<DecimalNumberSymbols> recentDecimalNumberSymbols,
                                                                             final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                             final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                             final List<Locale> recentLocales,
@@ -73,6 +75,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return new SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(
             recentCurrencies,
             recentDateTimeSymbols,
+            recentDecimalNumberSymbols,
             recentSpreadsheetFormatterSelectors,
             spreadsheetFormatterMenus,
             recentLocales,
@@ -85,6 +88,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     private SpreadsheetViewportComponentSpreadsheetSelectionMenuContext(final List<Currency> recentCurrencies,
                                                                         final List<DateTimeSymbols> recentDateTimeSymbols,
+                                                                        final List<DecimalNumberSymbols> recentDecimalNumberSymbols,
                                                                         final List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors,
                                                                         final List<SpreadsheetFormatterMenu> spreadsheetFormatterMenus,
                                                                         final List<Locale> recentLocales,
@@ -95,6 +99,8 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         this.recentCurrencies = recentCurrencies;
 
         this.recentDateTimeSymbols = recentDateTimeSymbols;
+
+        this.recentDecimalNumberSymbols = recentDecimalNumberSymbols;
 
         this.recentSpreadsheetFormatterSelectors = recentSpreadsheetFormatterSelectors;
         this.spreadsheetFormatterMenus = spreadsheetFormatterMenus;
@@ -140,6 +146,13 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     }
 
     private final List<DateTimeSymbols> recentDateTimeSymbols;
+
+    @Override
+    public List<DecimalNumberSymbols> recentDecimalNumberSymbols() {
+        return this.recentDecimalNumberSymbols;
+    }
+
+    private final List<DecimalNumberSymbols> recentDecimalNumberSymbols;
 
     @Override
     public List<SpreadsheetFormatterSelector> recentSpreadsheetFormatterSelectors() {
