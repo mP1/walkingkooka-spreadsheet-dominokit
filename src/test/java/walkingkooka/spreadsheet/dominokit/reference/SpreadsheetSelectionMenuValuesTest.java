@@ -74,7 +74,7 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
 
         this.treePrintAndCheck(
             menuValues,
-            "Locale\"Locale(s)\" id=Locale\n" +
+            "Locale\"Locale\" id=Test123-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n"
@@ -118,7 +118,7 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
 
         this.treePrintAndCheck(
             menuValues,
-            "Locale\"Locale(s)\" id=Locale\n" +
+            "Locale\"Locale\" id=Test123-Locale-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n" +
