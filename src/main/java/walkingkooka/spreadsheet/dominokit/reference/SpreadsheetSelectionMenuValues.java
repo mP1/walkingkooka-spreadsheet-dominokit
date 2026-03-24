@@ -108,9 +108,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
     abstract void values();
 
-    final void clear(//final HistoryToken historyToken,
-                     //final SpreadsheetContextMenu menu
-    ) {
+    final void clear() {
         this.separator();
 
         this.menu.item(
@@ -129,9 +127,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
     abstract Optional<Icon<?>> clearIcon();
 
-    final void edit(//final HistoryToken historyToken,
-                    //final SpreadsheetContextMenu menu
-    ) {
+    final void edit() {
         this.separator();
 
         this.menu.item(
@@ -144,47 +140,15 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
-//    final void recents(final HistoryToken historyToken,
-//                       final SpreadsheetContextMenu menu,
-//                       final SpreadsheetSelectionMenuContext context) {
-//
-//        int i = 0;
-//
-//        for (final T currency : context.recentCurrencies()) {
-//            final String text = context.currencyText(currency)
-//                .orElse(currency.getCurrencyCode());
-//
-//            menu.item(
-//                SpreadsheetContextMenuItem.with(
-//                    this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
-//                    text
-//                ).historyToken(
-//                    Optional.of(
-//                        historyToken.setSaveValue(
-//                            Optional.of(currency)
-//                        )
-//                    )
-//                )
-//            );
-//
-//            i++;
-//        }
-//    }
-
-    final void recents(//final HistoryToken historyToken,
-                       //final Collection<T> values,
-                       //final SpreadsheetContextMenu menu
-    ) {
+    final void recents() {
         this.separator();
 
         int i = 0;
 
         final HistoryToken historyToken = this.historyToken;
+        final SpreadsheetContextMenu menu = this.menu;
 
-        for (final T value : this.recentValues()) {//context.recentCurrencies()) {
-//            final String text = context.currencyText(value)
-//                .orElse(value.getCurrencyCode());
-
+        for (final T value : this.recentValues()) {
             menu.item(
                 SpreadsheetContextMenuItem.with(
                     this.idPrefix + "recent-" + i + SpreadsheetElementIds.MENU_ITEM,
