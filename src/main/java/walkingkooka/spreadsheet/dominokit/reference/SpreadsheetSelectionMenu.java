@@ -312,23 +312,6 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
-    private static void style(final HistoryToken historyToken,
-                              final SpreadsheetContextMenu menu,
-                              final SpreadsheetSelectionMenuContext context) {
-        final SpreadsheetContextMenu subMenu = menu.subMenu(
-            context.idPrefix() + "style" + SpreadsheetElementIds.SUB_MENU,
-            "Style"
-        );
-
-        SpreadsheetSelectionMenuStyle.build(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
-            subMenu,
-            context
-        );
-
-        subMenu.disableIfEmpty();
-    }
-
     private static void currency(final HistoryToken historyToken,
                                  final SpreadsheetContextMenu menu,
                                  final SpreadsheetSelectionMenuContext context) {
@@ -410,6 +393,18 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                     )
                 ).checked(hidden)
         );
+    }
+
+    // style............................................................................................................
+
+    private static void style(final HistoryToken historyToken,
+                              final SpreadsheetContextMenu menu,
+                              final SpreadsheetSelectionMenuContext context) {
+        SpreadsheetSelectionMenuValues.style(
+            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            menu,
+            context
+        ).build();
     }
 
     // validator........................................................................................................
