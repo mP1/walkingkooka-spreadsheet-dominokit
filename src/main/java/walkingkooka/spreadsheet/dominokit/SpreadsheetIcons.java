@@ -186,6 +186,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.earth();
     }
 
+    public static MdiIcon dateTimeSymbolsRemove() {
+        return Icons.close();
+    }
+
     public static MdiIcon decimalNumberSymbols() {
         return Icons.earth();
     }
