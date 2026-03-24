@@ -57,7 +57,7 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             HistoryToken.cellDecimalNumberSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentDecimalNumberSymbols
             Optional.empty(), // summary
@@ -75,7 +75,7 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             HistoryToken.cellFormula(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
-                    SpreadsheetSelection.A1.setDefaultAnchor()
+                    CELL
                 ).decimalNumberSymbols()
                 .cast(SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken.class),
             Lists.empty(), // recentDecimalNumberSymbols
@@ -94,7 +94,7 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             HistoryToken.cellDecimalNumberSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.empty(), // recentDecimalNumberSymbols
             Optional.of(
@@ -117,7 +117,7 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             HistoryToken.cellDecimalNumberSymbolsSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                SpreadsheetSelection.A1.setDefaultAnchor()
+                CELL
             ),
             Lists.of(
                 DECIMAL_NUMBER_SYMBOLS_AU,
