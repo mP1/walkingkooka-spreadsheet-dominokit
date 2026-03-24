@@ -204,16 +204,16 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
     // selectorToMenuItemText...........................................................................................
 
     @Test
-    public void testSelectorToMenuItemTextWithSpreadsheetFormatterSelector() {
+    public void testSelectorToMenuItemTextWithSpreadsheetFormatterSelectorWithPattern() {
         this.selectorToMenuItemTextAndCheck(
             SpreadsheetPattern.parseDateFormatPattern("dd/mm/yyyy")
                 .spreadsheetFormatterSelector(),
-            "Date"
+            "Date (date dd/mm/yyyy)"
         );
     }
 
     @Test
-    public void testSelectorToMenuItemTextWithValidatorSelector() {
+    public void testSelectorToMenuItemTextWithValidatorSelectorWithoutParameters() {
         this.selectorToMenuItemTextAndCheck(
             ValidatorSelector.parse("hello-validator"),
             "Hello Validator"
@@ -221,10 +221,10 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
     }
 
     @Test
-    public void testSelectorToMenuItemTextWithValidatorSelectorAndParametersIgnored() {
+    public void testSelectorToMenuItemTextWithValidatorSelectorAndParameters() {
         this.selectorToMenuItemTextAndCheck(
             ValidatorSelector.parse("hello-validator \"abc123\""),
-            "Hello Validator"
+            "Hello Validator (hello-validator \"abc123\")"
         );
     }
 

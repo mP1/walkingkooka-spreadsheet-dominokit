@@ -251,12 +251,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
     // helper...........................................................................................................
 
     static String selectorToMenuItemText(final PluginSelectorLike<?> selector) {
-        return CaseKind.kebabToTitle(
-            selectorTextFix(
-                selector.name()
+        final String valueText = selector.valueText();
+
+        final String name = CaseKind.kebabToTitle(
+            selector.name()
                 .value()
-            )
         );
+
+        return valueText.isEmpty() ?
+            name :
+            name + " (" + selector + ")";
     }
 
     // ValidatorSelector -> Validator
