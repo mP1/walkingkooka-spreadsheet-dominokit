@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.validation.ValueType;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Collection;
@@ -94,6 +95,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         );
     }
 
+    static SpreadsheetSelectionMenuValues<ValueType> valueType(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                               final SpreadsheetContextMenu menu,
+                                                               final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesValueType.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
     SpreadsheetSelectionMenuValues(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
@@ -108,7 +119,9 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.menu = Objects.requireNonNull(menu, "menu")
             .subMenu(
                 idPrefix + SpreadsheetElementIds.SUB_MENU,
-                selectorTextFix(title)
+                this instanceof SpreadsheetSelectionMenuValuesValueType ?
+                    "Value Type" :
+                    selectorTextFix(title)
             );
 
         this.context = Objects.requireNonNull(context, "context");
@@ -125,7 +138,9 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
         this.menu.separator();
 
-        this.edit();
+        if(false == this instanceof SpreadsheetSelectionMenuValuesValueType) {
+            this.edit();
+        }
 
         menu.separator();
 
