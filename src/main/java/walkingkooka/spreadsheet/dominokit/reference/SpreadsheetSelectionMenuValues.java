@@ -113,7 +113,10 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
 
         final String title = this.isValue() ?
             "Value" :
-            this.type().getSimpleName();
+            this.type()
+                .getSimpleName()
+                .replace("Spreadsheet", "")
+                .replace("Selector", "");
 
         final String idPrefix = context.idPrefix() + title;
         this.idPrefix = idPrefix + "-";
