@@ -28,8 +28,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuValuesTest.TestSpreadsheetSelectionMenuValues;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Collection;
@@ -44,8 +42,8 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
     @Test
     public void testBuild() {
         final SpreadsheetCellLocaleSelectHistoryToken historyToken = HistoryToken.cellLocaleSelect(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("SpreadsheetName111"),
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
@@ -86,8 +84,8 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
     @Test
     public void testBuildWithRecents() {
         final SpreadsheetCellLocaleSelectHistoryToken historyToken = HistoryToken.cellLocaleSelect(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("SpreadsheetName111"),
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             SpreadsheetSelection.A1.setDefaultAnchor()
         );
 
