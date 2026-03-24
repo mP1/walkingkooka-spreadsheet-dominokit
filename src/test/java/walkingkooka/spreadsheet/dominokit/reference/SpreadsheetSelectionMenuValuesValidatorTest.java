@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFact
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -39,9 +37,9 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
     @Test
     public void testBuild() {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.cellValidatorSelect(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("Spreadsheet123"),
-            SpreadsheetSelection.A1.setDefaultAnchor()
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            CELL
         );
 
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -70,21 +68,21 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithChecked() {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.cellValidatorSelect(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("Spreadsheet123"),
-            SpreadsheetSelection.A1.setDefaultAnchor()
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            CELL
         );
 
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -120,21 +118,21 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] CHECKED id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] CHECKED id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
     @Test
     public void testBuildWithRecents() {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.cellValidatorSelect(
-            SpreadsheetId.with(1),
-            SpreadsheetName.with("Spreadsheet123"),
-            SpreadsheetSelection.A1.setDefaultAnchor()
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            CELL
         );
 
         final SpreadsheetSelectionMenuContext context = this.context(
@@ -166,15 +164,15 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/Spreadsheet123/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/Spreadsheet123/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
+                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Hello Validator 1\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-1] id=test-Validator-recent-0-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/Spreadsheet123/cell/A1/validator/save/hello-validator-2] id=test-Validator-recent-1-MenuItem\n"
+                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-recent-0-MenuItem\n" +
+                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-recent-1-MenuItem\n"
         );
     }
 
