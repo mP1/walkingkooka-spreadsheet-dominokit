@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -78,8 +79,8 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
     }
 
     static SpreadsheetSelectionMenuValues<SpreadsheetFormatterSelector> formatter(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
-                                                                                 final SpreadsheetContextMenu menu,
-                                                                                 final SpreadsheetSelectionMenuContext context) {
+                                                                                  final SpreadsheetContextMenu menu,
+                                                                                  final SpreadsheetSelectionMenuContext context) {
         return SpreadsheetSelectionMenuValuesFormatter.with(
             historyToken,
             menu,
@@ -91,6 +92,16 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                                                          final SpreadsheetContextMenu menu,
                                                          final SpreadsheetSelectionMenuContext context) {
         return SpreadsheetSelectionMenuValuesLocale.with(
+            historyToken,
+            menu,
+            context
+        );
+    }
+
+    static SpreadsheetSelectionMenuValues<SpreadsheetParserSelector> parser(final SpreadsheetAnchoredSelectionHistoryToken historyToken,
+                                                                            final SpreadsheetContextMenu menu,
+                                                                            final SpreadsheetSelectionMenuContext context) {
+        return SpreadsheetSelectionMenuValuesParser.with(
             historyToken,
             menu,
             context
@@ -246,7 +257,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                 final HistoryToken saveHistoryToken;
 
                 // YUCK special case for style
-                if(isStyle) {
+                if (isStyle) {
                     final TextStyleProperty<?> textStyleProperty = (TextStyleProperty<?>) value;
 
                     saveHistoryToken = historyToken.setStylePropertyName(

@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -77,6 +76,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
     private final static Optional<SpreadsheetCell> NO_SUMMARY = Optional.empty();
+
+    private static final SpreadsheetParserSelector PARSER1 = SpreadsheetParserSelector.parse("hello-parser-1");
 
     private static final ValidatorSelector VALIDATOR1 = ValidatorSelector.parse("hello-validator-1");
 
@@ -173,6 +174,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
+                "  \"Parser\" id=test-Parser-SubMenu\n" +
+                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/A1/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
+                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/A1/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
+                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/A1/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
@@ -1724,6 +1733,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-Locale-edit-MenuItem\n" +
+                "  \"Parser\" id=test-Parser-SubMenu\n" +
+                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
+                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
+                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
@@ -3370,6 +3387,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-Locale-edit-MenuItem\n" +
+                "  \"Parser\" id=test-Parser-SubMenu\n" +
+                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/Label123/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
+                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/Label123/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
+                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/Label123/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
@@ -4921,6 +4946,14 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-Locale-edit-MenuItem\n" +
+                "  \"Parser\" id=test-Parser-SubMenu\n" +
+                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
+                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
+                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    -----\n" +
+                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
                 "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
@@ -6357,103 +6390,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testColumnRangeAnchorRight() {
-        final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SPREADSHEET_ID, // id
-            SPREADSHEET_NAME, // name
-            SpreadsheetSelection.parseColumnRange("B:C").setAnchor(SpreadsheetViewportAnchor.RIGHT)
-        );
-        final SpreadsheetSelectionMenuContext context = this.context(token);
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Column-MenuId",
-                "Column B:C Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenu.build(
-            token,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck2(
-            menu,
-            "\"Column B:C Menu\" id=Column-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/right/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/right/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
-                "  \"Insert\" id=test-insert-SubMenu\n" +
-                "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
-                "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
-                "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
-                "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
-                "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
-                "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
-                "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
-                "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
-                "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
-                "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
-                "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
-                "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
-                "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
-                "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
-                "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
-                "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Freeze\" id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
-        );
-    }
-
-    @Test
     public void testRow() {
         final SpreadsheetRowHistoryToken token = HistoryToken.rowSelect(
             SPREADSHEET_ID, // id
@@ -6875,6 +6811,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<ValidatorSelector> recentValidatorSelectors() {
                 return recentValidatorSelectors;
+            }
+
+            @Override
+            public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
+                return Lists.of(
+                    PARSER1,
+                    SpreadsheetParserSelector.parse("test-parser-2"),
+                    SpreadsheetParserSelector.parse("test-parser-3")
+                );
             }
 
             @Override

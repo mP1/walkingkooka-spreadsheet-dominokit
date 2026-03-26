@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbols
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDecimalNumberSymbolsHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -132,6 +133,12 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
             );
 
             locale(
+                historyToken,
+                menu,
+                context
+            );
+
+            parser(
                 historyToken,
                 menu,
                 context
@@ -395,6 +402,19 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
         );
     }
 
+    // parser..........................................................................................................
+
+    private static void parser(final HistoryToken historyToken,
+                                  final SpreadsheetContextMenu menu,
+                                  final SpreadsheetSelectionMenuContext context) {
+        SpreadsheetSelectionMenuValues.parser(
+            historyToken.parser()
+                .cast(SpreadsheetCellParserSelectHistoryToken.class),
+            menu,
+            context
+        ).build();
+    }
+    
     // style............................................................................................................
 
     private static void style(final HistoryToken historyToken,
