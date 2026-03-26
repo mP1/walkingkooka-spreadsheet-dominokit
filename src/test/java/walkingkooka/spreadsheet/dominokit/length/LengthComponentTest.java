@@ -116,7 +116,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
                 "    TextBoxComponent\n" +
                 "      [Invalid123!] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid text \"Invalid123!\"\n"
+                "        Invalid number length \"Invalid123!\"\n"
         );
     }
 
