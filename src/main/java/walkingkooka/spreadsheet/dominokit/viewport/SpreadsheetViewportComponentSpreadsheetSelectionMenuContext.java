@@ -35,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuCont
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -219,7 +218,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         return metadata.get(SpreadsheetMetadataPropertyName.PARSERS)
             .orElse(SpreadsheetParserAliasSet.EMPTY)
             .stream()
-            .map((final SpreadsheetParserAlias v) -> v.selector().orElse(null))
+            .flatMap(a -> a.selector().stream())
             .collect(Collectors.toList());
     }
     
