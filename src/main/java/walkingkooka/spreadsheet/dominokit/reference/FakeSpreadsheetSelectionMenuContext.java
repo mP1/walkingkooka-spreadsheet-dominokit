@@ -98,6 +98,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
     }
 
     @Override
+    public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public List<ValidatorSelector> validatorSelectors() {
         throw new UnsupportedOperationException();
     }
