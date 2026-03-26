@@ -111,6 +111,11 @@ public interface SpreadsheetSelectionMenuContext extends Context,
     List<TextStyleProperty<?>> recentTextStyleProperties();
 
     /**
+     * Returns all available {@link SpreadsheetParserSelector}.
+     */
+    List<SpreadsheetParserSelector> spreadsheetParserSelectors();
+
+    /**
      * Returns all available {@link ValidatorSelector}
      */
     List<ValidatorSelector> validatorSelectors();
