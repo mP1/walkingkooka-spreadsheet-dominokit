@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetMetadataPanelComponentTest implements TreePrintableTesting,
@@ -70,6 +71,11 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
             public Set<Locale> localesForCurrencyCode(final String currencyCode) {
                 return CURRENCY_CONTEXT.localesForCurrencyCode(currencyCode);
             }
+
+            @Override
+            public Optional<String> localeText(final Locale locale) {
+                return LOCALE_CONTEXT.localeText(locale);
+            }
         };
         final SpreadsheetMetadataPanelComponent component = SpreadsheetMetadataPanelComponent.with(context);
         component.refresh(context);
@@ -108,7 +114,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \"31/12/99, 12:58 pm\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorLocale\n" +
-                "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] [AU] id=metadata-locale-Link\n" +
+                "    \"English (Australia)\" [#/1/SpreadsheetName111/spreadsheet/locale] [AU] id=metadata-locale-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
