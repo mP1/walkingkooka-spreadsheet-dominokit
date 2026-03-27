@@ -110,7 +110,7 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
         return this.currencyContext;
     }
 
-    private CurrencyContext currencyContext;
+    private final CurrencyContext currencyContext;
 
     // CurrencyFetcherWatcher.............................................................................................
 

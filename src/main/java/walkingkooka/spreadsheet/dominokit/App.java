@@ -997,7 +997,7 @@ public class App implements EntryPoint,
         return this.spreadsheetEnvironmentContext;
     }
 
-    private SpreadsheetEnvironmentContext spreadsheetEnvironmentContext;
+    private final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext;
 
     // SpreadsheetExporterFetcher.......................................................................................
 
@@ -1783,5 +1783,5 @@ public class App implements EntryPoint,
         return this.spreadsheetViewportComponentKeyBindings;
     }
 
-    private SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings;
+    private final SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings;
 }
