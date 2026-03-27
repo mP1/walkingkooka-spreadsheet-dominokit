@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 public interface DateTimeSymbolsDialogComponentContext extends
     DialogComponentContext,
-    DialogAnchorListComponentContext,
+    DialogAnchorListComponentContext<DateTimeSymbols>,
     ComponentLifecycleMatcher {
 
     /**

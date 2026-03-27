@@ -17,10 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.datetime;
 
+import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class TemporalComponentTest implements ClassTesting<TemporalComponent> {
+public final class TemporalComponentTest implements ClassTesting<TemporalComponent<?, ?>> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -28,8 +29,8 @@ public final class TemporalComponentTest implements ClassTesting<TemporalCompone
     }
 
     @Override
-    public Class<TemporalComponent> type() {
-        return TemporalComponent.class;
+    public Class<TemporalComponent<?, ?>> type() {
+        return Cast.to(TemporalComponent.class);
     }
 
     @Override
