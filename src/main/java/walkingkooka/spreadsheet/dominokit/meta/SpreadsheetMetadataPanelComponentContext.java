@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.currency.CanLocalesForCurrencyCode;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.UiFormattingContext;
@@ -26,6 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 
 public interface SpreadsheetMetadataPanelComponentContext extends RefreshContext,
+    CanLocalesForCurrencyCode,
     DateTimeContext,
     HasSpreadsheetMetadata,
     UiFormattingContext {

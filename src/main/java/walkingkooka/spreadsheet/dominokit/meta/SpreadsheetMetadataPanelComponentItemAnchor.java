@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -28,6 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a link which probably opens a dialog for editing.
@@ -95,7 +98,25 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
                     null
             );
         } else {
-            flags = Sets.empty();
+            if (propertyName.equals(SpreadsheetMetadataPropertyName.CURRENCY)) {
+                final SpreadsheetMetadataPanelComponentContext spreadsheetMetadataPanelComponentContext = this.context;
+
+                flags = spreadsheetMetadataPanelComponentContext.spreadsheetMetadata()
+                    .get(SpreadsheetMetadataPropertyName.CURRENCY)
+                    .map(c -> spreadsheetMetadataPanelComponentContext.localesForCurrencyCode(c.getCurrencyCode())
+                        .stream()
+                        .map(Locale::getCountry)
+                        .collect(
+                            Collectors.toCollection(
+                                () -> SortedSets.tree(
+                                    CurrencyContexts.CASE_SENSITIVITY.comparator()
+                                )
+                            )
+                        )
+                    ).orElse(SortedSets.empty());
+            } else {
+                flags = Sets.empty();
+            }
         }
 
         this.anchor.setHistoryToken(
