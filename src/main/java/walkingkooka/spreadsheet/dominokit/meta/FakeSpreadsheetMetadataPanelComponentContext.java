@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
 
 public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshContext
@@ -96,6 +97,11 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshCon
 
     @Override
     public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
         throw new UnsupportedOperationException();
     }
 }

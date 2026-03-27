@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
@@ -47,6 +48,11 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     @Override
     public Set<Locale> localesForCurrencyCode(final String currencyCode) {
         return this.context.localesForCurrencyCode(currencyCode);
+    }
+
+    @Override
+    public Optional<String> localeText(final Locale locale) {
+        return this.context.localeText(locale);
     }
 
     // DateTimeContextDelegator.........................................................................................

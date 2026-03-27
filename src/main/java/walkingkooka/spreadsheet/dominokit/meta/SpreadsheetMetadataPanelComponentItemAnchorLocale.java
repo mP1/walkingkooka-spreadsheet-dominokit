@@ -21,6 +21,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItemAnchor} that displays a link which probably opens a dialog for editing to
@@ -43,15 +44,22 @@ final class SpreadsheetMetadataPanelComponentItemAnchorLocale extends Spreadshee
     void refreshAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
-        final String flag = context.spreadsheetMetadata()
-            .getIgnoringDefaults(SpreadsheetMetadataPropertyName.LOCALE)
-            .map(Locale::getCountry)
+        final Optional<Locale> locale = context.spreadsheetMetadata()
+            .getIgnoringDefaults(SpreadsheetMetadataPropertyName.LOCALE);
+
+        final String country = locale.map(Locale::getCountry)
             .orElse(null);
 
         this.anchor.setFlags(
-            null != flag ?
-                Sets.of(flag) :
+            null != country ?
+                Sets.of(country) :
                 Sets.empty()
         );
+
+        final String localeText = locale.flatMap(context::localeText)
+            .orElse(null);
+        if(null != localeText) {
+            this.anchor.setTextContent(localeText);
+        }
     }
 }
