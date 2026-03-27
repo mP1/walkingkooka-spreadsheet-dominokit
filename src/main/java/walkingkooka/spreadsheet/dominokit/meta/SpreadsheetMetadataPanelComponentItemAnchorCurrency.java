@@ -48,7 +48,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
         final Optional<Currency> currency = context.spreadsheetMetadata()
-            .get(SpreadsheetMetadataPropertyName.CURRENCY);
+            .getIgnoringDefaults(SpreadsheetMetadataPropertyName.CURRENCY);
 
         this.anchor.setFlags(
                 currency.map(c -> context.localesForCurrencyCode(c.getCurrencyCode())
