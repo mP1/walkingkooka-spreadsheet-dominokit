@@ -110,7 +110,7 @@ public final class SpreadsheetFormSelectHistoryTokenAnchorComponentTest implemen
             return this.historyToken;
         }
 
-        private HistoryToken historyToken;
+        private final HistoryToken historyToken;
 
         @Override
         public String toString() {

@@ -109,7 +109,7 @@ final class AppLocaleContext implements LocaleContextDelegator,
         return this.localeContext;
     }
 
-    private LocaleContext localeContext;
+    private final LocaleContext localeContext;
 
     // LocaleFetcherWatcher.............................................................................................
 
