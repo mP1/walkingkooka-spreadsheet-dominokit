@@ -61,7 +61,7 @@ abstract class AppContextTemporalComponentContext<V extends Temporal> implements
     }
 
     // HACK that is necessary because many(most) DateFormat.SHORT return a 2 digit year.
-    final static String fourDigitYear(final String pattern) {
+    static String fourDigitYear(final String pattern) {
         return pattern.replace("yyyy", "yy")
             .replace("yy", "yyyy");
     }
