@@ -102,7 +102,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \"31/12/99, 12:58 pm\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] id=metadata-locale-Link\n" +
+                "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] [AU] id=metadata-locale-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
                 "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +

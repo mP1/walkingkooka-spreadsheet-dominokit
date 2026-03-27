@@ -19,12 +19,15 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A {@link SpreadsheetMetadataPanelComponentItem} that displays a link which probably opens a dialog for editing.
@@ -74,12 +77,33 @@ final class SpreadsheetMetadataPanelComponentItemAnchor<T> extends SpreadsheetMe
 
     @Override
     public void refresh(final RefreshContext context) {
+        final SpreadsheetMetadataPropertyName<?> propertyName = this.propertyName;
+
+        final Set<String> flags;
+
+        if (propertyName.equals(SpreadsheetMetadataPropertyName.LOCALE)) {
+            final SpreadsheetMetadataPanelComponentContext spreadsheetMetadataPanelComponentContext = this.context;
+
+            final String flag = spreadsheetMetadataPanelComponentContext.spreadsheetMetadata()
+                .get(SpreadsheetMetadataPropertyName.LOCALE)
+                .map(Locale::getCountry)
+                .orElse(null);
+
+            flags = Sets.of(
+                null != flag ?
+                    flag :
+                    null
+            );
+        } else {
+            flags = Sets.empty();
+        }
+
         this.anchor.setHistoryToken(
             Optional.of(
                 context.historyToken()
-                    .setMetadataPropertyName(this.propertyName)
+                    .setMetadataPropertyName(propertyName)
             )
-        );
+        ).setFlags(flags);
     }
 
     // HtmlComponentDelegator...........................................................................................
