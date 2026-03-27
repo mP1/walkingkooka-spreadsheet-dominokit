@@ -82,7 +82,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
-        final String text = metadata.get(propertyName)
+        final String text = metadata.getIgnoringDefaults(propertyName)
             .map(this.formatter)
             .orElse("");
         this.div.setText(text);
