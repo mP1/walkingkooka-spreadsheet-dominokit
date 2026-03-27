@@ -242,9 +242,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> locale() {
-        return link(
-            SpreadsheetMetadataPropertyName.LOCALE
-        );
+        return SpreadsheetMetadataPanelComponentItem.locale(this.context);
     }
 
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> expressionNumberKind() {
@@ -282,9 +280,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> currency() {
-        return link(
-            SpreadsheetMetadataPropertyName.CURRENCY
-        );
+        return SpreadsheetMetadataPanelComponentItem.currency(this.context);
     }
 
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> dateTimeOffset() {

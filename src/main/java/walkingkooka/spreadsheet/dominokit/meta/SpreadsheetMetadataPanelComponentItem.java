@@ -48,6 +48,13 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     HtmlComponentDelegator<E, SpreadsheetMetadataPanelComponentItem<T, C, E>> {
 
     /**
+     * {@see SpreadsheetMetadataPanelComponentItemAnchorCurrency}
+     */
+    public static SpreadsheetMetadataPanelComponentItemAnchorCurrency currency(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemAnchorCurrency.with(context);
+    }
+    
+    /**
      * {@see SpreadsheetMetadataPanelComponentItemEnum}
      */
     static <T extends Enum<T>> SpreadsheetMetadataPanelComponentItemEnum<T> enumValue(final SpreadsheetMetadataPropertyName<T> propertyName,
@@ -79,14 +86,21 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     }
 
     /**
-     * {@see SpreadsheetMetadataPanelComponentItemAnchor}
+     * {@see SpreadsheetMetadataPanelComponentItemAnchorDefault}
      */
-    public static <T> SpreadsheetMetadataPanelComponentItemAnchor<T> link(final SpreadsheetMetadataPropertyName<T> propertyName,
-                                                                          final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataPanelComponentItemAnchor.with(
+    public static <T> SpreadsheetMetadataPanelComponentItemAnchorDefault<T> link(final SpreadsheetMetadataPropertyName<T> propertyName, 
+                                                                                 final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemAnchorDefault.with(
             propertyName,
             context
         );
+    }
+
+    /**
+     * {@see SpreadsheetMetadataPanelComponentItemAnchorLocale}
+     */
+    public static SpreadsheetMetadataPanelComponentItemAnchorLocale locale(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemAnchorLocale.with(context);
     }
 
     /**
