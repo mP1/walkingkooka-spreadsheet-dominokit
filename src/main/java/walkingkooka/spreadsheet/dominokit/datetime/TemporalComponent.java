@@ -58,15 +58,6 @@ abstract class TemporalComponent<V, C extends TemporalComponent<V, C>> implement
         ).orElse(null);
     }
 
-//    static Date localDateToDate(final LocalDate date) {
-//        return new Date(
-//            date.atStartOfDay()
-//                .atZone(ZONE_ID)
-//                .toInstant()
-//                .toEpochMilli()
-//        );
-//    }
-
     /**
      * Helper that is used to translate {@link Date} from/to {@link LocalTime}.
      */
