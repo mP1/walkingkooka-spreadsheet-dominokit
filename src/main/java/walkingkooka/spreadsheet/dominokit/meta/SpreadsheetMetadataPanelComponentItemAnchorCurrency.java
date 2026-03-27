@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Currency;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -46,10 +47,11 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
     void refreshAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
+        final Optional<Currency> currency = context.spreadsheetMetadata()
+            .get(SpreadsheetMetadataPropertyName.CURRENCY);
+
         this.anchor.setFlags(
-            context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.CURRENCY)
-                .map(c -> context.localesForCurrencyCode(c.getCurrencyCode())
+                currency.map(c -> context.localesForCurrencyCode(c.getCurrencyCode())
                     .stream()
                     .map(Locale::getCountry)
                     .collect(
@@ -61,5 +63,12 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
                     )
                 ).orElse(SortedSets.empty())
         );
+
+        if(currency.isPresent()) {
+            this.anchor.setTextContent(
+                currency.get()
+                    .getCurrencyCode()
+            );
+        }
     }
 }

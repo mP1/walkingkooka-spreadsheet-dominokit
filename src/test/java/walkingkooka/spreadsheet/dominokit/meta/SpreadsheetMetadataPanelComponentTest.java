@@ -116,7 +116,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \",\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorCurrency\n" +
-                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] [AU, CC, CX, KI, NF, NR, TV] id=metadata-currency-Link\n" +
+                "    \"AUD\" [#/1/SpreadsheetName111/spreadsheet/currency] [AU, CC, CX, KI, NF, NR, TV] id=metadata-currency-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
