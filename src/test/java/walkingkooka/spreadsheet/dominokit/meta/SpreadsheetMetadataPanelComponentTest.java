@@ -107,15 +107,15 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \"31/12/99, 12:58 pm\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorLocale\n" +
                 "    \"locale\" [#/1/SpreadsheetName111/spreadsheet/locale] [AU] id=metadata-locale-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"textFormatter\" [#/1/SpreadsheetName111/spreadsheet/textFormatter] id=metadata-textFormatter-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \",\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorCurrency\n" +
                 "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] [AU, CC, CX, KI, NF, NR, TV] id=metadata-currency-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount\n" +
                 "    UL\n" +
@@ -130,7 +130,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            \"default\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberDigitCount/save/] id=metadata-decimalNumberDigitCount-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"9\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"decimalNumberSymbols\" [#/1/SpreadsheetName111/spreadsheet/decimalNumberSymbols] id=metadata-decimalNumberSymbols-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemEnum\n" +
                 "    UL\n" +
@@ -203,11 +203,11 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            \"default\" [#/1/SpreadsheetName111/spreadsheet/roundingMode/save/] id=metadata-roundingMode-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"Half Up\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"numberFormatter\" [#/1/SpreadsheetName111/spreadsheet/numberFormatter] id=metadata-numberFormatter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=metadata-numberParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=metadata-dateTimeSymbols-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
                 "    UL\n" +
@@ -253,65 +253,65 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            \"default\" [#/1/SpreadsheetName111/spreadsheet/twoDigitYear/save/] id=metadata-twoDigitYear-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"20\"\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateFormatter] id=metadata-dateFormatter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateParser\" [#/1/SpreadsheetName111/spreadsheet/dateParser] id=metadata-dateParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateTimeFormatter\" [#/1/SpreadsheetName111/spreadsheet/dateTimeFormatter] id=metadata-dateTimeFormatter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateTimeParser\" [#/1/SpreadsheetName111/spreadsheet/dateTimeParser] id=metadata-dateTimeParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"timeFormatter\" [#/1/SpreadsheetName111/spreadsheet/timeFormatter] id=metadata-timeFormatter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"timeParser\" [#/1/SpreadsheetName111/spreadsheet/timeParser] id=metadata-timeParser-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"plugins\" [#/1/SpreadsheetName111/spreadsheet/plugins] id=metadata-plugins-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"comparators\" [#/1/SpreadsheetName111/spreadsheet/comparators] id=metadata-comparators-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"converters\" [#/1/SpreadsheetName111/spreadsheet/converters] id=metadata-converters-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"exporters\" [#/1/SpreadsheetName111/spreadsheet/exporters] id=metadata-exporters-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"functions\" [#/1/SpreadsheetName111/spreadsheet/functions] id=metadata-functions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formatters\" [#/1/SpreadsheetName111/spreadsheet/formatters] id=metadata-formatters-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formHandlers\" [#/1/SpreadsheetName111/spreadsheet/formHandlers] id=metadata-formHandlers-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"importers\" [#/1/SpreadsheetName111/spreadsheet/importers] id=metadata-importers-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"parsers\" [#/1/SpreadsheetName111/spreadsheet/parsers] id=metadata-parsers-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"validators\" [#/1/SpreadsheetName111/spreadsheet/validators] id=metadata-validators-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formulaConverter\" [#/1/SpreadsheetName111/spreadsheet/formulaConverter] id=metadata-formulaConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formulaFunctions\" [#/1/SpreadsheetName111/spreadsheet/formulaFunctions] id=metadata-formulaFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formattingConverter\" [#/1/SpreadsheetName111/spreadsheet/formattingConverter] id=metadata-formattingConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"formattingFunctions\" [#/1/SpreadsheetName111/spreadsheet/formattingFunctions] id=metadata-formattingFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"defaultFormHandler\" [#/1/SpreadsheetName111/spreadsheet/defaultFormHandler] id=metadata-defaultFormHandler-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"queryConverter\" [#/1/SpreadsheetName111/spreadsheet/queryConverter] id=metadata-queryConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"queryFunctions\" [#/1/SpreadsheetName111/spreadsheet/queryFunctions] id=metadata-queryFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"scriptingFunctions\" [#/1/SpreadsheetName111/spreadsheet/scriptingFunctions] id=metadata-scriptingFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"scriptingConverter\" [#/1/SpreadsheetName111/spreadsheet/scriptingConverter] id=metadata-scriptingConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"sortComparators\" [#/1/SpreadsheetName111/spreadsheet/sortComparators] id=metadata-sortComparators-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"sortConverter\" [#/1/SpreadsheetName111/spreadsheet/sortConverter] id=metadata-sortConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"validationConverter\" [#/1/SpreadsheetName111/spreadsheet/validationConverter] id=metadata-validationConverter-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"validationFunctions\" [#/1/SpreadsheetName111/spreadsheet/validationFunctions] id=metadata-validationFunctions-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"validationValidators\" [#/1/SpreadsheetName111/spreadsheet/validationValidators] id=metadata-validationValidators-Link"
         );
     }
