@@ -30,7 +30,9 @@ import java.util.Optional;
 public final class MarginComponentTest implements ValueTextBoxComponentLikeTesting<MarginComponent, Margin> {
 
     private final static Margin MARGIN = TextStyle.EMPTY.setMargin(
-        Length.pixel(1.0)
+        Optional.of(
+            Length.pixel(1.0)
+        )
     ).margin(BoxEdge.ALL);
 
     @Test
