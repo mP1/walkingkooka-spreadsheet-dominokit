@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Locale;
+import java.util.Set;
 
 public final class SpreadsheetMetadataPanelComponentTest implements TreePrintableTesting,
     SpreadsheetMetadataTesting,
@@ -63,6 +64,11 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                     SpreadsheetName.with("SpreadsheetName111"),
                     SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET
                 );
+            }
+
+            @Override
+            public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+                return CURRENCY_CONTEXT.localesForCurrencyCode(currencyCode);
             }
         };
         final SpreadsheetMetadataPanelComponent component = SpreadsheetMetadataPanelComponent.with(context);
@@ -110,7 +116,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
                 "        \",\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchor\n" +
-                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] id=metadata-currency-Link\n" +
+                "    \"currency\" [#/1/SpreadsheetName111/spreadsheet/currency] [AU, CC, CX, KI, NF, NR, TV] id=metadata-currency-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +

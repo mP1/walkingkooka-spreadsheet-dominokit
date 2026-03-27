@@ -25,7 +25,9 @@ import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Set;
 
 final class AppContextSpreadsheetMetadataPanelComponentContext implements SpreadsheetMetadataPanelComponentContext,
     DateTimeContextDelegator,
@@ -40,6 +42,11 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     private AppContextSpreadsheetMetadataPanelComponentContext(final AppContext context) {
         super();
         this.context = context;
+    }
+
+    @Override
+    public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+        return this.context.localesForCurrencyCode(currencyCode);
     }
 
     // DateTimeContextDelegator.........................................................................................
