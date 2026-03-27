@@ -30,7 +30,9 @@ import java.util.Optional;
 public final class PaddingComponentTest implements ValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
 
     private final static Padding PADDING = TextStyle.EMPTY.setPadding(
-        Length.pixel(1.0)
+        Optional.of(
+            Length.pixel(1.0)
+        )
     ).padding(BoxEdge.ALL);
 
     @Test
