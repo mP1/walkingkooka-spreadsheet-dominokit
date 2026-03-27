@@ -83,13 +83,13 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
         final String nowOrToday;
 
         final ValueType valueType = context.valueType();
-        if (valueType.DATE.equals(valueType)) {
+        if (ValueType.DATE.equals(valueType)) {
             nowOrToday = TODAY_TEXT;
         } else {
-            if (valueType.DATE_TIME.equals(valueType)) {
+            if (ValueType.DATE_TIME.equals(valueType)) {
                 nowOrToday = NOW_TEXT;
             } else {
-                if (valueType.TIME.equals(valueType)) {
+                if (ValueType.TIME.equals(valueType)) {
                     nowOrToday = NOW_TEXT;
                 } else {
                     nowOrToday = "";
