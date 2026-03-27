@@ -44,7 +44,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchorLocale extends Spreadshee
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
         final String flag = context.spreadsheetMetadata()
-            .get(SpreadsheetMetadataPropertyName.LOCALE)
+            .getIgnoringDefaults(SpreadsheetMetadataPropertyName.LOCALE)
             .map(Locale::getCountry)
             .orElse(null);
 
