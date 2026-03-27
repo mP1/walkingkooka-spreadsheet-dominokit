@@ -93,9 +93,8 @@ final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens implements Ha
                         }
                     }
                     break;
-                default:
                 case MODE_TEXT:
-
+                default:
                     break;
             }
 
