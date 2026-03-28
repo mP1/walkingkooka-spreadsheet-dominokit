@@ -19,23 +19,30 @@ package walkingkooka.spreadsheet.dominokit.margin;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Margin;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
  */
 public final class MarginComponent implements ValueTextBoxComponentDelegator<MarginComponent, Margin> {
 
-    public static MarginComponent empty() {
-        return new MarginComponent();
+    public static MarginComponent empty(final BoxEdge boxEdge) {
+        return new MarginComponent(
+            Objects.requireNonNull(boxEdge, "boxEdge")
+        );
     }
 
-    private MarginComponent() {
+    private MarginComponent(final BoxEdge boxEdge) {
         this.textBox = ValueTextBoxComponent.with(
-            Margin::parse,
-            HasText::text
+            boxEdge::parseMargin,
+            Margin::text
         );
+
+        this.boxEdge = boxEdge;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
@@ -47,6 +54,27 @@ public final class MarginComponent implements ValueTextBoxComponentDelegator<Mar
 
     private final ValueTextBoxComponent<Margin> textBox;
 
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.boxEdge.name());
+
+            printer.indent();
+            {
+                this.valueTextBoxComponent()
+                    .printTree(printer);
+            }
+            printer.outdent();
+        }
+        printer.outdent();
+    }
+
+    private final BoxEdge boxEdge;
+    
     // Object...........................................................................................................
 
     @Override
