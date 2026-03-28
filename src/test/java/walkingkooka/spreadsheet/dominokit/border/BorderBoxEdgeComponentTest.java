@@ -143,7 +143,7 @@ public final class BorderBoxEdgeComponentTest implements ValueTextBoxComponentLi
                 "      TextBoxComponent\n" +
                 "        [Invalid123!] REQUIRED\n" +
                 "        Errors\n" +
-                "          Unknown rgb name \"Invalid123!\"\n"
+                "          Unknown color name \"Invalid123!\"\n"
         );
     }
 
