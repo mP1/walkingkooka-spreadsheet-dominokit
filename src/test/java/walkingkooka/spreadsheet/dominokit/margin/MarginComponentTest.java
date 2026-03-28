@@ -57,23 +57,49 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [bottom: 1px; left: 1px; right: 1px; top: 1px;] REQUIRED\n"
+                "      [1px] REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetStringValue() {
+    public void testSetStringValueTopRightBottomAll() {
+        final MarginComponent component = MarginComponent.empty();
+
+        final String text = "1px 2px 3px 4px";
+
+        this.setStringValueAndCheck(
+            component,
+            text,
+            Margin.parse(text)
+        );
+
         this.treePrintAndCheck(
-            MarginComponent.empty()
-                .setStringValue(
-                    Optional.of(
-                        MARGIN.text()
-                    )
-                ),
+            component,
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [bottom: 1px; left: 1px; right: 1px; top: 1px;] REQUIRED\n"
+                "      [1px 2px 3px 4px] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueOneLength() {
+        final MarginComponent component = MarginComponent.empty();
+
+        final String text = "1px";
+
+        this.setStringValueAndCheck(
+            component,
+            text,
+            Margin.parse(text)
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "MarginComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [1px] REQUIRED\n"
         );
     }
 
@@ -90,7 +116,7 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [top: 1px;] REQUIRED\n"
+                "      [1px] REQUIRED\n"
         );
     }
 
@@ -108,7 +134,7 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
                 "    TextBoxComponent\n" +
                 "      [Invalid123!] REQUIRED\n" +
                 "      Errors\n" +
-                "        TextStyle: Invalid property \"Invalid123\"\n"
+                "        Invalid number length \"Invalid123!\"\n"
         );
     }
 
