@@ -31,69 +31,119 @@ import java.util.Optional;
 
 public final class BorderComponentTest implements ValueTextBoxComponentLikeTesting<BorderComponent, Border> {
 
+    private final static BoxEdge BOX_EDGE = BoxEdge.TOP;
+
     private final static Border BORDER = TextStyle.EMPTY.setBorder(
         Color.BLACK,
         BorderStyle.DASHED,
         Length.pixel(1.0)
-    ).border(BoxEdge.TOP);
+    ).border(BOX_EDGE);
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            BorderComponent.empty()
+            BorderComponent.empty(BOX_EDGE)
                 .clearValue(),
             "BorderComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [] REQUIRED\n"
+                "  TOP\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetValue() {
+    public void testSetValueTop() {
         this.treePrintAndCheck(
-            BorderComponent.empty()
+            BorderComponent.empty(BOX_EDGE)
                 .setValue(
                     Optional.of(BORDER)
                 ),
             "BorderComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [top-color: black; top-style: dashed; top-width: 1px;] REQUIRED\n"
+                "  TOP\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [black DASHED 1px] REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetStringValue() {
+    public void testSetValueAll() {
+        final BoxEdge boxEdge = BoxEdge.ALL;
+
         this.treePrintAndCheck(
-            BorderComponent.empty()
-                .setStringValue(
+            BorderComponent.empty(boxEdge)
+                .setValue(
                     Optional.of(
-                        BORDER.text()
+                        TextStyle.EMPTY.setBorder(
+                            Color.WHITE,
+                            BorderStyle.SOLID,
+                            Length.pixel(123.0)
+                        ).border(boxEdge)
                     )
                 ),
             "BorderComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [top-color: black; top-style: dashed; top-width: 1px;] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [white SOLID 123px] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueTop() {
+        this.treePrintAndCheck(
+            BorderComponent.empty(BOX_EDGE)
+                .setStringValue(
+                    Optional.of(
+                        BORDER.valuesAsText()
+                    )
+                ),
+            "BorderComponent\n" +
+                "  TOP\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [black DASHED 1px] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueAll() {
+        this.treePrintAndCheck(
+            BorderComponent.empty(BoxEdge.ALL)
+                .setStringValue(
+                    Optional.of(
+                        BoxEdge.ALL.setBorder(
+                            Optional.of(Color.WHITE),
+                            Optional.of(BorderStyle.SOLID),
+                            Optional.of(Length.pixel(123.0))
+                        ).valuesAsText()
+                    )
+                ),
+            "BorderComponent\n" +
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [white SOLID 123px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            BorderComponent.empty()
+            BorderComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
                     )
                 ),
             "BorderComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
-                "      Errors\n" +
-                "        Unknown color name \"Invalid123!\"\n"
+                "  TOP\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [Invalid123!] REQUIRED\n" +
+                "        Errors\n" +
+                "          Unknown color name \"Invalid123!\"\n"
         );
     }
 
@@ -101,7 +151,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
 
     @Override
     public BorderComponent createComponent() {
-        return BorderComponent.empty();
+        return BorderComponent.empty(BOX_EDGE);
     }
 
     // class............................................................................................................
