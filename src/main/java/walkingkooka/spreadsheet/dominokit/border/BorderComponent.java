@@ -19,23 +19,30 @@ package walkingkooka.spreadsheet.dominokit.border;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Border;
+import walkingkooka.tree.text.BoxEdge;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Border}.
  */
 public final class BorderComponent implements ValueTextBoxComponentDelegator<BorderComponent, Border> {
 
-    public static BorderComponent empty() {
-        return new BorderComponent();
+    public static BorderComponent empty(final BoxEdge boxEdge) {
+        return new BorderComponent(
+            Objects.requireNonNull(boxEdge, "boxEdge")
+        );
     }
 
-    private BorderComponent() {
+    private BorderComponent(final BoxEdge boxEdge) {
         this.textBox = ValueTextBoxComponent.with(
-            Border::parse,
-            HasText::text
+            boxEdge::parseBorder,
+            Border::text
         );
+
+        this.boxEdge = boxEdge;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
@@ -46,6 +53,27 @@ public final class BorderComponent implements ValueTextBoxComponentDelegator<Bor
     }
 
     private final ValueTextBoxComponent<Border> textBox;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.boxEdge.name());
+
+            printer.indent();
+            {
+                this.valueTextBoxComponent()
+                    .printTree(printer);
+            }
+            printer.outdent();
+        }
+        printer.outdent();
+    }
+
+    private final BoxEdge boxEdge;
 
     // Object...........................................................................................................
 
