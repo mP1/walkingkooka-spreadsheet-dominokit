@@ -29,41 +29,45 @@ import java.util.Optional;
 
 public final class MarginComponentTest implements ValueTextBoxComponentLikeTesting<MarginComponent, Margin> {
 
+    private final static BoxEdge BOX_EDGE = BoxEdge.ALL;
+    
     private final static Margin MARGIN = TextStyle.EMPTY.setMargin(
         Optional.of(
             Length.pixel(1.0)
         )
-    ).margin(BoxEdge.ALL);
+    ).margin(BOX_EDGE);
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            MarginComponent.empty()
+            MarginComponent.empty(BOX_EDGE)
                 .clearValue(),
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            MarginComponent.empty()
+            MarginComponent.empty(BOX_EDGE)
                 .setValue(
                     Optional.of(MARGIN)
                 ),
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueTopRightBottomAll() {
-        final MarginComponent component = MarginComponent.empty();
+        final MarginComponent component = MarginComponent.empty(BOX_EDGE);
 
         final String text = "1px 2px 3px 4px";
 
@@ -76,15 +80,16 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
         this.treePrintAndCheck(
             component,
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px 2px 3px 4px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px 2px 3px 4px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueOneLength() {
-        final MarginComponent component = MarginComponent.empty();
+        final MarginComponent component = MarginComponent.empty(BOX_EDGE);
 
         final String text = "1px";
 
@@ -97,16 +102,17 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
         this.treePrintAndCheck(
             component,
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueTop() {
         this.treePrintAndCheck(
-            MarginComponent.empty()
+            MarginComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
                         MARGIN.setEdge(BoxEdge.TOP)
@@ -114,27 +120,29 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
                     )
                 ),
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            MarginComponent.empty()
+            MarginComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
                     )
                 ),
             "MarginComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
-                "      Errors\n" +
-                "        Invalid number length \"Invalid123!\"\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [Invalid123!] REQUIRED\n" +
+                "        Errors\n" +
+                "          Invalid number length \"Invalid123!\"\n"
         );
     }
 
@@ -142,7 +150,7 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
 
     @Override
     public MarginComponent createComponent() {
-        return MarginComponent.empty();
+        return MarginComponent.empty(BOX_EDGE);
     }
 
     // class............................................................................................................
