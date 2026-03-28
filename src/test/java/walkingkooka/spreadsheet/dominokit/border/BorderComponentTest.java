@@ -96,7 +96,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
             BorderComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
-                        BORDER.valuesAsText()
+                        BORDER.text()
                     )
                 ),
             "BorderComponent\n" +
@@ -117,7 +117,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                             Optional.of(Color.WHITE),
                             Optional.of(BorderStyle.SOLID),
                             Optional.of(Length.pixel(123.0))
-                        ).valuesAsText()
+                        ).text()
                     )
                 ),
             "BorderComponent\n" +
