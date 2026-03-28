@@ -29,41 +29,45 @@ import java.util.Optional;
 
 public final class PaddingComponentTest implements ValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
 
+    private final static BoxEdge BOX_EDGE = BoxEdge.ALL;
+
     private final static Padding PADDING = TextStyle.EMPTY.setPadding(
         Optional.of(
             Length.pixel(1.0)
         )
-    ).padding(BoxEdge.ALL);
+    ).padding(BOX_EDGE);
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            PaddingComponent.empty()
+            PaddingComponent.empty(BOX_EDGE)
                 .clearValue(),
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            PaddingComponent.empty()
+            PaddingComponent.empty(BOX_EDGE)
                 .setValue(
                     Optional.of(PADDING)
                 ),
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueTopRightBottomAll() {
-        final PaddingComponent component = PaddingComponent.empty();
+        final PaddingComponent component = PaddingComponent.empty(BOX_EDGE);
 
         final String text = "1px 2px 3px 4px";
 
@@ -76,15 +80,16 @@ public final class PaddingComponentTest implements ValueTextBoxComponentLikeTest
         this.treePrintAndCheck(
             component,
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px 2px 3px 4px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px 2px 3px 4px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueOneLength() {
-        final PaddingComponent component = PaddingComponent.empty();
+        final PaddingComponent component = PaddingComponent.empty(BOX_EDGE);
 
         final String text = "1px";
 
@@ -97,16 +102,17 @@ public final class PaddingComponentTest implements ValueTextBoxComponentLikeTest
         this.treePrintAndCheck(
             component,
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueTop() {
         this.treePrintAndCheck(
-            PaddingComponent.empty()
+            PaddingComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
                         PADDING.setEdge(BoxEdge.TOP)
@@ -114,27 +120,29 @@ public final class PaddingComponentTest implements ValueTextBoxComponentLikeTest
                     )
                 ),
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] REQUIRED\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [1px] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            PaddingComponent.empty()
+            PaddingComponent.empty(BOX_EDGE)
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
                     )
                 ),
             "PaddingComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
-                "      Errors\n" +
-                "        Invalid number length \"Invalid123!\"\n"
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [Invalid123!] REQUIRED\n" +
+                "        Errors\n" +
+                "          Invalid number length \"Invalid123!\"\n"
         );
     }
 
@@ -142,7 +150,7 @@ public final class PaddingComponentTest implements ValueTextBoxComponentLikeTest
 
     @Override
     public PaddingComponent createComponent() {
-        return PaddingComponent.empty();
+        return PaddingComponent.empty(BOX_EDGE);
     }
 
     // class............................................................................................................
