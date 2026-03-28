@@ -19,23 +19,30 @@ package walkingkooka.spreadsheet.dominokit.padding;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
-public final class PaddingComponent implements ValueTextBoxComponentDelegator<PaddingComponent, Padding> {
+public final class PaddingComponent implements ValueTextBoxComponentDelegator<walkingkooka.spreadsheet.dominokit.padding.PaddingComponent, Padding> {
 
-    public static PaddingComponent empty() {
-        return new PaddingComponent();
+    public static walkingkooka.spreadsheet.dominokit.padding.PaddingComponent empty(final BoxEdge boxEdge) {
+        return new walkingkooka.spreadsheet.dominokit.padding.PaddingComponent(
+            Objects.requireNonNull(boxEdge, "boxEdge")
+        );
     }
 
-    private PaddingComponent() {
+    private PaddingComponent(final BoxEdge boxEdge) {
         this.textBox = ValueTextBoxComponent.with(
-            Padding::parse,
-            HasText::text
+            boxEdge::parsePadding,
+            Padding::text
         );
+
+        this.boxEdge = boxEdge;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
@@ -46,6 +53,27 @@ public final class PaddingComponent implements ValueTextBoxComponentDelegator<Pa
     }
 
     private final ValueTextBoxComponent<Padding> textBox;
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            printer.println(this.boxEdge.name());
+
+            printer.indent();
+            {
+                this.valueTextBoxComponent()
+                    .printTree(printer);
+            }
+            printer.outdent();
+        }
+        printer.outdent();
+    }
+
+    private final BoxEdge boxEdge;
 
     // Object...........................................................................................................
 
