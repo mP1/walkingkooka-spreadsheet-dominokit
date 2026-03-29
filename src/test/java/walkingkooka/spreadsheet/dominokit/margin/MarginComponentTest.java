@@ -21,9 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.BoxEdge;
-import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
-import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
@@ -31,11 +29,7 @@ public final class MarginComponentTest implements ValueTextBoxComponentLikeTesti
 
     private final static BoxEdge BOX_EDGE = BoxEdge.ALL;
     
-    private final static Margin MARGIN = TextStyle.EMPTY.setMargin(
-        Optional.of(
-            Length.pixel(1.0)
-        )
-    ).margin(BOX_EDGE);
+    private final static Margin MARGIN = Margin.parse("1px");
 
     @Test
     public void testClearValue() {
