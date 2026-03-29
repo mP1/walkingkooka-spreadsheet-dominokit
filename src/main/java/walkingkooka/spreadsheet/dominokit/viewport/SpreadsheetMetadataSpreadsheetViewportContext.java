@@ -33,6 +33,8 @@ import walkingkooka.tree.text.FontVariant;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.Margin;
+import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -57,10 +59,10 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
     private final static TextStyle DEFAULT_STYLE = TextStyle.EMPTY
         .set(
             TextStylePropertyName.MARGIN,
-            Length.none()
+            Margin.parse("none")
         ).set(
             TextStylePropertyName.PADDING,
-            Length.none()
+            Padding.parse("none")
         ).set(
             TextStylePropertyName.FONT_SIZE,
             FontSize.with(11)
