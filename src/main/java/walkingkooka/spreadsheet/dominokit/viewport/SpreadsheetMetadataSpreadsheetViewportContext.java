@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.FontSize;
 import walkingkooka.tree.text.FontStyle;
@@ -42,6 +43,7 @@ import walkingkooka.tree.text.VerticalAlign;
 import walkingkooka.tree.text.WordBreak;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -84,9 +86,13 @@ final class SpreadsheetMetadataSpreadsheetViewportContext implements Spreadsheet
         );
 
     private final static TextStyle STYLE_WITH_BORDERS = DEFAULT_STYLE.setBorder(
-        BORDER_COLOR,
-        BORDER_STYLE,
-        BORDER_LENGTH
+        Optional.of(
+            BoxEdge.ALL.setBorder(
+                Optional.of(BORDER_COLOR),
+                Optional.of(BORDER_STYLE),
+                Optional.of(BORDER_LENGTH)
+            )
+        )
     );
 
     private final static TextStyle CELL_STYLE = setCellTextAlignVerticalAlign(DEFAULT_STYLE);

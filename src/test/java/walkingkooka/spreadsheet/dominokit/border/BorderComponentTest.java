@@ -25,7 +25,6 @@ import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
@@ -33,11 +32,13 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
 
     private final static BoxEdge BOX_EDGE = BoxEdge.TOP;
 
-    private final static Border BORDER = TextStyle.EMPTY.setBorder(
-        Color.BLACK,
-        BorderStyle.DASHED,
-        Length.pixel(1.0)
-    ).border(BOX_EDGE);
+    private final static Border BORDER = BOX_EDGE.setBorder(
+        Optional.of(Color.BLACK),
+        Optional.of(BorderStyle.DASHED),
+        Optional.of(
+            Length.pixel(1.0)
+        )
+    );
 
     @Test
     public void testClearValue() {
@@ -75,11 +76,13 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
             BorderComponent.empty(boxEdge)
                 .setValue(
                     Optional.of(
-                        TextStyle.EMPTY.setBorder(
-                            Color.WHITE,
-                            BorderStyle.SOLID,
-                            Length.pixel(123.0)
-                        ).border(boxEdge)
+                        boxEdge.setBorder(
+                            Optional.of(Color.WHITE),
+                            Optional.of(BorderStyle.SOLID),
+                            Optional.of(
+                                Length.pixel(123.0)
+                            )
+                        )
                     )
                 ),
             "BorderComponent\n" +
