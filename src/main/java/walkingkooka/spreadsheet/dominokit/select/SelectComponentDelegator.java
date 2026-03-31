@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.select;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator2;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public interface SelectComponentDelegator<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends FormValueComponentDelegator<HTMLFieldSetElement, V, C> {
+public interface SelectComponentDelegator<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends FormValueComponentDelegator2<HTMLFieldSetElement, V, C> {
 
     default SelectComponent<V> appendOption(final Optional<V> value) {
         return this.selectComponent()
