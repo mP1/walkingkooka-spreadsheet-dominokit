@@ -98,9 +98,9 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
      * Handles parsing /cell/save tokens.
      */
     HistoryToken parseCellSave(final TextCursor cursor) {
-        HistoryToken result = this;
-
         final String component = parseComponentOrEmpty(cursor);
+
+        final HistoryToken result;
 
         // there will be more such as cell/pattern-format/pattern-parse/style
         switch (component) {

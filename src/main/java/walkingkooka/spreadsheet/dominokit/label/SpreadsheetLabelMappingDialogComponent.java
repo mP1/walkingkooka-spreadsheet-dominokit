@@ -454,9 +454,9 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
             if (HttpMethod.GET.equals(method) || HttpMethod.POST.equals(method)) {
                 final Set<SpreadsheetLabelMapping> mappings = delta.labels();
 
-                SpreadsheetLabelMapping mapping = null;
-                Optional<SpreadsheetLabelName> undoLabelName = null;
-                Optional<SpreadsheetExpressionReference> undoLabelMappingReference = null;
+                final SpreadsheetLabelMapping mapping;
+                final Optional<SpreadsheetLabelName> undoLabelName;
+                final Optional<SpreadsheetExpressionReference> undoLabelMappingReference;
 
                 switch (mappings.size()) {
                     case 1:
@@ -472,6 +472,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
                     default:
                         undoLabelName = Optional.empty();
                         undoLabelMappingReference = Optional.empty();
+                        mapping = null;
                         break;
                 }
                 this.loaded = Optional.ofNullable(mapping); // label does not exist

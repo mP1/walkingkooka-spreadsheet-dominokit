@@ -67,7 +67,7 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
 
     private void setter(final Optional<T> value,
                         final HistoryTokenAnchorComponent anchor) {
-        HistoryToken historyToken = null;
+        HistoryToken historyToken;
 
         try {
             historyToken = this.context.historyToken()

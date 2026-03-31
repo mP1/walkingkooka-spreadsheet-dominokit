@@ -40,7 +40,7 @@ public final class PluginUploadSelectHistoryToken extends PluginUploadHistoryTok
     @Override
     HistoryToken parseNext(final String component,
                            final TextCursor cursor) {
-        PluginUploadHistoryToken historyToken = this;
+        final PluginUploadHistoryToken historyToken;
 
         switch (component) {
             case SAVE_STRING:

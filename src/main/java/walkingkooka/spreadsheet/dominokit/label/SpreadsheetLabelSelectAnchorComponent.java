@@ -68,7 +68,7 @@ public final class SpreadsheetLabelSelectAnchorComponent implements ValueHistory
 
     private void setter(final Optional<SpreadsheetLabelName> value,
                         final HistoryTokenAnchorComponent anchor) {
-        String text = null;
+        final String text;
         HistoryToken historyToken = null;
 
         if (value.isPresent()) {
