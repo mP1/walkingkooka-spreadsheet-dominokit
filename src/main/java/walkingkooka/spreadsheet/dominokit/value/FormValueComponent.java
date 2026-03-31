@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentWithErrors;
 import java.util.Optional;
 
 /**
- * A component that supports entering or selecting a value.
+ * A {@link ValueComponent} that probably exists within a form, meaning each value can have a label, and supports validation,
+ * including the display of any errors.
  */
 public interface FormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
     extends ValueComponent<E, V, C>,
