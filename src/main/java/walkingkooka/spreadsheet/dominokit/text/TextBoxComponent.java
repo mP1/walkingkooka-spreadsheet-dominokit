@@ -34,8 +34,6 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.text.CharSequences;
@@ -50,9 +48,7 @@ import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
 /**
  * A textbox that adds a few extras that should be common to all text boxes.
  */
-public final class TextBoxComponent extends TextBoxComponentLike
-    implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String> {
+public final class TextBoxComponent extends TextBoxComponentLike {
 
     public static TextBoxComponent empty() {
         return new TextBoxComponent();
