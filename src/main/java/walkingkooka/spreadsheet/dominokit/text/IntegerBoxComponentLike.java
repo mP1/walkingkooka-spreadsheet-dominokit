@@ -52,7 +52,7 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
     public final Runnable addValueWatcher(final ValueWatcher<Integer> watcher) {
         final EventListener keyDownListener = (e) -> {
             final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-            if (Key.Enter.equals(keyboardEvent.key)) {
+            if (Key.Enter.match(keyboardEvent)) {
                 watcher.onValue(this.value());
             }
         };
