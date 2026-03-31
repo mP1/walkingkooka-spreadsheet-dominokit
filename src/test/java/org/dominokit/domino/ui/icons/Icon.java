@@ -34,7 +34,7 @@ public class Icon<T extends Icon<T>> implements IsElement<HTMLElement> {
 
     public IsElement<HTMLElement> cssText(final String css) {
         // ignored
-        return (T) this;
+        return this;
     }
 
     @Override
