@@ -324,11 +324,6 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         return this;
     }
 
-    /**
-     * If the validator changed setValue must happen, forcing validation and text formatting.
-     */
-    private boolean validatorChange;
-
     @Override //
     public Optional<T> value() {
         return tryParse(
