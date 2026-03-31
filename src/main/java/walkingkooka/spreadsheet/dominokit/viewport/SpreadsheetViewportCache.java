@@ -370,7 +370,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             this.labelMappings()
                 .stream()
                 .filter((SpreadsheetLabelMapping m) ->
-                    this.resolveIfLabel((SpreadsheetSelection) m.reference())
+                    this.resolveIfLabel(m.reference())
                         .map((SpreadsheetSelection s) -> s.test(nonLabelSelection))
                         .orElse(false)
                 ).collect(Collectors.toCollection(SortedSets::tree));
