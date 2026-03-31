@@ -122,8 +122,6 @@ public final class SliderComponent extends SliderComponentLike {
 
     @Override
     public SliderComponent setMinValue(final double minValue) {
-        Objects.requireNonNull(minValue, "minValue");
-
         this.slider.setMinValue(minValue);
         return this;
     }
@@ -137,8 +135,6 @@ public final class SliderComponent extends SliderComponentLike {
 
     @Override
     public SliderComponent setMaxValue(final double maxValue) {
-        Objects.requireNonNull(maxValue, "maxValue");
-
         this.slider.setMaxValue(maxValue);
         return this;
     }
@@ -152,8 +148,6 @@ public final class SliderComponent extends SliderComponentLike {
 
     @Override
     public SliderComponent setStep(final double step) {
-        Objects.requireNonNull(step, "step");
-
         this.slider.setStep(step);
         return this;
     }
