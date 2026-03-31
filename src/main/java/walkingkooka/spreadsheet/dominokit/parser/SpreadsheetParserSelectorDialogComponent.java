@@ -293,7 +293,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         this.links.setValue(
             this.selector.stringValue().isEmpty() || hasNoError ?
                 edit.selector() :
-                Optional.<SpreadsheetParserSelector>empty()
+                Optional.empty()
         );
 
         this.refreshTitleTabsClearClose();

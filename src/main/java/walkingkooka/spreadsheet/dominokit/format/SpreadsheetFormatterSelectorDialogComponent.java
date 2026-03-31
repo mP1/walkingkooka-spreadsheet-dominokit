@@ -288,7 +288,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             this.links.setValue(
                 this.selector.stringValue().isEmpty() || hasNoError ?
                     edit.selector() :
-                    Optional.<SpreadsheetFormatterSelector>empty()
+                    Optional.empty()
             );
         } else {
             this.selector.setErrors(

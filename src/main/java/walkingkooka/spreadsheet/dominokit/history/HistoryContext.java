@@ -126,7 +126,7 @@ public interface HistoryContext extends Context {
                                              final String text,
                                              final Optional<T> value,
                                              final Optional<HistoryToken> historyToken) {
-        return SelectOption.<T>create(
+        return SelectOption.create(
             id, // key
             value.orElse(null), // value
             (final String k, final T v) -> div()

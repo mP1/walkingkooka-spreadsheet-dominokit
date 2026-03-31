@@ -48,7 +48,7 @@ public final class SpreadsheetCellRangeReferencePathComponent implements FormVal
 
     private SpreadsheetCellRangeReferencePathComponent(final String id,
                                                        final SpreadsheetCellRangeReferencePathComponentContext context) {
-        final SelectComponent<SpreadsheetCellRangeReferencePath> select = SelectComponent.<SpreadsheetCellRangeReferencePath>empty(
+        final SelectComponent<SpreadsheetCellRangeReferencePath> select = SelectComponent.empty(
             (v) -> {
                 final SpreadsheetCellRangeReferencePath p = v.orElseThrow(() -> new IllegalArgumentException("Missing SpreadsheetCellRangeReferencePath"));
 

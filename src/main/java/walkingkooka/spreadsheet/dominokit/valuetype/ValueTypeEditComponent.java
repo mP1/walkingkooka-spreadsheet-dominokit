@@ -51,7 +51,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
 
     private ValueTypeEditComponent(final String id,
                                    final ValueTypeEditComponentContext context) {
-        final SelectComponent<ValueType> select = SelectComponent.<ValueType>empty(
+        final SelectComponent<ValueType> select = SelectComponent.empty(
             (v) -> {
                 final ValueType n = v.orElseThrow(() -> new IllegalArgumentException("Missing ValueType"));
                 final String nameText = n.text();

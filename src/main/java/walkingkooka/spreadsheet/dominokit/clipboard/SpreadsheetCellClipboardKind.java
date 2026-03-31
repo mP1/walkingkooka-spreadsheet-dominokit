@@ -529,7 +529,7 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
             ).setFormula(
                 SpreadsheetFormula.EMPTY
             ).setFormattedValue(
-                context.<TextNode>unmarshallOptionalWithType(node)
+                context.unmarshallOptionalWithType(node)
             );
         }
 

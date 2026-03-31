@@ -271,7 +271,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             if (cellOrCellRange.isCell()) {
                 result = cellToTarget.getOrDefault(
                     cellOrCellRange,
-                    Sets.<T>empty()
+                    Sets.empty()
                 );
             } else {
                 result = SortedSets.tree();

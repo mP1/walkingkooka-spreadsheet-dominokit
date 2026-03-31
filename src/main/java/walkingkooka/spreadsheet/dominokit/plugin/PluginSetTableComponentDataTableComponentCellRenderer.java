@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextComponent;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -130,7 +129,7 @@ final class PluginSetTableComponentDataTableComponentCellRenderer implements Dat
                 Optional.of(
                     PluginDownload.with(
                         pluginName,
-                        Optional.<JarEntryInfoName>empty()
+                        Optional.empty()
                     )
                 )
             );

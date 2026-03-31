@@ -395,7 +395,7 @@ final class SpreadsheetCellQueryDialogComponentQuery implements PublicStaticHelp
     private final static SpreadsheetFormulaParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetFormulaParserToken.doubleQuoteSymbol("\"", "\"");
 
     private final static SpreadsheetFormulaParserToken EMPTY_PARAMETER_LIST = SpreadsheetFormulaParserToken.functionParameters(
-        Lists.<ParserToken>of(
+        Lists.of(
             SpreadsheetFormulaParserToken.parenthesisOpenSymbol("(", "("),
             SpreadsheetFormulaParserToken.parenthesisCloseSymbol(")", ")")
         ),
