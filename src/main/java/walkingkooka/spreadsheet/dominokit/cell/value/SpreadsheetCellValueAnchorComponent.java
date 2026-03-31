@@ -71,7 +71,7 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
 
     private void setter(final Optional<SpreadsheetExpressionReference> cellOrLabel,
                         final HistoryTokenAnchorComponent anchor) {
-        String text = "";
+        final String text;
         HistoryToken historyToken = null;
 
         if (cellOrLabel.isPresent()) {
@@ -106,7 +106,6 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
                     }
                 }
             }
-
         } else {
             text = "Value";
         }

@@ -42,7 +42,8 @@ public abstract class PluginNameHistoryToken extends PluginHistoryToken {
     final HistoryToken parseNext(final String component,
                                  final TextCursor cursor) {
         final PluginName pluginName = PluginName.with(component);
-        HistoryToken historyToken = this;
+
+        final HistoryToken historyToken;
 
         switch (component) {
             case SELECT_STRING:

@@ -53,7 +53,7 @@ public abstract class PluginListHistoryToken extends PluginHistoryToken {
     @Override //
     final HistoryToken parseNext(final String component,
                                  final TextCursor cursor) {
-        HistoryToken historyToken = this;
+        final HistoryToken historyToken;
 
         switch (component) {
             case WILDCARD_STRING:

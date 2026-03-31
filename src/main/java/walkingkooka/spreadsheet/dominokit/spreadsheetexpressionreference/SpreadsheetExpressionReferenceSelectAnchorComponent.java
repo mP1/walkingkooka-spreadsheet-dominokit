@@ -68,7 +68,7 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponent implement
 
     private void setter(final Optional<SpreadsheetExpressionReference> value,
                         final HistoryTokenAnchorComponent anchor) {
-        String text = null;
+        final String text;
         HistoryToken historyToken = null;
 
         if (value.isPresent()) {
