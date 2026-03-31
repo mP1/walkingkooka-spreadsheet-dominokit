@@ -107,7 +107,7 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
      */
     ValueTextBoxComponent<V> valueTextBoxComponent();
 
-    // ValueComponentDelegator..........................................................................................
+    // FormValueComponentDelegator......................................................................................
 
     @Override
     default FormValueComponent<HTMLFieldSetElement, V, ?> formValueComponent() {
