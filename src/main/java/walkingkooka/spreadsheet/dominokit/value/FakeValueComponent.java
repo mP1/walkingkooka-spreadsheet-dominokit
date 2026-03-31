@@ -18,11 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.FakeHtmlComponent;
 
 import java.util.Optional;
 
-public class FakeValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends FakeHtmlComponent<E, C>
+public class FakeValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends FakeValueComponentLike<E, C>
     implements ValueComponent<E, V, C> {
 
     public FakeValueComponent() {
@@ -43,41 +42,6 @@ public class FakeValueComponent<E extends HTMLElement, V, C extends ValueCompone
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<V> watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isDisabled() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C setDisabled(boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C focus() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C blur() {
         throw new UnsupportedOperationException();
     }
 }
