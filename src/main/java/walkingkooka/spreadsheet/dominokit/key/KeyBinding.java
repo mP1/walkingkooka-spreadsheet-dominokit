@@ -36,7 +36,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
 
     private final static List<KeyBinding> CONSTANTS = Lists.array();
 
-    public static KeyBinding SHIFT_DOWN = registerConstant(
+    public final static KeyBinding SHIFT_DOWN = registerConstant(
         false, // alt
         false, // control
         false, // meta
@@ -44,7 +44,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         true // down NOT up
     );
 
-    public static KeyBinding SHIFT_UP = registerConstant(
+    public final static KeyBinding SHIFT_UP = registerConstant(
         false, // alt
         false, // control
         false, // meta
@@ -52,7 +52,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         false // up NOT down
     );
 
-    public static KeyBinding CONTROL_DOWN = registerConstant(
+    public final static KeyBinding CONTROL_DOWN = registerConstant(
         false, // alt
         true, // control
         false, // meta
@@ -60,7 +60,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         true // down NOT up
     );
 
-    public static KeyBinding CONTROL_UP = registerConstant(
+    public final static KeyBinding CONTROL_UP = registerConstant(
         false, // alt
         true, // control
         false, // meta
@@ -68,7 +68,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         false // up NOT down
     );
 
-    public static KeyBinding ALT_DOWN = registerConstant(
+    public final static KeyBinding ALT_DOWN = registerConstant(
         true, // alt
         false, // control
         false, // meta
@@ -76,7 +76,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         true // down NOT up
     );
 
-    public static KeyBinding ALT_UP = registerConstant(
+    public final static KeyBinding ALT_UP = registerConstant(
         true, // alt
         false, // control
         false, // meta
@@ -84,7 +84,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         false // up NOT down
     );
 
-    public static KeyBinding META_DOWN = registerConstant(
+    public final static KeyBinding META_DOWN = registerConstant(
         false, // alt
         false, // control
         true, // meta
@@ -92,7 +92,7 @@ public final class KeyBinding implements Comparable<KeyBinding> {
         true // down NOT up
     );
 
-    public static KeyBinding META_UP = registerConstant(
+    public final static KeyBinding META_UP = registerConstant(
         false, // alt
         false, // control
         true, // meta
