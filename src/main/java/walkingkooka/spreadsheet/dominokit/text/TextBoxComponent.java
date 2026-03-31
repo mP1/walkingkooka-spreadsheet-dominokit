@@ -348,7 +348,7 @@ public final class TextBoxComponent extends TextBoxComponentLike {
             inputListener
         );
 
-        final Runnable watcherRemover = watchers.add(watcher);
+        final Runnable watcherRemover = this.watchers.add(watcher);
 
         return () -> {
             textBox.removeEventListener(
