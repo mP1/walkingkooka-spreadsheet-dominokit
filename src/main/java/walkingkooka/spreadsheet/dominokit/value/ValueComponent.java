@@ -20,23 +20,25 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.Value;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * A {@link HtmlComponent} that supports mostly displaying a value, but without any label or validation, which means
+ * A {@link ValueComponentLike} that supports mostly displaying a value, but without any label or validation, which means
  * no errors or similar messages if a value is invalid.
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-    extends HtmlComponent<E, C>,
+    extends ValueComponentLike<E, C>,
     Value<Optional<V>> {
 
     C setValue(final Optional<V> value);
 
+    @Override
     default C clearValue() {
-        return this.setValue(Optional.empty());
+        return this.setValue(
+            Optional.empty()
+        );
     }
 
     Runnable addValueWatcher(final ValueWatcher<V> watcher);
@@ -54,47 +56,10 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         return (C) this;
     }
 
-    boolean isDisabled();
-
-    default C enabled() {
-        return this.setEnabled(true);
-    }
-
-    default C setEnabled(final boolean enabled) {
-        return this.setDisabled(
-            false == enabled
-        );
-    }
-
-    default C disabled() {
-        return this.setDisabled(true);
-    }
-
-    C setDisabled(final boolean disabled);
-
-    /**
-     * Clears the value, helper text and errors if a {@link FormValueComponent}. Useful when resetting a component to look empty.
-     */
-    default C clear() {
-        return this.clearValue();
-    }
-
     /**
      * Provides an adapter that takes a value and fires an {@link Optional} value to the given {@link ChangeListener}.
      */
     default ChangeListener<V> changeListener(final ChangeListener<Optional<V>> listener) {
         return ValueComponentChangeListener.with(listener);
     }
-
-    // helpers..........................................................................................................
-
-    C hideMarginBottom();
-
-    C removeBorders();
-
-    C removePadding();
-
-    C focus();
-
-    C blur();
 }
