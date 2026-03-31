@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
-import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator2;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -32,8 +30,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link SpreadsheetCellRangeReferencePath}.
  */
-public final class SpreadsheetCellRangeReferencePathComponent implements FormValueComponent<HTMLFieldSetElement, SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent>,
-    SelectComponentDelegator<SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
+public final class SpreadsheetCellRangeReferencePathComponent implements SelectComponentDelegator2<SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
 
     public static SpreadsheetCellRangeReferencePathComponent empty(final String id,
                                                                    final SpreadsheetCellRangeReferencePathComponentContext context) {
