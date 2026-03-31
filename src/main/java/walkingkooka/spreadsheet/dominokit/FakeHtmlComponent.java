@@ -1,0 +1,75 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit;
+
+import elemental2.dom.HTMLElement;
+
+public class FakeHtmlComponent<E extends HTMLElement, C extends HtmlComponent<E, C>> extends FakeComponent implements HtmlComponent<E, C> {
+
+    public FakeHtmlComponent() {
+        super();
+    }
+
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public String id() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public C setId(final String id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int width() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int height() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isEditing() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public C setCssText(final String css) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public C setCssProperty(final String name,
+                            final String value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public C removeCssProperty(final String name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public E element() {
+        throw new UnsupportedOperationException();
+    }
+}
