@@ -1,0 +1,48 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.value;
+
+import elemental2.dom.HTMLElement;
+
+import java.util.Optional;
+
+/**
+ * A delegator for {@link ValueComponent} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
+ */
+public interface ValueComponentDelegator2<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>,
+    ValueComponentDelegator<E, V, C> {
+
+    @Override
+    default Optional<V> value() {
+        return this.valueComponent()
+            .value();
+    }
+
+    @Override
+    default C setValue(final Optional<V> value) {
+        this.valueComponent()
+            .setValue(value);
+        return (C) this;
+    }
+
+    @Override
+    default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
+        return this.valueComponent()
+            .addValueWatcher(watcher);
+    }
+}
