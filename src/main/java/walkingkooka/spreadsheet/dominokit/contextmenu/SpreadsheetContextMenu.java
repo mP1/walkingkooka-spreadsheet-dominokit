@@ -171,7 +171,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                             null :
                             stylePropertyValue
                     )
-                ).<Object>contextMenuItem(
+                ).contextMenuItem(
                     id,
                     text
                 ).icon(icon)

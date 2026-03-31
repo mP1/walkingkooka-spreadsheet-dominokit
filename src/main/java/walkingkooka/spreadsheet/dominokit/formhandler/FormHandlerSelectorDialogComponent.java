@@ -134,7 +134,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
 
         this.links.setValue(
             this.selector.hasErrors() ?
-                Optional.<FormHandlerSelector>empty() :
+                Optional.empty() :
                 list
         );
     }

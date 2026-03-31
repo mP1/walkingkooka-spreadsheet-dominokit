@@ -51,7 +51,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
 
     private ValidationChoiceListComponent(final String id,
                                           final ValidationChoiceListComponentContext context) {
-        this.select = SelectComponent.<ValidationChoice>empty(
+        this.select = SelectComponent.empty(
             (v) -> {
                 final ValidationChoice c = v.orElseThrow(() -> new IllegalArgumentException("Missing ValidationChoice"));
                 final String nameText = c.label();
