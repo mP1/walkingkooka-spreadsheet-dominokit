@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.currency;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.currency.HasCurrency;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
@@ -32,7 +31,7 @@ import java.util.Optional;
 /**
  * A component that supports displaying or editing as text or picking from a list of {@link Currency}.
  */
-public final class CurrencyComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Currency, CurrencyComponent<T>>,
+public final class CurrencyComponent<T> implements SuggestBoxComponentDelegator<Currency, CurrencyComponent<T>>,
     TreePrintable {
 
     /**

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.locale;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -32,7 +31,7 @@ import java.util.Optional;
 /**
  * A drop down that supports picking an optional {@link Locale}.
  */
-public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<HTMLFieldSetElement, Locale, LocaleComponent<T>>,
+public final class LocaleComponent<T> implements SuggestBoxComponentDelegator<Locale, LocaleComponent<T>>,
     TreePrintable {
 
     /**
