@@ -18,14 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface ValueComponentTesting<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
-    extends HtmlComponentTesting<C, E> {
+    extends ValueComponentLikeTesting<E, C> {
 
     // value............................................................................................................
 
@@ -86,18 +85,4 @@ public interface ValueComponentTesting<E extends HTMLElement, V, C extends Value
 
         this.valueAndCheck(component);
     }
-
-    // isDisabled.......................................................................................................
-
-    default void isDisabledAndCheck(final C component,
-                                    final boolean expected) {
-        this.checkEquals(
-            expected,
-            component.isDisabled(),
-            component::toString
-        );
-    }
-
-
-    C createComponent();
 }
