@@ -18,27 +18,23 @@
 package walkingkooka.spreadsheet.dominokit.valuetype;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
+import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.validation.ValueType;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
  * A drop down that supports picking an optional {@link ValueType}.
  */
 public final class ValueTypeEditComponent implements FormValueComponent<HTMLFieldSetElement, ValueType, ValueTypeEditComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValueTypeEditComponent>,
+    SelectComponentDelegator<ValueType, ValueTypeEditComponent>,
     TreePrintable {
 
     public static ValueTypeEditComponent empty(final String id,
@@ -84,149 +80,10 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
         this.setId(id);
     }
 
-    @Override
-    public ValueTypeEditComponent setId(final String id) {
-        this.select.setId(id);
-        return this;
-    }
+    // SelectComponentDelegator.........................................................................................
 
     @Override
-    public String id() {
-        return this.select.id();
-    }
-
-    @Override
-    public ValueTypeEditComponent setLabel(final String label) {
-        this.select.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public String label() {
-        return this.select.label();
-    }
-
-    @Override
-    public ValueTypeEditComponent focus() {
-        this.select.focus();
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent blur() {
-        this.select.blur();
-        return this;
-    }
-
-    @Override
-    public boolean isEditing() {
-        return this.select.isEditing();
-    }
-
-    @Override
-    public ValueTypeEditComponent alwaysShowHelperText() {
-        this.select.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent setHelperText(final Optional<String> text) {
-        this.select.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return this.select.helperText();
-    }
-
-    @Override
-    public List<String> errors() {
-        return this.select.errors();
-    }
-
-    @Override
-    public ValueTypeEditComponent setErrors(final List<String> errors) {
-        this.select.setErrors(errors);
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent hideMarginBottom() {
-        this.select.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent removeBorders() {
-        this.select.removeBorders();
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent removePadding() {
-        this.select.removePadding();
-        return this;
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.select.isDisabled();
-    }
-
-    @Override
-    public ValueTypeEditComponent setDisabled(final boolean disabled) {
-        this.select.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent required() {
-        this.select.required();
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.select.isRequired();
-    }
-
-    @Override
-    public ValueTypeEditComponent optional() {
-        this.select.optional();
-        return this;
-    }
-
-    @Override
-    public ValueTypeEditComponent validate() {
-        this.select.validate();
-        return this;
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    public ValueTypeEditComponent setValue(final Optional<ValueType> valueType) {
-        Objects.requireNonNull(valueType, "valueType");
-
-        this.select.setValue(valueType);
-        return this;
-    }
-
-    @Override //
-    public Optional<ValueType> value() {
-        return this.select.value();
-    }
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<ValueType> watcher) {
-        return this.select.addValueWatcher(watcher);
-    }
-
-    // HtmlComponentDelegator...........................................................................................
-
-    @Override
-    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+    public SelectComponent<ValueType> selectComponent() {
         return this.select;
     }
 
