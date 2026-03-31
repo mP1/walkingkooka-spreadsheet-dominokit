@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.columnrow;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -32,7 +31,7 @@ import java.util.Optional;
 /**
  * A {@link SuggestBoxComponent} that supports ONLY selecting a {@link SpreadsheetColumnOrRowReference} from the given {@link SpreadsheetColumnOrRowReferenceOrRange}.
  */
-public final class SpreadsheetColumnOrRowReferenceBoundedComponent implements SuggestBoxComponentDelegator<HTMLFieldSetElement, SpreadsheetColumnOrRowReference, SpreadsheetColumnOrRowReferenceBoundedComponent>,
+public final class SpreadsheetColumnOrRowReferenceBoundedComponent implements SuggestBoxComponentDelegator<SpreadsheetColumnOrRowReference, SpreadsheetColumnOrRowReferenceBoundedComponent>,
     TreePrintable {
 
     /**

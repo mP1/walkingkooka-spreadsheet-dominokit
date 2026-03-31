@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.UrlPath;
@@ -47,7 +46,7 @@ import java.util.stream.Collectors;
 /**
  * A text box component that includes support for finding a label.
  */
-public final class SpreadsheetLabelComponent implements SuggestBoxComponentDelegator<HTMLFieldSetElement, SpreadsheetLabelName, SpreadsheetLabelComponent>,
+public final class SpreadsheetLabelComponent implements SuggestBoxComponentDelegator<SpreadsheetLabelName, SpreadsheetLabelComponent>,
     SpreadsheetDeltaFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {

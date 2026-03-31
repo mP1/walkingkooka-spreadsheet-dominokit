@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
-import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -29,8 +29,8 @@ import java.util.Optional;
 /**
  * Delegates some but not all {@link SuggestBoxComponent} methods.
  */
-public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
-    HtmlComponentDelegator<E, C> {
+public interface SuggestBoxComponentDelegator<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C>,
+    HtmlComponentDelegator<HTMLFieldSetElement, C> {
 
     // id...............................................................................................................
 
@@ -161,7 +161,7 @@ public interface SuggestBoxComponentDelegator<E extends HTMLElement, V, C extend
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default HtmlComponent<E, ?> htmlComponent() {
+    default HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
         return Cast.to(
             this.suggestBoxComponent()
         );
