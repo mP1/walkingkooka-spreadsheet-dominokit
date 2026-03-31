@@ -26,8 +26,8 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 /**
- * A {@link HtmlComponent} that supports mostly displaying a value, but without any label or validation functionality
- * display.
+ * A {@link HtmlComponent} that supports mostly displaying a value, but without any label or validation, which means
+ * no errors or similar messages if a value is invalid.
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
     extends HtmlComponent<E, C>,
