@@ -24,7 +24,7 @@ import java.util.Optional;
 /**
  * A delegator for {@link ValueComponent} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
  */
-public interface ValueComponentDelegator2<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>,
+public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>,
     ValueComponentLikeDelegator<E, C> {
 
     @Override
