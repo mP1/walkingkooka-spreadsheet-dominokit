@@ -24,24 +24,24 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public interface SelectComponentDelegator<T, C extends FormValueComponent<HTMLFieldSetElement, T, C>> extends FormValueComponentDelegator<HTMLFieldSetElement, T, C> {
+public interface SelectComponentDelegator<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends FormValueComponentDelegator<HTMLFieldSetElement, V, C> {
 
-    default SelectComponent<T> appendOption(final Optional<T> value) {
+    default SelectComponent<V> appendOption(final Optional<V> value) {
         return this.selectComponent()
             .appendOption(value);
     }
 
-    default SelectComponent<T> clearOptions() {
+    default SelectComponent<V> clearOptions() {
         return this.selectComponent()
             .clearOptions();
     }
 
-    SelectComponent<T> selectComponent();
+    SelectComponent<V> selectComponent();
 
     // FormValueComponentDelegator......................................................................................
 
     @Override
-    default FormValueComponent<HTMLFieldSetElement, T, ?> formValueComponent() {
+    default FormValueComponent<HTMLFieldSetElement, V, ?> formValueComponent() {
         return this.selectComponent();
     }
 
