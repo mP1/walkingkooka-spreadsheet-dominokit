@@ -20,12 +20,10 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator2Test.TestValueComponentDelegator2;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Optional;
-
-public final class ValueComponentDelegatorTest implements ValueComponentLikeTesting<HTMLFieldSetElement, TestValueComponentDelegator> {
+public final class ValueComponentDelegator2Test implements ValueComponentTesting<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
 
     @Override
     public void testTestNaming() {
@@ -33,15 +31,15 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
     }
 
     @Override
-    public TestValueComponentDelegator createComponent() {
-        return new TestValueComponentDelegator();
+    public TestValueComponentDelegator2 createComponent() {
+        return new TestValueComponentDelegator2();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<TestValueComponentDelegator> type() {
-        return TestValueComponentDelegator.class;
+    public Class<TestValueComponentDelegator2> type() {
+        return TestValueComponentDelegator2.class;
     }
 
     @Override
@@ -49,28 +47,7 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestValueComponentDelegator implements ValueComponent<HTMLFieldSetElement, String, TestValueComponentDelegator>,
-        ValueComponentDelegator<HTMLFieldSetElement, String, TestValueComponentDelegator> {
-
-        @Override
-        public TestValueComponentDelegator setValue(final Optional<String> value) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Optional<String> value() {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public TestValueComponentDelegator clearValue() {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Runnable addValueWatcher(final ValueWatcher<String> watcher) {
-            throw new UnsupportedOperationException();
-        }
+    final static class TestValueComponentDelegator2 implements ValueComponentDelegator2<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
 
         @Override
         public ValueComponent<HTMLFieldSetElement, String, ?> valueComponent() {

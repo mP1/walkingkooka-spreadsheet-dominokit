@@ -21,32 +21,11 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 
-import java.util.Optional;
-
 /**
  * A delegator for {@link ValueComponent} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
  */
-public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponent<E, V, C>,
+public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponentLike<E, C>,
     HtmlComponentDelegator<E, C> {
-
-    @Override
-    default Optional<V> value() {
-        return this.valueComponent()
-            .value();
-    }
-
-    @Override
-    default C setValue(final Optional<V> value) {
-        this.valueComponent()
-            .setValue(value);
-        return (C) this;
-    }
-
-    @Override
-    default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
-        return this.valueComponent()
-            .addValueWatcher(watcher);
-    }
 
     @Override
     default boolean isDisabled() {

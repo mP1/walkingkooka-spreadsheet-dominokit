@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FormValueComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
-    ValueComponentDelegator<E, V, C> {
+    ValueComponentDelegator2<E, V, C> {
 
     @Override
     default String label() {
