@@ -155,7 +155,7 @@ final class SpreadsheetContextMenuNative {
         menuItem.setDisabled(false == item.enabled);
 
         // NOTE: Cast to raw type needed so compiler selects appendChild(AbstractMenuItem) and not appendChild(Node)
-        menu.menu.appendChild((AbstractMenuItem) menuItem);
+        menu.menu.appendChild((AbstractMenuItem<?>) menuItem);
     }
 
     static void menuAppendChildIsElement(final IsElement<?> isElement,
