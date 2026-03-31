@@ -18,65 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import walkingkooka.spreadsheet.dominokit.ComponentWithErrors;
-
-import java.util.Optional;
 
 /**
- * A {@link ValueComponent} that probably exists within a form, meaning each value can have a label, and supports validation,
- * including the display of any errors.
+ * A {@link FormValueComponentLike} that also includes value getter/setter support.
  */
 public interface FormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
-    extends ValueComponent<E, V, C>,
-    ComponentWithErrors<C> {
-
-    C setLabel(final String label);
-
-    String label();
-
-    /**
-     * Getter that returns the current helper text.
-     */
-    Optional<String> helperText();
-
-    /**
-     * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
-     * When a component has no helper text to show the helper text space is auto hidden.
-     */
-    C alwaysShowHelperText();
-
-    /**
-     * This setter may be used to set the helper text. Note helper text is not the same as error messages.
-     */
-    C setHelperText(final Optional<String> text);
-
-    /**
-     * Clears any present helper text.
-     */
-    default C clearHelperText() {
-        return this.setHelperText(Optional.empty());
-    }
-
-    C validate();
-
-    C optional();
-
-    C required();
-
-    boolean isRequired();
-
-    /**
-     * Clears the value, helper text and errors. Useful when resetting a component to look empty.
-     */
-    @Override
-    default C clear() {
-        return this.clearValue()
-            .clearHelperText()
-            .clearErrors();
-    }
-
-    /**
-     * Constant height for containers holding helper text.
-     */
-    String HELPER_TEXT_HEIGHT = "4em";
+    extends FormValueComponentLike<E, C>,
+    ValueComponent<E, V, C> {
 }
