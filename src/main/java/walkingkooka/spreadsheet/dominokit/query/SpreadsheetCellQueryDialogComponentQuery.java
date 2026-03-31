@@ -394,8 +394,9 @@ final class SpreadsheetCellQueryDialogComponentQuery implements PublicStaticHelp
 
     private final static SpreadsheetFormulaParserToken DOUBLE_QUOTE_SYMBOL = SpreadsheetFormulaParserToken.doubleQuoteSymbol("\"", "\"");
 
+    // Without <ParserToken> GWTC compile will fail.
     private final static SpreadsheetFormulaParserToken EMPTY_PARAMETER_LIST = SpreadsheetFormulaParserToken.functionParameters(
-        Lists.of(
+        Lists.<ParserToken>of(
             SpreadsheetFormulaParserToken.parenthesisOpenSymbol("(", "("),
             SpreadsheetFormulaParserToken.parenthesisCloseSymbol(")", ")")
         ),
