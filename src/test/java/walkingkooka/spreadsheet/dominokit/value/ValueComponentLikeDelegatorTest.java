@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentLikeDelegatorTest.TestValueComponentLikeDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public final class ValueComponentDelegatorTest implements ValueComponentLikeTesting<HTMLFieldSetElement, TestValueComponentDelegator> {
+public final class ValueComponentLikeDelegatorTest implements ValueComponentLikeTesting<HTMLFieldSetElement, TestValueComponentLikeDelegator> {
 
     @Override
     public void testTestNaming() {
@@ -33,15 +33,15 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
     }
 
     @Override
-    public TestValueComponentDelegator createComponent() {
-        return new TestValueComponentDelegator();
+    public TestValueComponentLikeDelegator createComponent() {
+        return new TestValueComponentLikeDelegator();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<TestValueComponentDelegator> type() {
-        return TestValueComponentDelegator.class;
+    public Class<TestValueComponentLikeDelegator> type() {
+        return TestValueComponentLikeDelegator.class;
     }
 
     @Override
@@ -49,11 +49,11 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestValueComponentDelegator implements ValueComponent<HTMLFieldSetElement, String, TestValueComponentDelegator>,
-        ValueComponentDelegator<HTMLFieldSetElement, String, TestValueComponentDelegator> {
+    final static class TestValueComponentLikeDelegator implements ValueComponent<HTMLFieldSetElement, String, TestValueComponentLikeDelegator>,
+        ValueComponentLikeDelegator<HTMLFieldSetElement, TestValueComponentLikeDelegator> {
 
         @Override
-        public TestValueComponentDelegator setValue(final Optional<String> value) {
+        public TestValueComponentLikeDelegator setValue(final Optional<String> value) {
             throw new UnsupportedOperationException();
         }
 
@@ -63,7 +63,7 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
         }
 
         @Override
-        public TestValueComponentDelegator clearValue() {
+        public TestValueComponentLikeDelegator clearValue() {
             throw new UnsupportedOperationException();
         }
 
@@ -73,7 +73,7 @@ public final class ValueComponentDelegatorTest implements ValueComponentLikeTest
         }
 
         @Override
-        public ValueComponent<HTMLFieldSetElement, String, ?> valueComponent() {
+        public ValueComponentLike<HTMLFieldSetElement, ?> valueComponentLike() {
             return this.textBox;
         }
 

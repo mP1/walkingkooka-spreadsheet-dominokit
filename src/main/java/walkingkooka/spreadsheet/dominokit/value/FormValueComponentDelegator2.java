@@ -22,4 +22,14 @@ import elemental2.dom.HTMLElement;
 public interface FormValueComponentDelegator2<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
     FormValueComponentDelegator<E, V, C>,
     ValueComponentDelegator2<E, V, C> {
+
+    @Override
+    default ValueComponentLike<E, ?> valueComponentLike() {
+        return this.formValueComponent();
+    }
+
+    @Override
+    default ValueComponent<E, V, ?> valueComponent() {
+        return this.formValueComponent();
+    }
 }

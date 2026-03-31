@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FormValueComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
-    ValueComponentDelegator<E, V, C> {
+    ValueComponentLikeDelegator<E, C> {
 
     @Override
     default String label() {
@@ -100,10 +100,10 @@ public interface FormValueComponentDelegator<E extends HTMLElement, V, C extends
 
     FormValueComponent<E, V, ?> formValueComponent();
 
-    // ValueComponentDelegator..........................................................................................
+    // ValueComponentLikeDelegator......................................................................................
 
     @Override
-    default ValueComponent<E, V, ?> valueComponent() {
+    default ValueComponentLike<E, ?> valueComponentLike() {
         return this.formValueComponent();
     }
 }
