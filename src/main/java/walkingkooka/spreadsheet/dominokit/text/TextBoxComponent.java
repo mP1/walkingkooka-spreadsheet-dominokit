@@ -332,7 +332,7 @@ public final class TextBoxComponent extends TextBoxComponentLike {
 
         final EventListener keyDownListener = (e) -> {
             final KeyboardEvent keyboardEvent = (KeyboardEvent) e;
-            if (Key.Enter.equals(keyboardEvent.key)) {
+            if (Key.Enter.match(keyboardEvent)) {
                 watcher.onValue(this.value());
             }
         };
