@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator2;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
-public final class ValueComponentDelegatorTest implements ValueComponentTesting<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
+public final class ValueComponentDelegatorTest implements ValueComponentTesting<HTMLFieldSetElement, String, TestValueComponentDelegator> {
 
     @Override
     public void testTestNaming() {
@@ -31,15 +31,15 @@ public final class ValueComponentDelegatorTest implements ValueComponentTesting<
     }
 
     @Override
-    public TestValueComponentDelegator2 createComponent() {
-        return new TestValueComponentDelegator2();
+    public TestValueComponentDelegator createComponent() {
+        return new TestValueComponentDelegator();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<TestValueComponentDelegator2> type() {
-        return TestValueComponentDelegator2.class;
+    public Class<TestValueComponentDelegator> type() {
+        return TestValueComponentDelegator.class;
     }
 
     @Override
@@ -47,7 +47,7 @@ public final class ValueComponentDelegatorTest implements ValueComponentTesting<
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestValueComponentDelegator2 implements ValueComponentDelegator<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
+    final static class TestValueComponentDelegator implements ValueComponentDelegator<HTMLFieldSetElement, String, TestValueComponentDelegator> {
 
         @Override
         public ValueComponent<HTMLFieldSetElement, String, ?> valueComponent() {
