@@ -108,7 +108,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     // decimalNumberSymbols.............................................................................................
 
     @Test
-    public final void testDecimalNumberSymbols() {
+    public void testDecimalNumberSymbols() {
         this.decimalNumberSymbolsAndCheck(
             this.createHistoryToken()
         );
