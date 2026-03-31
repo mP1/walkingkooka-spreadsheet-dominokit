@@ -19,10 +19,9 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 
-import java.util.List;
 import java.util.Optional;
 
-public class FakeFormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FakeValueComponent<E, V, C>
+public class FakeFormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FakeFormValueComponentLike<E, C>
     implements FormValueComponent<E, V, C> {
 
     public FakeFormValueComponent() {
@@ -32,57 +31,17 @@ public class FakeFormValueComponent<E extends HTMLElement, V, C extends FormValu
     // FormValueComponent...............................................................................................
 
     @Override
-    public String label() {
+    public Optional<V> value() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public C setLabel(String label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override 
-    public C validate() {
+    public C setValue(final Optional<V> value) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public C optional() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isRequired() {
-        return false;
-    }
-
-    @Override
-    public C required() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-    
-    @Override
-    public Optional<String> helperText() {
-        throw new UnsupportedOperationException();
-    }
-    
-    @Override 
-    public C setHelperText(Optional<String> text) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override 
-    public List<String> errors() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public C setErrors(List<String> errors) {
+    public Runnable addValueWatcher(final ValueWatcher<V> watcher) {
         throw new UnsupportedOperationException();
     }
 }
