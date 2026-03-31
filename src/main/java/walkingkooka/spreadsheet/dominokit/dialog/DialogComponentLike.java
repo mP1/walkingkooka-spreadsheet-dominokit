@@ -124,6 +124,7 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
     /**
      * Appends a new child to this {@link DialogComponent}
      */
+    @Override
     abstract public DialogComponent appendChild(final IsElement<?> child);
 
     /**
