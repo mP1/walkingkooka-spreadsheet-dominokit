@@ -22,71 +22,71 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 
 /**
- * A delegator for {@link ValueComponent} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
+ * A delegator for {@link ValueComponentLike} that may be within a {@link walkingkooka.spreadsheet.dominokit.Component}.
  */
-public interface ValueComponentDelegator<E extends HTMLElement, V, C extends ValueComponent<E, V, C>> extends ValueComponentLike<E, C>,
+public interface ValueComponentLikeDelegator<E extends HTMLElement, C extends ValueComponentLike<E, C>> extends ValueComponentLike<E, C>,
     HtmlComponentDelegator<E, C> {
 
     @Override
     default boolean isDisabled() {
-        return this.valueComponent()
+        return this.valueComponentLike()
             .isDisabled();
     }
 
     @Override
     default C setDisabled(final boolean disabled) {
-        this.valueComponent()
+        this.valueComponentLike()
             .setDisabled(disabled);
         return (C) this;
     }
 
     @Override
     default C hideMarginBottom() {
-        this.valueComponent()
+        this.valueComponentLike()
             .hideMarginBottom();
         return (C) this;
     }
 
     @Override
     default C removeBorders() {
-        this.valueComponent()
+        this.valueComponentLike()
             .removeBorders();
         return (C) this;
     }
 
     @Override
     default C removePadding() {
-        this.valueComponent()
+        this.valueComponentLike()
             .removePadding();
         return (C) this;
     }
 
     @Override
     default C focus() {
-        this.valueComponent()
+        this.valueComponentLike()
             .focus();
         return (C) this;
     }
 
     @Override
     default C blur() {
-        this.valueComponent()
+        this.valueComponentLike()
             .blur();
         return (C) this;
     }
 
     @Override
     default boolean isEditing() {
-        return this.valueComponent()
+        return this.valueComponentLike()
             .isEditing();
     }
 
-    ValueComponent<E, V, ?> valueComponent();
+    ValueComponentLike<E, ?> valueComponentLike();
 
     // HtmlComponentDelegator...........................................................................................
 
     @Override
     default HtmlComponent<E, ?> htmlComponent() {
-        return this.valueComponent();
+        return this.valueComponentLike();
     }
 }
