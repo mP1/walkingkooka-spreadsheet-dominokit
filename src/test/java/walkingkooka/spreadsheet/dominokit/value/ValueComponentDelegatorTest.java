@@ -20,10 +20,10 @@ package walkingkooka.spreadsheet.dominokit.value;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator2Test.TestValueComponentDelegator2;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegatorTest.TestValueComponentDelegator2;
 import walkingkooka.text.printer.IndentingPrinter;
 
-public final class ValueComponentDelegator2Test implements ValueComponentTesting<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
+public final class ValueComponentDelegatorTest implements ValueComponentTesting<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
 
     @Override
     public void testTestNaming() {
@@ -47,7 +47,7 @@ public final class ValueComponentDelegator2Test implements ValueComponentTesting
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestValueComponentDelegator2 implements ValueComponentDelegator2<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
+    final static class TestValueComponentDelegator2 implements ValueComponentDelegator<HTMLFieldSetElement, String, TestValueComponentDelegator2> {
 
         @Override
         public ValueComponent<HTMLFieldSetElement, String, ?> valueComponent() {
