@@ -102,7 +102,7 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
     default A setCount(final OptionalInt count) {
         Objects.requireNonNull(count, "count");
 
-        return (A) this.setBadge(
+        return this.setBadge(
             count.isPresent() ?
                 String.valueOf(count.getAsInt()) :
                 ""
