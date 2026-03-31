@@ -39,14 +39,6 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
      */
     Optional<String> helperText();
 
-    C validate();
-
-    C optional();
-
-    C required();
-
-    boolean isRequired();
-
     /**
      * The normal domino-kit behaviour is to only show helper text where validation error text appears, as necessary.
      * When a component has no helper text to show the helper text space is auto hidden.
@@ -54,7 +46,7 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
     C alwaysShowHelperText();
 
     /**
-     * This setter may be used to set a (error) message.
+     * This setter may be used to set the helper text. Note helper text is not the same as error messages.
      */
     C setHelperText(final Optional<String> text);
 
@@ -64,6 +56,14 @@ public interface FormValueComponent<E extends HTMLElement, V, C extends FormValu
     default C clearHelperText() {
         return this.setHelperText(Optional.empty());
     }
+
+    C validate();
+
+    C optional();
+
+    C required();
+
+    boolean isRequired();
 
     /**
      * Clears the value, helper text and errors. Useful when resetting a component to look empty.
