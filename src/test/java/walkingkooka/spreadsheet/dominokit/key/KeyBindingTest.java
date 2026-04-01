@@ -471,6 +471,16 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     }
 
     @Test
+    public void testToStringKeyClearLabel() {
+        this.toStringAndCheck(
+            KeyBinding.down("a")
+                .setLabel("Label123")
+                .setLabel(""),
+            "\"a\" DOWN"
+        );
+    }
+
+    @Test
     public void testToStringLabelKey() {
         this.toStringAndCheck(
             KeyBinding.down("a")
