@@ -58,7 +58,7 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
                 final HistoryToken historyToken = context.historyToken();
 
                 return context.selectOption(
-                    id + c.value() + SpreadsheetElementIds.OPTION, // id
+                    id + c.value().orElse("") + SpreadsheetElementIds.OPTION, // id
                     CaseKind.PASCAL.change(
                         nameText,
                         CaseKind.TITLE
