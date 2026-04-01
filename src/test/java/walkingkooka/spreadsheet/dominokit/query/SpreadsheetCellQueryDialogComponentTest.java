@@ -121,7 +121,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -134,7 +135,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -252,7 +254,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -265,7 +268,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -383,7 +387,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -396,7 +401,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -512,7 +518,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -525,7 +532,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -675,7 +683,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -688,7 +697,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -835,7 +845,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -848,7 +859,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -964,7 +976,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -977,7 +990,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1093,7 +1107,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1106,7 +1121,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1222,7 +1238,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1235,7 +1252,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1351,7 +1369,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1364,7 +1383,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1480,7 +1500,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1493,7 +1514,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1609,7 +1631,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1622,7 +1645,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1738,7 +1762,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1751,7 +1776,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1867,7 +1893,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -1880,7 +1907,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1996,7 +2024,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2009,7 +2038,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2125,7 +2155,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2138,7 +2169,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2254,7 +2286,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2267,7 +2300,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2383,7 +2417,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2396,7 +2431,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2512,7 +2548,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2525,7 +2562,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2641,7 +2679,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2654,7 +2693,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2770,7 +2810,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
                 "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
                 "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "        ValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
                 "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
                 "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
@@ -2783,7 +2824,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +

@@ -55,7 +55,7 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
                 "  Label123 [time] id=id987 DISABLED REQUIRED\n" +
                 "    \"Text date\" [#/1/SpreadsheetName111/cell/A1/valueType/save/date] id=TestId-date\n" +
                 "    \"Text text\" [#/1/SpreadsheetName111/cell/A1/valueType/save/text] id=TestId-text\n" +
-                "    \"Text time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/time] id=TestId-time"
+                "    \"Text time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/time] id=TestId-time\n"
         );
     }
 

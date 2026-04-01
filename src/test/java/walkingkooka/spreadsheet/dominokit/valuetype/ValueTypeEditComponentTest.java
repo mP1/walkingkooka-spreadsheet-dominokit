@@ -49,7 +49,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
                 "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option\n"
         );
     }
 
@@ -71,7 +71,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
                 "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option\n"
         );
     }
 
@@ -97,7 +97,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
                 "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option\n"
         );
     }
 
