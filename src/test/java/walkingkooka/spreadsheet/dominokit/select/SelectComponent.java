@@ -228,6 +228,7 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
                     printer
                 );
             }
+            printer.lineStart();
         }
         printer.outdent();
     }

@@ -61,7 +61,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 "    Label [] id=TestChoiceList123-\n" +
                 "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22Value1%22] id=TestChoiceList123-Value1-Option\n" +
                 "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22Value2%22] id=TestChoiceList123-Value2-Option\n" +
-                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
 
@@ -96,7 +96,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 "    [] id=TestChoiceList123-\n" +
                 "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
                 "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
-                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
 
@@ -134,7 +134,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 "    LabelLabel [ValueLabel1=11] id=TestChoiceList123-\n" +
                 "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
                 "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
-                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
 
@@ -181,7 +181,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 "    LabelLabel [Label1=\"Value1\"] id=TestChoiceList123-\n" +
                 "      \"Different Label1\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22DifferentValue1%22] id=TestChoiceList123-DifferentValue1-Option\n" +
                 "      \"Different Label2\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22DifferentValue2%22] id=TestChoiceList123-DifferentValue2-Option\n" +
-                "      \"Different Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
+                "      \"Different Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
 

@@ -42,7 +42,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
                 "      \"Top-Down Left-Right\" DISABLED id=Path123-TDLR-Option\n" +
                 "      \"Top-Down Right-Left\" DISABLED id=Path123-TDRL-Option\n" +
                 "      \"Bottom-Up Left-Right\" DISABLED id=Path123-BULR-Option\n" +
-                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option"
+                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option\n"
         );
     }
 
@@ -63,7 +63,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
                 "      \"Top-Down Left-Right\" DISABLED id=Path123-TDLR-Option\n" +
                 "      \"Top-Down Right-Left\" DISABLED id=Path123-TDRL-Option\n" +
                 "      \"Bottom-Up Left-Right\" DISABLED id=Path123-BULR-Option\n" +
-                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option"
+                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option\n"
         );
     }
 
