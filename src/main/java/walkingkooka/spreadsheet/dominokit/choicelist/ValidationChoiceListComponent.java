@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.choicelist;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentLikeDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -31,7 +31,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.validation.ValidationChoice;
 import walkingkooka.validation.ValidationChoiceList;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -39,7 +38,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link Object}.
  */
 public final class ValidationChoiceListComponent implements FormValueComponent<HTMLFieldSetElement, Object, ValidationChoiceListComponent>,
-    HtmlComponentDelegator<HTMLFieldSetElement, ValidationChoiceListComponent> {
+    FormValueComponentLikeDelegator<HTMLFieldSetElement, ValidationChoiceListComponent> {
 
     public static ValidationChoiceListComponent empty(final String id,
                                                       final ValidationChoiceListComponentContext context) {
@@ -80,122 +79,6 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
 
         this.setId(id);
         this.validationChoiceList = ValidationChoiceList.EMPTY;
-    }
-
-    // SelectComponent..................................................................................................
-
-    @Override
-    public ValidationChoiceListComponent setId(final String id) {
-        this.select.setId(id);
-        return this;
-    }
-
-    @Override
-    public String id() {
-        return this.select.id();
-    }
-
-    @Override
-    public ValidationChoiceListComponent setLabel(final String label) {
-        this.select.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public String label() {
-        return this.select.label();
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.select.isDisabled();
-    }
-
-    @Override
-    public ValidationChoiceListComponent setDisabled(final boolean disabled) {
-        this.select.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent optional() {
-        this.select.optional();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent required() {
-        this.select.required();
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.select.isRequired();
-    }
-
-    @Override
-    public ValidationChoiceListComponent validate() {
-        this.select.validate();
-        return this;
-    }
-
-    @Override
-    public List<String> errors() {
-        return this.select.errors();
-    }
-
-    @Override
-    public ValidationChoiceListComponent setErrors(final List<String> errors) {
-        this.select.setErrors(errors);
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent focus() {
-        this.select.focus();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent blur() {
-        this.select.blur();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent alwaysShowHelperText() {
-        this.select.alwaysShowHelperText();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent setHelperText(final Optional<String> text) {
-        this.select.setHelperText(text);
-        return this;
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        return this.select.helperText();
-    }
-
-    @Override
-    public ValidationChoiceListComponent hideMarginBottom() {
-        this.select.hideMarginBottom();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent removeBorders() {
-        this.select.removeBorders();
-        return this;
-    }
-
-    @Override
-    public ValidationChoiceListComponent removePadding() {
-        this.select.removePadding();
-        return this;
     }
 
     // ValidationChoiceList.............................................................................................
@@ -260,10 +143,10 @@ public final class ValidationChoiceListComponent implements FormValueComponent<H
         return this.select.isEditing();
     }
 
-    // HtmlComponentDelegator...........................................................................................
+    // FormValueComponentLikeDelegator..................................................................................
 
     @Override
-    public HtmlComponent<HTMLFieldSetElement, ?> htmlComponent() {
+    public FormValueComponentLike<HTMLFieldSetElement, ?> formValueComponentLike() {
         return this.select;
     }
 
