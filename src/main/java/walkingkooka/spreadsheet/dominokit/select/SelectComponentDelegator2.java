@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.select;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator2;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 
 import java.util.Optional;
 
 public interface SelectComponentDelegator2<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends SelectComponentDelegator<V, C>,
-    FormValueComponentDelegator2<HTMLFieldSetElement, V, C> {
+    FormValueComponentDelegator<HTMLFieldSetElement, V, C> {
 
     @Override
     default FormValueComponent<HTMLFieldSetElement, V, ?> formValueComponentLike() {
