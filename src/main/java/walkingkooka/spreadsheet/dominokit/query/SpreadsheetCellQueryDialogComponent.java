@@ -169,7 +169,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     private SpreadsheetCellRangeReferenceComponent cellRange() {
         return SpreadsheetCellRangeReferenceComponent.with(
-                ID_PREFIX + "cell-range" + SpreadsheetElementIds.TEXT_BOX
+                ID_PREFIX + "cellRange" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Cell Range")
             .addValueWatcher2(value -> this.setAndRefresh(
                 t -> t.setSelection(value)
@@ -186,7 +186,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     private SpreadsheetCellRangeReferencePathComponent path() {
         return SpreadsheetCellRangeReferencePathComponent.empty(
-                ID_PREFIX + "cell-range-path-",
+                ID_PREFIX + "cellRangePath-",
                 this.context
             ).setLabel("Cell Range Path")
             .addValueWatcher2(
@@ -286,7 +286,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     private ValueTypeEditComponent valueType() {
         return ValueTypeEditComponent.empty(
-                ID_PREFIX + "value-type-",
+                ID_PREFIX + "valueType-",
                 this.context
             ).setLabel("Value type")
             .addValueWatcher2(
@@ -357,7 +357,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     private TextMatchComponent dateTimeSymbols() {
         return textMatchComponent(
-            "DateTimeSymbols"
+            "Date Time Symbols"
         );
     }
 
@@ -367,7 +367,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     private TextMatchComponent decimalNumberSymbols() {
         return textMatchComponent(
-            "decimalNumberSymbols"
+            "Decimal Number Symbols"
         );
     }
 
@@ -460,7 +460,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 ID_PREFIX +
                     CaseKind.TITLE.change(
                         label,
-                        CaseKind.KEBAB
+                        CaseKind.CAMEL
                     ) +
                     SpreadsheetElementIds.TEXT_BOX
             ).setLabel(label)
