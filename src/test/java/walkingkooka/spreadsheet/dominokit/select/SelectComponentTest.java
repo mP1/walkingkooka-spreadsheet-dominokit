@@ -21,52 +21,70 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, SelectComponent<String>> {
+public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueType, SelectComponent<ValueType>> {
 
     @Test
     public void testTreePrint() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setLabel("Label123")
-                .setValue(Optional.of("Value456"))
-                .setId("id987")
+                .setValue(
+                    Optional.of(ValueType.TIME)
+                ).setId("id987")
                 .setDisabled(true)
                 .required()
                 .appendOption(
-                    Optional.of("value1")
+                    Optional.of(ValueType.DATE)
                 ).appendOption(
-                    Optional.of("value2")
+                    Optional.of(ValueType.TEXT)
                 ).appendOption(
-                    Optional.of("value3")
+                    Optional.of(ValueType.TIME)
                 )
             ,
             "SelectComponent\n" +
-                "  Label123 [Value456] id=id987 DISABLED REQUIRED\n" +
-                "    \"value1\"\n" +
-                "    \"value2\"\n" +
-                "    \"value3\"\n"
+                "  Label123 [time] id=id987 DISABLED REQUIRED\n" +
+                "    \"Text date\" [#/1/SpreadsheetName111/cell/A1/valueType/save/date] id=TestId-date\n" +
+                "    \"Text text\" [#/1/SpreadsheetName111/cell/A1/valueType/save/text] id=TestId-text\n" +
+                "    \"Text time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/time] id=TestId-time"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public SelectComponent<String> createComponent() {
+    public SelectComponent<ValueType> createComponent() {
         return SelectComponent.empty(
-            (v) -> {
-                throw new UnsupportedOperationException();
-            }
+            (Optional<ValueType> value) -> new FakeHistoryContext()
+                .selectOption(
+                    "TestId-" + value.map(ValueType::value).get(), // id
+                    "Text " + value.get(), // text
+                    value, // value
+                    Optional.of(
+                        HistoryToken.cellValueTypeSave(
+                            SpreadsheetId.with(1),
+                            SpreadsheetName.with("SpreadsheetName111"),
+                            SpreadsheetSelection.A1.setDefaultAnchor(),
+                            value
+                        )
+                    )
+                )
         );
     }
 
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SelectComponent<String>> type() {
+    public Class<SelectComponent<ValueType>> type() {
         return Cast.to(SelectComponent.class);
     }
 

@@ -22,6 +22,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
@@ -36,17 +39,17 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [] id=ValueType123-\n" +
-                "      *\n" +
-                "      boolean\n" +
-                "      date\n" +
-                "      date-time\n" +
-                "      email\n" +
-                "      error(spreadsheet)\n" +
-                "      number\n" +
-                "      text\n" +
-                "      time\n" +
-                "      url\n" +
-                "      whole-number\n"
+                "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
+                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
+                "      \"Error(spreadsheet)\" DISABLED id=ValueType123-error(spreadsheet)-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
         );
     }
 
@@ -58,17 +61,17 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [*] id=ValueType123-\n" +
-                "      *\n" +
-                "      boolean\n" +
-                "      date\n" +
-                "      date-time\n" +
-                "      email\n" +
-                "      error(spreadsheet)\n" +
-                "      number\n" +
-                "      text\n" +
-                "      time\n" +
-                "      url\n" +
-                "      whole-number\n"
+                "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
+                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
+                "      \"Error(spreadsheet)\" DISABLED id=ValueType123-error(spreadsheet)-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
         );
     }
 
@@ -84,17 +87,17 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
                 "    [boolean] id=ValueType123-\n" +
-                "      *\n" +
-                "      boolean\n" +
-                "      date\n" +
-                "      date-time\n" +
-                "      email\n" +
-                "      error(spreadsheet)\n" +
-                "      number\n" +
-                "      text\n" +
-                "      time\n" +
-                "      url\n" +
-                "      whole-number\n"
+                "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
+                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
+                "      \"Error(spreadsheet)\" DISABLED id=ValueType123-error(spreadsheet)-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-whole-number-Option"
         );
     }
 
@@ -108,7 +111,11 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
 
                 @Override
                 public HistoryToken historyToken() {
-                    return HistoryToken.parseString("/1/SpreadsheetName1/cell/A1");
+                    return HistoryToken.cellSelect(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    );
                 }
             }
         );

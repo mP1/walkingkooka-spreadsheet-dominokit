@@ -35,14 +35,14 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
                 "    [] id=Path123-\n" +
-                "      LRTD\n" +
-                "      RLTD\n" +
-                "      LRBU\n" +
-                "      RLBU\n" +
-                "      TDLR\n" +
-                "      TDRL\n" +
-                "      BULR\n" +
-                "      BURL\n"
+                "      \"Left-Right Top-Down\" DISABLED id=Path123-LRTD-Option\n" +
+                "      \"Right-Left Top-Down\" DISABLED id=Path123-RLTD-Option\n" +
+                "      \"Left-Right Bottom-Up\" DISABLED id=Path123-LRBU-Option\n" +
+                "      \"Right-Left Bottom-Up\" DISABLED id=Path123-RLBU-Option\n" +
+                "      \"Top-Down Left-Right\" DISABLED id=Path123-TDLR-Option\n" +
+                "      \"Top-Down Right-Left\" DISABLED id=Path123-TDRL-Option\n" +
+                "      \"Bottom-Up Left-Right\" DISABLED id=Path123-BULR-Option\n" +
+                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option"
         );
     }
 
@@ -56,14 +56,14 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
                 "    [BULR] id=Path123-\n" +
-                "      LRTD\n" +
-                "      RLTD\n" +
-                "      LRBU\n" +
-                "      RLBU\n" +
-                "      TDLR\n" +
-                "      TDRL\n" +
-                "      BULR\n" +
-                "      BURL\n"
+                "      \"Left-Right Top-Down\" DISABLED id=Path123-LRTD-Option\n" +
+                "      \"Right-Left Top-Down\" DISABLED id=Path123-RLTD-Option\n" +
+                "      \"Left-Right Bottom-Up\" DISABLED id=Path123-LRBU-Option\n" +
+                "      \"Right-Left Bottom-Up\" DISABLED id=Path123-RLBU-Option\n" +
+                "      \"Top-Down Left-Right\" DISABLED id=Path123-TDLR-Option\n" +
+                "      \"Top-Down Right-Left\" DISABLED id=Path123-TDRL-Option\n" +
+                "      \"Bottom-Up Left-Right\" DISABLED id=Path123-BULR-Option\n" +
+                "      \"Bottom-Up Right-Left\" DISABLED id=Path123-BURL-Option"
         );
     }
 
