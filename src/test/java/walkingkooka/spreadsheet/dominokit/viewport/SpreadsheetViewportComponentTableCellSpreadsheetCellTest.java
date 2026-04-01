@@ -24,8 +24,6 @@ import walkingkooka.color.Color;
 import walkingkooka.color.WebColorName;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -482,14 +480,6 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 Length.parse("50px")
             )
         );
-
-        final AppContext appContext = new FakeAppContext() {
-
-            @Override
-            public void debug(final Object... values) {
-                System.out.println("DEBUG " + Arrays.toString(values));
-            }
-        };
 
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
