@@ -19,17 +19,34 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 
+import java.util.Optional;
+
 public interface FormValueComponentDelegator2<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
-    FormValueComponentDelegator<E, V, C>,
-    ValueComponentDelegator<E, V, C> {
+    FormValueComponentLikeDelegator<E, C>{
 
     @Override
-    default ValueComponentLike<E, ?> valueComponentLike() {
-        return this.formValueComponent();
+    default Optional<V> value() {
+        return this.formValueComponent()
+            .value();
     }
 
     @Override
-    default ValueComponent<E, V, ?> valueComponent() {
+    default C setValue(final Optional<V> value) {
+        this.formValueComponent()
+            .setValue(value);
+        return (C) this;
+    }
+
+    @Override
+    default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
+        return this.formValueComponent()
+            .addValueWatcher(watcher);
+    }
+
+    FormValueComponent<E, V, ?> formValueComponent();
+
+    @Override
+    default FormValueComponentLike<E, ?> formValueComponentLike() {
         return this.formValueComponent();
     }
 }

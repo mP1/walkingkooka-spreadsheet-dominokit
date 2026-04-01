@@ -26,6 +26,16 @@ import java.util.Optional;
 public interface SelectComponentDelegator2<V, C extends FormValueComponent<HTMLFieldSetElement, V, C>> extends SelectComponentDelegator<V, C>,
     FormValueComponentDelegator2<HTMLFieldSetElement, V, C> {
 
+    @Override
+    default FormValueComponent<HTMLFieldSetElement, V, ?> formValueComponentLike() {
+        return this.selectComponent();
+    }
+
+    @Override
+    default FormValueComponent<HTMLFieldSetElement, V, ?> formValueComponent() {
+        return this.selectComponent();
+    }
+
     default SelectComponent<V> appendOption(final Optional<V> value) {
         return this.selectComponent()
             .appendOption(value);
