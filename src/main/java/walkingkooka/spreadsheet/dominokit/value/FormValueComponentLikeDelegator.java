@@ -22,88 +22,88 @@ import elemental2.dom.HTMLElement;
 import java.util.List;
 import java.util.Optional;
 
-public interface FormValueComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
+public interface FormValueComponentLikeDelegator<E extends HTMLElement, C extends FormValueComponentLike<E, C>> extends FormValueComponentLike<E, C>,
     ValueComponentLikeDelegator<E, C> {
 
     @Override
     default String label() {
-        return this.formValueComponent()
+        return this.formValueComponentLike()
             .label();
     }
 
     @Override
     default C setLabel(final String label) {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .setLabel(label);
         return (C) this;
     }
 
     @Override
     default C optional() {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .optional();
         return (C) this;
     }
 
     @Override
     default C required() {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .required();
         return (C) this;
     }
 
     @Override
     default boolean isRequired() {
-        return this.formValueComponent()
+        return this.formValueComponentLike()
             .isRequired();
     }
 
     @Override
     default C alwaysShowHelperText() {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .alwaysShowHelperText();
         return (C) this;
     }
 
     @Override
     default C validate() {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .validate();
         return (C) this;
     }
 
     @Override
     default Optional<String> helperText() {
-        return this.formValueComponent()
+        return this.formValueComponentLike()
             .helperText();
     }
 
     @Override
     default C setHelperText(final Optional<String> text) {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .setHelperText(text);
         return (C) this;
     }
 
     @Override
     default List<String> errors() {
-        return this.formValueComponent()
+        return this.formValueComponentLike()
             .errors();
     }
 
     @Override
     default C setErrors(final List<String> errors) {
-        this.formValueComponent()
+        this.formValueComponentLike()
             .setErrors(errors);
         return (C) this;
     }
 
-    FormValueComponent<E, V, ?> formValueComponent();
+    FormValueComponentLike<E, ?> formValueComponentLike();
 
     // ValueComponentLikeDelegator......................................................................................
 
     @Override
     default ValueComponentLike<E, ?> valueComponentLike() {
-        return this.formValueComponent();
+        return this.formValueComponentLike();
     }
 }

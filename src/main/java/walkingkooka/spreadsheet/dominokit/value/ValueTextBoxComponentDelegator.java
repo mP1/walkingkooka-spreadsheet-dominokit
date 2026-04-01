@@ -102,11 +102,6 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
         return (C) this;
     }
 
-    @Override
-    default ValueComponent<HTMLFieldSetElement, V, ?> valueComponent() {
-        return this.valueTextBoxComponent();
-    }
-
     /**
      * The wrapped {@link ValueTextBoxComponent}, which is the target of all delegated methods.
      */
