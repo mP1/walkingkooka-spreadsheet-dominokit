@@ -30,7 +30,7 @@ import java.util.Optional;
  */
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
     extends ValueTextBoxComponentLike<C, V>,
-    FormValueComponentDelegator2<HTMLFieldSetElement, V, C>,
+    FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
     HasEventListeners<V, C> {
 
     @Override

@@ -21,7 +21,7 @@ import elemental2.dom.HTMLElement;
 
 import java.util.Optional;
 
-public interface FormValueComponentDelegator2<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
+public interface FormValueComponentDelegator<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>> extends FormValueComponent<E, V, C>,
     FormValueComponentLikeDelegator<E, C>{
 
     @Override
