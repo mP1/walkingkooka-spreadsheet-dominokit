@@ -110,31 +110,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -146,11 +146,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -241,31 +241,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -277,11 +277,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -372,31 +372,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -408,11 +408,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -501,31 +501,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -537,11 +537,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -664,31 +664,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -700,11 +700,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -824,31 +824,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -860,11 +860,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -953,31 +953,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -989,11 +989,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1082,31 +1082,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1118,11 +1118,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1211,31 +1211,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1247,11 +1247,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1340,31 +1340,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1376,11 +1376,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1469,31 +1469,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1505,11 +1505,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [*Hello*] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [*Hello*] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1598,31 +1598,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1634,11 +1634,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1727,31 +1727,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1763,11 +1763,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [*Hello*] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [*Hello*] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1856,31 +1856,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -1892,11 +1892,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -1985,31 +1985,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2021,11 +2021,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2114,31 +2114,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2150,11 +2150,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2243,31 +2243,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2279,11 +2279,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2372,31 +2372,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2408,11 +2408,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2501,31 +2501,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2537,11 +2537,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2630,31 +2630,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2666,11 +2666,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -2759,31 +2759,31 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        SpreadsheetCellRangeReferenceComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Cell Range [A1] id=SpreadsheetCellQuery-cell-range-TextBox REQUIRED\n" +
+                "              Cell Range [A1] id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
                 "        SpreadsheetCellRangeReferencePathComponent\n" +
                 "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cell-range-path-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cell-range-path-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cell-range-path-BURL-OptionValueTypeEditComponent\n" +
+                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-OptionValueTypeEditComponent\n" +
                 "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-value-type-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-value-type-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-value-type-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-value-type-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-value-type-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-value-type-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-value-type-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-value-type-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-value-type-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-value-type-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-value-type-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-value-type-whole-number-OptionTextMatchComponent\n" +
+                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-OptionTextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Formula [*formula*] id=SpreadsheetCellQuery-formula-TextBox\n" +
@@ -2795,11 +2795,11 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              DateTimeSymbols [] id=SpreadsheetCellQuery-datetimesymbols-TextBox\n" +
+                "              Date Time Symbols [] id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              decimalNumberSymbols [] id=SpreadsheetCellQuery-decimalnumbersymbols-TextBox\n" +
+                "              Decimal Number Symbols [] id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
                 "        TextMatchComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
