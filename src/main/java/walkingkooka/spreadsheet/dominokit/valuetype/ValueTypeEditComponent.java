@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.valuetype;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
-import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator2;
+import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.text.CaseKind;
@@ -34,7 +34,7 @@ import java.util.Optional;
  * A drop down that supports picking an optional {@link ValueType}.
  */
 public final class ValueTypeEditComponent implements FormValueComponent<HTMLFieldSetElement, ValueType, ValueTypeEditComponent>,
-    SelectComponentDelegator2<ValueType, ValueTypeEditComponent>,
+    SelectComponentDelegator<ValueType, ValueTypeEditComponent>,
     TreePrintable {
 
     public static ValueTypeEditComponent empty(final String id,
