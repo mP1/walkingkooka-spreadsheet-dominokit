@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 
-public interface FormValueComponentTesting<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
-    extends FormValueComponentLikeTesting<E, C>,
-    ValueComponentTesting<E, V, C> {
+public interface FormValueComponentLikeTesting<E extends HTMLElement, C extends FormValueComponentLike<E, C>>
+    extends ValueComponentLikeTesting<E, C> {
 }
