@@ -58,12 +58,10 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    Label [] id=ChoiceList123\n" +
-                "      ValueLabel1\n" +
-                "        \"Value1\"\n" +
-                "      ValueLabel2\n" +
-                "        \"Value2\"\n" +
-                "      ValueLabel3\n"
+                "    Label [] id=TestChoiceList123-\n" +
+                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22Value1%22] id=TestChoiceList123-Value1-Option\n" +
+                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22Value2%22] id=TestChoiceList123-Value2-Option\n" +
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
         );
     }
 
@@ -95,12 +93,10 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    [] id=ChoiceList123\n" +
-                "      ValueLabel1\n" +
-                "        11\n" +
-                "      ValueLabel2\n" +
-                "        22\n" +
-                "      ValueLabel3\n"
+                "    [] id=TestChoiceList123-\n" +
+                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
+                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
         );
     }
 
@@ -135,12 +131,10 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    LabelLabel [ValueLabel1=11] id=ChoiceList123\n" +
-                "      ValueLabel1\n" +
-                "        11\n" +
-                "      ValueLabel2\n" +
-                "        22\n" +
-                "      ValueLabel3\n"
+                "    LabelLabel [ValueLabel1=11] id=TestChoiceList123-\n" +
+                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
+                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
+                "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
         );
     }
 
@@ -184,12 +178,10 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
                 ),
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
-                "    LabelLabel [Label1=\"Value1\"] id=ChoiceList123\n" +
-                "      DifferentLabel1\n" +
-                "        \"DifferentValue1\"\n" +
-                "      DifferentLabel2\n" +
-                "        \"DifferentValue2\"\n" +
-                "      DifferentLabel3\n"
+                "    LabelLabel [Label1=\"Value1\"] id=TestChoiceList123-\n" +
+                "      \"Different Label1\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22DifferentValue1%22] id=TestChoiceList123-DifferentValue1-Option\n" +
+                "      \"Different Label2\" [#/1/SpreadsheetName1/cell/A1/value/text/save/%22DifferentValue2%22] id=TestChoiceList123-DifferentValue2-Option\n" +
+                "      \"Different Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option"
         );
     }
 
@@ -198,7 +190,7 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
     @Override
     public ValidationChoiceListComponent createComponent() {
         return ValidationChoiceListComponent.empty(
-            "ChoiceList123",
+            "TestChoiceList123-",
             new FakeValidationChoiceListComponentContext() {
 
                 @Override

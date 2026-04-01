@@ -41,10 +41,12 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     public static <T> SelectComponent<T> empty(final Function<Optional<T>, SelectOption<T>> selectCreator) {
         Objects.requireNonNull(selectCreator, "selectCreator");
 
-        return new SelectComponent<>();
+        return new SelectComponent<>(selectCreator);
     }
 
-    private SelectComponent() {
+    private SelectComponent(final Function<Optional<T>, SelectOption<T>> selectCreator) {
+        super();
+        this.selectCreator = selectCreator;
     }
 
     /**
@@ -53,21 +55,22 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     @Override
     public SelectComponent<T> appendOption(final Optional<T> value) {
 
-        this.values.add(
-            Objects.requireNonNull(value, "value")
-                .orElse(null)
+        this.option.add(
+            this.selectCreator.apply(value)
         );
         return this;
     }
 
+    private final Function<Optional<T>, SelectOption<T>> selectCreator;
+
     @Override
     public SelectComponent<T> clearOptions() {
-        this.values.clear();
+        this.option.clear();
         return this;
     }
 
     // order is important!
-    private final List<T> values = Lists.array();
+    private final List<SelectOption<T>> option = Lists.array();
 
 
     @Override
@@ -217,11 +220,11 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     public void treePrintAlternateValues(final IndentingPrinter printer) {
         printer.indent();
         {
-            for (final T value : this.values) {
+            for (final SelectOption<T> option : this.option) {
                 printer.lineStart();
 
                 TreePrintable.printTreeOrToString(
-                    value,
+                    option,
                     printer
                 );
             }
