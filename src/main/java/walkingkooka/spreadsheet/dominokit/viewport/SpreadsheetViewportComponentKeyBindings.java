@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,6 +27,11 @@ import java.util.Set;
  * actions like bolding the selected cell, deleting a cell-range and more.
  */
 public interface SpreadsheetViewportComponentKeyBindings {
+
+    /**
+     * Returns a ordered list of {@link KeyBinding}. This can be used to display bindings to a user as help.
+     */
+    List<KeyBinding> all();
 
     Set<KeyBinding> bold();
 

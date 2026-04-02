@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
@@ -26,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,12 +36,42 @@ public interface SpreadsheetViewportComponentKeyBindingsTesting<T extends Spread
     TreePrintableTesting {
 
     @Test
+    default void testAllNotEmpty() {
+        this.checkNotEquals(
+            Lists.empty(),
+            this.createSpreadsheetKeyBinding()
+                .all()
+        );
+    }
+
+    default void allAndCheck(final T bindings,
+                             final KeyBinding...expected) {
+        this.allAndCheck(
+            bindings,
+            Lists.of(expected)
+        );
+    }
+
+    default void allAndCheck(final T bindings,
+                             final List<KeyBinding> expected) {
+        this.checkEquals(
+            expected,
+            bindings.all(),
+            bindings::toString
+        );
+    }
+
+    @Test
     default void testUniqueKeyBindings() throws Exception {
         final Map<KeyBinding, Set<String>> duplicates = Maps.sorted();
 
         final SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings = this.createSpreadsheetKeyBinding();
 
         for(final Method method : SpreadsheetViewportComponentKeyBindings.class.getDeclaredMethods()) {
+            if (method.getReturnType() != Set.class) {
+                continue;
+            }
+
             for(KeyBinding key : (Set<KeyBinding>) method.invoke(spreadsheetViewportComponentKeyBindings)) {
                 Set<String> getters = duplicates.get(key);
                 if(null == getters) {
