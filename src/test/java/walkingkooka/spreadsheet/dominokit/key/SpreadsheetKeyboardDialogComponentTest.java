@@ -58,232 +58,232 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                  TextNodeComponent\n" +
                 "                    Select\n" +
                 "                  TextNodeComponent\n" +
-                "                    Enter \n" +
+                "                     Enter\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Select all\n" +
                 "                  TextNodeComponent\n" +
-                "                    a control\n" +
+                "                    control a\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp \n" +
+                "                     ArrowUp\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight \n" +
+                "                     ArrowRight\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown \n" +
+                "                     ArrowDown\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft \n" +
+                "                     ArrowLeft\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Delete\n" +
                 "                  TextNodeComponent\n" +
-                "                    Backspace \n" +
+                "                     Backspace\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp shift\n" +
+                "                    shift ArrowUp\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight shift\n" +
+                "                    shift ArrowRight\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown shift\n" +
+                "                    shift ArrowDown\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft shift\n" +
+                "                    shift ArrowLeft\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp shift\n" +
+                "                    shift PageUp\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End shift\n" +
+                "                    shift End\n" +
                 "                ROW 13\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown shift\n" +
+                "                    shift PageDown\n" +
                 "                ROW 14\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home shift\n" +
+                "                    shift Home\n" +
                 "                ROW 15\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp \n" +
+                "                     PageUp\n" +
                 "                ROW 16\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End \n" +
+                "                     End\n" +
                 "                ROW 17\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown \n" +
+                "                     PageDown\n" +
                 "                ROW 18\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home \n" +
+                "                     Home\n" +
                 "                ROW 19\n" +
                 "                  TextNodeComponent\n" +
                 "                    Exit\n" +
                 "                  TextNodeComponent\n" +
-                "                    Escape \n" +
+                "                     Escape\n" +
                 "                ROW 20\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: left\n" +
                 "                  TextNodeComponent\n" +
-                "                    l control\n" +
+                "                    control l\n" +
                 "                ROW 21\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: center\n" +
                 "                  TextNodeComponent\n" +
-                "                    c control\n" +
+                "                    control c\n" +
                 "                ROW 22\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: right\n" +
                 "                  TextNodeComponent\n" +
-                "                    r control\n" +
+                "                    control r\n" +
                 "                ROW 23\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: justify\n" +
                 "                  TextNodeComponent\n" +
-                "                    j control\n" +
+                "                    control j\n" +
                 "                ROW 24\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: top\n" +
                 "                  TextNodeComponent\n" +
-                "                    T control+shift\n" +
+                "                    control+shift T\n" +
                 "                ROW 25\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: middle\n" +
                 "                  TextNodeComponent\n" +
-                "                    M control+shift\n" +
+                "                    control+shift M\n" +
                 "                ROW 26\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: bottom\n" +
                 "                  TextNodeComponent\n" +
-                "                    B control+shift\n" +
+                "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency format\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control+shift\n" +
+                "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
                 "                    General format\n" +
                 "                  TextNodeComponent\n" +
-                "                    7 control+shift\n" +
+                "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
                 "                    Date format\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control+shift\n" +
+                "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number format\n" +
                 "                  TextNodeComponent\n" +
-                "                    1 control+shift\n" +
+                "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent format\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control+shift\n" +
+                "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
                 "                    Scientific format\n" +
                 "                  TextNodeComponent\n" +
-                "                    6 control+shift\n" +
+                "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text format\n" +
                 "                  TextNodeComponent\n" +
-                "                    8 control+shift\n" +
+                "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
                 "                    Time format\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control+shift\n" +
+                "                    control+shift 2\n" +
                 "                ROW 35\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    b control\n" +
+                "                    control b\n" +
                 "                ROW 36\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control\n" +
+                "                    control 2\n" +
                 "                ROW 37\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    i control\n" +
+                "                    control i\n" +
                 "                ROW 38\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control\n" +
+                "                    control 3\n" +
                 "                ROW 39\n" +
                 "                  TextNodeComponent\n" +
                 "                    Normal text\n" +
                 "                  TextNodeComponent\n" +
-                "                    N control+shift\n" +
+                "                    control+shift N\n" +
                 "                ROW 40\n" +
                 "                  TextNodeComponent\n" +
                 "                    Strikethru\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control\n" +
+                "                    control 5\n" +
                 "                ROW 41\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    u control\n" +
+                "                    control u\n" +
                 "                ROW 42\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control\n" +
+                "                    control 4\n" +
                 "                ROW 43\n" +
                 "                  TextNodeComponent\n" +
                 "                    Capitalize\n" +
                 "                  TextNodeComponent\n" +
-                "                    C control+shift\n" +
+                "                    control+shift C\n" +
                 "                ROW 44\n" +
                 "                  TextNodeComponent\n" +
                 "                    Lowercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    L control+shift\n" +
+                "                    control+shift L\n" +
                 "                ROW 45\n" +
                 "                  TextNodeComponent\n" +
                 "                    Uppercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    U control+shift\n" +
+                "                    control+shift U\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -315,232 +315,232 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                  TextNodeComponent\n" +
                 "                    Select\n" +
                 "                  TextNodeComponent\n" +
-                "                    Enter \n" +
+                "                     Enter\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Select all\n" +
                 "                  TextNodeComponent\n" +
-                "                    a control\n" +
+                "                    control a\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp \n" +
+                "                     ArrowUp\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight \n" +
+                "                     ArrowRight\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown \n" +
+                "                     ArrowDown\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft \n" +
+                "                     ArrowLeft\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Delete\n" +
                 "                  TextNodeComponent\n" +
-                "                    Backspace \n" +
+                "                     Backspace\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp shift\n" +
+                "                    shift ArrowUp\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight shift\n" +
+                "                    shift ArrowRight\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown shift\n" +
+                "                    shift ArrowDown\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft shift\n" +
+                "                    shift ArrowLeft\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp shift\n" +
+                "                    shift PageUp\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End shift\n" +
+                "                    shift End\n" +
                 "                ROW 13\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown shift\n" +
+                "                    shift PageDown\n" +
                 "                ROW 14\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home shift\n" +
+                "                    shift Home\n" +
                 "                ROW 15\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp \n" +
+                "                     PageUp\n" +
                 "                ROW 16\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End \n" +
+                "                     End\n" +
                 "                ROW 17\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown \n" +
+                "                     PageDown\n" +
                 "                ROW 18\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home \n" +
+                "                     Home\n" +
                 "                ROW 19\n" +
                 "                  TextNodeComponent\n" +
                 "                    Exit\n" +
                 "                  TextNodeComponent\n" +
-                "                    Escape \n" +
+                "                     Escape\n" +
                 "                ROW 20\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: left\n" +
                 "                  TextNodeComponent\n" +
-                "                    l control\n" +
+                "                    control l\n" +
                 "                ROW 21\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: center\n" +
                 "                  TextNodeComponent\n" +
-                "                    c control\n" +
+                "                    control c\n" +
                 "                ROW 22\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: right\n" +
                 "                  TextNodeComponent\n" +
-                "                    r control\n" +
+                "                    control r\n" +
                 "                ROW 23\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: justify\n" +
                 "                  TextNodeComponent\n" +
-                "                    j control\n" +
+                "                    control j\n" +
                 "                ROW 24\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: top\n" +
                 "                  TextNodeComponent\n" +
-                "                    T control+shift\n" +
+                "                    control+shift T\n" +
                 "                ROW 25\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: middle\n" +
                 "                  TextNodeComponent\n" +
-                "                    M control+shift\n" +
+                "                    control+shift M\n" +
                 "                ROW 26\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: bottom\n" +
                 "                  TextNodeComponent\n" +
-                "                    B control+shift\n" +
+                "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency format\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control+shift\n" +
+                "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
                 "                    General format\n" +
                 "                  TextNodeComponent\n" +
-                "                    7 control+shift\n" +
+                "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
                 "                    Date format\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control+shift\n" +
+                "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number format\n" +
                 "                  TextNodeComponent\n" +
-                "                    1 control+shift\n" +
+                "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent format\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control+shift\n" +
+                "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
                 "                    Scientific format\n" +
                 "                  TextNodeComponent\n" +
-                "                    6 control+shift\n" +
+                "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text format\n" +
                 "                  TextNodeComponent\n" +
-                "                    8 control+shift\n" +
+                "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
                 "                    Time format\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control+shift\n" +
+                "                    control+shift 2\n" +
                 "                ROW 35\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    b control\n" +
+                "                    control b\n" +
                 "                ROW 36\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control\n" +
+                "                    control 2\n" +
                 "                ROW 37\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    i control\n" +
+                "                    control i\n" +
                 "                ROW 38\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control\n" +
+                "                    control 3\n" +
                 "                ROW 39\n" +
                 "                  TextNodeComponent\n" +
                 "                    Normal text\n" +
                 "                  TextNodeComponent\n" +
-                "                    N control+shift\n" +
+                "                    control+shift N\n" +
                 "                ROW 40\n" +
                 "                  TextNodeComponent\n" +
                 "                    Strikethru\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control\n" +
+                "                    control 5\n" +
                 "                ROW 41\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    u control\n" +
+                "                    control u\n" +
                 "                ROW 42\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control\n" +
+                "                    control 4\n" +
                 "                ROW 43\n" +
                 "                  TextNodeComponent\n" +
                 "                    Capitalize\n" +
                 "                  TextNodeComponent\n" +
-                "                    C control+shift\n" +
+                "                    control+shift C\n" +
                 "                ROW 44\n" +
                 "                  TextNodeComponent\n" +
                 "                    Lowercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    L control+shift\n" +
+                "                    control+shift L\n" +
                 "                ROW 45\n" +
                 "                  TextNodeComponent\n" +
                 "                    Uppercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    U control+shift\n" +
+                "                    control+shift U\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -572,232 +572,232 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                  TextNodeComponent\n" +
                 "                    Select\n" +
                 "                  TextNodeComponent\n" +
-                "                    Enter \n" +
+                "                     Enter\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Select all\n" +
                 "                  TextNodeComponent\n" +
-                "                    a control\n" +
+                "                    control a\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp \n" +
+                "                     ArrowUp\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight \n" +
+                "                     ArrowRight\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown \n" +
+                "                     ArrowDown\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft \n" +
+                "                     ArrowLeft\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Delete\n" +
                 "                  TextNodeComponent\n" +
-                "                    Backspace \n" +
+                "                     Backspace\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp shift\n" +
+                "                    shift ArrowUp\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight shift\n" +
+                "                    shift ArrowRight\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown shift\n" +
+                "                    shift ArrowDown\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft shift\n" +
+                "                    shift ArrowLeft\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp shift\n" +
+                "                    shift PageUp\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End shift\n" +
+                "                    shift End\n" +
                 "                ROW 13\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown shift\n" +
+                "                    shift PageDown\n" +
                 "                ROW 14\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home shift\n" +
+                "                    shift Home\n" +
                 "                ROW 15\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp \n" +
+                "                     PageUp\n" +
                 "                ROW 16\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End \n" +
+                "                     End\n" +
                 "                ROW 17\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown \n" +
+                "                     PageDown\n" +
                 "                ROW 18\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home \n" +
+                "                     Home\n" +
                 "                ROW 19\n" +
                 "                  TextNodeComponent\n" +
                 "                    Exit\n" +
                 "                  TextNodeComponent\n" +
-                "                    Escape \n" +
+                "                     Escape\n" +
                 "                ROW 20\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: left\n" +
                 "                  TextNodeComponent\n" +
-                "                    l control\n" +
+                "                    control l\n" +
                 "                ROW 21\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: center\n" +
                 "                  TextNodeComponent\n" +
-                "                    c control\n" +
+                "                    control c\n" +
                 "                ROW 22\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: right\n" +
                 "                  TextNodeComponent\n" +
-                "                    r control\n" +
+                "                    control r\n" +
                 "                ROW 23\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: justify\n" +
                 "                  TextNodeComponent\n" +
-                "                    j control\n" +
+                "                    control j\n" +
                 "                ROW 24\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: top\n" +
                 "                  TextNodeComponent\n" +
-                "                    T control+shift\n" +
+                "                    control+shift T\n" +
                 "                ROW 25\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: middle\n" +
                 "                  TextNodeComponent\n" +
-                "                    M control+shift\n" +
+                "                    control+shift M\n" +
                 "                ROW 26\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: bottom\n" +
                 "                  TextNodeComponent\n" +
-                "                    B control+shift\n" +
+                "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency format\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control+shift\n" +
+                "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
                 "                    General format\n" +
                 "                  TextNodeComponent\n" +
-                "                    7 control+shift\n" +
+                "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
                 "                    Date format\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control+shift\n" +
+                "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number format\n" +
                 "                  TextNodeComponent\n" +
-                "                    1 control+shift\n" +
+                "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent format\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control+shift\n" +
+                "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
                 "                    Scientific format\n" +
                 "                  TextNodeComponent\n" +
-                "                    6 control+shift\n" +
+                "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text format\n" +
                 "                  TextNodeComponent\n" +
-                "                    8 control+shift\n" +
+                "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
                 "                    Time format\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control+shift\n" +
+                "                    control+shift 2\n" +
                 "                ROW 35\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    b control\n" +
+                "                    control b\n" +
                 "                ROW 36\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control\n" +
+                "                    control 2\n" +
                 "                ROW 37\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    i control\n" +
+                "                    control i\n" +
                 "                ROW 38\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control\n" +
+                "                    control 3\n" +
                 "                ROW 39\n" +
                 "                  TextNodeComponent\n" +
                 "                    Normal text\n" +
                 "                  TextNodeComponent\n" +
-                "                    N control+shift\n" +
+                "                    control+shift N\n" +
                 "                ROW 40\n" +
                 "                  TextNodeComponent\n" +
                 "                    Strikethru\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control\n" +
+                "                    control 5\n" +
                 "                ROW 41\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    u control\n" +
+                "                    control u\n" +
                 "                ROW 42\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control\n" +
+                "                    control 4\n" +
                 "                ROW 43\n" +
                 "                  TextNodeComponent\n" +
                 "                    Capitalize\n" +
                 "                  TextNodeComponent\n" +
-                "                    C control+shift\n" +
+                "                    control+shift C\n" +
                 "                ROW 44\n" +
                 "                  TextNodeComponent\n" +
                 "                    Lowercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    L control+shift\n" +
+                "                    control+shift L\n" +
                 "                ROW 45\n" +
                 "                  TextNodeComponent\n" +
                 "                    Uppercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    U control+shift\n" +
+                "                    control+shift U\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
@@ -829,232 +829,232 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                  TextNodeComponent\n" +
                 "                    Select\n" +
                 "                  TextNodeComponent\n" +
-                "                    Enter \n" +
+                "                     Enter\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Select all\n" +
                 "                  TextNodeComponent\n" +
-                "                    a control\n" +
+                "                    control a\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp \n" +
+                "                     ArrowUp\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight \n" +
+                "                     ArrowRight\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown \n" +
+                "                     ArrowDown\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft \n" +
+                "                     ArrowLeft\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Delete\n" +
                 "                  TextNodeComponent\n" +
-                "                    Backspace \n" +
+                "                     Backspace\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend up\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowUp shift\n" +
+                "                    shift ArrowUp\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend right\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowRight shift\n" +
+                "                    shift ArrowRight\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend down\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowDown shift\n" +
+                "                    shift ArrowDown\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend left\n" +
                 "                  TextNodeComponent\n" +
-                "                    ArrowLeft shift\n" +
+                "                    shift ArrowLeft\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp shift\n" +
+                "                    shift PageUp\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End shift\n" +
+                "                    shift End\n" +
                 "                ROW 13\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown shift\n" +
+                "                    shift PageDown\n" +
                 "                ROW 14\n" +
                 "                  TextNodeComponent\n" +
                 "                    Extend screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home shift\n" +
+                "                    shift Home\n" +
                 "                ROW 15\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen up\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageUp \n" +
+                "                     PageUp\n" +
                 "                ROW 16\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen right\n" +
                 "                  TextNodeComponent\n" +
-                "                    End \n" +
+                "                     End\n" +
                 "                ROW 17\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen down\n" +
                 "                  TextNodeComponent\n" +
-                "                    PageDown \n" +
+                "                     PageDown\n" +
                 "                ROW 18\n" +
                 "                  TextNodeComponent\n" +
                 "                    Screen left\n" +
                 "                  TextNodeComponent\n" +
-                "                    Home \n" +
+                "                     Home\n" +
                 "                ROW 19\n" +
                 "                  TextNodeComponent\n" +
                 "                    Exit\n" +
                 "                  TextNodeComponent\n" +
-                "                    Escape \n" +
+                "                     Escape\n" +
                 "                ROW 20\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: left\n" +
                 "                  TextNodeComponent\n" +
-                "                    l control\n" +
+                "                    control l\n" +
                 "                ROW 21\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: center\n" +
                 "                  TextNodeComponent\n" +
-                "                    c control\n" +
+                "                    control c\n" +
                 "                ROW 22\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: right\n" +
                 "                  TextNodeComponent\n" +
-                "                    r control\n" +
+                "                    control r\n" +
                 "                ROW 23\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text Align: justify\n" +
                 "                  TextNodeComponent\n" +
-                "                    j control\n" +
+                "                    control j\n" +
                 "                ROW 24\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: top\n" +
                 "                  TextNodeComponent\n" +
-                "                    T control+shift\n" +
+                "                    control+shift T\n" +
                 "                ROW 25\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: middle\n" +
                 "                  TextNodeComponent\n" +
-                "                    M control+shift\n" +
+                "                    control+shift M\n" +
                 "                ROW 26\n" +
                 "                  TextNodeComponent\n" +
                 "                    Vertical Align: bottom\n" +
                 "                  TextNodeComponent\n" +
-                "                    B control+shift\n" +
+                "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency format\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control+shift\n" +
+                "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
                 "                    General format\n" +
                 "                  TextNodeComponent\n" +
-                "                    7 control+shift\n" +
+                "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
                 "                    Date format\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control+shift\n" +
+                "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number format\n" +
                 "                  TextNodeComponent\n" +
-                "                    1 control+shift\n" +
+                "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent format\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control+shift\n" +
+                "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
                 "                    Scientific format\n" +
                 "                  TextNodeComponent\n" +
-                "                    6 control+shift\n" +
+                "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
                 "                    Text format\n" +
                 "                  TextNodeComponent\n" +
-                "                    8 control+shift\n" +
+                "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
                 "                    Time format\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control+shift\n" +
+                "                    control+shift 2\n" +
                 "                ROW 35\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    b control\n" +
+                "                    control b\n" +
                 "                ROW 36\n" +
                 "                  TextNodeComponent\n" +
                 "                    Bold\n" +
                 "                  TextNodeComponent\n" +
-                "                    2 control\n" +
+                "                    control 2\n" +
                 "                ROW 37\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    i control\n" +
+                "                    control i\n" +
                 "                ROW 38\n" +
                 "                  TextNodeComponent\n" +
                 "                    Italics\n" +
                 "                  TextNodeComponent\n" +
-                "                    3 control\n" +
+                "                    control 3\n" +
                 "                ROW 39\n" +
                 "                  TextNodeComponent\n" +
                 "                    Normal text\n" +
                 "                  TextNodeComponent\n" +
-                "                    N control+shift\n" +
+                "                    control+shift N\n" +
                 "                ROW 40\n" +
                 "                  TextNodeComponent\n" +
                 "                    Strikethru\n" +
                 "                  TextNodeComponent\n" +
-                "                    5 control\n" +
+                "                    control 5\n" +
                 "                ROW 41\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    u control\n" +
+                "                    control u\n" +
                 "                ROW 42\n" +
                 "                  TextNodeComponent\n" +
                 "                    Underline\n" +
                 "                  TextNodeComponent\n" +
-                "                    4 control\n" +
+                "                    control 4\n" +
                 "                ROW 43\n" +
                 "                  TextNodeComponent\n" +
                 "                    Capitalize\n" +
                 "                  TextNodeComponent\n" +
-                "                    C control+shift\n" +
+                "                    control+shift C\n" +
                 "                ROW 44\n" +
                 "                  TextNodeComponent\n" +
                 "                    Lowercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    L control+shift\n" +
+                "                    control+shift L\n" +
                 "                ROW 45\n" +
                 "                  TextNodeComponent\n" +
                 "                    Uppercase\n" +
                 "                  TextNodeComponent\n" +
-                "                    U control+shift\n" +
+                "                    control+shift U\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +

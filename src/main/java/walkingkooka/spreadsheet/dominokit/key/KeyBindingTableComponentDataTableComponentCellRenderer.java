@@ -47,10 +47,11 @@ final class KeyBindingTableComponentDataTableComponentCellRenderer implements Da
                 );
                 break;
             case 1:
+                // Shift A
                 rendered = this.text(
-                    binding.key() +
+                    binding.toStringModifiers() +
                         " " +
-                        binding.toStringModifiers()
+                        binding.key()
                 );
                 break;
             default:
