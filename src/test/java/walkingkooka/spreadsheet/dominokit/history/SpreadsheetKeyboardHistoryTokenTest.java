@@ -47,6 +47,19 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         );
     }
 
+    // close............................................................................................................
+
+    @Test
+    public void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.spreadsheetSelect(
+                ID,
+                NAME
+            )
+        );
+    }
+
     // label............................................................................................................
 
     @Test
