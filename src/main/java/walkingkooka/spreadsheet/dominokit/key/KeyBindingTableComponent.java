@@ -107,27 +107,23 @@ public final class KeyBindingTableComponent implements TableComponent<HTMLDivEle
 
     @Override
     public Optional<List<KeyBinding>> value() {
-        return this.bindings;
+        return this.dataTable.value();
     }
 
     @Override
     public KeyBindingTableComponent setValue(final Optional<List<KeyBinding>> bindings) {
-        this.bindings = Objects.requireNonNull(bindings, "bindings")
-            .map(KeyBindingTableComponent::sort);
+        this.dataTable.setValue(
+            Objects.requireNonNull(bindings, "bindings")
+        );
         return this;
     }
 
-    private static List<KeyBinding> sort(final List<KeyBinding> bindings) {
-        final List<KeyBinding> sorted = Lists.array();
-        sorted.addAll(bindings);
-        sorted.sort(KeyBinding::compareTo);
-        return sorted;
-    }
-
-    private Optional<List<KeyBinding>> bindings;
-
     public void refresh(final KeyBindingTableComponentContext context) {
-        this.dataTable.setValue(this.bindings);
+        this.setValue(
+            Optional.of(
+                context.keyBindings()
+            )
+        );
     }
 
     private final DataTableComponent<KeyBinding> dataTable;

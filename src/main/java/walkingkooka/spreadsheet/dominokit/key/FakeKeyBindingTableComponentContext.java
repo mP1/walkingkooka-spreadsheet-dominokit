@@ -19,9 +19,16 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
+import java.util.List;
+
 public class FakeKeyBindingTableComponentContext extends FakeHistoryContext implements KeyBindingTableComponentContext {
 
     public FakeKeyBindingTableComponentContext() {
         super();
+    }
+
+    @Override
+    public List<KeyBinding> keyBindings() {
+        throw new UnsupportedOperationException();
     }
 }
