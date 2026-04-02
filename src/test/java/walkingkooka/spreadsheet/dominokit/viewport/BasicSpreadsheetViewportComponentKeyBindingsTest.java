@@ -17,9 +17,74 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
+import walkingkooka.text.LineEnding;
+
+import java.util.stream.Collectors;
 
 public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements SpreadsheetViewportComponentKeyBindingsTesting<BasicSpreadsheetViewportComponentKeyBindings> {
+
+    @Test
+    public void testAllToString() {
+        this.checkEquals(
+            "Select \"Enter\" DOWN\n" +
+                "Select all control \"a\" DOWN\n" +
+                "Up \"ArrowUp\" DOWN\n" +
+                "Right \"ArrowRight\" DOWN\n" +
+                "Down \"ArrowDown\" DOWN\n" +
+                "Left \"ArrowLeft\" DOWN\n" +
+                "Delete \"Backspace\" DOWN\n" +
+                "Extend up shift \"ArrowUp\" DOWN\n" +
+                "Extend right shift \"ArrowRight\" DOWN\n" +
+                "Extend down shift \"ArrowDown\" DOWN\n" +
+                "Extend left shift \"ArrowLeft\" DOWN\n" +
+                "Extend screen up shift \"PageUp\" DOWN\n" +
+                "Extend screen right shift \"End\" DOWN\n" +
+                "Extend screen down shift \"PageDown\" DOWN\n" +
+                "Extend screen left shift \"Home\" DOWN\n" +
+                "Screen up \"PageUp\" DOWN\n" +
+                "Screen right \"End\" DOWN\n" +
+                "Screen down \"PageDown\" DOWN\n" +
+                "Screen left \"Home\" DOWN\n" +
+                "Exit \"Escape\" DOWN\n" +
+                "Text Align: left control \"l\" DOWN\n" +
+                "Text Align: center control \"c\" DOWN\n" +
+                "Text Align: right control \"r\" DOWN\n" +
+                "Text Align: justify control \"j\" DOWN\n" +
+                "Vertical Align: top control+shift \"T\" DOWN\n" +
+                "Vertical Align: middle control+shift \"M\" DOWN\n" +
+                "Vertical Align: bottom control+shift \"B\" DOWN\n" +
+                "Currency format control+shift \"4\" DOWN\n" +
+                "General format control+shift \"7\" DOWN\n" +
+                "Date format control+shift \"3\" DOWN\n" +
+                "Number format control+shift \"1\" DOWN\n" +
+                "Percent format control+shift \"5\" DOWN\n" +
+                "Scientific format control+shift \"6\" DOWN\n" +
+                "Text format control+shift \"8\" DOWN\n" +
+                "Time format control+shift \"2\" DOWN\n" +
+                "Bold control \"b\" DOWN\n" +
+                "Bold control \"2\" DOWN\n" +
+                "Italics control \"i\" DOWN\n" +
+                "Italics control \"3\" DOWN\n" +
+                "Normal text control+shift \"N\" DOWN\n" +
+                "Strikethru control \"5\" DOWN\n" +
+                "Underline control \"u\" DOWN\n" +
+                "Underline control \"4\" DOWN\n" +
+                "Capitalize control+shift \"C\" DOWN\n" +
+                "Lowercase control+shift \"L\" DOWN\n" +
+                "Uppercase control+shift \"U\" DOWN",
+            BasicSpreadsheetViewportComponentKeyBindings.INSTANCE.all()
+                .stream()
+                .map(KeyBinding::toString)
+                .collect(
+                    Collectors.joining(
+                        LineEnding.NL.toString()
+                    )
+                )
+        );
+    }
 
     @Override
     public BasicSpreadsheetViewportComponentKeyBindings createSpreadsheetKeyBinding() {
