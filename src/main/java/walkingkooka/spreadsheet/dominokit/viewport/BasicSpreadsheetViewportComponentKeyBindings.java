@@ -21,11 +21,11 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
+import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -45,51 +45,61 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
         if(null == this.all) {
             final List<KeyBinding> keyBindings = Lists.array();
 
-            keyBindings.addAll(this.bold());
-            keyBindings.addAll(this.bottomVerticalAlign());
-            keyBindings.addAll(this.capitalize());
-            keyBindings.addAll(this.centerTextAlign());
-            keyBindings.addAll(this.currencyFormat());
-            keyBindings.addAll(this.dateFormat());
-            keyBindings.addAll(this.delete());
-            keyBindings.addAll(this.exit());
-            keyBindings.addAll(this.extendScreenDown());
-            keyBindings.addAll(this.extendScreenLeft());
-            keyBindings.addAll(this.extendScreenRight());
-            keyBindings.addAll(this.extendScreenUp());
-            keyBindings.addAll(this.extendSelectionDown());
-            keyBindings.addAll(this.extendSelectionLeft());
-            keyBindings.addAll(this.extendSelectionRight());
-            keyBindings.addAll(this.extendSelectionUp());
-            keyBindings.addAll(this.generalFormat());
-            keyBindings.addAll(this.italics());
-            keyBindings.addAll(this.justifyTextAlign());
-            keyBindings.addAll(this.leftTextAlign());
-            keyBindings.addAll(this.lowerCase());
-            keyBindings.addAll(this.middleVerticalAlign());
-            keyBindings.addAll(this.normalText());
-            keyBindings.addAll(this.numberFormat());
-            keyBindings.addAll(this.percentFormat());
-            keyBindings.addAll(this.rightTextAlign());
-            keyBindings.addAll(this.scientificFormat());
-            keyBindings.addAll(this.screenDown());
-            keyBindings.addAll(this.screenLeft());
-            keyBindings.addAll(this.screenRight());
-            keyBindings.addAll(this.screenUp());
             keyBindings.addAll(this.select());
             keyBindings.addAll(this.selectAll());
+
+            keyBindings.addAll(this.selectionUp());
+            keyBindings.addAll(this.selectionRight());
             keyBindings.addAll(this.selectionDown());
             keyBindings.addAll(this.selectionLeft());
-            keyBindings.addAll(this.selectionRight());
-            keyBindings.addAll(this.selectionUp());
-            keyBindings.addAll(this.strikeThru());
+
+            keyBindings.addAll(this.delete());
+
+            keyBindings.addAll(this.extendSelectionUp());
+            keyBindings.addAll(this.extendSelectionRight());
+            keyBindings.addAll(this.extendSelectionDown());
+            keyBindings.addAll(this.extendSelectionLeft());
+
+            keyBindings.addAll(this.extendScreenUp());
+            keyBindings.addAll(this.extendScreenRight());
+            keyBindings.addAll(this.extendScreenDown());
+            keyBindings.addAll(this.extendScreenLeft());
+
+            keyBindings.addAll(this.screenUp());
+            keyBindings.addAll(this.screenRight());
+            keyBindings.addAll(this.screenDown());
+            keyBindings.addAll(this.screenLeft());
+
+            keyBindings.addAll(this.exit());
+
+            keyBindings.addAll(this.leftTextAlign());
+            keyBindings.addAll(this.centerTextAlign());
+            keyBindings.addAll(this.rightTextAlign());
+            keyBindings.addAll(this.justifyTextAlign());
+
+            keyBindings.addAll(this.topVerticalAlign());
+            keyBindings.addAll(this.middleVerticalAlign());
+            keyBindings.addAll(this.bottomVerticalAlign());
+
+            keyBindings.addAll(this.currencyFormat());
+            keyBindings.addAll(this.generalFormat());
+            keyBindings.addAll(this.dateFormat());
+            keyBindings.addAll(this.numberFormat());
+            keyBindings.addAll(this.percentFormat());
+            keyBindings.addAll(this.scientificFormat());
             keyBindings.addAll(this.textFormat());
             keyBindings.addAll(this.timeFormat());
-            keyBindings.addAll(this.topVerticalAlign());
-            keyBindings.addAll(this.underline());
-            keyBindings.addAll(this.upperCase());
 
-            keyBindings.sort(Comparator.naturalOrder());
+
+            keyBindings.addAll(this.bold());
+            keyBindings.addAll(this.italics());
+            keyBindings.addAll(this.normalText());
+            keyBindings.addAll(this.strikeThru());
+            keyBindings.addAll(this.underline());
+
+            keyBindings.addAll(this.capitalize());
+            keyBindings.addAll(this.lowerCase());
+            keyBindings.addAll(this.upperCase());
 
             this.all = Lists.readOnly(keyBindings);
         }
@@ -536,7 +546,10 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
     }
 
     private static String selection(final Direction direction) {
-        return direction.toString();
+        return CaseKind.CAMEL.change(
+            direction.toString(),
+            CaseKind.TITLE
+        );
     }
 
     private static String extendSelection(final Direction direction) {
@@ -557,8 +570,11 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
     }
 
     private static String textTransform(final TextTransform textTransform) {
-        return textTransform.name()
-            .toLowerCase();
+        return CaseKind.CAMEL.change(
+            textTransform.name()
+                .toLowerCase(),
+            CaseKind.TITLE
+        );
     }
 
     private static String verticalAlign(final VerticalAlign verticalAlign) {
