@@ -226,6 +226,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_italic();
     }
 
+    public static MdiIcon keyboard() {
+        return Icons.keyboard_settings();
+    }
+
     public static MdiIcon labelAdd() {
         return Icons.flag_checkered();
     }
