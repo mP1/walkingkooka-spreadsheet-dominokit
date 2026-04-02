@@ -96,6 +96,8 @@ public interface Logging {
 
     boolean SPREADSHEET_IMPORTER_FETCHER = FETCHER | false;
 
+    boolean SPREADSHEET_KEYBOARD_COMPONENT_LIFECYCLE = false;
+
     boolean SPREADSHEET_KEYBOARD_EVENT_LISTENER = false;
 
     boolean SPREADSHEET_LABEL_MAPPING_COMPONENT_LIFECYCLE = false;
