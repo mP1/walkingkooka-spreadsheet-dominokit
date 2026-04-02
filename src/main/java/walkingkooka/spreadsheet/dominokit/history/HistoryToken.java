@@ -2500,6 +2500,13 @@ public abstract class HistoryToken implements HasUrlFragment {
                     );
                 }
 
+                if (this instanceof SpreadsheetKeyboardHistoryToken) {
+                    closed = spreadsheetSelect(
+                        id,
+                        name
+                    );
+                }
+
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
                     closed = spreadsheetSelect(
                         id,
@@ -2522,10 +2529,13 @@ public abstract class HistoryToken implements HasUrlFragment {
                         this instanceof SpreadsheetCellQueryHistoryToken ||
                         this instanceof SpreadsheetCellFormHistoryToken ||
                         this instanceof SpreadsheetCellFormatterHistoryToken ||
+                        this instanceof SpreadsheetCellKeyboardHistoryToken ||
                         this instanceof SpreadsheetCellLabelHistoryToken ||
                         this instanceof SpreadsheetCellLabelListHistoryToken ||
                         this instanceof SpreadsheetCellLocaleHistoryToken ||
                         this instanceof SpreadsheetCellNavigateHistoryToken ||
+                        this instanceof SpreadsheetColumnKeyboardHistoryToken ||
+                        this instanceof SpreadsheetRowKeyboardHistoryToken ||
                         this instanceof SpreadsheetColumnNavigateHistoryToken ||
                         this instanceof SpreadsheetRowNavigateHistoryToken ||
                         this instanceof SpreadsheetCellParserHistoryToken ||
