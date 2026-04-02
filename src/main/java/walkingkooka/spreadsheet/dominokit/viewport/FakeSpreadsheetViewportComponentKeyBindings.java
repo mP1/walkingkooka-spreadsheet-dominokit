@@ -19,12 +19,18 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 
+import java.util.List;
 import java.util.Set;
 
 public class FakeSpreadsheetViewportComponentKeyBindings implements SpreadsheetViewportComponentKeyBindings {
 
     public FakeSpreadsheetViewportComponentKeyBindings() {
         super();
+    }
+
+    @Override
+    public List<KeyBinding> all() {
+        throw new UnsupportedOperationException();
     }
 
     @Override

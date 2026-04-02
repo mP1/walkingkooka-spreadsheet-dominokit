@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
@@ -24,6 +25,8 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextTransform;
 import walkingkooka.tree.text.VerticalAlign;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 
 final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetViewportComponentKeyBindings {
@@ -36,6 +39,65 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
     private BasicSpreadsheetViewportComponentKeyBindings() {
         super();
     }
+
+    @Override
+    public List<KeyBinding> all() {
+        if(null == this.all) {
+            final List<KeyBinding> keyBindings = Lists.array();
+
+            keyBindings.addAll(this.bold());
+            keyBindings.addAll(this.bottomVerticalAlign());
+            keyBindings.addAll(this.capitalize());
+            keyBindings.addAll(this.centerTextAlign());
+            keyBindings.addAll(this.currencyFormat());
+            keyBindings.addAll(this.dateFormat());
+            keyBindings.addAll(this.delete());
+            keyBindings.addAll(this.exit());
+            keyBindings.addAll(this.extendScreenDown());
+            keyBindings.addAll(this.extendScreenLeft());
+            keyBindings.addAll(this.extendScreenRight());
+            keyBindings.addAll(this.extendScreenUp());
+            keyBindings.addAll(this.extendSelectionDown());
+            keyBindings.addAll(this.extendSelectionLeft());
+            keyBindings.addAll(this.extendSelectionRight());
+            keyBindings.addAll(this.extendSelectionUp());
+            keyBindings.addAll(this.generalFormat());
+            keyBindings.addAll(this.italics());
+            keyBindings.addAll(this.justifyTextAlign());
+            keyBindings.addAll(this.leftTextAlign());
+            keyBindings.addAll(this.lowerCase());
+            keyBindings.addAll(this.middleVerticalAlign());
+            keyBindings.addAll(this.normalText());
+            keyBindings.addAll(this.numberFormat());
+            keyBindings.addAll(this.percentFormat());
+            keyBindings.addAll(this.rightTextAlign());
+            keyBindings.addAll(this.scientificFormat());
+            keyBindings.addAll(this.screenDown());
+            keyBindings.addAll(this.screenLeft());
+            keyBindings.addAll(this.screenRight());
+            keyBindings.addAll(this.screenUp());
+            keyBindings.addAll(this.select());
+            keyBindings.addAll(this.selectAll());
+            keyBindings.addAll(this.selectionDown());
+            keyBindings.addAll(this.selectionLeft());
+            keyBindings.addAll(this.selectionRight());
+            keyBindings.addAll(this.selectionUp());
+            keyBindings.addAll(this.strikeThru());
+            keyBindings.addAll(this.textFormat());
+            keyBindings.addAll(this.timeFormat());
+            keyBindings.addAll(this.topVerticalAlign());
+            keyBindings.addAll(this.underline());
+            keyBindings.addAll(this.upperCase());
+
+            keyBindings.sort(Comparator.naturalOrder());
+
+            this.all = Lists.readOnly(keyBindings);
+        }
+
+        return this.all;
+    }
+
+    private List<KeyBinding> all;
 
     @Override
     public Set<KeyBinding> bold() {
