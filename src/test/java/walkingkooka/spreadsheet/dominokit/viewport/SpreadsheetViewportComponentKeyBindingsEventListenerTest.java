@@ -1998,10 +1998,10 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
         this.defaultPreventedAndCheck(event);
     }
 
-    // strikethru.......................................................................................................
+    // strikeThru.......................................................................................................
 
     @Test
-    public void testHandleEventWithStrikethruWithoutCellSelection() {
+    public void testHandleEventWithStrikeThruWithoutCellSelection() {
         final KeyboardEvent event = controlKey("5");
 
         this.handleEventAndCheck(
@@ -2016,7 +2016,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     }
 
     @Test
-    public void testHandleEventWithStrikethruWithCellSelectionMissingCell() {
+    public void testHandleEventWithStrikeThruWithCellSelectionMissingCell() {
         final KeyboardEvent event = controlKey("5");
 
         this.handleEventAndCheck(
@@ -2041,7 +2041,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     }
 
     @Test
-    public void testHandleEventWithStrikethruWithCellSelectionWithoutTextDecorationLine() {
+    public void testHandleEventWithStrikeThruWithCellSelectionWithoutTextDecorationLine() {
         final KeyboardEvent event = controlKey("5");
 
         this.handleEventAndCheck(
@@ -2067,7 +2067,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     }
 
     @Test
-    public void testHandleEventWithStrikethruWithCellSelectionWithOverline() {
+    public void testHandleEventWithStrikeThruWithCellSelectionWithOverline() {
         final KeyboardEvent event = controlKey("5");
 
         this.handleEventAndCheck(
@@ -2099,7 +2099,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListenerTest impl
     }
 
     @Test
-    public void testHandleEventWithStrikethruWithCellSelectionWithLineThrough() {
+    public void testHandleEventWithStrikeThruWithCellSelectionWithLineThrough() {
         final KeyboardEvent event = controlKey("5");
 
         this.handleEventAndCheck(

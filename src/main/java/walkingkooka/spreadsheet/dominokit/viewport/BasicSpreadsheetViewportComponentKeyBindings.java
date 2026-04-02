@@ -416,7 +416,7 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
     }
 
     @Override
-    public Set<KeyBinding> strikethru() {
+    public Set<KeyBinding> strikeThru() {
         return Sets.of(
             control(
                 "Strikethru",

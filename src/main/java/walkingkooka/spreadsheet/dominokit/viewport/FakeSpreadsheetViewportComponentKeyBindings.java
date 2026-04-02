@@ -213,7 +213,7 @@ public class FakeSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
     }
 
     @Override
-    public Set<KeyBinding> strikethru() {
+    public Set<KeyBinding> strikeThru() {
         throw new UnsupportedOperationException();
     }
 
