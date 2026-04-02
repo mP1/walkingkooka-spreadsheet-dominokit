@@ -209,6 +209,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
+                "      mdi-keyboard-settings \"Keyboard Help\" [#/1/Spreadsheet123/keyboard] id=toolbar-keyboard-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"View keyboard shortcut(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
@@ -336,6 +339,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
+                "      mdi-keyboard-settings \"Keyboard Help\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/keyboard] id=toolbar-keyboard-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"View keyboard shortcut(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
@@ -397,6 +403,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
+                "      mdi-keyboard-settings \"Keyboard Help\" [#/1/Spreadsheet123/column/B:C/right/keyboard] id=toolbar-keyboard-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"View keyboard shortcut(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"
@@ -458,6 +467,9 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-power-plug \"Plugin\" [#/plugin] id=toolbar-plugin-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Manage system plugin(s)\"\n" +
+                "      mdi-keyboard-settings \"Keyboard Help\" [#/1/Spreadsheet123/row/3:4/bottom/keyboard] id=toolbar-keyboard-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"View keyboard shortcut(s)\"\n" +
                 "      \"Swagger\" [/api-doc/index.html] _blank id=toolbar-swagger-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Click to open swagger html client\"\n"

@@ -149,6 +149,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             // plugin
             ToolbarComponentItem.plugin(context),
             // swagger
+            ToolbarComponentItem.keyboard(context),
+            // swagger
             ToolbarComponentItem.swagger(context)
         );
     }
@@ -255,6 +257,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     final static String FORMATTER_ID = TOOLBAR_ID_PREFIX + "formatter";
 
     final static String HIDE_ZERO_VALUES_ID = TOOLBAR_ID_PREFIX + "hideZeroValues";
+
+    final static String KEYBOARD_ID = TOOLBAR_ID_PREFIX + "keyboard";
 
     final static String LABEL_CREATE_ID = TOOLBAR_ID_PREFIX + "labelCreate";
 

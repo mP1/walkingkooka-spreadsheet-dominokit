@@ -141,6 +141,13 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
+     * {@link ToolbarComponentItemAnchorKeyboard}
+     */
+    static ToolbarComponentItem<?> keyboard(final ToolbarComponentContext context) {
+        return ToolbarComponentItemAnchorKeyboard.with(context);
+    }
+
+    /**
      * {@link ToolbarComponentItemAnchorLabelCreate}
      */
     static ToolbarComponentItem<?> labelCreate(final ToolbarComponentContext context) {
