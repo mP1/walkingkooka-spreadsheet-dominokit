@@ -101,7 +101,7 @@ public interface SpreadsheetViewportComponentKeyBindings {
 
     Set<KeyBinding> selectionUp();
 
-    Set<KeyBinding> strikethru();
+    Set<KeyBinding> strikeThru();
 
     Set<KeyBinding> textFormat();
 

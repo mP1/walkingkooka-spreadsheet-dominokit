@@ -157,7 +157,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
         );
 
         this.registerBindings(
-            bindings.strikethru(),
+            bindings.strikeThru(),
             this::strikethru
         );
 
