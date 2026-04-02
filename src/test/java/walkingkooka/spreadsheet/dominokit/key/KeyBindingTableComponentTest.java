@@ -64,6 +64,7 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                         KeyBinding.down("Z")
                             .setLabel("Zap")
                             .setShift()
+                            .setControl()
                     );
                 }
             }
@@ -81,17 +82,17 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                 "            TextNodeComponent\n" +
                 "              Select ALL\n" +
                 "            TextNodeComponent\n" +
-                "              A \n" +
+                "               A\n" +
                 "          ROW 1\n" +
                 "            TextNodeComponent\n" +
                 "              Bold\n" +
                 "            TextNodeComponent\n" +
-                "              B shift\n" +
+                "              shift B\n" +
                 "          ROW 2\n" +
                 "            TextNodeComponent\n" +
                 "              Zap\n" +
                 "            TextNodeComponent\n" +
-                "              Z shift\n"
+                "              control+shift Z\n"
         );
     }
 
@@ -140,22 +141,22 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                 "            TextNodeComponent\n" +
                 "              Select ALL\n" +
                 "            TextNodeComponent\n" +
-                "              A \n" +
+                "               A\n" +
                 "          ROW 1\n" +
                 "            TextNodeComponent\n" +
                 "              Zap\n" +
                 "            TextNodeComponent\n" +
-                "              Z shift\n" +
+                "              shift Z\n" +
                 "          ROW 2\n" +
                 "            TextNodeComponent\n" +
                 "              Bold\n" +
                 "            TextNodeComponent\n" +
-                "              B1 shift\n" +
+                "              shift B1\n" +
                 "          ROW 3\n" +
                 "            TextNodeComponent\n" +
                 "              Bold\n" +
                 "            TextNodeComponent\n" +
-                "              B2 shift\n"
+                "              shift B2\n"
         );
     }
 
