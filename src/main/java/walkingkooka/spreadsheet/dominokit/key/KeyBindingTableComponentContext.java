@@ -19,8 +19,12 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
+import java.util.List;
+
 /**
  * The {@link HistoryContext} for {@link KeyBindingTableComponent}.
  */
 public interface KeyBindingTableComponentContext extends HistoryContext {
+
+    List<KeyBinding> keyBindings();
 }

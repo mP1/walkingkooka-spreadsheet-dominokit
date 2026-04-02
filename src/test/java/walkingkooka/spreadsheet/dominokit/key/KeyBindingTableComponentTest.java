@@ -40,13 +40,7 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
             Optional.ofNullable(
                 Lists.of(
                     KeyBinding.down("A")
-                        .setLabel("Select ALL"),
-                    KeyBinding.down("Z")
-                        .setLabel("Zap")
-                        .setShift(),
-                    KeyBinding.down("B")
-                        .setLabel("Bold")
-                        .setShift()
+                        .setLabel("Select ALL")
                 )
             )
         );
@@ -57,6 +51,20 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString("/2/Untitled/cell/D1/key");
+                }
+
+                @Override
+                public List<KeyBinding> keyBindings() {
+                    return Lists.of(
+                        KeyBinding.down("A")
+                            .setLabel("Select ALL"),
+                        KeyBinding.down("B")
+                            .setLabel("Bold")
+                            .setShift(),
+                        KeyBinding.down("Z")
+                            .setLabel("Zap")
+                            .setShift()
+                    );
                 }
             }
         );
@@ -92,23 +100,6 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
         final KeyBindingTableComponent component = KeyBindingTableComponent.empty(
             "id123-"
         );
-        component.setValue(
-            Optional.ofNullable(
-                Lists.of(
-                    KeyBinding.down("A")
-                        .setLabel("Select ALL"),
-                    KeyBinding.down("Z")
-                        .setLabel("Zap")
-                        .setShift(),
-                    KeyBinding.down("B1")
-                        .setLabel("Bold")
-                        .setShift(),
-                    KeyBinding.down("B2")
-                        .setLabel("Bold")
-                        .setShift()
-                )
-            )
-        );
 
         component.refresh(
             new FakeKeyBindingTableComponentContext() {
@@ -116,6 +107,23 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString("/2/Untitled/cell/D1/key");
+                }
+
+                @Override
+                public List<KeyBinding> keyBindings() {
+                    return Lists.of(
+                        KeyBinding.down("A")
+                            .setLabel("Select ALL"),
+                        KeyBinding.down("Z")
+                            .setLabel("Zap")
+                            .setShift(),
+                        KeyBinding.down("B1")
+                            .setLabel("Bold")
+                            .setShift(),
+                        KeyBinding.down("B2")
+                            .setLabel("Bold")
+                            .setShift()
+                    );
                 }
             }
         );
@@ -135,19 +143,19 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
                 "              A \n" +
                 "          ROW 1\n" +
                 "            TextNodeComponent\n" +
-                "              Bold\n" +
+                "              Zap\n" +
                 "            TextNodeComponent\n" +
-                "              B1 shift\n" +
+                "              Z shift\n" +
                 "          ROW 2\n" +
                 "            TextNodeComponent\n" +
                 "              Bold\n" +
                 "            TextNodeComponent\n" +
-                "              B2 shift\n" +
+                "              B1 shift\n" +
                 "          ROW 3\n" +
                 "            TextNodeComponent\n" +
-                "              Zap\n" +
+                "              Bold\n" +
                 "            TextNodeComponent\n" +
-                "              Z shift\n"
+                "              B2 shift\n"
         );
     }
 
