@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.spreadsheet.server.currency.CurrencyCode;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 
 /**

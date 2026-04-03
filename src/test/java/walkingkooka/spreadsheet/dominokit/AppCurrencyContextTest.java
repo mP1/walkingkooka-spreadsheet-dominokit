@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContextTesting2;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.FakeCanCurrencyExchangeRate;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcherWatchers;
-import walkingkooka.spreadsheet.server.currency.CurrencyCode;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 

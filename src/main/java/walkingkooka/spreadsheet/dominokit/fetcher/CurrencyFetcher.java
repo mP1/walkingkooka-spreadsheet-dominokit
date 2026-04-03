@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPathName;
@@ -24,7 +25,6 @@ import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
-import walkingkooka.spreadsheet.server.currency.CurrencyCode;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
