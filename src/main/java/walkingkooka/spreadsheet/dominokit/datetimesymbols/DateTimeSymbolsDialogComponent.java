@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
@@ -47,7 +48,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 import java.util.List;
 import java.util.Locale;

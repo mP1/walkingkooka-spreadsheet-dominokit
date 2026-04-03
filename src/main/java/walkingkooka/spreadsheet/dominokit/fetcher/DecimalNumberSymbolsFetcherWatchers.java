@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 public final class DecimalNumberSymbolsFetcherWatchers extends FetcherWatchers<DecimalNumberSymbolsFetcherWatcher>
     implements DecimalNumberSymbolsFetcherWatcher {

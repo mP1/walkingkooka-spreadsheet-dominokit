@@ -42,6 +42,7 @@ import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -184,7 +185,6 @@ import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbols
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
