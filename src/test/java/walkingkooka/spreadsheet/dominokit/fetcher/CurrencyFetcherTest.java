@@ -18,10 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.server.currency.CurrencyCode;
 
 public final class CurrencyFetcherTest implements ClassTesting<CurrencyFetcher> {
 

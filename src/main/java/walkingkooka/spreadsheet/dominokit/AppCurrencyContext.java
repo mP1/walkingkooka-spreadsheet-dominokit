@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.ImmutableSortedSet;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
@@ -28,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.server.currency.CurrencyCode;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 
