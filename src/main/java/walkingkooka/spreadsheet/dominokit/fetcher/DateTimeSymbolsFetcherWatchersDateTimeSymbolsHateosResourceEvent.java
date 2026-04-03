@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * The event payload used by {@link DateTimeSymbolsFetcherWatchers}.

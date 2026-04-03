@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.NeverError;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
@@ -51,7 +52,6 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.text.CaseKind;
 
 import java.util.Locale;

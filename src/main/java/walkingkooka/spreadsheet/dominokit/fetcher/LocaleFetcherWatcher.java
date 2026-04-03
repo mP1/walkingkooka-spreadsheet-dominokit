@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 /**
  * A watcher that receives all {@link java.util.Locale} response events.

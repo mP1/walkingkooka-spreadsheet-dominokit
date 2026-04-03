@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit;
 import org.junit.jupiter.api.Test;
 import walkingkooka.locale.LocaleContextTesting2;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 import java.util.Locale;
 

@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResourceSet;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 
 public final class DateTimeSymbolsFetcherWatchers extends FetcherWatchers<DateTimeSymbolsFetcherWatcher>
     implements DateTimeSymbolsFetcherWatcher {

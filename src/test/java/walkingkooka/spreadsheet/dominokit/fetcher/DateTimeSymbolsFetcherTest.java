@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.server.locale.LocaleLanguageTag;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
