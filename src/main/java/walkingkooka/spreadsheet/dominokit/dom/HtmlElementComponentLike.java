@@ -161,13 +161,6 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
-    public final C addKeyPressListener(final EventListener listener) {
-        return this.addEventListener(
-            "keypress",
-            listener
-        );
-    }
-
     public final C addKeyUpListener(final EventListener listener) {
         return this.addEventListener(
             EventType.keyup.getName(),
