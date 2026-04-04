@@ -149,7 +149,6 @@ public final class LocaleDialogComponent implements DialogComponentLifecycle,
                                 .flatMap(
                                     (LocaleHateosResource lhr) -> LocaleDialogComponent.this.context.localeForLanguageTag(
                                         lhr.value()
-                                            .value()
                                     ).map(
                                         l -> LocaleComponentSuggestionsValue.with(
                                             l,

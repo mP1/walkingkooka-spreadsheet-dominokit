@@ -29,6 +29,7 @@ import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
@@ -250,7 +251,7 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     // LocaleContextDelegator...........................................................................................
 
     @Override
-    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+    public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
         Objects.requireNonNull(languageTag, "languageTag");
 
         return this.localeContext()
