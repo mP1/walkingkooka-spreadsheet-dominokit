@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -34,7 +36,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelCreateAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelCreateAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetLabelCreateAnchorComponent> {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1L);
 

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
@@ -24,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -32,7 +35,8 @@ import java.util.Optional;
  * Creates a {@link SpreadsheetLabelListAnchorComponent} that automatically updates itself when the {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} happen.
  * Attempts to setValue will throw a {@link UnsupportedOperationException}.
  */
-public final class SpreadsheetLabelListAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelListAnchorComponent, Void> {
+public final class SpreadsheetLabelListAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelListAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, Void, SpreadsheetLabelListAnchorComponent> {
 
     public static SpreadsheetLabelListAnchorComponent with(final HistoryTokenAnchorComponent anchor,
                                                            final String id,
@@ -72,10 +76,17 @@ public final class SpreadsheetLabelListAnchorComponent implements AnchorComponen
         return Optional.empty();
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Void> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     // AnchorComponentDelegator.........................................................................................
 
     @Override
-    public AnchorComponent<?, ?> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.component;
     }
 

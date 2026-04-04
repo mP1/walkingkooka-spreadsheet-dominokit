@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
@@ -24,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellReferenceListHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Objects;
@@ -33,7 +36,8 @@ import java.util.OptionalInt;
 /**
  * Creates a {@link SpreadsheetCellReferencesAnchorComponent} which will display cell reference for the given {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellReferencesAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellReferencesAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellReferencesAnchorComponent implements AnchorComponentDelegator<SpreadsheetCellReferencesAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetCellReferencesAnchorComponent> {
 
     public static SpreadsheetCellReferencesAnchorComponent with(final String id,
                                                                 final SpreadsheetCellReferencesAnchorComponentContext context) {
@@ -111,10 +115,17 @@ public final class SpreadsheetCellReferencesAnchorComponent implements AnchorCom
         return this;
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetExpressionReference> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     // AnchorComponentDelegator......................................................................................
 
     @Override
-    public AnchorComponent<?, SpreadsheetExpressionReference> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.component;
     }
 

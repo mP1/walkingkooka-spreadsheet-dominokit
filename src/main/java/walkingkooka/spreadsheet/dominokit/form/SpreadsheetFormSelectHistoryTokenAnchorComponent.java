@@ -17,17 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetFormSelectHistoryTokenAnchorComponent implements AnchorComponentDelegator<SpreadsheetFormSelectHistoryTokenAnchorComponent, SpreadsheetValidationReference> {
+public final class SpreadsheetFormSelectHistoryTokenAnchorComponent implements AnchorComponentDelegator<SpreadsheetFormSelectHistoryTokenAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, SpreadsheetValidationReference, SpreadsheetFormSelectHistoryTokenAnchorComponent> {
 
     public static SpreadsheetFormSelectHistoryTokenAnchorComponent with(final HistoryTokenAnchorComponent anchor,
                                                                         final String id,
@@ -67,10 +71,17 @@ public final class SpreadsheetFormSelectHistoryTokenAnchorComponent implements A
         return this;
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<SpreadsheetValidationReference> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     // AnchorComponentDelegator.........................................................................................
 
     @Override
-    public AnchorComponent<?, ?> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.component;
     }
 

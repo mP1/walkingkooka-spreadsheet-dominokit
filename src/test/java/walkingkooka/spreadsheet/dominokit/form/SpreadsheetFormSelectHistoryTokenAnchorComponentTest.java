@@ -17,18 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFormSelectHistoryTokenAnchorComponentTest implements AnchorComponentTesting<SpreadsheetFormSelectHistoryTokenAnchorComponent, SpreadsheetValidationReference> {
+public final class SpreadsheetFormSelectHistoryTokenAnchorComponentTest implements AnchorComponentTesting<SpreadsheetFormSelectHistoryTokenAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, SpreadsheetValidationReference, SpreadsheetFormSelectHistoryTokenAnchorComponent> {
 
     @Test
     public void testWithNullContextFails() {

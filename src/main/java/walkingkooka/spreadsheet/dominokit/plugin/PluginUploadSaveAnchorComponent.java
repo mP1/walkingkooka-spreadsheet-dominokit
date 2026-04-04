@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +33,8 @@ import java.util.Optional;
 /**
  * An anchor that maps to {@link walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken}.
  */
-public final class PluginUploadSaveAnchorComponent implements AnchorComponentDelegator<PluginUploadSaveAnchorComponent, BrowserFile> {
+public final class PluginUploadSaveAnchorComponent implements AnchorComponentDelegator<PluginUploadSaveAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, BrowserFile, PluginUploadSaveAnchorComponent> {
 
     public static PluginUploadSaveAnchorComponent empty(final String id) {
         return new PluginUploadSaveAnchorComponent()
@@ -61,10 +65,17 @@ public final class PluginUploadSaveAnchorComponent implements AnchorComponentDel
             .map(h -> h.cast(PluginUploadSaveHistoryToken.class).value());
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<BrowserFile> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     // AnchorComponentDelegator.....................................................................................
 
     @Override
-    public AnchorComponent<?, ?> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.component;
     }
 

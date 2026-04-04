@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.anchor;
 
 import elemental2.dom.HTMLAnchorElement;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentLikeTesting;
 
-public interface AnchorComponentTesting<A extends AnchorComponent<A, T>, T> extends ValueComponentTesting<HTMLAnchorElement, T, A> {
+public interface AnchorComponentTesting<A extends AnchorComponent<A>> extends ValueComponentLikeTesting<HTMLAnchorElement, A> {
 }

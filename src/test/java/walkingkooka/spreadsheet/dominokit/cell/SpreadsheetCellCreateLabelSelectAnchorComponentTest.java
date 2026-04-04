@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -30,7 +32,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellCreateLabelSelectAnchorComponentTest implements AnchorComponentTesting<SpreadsheetCellCreateLabelSelectAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellCreateLabelSelectAnchorComponentTest implements AnchorComponentTesting<SpreadsheetCellCreateLabelSelectAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetCellCreateLabelSelectAnchorComponent> {
 
     // with.............................................................................................................
 

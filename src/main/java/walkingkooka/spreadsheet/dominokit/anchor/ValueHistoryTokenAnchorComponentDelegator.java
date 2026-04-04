@@ -17,9 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
+import elemental2.dom.HTMLAnchorElement;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+
+import java.util.Objects;
 import java.util.Optional;
 
-public interface ValueHistoryTokenAnchorComponentDelegator<C extends ValueHistoryTokenAnchorComponentDelegator<C, T>, T> extends AnchorComponentDelegator<C, T> {
+public interface ValueHistoryTokenAnchorComponentDelegator<C extends ValueHistoryTokenAnchorComponentDelegator<C, T>, T> extends AnchorComponentDelegator<C>,
+    ValueComponent<HTMLAnchorElement, T, C> {
 
     @Override
     default Optional<T> value() {
@@ -34,10 +40,17 @@ public interface ValueHistoryTokenAnchorComponentDelegator<C extends ValueHistor
         return (C) this;
     }
 
+    @Override
+    default Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     ValueHistoryTokenAnchorComponent<T> valueHistoryTokenAnchorComponent();
 
     @Override
-    default AnchorComponent<?, ?> anchorComponent() {
+    default AnchorComponent<?> anchorComponent() {
         return this.valueHistoryTokenAnchorComponent();
     }
 }

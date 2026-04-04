@@ -27,7 +27,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.Optional;
 import java.util.Set;
 
-public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> extends AnchorComponent<A, T>,
+public interface AnchorComponentDelegator<A extends AnchorComponent<A>> extends AnchorComponent<A>,
     HtmlComponentDelegator<HTMLAnchorElement, A> {
 
     @Override
@@ -199,7 +199,7 @@ public interface AnchorComponentDelegator<A extends AnchorComponent<A, T>, T> ex
     /**
      * The {@link AnchorComponent} delegate target.
      */
-    AnchorComponent<?, ?> anchorComponent();
+    AnchorComponent<?> anchorComponent();
 
     // HtmlComponent.............................................................................................
 

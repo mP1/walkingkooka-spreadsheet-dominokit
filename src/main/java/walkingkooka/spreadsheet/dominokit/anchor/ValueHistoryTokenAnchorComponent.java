@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -28,7 +31,8 @@ import java.util.function.Function;
  * A ValueComponent that wraps a {@link HistoryTokenAnchorComponent}, adding additional support for setting a value via a function.
  * Decorations such as icon for the anchor must be set on the {@link HistoryTokenAnchorComponent} itself as no delegating methods are available.
  */
-public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponentDelegator<ValueHistoryTokenAnchorComponent<T>, T> {
+public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponentDelegator<ValueHistoryTokenAnchorComponent<T>>,
+    ValueComponent<HTMLAnchorElement, T, ValueHistoryTokenAnchorComponent<T>> {
 
     public static <T> ValueHistoryTokenAnchorComponent<T> with(final HistoryTokenAnchorComponent anchor,
                                                                final Function<HistoryTokenAnchorComponent, Optional<T>> getter,
@@ -78,6 +82,13 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     private final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter;
 
     @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean isDisabled() {
         return false;
     }
@@ -109,7 +120,7 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     // AnchorComponentDelegator......................................................................................
 
     @Override
-    public AnchorComponent<?, ?> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.anchor;
     }
 
