@@ -33,7 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyHistoryTokenAnchorTest implements ValueComponentTesting<HTMLAnchorElement, TextAlign, TextStylePropertyHistoryTokenAnchor<TextAlign>>,
+public final class TextStylePropertyHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, TextAlign, TextStylePropertyHistoryTokenAnchorComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting {
 
     @Test
@@ -80,7 +80,7 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
 
     @Test
     public void testSetValueWhenCellSelectHistoryTokenChange() {
-        final TextStylePropertyHistoryTokenAnchorContext context = this.createContext(
+        final TextStylePropertyHistoryTokenAnchorComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -88,7 +88,7 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
             )
         );
 
-        final TextStylePropertyHistoryTokenAnchor<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyHistoryTokenAnchorComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -106,7 +106,7 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
     }
 
     @Override
-    public TextStylePropertyHistoryTokenAnchor<TextAlign> createComponent() {
+    public TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent() {
         return this.createComponent(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
@@ -115,14 +115,14 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
         );
     }
 
-    private TextStylePropertyHistoryTokenAnchor<TextAlign> createComponent(final HistoryToken historyToken) {
+    private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final HistoryToken historyToken) {
         return this.createComponent(
             this.createContext(historyToken)
         );
     }
 
-    private TextStylePropertyHistoryTokenAnchor<TextAlign> createComponent(final TextStylePropertyHistoryTokenAnchorContext context) {
-        return TextStylePropertyHistoryTokenAnchor.with(
+    private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final TextStylePropertyHistoryTokenAnchorComponentContext context) {
+        return TextStylePropertyHistoryTokenAnchorComponent.with(
             TextStylePropertyName.TEXT_ALIGN,
             context
         ).setValue(
@@ -130,8 +130,8 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
         ).setTextContent("Left!");
     }
 
-    private TextStylePropertyHistoryTokenAnchorContext createContext(final HistoryToken historyToken) {
-        return new FakeTextStylePropertyHistoryTokenAnchorContext() {
+    private TextStylePropertyHistoryTokenAnchorComponentContext createContext(final HistoryToken historyToken) {
+        return new FakeTextStylePropertyHistoryTokenAnchorComponentContext() {
 
             @Override
             public HistoryToken historyToken() {
@@ -160,8 +160,8 @@ public final class TextStylePropertyHistoryTokenAnchorTest implements ValueCompo
     }
 
     @Override
-    public Class<TextStylePropertyHistoryTokenAnchor<TextAlign>> type() {
-        return Cast.to(TextStylePropertyHistoryTokenAnchor.class);
+    public Class<TextStylePropertyHistoryTokenAnchorComponent<TextAlign>> type() {
+        return Cast.to(TextStylePropertyHistoryTokenAnchorComponent.class);
     }
 
     @Override

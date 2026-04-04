@@ -34,20 +34,20 @@ import java.util.Optional;
  * An anchor that when clicked supports saving a value for the given constant {@link TextStylePropertyName}. The link
  * will automatically refresh as it adds itself as a {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}.
  */
-public final class TextStylePropertyHistoryTokenAnchor<V> implements ValueComponent<HTMLAnchorElement, V, TextStylePropertyHistoryTokenAnchor<V>>,
-    AnchorComponentDelegator<TextStylePropertyHistoryTokenAnchor<V>>,
+public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements ValueComponent<HTMLAnchorElement, V, TextStylePropertyHistoryTokenAnchorComponent<V>>,
+    AnchorComponentDelegator<TextStylePropertyHistoryTokenAnchorComponent<V>>,
     HasName<TextStylePropertyName<V>> {
 
-    public static <V> TextStylePropertyHistoryTokenAnchor<V> with(final TextStylePropertyName<V> textStylePropertyName,
-                                                                  final TextStylePropertyHistoryTokenAnchorContext context) {
-        return new TextStylePropertyHistoryTokenAnchor<>(
+    public static <V> TextStylePropertyHistoryTokenAnchorComponent<V> with(final TextStylePropertyName<V> textStylePropertyName,
+                                                                           final TextStylePropertyHistoryTokenAnchorComponentContext context) {
+        return new TextStylePropertyHistoryTokenAnchorComponent<>(
             Objects.requireNonNull(textStylePropertyName, "textStylePropertyName"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private TextStylePropertyHistoryTokenAnchor(final TextStylePropertyName<V> textStylePropertyName,
-                                                final TextStylePropertyHistoryTokenAnchorContext context) {
+    private TextStylePropertyHistoryTokenAnchorComponent(final TextStylePropertyName<V> textStylePropertyName,
+                                                         final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         super();
         this.textStylePropertyName = textStylePropertyName;
         this.anchor = HistoryTokenAnchorComponent.empty();
@@ -72,7 +72,7 @@ public final class TextStylePropertyHistoryTokenAnchor<V> implements ValueCompon
     }
 
     @Override
-    public TextStylePropertyHistoryTokenAnchor<V> setValue(final Optional<V> value) {
+    public TextStylePropertyHistoryTokenAnchorComponent<V> setValue(final Optional<V> value) {
         Objects.requireNonNull(value, "value");
 
         this.value = value;

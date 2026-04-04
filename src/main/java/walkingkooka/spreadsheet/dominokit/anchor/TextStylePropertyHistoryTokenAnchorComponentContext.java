@@ -17,12 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public class FakeTextStylePropertyHistoryTokenAnchorContext extends FakeHistoryContext
-    implements TextStylePropertyHistoryTokenAnchorContext {
-
-    public FakeTextStylePropertyHistoryTokenAnchorContext() {
-        super();
-    }
+public interface TextStylePropertyHistoryTokenAnchorComponentContext extends HistoryContext {
 }
