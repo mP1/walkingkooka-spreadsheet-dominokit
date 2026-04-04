@@ -112,8 +112,8 @@ public interface HistoryContext extends Context {
                 );
             }
 
-            menu.addSelectionHandler(
-                (ignored) -> this.pushHistoryToken(historyTokenOrNull)
+            menu.addSelectionListener(
+                (source, selection) -> this.pushHistoryToken(historyTokenOrNull)
             );
         }
 

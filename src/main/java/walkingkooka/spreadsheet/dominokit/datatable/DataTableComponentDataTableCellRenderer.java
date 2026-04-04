@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.datatable;
 
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.datatable.CellRenderer;
+import org.dominokit.domino.ui.datatable.RowCell;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 /**
@@ -41,10 +42,10 @@ final class DataTableComponentDataTableCellRenderer<T> implements CellRenderer<T
     }
 
     @Override
-    public Node asElement(final CellInfo<T> cellInfo) {
+    public Node asElement(final RowCell<T> rowCell) {
         return this.cellRenderer.render(
             this.columnNumber,
-            cellInfo.getRecord()
+            rowCell.getRecord()
         ).node();
     }
 
