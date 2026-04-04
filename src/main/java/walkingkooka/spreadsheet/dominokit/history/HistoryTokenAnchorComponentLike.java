@@ -31,8 +31,11 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuTarg
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponentTarget;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,7 +43,8 @@ import java.util.stream.Collectors;
 /**
  * Defines the public methods for a {@link HistoryTokenAnchorComponent}.
  */
-abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent, HistoryToken>,
+abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<HistoryTokenAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, HistoryToken, HistoryTokenAnchorComponent>,
     SpreadsheetContextMenuTarget<HTMLAnchorElement>,
     HasEventListeners<HistoryToken, HistoryTokenAnchorComponent>,
     TooltipComponentTarget<HTMLAnchorElement, HistoryTokenAnchorComponent> {
@@ -59,6 +63,13 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     @Override
     public final HistoryTokenAnchorComponent setValue(final Optional<HistoryToken> value) {
         return this.setHistoryToken(value);
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<HistoryToken> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
     }
 
     // HasEventListeners................................................................................................

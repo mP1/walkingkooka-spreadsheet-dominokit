@@ -17,18 +17,23 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
  * An anchor that when clicked displays a file browser to select a file to upload.
  */
-public final class PluginUploadSelectAnchorComponent implements AnchorComponentDelegator<PluginUploadSelectAnchorComponent, Boolean> {
+public final class PluginUploadSelectAnchorComponent implements AnchorComponentDelegator<PluginUploadSelectAnchorComponent>,
+    ValueComponent<HTMLAnchorElement, Boolean, PluginUploadSelectAnchorComponent> {
 
     public static PluginUploadSelectAnchorComponent empty(final String id) {
         return new PluginUploadSelectAnchorComponent()
@@ -71,10 +76,17 @@ public final class PluginUploadSelectAnchorComponent implements AnchorComponentD
         );
     }
 
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<Boolean> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        throw new UnsupportedOperationException();
+    }
+
     // AnchorComponentDelegator.....................................................................................
 
     @Override
-    public AnchorComponent<?, ?> anchorComponent() {
+    public AnchorComponent<?> anchorComponent() {
         return this.component;
     }
 

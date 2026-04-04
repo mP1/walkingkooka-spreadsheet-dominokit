@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.label;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -26,12 +27,14 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelListAnchorComponent, Void> {
+public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelListAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, Void, SpreadsheetLabelListAnchorComponent> {
 
     @Test
     public void testWithNullContextFails() {

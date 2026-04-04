@@ -17,11 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.cell;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -30,7 +32,8 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellReferencesAnchorComponentTest implements AnchorComponentTesting<SpreadsheetCellReferencesAnchorComponent, SpreadsheetExpressionReference> {
+public final class SpreadsheetCellReferencesAnchorComponentTest implements AnchorComponentTesting<SpreadsheetCellReferencesAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetCellReferencesAnchorComponent> {
 
     @Test
     public void testWithNullContextFails() {

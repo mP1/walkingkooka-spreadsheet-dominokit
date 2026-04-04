@@ -115,7 +115,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
         this.refreshClearUndoClose();
     }
 
-    private void appendChildIfNotNull(final AnchorComponent<?, ?> child) {
+    private void appendChildIfNotNull(final AnchorComponent<?> child) {
         if (null != child) {
             this.list.appendChild(child);
         }
@@ -209,7 +209,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
     // appendChild......................................................................................................
 
-    public DialogAnchorListComponent<T> appendChild(final AnchorComponent<?, ?> child) {
+    public DialogAnchorListComponent<T> appendChild(final AnchorComponent<?> child) {
         Objects.requireNonNull(child, "child");
 
         this.children.add(child);
@@ -217,7 +217,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
         return this;
     }
 
-    private final List<AnchorComponent<?, ?>> children = Lists.array();
+    private final List<AnchorComponent<?>> children = Lists.array();
 
     // HistoryTokenWatcher..............................................................................................
 

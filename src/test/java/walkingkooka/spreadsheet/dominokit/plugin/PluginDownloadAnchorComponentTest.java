@@ -17,15 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.plugin;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
 
-public final class PluginDownloadAnchorComponentTest implements AnchorComponentTesting<PluginDownloadAnchorComponent, PluginDownload> {
+public final class PluginDownloadAnchorComponentTest implements AnchorComponentTesting<PluginDownloadAnchorComponent>,
+    ValueComponentTesting<HTMLAnchorElement, PluginDownload, PluginDownloadAnchorComponent> {
 
     @Test
     public void testClearValue() {

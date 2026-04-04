@@ -20,8 +20,7 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.net.Url;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentLike;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -31,7 +30,7 @@ import java.util.Set;
 /**
  * Defines some operations common to all anchor and anchor like components.
  */
-public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends ValueComponent<HTMLAnchorElement, T, A> {
+public interface AnchorComponent<A extends AnchorComponent<A>> extends ValueComponentLike<HTMLAnchorElement, A> {
 
     @Override
     default boolean isDisabled() {
@@ -141,15 +140,6 @@ public interface AnchorComponent<A extends AnchorComponent<A, T>, T> extends Val
 
     @Override
     default A removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
-    // Value............................................................................................................
-
-    @Override
-    default Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
         throw new UnsupportedOperationException();
     }
 }

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
@@ -25,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -36,7 +38,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorComponentTesting<HistoryTokenSaveValueAnchorComponent<Color>, Color> {
+public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorComponentTesting<HistoryTokenSaveValueAnchorComponent<Color>>,
+    ValueComponentTesting<HTMLAnchorElement, Color, HistoryTokenSaveValueAnchorComponent<Color>> {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
