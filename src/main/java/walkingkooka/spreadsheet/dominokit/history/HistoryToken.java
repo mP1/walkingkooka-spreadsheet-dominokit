@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
 import walkingkooka.Value;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyCodeLanguageTagContext;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyLocaleContext;
@@ -334,9 +335,11 @@ public abstract class HistoryToken implements HasUrlFragment {
             ExpressionNumberKind.BIG_DECIMAL,
             new CurrencyCodeLanguageTagContext() {
                 @Override
-                public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+                public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
                     return Optional.ofNullable(
-                        Currency.getInstance(currencyCode)
+                        Currency.getInstance(
+                            currencyCode.value()
+                        )
                     );
                 }
 
@@ -4413,7 +4416,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
                                             value,
-                                            CURRENCY_LOCALE_CONTEXT::currencyForCurrencyCodeOrFail
+                                            (String currencyCode) -> CURRENCY_LOCALE_CONTEXT.currencyForCurrencyCodeOrFail(
+                                                CurrencyCode.parse(currencyCode)
+                                            )
                                         )
                                     );
                                 }
@@ -4699,11 +4704,13 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     private final static CurrencyLocaleContext CURRENCY_LOCALE_CONTEXT = new FakeCurrencyLocaleContext() {
         @Override
-        public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+        public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
             Currency currency;
 
             try {
-                currency = Currency.getInstance(currencyCode);
+                currency = Currency.getInstance(
+                    currencyCode.value()
+                );
             } catch (final RuntimeException ignore) {
                 currency = null;
             }

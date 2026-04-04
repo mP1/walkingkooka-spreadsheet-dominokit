@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.currency;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -86,7 +87,7 @@ public class FakeCurrencyDialogComponentContext extends FakeDialogComponentConte
     }
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 

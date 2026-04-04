@@ -752,7 +752,7 @@ public class App implements EntryPoint,
     // CurrencyContextDelegator.........................................................................................
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         return this.currencyContext()
             .currencyForCurrencyCode(currencyCode);
     }

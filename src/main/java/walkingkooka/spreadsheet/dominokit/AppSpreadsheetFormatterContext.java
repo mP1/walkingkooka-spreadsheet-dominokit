@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
@@ -188,7 +189,7 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     // CurrencyContextDelegator.........................................................................................
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         Objects.requireNonNull(currencyCode, "currencyCode");
 
         return this.currencyContext()

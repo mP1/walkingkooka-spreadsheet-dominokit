@@ -130,8 +130,7 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
 
         for (final CurrencyHateosResource currencyHateosResource : currencys) {
             final Currency currency = this.currencyForCurrencyCode(
-                currencyHateosResource.value()
-                    .value() // currencyCode
+                currencyHateosResource.value() // currencyCode
             ).orElse(null);
 
             if (null != currency) {

@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.reference;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
@@ -152,7 +153,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
     }
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 
