@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -96,7 +97,7 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshCon
     }
 
     @Override
-    public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+    public Set<Locale> localesForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 
