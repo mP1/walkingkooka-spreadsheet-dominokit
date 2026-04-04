@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
@@ -295,7 +296,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
-    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+    public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
         throw new UnsupportedOperationException();
     }
 

@@ -25,6 +25,7 @@ import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.environment.EnvironmentValueWatcher;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
@@ -574,13 +575,15 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+    public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
         Objects.requireNonNull(languageTag, "languageTag");
 
         Locale locale;
 
         try {
-            locale = Locale.forLanguageTag(languageTag);
+            locale = Locale.forLanguageTag(
+                languageTag.value()
+            );
         } catch (final IllegalArgumentException cause) {
             locale = null;
         }

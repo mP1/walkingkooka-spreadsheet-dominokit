@@ -24,6 +24,7 @@ import walkingkooka.currency.CurrencyCodeLanguageTagContext;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyLocaleContext;
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.naming.ValueName;
 import walkingkooka.net.HasUrlFragment;
@@ -344,9 +345,11 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
 
                 @Override
-                public Optional<Locale> localeForLanguageTag(final String languageTag) {
+                public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
                     return Optional.of(
-                        Locale.forLanguageTag(languageTag)
+                        Locale.forLanguageTag(
+                            languageTag.value()
+                        )
                     );
                 }
             },
@@ -4510,7 +4513,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
                                             value,
-                                            CURRENCY_LOCALE_CONTEXT::localeForLanguageTagOrFail
+                                            (String text) -> CURRENCY_LOCALE_CONTEXT.localeForLanguageTagOrFail(
+                                                LocaleLanguageTag.parse(text)
+                                            )
                                         )
                                     );
                                 }
@@ -4719,9 +4724,11 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         @Override
-        public Optional<Locale> localeForLanguageTag(final String languageTag) {
+        public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
             return Optional.of(
-                Locale.forLanguageTag(languageTag)
+                Locale.forLanguageTag(
+                    languageTag.value()
+                )
             );
         }
     };

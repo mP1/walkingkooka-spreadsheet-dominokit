@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.locale;
 
 import walkingkooka.datetime.DateTimeSymbols;
+import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -93,7 +94,7 @@ public class FakeLocaleDialogComponentContext extends FakeDialogComponentContext
     }
 
     @Override
-    public Optional<Locale> localeForLanguageTag(final String languageTag) {
+    public Optional<Locale> localeForLanguageTag(final LocaleLanguageTag languageTag) {
         throw new UnsupportedOperationException();
     }
 
