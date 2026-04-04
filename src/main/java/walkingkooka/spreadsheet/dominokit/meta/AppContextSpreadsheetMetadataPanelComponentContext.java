@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -46,7 +47,7 @@ final class AppContextSpreadsheetMetadataPanelComponentContext implements Spread
     }
 
     @Override
-    public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+    public Set<Locale> localesForCurrencyCode(final CurrencyCode currencyCode) {
         return this.context.localesForCurrencyCode(currencyCode);
     }
 

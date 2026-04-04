@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.forms.suggest.SelectOption;
 import walkingkooka.Context;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContexts;
 
 import java.util.Currency;
@@ -89,7 +90,7 @@ public interface HistoryContext extends Context {
                 final Currency currency = (Currency) valueOrNull;
                 anchor.setFlags(
                     HistoryContextMenuItem.CURRENCY_CONTEXT.localesForCurrencyCode(
-                            currency.getCurrencyCode()
+                            CurrencyCode.fromCurrency(currency)
                         ).stream()
                         .map(Locale::getCountry)
                         .collect(

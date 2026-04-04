@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import walkingkooka.collect.set.SortedSets;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -51,8 +52,9 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
             .getIgnoringDefaults(SpreadsheetMetadataPropertyName.CURRENCY);
 
         this.anchor.setFlags(
-                currency.map(c -> context.localesForCurrencyCode(c.getCurrencyCode())
-                    .stream()
+            currency.map(c -> context.localesForCurrencyCode(
+                        CurrencyCode.fromCurrency(c)
+                    ).stream()
                     .map(Locale::getCountry)
                     .collect(
                         Collectors.toCollection(
@@ -61,7 +63,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
                             )
                         )
                     )
-                ).orElse(SortedSets.empty())
+            ).orElse(SortedSets.empty())
         );
 
         if(currency.isPresent()) {

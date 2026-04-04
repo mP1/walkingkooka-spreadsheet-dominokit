@@ -168,7 +168,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentConte
     }
 
     @Override
-    public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+    public Set<Locale> localesForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 

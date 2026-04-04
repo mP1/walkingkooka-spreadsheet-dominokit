@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -68,7 +69,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
             }
 
             @Override
-            public Set<Locale> localesForCurrencyCode(final String currencyCode) {
+            public Set<Locale> localesForCurrencyCode(final CurrencyCode currencyCode) {
                 return CURRENCY_CONTEXT.localesForCurrencyCode(currencyCode);
             }
 
