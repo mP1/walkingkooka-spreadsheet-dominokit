@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.plugin.ProviderContext;
@@ -226,7 +227,7 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 

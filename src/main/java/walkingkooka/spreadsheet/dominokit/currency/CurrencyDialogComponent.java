@@ -149,7 +149,6 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
                                 .flatMap(
                                     (CurrencyHateosResource chr) -> CurrencyDialogComponent.this.context.currencyForCurrencyCode(
                                         chr.value()
-                                            .value()
                                     ).map(
                                         c -> CurrencyComponentSuggestionsValue.with(
                                             c,

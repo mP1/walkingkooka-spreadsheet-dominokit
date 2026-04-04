@@ -21,6 +21,7 @@ import walkingkooka.Either;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.environment.EnvironmentValueWatcher;
@@ -515,7 +516,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public Optional<Currency> currencyForCurrencyCode(final String currencyCode) {
+    public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 
