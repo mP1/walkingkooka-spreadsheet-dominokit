@@ -88,6 +88,19 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
         );
     }
 
+    @Test
+    public void testWithNullContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyHistoryTokenAnchorComponent.with(
+                ID_PREFIX,
+                PROPERTY_NAME,
+                VALUE,
+                null
+            )
+        );
+    }
+
     // setValue.........................................................................................................
 
     @Test
