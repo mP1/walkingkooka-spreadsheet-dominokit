@@ -21,6 +21,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
+import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
@@ -32,13 +33,15 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, TextAlign, TextStylePropertyHistoryTokenAnchorComponent<TextAlign>>,
-    ComponentLifecycleMatcherTesting {
+    ComponentLifecycleMatcherTesting,
+    HashCodeEqualsDefinedTesting2<TextStylePropertyHistoryTokenAnchorComponent> {
 
     // with.............................................................................................................
 
@@ -230,6 +233,34 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
             private final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
         };
     }
+
+    // hashCode/equals..................................................................................................
+
+    @Test
+    public void testEqualsDifferentTextStylePropertyName() {
+        this.checkNotEquals(
+            TextStylePropertyHistoryTokenAnchorComponent.with(
+                "TestID123-",
+                TextStylePropertyName.VERTICAL_ALIGN,
+                Optional.of(
+                    VerticalAlign.TOP
+                ),
+                this.createContext(
+                    HistoryToken.spreadsheetSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME
+                    )
+                )
+            ).setTextContent("Left!")
+        );
+    }
+
+    @Override
+    public TextStylePropertyHistoryTokenAnchorComponent createObject() {
+        return this.createComponent();
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<TextStylePropertyHistoryTokenAnchorComponent<TextAlign>> type() {
