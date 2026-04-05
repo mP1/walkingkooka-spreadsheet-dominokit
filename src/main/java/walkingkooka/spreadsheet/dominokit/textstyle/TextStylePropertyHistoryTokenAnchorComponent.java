@@ -15,12 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.anchor;
+package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;

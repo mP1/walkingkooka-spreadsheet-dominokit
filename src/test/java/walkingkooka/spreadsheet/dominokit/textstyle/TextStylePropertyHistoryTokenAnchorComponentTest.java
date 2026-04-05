@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.anchor;
+package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
