@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
@@ -25,6 +26,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
@@ -62,6 +64,12 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             ) + "!!"
     ).orElse("Clear!");
 
+    private final static Function<Optional<TextAlign>, Optional<Icon<?>>> VALUE_TO_ICON = (Optional<TextAlign> value) -> Optional.ofNullable(
+        value.isEmpty() ?
+            SpreadsheetIcons.clearStyle() :
+            null
+    );
+
     private final static TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext CONTEXT = new FakeTextStylePropertyNameEnumHistoryTokenAnchorListComponentContext();
 
     // with.............................................................................................................
@@ -75,6 +83,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 PROPERTY_NAME,
                 VALUES,
                 VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 CONTEXT
             )
         );
@@ -89,6 +98,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 PROPERTY_NAME,
                 VALUES,
                 VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 CONTEXT
             )
         );
@@ -103,6 +113,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 null,
                 VALUES,
                 VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 CONTEXT
             )
         );
@@ -117,6 +128,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 PROPERTY_NAME,
                 null,
                 VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 CONTEXT
             )
         );
@@ -130,6 +142,22 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 ID_PREFIX,
                 PROPERTY_NAME,
                 VALUES,
+                null,
+                VALUE_TO_ICON,
+                CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullValueToIconFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+                ID_PREFIX,
+                PROPERTY_NAME,
+                VALUES,
+                VALUE_TO_TEXT,
                 null,
                 CONTEXT
             )
@@ -145,6 +173,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 PROPERTY_NAME,
                 VALUES,
                 VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 null
             )
         );
@@ -166,7 +195,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
                 "        \"Left!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
                 "        \"Center!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
                 "        \"Right!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
@@ -189,7 +218,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear!\" DISABLED id=TestId123textAlign-Link\n" +
+                "        mdi-format-clear \"Clear!\" DISABLED id=TestId123textAlign-Link\n" +
                 "        \"Left!!\" DISABLED id=TestId123textAlign-LEFT-Link\n" +
                 "        \"Center!!\" DISABLED id=TestId123textAlign-CENTER-Link\n" +
                 "        \"Right!!\" DISABLED id=TestId123textAlign-RIGHT-Link\n" +
@@ -210,7 +239,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
                 "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
                 "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
                 "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
@@ -245,7 +274,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
                 "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
                 "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
                 "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
@@ -274,6 +303,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             PROPERTY_NAME,
             VALUES,
             VALUE_TO_TEXT,
+            VALUE_TO_ICON,
             context
         );
     }
