@@ -21,7 +21,6 @@ import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
@@ -34,8 +33,9 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * An anchor that when clicked supports saving a value for the given constant {@link TextStylePropertyName}. The link
- * will automatically refresh as it adds itself as a {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}.
+ * An anchor that when clicked supports saving a value including {@link Optional#empty()} for the given constant
+ * {@link TextStylePropertyName}. The link will automatically refresh as it adds itself as a {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}.
+ * Note the value cannot be changed.
  */
 public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements ValueComponent<HTMLAnchorElement, V, TextStylePropertyHistoryTokenAnchorComponent<V>>,
     AnchorComponentDelegator<TextStylePropertyHistoryTokenAnchorComponent<V>>,
@@ -43,21 +43,24 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
 
     public static <V> TextStylePropertyHistoryTokenAnchorComponent<V> with(final String idPrefix,
                                                                            final TextStylePropertyName<V> textStylePropertyName,
+                                                                           final Optional<V> value,
                                                                            final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return new TextStylePropertyHistoryTokenAnchorComponent<>(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(textStylePropertyName, "textStylePropertyName"),
+            Objects.requireNonNull(value, "value"),
             Objects.requireNonNull(context, "context")
         );
     }
 
     private TextStylePropertyHistoryTokenAnchorComponent(final String idPrefix,
                                                          final TextStylePropertyName<V> textStylePropertyName,
+                                                         final Optional<V> value,
                                                          final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         super();
         this.textStylePropertyName = textStylePropertyName;
 
-        // Test123-textAlign-Link
+        // Test123-textAlign-LEFT-Link
         this.anchor = HistoryTokenAnchorComponent.empty()
             .setId(
                 idPrefix +
@@ -65,15 +68,32 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
                         textStylePropertyName.value(),
                         CaseKind.CAMEL
                     ) +
+                    value.map(
+                        v -> "-" + v
+                    ).orElse("") +
                     SpreadsheetElementIds.LINK
             );
-        this.value = Optional.empty();
+        this.value = value;
 
         this.context = context;
         context.addHistoryTokenWatcher(
-            (final HistoryToken previous, final AppContext appContext) -> this.setValue(this.value)
+            (final HistoryToken previous, final AppContext appContext) -> this.refreshAnchor()
+        );
+
+        this.refreshAnchor();
+    }
+
+    private void refreshAnchor() {
+        this.anchor.setValue(
+            Optional.of(
+                this.context.historyToken()
+                    .setStylePropertyName(this.textStylePropertyName)
+                    .setSaveValue(this.value)
+            ).filter(HistoryToken::isSave)
         );
     }
+
+    private final TextStylePropertyHistoryTokenAnchorComponentContext context;
 
     @Override
     public TextStylePropertyName<V> name() {
@@ -87,26 +107,14 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
         return this.value;
     }
 
+    private Optional<V> value;
+
     @Override
     public TextStylePropertyHistoryTokenAnchorComponent<V> setValue(final Optional<V> value) {
         Objects.requireNonNull(value, "value");
 
-        this.value = value;
-        this.anchor.setValue(
-            value.map(
-                v -> context.historyToken()
-                    .setStylePropertyName(this.textStylePropertyName)
-                    .setSaveValue(
-                        Optional.of(v)
-                    )
-            ).filter(HistoryToken::isSave)
-        );
-        return this;
+        throw new UnsupportedOperationException();
     }
-
-    private Optional<V> value;
-
-    private final HistoryContext context;
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<V> watcher) {
