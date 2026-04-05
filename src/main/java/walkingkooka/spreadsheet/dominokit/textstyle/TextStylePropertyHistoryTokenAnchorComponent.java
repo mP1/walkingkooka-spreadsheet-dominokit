@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLAnchorElement;
+import walkingkooka.Cast;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -134,6 +135,22 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
     private final HistoryTokenAnchorComponent anchor;
 
     // Object...........................................................................................................
+
+    @Override
+    public int hashCode() {
+        return this.anchor.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other ||
+            other instanceof TextStylePropertyHistoryTokenAnchorComponent &&
+                this.equals0(Cast.to(other));
+    }
+
+    private boolean equals0(final TextStylePropertyHistoryTokenAnchorComponent<?> other) {
+        return this.anchor.equals(other.anchor);
+    }
 
     @Override
     public String toString() {
