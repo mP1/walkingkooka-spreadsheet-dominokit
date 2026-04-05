@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -38,12 +39,14 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                                                                                        final TextStylePropertyName<T> propertyName,
                                                                                        final List<T> values,
                                                                                        final Function<Optional<T>, String> valueToText,
+                                                                                       final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
                                                                                        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
         return new TextStylePropertyNameEnumHistoryTokenAnchorListComponent<>(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(propertyName, "propertyName"),
             Objects.requireNonNull(values, "values"),
             Objects.requireNonNull(valueToText, "valueToText"),
+            Objects.requireNonNull(valueToIcon, "valueToIcon"),
             Objects.requireNonNull(context, "context")
         );
     }
@@ -52,6 +55,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                                                                      final TextStylePropertyName<T> propertyName,
                                                                      final List<T> values,
                                                                      final Function<Optional<T>, String> valueToText,
+                                                                     final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
                                                                      final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
         super();
 
@@ -65,7 +69,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                     idPrefix,
                     propertyName,
                     optionalValue,
-                    TextStylePropertyHistoryTokenAnchorComponent.NO_ICON,
+                    valueToIcon.apply(optionalValue),
                     context
                 ).setTextContent(
                     valueToText.apply(optionalValue)
