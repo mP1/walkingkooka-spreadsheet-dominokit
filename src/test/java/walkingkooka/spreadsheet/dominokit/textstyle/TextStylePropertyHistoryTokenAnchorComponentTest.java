@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
-import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -43,6 +42,11 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     ComponentLifecycleMatcherTesting,
     HashCodeEqualsDefinedTesting2<TextStylePropertyHistoryTokenAnchorComponent> {
 
+    private final static String ID_PREFIX = "TestID123-";
+    private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
+    private final static Optional<TextAlign> VALUE = Optional.of(TextAlign.LEFT);
+    private final static TextStylePropertyHistoryTokenAnchorComponentContext CONTEXT = new FakeTextStylePropertyHistoryTokenAnchorComponentContext();
+
     // with.............................................................................................................
 
     @Test
@@ -51,9 +55,9 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
             NullPointerException.class,
             () -> TextStylePropertyHistoryTokenAnchorComponent.with(
                 null,
-                TextStylePropertyName.COLOR,
-                Optional.of(Color.BLACK),
-                new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
+                PROPERTY_NAME,
+                VALUE,
+                CONTEXT
             )
         );
     }
@@ -64,9 +68,9 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
             EmptyTextException.class,
             () -> TextStylePropertyHistoryTokenAnchorComponent.with(
                 "",
-                TextStylePropertyName.COLOR,
-                Optional.of(Color.BLACK),
-                new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
+                PROPERTY_NAME,
+                VALUE,
+                CONTEXT
             )
         );
     }
@@ -76,10 +80,10 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
         assertThrows(
             NullPointerException.class,
             () -> TextStylePropertyHistoryTokenAnchorComponent.with(
+                ID_PREFIX,
+                PROPERTY_NAME,
                 null,
-                TextStylePropertyName.COLOR,
-                null,
-                new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
+                CONTEXT
             )
         );
     }
@@ -190,7 +194,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
 
     private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return this.createComponent(
-            Optional.of(TextAlign.LEFT),
+            VALUE,
             context
         );
     }
@@ -198,8 +202,8 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final Optional<TextAlign> value,
                                                                                     final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return TextStylePropertyHistoryTokenAnchorComponent.with(
-            "TestID123-",
-            TextStylePropertyName.TEXT_ALIGN,
+            ID_PREFIX,
+            PROPERTY_NAME,
             value,
             context
         ).setTextContent("Left!");
@@ -240,7 +244,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     public void testEqualsDifferentTextStylePropertyName() {
         this.checkNotEquals(
             TextStylePropertyHistoryTokenAnchorComponent.with(
-                "TestID123-",
+                ID_PREFIX,
                 TextStylePropertyName.VERTICAL_ALIGN,
                 Optional.of(
                     VerticalAlign.TOP
