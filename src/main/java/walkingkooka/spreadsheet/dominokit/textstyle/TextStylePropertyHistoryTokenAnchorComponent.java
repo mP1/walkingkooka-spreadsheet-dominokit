@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -43,14 +44,18 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
     AnchorComponentDelegator<TextStylePropertyHistoryTokenAnchorComponent<V>>,
     HasName<TextStylePropertyName<V>> {
 
+    public final static Optional<Icon<?>> NO_ICON = Optional.empty();
+
     public static <V> TextStylePropertyHistoryTokenAnchorComponent<V> with(final String idPrefix,
                                                                            final TextStylePropertyName<V> textStylePropertyName,
                                                                            final Optional<V> value,
+                                                                           final Optional<Icon<?>> icon,
                                                                            final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return new TextStylePropertyHistoryTokenAnchorComponent<>(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(textStylePropertyName, "textStylePropertyName"),
             Objects.requireNonNull(value, "value"),
+            Objects.requireNonNull(icon, "icon"),
             Objects.requireNonNull(context, "context")
         );
     }
@@ -58,6 +63,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
     private TextStylePropertyHistoryTokenAnchorComponent(final String idPrefix,
                                                          final TextStylePropertyName<V> textStylePropertyName,
                                                          final Optional<V> value,
+                                                         final Optional<Icon<?>> icon,
                                                          final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         super();
         this.textStylePropertyName = textStylePropertyName;
@@ -74,7 +80,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
                         v -> "-" + v
                     ).orElse("") +
                     SpreadsheetElementIds.LINK
-            );
+            ).setIconBefore(icon);
         this.value = value;
 
         this.context = context;

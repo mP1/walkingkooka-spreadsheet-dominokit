@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLAnchorElement;
+import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
@@ -25,6 +26,7 @@ import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
@@ -45,6 +47,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     private final static String ID_PREFIX = "TestID123-";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
     private final static Optional<TextAlign> VALUE = Optional.of(TextAlign.LEFT);
+    private final static Optional<Icon<?>> ICON = TextStylePropertyHistoryTokenAnchorComponent.NO_ICON;
     private final static TextStylePropertyHistoryTokenAnchorComponentContext CONTEXT = new FakeTextStylePropertyHistoryTokenAnchorComponentContext();
 
     // with.............................................................................................................
@@ -57,6 +60,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 null,
                 PROPERTY_NAME,
                 VALUE,
+                ICON,
                 CONTEXT
             )
         );
@@ -70,6 +74,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 "",
                 PROPERTY_NAME,
                 VALUE,
+                ICON,
                 CONTEXT
             )
         );
@@ -83,6 +88,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 ID_PREFIX,
                 PROPERTY_NAME,
                 null,
+                ICON,
                 CONTEXT
             )
         );
@@ -96,6 +102,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 ID_PREFIX,
                 PROPERTY_NAME,
                 VALUE,
+                ICON,
                 null
             )
         );
@@ -114,6 +121,26 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 )
             ),
             "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
+        );
+    }
+
+    @Test
+    public void testTreePrintWhenCellSelectHistoryTokenWithIcon() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                VALUE,
+                Optional.of(
+                    SpreadsheetIcons.alignLeft()
+                ),
+                this.createContext(
+                    HistoryToken.cellSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    )
+                )
+            ),
+            "mdi-format-align-left \"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
@@ -214,10 +241,21 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
 
     private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final Optional<TextAlign> value,
                                                                                     final TextStylePropertyHistoryTokenAnchorComponentContext context) {
+        return this.createComponent(
+            value,
+            ICON,
+            context
+        );
+    }
+
+    private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final Optional<TextAlign> value,
+                                                                                    final Optional<Icon<?>> icon,
+                                                                                    final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return TextStylePropertyHistoryTokenAnchorComponent.with(
             ID_PREFIX,
             PROPERTY_NAME,
             value,
+            icon,
             context
         ).setTextContent("Left!");
     }
@@ -262,6 +300,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                 Optional.of(
                     VerticalAlign.TOP
                 ),
+                ICON,
                 this.createContext(
                     HistoryToken.spreadsheetSelect(
                         SPREADSHEET_ID,

@@ -65,6 +65,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                     idPrefix,
                     propertyName,
                     optionalValue,
+                    TextStylePropertyHistoryTokenAnchorComponent.NO_ICON,
                     context
                 ).setTextContent(
                     valueToText.apply(optionalValue)
