@@ -21,6 +21,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.direction.DropDirection;
 import org.junit.jupiter.api.Test;
+import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
@@ -38,7 +39,8 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement> {
+public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement>,
+    HashCodeEqualsDefinedTesting2<HistoryTokenAnchorComponent> {
 
     // setCount.........................................................................................................
 
@@ -380,6 +382,35 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
                 "  TooltipComponent\n" +
                 "    \"Tooltip123\"\n"
         );
+    }
+
+    // hashCode/equals..................................................................................................
+
+    @Test
+    public void testEqualsDifferentHref() {
+        this.checkNotEquals(
+            this.createObject()
+                .setHref(
+                    Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/Different")
+                )
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentTextContent() {
+        this.checkNotEquals(
+            this.createObject()
+                .setTextContent("Different")
+        );
+    }
+
+    @Override
+    public HistoryTokenAnchorComponent createObject() {
+        return HistoryTokenAnchorComponent.empty()
+            .setTextContent("Hello")
+            .setHref(
+                Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
+            );
     }
 
     // ClassTesting.....................................................................................................

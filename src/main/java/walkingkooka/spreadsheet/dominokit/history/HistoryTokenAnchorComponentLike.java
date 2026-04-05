@@ -21,6 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLAnchorElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.net.HasUrlFragment;
@@ -204,6 +205,22 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     }
 
     // Object...........................................................................................................
+
+    @Override
+    public final int hashCode() {
+        return this.toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other ||
+            other instanceof HistoryTokenAnchorComponent &&
+                this.equals0(Cast.to(other));
+    }
+
+    private boolean equals0(final HistoryTokenAnchorComponent other) {
+        return this.toString().equals(other.toString());
+    }
 
     // "    test-clipboard-cut-formula-MenuItem \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula]\n" +
 
