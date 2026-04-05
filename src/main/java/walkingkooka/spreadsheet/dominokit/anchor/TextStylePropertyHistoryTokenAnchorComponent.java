@@ -20,11 +20,14 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 import elemental2.dom.HTMLAnchorElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -38,19 +41,32 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
     AnchorComponentDelegator<TextStylePropertyHistoryTokenAnchorComponent<V>>,
     HasName<TextStylePropertyName<V>> {
 
-    public static <V> TextStylePropertyHistoryTokenAnchorComponent<V> with(final TextStylePropertyName<V> textStylePropertyName,
+    public static <V> TextStylePropertyHistoryTokenAnchorComponent<V> with(final String idPrefix,
+                                                                           final TextStylePropertyName<V> textStylePropertyName,
                                                                            final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return new TextStylePropertyHistoryTokenAnchorComponent<>(
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(textStylePropertyName, "textStylePropertyName"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private TextStylePropertyHistoryTokenAnchorComponent(final TextStylePropertyName<V> textStylePropertyName,
+    private TextStylePropertyHistoryTokenAnchorComponent(final String idPrefix,
+                                                         final TextStylePropertyName<V> textStylePropertyName,
                                                          final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         super();
         this.textStylePropertyName = textStylePropertyName;
-        this.anchor = HistoryTokenAnchorComponent.empty();
+
+        // Test123-textAlign-Link
+        this.anchor = HistoryTokenAnchorComponent.empty()
+            .setId(
+                idPrefix +
+                    CaseKind.KEBAB.change(
+                        textStylePropertyName.value(),
+                        CaseKind.CAMEL
+                    ) +
+                    SpreadsheetElementIds.LINK
+            );
         this.value = Optional.empty();
 
         this.context = context;
