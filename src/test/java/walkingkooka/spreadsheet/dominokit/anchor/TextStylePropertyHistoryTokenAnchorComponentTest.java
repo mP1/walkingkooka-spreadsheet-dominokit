@@ -21,6 +21,7 @@ import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
+import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -48,6 +49,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
             () -> TextStylePropertyHistoryTokenAnchorComponent.with(
                 null,
                 TextStylePropertyName.COLOR,
+                Optional.of(Color.BLACK),
                 new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
             )
         );
@@ -60,6 +62,20 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
             () -> TextStylePropertyHistoryTokenAnchorComponent.with(
                 "",
                 TextStylePropertyName.COLOR,
+                Optional.of(Color.BLACK),
+                new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullValueFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyHistoryTokenAnchorComponent.with(
+                null,
+                TextStylePropertyName.COLOR,
+                null,
                 new FakeTextStylePropertyHistoryTokenAnchorComponentContext()
             )
         );
@@ -68,7 +84,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     // setValue.........................................................................................................
 
     @Test
-    public void testSetValueWhenCellSelectHistoryToken() {
+    public void testTreePrintWhenCellSelectHistoryToken() {
         this.treePrintAndCheck(
             this.createComponent(
                 HistoryToken.cellSelect(
@@ -77,12 +93,29 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 )
             ),
-            "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-Link"
+            "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
     @Test
-    public void testSetValueWhenColumnSelectHistoryToken() {
+    public void testTreePrintWhenCellSelectHistoryTokenAndEmptyValue() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                Optional.empty(),
+                this.createContext(
+                    HistoryToken.cellSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor()
+                    )
+                )
+            ),
+            "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestID123-textAlign-Link"
+        );
+    }
+
+    @Test
+    public void testTreePrintWhenColumnSelectHistoryToken() {
         this.treePrintAndCheck(
             this.createComponent(
                 HistoryToken.columnSelect(
@@ -92,12 +125,12 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                         .setDefaultAnchor()
                 )
             ),
-            "\"Left!\" DISABLED id=TestID123-textAlign-Link"
+            "\"Left!\" DISABLED id=TestID123-textAlign-LEFT-Link"
         );
     }
 
     @Test
-    public void testSetValueWhenSpreadsheetSelectHistoryToken() {
+    public void testTreePrintWhenSpreadsheetSelectHistoryToken() {
         this.treePrintAndCheck(
             this.createComponent(
                 HistoryToken.spreadsheetSelect(
@@ -105,12 +138,12 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     SPREADSHEET_NAME
                 )
             ),
-            "\"Left!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestID123-textAlign-Link"
+            "\"Left!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
     @Test
-    public void testSetValueWhenCellSelectHistoryTokenChange() {
+    public void testTreePrintWhenCellSelectHistoryTokenChange() {
         final TextStylePropertyHistoryTokenAnchorComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
@@ -132,7 +165,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
 
         this.treePrintAndCheck(
             anchor,
-            "\"Left!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestID123-textAlign-Link"
+            "\"Left!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
@@ -153,12 +186,19 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     }
 
     private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final TextStylePropertyHistoryTokenAnchorComponentContext context) {
+        return this.createComponent(
+            Optional.of(TextAlign.LEFT),
+            context
+        );
+    }
+
+    private TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createComponent(final Optional<TextAlign> value,
+                                                                                    final TextStylePropertyHistoryTokenAnchorComponentContext context) {
         return TextStylePropertyHistoryTokenAnchorComponent.with(
             "TestID123-",
             TextStylePropertyName.TEXT_ALIGN,
+            value,
             context
-        ).setValue(
-            Optional.of(TextAlign.LEFT)
         ).setTextContent("Left!");
     }
 
