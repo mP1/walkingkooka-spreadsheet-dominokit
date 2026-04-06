@@ -77,6 +77,15 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // validator........................................................................................................
 
     @Test

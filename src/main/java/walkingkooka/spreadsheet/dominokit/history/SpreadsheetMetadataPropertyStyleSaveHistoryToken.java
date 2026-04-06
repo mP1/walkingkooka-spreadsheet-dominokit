@@ -79,7 +79,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         return HistoryToken.metadataPropertyStyle(
             this.id,
             this.name,
-            this.stylePropertyName()
+            this.stylePropertyName
         );
     }
 
@@ -90,7 +90,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         return with(
             id,
             name,
-            this.stylePropertyName(),
+            this.stylePropertyName,
             this.value()
         );
     }
@@ -107,7 +107,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
                 SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.STYLE,
                     TextStyle.EMPTY.setOrRemove(
-                        this.stylePropertyName(),
+                        this.stylePropertyName,
                         this.value()
                             .orElse(null)
                     )
@@ -122,7 +122,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         visitor.visitMetadataStyleSave(
             this.id,
             this.name,
-            this.stylePropertyName(),
+            this.stylePropertyName,
             this.stylePropertyValue
         );
     }

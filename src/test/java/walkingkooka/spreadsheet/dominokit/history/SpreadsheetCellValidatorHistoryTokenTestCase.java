@@ -95,4 +95,13 @@ public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends Spr
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

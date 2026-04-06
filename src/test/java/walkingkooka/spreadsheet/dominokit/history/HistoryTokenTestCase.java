@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
+import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.FormName;
 
 import java.net.URLEncoder;
@@ -858,6 +859,31 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             expected,
             token.saveValue(),
             token::toString
+        );
+    }
+
+    // stylePropertyName................................................................................................
+
+    final void stylePropertyNameAndCheck(final HistoryToken token) {
+        this.stylePropertyNameAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void stylePropertyNameAndCheck(final HistoryToken token,
+                                         final TextStylePropertyName<?> stylePropertyValue) {
+        this.stylePropertyNameAndCheck(
+            token,
+            Optional.of(stylePropertyValue)
+        );
+    }
+
+    final void stylePropertyNameAndCheck(final HistoryToken token,
+                                         final Optional<TextStylePropertyName<?>> stylePropertyValue) {
+        this.checkEquals(
+            stylePropertyValue,
+            token.stylePropertyName()
         );
     }
 

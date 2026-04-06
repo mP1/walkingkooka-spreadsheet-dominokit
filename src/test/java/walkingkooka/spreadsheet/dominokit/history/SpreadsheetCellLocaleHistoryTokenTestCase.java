@@ -93,4 +93,13 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

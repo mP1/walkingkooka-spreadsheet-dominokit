@@ -100,6 +100,15 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetListDeleteHistoryToken createHistoryToken(final SpreadsheetId id) {
         return SpreadsheetListDeleteHistoryToken.with(id);

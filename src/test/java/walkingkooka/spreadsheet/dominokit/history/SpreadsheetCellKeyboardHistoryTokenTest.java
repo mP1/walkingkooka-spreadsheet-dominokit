@@ -99,6 +99,15 @@ public final class SpreadsheetCellKeyboardHistoryTokenTest extends SpreadsheetCe
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetCellKeyboardHistoryToken createHistoryToken(final SpreadsheetId id,
                                                            final SpreadsheetName name,

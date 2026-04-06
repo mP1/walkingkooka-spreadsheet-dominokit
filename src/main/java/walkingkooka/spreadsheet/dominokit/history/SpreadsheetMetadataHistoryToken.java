@@ -57,7 +57,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                 this.id,
                 this.name,
                 this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
-                    .stylePropertyName(),
+                    .stylePropertyName,
                 value
             );
         }

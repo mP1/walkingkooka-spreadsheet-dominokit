@@ -79,4 +79,13 @@ public abstract class SpreadsheetListRenameHistoryTokenTestCase<T extends Spread
             SpreadsheetSelection.A1
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

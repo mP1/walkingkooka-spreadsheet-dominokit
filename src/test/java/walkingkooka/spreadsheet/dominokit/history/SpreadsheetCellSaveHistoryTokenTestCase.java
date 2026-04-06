@@ -42,4 +42,13 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken()
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

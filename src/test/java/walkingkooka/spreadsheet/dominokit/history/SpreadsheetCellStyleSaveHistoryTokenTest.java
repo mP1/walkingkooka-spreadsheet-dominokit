@@ -205,6 +205,16 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            PROPERTY_NAME
+        );
+    }
+
     @Override
     SpreadsheetCellStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                    final SpreadsheetName name,

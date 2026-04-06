@@ -62,7 +62,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
         return with(
             id,
             name,
-            this.stylePropertyName()
+            this.stylePropertyName
         );
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
         visitor.visitMetadataStyleSelect(
             this.id,
             this.name,
-            this.stylePropertyName()
+            this.stylePropertyName
         );
     }
 }

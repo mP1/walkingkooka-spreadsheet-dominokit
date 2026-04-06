@@ -79,4 +79,13 @@ public abstract class SpreadsheetCellParserHistoryTokenTestCase<T extends Spread
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }
