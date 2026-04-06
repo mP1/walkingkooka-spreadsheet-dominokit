@@ -200,7 +200,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 ID,
                 NAME,
                 SELECTION,
-                PROPERTY_NAME
+                STYLE_PROPERTY_NAME
             )
         );
     }
@@ -211,7 +211,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     public void testStylePropertyName() {
         this.stylePropertyNameAndCheck(
             this.createHistoryToken(),
-            PROPERTY_NAME
+            STYLE_PROPERTY_NAME
         );
     }
 
@@ -225,7 +225,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
             name,
             selection,
             propertyName,
-            Optional.of(PROPERTY_VALUE)
+            Optional.of(STYLE_PROPERTY_VALUE)
         );
     }
 

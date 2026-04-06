@@ -193,7 +193,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             id,
             name,
             selection,
-            PROPERTY_NAME
+            STYLE_PROPERTY_NAME
         );
     }
 
