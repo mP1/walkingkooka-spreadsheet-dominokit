@@ -38,6 +38,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.FormName;
 import walkingkooka.validation.provider.ValidatorSelector;
@@ -224,14 +225,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         if (this instanceof SpreadsheetCellStyleHistoryToken) {
-            historyToken = HistoryToken.cellStyleSave(
-                this.id,
-                this.name,
-                this.anchoredSelection,
-                this.cast(SpreadsheetCellStyleHistoryToken.class)
-                    .stylePropertyName,
-                value
-            );
+            final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName()
+                .orElse(null);
+
+            if (null != stylePropertyNameOrNull) {
+                historyToken = HistoryToken.cellStyleSave(
+                    this.id,
+                    this.name,
+                    this.anchoredSelection,
+                    Cast.to(stylePropertyNameOrNull),
+                    value
+                );
+            }
         }
 
         if (this instanceof SpreadsheetCellValidatorHistoryToken) {
