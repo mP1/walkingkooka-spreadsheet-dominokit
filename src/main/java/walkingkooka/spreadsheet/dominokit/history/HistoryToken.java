@@ -4388,21 +4388,22 @@ public abstract class HistoryToken implements HasUrlFragment {
                         }
 
                         if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
-                            final SpreadsheetMetadataPropertyStyleHistoryToken<?> spreadsheetMetadataPropertyStyleHistoryToken = this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class);
+                            final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
+                                .orElse(null);
 
-                            final TextStylePropertyName<?> propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName;
-
-                            return HistoryToken.metadataPropertyStyleSave(
-                                id,
-                                name,
-                                propertyName,
-                                Cast.to(
-                                    parseOptional(
-                                        value,
-                                        propertyName::parseValue
+                            saved = null != stylePropertyName ?
+                                HistoryToken.metadataPropertyStyleSave(
+                                    id,
+                                    name,
+                                    stylePropertyName,
+                                    Cast.to(
+                                        parseOptional(
+                                            value,
+                                            stylePropertyName::parseValue
+                                        )
                                     )
-                                )
-                            );
+                                ) :
+                                this;
                         }
                     }
 
