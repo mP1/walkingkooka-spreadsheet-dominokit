@@ -46,7 +46,8 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     private final TextStylePropertyName<T> propertyName;
 
-    @Override final UrlFragment cellUrlFragment() {
+    @Override //
+    final UrlFragment cellUrlFragment() {
         return STYLE.appendSlashThen(
             this.propertyName().urlFragment()
         ).appendSlashThen(this.styleUrlFragment());
