@@ -33,7 +33,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     // setSaveStringValue...............................................................................................
 
     @Test
-    public void testSetSaveStringalueStyleWithString() {
+    public void testSetSaveStringValueStyleWithString() {
         final SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> historyToken = this.createHistoryToken();
         final String value = "#123456";
 
