@@ -88,7 +88,9 @@ final class ToolbarComponentItemAnchorTextStyleProperty<T> extends ToolbarCompon
         context.historyToken()
             .anchoredSelectionHistoryTokenOrEmpty()
             .map(
-                t -> t.setStylePropertyName(this.propertyName)
+                t -> t.setStylePropertyName(
+                    Optional.of(this.propertyName)
+                )
             ).ifPresent(context::pushHistoryToken);
     }
 
@@ -110,14 +112,15 @@ final class ToolbarComponentItemAnchorTextStyleProperty<T> extends ToolbarCompon
             context.historyToken()
                 .anchoredSelectionHistoryTokenOrEmpty()
                 .map(
-                    t -> t.setStylePropertyName(propertyName)
-                        .setSaveStringValue(
-                            save(
-                                selected ?
-                                    null :
-                                    propertyValue
-                            )
+                    t -> t.setStylePropertyName(
+                        Optional.of(propertyName)
+                    ).setSaveStringValue(
+                        save(
+                            selected ?
+                                null :
+                                propertyValue
                         )
+                    )
                 )
         ).setChecked(selected);
     }

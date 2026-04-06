@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -63,7 +64,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             id,
             name,
             anchoredSelection,
-            stylePropertyName
+            Optional.of(stylePropertyName)
         );
         this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
 
@@ -93,9 +94,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             name,
             anchoredSelection
         ).setStyleProperty(
-            this.stylePropertyName.setValue(
-                this.value()
-            )
+            this.textStyleProperty()
         );
     }
 
@@ -109,14 +108,16 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 this.id,
                 this.anchoredSelection()
                     .selection(),
-                this.stylePropertyName,
+                this.stylePropertyName.get(),
                 this.value()
             );
     }
 
     public TextStyleProperty<T> textStyleProperty() {
         return TextStyleProperty.with(
-            this.stylePropertyName,
+            this.stylePropertyName.orElseThrow(
+                () -> new IllegalStateException("Missing stylePropertyName")
+            ),
             this.value()
         );
     }
@@ -129,7 +130,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             this.id,
             this.name,
             this.anchoredSelection,
-            this.stylePropertyName,
+            this.stylePropertyName.get(),
             this.value()
         );
     }

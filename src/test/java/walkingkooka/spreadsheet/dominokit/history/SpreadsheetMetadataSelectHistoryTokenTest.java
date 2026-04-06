@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
+import java.util.Optional;
+
 public final class SpreadsheetMetadataSelectHistoryTokenTest extends SpreadsheetMetadataHistoryTokenTestCase<SpreadsheetMetadataSelectHistoryToken> {
 
     @Test
@@ -41,12 +43,13 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
     }
 
     @Test
-    public void testParseStyle() {
+    public void testParseStyleMissingTextStylePropertyName() {
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style",
-            HistoryToken.spreadsheetSelect(
+            HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
-                SPREADSHEET_NAME
+                SPREADSHEET_NAME,
+                Optional.empty()
             )
         );
     }

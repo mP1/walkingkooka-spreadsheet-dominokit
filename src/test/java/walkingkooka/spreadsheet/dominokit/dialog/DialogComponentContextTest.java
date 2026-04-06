@@ -215,7 +215,7 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
                         ID,
                         NAME,
                         selection.setDefaultAnchor(),
-                        propertyName
+                        Optional.of(propertyName)
                     );
                 }
             }.selectionTextStylePropertyDialogTitle(propertyName),

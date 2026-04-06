@@ -115,6 +115,18 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     // urlFragment......................................................................................................
 
     @Test
+    public void testUrlFragmentWithoutTextStylePropertyName() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style"
+        );
+    }
+
+    @Test
     public void testUrlFragmentColor() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/style/color");
     }
@@ -125,7 +137,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.FONT_FAMILY
+                Optional.of(TextStylePropertyName.FONT_FAMILY)
             ),
             "/123/SpreadsheetName456/spreadsheet/style/font-family"
         );
@@ -137,7 +149,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.FONT_STYLE
+                Optional.of(TextStylePropertyName.FONT_STYLE)
             ),
             "/123/SpreadsheetName456/spreadsheet/style/font-style"
         );
@@ -150,7 +162,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.BACKGROUND_COLOR
+                Optional.of(TextStylePropertyName.BACKGROUND_COLOR)
             )
         );
     }
@@ -162,7 +174,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.FONT_FAMILY
+                Optional.of(TextStylePropertyName.FONT_FAMILY)
             )
         );
     }
@@ -192,7 +204,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
             id,
             name,
-            STYLE_PROPERTY_NAME
+            Optional.of(STYLE_PROPERTY_NAME)
         );
     }
 

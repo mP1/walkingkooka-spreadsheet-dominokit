@@ -69,17 +69,12 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
     }
 
     final HistoryToken parseStyle(final TextCursor cursor) {
-        HistoryToken result = this;
-
-        final Optional<String> style = parseComponent(cursor);
-        if (style.isPresent()) {
-            result = this.setStylePropertyName(
-                TextStylePropertyName.with(
-                    style.get()
+        return this.setStylePropertyName(
+            parseComponent(cursor)
+                .map(
+                    TextStylePropertyName::with
                 )
-            );
-        }
-        return result;
+        );
     }
 
     // HasUrlFragment...................................................................................................

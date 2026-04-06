@@ -348,7 +348,9 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             ColorComponent.with(
                 id + "-",
                 (h) -> Optional.of(
-                    h.setStylePropertyName(color)
+                    h.setStylePropertyName(
+                        Optional.of(color)
+                    )
                 ),
                 context
             )

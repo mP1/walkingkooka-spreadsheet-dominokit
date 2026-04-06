@@ -63,7 +63,7 @@ final class ToolbarComponentItemAnchorTextStyleClear extends ToolbarComponentIte
         context.historyToken()
             .anchoredSelectionHistoryTokenOrEmpty()
             .map(
-                t -> t.setStylePropertyName(PROPERTY)
+                t -> t.setStylePropertyName(OPTIONAL_PROPERTY)
             ).ifPresent(context::pushHistoryToken);
     }
 
@@ -85,4 +85,6 @@ final class ToolbarComponentItemAnchorTextStyleClear extends ToolbarComponentIte
     }
 
     private static final TextStylePropertyName<Void> PROPERTY = TextStylePropertyName.WILDCARD;
+
+    private static final Optional<TextStylePropertyName<?>> OPTIONAL_PROPERTY = Optional.of(PROPERTY);
 }

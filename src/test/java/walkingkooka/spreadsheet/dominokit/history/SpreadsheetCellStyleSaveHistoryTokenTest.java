@@ -200,7 +200,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SELECTION,
-                STYLE_PROPERTY_NAME
+                Optional.of(STYLE_PROPERTY_NAME)
             )
         );
     }

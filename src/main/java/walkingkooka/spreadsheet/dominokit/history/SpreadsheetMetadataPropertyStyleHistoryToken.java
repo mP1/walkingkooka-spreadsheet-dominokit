@@ -25,12 +25,13 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<TextStyle> {
 
     SpreadsheetMetadataPropertyStyleHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
-                                                 final TextStylePropertyName<T> stylePropertyName) {
+                                                 final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
             id,
             name,
@@ -40,12 +41,17 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
         this.stylePropertyName = Objects.requireNonNull(stylePropertyName, "stylePropertyName");
     }
 
-    final TextStylePropertyName<T> stylePropertyName;
+    final Optional<TextStylePropertyName<T>> stylePropertyName;
 
+    // /1/SpreadsheetName111/metadata/style
+    // /1/SpreadsheetName111/metadata/style/color
+    // /1/SpreadsheetName111/metadata/style/color/save/BLACK
     @Override//
     final UrlFragment metadataPropertyUrlFragment() {
-        return this.stylePropertyName.urlFragment()
-            .appendSlashThen(this.styleUrlFragment());
+        return this.stylePropertyName.map(
+            (TextStylePropertyName<T> s) -> s.urlFragment()
+                .appendSlashThen(this.styleUrlFragment())
+        ).orElse(UrlFragment.EMPTY);
     }
 
     abstract UrlFragment styleUrlFragment();
