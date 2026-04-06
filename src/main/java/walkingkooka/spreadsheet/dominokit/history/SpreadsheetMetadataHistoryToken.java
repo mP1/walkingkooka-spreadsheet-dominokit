@@ -17,11 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.cursor.TextCursor;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -53,13 +55,16 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         }
 
         if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
-            historyToken = HistoryToken.metadataPropertyStyleSave(
-                this.id,
-                this.name,
-                this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
-                    .stylePropertyName,
-                value
-            );
+            final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName()
+                .orElse(null);
+            if(null != stylePropertyNameOrNull) {
+                historyToken = HistoryToken.metadataPropertyStyleSave(
+                    this.id,
+                    this.name,
+                    Cast.to(stylePropertyNameOrNull),
+                    value
+                );
+            }
         }
 
         return this.elseIfDifferent(historyToken);
