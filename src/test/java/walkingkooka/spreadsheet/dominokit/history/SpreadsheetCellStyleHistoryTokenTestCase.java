@@ -28,9 +28,9 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends SpreadsheetCellStyleHistoryToken<Color>> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
-    final static TextStylePropertyName<Color> PROPERTY_NAME = TextStylePropertyName.COLOR;
+    final static TextStylePropertyName<Color> STYLE_PROPERTY_NAME = TextStylePropertyName.COLOR;
 
-    final static Color PROPERTY_VALUE = Color.parse("#123456");
+    final static Color STYLE_PROPERTY_VALUE = Color.parse("#123456");
 
     SpreadsheetCellStyleHistoryTokenTestCase() {
         super();
@@ -65,7 +65,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
                 ID,
                 NAME,
                 SELECTION,
-                PROPERTY_NAME,
+                STYLE_PROPERTY_NAME,
                 value
             )
         );
@@ -84,7 +84,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
                 ID,
                 NAME,
                 SELECTION,
-                PROPERTY_NAME,
+                STYLE_PROPERTY_NAME,
                 value
             )
         );
@@ -100,7 +100,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
             id,
             name,
             selection,
-            PROPERTY_NAME
+            STYLE_PROPERTY_NAME
         );
     }
 
