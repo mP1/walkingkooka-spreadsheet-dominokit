@@ -5038,8 +5038,8 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
-    public final HistoryToken setStylePropertyName(final TextStylePropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "stylePropertyName");
+    public final HistoryToken setStylePropertyName(final TextStylePropertyName<?> stylePropertyName) {
+        Objects.requireNonNull(stylePropertyName, "stylePropertyName");
 
         HistoryToken historyToken = null;
 
@@ -5052,7 +5052,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 historyToken = metadataPropertyStyle(
                     id,
                     name,
-                    propertyName
+                    stylePropertyName
                 );
             } else {
                 if (this instanceof SpreadsheetCellHistoryToken) {
@@ -5061,7 +5061,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         name,
                         this.cast(SpreadsheetCellHistoryToken.class)
                             .anchoredSelection(),
-                        propertyName
+                        stylePropertyName
                     );
                 }
             }
