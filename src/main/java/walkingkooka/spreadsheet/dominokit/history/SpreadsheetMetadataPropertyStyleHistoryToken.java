@@ -44,9 +44,10 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
         return this.stylePropertyName;
     }
 
-    private final TextStylePropertyName<T> stylePropertyName;
+    final TextStylePropertyName<T> stylePropertyName;
 
-    @Override final UrlFragment metadataPropertyUrlFragment() {
+    @Override//
+    final UrlFragment metadataPropertyUrlFragment() {
         return this.stylePropertyName()
             .urlFragment()
             .appendSlashThen(this.styleUrlFragment());
