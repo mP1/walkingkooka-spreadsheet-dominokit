@@ -42,7 +42,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
     static AppContextConverterSelectorDialogComponentContext with(final SpreadsheetMetadataPropertyName<ConverterSelector> propertyName,
                                                                   final AppContext context) {
         return new AppContextConverterSelectorDialogComponentContext(
-            Objects.requireNonNull(propertyName, "propertyName"),
+            Objects.requireNonNull(propertyName, "stylePropertyName"),
             Objects.requireNonNull(context, "context")
         );
     }

@@ -3775,7 +3775,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Setter that tries to set a {@link SpreadsheetMetadataPropertyName} to the current {@link HistoryToken}.
      */
     public final HistoryToken setMetadataPropertyName(final SpreadsheetMetadataPropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyName, "stylePropertyName");
 
         HistoryToken historyToken = this;
 
@@ -4568,7 +4568,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
                                     final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
-                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.propertyName();
+                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.stylePropertyName();
 
                                     saved = cellStyleSave(
                                         id,
@@ -5018,7 +5018,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.
      */
     public final HistoryToken setStylePropertyName(final TextStylePropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyName, "stylePropertyName");
 
         HistoryToken historyToken = null;
 

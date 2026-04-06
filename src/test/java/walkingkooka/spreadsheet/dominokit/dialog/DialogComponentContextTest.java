@@ -219,7 +219,7 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
                     );
                 }
             }.selectionTextStylePropertyDialogTitle(propertyName),
-            () -> "selection: " + selection + " propertyName: " + propertyName
+            () -> "selection: " + selection + " stylePropertyName: " + propertyName
         );
     }
 

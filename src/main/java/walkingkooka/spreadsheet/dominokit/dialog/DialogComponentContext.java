@@ -64,7 +64,7 @@ public interface DialogComponentContext extends RefreshContext {
      */
     default String selectionTextStylePropertyDialogTitle(final TextStylePropertyName<?> propertyName) {
 
-        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyName, "stylePropertyName");
 
         return selectionDialogTitle(
             CaseKind.kebabToTitle(
@@ -95,7 +95,7 @@ public interface DialogComponentContext extends RefreshContext {
      * Helper that may be used to create a standard dialog title for a {@link SpreadsheetMetadataPropertyName}.
      */
     default String spreadsheetMetadataPropertyNameDialogTitle(final SpreadsheetMetadataPropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyName, "stylePropertyName");
 
         final String text = propertyName.text();
 

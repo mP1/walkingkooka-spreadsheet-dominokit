@@ -40,7 +40,7 @@ final class ToolbarComponentItemAnchorTextStyleProperty<T> extends ToolbarCompon
                                                                    final String text,
                                                                    final String tooltipText,
                                                                    final ToolbarComponentContext context) {
-        Objects.requireNonNull(propertyName, "propertyName");
+        Objects.requireNonNull(propertyName, "stylePropertyName");
         Objects.requireNonNull(propertyValue, "propertyValue");
         Objects.requireNonNull(icon, "icon");
         CharSequences.failIfNullOrEmpty(text, "text");

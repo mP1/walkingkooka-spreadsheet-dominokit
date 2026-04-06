@@ -93,7 +93,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             name,
             anchoredSelection
         ).setStylePropertyName(
-            this.propertyName()
+            this.stylePropertyName()
         ).setSaveValue(
             this.value()
         );
@@ -109,14 +109,14 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
                 this.id,
                 this.anchoredSelection()
                     .selection(),
-                this.propertyName(),
+                this.stylePropertyName(),
                 this.value()
             );
     }
 
     public TextStyleProperty<T> textStyleProperty() {
         return TextStyleProperty.with(
-            this.propertyName(),
+            this.stylePropertyName(),
             this.value()
         );
     }
@@ -129,7 +129,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             this.id,
             this.name,
             this.anchoredSelection,
-            this.propertyName(),
+            this.stylePropertyName(),
             this.value()
         );
     }

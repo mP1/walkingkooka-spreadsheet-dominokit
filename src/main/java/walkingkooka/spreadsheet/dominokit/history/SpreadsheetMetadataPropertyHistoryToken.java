@@ -34,7 +34,7 @@ public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends Spreads
             name
         );
 
-        this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
+        this.propertyName = Objects.requireNonNull(propertyName, "stylePropertyName");
     }
 
     final SpreadsheetMetadataPropertyName<T> propertyName;

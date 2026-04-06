@@ -146,7 +146,7 @@ public final class SpreadsheetFormatterFetcherTest implements ClassTesting<Sprea
                 propertyName,
                 selector
             ),
-            () -> "spreadsheetId=" + id + " propertyName=" + propertyName + " selector=" + selector
+            () -> "spreadsheetId=" + id + " stylePropertyName=" + propertyName + " selector=" + selector
         );
     }
 

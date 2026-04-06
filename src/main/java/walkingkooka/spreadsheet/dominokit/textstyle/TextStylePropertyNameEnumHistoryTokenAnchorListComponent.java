@@ -43,7 +43,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                                                                                        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
         return new TextStylePropertyNameEnumHistoryTokenAnchorListComponent<>(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
-            Objects.requireNonNull(propertyName, "propertyName"),
+            Objects.requireNonNull(propertyName, "stylePropertyName"),
             Objects.requireNonNull(values, "values"),
             Objects.requireNonNull(valueToText, "valueToText"),
             Objects.requireNonNull(valueToIcon, "valueToIcon"),
