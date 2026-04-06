@@ -43,39 +43,39 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     static <T> SpreadsheetCellStyleSaveHistoryToken<T> with(final SpreadsheetId id,
                                                             final SpreadsheetName name,
                                                             final AnchoredSpreadsheetSelection anchoredSelection,
-                                                            final TextStylePropertyName<T> propertyName,
-                                                            final Optional<T> propertyValue) {
+                                                            final TextStylePropertyName<T> stylePropertyName,
+                                                            final Optional<T> stylePropertyValue) {
         return new SpreadsheetCellStyleSaveHistoryToken<>(
             id,
             name,
             anchoredSelection,
-            propertyName,
-            propertyValue
+            stylePropertyName,
+            stylePropertyValue
         );
     }
 
     private SpreadsheetCellStyleSaveHistoryToken(final SpreadsheetId id,
                                                  final SpreadsheetName name,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
-                                                 final TextStylePropertyName<T> propertyName,
-                                                 final Optional<T> propertyValue) {
+                                                 final TextStylePropertyName<T> stylePropertyName,
+                                                 final Optional<T> stylePropertyValue) {
         super(
             id,
             name,
             anchoredSelection,
-            propertyName
+            stylePropertyName
         );
-        this.propertyValue = Objects.requireNonNull(propertyValue, "propertyValue");
+        this.stylePropertyValue = Objects.requireNonNull(stylePropertyValue, "stylePropertyValue");
 
-        propertyValue.ifPresent(propertyName::checkValue);
+        stylePropertyValue.ifPresent(stylePropertyName::checkValue);
     }
 
     @Override
     public Optional<T> value() {
-        return this.propertyValue;
+        return this.stylePropertyValue;
     }
 
-    private final Optional<T> propertyValue;
+    private final Optional<T> stylePropertyValue;
 
     @Override
     UrlFragment styleUrlFragment() {

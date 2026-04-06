@@ -39,7 +39,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     // with.............................................................................................................
 
     @Test
-    public void testWithNullPropertyValueFails() {
+    public void testWithNullStylePropertyValueFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellStyleSaveHistoryToken.with(
@@ -53,7 +53,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     }
 
     @Test
-    public void testWithIncompatiblePropertyValueFails() {
+    public void testWithIncompatibleStylePropertyValueFails() {
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellStyleSaveHistoryToken.with(
