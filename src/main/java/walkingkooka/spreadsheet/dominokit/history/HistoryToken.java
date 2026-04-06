@@ -4568,21 +4568,23 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 }
 
                                 if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
-                                    final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
-                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.stylePropertyName;
+                                    final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
+                                        .orElse(null);
 
-                                    saved = cellStyleSave(
-                                        id,
-                                        name,
-                                        anchoredSpreadsheetSelection,
-                                        propertyName,
-                                        Cast.to(
-                                            parseOptional(
-                                                value,
-                                                propertyName::parseValue
+                                    saved = null != stylePropertyName ?
+                                        cellStyleSave(
+                                            id,
+                                            name,
+                                            anchoredSpreadsheetSelection,
+                                            stylePropertyName,
+                                            Cast.to(
+                                                parseOptional(
+                                                    value,
+                                                    stylePropertyName::parseValue
+                                                )
                                             )
-                                        )
-                                    );
+                                        ) :
+                                        this;
                                 }
 
                                 if (this instanceof SpreadsheetCellValidatorHistoryToken && false == this instanceof SpreadsheetCellValidatorUnselectHistoryToken) {
