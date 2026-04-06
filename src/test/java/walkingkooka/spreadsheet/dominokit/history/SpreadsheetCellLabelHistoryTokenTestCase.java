@@ -182,4 +182,13 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

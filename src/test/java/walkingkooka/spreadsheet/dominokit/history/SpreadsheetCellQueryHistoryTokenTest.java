@@ -122,6 +122,15 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // urlFragment......................................................................................................
 
     @Test

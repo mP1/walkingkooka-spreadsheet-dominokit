@@ -508,6 +508,15 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // helper...........................................................................................................
 
     @Override

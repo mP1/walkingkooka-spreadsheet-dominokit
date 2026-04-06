@@ -80,6 +80,15 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // parse............................................................................................................
 
     @Test

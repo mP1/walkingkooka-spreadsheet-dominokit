@@ -96,6 +96,15 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetLoadHistoryToken createHistoryToken(final SpreadsheetId id) {
         return SpreadsheetLoadHistoryToken.with(id);

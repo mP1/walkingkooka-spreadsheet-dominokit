@@ -4390,7 +4390,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                             final SpreadsheetMetadataPropertyStyleHistoryToken<?> spreadsheetMetadataPropertyStyleHistoryToken = this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class);
 
-                            final TextStylePropertyName<?> propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName();
+                            final TextStylePropertyName<?> propertyName = spreadsheetMetadataPropertyStyleHistoryToken.stylePropertyName;
 
                             return HistoryToken.metadataPropertyStyleSave(
                                 id,
@@ -4568,7 +4568,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
                                     final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
-                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.stylePropertyName();
+                                    final TextStylePropertyName<?> propertyName = spreadsheetCellStyleSelectHistoryToken.stylePropertyName;
 
                                     saved = cellStyleSave(
                                         id,
@@ -5013,6 +5013,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     }
 
     // STYLE............................................................................................................
+
+    public final Optional<TextStylePropertyName<?>> stylePropertyName() {
+        final TextStylePropertyName<?> propertyName;
+
+        if(this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+            propertyName = this.cast(SpreadsheetMetadataPropertyStyleHistoryToken.class)
+                .stylePropertyName;
+        } else {
+            if (this instanceof SpreadsheetCellStyleHistoryToken) {
+                propertyName = this.cast(SpreadsheetCellStyleHistoryToken.class)
+                    .stylePropertyName;
+            } else {
+                propertyName = null;
+            }
+        }
+
+        return Optional.ofNullable(propertyName);
+    }
 
     /**
      * Factory that creates a {@link SpreadsheetNameHistoryToken} with the given {@link TextStylePropertyName} property name.

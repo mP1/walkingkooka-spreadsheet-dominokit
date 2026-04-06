@@ -56,6 +56,15 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override //
     final T createHistoryToken(final SpreadsheetId id,
                                final SpreadsheetName name,

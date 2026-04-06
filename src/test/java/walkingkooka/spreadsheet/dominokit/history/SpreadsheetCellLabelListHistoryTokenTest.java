@@ -361,6 +361,15 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // unfreezeOrEmpty..................................................................................................
 
     @Test

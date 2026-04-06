@@ -78,6 +78,15 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // ClassTesting....................................................................................................
 
     @Override

@@ -194,6 +194,16 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            STYLE_PROPERTY_NAME
+        );
+    }
+
     @Override
     SpreadsheetMetadataPropertyStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                                final SpreadsheetName name,

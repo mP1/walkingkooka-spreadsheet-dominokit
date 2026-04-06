@@ -91,4 +91,13 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

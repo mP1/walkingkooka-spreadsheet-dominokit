@@ -245,6 +245,15 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetKeyboardHistoryToken createHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name) {

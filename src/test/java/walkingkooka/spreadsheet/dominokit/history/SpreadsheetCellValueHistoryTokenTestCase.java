@@ -60,4 +60,13 @@ public abstract class SpreadsheetCellValueHistoryTokenTestCase<T extends Spreads
             historyToken.setValue(valueType)
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

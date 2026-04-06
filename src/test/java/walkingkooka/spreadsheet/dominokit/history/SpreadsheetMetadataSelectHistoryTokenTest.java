@@ -82,6 +82,15 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // clearAction.....................................................................................................
 
     @Test

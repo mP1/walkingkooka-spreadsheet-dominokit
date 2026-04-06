@@ -137,6 +137,15 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetNavigateHistoryToken createHistoryToken(final SpreadsheetId id,
                                                        final SpreadsheetName name) {

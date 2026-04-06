@@ -165,6 +165,15 @@ public abstract class SpreadsheetListHistoryTokenTestCase<T extends SpreadsheetL
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override final T createHistoryToken() {
         return this.createHistoryToken(
             HistoryTokenOffsetAndCount.with(

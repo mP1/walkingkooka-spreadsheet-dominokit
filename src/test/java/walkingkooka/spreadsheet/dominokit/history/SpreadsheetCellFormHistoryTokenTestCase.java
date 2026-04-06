@@ -96,6 +96,15 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // HistoryToken.....................................................................................................
 
     @Override //

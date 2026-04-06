@@ -207,4 +207,13 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

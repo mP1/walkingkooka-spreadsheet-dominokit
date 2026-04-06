@@ -455,6 +455,15 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // validator........................................................................................................
 
     @Test

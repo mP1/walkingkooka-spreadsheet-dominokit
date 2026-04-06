@@ -95,4 +95,13 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
             )
         );
     }
+
+    // stylePropertyName................................................................................................
+
+    @Test
+    public final void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
 }

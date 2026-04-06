@@ -40,16 +40,12 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
         this.stylePropertyName = Objects.requireNonNull(stylePropertyName, "stylePropertyName");
     }
 
-    public final TextStylePropertyName<T> stylePropertyName() {
-        return this.stylePropertyName;
-    }
-
-    private final TextStylePropertyName<T> stylePropertyName;
+    final TextStylePropertyName<T> stylePropertyName;
 
     @Override //
     final UrlFragment cellUrlFragment() {
         return STYLE.appendSlashThen(
-            this.stylePropertyName().urlFragment()
+            this.stylePropertyName.urlFragment()
         ).appendSlashThen(this.styleUrlFragment());
     }
 
@@ -57,6 +53,6 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
 
     @Override
     public final HistoryToken clearAction() {
-        return this.setStylePropertyName(this.stylePropertyName());
+        return this.setStylePropertyName(this.stylePropertyName);
     }
 }

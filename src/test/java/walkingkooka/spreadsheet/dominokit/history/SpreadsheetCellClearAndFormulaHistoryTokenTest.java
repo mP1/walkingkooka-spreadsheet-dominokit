@@ -90,6 +90,15 @@ public final class SpreadsheetCellClearAndFormulaHistoryTokenTest extends Spread
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetCellClearAndFormulaHistoryToken createHistoryToken(final SpreadsheetId id,
                                                                   final SpreadsheetName name,

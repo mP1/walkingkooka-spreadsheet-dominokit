@@ -124,6 +124,15 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     @Override
     SpreadsheetCreateHistoryToken createHistoryToken() {
         return SpreadsheetCreateHistoryToken.with();

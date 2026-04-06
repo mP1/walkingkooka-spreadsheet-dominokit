@@ -469,6 +469,15 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
         );
     }
 
+    // stylePropertyName................................................................................................
+
+    @Test
+    public void testStylePropertyName() {
+        this.stylePropertyNameAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
     // unfreezeOrEmpty..................................................................................................
 
     @Test
