@@ -87,7 +87,7 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
                 id,
                 propertyName
             ),
-            () -> "spreadsheetId=" + id + " propertyName=" + propertyName
+            () -> "spreadsheetId=" + id + " stylePropertyName=" + propertyName
         );
     }
 

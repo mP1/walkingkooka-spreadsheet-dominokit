@@ -168,7 +168,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     SpreadsheetMetadataPanelComponentItem(final SpreadsheetMetadataPropertyName<T> propertyName,
                                           final Optional<String> label,
                                           final SpreadsheetMetadataPanelComponentContext context) {
-        this.propertyName = Objects.requireNonNull(propertyName, "propertyName");
+        this.propertyName = Objects.requireNonNull(propertyName, "stylePropertyName");
         this.label = Objects.requireNonNull(label, "label");
         this.context = Objects.requireNonNull(context, "context");
     }

@@ -229,7 +229,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 this.name,
                 this.anchoredSelection,
                 this.cast(SpreadsheetCellStyleHistoryToken.class)
-                    .propertyName(),
+                    .stylePropertyName(),
                 value
             );
         }

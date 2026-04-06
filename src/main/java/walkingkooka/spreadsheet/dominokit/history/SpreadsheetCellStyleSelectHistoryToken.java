@@ -70,7 +70,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
             name,
             anchoredSelection
         ).setStylePropertyName(
-            this.propertyName()
+            this.stylePropertyName()
         );
     }
 
@@ -88,7 +88,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
             this.id,
             this.name,
             this.anchoredSelection,
-            this.propertyName()
+            this.stylePropertyName()
         );
     }
 }
