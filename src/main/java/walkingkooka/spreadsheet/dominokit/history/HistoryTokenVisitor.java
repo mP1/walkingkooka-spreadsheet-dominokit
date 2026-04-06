@@ -362,14 +362,14 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
                                           final SpreadsheetName name,
                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                           final TextStylePropertyName<T> propertyName,
-                                          final Optional<T> propertyValue) {
+                                          final Optional<T> stylePropertyName) {
         // NOP
     }
 
     protected void visitCellStyleSelect(final SpreadsheetId id,
                                         final SpreadsheetName name,
                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                        final TextStylePropertyName<?> propertyName) {
+                                        final TextStylePropertyName<?> stylePropertyName) {
         // NOP
     }
 
@@ -574,13 +574,13 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected <T> void visitMetadataStyleSave(final SpreadsheetId id,
                                               final SpreadsheetName name,
                                               final TextStylePropertyName<T> propertyName,
-                                              final Optional<T> propertyValue) {
+                                              final Optional<T> stylePropertyName) {
         // NOP
     }
 
     protected <T> void visitMetadataStyleSelect(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final TextStylePropertyName<T> propertyName) {
+                                                final TextStylePropertyName<T> stylePropertyName) {
         // NOP
     }
 
