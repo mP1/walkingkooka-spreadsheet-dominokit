@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -143,6 +145,18 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     public void testStylePropertyName() {
         this.stylePropertyNameAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public void testSetStyleProperty() {
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            TextStylePropertyName.TEXT_ALIGN.setValue(
+                Optional.of(TextAlign.LEFT)
+            )
         );
     }
 

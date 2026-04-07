@@ -18,7 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.FormName;
+
+import java.util.Optional;
 
 public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetFormHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
 
@@ -83,6 +87,18 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
     public final void testStylePropertyName() {
         this.stylePropertyNameAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public final void testSetStyleProperty() {
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            TextStylePropertyName.TEXT_ALIGN.setValue(
+                Optional.of(TextAlign.LEFT)
+            )
         );
     }
 

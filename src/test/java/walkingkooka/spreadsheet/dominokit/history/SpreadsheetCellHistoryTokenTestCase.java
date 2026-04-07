@@ -27,8 +27,10 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetCellHistoryToken> extends SpreadsheetAnchoredSelectionHistoryTokenTestCase<T> {
@@ -458,6 +460,26 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 ID,
                 NAME,
                 selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public final void testSetStyleProperty() {
+        final TextStylePropertyName<TextAlign> propertyName = TextStylePropertyName.TEXT_ALIGN;
+        final Optional<TextAlign> propertyValue = Optional.of(TextAlign.LEFT);
+
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            propertyName.setValue(propertyValue),
+            HistoryToken.cellStyleSave(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                propertyName,
+                propertyValue
             )
         );
     }

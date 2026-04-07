@@ -80,6 +80,7 @@ import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContext;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallUnmarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.Form;
@@ -5066,6 +5067,18 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
             }
         }
+
+        return this.elseIfDifferent(historyToken);
+    }
+
+    public final HistoryToken setStyleProperty(final TextStyleProperty<?> styleProperty) {
+        Objects.requireNonNull(styleProperty, "styleProperty");
+
+        final HistoryToken historyToken = this.setStylePropertyName(
+            styleProperty.name()
+        ).setSaveValue(
+            styleProperty.value()
+        );
 
         return this.elseIfDifferent(historyToken);
     }
