@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
+import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.FormName;
 
@@ -885,6 +886,44 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             stylePropertyValue,
             token.stylePropertyName()
         );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public final void testSetStylePropertyWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setStyleProperty(null)
+        );
+    }
+
+    final void setStylePropertyAndCheck(final HistoryToken token,
+                                        final TextStyleProperty<?> styleProperty) {
+        this.setStylePropertyAndCheck(
+            token,
+            styleProperty,
+            token
+        );
+    }
+
+    final void setStylePropertyAndCheck(final HistoryToken token,
+                                        final TextStyleProperty<?> styleProperty,
+                                        final HistoryToken expected) {
+        if (token.equals(expected)) {
+            assertSame(
+                expected,
+                token.setStyleProperty(styleProperty),
+                () -> token + " setStyleProperty " + styleProperty
+            );
+        } else {
+            this.checkEquals(
+                expected,
+                token.setStyleProperty(styleProperty),
+                () -> token + " setStyleProperty " + styleProperty
+            );
+        }
     }
 
     // validator........................................................................................................

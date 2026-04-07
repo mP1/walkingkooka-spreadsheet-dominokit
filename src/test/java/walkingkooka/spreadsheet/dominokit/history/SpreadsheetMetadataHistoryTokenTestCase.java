@@ -19,7 +19,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends SpreadsheetMetadataHistoryToken> extends SpreadsheetNameHistoryTokenTestCase<T> {
@@ -236,6 +239,25 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
                 ID,
                 NAME,
                 selection.setDefaultAnchor()
+            )
+        );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public final void testSetStyleProperty() {
+        final TextStylePropertyName<TextAlign> propertyName = TextStylePropertyName.TEXT_ALIGN;
+        final Optional<TextAlign> propertyValue = Optional.of(TextAlign.LEFT);
+
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            propertyName.setValue(propertyValue),
+            HistoryToken.metadataPropertyStyleSave(
+                ID,
+                NAME,
+                propertyName,
+                propertyValue
             )
         );
     }
