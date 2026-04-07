@@ -38,7 +38,12 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "#123456";
-        final HistoryToken historyToken = HistoryToken.cellStyle(SPREADSHEET_ID, SPREADSHEET_NAME, selection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            selection,
+            Optional.of(propertyName)
+        );
 
         this.setSaveStringValueAndCheck(
             historyToken,
@@ -58,7 +63,12 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "";
-        final HistoryToken historyToken = HistoryToken.cellStyle(SPREADSHEET_ID, SPREADSHEET_NAME, selection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            selection,
+            Optional.of(propertyName)
+        );
 
         this.setSaveStringValueAndCheck(
             historyToken,
@@ -76,13 +86,26 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     // urlFragment.....................................................................................................
 
     @Test
+    public void testUrlFragmentCellWithoutTextStylePropertyName() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            ),
+            "/123/SpreadsheetName456/cell/A1/style"
+        );
+    }
+
+    @Test
     public void testUrlFragmentCellWildcard() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                TextStylePropertyName.WILDCARD
+                Optional.of(TextStylePropertyName.WILDCARD)
             ),
             "/123/SpreadsheetName456/cell/A1/style/*"
         );
@@ -124,7 +147,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                propertyName
+                Optional.of(propertyName)
             );
             this.urlFragmentAndCheck(
                 token,
@@ -139,7 +162,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            TextStylePropertyName.WILDCARD
+            Optional.of(TextStylePropertyName.WILDCARD)
         );
         this.urlFragmentAndCheck(
             token,
@@ -154,7 +177,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                propertyName
+                Optional.of(propertyName)
             );
             this.parseAndCheck(
                 token.urlFragment(),
@@ -169,7 +192,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            TextStylePropertyName.WILDCARD
+            Optional.of(TextStylePropertyName.WILDCARD)
         );
         this.parseAndCheck(
             token.urlFragment(),
@@ -193,7 +216,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             id,
             name,
             selection,
-            STYLE_PROPERTY_NAME
+            Optional.of(STYLE_PROPERTY_NAME)
         );
     }
 

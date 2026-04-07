@@ -23,11 +23,13 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> with(final SpreadsheetId id,
                                                                           final SpreadsheetName name,
-                                                                          final TextStylePropertyName<T> stylePropertyName) {
+                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
             id,
             name,
@@ -37,7 +39,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
 
     private SpreadsheetMetadataPropertyStyleSelectHistoryToken(final SpreadsheetId id,
                                                                final SpreadsheetName name,
-                                                               final TextStylePropertyName<T> stylePropertyName) {
+                                                               final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
             id,
             name,

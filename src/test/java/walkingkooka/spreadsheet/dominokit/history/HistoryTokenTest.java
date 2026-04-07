@@ -1958,7 +1958,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.parse("/something else"));
 
         assertSame(
-            historyToken.setStylePropertyName(TextStylePropertyName.COLOR),
+            historyToken.setStylePropertyName(
+                Optional.of(TextStylePropertyName.COLOR)
+            ),
             historyToken
         );
     }
@@ -1970,12 +1972,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, viewport);
 
         this.checkEquals(
-            historyToken.setStylePropertyName(property),
+            historyToken.setStylePropertyName(
+                Optional.of(property)
+            ),
             HistoryToken.cellStyle(
                 ID,
                 NAME,
                 viewport,
-                property
+                Optional.of(property)
             )
         );
     }
@@ -1987,12 +1991,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, viewport);
 
         this.checkEquals(
-            historyToken.setStylePropertyName(property),
+            historyToken.setStylePropertyName(
+                Optional.of(property)
+            ),
             HistoryToken.cellStyle(
                 ID,
                 NAME,
                 viewport,
-                property
+                Optional.of(property)
             )
         );
     }
@@ -2004,7 +2010,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.columnSelect(ID, NAME, viewport);
 
         assertSame(
-            historyToken.setStylePropertyName(property),
+            historyToken.setStylePropertyName(
+                Optional.of(property)
+            ),
             historyToken
         );
     }
@@ -2016,7 +2024,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         final HistoryToken historyToken = HistoryToken.rowSelect(ID, NAME, viewport);
 
         assertSame(
-            historyToken.setStylePropertyName(property),
+            historyToken.setStylePropertyName(
+                Optional.of(property)
+            ),
             historyToken
         );
     }
@@ -3394,18 +3404,23 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     // cell/style.......................................................................................................
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellStyleMissingStyleProperty() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyleInvalidPropertyName() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/style",
+            "/123/SpreadsheetName456/cell/A1/style/!invalid",
             CELL_TOKEN
         );
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellStyleInvalidPropertyName() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellStyle() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/style/!invalid",
-            CELL_TOKEN
+            "/123/SpreadsheetName456/cell/A1/style",
+            HistoryToken.cellStyle(
+                ID,
+                NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty()
+            )
         );
     }
 
@@ -3417,7 +3432,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                TextStylePropertyName.COLOR
+                Optional.of(TextStylePropertyName.COLOR)
             )
         );
     }
@@ -4593,13 +4608,25 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
+    public void testParseSpreadsheetIdSpreadsheetNameMetadataStyle() {
+        this.parseStringAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/style",
+            HistoryToken.metadataPropertyStyle(
+                ID,
+                NAME,
+                Optional.empty() // stylePropertyName
+            )
+        );
+    }
+
+    @Test
     public void testParseSpreadsheetIdSpreadsheetNameMetadataStylePropertyName() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style/color",
             HistoryToken.metadataPropertyStyle(
                 ID,
                 NAME,
-                TextStylePropertyName.COLOR
+                Optional.of(TextStylePropertyName.COLOR)
             )
         );
     }

@@ -369,7 +369,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitCellStyleSelect(final SpreadsheetId id,
                                         final SpreadsheetName name,
                                         final AnchoredSpreadsheetSelection anchoredSelection,
-                                        final TextStylePropertyName<?> stylePropertyName) {
+                                        final Optional<TextStylePropertyName<?>> stylePropertyName) {
         // NOP
     }
 
@@ -580,7 +580,7 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
 
     protected <T> void visitMetadataStyleSelect(final SpreadsheetId id,
                                                 final SpreadsheetName name,
-                                                final TextStylePropertyName<T> stylePropertyName) {
+                                                final Optional<TextStylePropertyName<T>> stylePropertyName) {
         // NOP
     }
 

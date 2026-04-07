@@ -42,7 +42,9 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     private final static String ID_PREFIX = "TestColorPicker-";
 
     private final static Function<HistoryToken, Optional<HistoryToken>> HISTORY_TOKEN_PREPARER = (h) -> Optional.of(
-        h.setStylePropertyName(TextStylePropertyName.COLOR)
+        h.setStylePropertyName(
+            Optional.of(TextStylePropertyName.COLOR)
+        )
     );
 
     @Test
@@ -300,7 +302,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
                         SpreadsheetId.with(1),
                         SpreadsheetName.with("SpreadsheetName1"),
                         SpreadsheetSelection.A1.setDefaultAnchor(),
-                        TextStylePropertyName.COLOR
+                        Optional.of(TextStylePropertyName.COLOR)
                     );
                 }
 

@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Optional;
 
 /**
  * Selects one of the available style toolbar links.
@@ -35,7 +38,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
                                                               final SpreadsheetName name,
                                                               final AnchoredSpreadsheetSelection anchoredSelection,
-                                                              final TextStylePropertyName<T> propertyName) {
+                                                              final Optional<TextStylePropertyName<T>> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
             id,
             name,
@@ -47,7 +50,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId id,
                                                    final SpreadsheetName name,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final TextStylePropertyName<T> propertyName) {
+                                                   final Optional<TextStylePropertyName<T>> propertyName) {
         super(
             id,
             name,
@@ -69,7 +72,9 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
             id,
             name,
             anchoredSelection
-        ).setStylePropertyName(this.stylePropertyName);
+        ).setStylePropertyName(
+            Cast.to(this.stylePropertyName)
+        );
     }
 
     @Override
@@ -86,7 +91,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
             this.id,
             this.name,
             this.anchoredSelection,
-            this.stylePropertyName
+            Cast.to(this.stylePropertyName)
         );
     }
 }

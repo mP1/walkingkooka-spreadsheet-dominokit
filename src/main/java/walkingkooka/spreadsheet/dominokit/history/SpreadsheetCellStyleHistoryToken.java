@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -24,13 +25,14 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellStyleHistoryToken(final SpreadsheetId id,
                                      final SpreadsheetName name,
                                      final AnchoredSpreadsheetSelection anchoredSelection,
-                                     final TextStylePropertyName<T> stylePropertyName) {
+                                     final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
             id,
             name,
@@ -40,19 +42,31 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
         this.stylePropertyName = Objects.requireNonNull(stylePropertyName, "stylePropertyName");
     }
 
-    final TextStylePropertyName<T> stylePropertyName;
+    final Optional<TextStylePropertyName<T>> stylePropertyName;
 
+    // /1/SpreadsheetName/cell/A1/style/
+    // /1/SpreadsheetName/cell/A1/style/color/
+    // /1/SpreadsheetName/cell/A1/style/color/save/#123
     @Override //
     final UrlFragment cellUrlFragment() {
-        return STYLE.appendSlashThen(
-            this.stylePropertyName.urlFragment()
-        ).appendSlashThen(this.styleUrlFragment());
+        UrlFragment urlFragment = STYLE;
+
+        final TextStylePropertyName<T> stylePropertyNameOrNull = this.stylePropertyName.orElse(null);
+        if (null != stylePropertyNameOrNull) {
+            urlFragment = urlFragment.appendSlashThen(
+                stylePropertyNameOrNull.urlFragment()
+            ).appendSlashThen(this.styleUrlFragment());
+        }
+
+        return urlFragment;
     }
 
     abstract UrlFragment styleUrlFragment();
 
     @Override
     public final HistoryToken clearAction() {
-        return this.setStylePropertyName(this.stylePropertyName);
+        return this.setStylePropertyName(
+            Cast.to(this.stylePropertyName)
+        );
     }
 }

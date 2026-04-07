@@ -153,7 +153,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                STYLE_PROPERTY_NAME
+                Optional.of(STYLE_PROPERTY_NAME)
             )
         );
     }
