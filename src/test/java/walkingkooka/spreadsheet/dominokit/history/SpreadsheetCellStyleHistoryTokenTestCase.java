@@ -36,6 +36,20 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
         super();
     }
 
+    // close............................................................................................................
+
+    @Test
+    public final void testClose() {
+        this.closeAndCheck(
+            this.createHistoryToken(),
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor()
+            )
+        );
+    }
+
     // navigation.......................................................................................................
 
     @Test
