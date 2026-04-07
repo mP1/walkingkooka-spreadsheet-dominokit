@@ -51,8 +51,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -97,8 +97,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/labels",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -110,8 +110,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/labels/offset/123",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
@@ -125,8 +125,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/labels/count/123",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(123)
@@ -140,8 +140,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/labels/offset/123/count/456",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
@@ -157,8 +157,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/labels",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -170,8 +170,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/labels",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -183,8 +183,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*/labels",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -196,8 +196,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*/bottom-right/labels",
             SpreadsheetCellLabelListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -211,8 +211,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -225,8 +225,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -340,8 +340,8 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             LABEL,
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -353,7 +353,7 @@ public final class SpreadsheetCellLabelListHistoryTokenTest extends SpreadsheetC
     public void testSetSaveValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, selection);
 
         assertSame(
             historyToken.setSaveStringValue(formulaText),

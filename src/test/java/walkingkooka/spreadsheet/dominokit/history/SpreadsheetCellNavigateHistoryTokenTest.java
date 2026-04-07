@@ -43,8 +43,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellNavigateHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -81,8 +81,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/navigate/!invalid",
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -93,8 +93,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/navigate/Z9/invalid",
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -107,8 +107,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -121,8 +121,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -135,8 +135,8 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

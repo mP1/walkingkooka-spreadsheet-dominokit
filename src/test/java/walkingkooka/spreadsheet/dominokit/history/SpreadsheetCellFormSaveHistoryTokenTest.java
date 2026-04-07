@@ -56,8 +56,8 @@ public final class SpreadsheetCellFormSaveHistoryTokenTest extends SpreadsheetCe
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellFormSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 FORM_NAME,
                 null
@@ -72,8 +72,8 @@ public final class SpreadsheetCellFormSaveHistoryTokenTest extends SpreadsheetCe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 FORM_NAME
             )

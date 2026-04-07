@@ -40,8 +40,8 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellValidatorSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -59,8 +59,8 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellValidatorSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -99,8 +99,8 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellValidatorSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );

@@ -38,8 +38,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testCount() {
         this.countAndCheck(
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -52,8 +52,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
 
         this.countAndCheck(
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.of(count)
             ),
@@ -81,8 +81,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
             this.createHistoryToken(),
             count,
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 count
             )
@@ -102,8 +102,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testUrlFragmentColumnEmptyCount() {
         this.urlFragmentAndCheck(
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
                 OptionalInt.empty()
             ),
@@ -114,8 +114,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
     public void testUrlFragmentColumn23() {
         this.urlFragmentAndCheck(
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
                 OptionalInt.of(
                     23
@@ -139,8 +139,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/B",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
             )
         );
@@ -151,8 +151,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/C/insertBefore/0",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("C").setDefaultAnchor()
             )
         );
@@ -163,8 +163,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/B/insertBefore/1",
             SpreadsheetColumnInsertBeforeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("B")
                     .setDefaultAnchor(),
                 COUNT
@@ -179,8 +179,8 @@ public final class SpreadsheetColumnInsertBeforeHistoryTokenTest extends Spreads
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );

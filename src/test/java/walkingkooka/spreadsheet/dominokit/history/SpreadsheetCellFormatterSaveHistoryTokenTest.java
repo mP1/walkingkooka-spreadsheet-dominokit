@@ -39,8 +39,8 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellFormatterSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -58,8 +58,8 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellFormatterSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -98,8 +98,8 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormatterSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -120,8 +120,8 @@ public final class SpreadsheetCellFormatterSaveHistoryTokenTest extends Spreadsh
     public void testSaveValueWithoutValue() {
         this.saveValueAndCheck(
             SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 Optional.empty()
             )

@@ -65,8 +65,8 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     public void testLabelNameWhenPresent() {
         this.labelNameAndCheck(
             SpreadsheetLabelMappingSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             ),
             LABEL
@@ -90,8 +90,8 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );
@@ -105,8 +105,8 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );
@@ -120,8 +120,8 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );

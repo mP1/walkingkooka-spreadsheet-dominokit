@@ -42,8 +42,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -64,8 +64,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -92,8 +92,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/style",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -104,8 +104,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -123,8 +123,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -154,8 +154,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToStyle
             ),
@@ -175,8 +175,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToStyle
             ),
@@ -206,8 +206,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToStyle
@@ -232,8 +232,8 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveStyleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

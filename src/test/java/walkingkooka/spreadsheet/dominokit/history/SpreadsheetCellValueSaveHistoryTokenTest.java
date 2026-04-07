@@ -49,8 +49,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null,
                 Optional.empty()
@@ -63,8 +63,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 VALUE_TYPE,
                 null
@@ -80,16 +80,16 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 Optional.of("Previous")
             ),
             value,
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 value
@@ -109,16 +109,16 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 Optional.of("Previous")
             ),
             value,
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 value
@@ -138,16 +138,16 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.TIME,
                 Optional.of("Previous")
             ),
             value,
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.TIME,
                 value
@@ -161,16 +161,16 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     public void testSetSaveStringValueWithEmptyString() {
         this.setSaveValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 Optional.of("Previous")
             ),
             Optional.empty(),
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.DATE,
                 Optional.empty()
@@ -184,8 +184,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
         this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.TEXT,
                 Optional.of("Previous")
@@ -193,8 +193,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
             JsonNode.string(value)
                 .toString(),
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.TEXT,
                 Optional.of(value)
@@ -208,8 +208,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
 
         this.setSaveStringValueAndCheck(
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.NUMBER,
                 Optional.of("Previous")
@@ -217,8 +217,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
             JsonNode.string(value)
                 .toString(),
             HistoryToken.cellValueSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.NUMBER,
                 Optional.of(
@@ -248,8 +248,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             Optional.of(valueType),
             HistoryToken.cellValueSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 valueType
             )
@@ -262,8 +262,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 VALUE_TYPE,
                 Optional.empty()
@@ -308,8 +308,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/date/save/today",
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetValueType.DATE,
                 Optional.of(SpreadsheetCellValueDialogComponent.TODAY_TEXT)
@@ -322,8 +322,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/date-time/save/now",
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetValueType.DATE_TIME,
                 Optional.of(SpreadsheetCellValueDialogComponent.NOW_TEXT)
@@ -336,8 +336,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/time/save/now",
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetValueType.TIME,
                 Optional.of(SpreadsheetCellValueDialogComponent.NOW_TEXT)
@@ -350,8 +350,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/number/save/\"1.5\"",
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetValueType.NUMBER,
                 Optional.of(
@@ -366,8 +366,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/value/text/save/\"Hello\"",
             SpreadsheetCellValueSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetValueType.TEXT,
                 Optional.of("Hello")
@@ -382,8 +382,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellValueSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 VALUE_TYPE
             )
@@ -397,8 +397,8 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );

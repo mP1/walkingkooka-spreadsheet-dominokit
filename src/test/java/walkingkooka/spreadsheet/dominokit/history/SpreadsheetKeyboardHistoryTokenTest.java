@@ -44,8 +44,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -57,8 +57,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -70,8 +70,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -88,8 +88,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -104,8 +104,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         this.setMetadataPropertyNameAndCheck(
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );
@@ -127,8 +127,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
         this.renameAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -150,8 +150,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -165,8 +165,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -180,8 +180,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -195,8 +195,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -210,8 +210,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -226,8 +226,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -241,8 +241,8 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );

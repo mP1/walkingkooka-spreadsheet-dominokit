@@ -28,12 +28,12 @@ public final class SpreadsheetLabelMappingCreateHistoryTokenTest extends Spreads
     @Test
     public void testWith() {
         final SpreadsheetLabelMappingCreateHistoryToken token = SpreadsheetLabelMappingCreateHistoryToken.with(
-            ID,
-            NAME
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME
         );
-        this.checkEquals(ID, token.spreadsheetId(), "id");
+        this.checkEquals(SPREADSHEET_ID, token.spreadsheetId(), "id");
         this.checkEquals(
-            NAME,
+            SPREADSHEET_NAME,
             token.spreadsheetName()
                 .orElse(null),
             "name"
@@ -51,8 +51,8 @@ public final class SpreadsheetLabelMappingCreateHistoryTokenTest extends Spreads
     public void testLabelName() {
         this.labelNameAndCheck(
             SpreadsheetLabelMappingCreateHistoryToken.with(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

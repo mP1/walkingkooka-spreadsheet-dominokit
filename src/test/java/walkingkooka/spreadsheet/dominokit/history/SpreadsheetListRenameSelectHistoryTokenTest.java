@@ -56,7 +56,7 @@ public final class SpreadsheetListRenameSelectHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             renameTo.toString(),
             HistoryToken.spreadsheetListRenameSave(
-                ID,
+                SPREADSHEET_ID,
                 renameTo
             )
         );
@@ -80,7 +80,7 @@ public final class SpreadsheetListRenameSelectHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             Optional.of(renameTo),
             HistoryToken.spreadsheetListRenameSave(
-                ID,
+                SPREADSHEET_ID,
                 renameTo
             )
         );

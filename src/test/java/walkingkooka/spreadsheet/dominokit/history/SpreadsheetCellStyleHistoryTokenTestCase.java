@@ -62,8 +62,8 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
             this.createHistoryToken(),
             value,
             HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 STYLE_PROPERTY_NAME,
                 value
@@ -81,8 +81,8 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
             this.createHistoryToken(),
             value,
             HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 STYLE_PROPERTY_NAME,
                 value

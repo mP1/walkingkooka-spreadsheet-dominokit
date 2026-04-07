@@ -44,8 +44,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(),
             different,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different
             )
         );
@@ -60,8 +60,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(),
             different,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different
             )
         );
@@ -76,8 +76,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(),
             different,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different
             )
         );
@@ -86,9 +86,9 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     @Test
     public final void testSetIdName() {
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
-            ID,
-            NAME,
-            this.createHistoryToken(ID, NAME)
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            this.createHistoryToken(SPREADSHEET_ID, SPREADSHEET_NAME)
         );
     }
 
@@ -98,8 +98,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
 
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
             differentId,
-            NAME,
-            this.createHistoryToken(differentId, NAME)
+            SPREADSHEET_NAME,
+            this.createHistoryToken(differentId, SPREADSHEET_NAME)
         );
     }
 
@@ -108,9 +108,9 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         final SpreadsheetName differentName = SpreadsheetName.with("Different");
 
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
-            ID,
+            SPREADSHEET_ID,
             differentName,
-            this.createHistoryToken(ID, differentName)
+            this.createHistoryToken(SPREADSHEET_ID, differentName)
         );
     }
 
@@ -169,8 +169,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     final void menuWithCellAndCheck(final SpreadsheetCellReference cell) {
         this.menuAndCheck(
             HistoryToken.cellMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 cell.setDefaultAnchor()
             ),
             cell
@@ -186,8 +186,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     final void menuWithColumnAndCheck(final SpreadsheetColumnReference column) {
         this.menuAndCheck(
             HistoryToken.columnMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 column.setDefaultAnchor()
             ),
             column
@@ -203,8 +203,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     final void menuWithRowAndCheck(final SpreadsheetRowReference row) {
         this.menuAndCheck(
             HistoryToken.rowMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 row.setDefaultAnchor()
             ),
             row
@@ -235,8 +235,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     @Test
     public final void testSetSpreadsheetName() {
         this.setSpreadsheetNameAndCheck(
-            NAME,
-            this.createHistoryToken(ID, NAME)
+            SPREADSHEET_NAME,
+            this.createHistoryToken(SPREADSHEET_ID, SPREADSHEET_NAME)
         );
     }
 
@@ -247,7 +247,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
         this.setSpreadsheetNameAndCheck(
             differentName,
             this.createHistoryToken(
-                ID,
+                SPREADSHEET_ID,
                 differentName
             )
         );
@@ -263,8 +263,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(),
             metadataPropertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 metadataPropertyName
             )
         );
@@ -278,8 +278,8 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
             this.createHistoryToken(),
             metadataPropertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 metadataPropertyName
             )
         );
@@ -291,7 +291,7 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
     final T createHistoryToken(final SpreadsheetId id) {
         return this.createHistoryToken(
             id,
-            NAME
+            SPREADSHEET_NAME
         );
     }
 

@@ -54,8 +54,8 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
 
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
             differentId,
-            NAME,
-            HistoryToken.spreadsheetSelect(differentId, NAME)
+            SPREADSHEET_NAME,
+            HistoryToken.spreadsheetSelect(differentId, SPREADSHEET_NAME)
         );
     }
 

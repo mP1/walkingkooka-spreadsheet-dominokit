@@ -82,8 +82,8 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );

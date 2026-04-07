@@ -38,8 +38,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellLabelSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 null
             )
@@ -53,8 +53,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/label/save",
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -78,8 +78,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             Optional.of(LABEL),
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 LABEL
             )
@@ -94,8 +94,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
     void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
         this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 target.setDefaultAnchor(),
                 NOT_TARGET_LABEL
             ),
@@ -112,15 +112,15 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         );
         this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor(),
                 NOT_TARGET_LABEL
             ),
             target,
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 target.setDefaultAnchor(),
                 NOT_TARGET_LABEL
             )
@@ -134,8 +134,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -149,8 +149,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             "",
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -164,8 +164,8 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
             this.createHistoryToken(),
             labelName,
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 SpreadsheetSelection.labelName(labelName)
             )

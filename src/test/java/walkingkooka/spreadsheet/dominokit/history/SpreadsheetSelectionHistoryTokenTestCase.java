@@ -35,8 +35,8 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         this.setMetadataPropertyNameAndCheck(
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );
@@ -49,8 +49,8 @@ public abstract class SpreadsheetSelectionHistoryTokenTestCase<T extends Spreads
         this.renameAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

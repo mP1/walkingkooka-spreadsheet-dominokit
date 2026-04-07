@@ -37,8 +37,8 @@ public abstract class SpreadsheetCellCurrencyHistoryTokenTestCase<T extends Spre
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -70,8 +70,8 @@ public abstract class SpreadsheetCellCurrencyHistoryTokenTestCase<T extends Spre
             this.createHistoryToken(),
             value,
             HistoryToken.cellCurrencySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -88,8 +88,8 @@ public abstract class SpreadsheetCellCurrencyHistoryTokenTestCase<T extends Spre
             this.createHistoryToken(),
             value,
             HistoryToken.cellCurrencySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

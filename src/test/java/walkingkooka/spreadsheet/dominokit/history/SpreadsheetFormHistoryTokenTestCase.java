@@ -39,8 +39,8 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

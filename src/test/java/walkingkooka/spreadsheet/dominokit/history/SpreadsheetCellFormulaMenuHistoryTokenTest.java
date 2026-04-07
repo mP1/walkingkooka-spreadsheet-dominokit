@@ -32,16 +32,16 @@ public final class SpreadsheetCellFormulaMenuHistoryTokenTest extends Spreadshee
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
         final HistoryToken historyToken = HistoryToken.cellFormulaMenu(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             selection
         );
 
         this.checkEquals(
             historyToken.setSaveStringValue(formulaText),
             HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection,
                 formulaText
             )

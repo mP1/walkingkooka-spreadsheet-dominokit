@@ -33,9 +33,9 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
     @Test
     public void testIdName() {
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
-            ID,
-            NAME,
-            HistoryToken.spreadsheetSelect(ID, NAME)
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            HistoryToken.spreadsheetSelect(SPREADSHEET_ID, SPREADSHEET_NAME)
         );
     }
 

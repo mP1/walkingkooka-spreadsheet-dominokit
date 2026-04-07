@@ -39,8 +39,8 @@ public abstract class SpreadsheetCellClipboardHistoryTokenTestCase<T extends Spr
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 null
             )

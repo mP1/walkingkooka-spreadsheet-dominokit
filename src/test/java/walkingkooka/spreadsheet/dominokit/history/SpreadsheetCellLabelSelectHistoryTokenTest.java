@@ -44,8 +44,8 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
             this.createHistoryToken(),
             Optional.of(LABEL),
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 LABEL
             )
@@ -58,8 +58,8 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
     void setLabelMappingReferenceAndCheck(final SpreadsheetExpressionReference target) {
         this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 target.setDefaultAnchor()
             ),
             target
@@ -75,14 +75,14 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         );
         this.setLabelMappingReferenceAndCheck(
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             ),
             target,
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 target.setDefaultAnchor()
             )
         );
@@ -95,8 +95,8 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -120,8 +120,8 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
             this.createHistoryToken(),
             labelName,
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 SpreadsheetSelection.labelName(labelName)
             )

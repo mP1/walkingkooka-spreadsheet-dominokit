@@ -50,8 +50,8 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null,
                 HistoryToken.NO_FIELD
             )
@@ -63,8 +63,8 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM,
                 null // value
             )
@@ -88,8 +88,8 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.formSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM_NAME,
                 HistoryToken.NO_FIELD
             )
@@ -196,8 +196,8 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
 
     private SpreadsheetFormSaveHistoryToken createHistoryToken(final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSaveHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             FORM,
             field
         );

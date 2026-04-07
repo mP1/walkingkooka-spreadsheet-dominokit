@@ -46,8 +46,8 @@ public abstract class SpreadsheetColumnSortHistoryTokenTestCase<T extends Spread
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -88,8 +88,8 @@ public abstract class SpreadsheetColumnSortHistoryTokenTestCase<T extends Spread
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.columnSortSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

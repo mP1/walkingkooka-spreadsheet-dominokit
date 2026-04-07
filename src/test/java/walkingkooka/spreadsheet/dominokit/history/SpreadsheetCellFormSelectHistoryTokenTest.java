@@ -32,8 +32,8 @@ public final class SpreadsheetCellFormSelectHistoryTokenTest extends Spreadsheet
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 FORM_NAME
             )

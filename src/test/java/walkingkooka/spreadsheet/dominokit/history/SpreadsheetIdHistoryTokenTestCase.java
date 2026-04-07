@@ -46,7 +46,7 @@ public abstract class SpreadsheetIdHistoryTokenTestCase<T extends SpreadsheetHis
     }
 
     @Override final T createHistoryToken() {
-        return this.createHistoryToken(ID);
+        return this.createHistoryToken(SPREADSHEET_ID);
     }
 
     abstract T createHistoryToken(final SpreadsheetId id);

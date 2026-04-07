@@ -40,8 +40,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testUrlFragmentDateFormatter() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_FORMATTER
             ),
             "/123/SpreadsheetName456/spreadsheet/dateFormatter"
@@ -52,8 +52,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testUrlFragmentDefaultYear() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             ),
             "/123/SpreadsheetName456/spreadsheet/defaultYear"
@@ -67,8 +67,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/dateFormatter",
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_FORMATTER
             )
         );
@@ -79,8 +79,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/defaultYear",
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             )
         );
@@ -91,8 +91,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/spreadsheetId",
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID
             )
         );
@@ -103,8 +103,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style",
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -122,13 +122,13 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testCloseFormatter() {
         this.closeAndCheck(
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_FORMATTER
             ),
             HistoryToken.metadataSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -137,13 +137,13 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     public void testCloseParsePattern() {
         this.closeAndCheck(
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_PARSER
             ),
             HistoryToken.metadataSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -158,8 +158,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
             this.createHistoryToken(),
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );
@@ -173,14 +173,14 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
 
         this.setSaveValueAndCheck(
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             ),
             Optional.of(value),
             HistoryToken.metadataPropertySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName,
                 Optional.of(
                     value
@@ -195,14 +195,14 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
 
         this.setSaveValueAndCheck(
             SpreadsheetMetadataPropertySelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             ),
             Optional.empty(),
             HistoryToken.metadataPropertySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName,
                 Optional.empty()
             )
@@ -217,8 +217,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
             this.createHistoryToken(),
             Optional.of(kind),
             HistoryToken.metadataPropertySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 EXPRESSION_NUMBER_KIND,
                 Optional.of(
                     kind
@@ -233,8 +233,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
             this.createHistoryToken(),
             Optional.empty(),
             HistoryToken.metadataPropertySave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 EXPRESSION_NUMBER_KIND,
                 Optional.empty()
             )

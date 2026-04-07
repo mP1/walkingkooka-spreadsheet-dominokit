@@ -43,8 +43,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -65,8 +65,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -94,8 +94,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/valueType",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -114,8 +114,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -138,8 +138,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 map
@@ -160,8 +160,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -179,8 +179,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToValueType
             ),
@@ -198,8 +198,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToValueType
             ),
@@ -223,8 +223,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToValueType
@@ -243,8 +243,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToValueType
@@ -275,8 +275,8 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

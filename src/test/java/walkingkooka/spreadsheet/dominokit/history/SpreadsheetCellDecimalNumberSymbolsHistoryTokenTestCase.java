@@ -35,8 +35,8 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -68,8 +68,8 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
             this.createHistoryToken(),
             value,
             HistoryToken.cellDecimalNumberSymbolsSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -84,8 +84,8 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
             this.createHistoryToken(),
             value,
             HistoryToken.cellDecimalNumberSymbolsSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

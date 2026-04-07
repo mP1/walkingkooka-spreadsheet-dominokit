@@ -74,8 +74,8 @@ public final class SpreadsheetCellParserSelectHistoryTokenTest extends Spreadshe
     public void testClose() {
         this.closeAndCheck(
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );

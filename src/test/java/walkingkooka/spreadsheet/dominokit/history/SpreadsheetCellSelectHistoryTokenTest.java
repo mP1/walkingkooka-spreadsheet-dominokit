@@ -78,8 +78,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -90,8 +90,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             )
         );
@@ -102,8 +102,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             )
         );
@@ -114,8 +114,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.ALL_CELLS.setDefaultAnchor()
             )
         );
@@ -126,8 +126,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/*/bottom-right",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
             )
         );
@@ -179,8 +179,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSaveCell(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -200,8 +200,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSaveFormatter(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -219,8 +219,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSaveFormulaText(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -240,8 +240,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSaveParser(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -262,8 +262,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSaveStyle(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -286,8 +286,8 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
             this.createHistoryToken(),
             LABEL,
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -299,7 +299,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testSetSaveValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final String formulaText = "=1";
-        final HistoryToken historyToken = HistoryToken.cellSelect(ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, selection);
 
         assertSame(
             historyToken.setSaveStringValue(formulaText),

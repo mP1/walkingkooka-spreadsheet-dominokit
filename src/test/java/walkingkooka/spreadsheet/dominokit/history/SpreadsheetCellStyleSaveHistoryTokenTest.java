@@ -43,8 +43,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.COLOR,
                 null
@@ -57,8 +57,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.COLOR,
                 Cast.to(
@@ -76,8 +76,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentCellWildcard() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.WILDCARD,
                 Optional.empty()
@@ -165,8 +165,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                                           final String urlFragment) {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 propertyName,
                 Optional.ofNullable(propertyValue)
@@ -181,8 +181,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             urlFragment,
             SpreadsheetCellStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 propertyName,
                 Optional.ofNullable(propertyValue)
@@ -197,8 +197,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellStyle(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 STYLE_PROPERTY_NAME
             )
@@ -239,8 +239,8 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         );
 
         final SpreadsheetCellStyleSaveHistoryToken<?> historyToken = SpreadsheetCellStyleSaveHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             SELECTION,
             name,
             value

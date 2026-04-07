@@ -32,8 +32,8 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
         this.parseAndCheck(
             "/123/SpreadsheetName456/rename/save",
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -48,8 +48,8 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -72,8 +72,8 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
             this.createHistoryToken(),
             "",
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -88,8 +88,8 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
             this.createHistoryToken(),
             Optional.of(renameTo),
             HistoryToken.spreadsheetRenameSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 renameTo
             )
         );
@@ -101,8 +101,8 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
             this.createHistoryToken(),
             Optional.empty(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

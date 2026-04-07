@@ -34,8 +34,8 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/date-format",
             SpreadsheetMetadataSelectHistoryToken.with(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -45,8 +45,8 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style",
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -60,8 +60,8 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
         this.setMetadataPropertyNameAndCheck(
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );
@@ -75,8 +75,8 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );

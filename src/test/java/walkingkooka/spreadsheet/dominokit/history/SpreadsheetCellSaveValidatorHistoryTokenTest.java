@@ -40,8 +40,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -64,8 +64,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -98,8 +98,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/validator",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -113,8 +113,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-\"}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -135,8 +135,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-1\",\"A2\":null}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -159,8 +159,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -184,8 +184,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToValidator
             ),
@@ -205,8 +205,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToValidator
             ),
@@ -234,8 +234,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToValidator
@@ -254,8 +254,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToValidator
@@ -286,8 +286,8 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveValidatorHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

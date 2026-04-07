@@ -46,8 +46,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -59,8 +59,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     public final void testLabelMappingReferenceWhenCell() {
         this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             CELL
@@ -71,8 +71,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     public final void testLabelMappingReferenceWhenCellRange() {
         this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             ),
             CELL_RANGE
@@ -83,8 +83,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
     public final void testLabelMappingReferenceWhenLabel() {
         this.labelMappingReferenceAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setDefaultAnchor()
             ),
             LABEL
@@ -175,8 +175,8 @@ public abstract class SpreadsheetCellLabelHistoryTokenTestCase<T extends Spreads
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellLabelSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

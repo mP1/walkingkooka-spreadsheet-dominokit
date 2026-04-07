@@ -84,8 +84,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.dateTimeSymbolsAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellDateTimeSymbolsSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -98,8 +98,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.decimalNumberSymbolsAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellDecimalNumberSymbolsSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -114,8 +114,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.cellFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -129,8 +129,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.cellFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -143,8 +143,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.formatterAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormatterSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -158,8 +158,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
         this.checkEquals(
             HistoryToken.cellFormula(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             ),
             token.formula()
@@ -174,8 +174,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             SpreadsheetCellQueryRequest.empty(), // query
             HistoryToken.cellQuery(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellQueryRequest.empty()
             )
@@ -191,8 +191,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.createLabelAndCheck(
             historyToken,
             HistoryToken.cellLabelSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 historyToken.anchoredSelection()
             )
         );
@@ -224,8 +224,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.cellLabels(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 offsetAndCount
             )
@@ -239,8 +239,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.localeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellLocaleSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -258,8 +258,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             ),
             cell,
             HistoryToken.cellMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 cell.setDefaultAnchor()
             )
         );
@@ -275,8 +275,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             ),
             cell,
             HistoryToken.cellMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 cell.setDefaultAnchor()
             )
         );
@@ -291,8 +291,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(selection),
             SpreadsheetSelection.parseCell("B2"),
             HistoryToken.cellMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -308,8 +308,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             ),
             cell,
             HistoryToken.cellMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 cell.setDefaultAnchor()
             )
         );
@@ -335,8 +335,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -350,8 +350,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -375,8 +375,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -402,8 +402,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -427,8 +427,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -442,8 +442,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -457,8 +457,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -475,8 +475,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             propertyName.setValue(propertyValue),
             HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 propertyName,
                 propertyValue
@@ -494,8 +494,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             stylePropertyName,
             HistoryToken.cellStyle(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 stylePropertyName
             )
@@ -510,8 +510,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
             this.createHistoryToken(),
             stylePropertyName,
             HistoryToken.cellStyle(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 stylePropertyName
             )
@@ -525,8 +525,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
         this.validatorAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellValidatorSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

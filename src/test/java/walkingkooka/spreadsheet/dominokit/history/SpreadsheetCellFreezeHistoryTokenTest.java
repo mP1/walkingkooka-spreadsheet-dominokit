@@ -82,8 +82,8 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

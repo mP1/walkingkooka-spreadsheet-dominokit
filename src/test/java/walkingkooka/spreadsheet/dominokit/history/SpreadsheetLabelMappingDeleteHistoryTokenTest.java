@@ -60,8 +60,8 @@ public final class SpreadsheetLabelMappingDeleteHistoryTokenTest extends Spreads
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );

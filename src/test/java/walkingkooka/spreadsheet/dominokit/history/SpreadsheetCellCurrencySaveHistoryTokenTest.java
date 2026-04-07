@@ -35,8 +35,8 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellCurrencySaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -54,8 +54,8 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellCurrencySaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -94,8 +94,8 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellCurrencySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -115,8 +115,8 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
     public void testSaveValueWithoutValue() {
         this.saveValueAndCheck(
             SpreadsheetCellCurrencySaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 Optional.empty()
             )

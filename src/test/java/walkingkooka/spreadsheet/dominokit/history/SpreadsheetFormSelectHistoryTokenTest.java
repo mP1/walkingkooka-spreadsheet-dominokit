@@ -38,8 +38,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null,
                 Optional.empty()
             )
@@ -51,8 +51,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM_NAME,
                 null
             )
@@ -76,8 +76,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         this.clearActionAndCheck(
             this.createHistoryToken(),
             SpreadsheetFormSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM_NAME,
                 Optional.empty() // SpreadsheetValidationReference
             )
@@ -89,8 +89,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
         this.deleteAndCheck(
             this.createHistoryToken(),
             HistoryToken.formDelete(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM_NAME
             )
         );
@@ -173,8 +173,8 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
 
     private SpreadsheetFormSelectHistoryToken createHistoryToken(final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSelectHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             FORM_NAME,
             field
         );

@@ -54,8 +54,8 @@ public final class SpreadsheetRowKeyboardHistoryTokenTest extends SpreadsheetRow
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );

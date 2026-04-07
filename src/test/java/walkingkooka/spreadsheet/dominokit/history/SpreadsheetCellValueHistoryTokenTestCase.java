@@ -45,8 +45,8 @@ public abstract class SpreadsheetCellValueHistoryTokenTestCase<T extends Spreads
             this.createHistoryToken(),
             Optional.empty(), // no ValidationValueType
             HistoryToken.cellValueUnselect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

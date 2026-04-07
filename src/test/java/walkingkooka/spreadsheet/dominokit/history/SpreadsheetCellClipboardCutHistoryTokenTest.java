@@ -31,8 +31,8 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/cut/?unknown",
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -51,8 +51,8 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:B2/cut/cell",
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             )
@@ -64,8 +64,8 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/cut/formula",
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.FORMULA
             )
@@ -84,8 +84,8 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
     public void testUrlFragmentFormula() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.FORMULA
             ),
@@ -97,8 +97,8 @@ public final class SpreadsheetCellClipboardCutHistoryTokenTest extends Spreadshe
     public void testUrlFragmentFormatter() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.FORMATTER
             ),
