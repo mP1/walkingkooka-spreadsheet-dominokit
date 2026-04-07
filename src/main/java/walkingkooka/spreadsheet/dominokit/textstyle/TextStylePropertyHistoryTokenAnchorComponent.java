@@ -95,8 +95,9 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
         this.anchor.setValue(
             Optional.of(
                 this.context.historyToken()
-                    .setStylePropertyName(this.textStylePropertyName)
-                    .setSaveValue(this.value)
+                    .setStyleProperty(
+                        this.textStylePropertyName.setValue(this.value)
+                    )
             ).filter(HistoryToken::isSave)
         );
     }

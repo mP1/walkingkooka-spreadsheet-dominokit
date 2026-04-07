@@ -251,9 +251,9 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         // clear
         styleSubMenu.item(
             context.historyToken()
-                .setStylePropertyName(propertyName)
-                .clearSaveValue()
-                .contextMenuItem(
+                .setStyleProperty(
+                    propertyName.clearValue()
+                ).contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
                     "Clear"
                 ).icon(
@@ -307,9 +307,9 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         // clear
         borderWidthSubMenu.item(
             context.historyToken()
-                .setStylePropertyName(propertyName)
-                .clearSaveValue()
-                .contextMenuItem(
+                .setStyleProperty(
+                    propertyName.clearValue()
+                ).contextMenuItem(
                     idPrefix + "-clear" + SpreadsheetElementIds.MENU_ITEM, // id
                     "Clear"
                 ).icon(
@@ -393,16 +393,16 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             idPrefix + SpreadsheetElementIds.SUB_MENU,
             "Text case"
         ).item(
-            this.historyToken.setStylePropertyName(TextStylePropertyName.TEXT_TRANSFORM)
-                .clearSaveValue()
-                .contextMenuItem(
-                    idPrefix + "-normal" + SpreadsheetElementIds.MENU_ITEM,
-                    "Normal"
-                ).icon(
-                    Optional.of(
-                        SpreadsheetIcons.textCaseUpper()
-                    )
+            this.historyToken.setStyleProperty(
+                TextStylePropertyName.TEXT_TRANSFORM.clearValue()
+            ).contextMenuItem(
+                idPrefix + "-normal" + SpreadsheetElementIds.MENU_ITEM,
+                "Normal"
+            ).icon(
+                Optional.of(
+                    SpreadsheetIcons.textCaseUpper()
                 )
+            )
         ).checkedItem(
             idPrefix + "-capitalize" + SpreadsheetElementIds.MENU_ITEM, // id
             "Capitalize", // text

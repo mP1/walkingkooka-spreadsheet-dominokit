@@ -158,24 +158,25 @@ public final class SpreadsheetContextMenu implements TreePrintable {
                                                    final TextStylePropertyName<TT> stylePropertyName,
                                                    final TT stylePropertyValue,
                                                    final SpreadsheetSelectionMenuContext context) {
-        final boolean set = context.isChecked(
+        final boolean clearValue = context.isChecked(
             stylePropertyName,
             stylePropertyValue
         );
         return this.item(
             this.context.historyToken()
-                .setStylePropertyName(stylePropertyName)
-                .setSaveValue(
-                    Optional.ofNullable(
-                        set ?
-                            null :
-                            stylePropertyValue
+                .setStyleProperty(
+                    stylePropertyName.setValue(
+                        Optional.ofNullable(
+                            clearValue ?
+                                null :
+                                stylePropertyValue
+                        )
                     )
                 ).contextMenuItem(
                     id,
                     text
                 ).icon(icon)
-                .checked(set)
+                .checked(clearValue)
         );
     }
 

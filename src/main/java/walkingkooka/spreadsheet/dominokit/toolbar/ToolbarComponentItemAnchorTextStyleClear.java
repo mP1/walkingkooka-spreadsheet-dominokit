@@ -77,8 +77,9 @@ final class ToolbarComponentItemAnchorTextStyleClear extends ToolbarComponentIte
                 context.historyToken()
                     .anchoredSelectionHistoryTokenOrEmpty()
                     .map(
-                        t -> t.setStylePropertyName(PROPERTY)
-                            .clearSaveValue()
+                        t -> t.setStyleProperty(
+                            PROPERTY.clearValue()
+                        )
                     )
             );
     }
