@@ -1111,12 +1111,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static <T> SpreadsheetCellStyleSelectHistoryToken<T> cellStyle(final SpreadsheetId id,
                                                                           final SpreadsheetName name,
                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                          final Optional<TextStylePropertyName<T>> propertyName) {
+                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
             id,
             name,
             anchoredSelection,
-            propertyName
+            stylePropertyName
         );
     }
 
