@@ -92,10 +92,11 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
             id,
             name,
             anchoredSelection
-        ).setStylePropertyName(this.stylePropertyName)
-            .setSaveValue(
+        ).setStyleProperty(
+            this.stylePropertyName.setValue(
                 this.value()
-            );
+            )
+        );
     }
 
     @Override

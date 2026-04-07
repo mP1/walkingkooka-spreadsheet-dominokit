@@ -260,11 +260,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                 if (isStyle) {
                     final TextStyleProperty<?> textStyleProperty = (TextStyleProperty<?>) value;
 
-                    saveHistoryToken = historyToken.setStylePropertyName(
-                        textStyleProperty.name()
-                    ).setSaveValue(
-                        textStyleProperty.value()
-                    );
+                    saveHistoryToken = historyToken.setStyleProperty(textStyleProperty);
                 } else {
                     saveHistoryToken = historyToken.setSaveValue(
                         Optional.of(value)

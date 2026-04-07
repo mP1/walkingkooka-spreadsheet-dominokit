@@ -451,10 +451,10 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
         if (context.historyToken() instanceof SpreadsheetCellHistoryToken) {
             context.pushHistoryToken(
                 context.historyToken()
-                    .setStylePropertyName(
-                        name
-                    ).setSaveValue(
-                        Optional.of(value)
+                    .setStyleProperty(
+                        name.setValue(
+                            Optional.of(value)
+                        )
                     )
             );
         }
@@ -481,16 +481,16 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
 
             context.pushHistoryToken(
                 context.historyToken()
-                    .setStylePropertyName(
-                        name
-                    ).setSaveValue(
-                        Optional.ofNullable(
-                            Objects.equals(
-                                previous,
-                                value
-                            ) ?
-                                null :
-                                value
+                    .setStyleProperty(
+                        name.setValue(
+                            Optional.ofNullable(
+                                Objects.equals(
+                                    previous,
+                                    value
+                                ) ?
+                                    null :
+                                    value
+                            )
                         )
                     )
             );
