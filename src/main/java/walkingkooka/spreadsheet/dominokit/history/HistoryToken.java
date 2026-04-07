@@ -2541,19 +2541,19 @@ public abstract class HistoryToken implements HasUrlFragment {
                         this instanceof SpreadsheetCellLabelListHistoryToken ||
                         this instanceof SpreadsheetCellLocaleHistoryToken ||
                         this instanceof SpreadsheetCellNavigateHistoryToken ||
-                        this instanceof SpreadsheetColumnKeyboardHistoryToken ||
-                        this instanceof SpreadsheetRowKeyboardHistoryToken ||
-                        this instanceof SpreadsheetColumnNavigateHistoryToken ||
-                        this instanceof SpreadsheetRowNavigateHistoryToken ||
                         this instanceof SpreadsheetCellParserHistoryToken ||
                         this instanceof SpreadsheetCellReferenceListHistoryToken ||
                         this instanceof SpreadsheetCellSortHistoryToken ||
                         this instanceof SpreadsheetCellStyleHistoryToken ||
-                        this instanceof SpreadsheetColumnSortHistoryToken ||
-                        this instanceof SpreadsheetRowSortHistoryToken ||
                         this instanceof SpreadsheetCellValidatorHistoryToken ||
                         this instanceof SpreadsheetCellValueHistoryToken ||
-                        this instanceof SpreadsheetCellValueTypeHistoryToken) {
+                        this instanceof SpreadsheetCellValueTypeHistoryToken ||
+                        this instanceof SpreadsheetColumnKeyboardHistoryToken ||
+                        this instanceof SpreadsheetColumnNavigateHistoryToken ||
+                        this instanceof SpreadsheetColumnSortHistoryToken ||
+                        this instanceof SpreadsheetRowKeyboardHistoryToken ||
+                        this instanceof SpreadsheetRowNavigateHistoryToken ||
+                        this instanceof SpreadsheetRowSortHistoryToken) {
                         closed = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class)
                             .selectionSelect();
                     }
