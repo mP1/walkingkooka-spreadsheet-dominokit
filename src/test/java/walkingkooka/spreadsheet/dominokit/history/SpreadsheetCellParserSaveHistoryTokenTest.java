@@ -39,8 +39,8 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellParserSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -58,8 +58,8 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellParserSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -98,8 +98,8 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellParserSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -119,8 +119,8 @@ public final class SpreadsheetCellParserSaveHistoryTokenTest extends Spreadsheet
     public void testSaveValueWithoutValue() {
         this.saveValueAndCheck(
             SpreadsheetCellParserSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 Optional.empty()
             )

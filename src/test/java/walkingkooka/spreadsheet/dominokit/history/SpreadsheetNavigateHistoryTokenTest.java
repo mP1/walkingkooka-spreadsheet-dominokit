@@ -43,8 +43,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetNavigateHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null
             )
         );
@@ -64,8 +64,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         this.parseAndCheck(
             "/123/SpreadsheetName456/navigate/!invalid",
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -75,8 +75,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         this.parseAndCheck(
             "/123/SpreadsheetName456/navigate/Z9/!invalid",
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -88,8 +88,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -101,8 +101,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -123,8 +123,8 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

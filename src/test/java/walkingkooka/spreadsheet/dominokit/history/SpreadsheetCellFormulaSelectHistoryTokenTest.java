@@ -34,14 +34,14 @@ public final class SpreadsheetCellFormulaSelectHistoryTokenTest extends Spreadsh
 
         this.setSaveStringValueAndCheck(
             HistoryToken.cellFormula(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             ),
             formulaText,
             HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection,
                 formulaText
             )

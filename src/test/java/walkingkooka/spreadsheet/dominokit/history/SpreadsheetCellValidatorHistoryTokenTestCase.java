@@ -37,8 +37,8 @@ public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends Spr
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -70,8 +70,8 @@ public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends Spr
             this.createHistoryToken(),
             value,
             HistoryToken.cellValidatorSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -88,8 +88,8 @@ public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends Spr
             this.createHistoryToken(),
             value,
             HistoryToken.cellValidatorSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

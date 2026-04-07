@@ -60,8 +60,8 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetRowNavigateHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 null
             )
@@ -90,8 +90,8 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/1/navigate/!invalid",
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -102,8 +102,8 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         this.parseAndCheck(
             "/123/SpreadsheetName456/row/1/navigate/Z9/!invalid",
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -116,8 +116,8 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -130,8 +130,8 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );

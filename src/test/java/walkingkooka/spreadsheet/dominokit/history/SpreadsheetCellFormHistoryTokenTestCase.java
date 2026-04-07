@@ -40,8 +40,8 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         assertThrows(
             NullPointerException.class,
             () -> this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -65,8 +65,8 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         this.deleteAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 FORM_NAME
             )
@@ -80,8 +80,8 @@ public abstract class SpreadsheetCellFormHistoryTokenTestCase<T extends Spreadsh
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );

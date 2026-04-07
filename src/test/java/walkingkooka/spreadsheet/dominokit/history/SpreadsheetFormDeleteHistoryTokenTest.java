@@ -32,8 +32,8 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormDeleteHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null
             )
         );
@@ -56,8 +56,8 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
         this.clearActionAndCheck(
             this.createHistoryToken(),
             SpreadsheetFormDeleteHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 FORM_NAME
             )
         );

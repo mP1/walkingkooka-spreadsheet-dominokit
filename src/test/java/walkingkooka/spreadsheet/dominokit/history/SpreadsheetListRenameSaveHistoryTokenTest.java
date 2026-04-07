@@ -32,7 +32,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetListRenameSaveHistoryToken.with(
-                ID,
+                SPREADSHEET_ID,
                 null
             )
         );
@@ -42,7 +42,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/rename/123/save/" + NAME
+            "/rename/123/save/" + SPREADSHEET_NAME
         );
     }
 
@@ -50,7 +50,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     public void testClearAction() {
         this.clearActionAndCheck(
             this.createHistoryToken(),
-            HistoryToken.spreadsheetListRenameSelect(ID)
+            HistoryToken.spreadsheetListRenameSelect(SPREADSHEET_ID)
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             renameTo.toString(),
             HistoryToken.spreadsheetListRenameSave(
-                ID,
+                SPREADSHEET_ID,
                 renameTo
             )
         );
@@ -75,7 +75,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
         this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
             "",
-            HistoryToken.spreadsheetListRenameSelect(ID)
+            HistoryToken.spreadsheetListRenameSelect(SPREADSHEET_ID)
         );
     }
 
@@ -89,7 +89,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             Optional.of(renameTo),
             HistoryToken.spreadsheetListRenameSave(
-                ID,
+                SPREADSHEET_ID,
                 renameTo
             )
         );
@@ -100,7 +100,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
             Optional.empty(),
-            HistoryToken.spreadsheetListRenameSelect(ID)
+            HistoryToken.spreadsheetListRenameSelect(SPREADSHEET_ID)
         );
     }
 
@@ -108,7 +108,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     SpreadsheetListRenameSaveHistoryToken createHistoryToken(final SpreadsheetId id) {
         return SpreadsheetListRenameSaveHistoryToken.with(
             id,
-            NAME
+            SPREADSHEET_NAME
         );
     }
 

@@ -46,8 +46,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -64,8 +64,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -78,8 +78,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
         this.setMetadataPropertyNameAndCheck(
             SpreadsheetMetadataPropertyName.LOCALE,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.LOCALE
             )
         );
@@ -111,8 +111,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -126,8 +126,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -141,8 +141,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -156,8 +156,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -171,8 +171,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -186,8 +186,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -201,8 +201,8 @@ public abstract class SpreadsheetRenameHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );

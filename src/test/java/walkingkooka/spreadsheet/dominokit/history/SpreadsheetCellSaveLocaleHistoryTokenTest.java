@@ -42,8 +42,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -64,8 +64,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -92,8 +92,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/locale",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -107,8 +107,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -127,8 +127,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22,%0A%20%20%22A2%22:%20%22en-NZ%22%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -153,8 +153,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20null%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -177,8 +177,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToLocale
             ),
@@ -196,8 +196,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToLocale
             ),
@@ -219,8 +219,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToLocale
@@ -239,8 +239,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToLocale
@@ -269,8 +269,8 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveLocaleHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

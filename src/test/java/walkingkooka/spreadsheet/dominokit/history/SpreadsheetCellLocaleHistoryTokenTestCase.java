@@ -37,8 +37,8 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -70,8 +70,8 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
             this.createHistoryToken(),
             value,
             HistoryToken.cellLocaleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -86,8 +86,8 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
             this.createHistoryToken(),
             value,
             HistoryToken.cellLocaleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

@@ -41,8 +41,8 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase2<T extends Spr
             this.createHistoryToken(),
             target,
             SpreadsheetLabelMappingSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(target)
             )
         );
@@ -73,8 +73,8 @@ public abstract class SpreadsheetLabelMappingHistoryTokenTestCase2<T extends Spr
 
     final T createHistoryToken(final SpreadsheetLabelName label) {
         return this.createHistoryToken(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             label
         );
     }

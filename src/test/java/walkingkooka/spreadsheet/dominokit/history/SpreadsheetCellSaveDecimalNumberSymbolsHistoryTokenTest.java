@@ -49,8 +49,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -71,8 +71,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -100,8 +100,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -123,8 +123,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                     marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -150,8 +150,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                     marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 map
@@ -175,8 +175,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                     marshallMap(map)
                 ),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -194,8 +194,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToDecimalNumberSymbols
             ),
@@ -215,8 +215,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToDecimalNumberSymbols
             ),
@@ -245,8 +245,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToDecimalNumberSymbols
@@ -267,8 +267,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToDecimalNumberSymbols
@@ -304,8 +304,8 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

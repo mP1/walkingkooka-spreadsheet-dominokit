@@ -39,8 +39,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Sets.of(
                     SpreadsheetSelection.parseCell("A2")
@@ -63,8 +63,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3")
                     .setDefaultAnchor(),
                 Sets.of(
@@ -91,8 +91,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/cell",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -103,8 +103,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/cell/{\"A1\":{\"formula\":{\"text\":\"\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -118,8 +118,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/save/cell/{\"A1\":{\"formula\":{}},\"A2\":{\"formula\":{\"text\": \"=2\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Sets.of(
@@ -142,8 +142,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cells
             ),
@@ -163,8 +163,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cells
             ),
@@ -193,8 +193,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cells
@@ -219,8 +219,8 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveCellHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

@@ -35,8 +35,8 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -58,8 +58,8 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -98,8 +98,8 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellDecimalNumberSymbolsSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -119,8 +119,8 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     public void testSaveValueWithoutValue() {
         this.saveValueAndCheck(
             SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 Optional.empty()
             )

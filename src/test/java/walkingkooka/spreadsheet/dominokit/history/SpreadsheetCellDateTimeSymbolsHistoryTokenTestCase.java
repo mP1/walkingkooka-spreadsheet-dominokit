@@ -37,8 +37,8 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -70,8 +70,8 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
             this.createHistoryToken(),
             value,
             HistoryToken.cellDateTimeSymbolsSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -88,8 +88,8 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
             this.createHistoryToken(),
             value,
             HistoryToken.cellDateTimeSymbolsSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

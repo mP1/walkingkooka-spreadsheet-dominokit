@@ -56,8 +56,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -74,8 +74,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -123,8 +123,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
         this.renameAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -146,8 +146,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -161,8 +161,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -176,8 +176,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -191,8 +191,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -206,8 +206,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -221,8 +221,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -236,8 +236,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -254,8 +254,8 @@ public abstract class SpreadsheetMetadataHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             propertyName.setValue(propertyValue),
             HistoryToken.metadataPropertyStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName,
                 propertyValue
             )

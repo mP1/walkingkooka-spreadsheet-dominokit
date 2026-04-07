@@ -49,8 +49,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -67,8 +67,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -100,8 +100,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.setMetadataPropertyNameAndCheck(
             propertyName,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName
             )
         );
@@ -123,8 +123,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
         this.renameAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetRenameSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -146,8 +146,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -161,8 +161,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -176,8 +176,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -191,8 +191,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -206,8 +206,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -221,8 +221,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -236,8 +236,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -263,8 +263,8 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
             this.createHistoryToken(),
             propertyName.setValue(propertyValue),
             HistoryToken.metadataPropertyStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 propertyName,
                 propertyValue
             )

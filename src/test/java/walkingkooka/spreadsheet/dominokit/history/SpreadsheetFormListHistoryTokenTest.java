@@ -39,8 +39,8 @@ public final class SpreadsheetFormListHistoryTokenTest extends SpreadsheetFormHi
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetFormListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null
             )
         );
@@ -83,8 +83,8 @@ public final class SpreadsheetFormListHistoryTokenTest extends SpreadsheetFormHi
         this.clearActionAndCheck(
             this.createHistoryToken(),
             SpreadsheetFormListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 OFFSET_AND_COUNT
             )
         );
@@ -96,8 +96,8 @@ public final class SpreadsheetFormListHistoryTokenTest extends SpreadsheetFormHi
     public void testUrlFragmentWithZeroOffsetAndZeroCount() {
         this.urlFragmentAndCheck(
             SpreadsheetFormListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             ),
             "/123/SpreadsheetName456/form"

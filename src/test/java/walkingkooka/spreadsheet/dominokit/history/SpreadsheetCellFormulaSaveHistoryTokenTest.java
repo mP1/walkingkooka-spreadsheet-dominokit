@@ -55,8 +55,8 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellFormula(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -78,8 +78,8 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
 
         this.saveValueAndCheck(
             SpreadsheetCellFormulaSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 formulaText
             ),

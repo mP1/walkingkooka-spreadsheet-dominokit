@@ -39,8 +39,8 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
             this.createHistoryToken(),
             Optional.of(valueType),
             HistoryToken.cellValueSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 valueType
             )
@@ -92,8 +92,8 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

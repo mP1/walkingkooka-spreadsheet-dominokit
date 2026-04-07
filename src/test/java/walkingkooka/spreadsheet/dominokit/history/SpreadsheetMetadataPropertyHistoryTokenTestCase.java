@@ -38,8 +38,8 @@ public abstract class SpreadsheetMetadataPropertyHistoryTokenTestCase<T extends 
         this.setMetadataPropertyNameAndCheck(
             different,
             HistoryToken.metadataPropertySelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different
             )
         );

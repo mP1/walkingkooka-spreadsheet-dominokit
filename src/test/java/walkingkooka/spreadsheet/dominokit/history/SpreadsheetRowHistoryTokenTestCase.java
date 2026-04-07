@@ -87,8 +87,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -121,8 +121,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.rowFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -136,8 +136,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.rowFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -150,8 +150,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -180,8 +180,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             LABEL,
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -199,8 +199,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -242,8 +242,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             row,
             HistoryToken.rowMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 row.setDefaultAnchor()
             )
         );
@@ -259,8 +259,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             row,
             HistoryToken.rowMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 row.setDefaultAnchor()
             )
         );
@@ -276,8 +276,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             SpreadsheetSelection.parseRow("2"),
             HistoryToken.rowMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 range.setDefaultAnchor()
             )
         );
@@ -293,8 +293,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             row,
             HistoryToken.rowMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 row.setDefaultAnchor()
             )
         );
@@ -310,8 +310,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -325,8 +325,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             selection,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -340,8 +340,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -355,8 +355,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -370,8 +370,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -397,8 +397,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             different,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setDefaultAnchor()
             )
         );
@@ -427,8 +427,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             different,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setDefaultAnchor()
             )
         );
@@ -448,8 +448,8 @@ public abstract class SpreadsheetRowHistoryTokenTestCase<T extends SpreadsheetRo
             ),
             different,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setAnchor(anchor)
             )
         );

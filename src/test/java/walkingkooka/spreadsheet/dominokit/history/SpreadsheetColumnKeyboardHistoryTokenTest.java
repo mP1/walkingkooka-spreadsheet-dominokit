@@ -54,8 +54,8 @@ public final class SpreadsheetColumnKeyboardHistoryTokenTest extends Spreadsheet
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );

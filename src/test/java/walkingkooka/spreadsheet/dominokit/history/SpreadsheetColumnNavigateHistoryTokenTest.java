@@ -43,8 +43,8 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetColumnNavigateHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 null
             )
@@ -73,8 +73,8 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/navigate/!invalid",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -85,8 +85,8 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/navigate/Z9/!invalid",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -99,8 +99,8 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -113,8 +113,8 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );

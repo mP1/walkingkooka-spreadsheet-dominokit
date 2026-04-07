@@ -41,8 +41,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 STYLE_PROPERTY_NAME,
                 null
             )
@@ -54,8 +54,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 STYLE_PROPERTY_NAME,
                 Cast.to(
                     Optional.of(this)
@@ -75,8 +75,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     public void testUrlFragmentFontFamilyWithoutValue() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.FONT_FAMILY,
                 Optional.empty()
             ),
@@ -88,8 +88,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     public void testUrlFragmentFontFamily() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.FONT_FAMILY,
                 Optional.of(
                     FontFamily.with("TimesNewRoman")
@@ -103,8 +103,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     public void testUrlFragmentFontStyle() {
         this.urlFragmentAndCheck(
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.FONT_STYLE,
                 Optional.of(
                     FontStyle.ITALIC
@@ -119,8 +119,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.COLOR,
                 Optional.of(
                     Color.parse("#123456")
@@ -134,8 +134,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         this.parseAndCheck(
             "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman2",
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.FONT_FAMILY,
                 Optional.of(
                     FontFamily.with("TimesNewRoman2")
@@ -151,8 +151,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.metadataPropertyStyle(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 STYLE_PROPERTY_NAME
             )
         );
@@ -168,8 +168,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             this.createHistoryToken(),
             value,
             HistoryToken.metadataPropertyStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 STYLE_PROPERTY_NAME,
                 value
             )
@@ -186,8 +186,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             this.createHistoryToken(),
             value,
             HistoryToken.metadataPropertyStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 STYLE_PROPERTY_NAME,
                 value
             )

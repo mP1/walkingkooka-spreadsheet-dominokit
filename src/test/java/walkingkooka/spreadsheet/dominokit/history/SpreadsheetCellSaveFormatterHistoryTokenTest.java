@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToSpreadsheetFormatterSelectorMap;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -40,8 +40,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -65,8 +65,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -102,8 +102,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/formatter",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -117,8 +117,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text%20%40%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -140,8 +140,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time%20hh%3Amm%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -168,8 +168,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -196,8 +196,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToFormatter
             ),
@@ -218,8 +218,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToFormatter
             ),
@@ -250,8 +250,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToFormulaText
@@ -270,8 +270,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToFormulaText
@@ -302,8 +302,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveFormatterHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

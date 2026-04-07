@@ -33,8 +33,8 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetColumnSortSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 null
             )
@@ -54,8 +54,8 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/sort/save/!invalid",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -66,8 +66,8 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A/sort/save/Z=text",
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -86,8 +86,8 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/column/A:C/right/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
             SpreadsheetColumnSortSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumnRange("A:C").setDefaultAnchor(),
                 COMPARATOR_NAMES_LIST2
             )
@@ -102,8 +102,8 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             saveText,
             SpreadsheetColumnSortSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(saveText)
             )

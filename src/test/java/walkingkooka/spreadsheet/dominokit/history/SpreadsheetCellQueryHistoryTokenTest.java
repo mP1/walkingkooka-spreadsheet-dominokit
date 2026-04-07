@@ -81,8 +81,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
 
         this.checkEquals(
             SpreadsheetCellQueryHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 find
             ),
@@ -169,8 +169,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
                                       final String expected) {
         this.urlFragmentAndCheck(
             SpreadsheetCellQueryHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 anchoredSpreadsheetSelection,
                 SpreadsheetCellQueryRequest.empty()
             ),
@@ -224,8 +224,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/!invalid",
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -250,8 +250,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/0/count/!invalid",
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -424,8 +424,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         this.parseAndCheck(
             url,
             SpreadsheetCellQueryHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 SpreadsheetCellQueryRequest.empty()
                     .setPath(path)
@@ -444,8 +444,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -458,8 +458,8 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

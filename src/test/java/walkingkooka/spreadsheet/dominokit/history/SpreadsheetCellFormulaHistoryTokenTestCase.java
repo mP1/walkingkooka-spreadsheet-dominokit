@@ -53,8 +53,8 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
             this.createHistoryToken(),
             Optional.empty(),
             HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -69,8 +69,8 @@ public abstract class SpreadsheetCellFormulaHistoryTokenTestCase<T extends Sprea
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellFormulaSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

@@ -79,8 +79,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     final void freezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                      final Optional<HistoryToken> expected) {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             anchoredSelection
         );
 
@@ -163,8 +163,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
     final void unfreezeOrEmptyAndCheck(final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Optional<HistoryToken> expected) {
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             anchoredSelection
         );
 
@@ -197,8 +197,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
                                    final String expected) {
         this.urlFragmentAndCheck(
             this.createHistoryToken(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 anchoredSelection
             ),
             expected
@@ -207,8 +207,8 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
 
     final T createHistoryToken(final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.createHistoryToken(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             anchoredSelection
         );
     }

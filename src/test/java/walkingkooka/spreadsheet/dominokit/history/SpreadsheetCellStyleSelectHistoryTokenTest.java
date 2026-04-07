@@ -38,14 +38,14 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "#123456";
-        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(SPREADSHEET_ID, SPREADSHEET_NAME, selection, propertyName);
 
         this.setSaveStringValueAndCheck(
             historyToken,
             value,
             HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection,
                 propertyName,
                 Optional.of(Color.parse(value))
@@ -58,14 +58,14 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
         final String value = "";
-        final HistoryToken historyToken = HistoryToken.cellStyle(ID, NAME, selection, propertyName);
+        final HistoryToken historyToken = HistoryToken.cellStyle(SPREADSHEET_ID, SPREADSHEET_NAME, selection, propertyName);
 
         this.setSaveStringValueAndCheck(
             historyToken,
             value,
             HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection,
                 propertyName,
                 Optional.empty()
@@ -79,8 +79,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testUrlFragmentCellWildcard() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.WILDCARD
             ),
@@ -121,8 +121,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testUrlFragmentAllTextStylePropertyNames() {
         for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 propertyName
             );
@@ -136,8 +136,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentWildcard() {
         final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
             TextStylePropertyName.WILDCARD
         );
@@ -151,8 +151,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testParseUntilEmptyTextStylePropertyNames() {
         for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
             final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 propertyName
             );
@@ -166,8 +166,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testParseWildcard() {
         final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
             TextStylePropertyName.WILDCARD
         );

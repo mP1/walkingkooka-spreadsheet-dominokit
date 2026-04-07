@@ -43,8 +43,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         final int offset = 123;
 
         final SpreadsheetLabelMappingListHistoryToken historyToken = SpreadsheetLabelMappingListHistoryToken.with(
-            ID,
-            NAME,
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
             HistoryTokenOffsetAndCount.EMPTY.setOffset(
                 OptionalInt.of(offset)
             )
@@ -73,14 +73,14 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
 
         this.setOffsetAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             ),
             offset,
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(offset)
             )
         );
@@ -101,8 +101,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
 
         this.countAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(count)
                 )
@@ -131,8 +131,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             count,
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setCount(count)
             )
         );
@@ -154,8 +154,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/label/*",
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );
@@ -166,8 +166,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/label/*/offset/123",
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
                 )
@@ -180,8 +180,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/label/*/count/123",
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(123)
                 )
@@ -194,8 +194,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         this.parseAndCheck(
             "/123/SpreadsheetName456/label/*/offset/123/count/456",
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
                 ).setCount(
@@ -218,8 +218,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             ),
             "/123/SpreadsheetName456/label"
@@ -230,8 +230,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     public void testUrlFragmentWithOffset() {
         this.urlFragmentAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
                 )
@@ -244,8 +244,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     public void testUrlFragmentWithOffsetAndCount() {
         this.urlFragmentAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(123)
                 ).setCount(
@@ -260,8 +260,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     public void testUrlFragmentWithCount() {
         this.urlFragmentAndCheck(
             SpreadsheetLabelMappingListHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setCount(
                     OptionalInt.of(456)
                 )
@@ -277,8 +277,8 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }

@@ -62,8 +62,8 @@ public final class SpreadsheetCellKeyboardHistoryTokenTest extends SpreadsheetCe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -76,8 +76,8 @@ public final class SpreadsheetCellKeyboardHistoryTokenTest extends SpreadsheetCe
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );

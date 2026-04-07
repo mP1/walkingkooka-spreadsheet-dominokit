@@ -61,9 +61,9 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     HasUrlFragmentTesting,
     ToStringTesting<T> {
 
-    final static SpreadsheetId ID = SpreadsheetId.with(0x123);
+    final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(0x123);
 
-    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
+    final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName456");
 
     HistoryTokenTestCase() {
         super();
@@ -344,7 +344,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             () -> this.createHistoryToken()
                 .setSpreadsheetIdAndSpreadsheetName(
                     null,
-                    NAME
+                    SPREADSHEET_NAME
                 )
         );
     }
@@ -355,7 +355,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             NullPointerException.class,
             () -> this.createHistoryToken()
                 .setSpreadsheetIdAndSpreadsheetName(
-                    ID,
+                    SPREADSHEET_ID,
                     null
                 )
         );

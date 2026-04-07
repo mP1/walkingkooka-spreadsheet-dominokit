@@ -87,8 +87,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -121,8 +121,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.columnFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -136,8 +136,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.freezeOrEmptyAndCheck(
             selection,
             HistoryToken.columnFreeze(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -150,8 +150,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
         this.createLabelAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingCreate(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -180,8 +180,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             LABEL,
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -199,8 +199,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             offsetAndCount,
             HistoryToken.labelMappingList(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 offsetAndCount
             )
         );
@@ -232,8 +232,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             column,
             HistoryToken.columnMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 column.setDefaultAnchor()
             )
         );
@@ -249,8 +249,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             column,
             HistoryToken.columnMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 column.setDefaultAnchor()
             )
         );
@@ -266,8 +266,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(selection),
             SpreadsheetSelection.parseColumn("B"),
             HistoryToken.columnMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -283,8 +283,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             column,
             HistoryToken.columnMenu(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 column.setDefaultAnchor()
             )
         );
@@ -317,8 +317,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             different,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setDefaultAnchor()
             )
         );
@@ -347,8 +347,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             different,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setDefaultAnchor()
             )
         );
@@ -367,8 +367,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             ),
             different,
             HistoryToken.columnSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 different.setAnchor(anchor)
             )
         );
@@ -382,8 +382,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -397,8 +397,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -412,8 +412,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -427,8 +427,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );
@@ -442,8 +442,8 @@ public abstract class SpreadsheetColumnHistoryTokenTestCase<T extends Spreadshee
             this.createHistoryToken(),
             selection,
             HistoryToken.rowSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 selection.setDefaultAnchor()
             )
         );

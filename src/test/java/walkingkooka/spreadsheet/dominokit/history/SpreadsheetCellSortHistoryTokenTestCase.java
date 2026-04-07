@@ -46,8 +46,8 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -86,8 +86,8 @@ public abstract class SpreadsheetCellSortHistoryTokenTestCase<T extends Spreadsh
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.cellSortSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

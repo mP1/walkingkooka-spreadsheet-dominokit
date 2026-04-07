@@ -54,8 +54,8 @@ public abstract class SpreadsheetCellParserHistoryTokenTestCase<T extends Spread
             this.createHistoryToken(),
             value,
             HistoryToken.cellParserSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )
@@ -72,8 +72,8 @@ public abstract class SpreadsheetCellParserHistoryTokenTestCase<T extends Spread
             this.createHistoryToken(),
             value,
             HistoryToken.cellParserSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

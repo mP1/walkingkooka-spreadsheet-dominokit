@@ -47,8 +47,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -69,8 +69,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -98,8 +98,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -118,8 +118,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -142,8 +142,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 map
@@ -164,8 +164,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 map
             )
@@ -183,8 +183,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToDateTimeSymbols
             ),
@@ -202,8 +202,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToDateTimeSymbols
             ),
@@ -229,8 +229,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToDateTimeSymbols
@@ -249,8 +249,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToDateTimeSymbols
@@ -283,8 +283,8 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

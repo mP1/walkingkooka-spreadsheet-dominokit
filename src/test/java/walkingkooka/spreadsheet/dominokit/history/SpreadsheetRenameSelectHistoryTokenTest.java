@@ -32,8 +32,8 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetRenameSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 null
             )
         );
@@ -54,8 +54,8 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
         this.closeAndCheck(
             this.createHistoryToken(),
             HistoryToken.spreadsheetSelect(
-                ID,
-                NAME
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             )
         );
     }
@@ -70,8 +70,8 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
             this.createHistoryToken(),
             renameTo.toString(),
             HistoryToken.spreadsheetRenameSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 renameTo
             )
         );
@@ -95,8 +95,8 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
             this.createHistoryToken(),
             Optional.of(renameTo),
             HistoryToken.spreadsheetRenameSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 renameTo
             )
         );

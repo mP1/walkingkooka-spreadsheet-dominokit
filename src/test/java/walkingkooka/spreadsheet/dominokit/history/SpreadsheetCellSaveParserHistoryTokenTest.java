@@ -40,8 +40,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.parseCell("A2"),
@@ -65,8 +65,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         final IllegalArgumentException thrown = assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:A3").setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -102,8 +102,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/parser",
             SpreadsheetCellSelectHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -117,8 +117,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number%200.00%22%20%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Maps.of(
                     SpreadsheetSelection.A1,
@@ -140,8 +140,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%0A%20%20%22A1%22:%20%22date%20dd/mm/yyyy%22,%0A%20%20%22A2%22:%20%22time%20hh:mm%22%0A%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -168,8 +168,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         this.parseAndCheck(
             "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 Maps.of(
@@ -194,8 +194,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
         );
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToParser
             ),
@@ -216,8 +216,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 cellToParser
             ),
@@ -248,8 +248,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToParserText
@@ -268,8 +268,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
 
         this.urlFragmentAndCheck(
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A3")
                     .setDefaultAnchor(),
                 cellToParserText
@@ -300,8 +300,8 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
             this.createHistoryToken(),
             Optional.of(value),
             SpreadsheetCellSaveParserHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 value
             )

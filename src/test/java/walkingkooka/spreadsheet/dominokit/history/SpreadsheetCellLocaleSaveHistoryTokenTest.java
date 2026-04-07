@@ -35,8 +35,8 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellLocaleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 null
             )
@@ -58,8 +58,8 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentCellEmptySave() {
         this.urlFragmentAndCheck(
             SpreadsheetCellLocaleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
@@ -98,8 +98,8 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.cellLocaleSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION
             )
         );
@@ -119,8 +119,8 @@ public final class SpreadsheetCellLocaleSaveHistoryTokenTest extends Spreadsheet
     public void testSaveValueWithoutValue() {
         this.saveValueAndCheck(
             SpreadsheetCellLocaleSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SELECTION,
                 Optional.empty()
             )

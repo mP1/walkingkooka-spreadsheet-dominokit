@@ -89,8 +89,8 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );
@@ -104,8 +104,8 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );
@@ -119,8 +119,8 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
             this.createHistoryToken(),
             Optional.of(value),
             HistoryToken.labelMappingSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(value)
             )
         );
@@ -140,8 +140,8 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             SpreadsheetLabelMappingSaveHistoryToken.with(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(SpreadsheetSelection.parseCellRange("B2:C3"))
             ),
             "/123/SpreadsheetName456/label/Label123/save/B2:C3"
@@ -153,8 +153,8 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
         this.clearActionAndCheck(
             this.createHistoryToken(),
             HistoryToken.labelMappingSelect(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
