@@ -2548,6 +2548,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         this instanceof SpreadsheetCellParserHistoryToken ||
                         this instanceof SpreadsheetCellReferenceListHistoryToken ||
                         this instanceof SpreadsheetCellSortHistoryToken ||
+                        this instanceof SpreadsheetCellStyleHistoryToken ||
                         this instanceof SpreadsheetColumnSortHistoryToken ||
                         this instanceof SpreadsheetRowSortHistoryToken ||
                         this instanceof SpreadsheetCellValidatorHistoryToken ||
