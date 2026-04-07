@@ -2557,18 +2557,25 @@ public abstract class HistoryToken implements HasUrlFragment {
                             .selectionSelect();
                     }
                 } else {
-                    if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
-                        closed = metadataSelect(
-                            id,
-                            name
-                        );
-                    }
-
-                    if (this instanceof SpreadsheetRenameHistoryToken) {
+                    if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                         closed = spreadsheetSelect(
                             id,
                             name
                         );
+                    } else {
+                        if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
+                            closed = metadataSelect(
+                                id,
+                                name
+                            );
+                        }
+
+                        if (this instanceof SpreadsheetRenameHistoryToken) {
+                            closed = spreadsheetSelect(
+                                id,
+                                name
+                            );
+                        }
                     }
                 }
 
