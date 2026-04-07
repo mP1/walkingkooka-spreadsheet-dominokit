@@ -1026,10 +1026,26 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    final void setSaveValueAndCheck(final Object save) {
+        this.setSaveValueAndCheck(
+            this.createHistoryToken(),
+            save
+        );
+    }
+
     final void setSaveValueAndCheck(final Optional<?> save) {
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
             save
+        );
+    }
+
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final Object save) {
+        this.setSaveValueAndCheck(
+            token,
+            save,
+            token
         );
     }
 
@@ -1039,6 +1055,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             token,
             save,
             token
+        );
+    }
+
+    final void setSaveValueAndCheck(final HistoryToken token,
+                                    final Object save,
+                                    final HistoryToken expected) {
+        this.setSaveValueAndCheck(
+            token,
+            save instanceof Optional ?
+                (Optional<?>) save :
+                Optional.of(save),
+            expected
         );
     }
 
