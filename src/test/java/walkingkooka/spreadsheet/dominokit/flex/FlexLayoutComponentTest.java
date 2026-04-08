@@ -19,13 +19,15 @@ package walkingkooka.spreadsheet.dominokit.flex;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 
 import java.util.Optional;
 
-public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexLayoutComponent, HTMLDivElement> {
+public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexLayoutComponent, HTMLDivElement>,
+    ToStringTesting<FlexLayoutComponent> {
 
     @Test
     public void testTreePrint() {
@@ -74,6 +76,23 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
                 "        [Value111] REQUIRED\n" +
                 "      TextBoxComponent\n" +
                 "        [Value222] REQUIRED\n"
+        );
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            FlexLayoutComponent.row()
+                .setId("Id123")
+                .appendChild(
+                    TextBoxComponent.empty()
+                        .setValue(
+                            Optional.of("Value111")
+                        )
+                ),
+            "ROW DIV [[Value111] REQUIRED]"
         );
     }
 
