@@ -4464,15 +4464,6 @@ public abstract class HistoryToken implements HasUrlFragment {
                                     );
                                 }
 
-                                if (this instanceof SpreadsheetCellQueryHistoryToken) {
-                                    saved = HistoryToken.cellQuery(
-                                        id,
-                                        name,
-                                        anchoredSpreadsheetSelection,
-                                        SpreadsheetCellQueryRequest.parse(value)
-                                    );
-                                }
-
                                 if (this instanceof SpreadsheetCellFormHistoryToken) {
                                     saved = HistoryToken.cellFormSave(
                                         id,
@@ -4531,6 +4522,15 @@ public abstract class HistoryToken implements HasUrlFragment {
                                             value,
                                             SpreadsheetParserSelector::parse
                                         )
+                                    );
+                                }
+
+                                if (this instanceof SpreadsheetCellQueryHistoryToken) {
+                                    saved = HistoryToken.cellQuery(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection,
+                                        SpreadsheetCellQueryRequest.parse(value)
                                     );
                                 }
 
