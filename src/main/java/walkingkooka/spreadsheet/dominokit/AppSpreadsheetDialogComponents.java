@@ -86,6 +86,8 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponent;
+import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
@@ -137,6 +139,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         navigate(context);
 
         sort(context);
+
+        textStyle(context);
 
         validator(context);
     }
@@ -525,6 +529,15 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         SpreadsheetNameDialogComponent.with(
             SpreadsheetNameDialogComponentContexts.spreadsheetRename(context)
+        );
+    }
+
+    private static void textStyle(final AppContext context) {
+        TextStyleDialogComponent.with(
+            TextStyleDialogComponentContexts.appContextCellStyle(context)
+        );
+        TextStyleDialogComponent.with(
+            TextStyleDialogComponentContexts.appContextMetadataStyle(context)
         );
     }
 
