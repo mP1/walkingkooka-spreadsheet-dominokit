@@ -69,6 +69,28 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     // setSaveValue.....................................................................................................
 
     @Test
+    public void testSetSaveValueWithoutTextStylePropertyName() {
+        final Optional<TextStyle> value = Optional.of(
+            TextStyle.parse("text-align: left;")
+        );
+
+        this.setSaveValueAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.empty()
+            ),
+            value,
+            HistoryToken.metadataPropertyStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                TextStylePropertyName.WILDCARD,
+                value
+            )
+        );
+    }
+
+    @Test
     public void testSetSaveValueWithEmptyValue() {
         final Optional<Color> value = Optional.empty();
 
