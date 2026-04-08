@@ -18,11 +18,26 @@
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 /**
  * A collection of {@link TextStyleDialogComponentContext}
  */
 public final class TextStyleDialogComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@link AppContextTextStyleDialogComponentContextCellStyle}
+     */
+    public static TextStyleDialogComponentContext appContextCellStyle(final AppContext context) {
+        return AppContextTextStyleDialogComponentContextCellStyle.with(context);
+    }
+
+    /**
+     * {@link AppContextTextStyleDialogComponentContextMetadataStyle}
+     */
+    public static TextStyleDialogComponentContext appContextMetadataStyle(final AppContext context) {
+        return AppContextTextStyleDialogComponentContextMetadataStyle.with(context);
+    }
 
     /**
      * {@see FakeTextStyleDialogComponentContext}
