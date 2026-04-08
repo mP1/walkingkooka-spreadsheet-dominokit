@@ -2744,7 +2744,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     static OptionalInt parseCount(final TextCursor cursor) {
@@ -2781,7 +2781,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // DELETE...........................................................................................................
@@ -2873,7 +2873,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     private static HistoryToken parseDelete(final TextCursor cursor) {
@@ -2907,7 +2907,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // decimalNumberSymbols.............................................................................................
@@ -2928,7 +2928,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // FIELD............................................................................................................
@@ -2984,7 +2984,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
     
     // FORMATTER........................................................................................................
@@ -3005,7 +3005,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // FORM.............................................................................................................
@@ -3054,7 +3054,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // FREEZE...........................................................................................................
@@ -3096,7 +3096,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3150,7 +3150,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3187,7 +3187,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // KEYBOARD.........................................................................................................
@@ -3269,7 +3269,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // LABEL MAPPING....................................................................................................
@@ -3287,7 +3287,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3451,7 +3451,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // LABELS...........................................................................................................
@@ -3546,7 +3546,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // MENU.............................................................................................................
@@ -3594,7 +3594,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3620,7 +3620,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     private HistoryToken menu0(final SpreadsheetSelection selection,
@@ -3645,11 +3645,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        if (null == historyToken) {
-            historyToken = this;
-        }
-
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3730,7 +3726,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // METADATA.........................................................................................................
@@ -3749,7 +3745,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -3766,7 +3762,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     public final Optional<SpreadsheetMetadataPropertyName<?>> metadataPropertyName() {
@@ -3809,7 +3805,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // navigation.......................................................................................................
@@ -3892,7 +3888,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // OFFSET...........................................................................................................
@@ -3991,7 +3987,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // OFFSET AND COUNT.................................................................................................
@@ -4072,7 +4068,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      * If possible selects a formatter {@link HistoryToken}.
      */
     public final HistoryToken parser() {
-        HistoryToken historyToken;
+        HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellSelectHistoryToken) {
             final SpreadsheetCellSelectHistoryToken cell = this.cast(SpreadsheetCellSelectHistoryToken.class);
@@ -4082,12 +4078,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                 cell.name,
                 cell.anchoredSelection()
             );
-
-        } else {
-            historyToken = this;
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -4096,11 +4089,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken paste(final SpreadsheetCellClipboardKind kind) {
         Objects.requireNonNull(kind, "kind");
 
-        HistoryToken token = this;
+        HistoryToken historyToken = this;
 
         if (this instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
-            token = HistoryToken.cellClipboardPaste(
+            historyToken = HistoryToken.cellClipboardPaste(
                 cell.spreadsheetId(),
                 cell.name,
                 cell.anchoredSelection(),
@@ -4108,7 +4101,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return token;
+        return this.elseIfDifferent(historyToken);
     }
 
     // pluginName.......................................................................................................
@@ -4148,10 +4141,9 @@ public abstract class HistoryToken implements HasUrlFragment {
                     query
                 );
             }
-
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // REFERENCES.......................................................................................................
@@ -4191,7 +4183,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // RELOAD...........................................................................................................
@@ -4233,7 +4225,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     final HistoryToken parseOffsetCountReload(final TextCursor cursor) {
@@ -4280,7 +4272,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     private static HistoryToken parseRename(final TextCursor cursor) {
@@ -4821,7 +4813,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // SORT.............................................................................................................
@@ -4948,23 +4940,23 @@ public abstract class HistoryToken implements HasUrlFragment {
         Objects.requireNonNull(id, "id");
         Objects.requireNonNull(name, "name");
 
-        HistoryToken token = null;
+        HistoryToken historyToken = null;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
             if (id.equals(spreadsheetNameHistoryToken.id) && name.equals(spreadsheetNameHistoryToken.name)) {
-                token = this;
+                historyToken = this;
             }
         }
 
-        if (null == token) {
-            token = this.replaceSpreadsheetIdAndSpreadsheetName(
+        if (null == historyToken) {
+            historyToken = this.replaceSpreadsheetIdAndSpreadsheetName(
                 id,
                 name
             );
         }
 
-        return token;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -5170,7 +5162,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // UNFREEZE.........................................................................................................
@@ -5212,7 +5204,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     /**
@@ -5248,7 +5240,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // value............................................................................................................
@@ -5320,7 +5312,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     // valueType........................................................................................................
@@ -5347,7 +5339,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         }
 
-        return historyToken;
+        return this.elseIfDifferent(historyToken);
     }
 
     final HistoryToken elseIfDifferent(final HistoryToken historyToken) {
