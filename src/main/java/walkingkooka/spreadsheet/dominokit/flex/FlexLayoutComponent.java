@@ -193,4 +193,11 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
         }
         printer.outdent();
     }
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return (this.isColumn() ? "COLUMN" : "ROW") + " " + this.div;
+    }
 }
