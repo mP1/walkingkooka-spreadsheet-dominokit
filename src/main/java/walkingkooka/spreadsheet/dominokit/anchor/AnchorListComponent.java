@@ -88,4 +88,11 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
     public boolean isEmpty() {
         return this.root.isEmpty();
     }
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.root.toString();
+    }
 }
