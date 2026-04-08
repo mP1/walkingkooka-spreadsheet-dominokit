@@ -225,18 +225,16 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         }
 
         if (this instanceof SpreadsheetCellStyleHistoryToken) {
-            final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName()
-                .orElse(null);
+            final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
+                .orElse(TextStylePropertyName.WILDCARD);
 
-            if (null != stylePropertyNameOrNull) {
-                historyToken = HistoryToken.cellStyleSave(
-                    this.id,
-                    this.name,
-                    this.anchoredSelection,
-                    Cast.to(stylePropertyNameOrNull),
-                    value
-                );
-            }
+            historyToken = HistoryToken.cellStyleSave(
+                this.id,
+                this.name,
+                this.anchoredSelection,
+                Cast.to(stylePropertyName),
+                value
+            );
         }
 
         if (this instanceof SpreadsheetCellValidatorHistoryToken) {
