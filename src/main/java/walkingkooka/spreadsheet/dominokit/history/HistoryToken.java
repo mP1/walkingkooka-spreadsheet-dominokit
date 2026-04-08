@@ -4570,22 +4570,20 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
                                     final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
-                                        .orElse(null);
+                                        .orElse(TextStylePropertyName.WILDCARD);
 
-                                    saved = null != stylePropertyName ?
-                                        cellStyleSave(
-                                            id,
-                                            name,
-                                            anchoredSpreadsheetSelection,
-                                            stylePropertyName,
-                                            Cast.to(
-                                                parseOptional(
-                                                    value,
-                                                    stylePropertyName::parseValue
-                                                )
+                                    saved = cellStyleSave(
+                                        id,
+                                        name,
+                                        anchoredSpreadsheetSelection,
+                                        stylePropertyName,
+                                        Cast.to(
+                                            parseOptional(
+                                                value,
+                                                stylePropertyName::parseValue
                                             )
-                                        ) :
-                                        this;
+                                        )
+                                    );
                                 }
 
                                 if (this instanceof SpreadsheetCellValidatorHistoryToken && false == this instanceof SpreadsheetCellValidatorUnselectHistoryToken) {
