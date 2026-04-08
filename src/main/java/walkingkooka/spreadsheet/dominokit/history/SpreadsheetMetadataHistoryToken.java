@@ -52,17 +52,17 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                     .propertyName,
                 value
             );
-        }
+        } else {
 
-        if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
-            final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName()
-                .orElse(null);
-            if(null != stylePropertyNameOrNull) {
+            if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
+                final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
+                    .orElse(TextStylePropertyName.WILDCARD);
+
                 historyToken = HistoryToken.metadataPropertyStyleSave(
                     this.id,
                     this.name,
-                    Cast.to(stylePropertyNameOrNull),
-                    value
+                    stylePropertyName,
+                    Cast.to(value)
                 );
             }
         }
