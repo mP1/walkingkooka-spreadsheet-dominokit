@@ -217,7 +217,7 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
                 this.clearIcon()
             ).historyToken(
                 Optional.of(
-                    historyToken.clearSaveValue()
+                    this.historyToken.clearSaveValue()
                 )
             )
         );
