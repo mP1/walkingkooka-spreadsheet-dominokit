@@ -25,6 +25,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class TextStyleDialogComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@see FakeTextStyleDialogComponentContext}
+     */
+    public static FakeTextStyleDialogComponentContext fake() {
+        return new FakeTextStyleDialogComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private TextStyleDialogComponentContexts() {
