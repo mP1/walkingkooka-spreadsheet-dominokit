@@ -84,6 +84,32 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         );
     }
 
+    @Test
+    public void testSetSaveStringValueWithoutTextStylePropertyNameAndNotEmptyString() {
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
+
+        final TextStyle value = TextStyle.parse("text-align: LEFT; vertical-align: TOP");
+
+        final HistoryToken historyToken = HistoryToken.cellStyle(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            selection,
+            Optional.empty()
+        );
+
+        this.setSaveStringValueAndCheck(
+            historyToken,
+            value.text(),
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                selection,
+                TextStylePropertyName.WILDCARD,
+                Optional.of(value)
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test
