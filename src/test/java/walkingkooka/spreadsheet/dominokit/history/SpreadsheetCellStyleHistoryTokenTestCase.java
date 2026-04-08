@@ -69,7 +69,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetSaveValueWithEmpty() {
+    public final void testSetSaveValueWithEmptyValue() {
         final Optional<Color> value = Optional.empty();
 
         this.setSaveValueAndCheck(
@@ -86,7 +86,7 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
     }
 
     @Test
-    public final void testSetSaveValueWithNonEmpty() {
+    public final void testSetSaveValueWithNonEmptyValue() {
         final Optional<Color> value = Optional.of(
             Color.parse("#999")
         );
