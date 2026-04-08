@@ -421,7 +421,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                               final SpreadsheetContextMenu menu,
                               final SpreadsheetSelectionMenuContext context) {
         SpreadsheetSelectionMenuValues.style(
-            historyToken.cast(SpreadsheetAnchoredSelectionHistoryToken.class),
+            historyToken.setStylePropertyName(Optional.empty())
+                .cast(SpreadsheetAnchoredSelectionHistoryToken.class),
             menu,
             context
         ).build();
