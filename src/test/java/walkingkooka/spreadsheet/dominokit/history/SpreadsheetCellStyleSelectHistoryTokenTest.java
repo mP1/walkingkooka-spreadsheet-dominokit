@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -83,6 +84,61 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         );
     }
 
+    // setSaveValue.....................................................................................................
+
+    @Test
+    public void testSetSaveValueNotEmptyValue() {
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
+        final TextStylePropertyName<Color> propertyName = TextStylePropertyName.BACKGROUND_COLOR;
+        final Color value = Color.BLACK;
+
+        final HistoryToken historyToken = HistoryToken.cellStyle(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            selection,
+            Optional.of(propertyName)
+        );
+
+        this.setSaveValueAndCheck(
+            historyToken,
+            value,
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                selection,
+                propertyName,
+                Optional.of(value)
+            )
+        );
+    }
+
+    @Test
+    public void testSetSaveValueWithTextStylePropertyValueWildcardAndNotEmptyTextStyleValue() {
+        final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
+
+        final TextStylePropertyName<TextStyle> propertyName = TextStylePropertyName.WILDCARD;
+        final TextStyle value = TextStyle.parse("text-align: LEFT; vertical-align: TOP");
+
+        final HistoryToken historyToken = HistoryToken.cellStyle(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            selection,
+            Optional.of(propertyName)
+        );
+
+        this.setSaveValueAndCheck(
+            historyToken,
+            value,
+            HistoryToken.cellStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                selection,
+                propertyName,
+                Optional.of(value)
+            )
+        );
+    }
+    
     // urlFragment.....................................................................................................
 
     @Test
