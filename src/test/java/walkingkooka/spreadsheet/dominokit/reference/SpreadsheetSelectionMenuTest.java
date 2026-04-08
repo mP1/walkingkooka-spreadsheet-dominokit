@@ -1589,7 +1589,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
@@ -3148,7 +3148,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-Value-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
@@ -4802,7 +4802,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-Value-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
@@ -6361,7 +6361,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-Value-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
                 "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
                 "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
