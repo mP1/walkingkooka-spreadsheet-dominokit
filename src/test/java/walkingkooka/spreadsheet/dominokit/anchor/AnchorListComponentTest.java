@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
+import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -32,7 +33,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement>,
-    CanBeEmptyTesting {
+    CanBeEmptyTesting,
+    ToStringTesting<AnchorListComponent> {
 
     private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
@@ -130,6 +132,26 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
         );
     }
 
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            AnchorListComponent.empty()
+                .appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                        .setHistoryToken(
+                            Optional.of(
+                                HistoryToken.spreadsheetSelect(
+                                    SPREADSHEET_ID,
+                                    SPREADSHEET_NAME
+                                )
+                            )
+                        )
+                ),
+            "ROW DIV [[#/1/SpreadsheetName111]]"
+        );
+    }
     // class............................................................................................................
 
     @Override
