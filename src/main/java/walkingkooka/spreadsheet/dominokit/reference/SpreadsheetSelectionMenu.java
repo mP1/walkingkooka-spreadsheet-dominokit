@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSelect
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValidatorSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueTypeSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -459,7 +460,8 @@ public final class SpreadsheetSelectionMenu implements PublicStaticHelper {
                                    final SpreadsheetContextMenu menu,
                                    final SpreadsheetSelectionMenuContext context) {
         SpreadsheetSelectionMenuValues.valueType(
-            historyToken,
+            historyToken.setValueType()
+                .cast(SpreadsheetCellValueTypeSelectHistoryToken.class),
             menu,
             context
         ).build();

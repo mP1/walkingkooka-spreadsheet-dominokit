@@ -1577,7 +1577,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
@@ -3136,7 +3136,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/boolean] id=test-Value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date] id=test-Value-date-MenuItem\n" +
@@ -4790,7 +4790,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-Value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-Value-date-MenuItem\n" +
@@ -6349,7 +6349,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
                 "    \"Whole Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-Value-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-Value-date-MenuItem\n" +
