@@ -4390,21 +4390,19 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                         if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                             final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
-                                .orElse(null);
+                                .orElse(TextStylePropertyName.WILDCARD);
 
-                            saved = null != stylePropertyName ?
-                                HistoryToken.metadataPropertyStyleSave(
-                                    id,
-                                    name,
-                                    stylePropertyName,
-                                    Cast.to(
-                                        parseOptional(
-                                            value,
-                                            stylePropertyName::parseValue
-                                        )
+                            saved = HistoryToken.metadataPropertyStyleSave(
+                                id,
+                                name,
+                                stylePropertyName,
+                                Cast.to(
+                                    parseOptional(
+                                        value,
+                                        stylePropertyName::parseValue
                                     )
-                                ) :
-                                this;
+                                )
+                            );
                         }
                     }
 

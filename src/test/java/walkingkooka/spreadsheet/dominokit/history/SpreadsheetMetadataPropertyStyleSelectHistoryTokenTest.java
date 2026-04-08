@@ -66,6 +66,26 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         );
     }
 
+    @Test
+    public void testSetSaveStringValueWithoutTextStylePropertyName() {
+        final TextStyle value = TextStyle.parse("text-align: LEFT; vertical-align: TOP;");
+
+        this.setSaveStringValueAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.empty()
+            ),
+            value.text(),
+            HistoryToken.metadataPropertyStyleSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                TextStylePropertyName.WILDCARD,
+                Optional.of(value)
+            )
+        );
+    }
+
     // setSaveValue.....................................................................................................
 
     @Test
