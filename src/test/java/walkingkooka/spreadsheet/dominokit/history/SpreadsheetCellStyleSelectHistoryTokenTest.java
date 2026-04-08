@@ -31,7 +31,7 @@ import java.util.Optional;
 
 public final class SpreadsheetCellStyleSelectHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSelectHistoryToken<Color>> {
 
-    // save.........................................................................................................
+    // setSaveStringValue...............................................................................................
 
     @Test
     public void testSetSaveStringValueNotEmptyString() {
