@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
+import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
@@ -33,7 +34,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>> {
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+    HasName<TextStylePropertyName<?>> {
 
     public static <T> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                        final TextStylePropertyName<T> propertyName,
@@ -58,6 +60,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
                                                                      final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
                                                                      final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
         super();
+
+        this.name = propertyName;
 
         final AnchorListComponent list = AnchorListComponent.empty();
 
@@ -118,6 +122,15 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
             .value(this.list)
             .build();
     }
+
+    // HasName..........................................................................................................
+
+    @Override
+    public TextStylePropertyName<T> name() {
+        return this.name;
+    }
+
+    private final TextStylePropertyName<T> name;
 
     // TreePrintable....................................................................................................
 

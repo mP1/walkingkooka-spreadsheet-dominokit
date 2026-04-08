@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
+import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -43,7 +44,8 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLDivElement>,
-    ComponentLifecycleMatcherTesting {
+    ComponentLifecycleMatcherTesting,
+    HasNameTesting<TextStylePropertyName<?>> {
 
     private final static String ID_PREFIX = "TestId123";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
@@ -279,6 +281,16 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
                 "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
                 "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+        );
+    }
+
+    // HasName..........................................................................................................
+
+    @Test
+    public void testHasName() {
+        this.nameAndCheck(
+            this.createComponent(),
+            TextStylePropertyName.TEXT_ALIGN
         );
     }
 
