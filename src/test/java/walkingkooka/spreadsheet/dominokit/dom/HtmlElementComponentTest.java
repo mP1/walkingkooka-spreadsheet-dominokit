@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.style.SpacingCss;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
@@ -42,7 +43,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HtmlElementComponentTest implements ClassTesting<HtmlElementComponent<?, ?>>,
-    TreePrintableTesting {
+    TreePrintableTesting,
+    ToStringTesting<HtmlElementComponent<?, ?>> {
 
     // setId............................................................................................................
 
@@ -555,6 +557,23 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
                 "\"Hello222\" DISABLED\n" +
                 "Last\n",
             b.toString()
+        );
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            HtmlElementComponent.div()
+                .appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                        .setTextContent("Hello111")
+                ).appendChild(
+                    HistoryTokenAnchorComponent.empty()
+                        .setTextContent("Hello222")
+                ),
+            "DIV [\"Hello111\" DISABLED, \"Hello222\" DISABLED]"
         );
     }
 

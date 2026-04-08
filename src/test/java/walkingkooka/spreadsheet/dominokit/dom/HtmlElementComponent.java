@@ -434,6 +434,13 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         }
     }
 
+    // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.tag + " " + this.children;
+    }
+
     private final String tag;
 
     private final List<Object> children;
