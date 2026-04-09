@@ -675,15 +675,17 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         Predicate<SpreadsheetSelection> selected = Predicates.never();
 
         if (maybeAnchorSelection.isPresent()) {
-            // special case for label
-            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabelOrFail(
+            // if an unknown label selected Predicate will always return false
+            final SpreadsheetSelection selectionNotLabel = cache.resolveIfLabel(
                 maybeAnchorSelection.get()
                     .selection()
-            );
+            ).orElse(null);
 
-            // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
-            selected = (s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
-                (false == s.isCellRange() && selectionNotLabel.test(s));
+            if (null != selectionNotLabel) {
+                // is not cell-range required otherwise select-all-component will always be rendered as anchorSelection.
+                selected = (SpreadsheetSelection s) -> selectionNotLabel.equalsIgnoreReferenceKind(s) ||
+                    (false == s.isCellRange() && selectionNotLabel.test(s));
+            }
         }
 
         final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
@@ -700,42 +702,50 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     private void giveViewportSelectionFocus(final AnchoredSpreadsheetSelection selection,
                                             final RefreshContext context) {
         if (GWT.isScript()) {
+            boolean give = false;
+            SpreadsheetSelection spreadsheetSelection = selection.selection();
+
+            // if label is unknown no focus will happen.
             final SpreadsheetSelection nonLabelSelection = this.spreadsheetViewportCache()
-                .resolveIfLabelOrFail(
-                    selection.selection()
+                .resolveIfLabel(spreadsheetSelection)
+                .orElse(null);
+            if (null != nonLabelSelection) {
+                // $spreadsheetSelection now has the exact single cell that will get focus.
+                spreadsheetSelection = nonLabelSelection.focused(
+                    selection.anchor()
                 );
-            final SpreadsheetSelection spreadsheetSelection = nonLabelSelection.focused(
-                selection.anchor()
-            );
-            final Optional<Element> maybeElement = this.findElement(
-                spreadsheetSelection
-            );
-            if (maybeElement.isPresent()) {
-                Element element = maybeElement.get();
+                final Optional<Element> maybeElement = this.findElement(
+                    spreadsheetSelection
+                );
+                if (maybeElement.isPresent()) {
+                    Element element = maybeElement.get();
 
-                boolean give = true;
+                    give = true;
 
-                final Element active = DomGlobal.document.activeElement;
-                if (null != active) {
-                    // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
-                    give = false == Doms.isOrHasChild(
-                        element,
-                        active
-                    );
-                }
-
-                if (give) {
-                    // for column/row the anchor and not the TH/TD should receive focus.
-                    if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
-                        element = element.firstElementChild;
+                    final Element active = DomGlobal.document.activeElement;
+                    if (null != active) {
+                        // verify active element belongs to the same selection. if it does it must have focus so no need to focus again
+                        give = false == Doms.isOrHasChild(
+                            element,
+                            active
+                        );
                     }
 
-                    if (SPREADSHEET_VIEWPORT_COMPONENT) {
-                        context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                    if (give) {
+                        // for column/row the anchor and not the TH/TD should receive focus.
+                        if (spreadsheetSelection.isColumn() || spreadsheetSelection.isRow()) {
+                            element = element.firstElementChild;
+                        }
+
+                        if (SPREADSHEET_VIEWPORT_COMPONENT) {
+                            context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " focus element " + element);
+                        }
+                        element.focus();
                     }
-                    element.focus();
                 }
-            } else {
+            }
+
+            if (false == give) {
                 if (SPREADSHEET_VIEWPORT_COMPONENT) {
                     context.debug(this.getClass().getSimpleName() + ".giveViewportSelectionFocus " + spreadsheetSelection + " element not found!");
                 }
