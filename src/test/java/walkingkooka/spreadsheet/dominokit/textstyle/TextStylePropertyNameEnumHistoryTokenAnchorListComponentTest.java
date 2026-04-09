@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
+import walkingkooka.ToStringTesting;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
@@ -45,7 +46,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLDivElement>,
     ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<?>> {
+    HasNameTesting<TextStylePropertyName<?>>,
+    ToStringTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>> {
 
     private final static String ID_PREFIX = "TestId123";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
@@ -347,6 +349,16 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
             private final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
         };
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            this.createComponent(),
+            "ROW DIV [mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link, \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link, \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link, \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link, \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link]"
+        );
     }
 
     // class............................................................................................................
