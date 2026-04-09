@@ -77,6 +77,18 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
         // TODO give focus to toolbar value link
+
+        // patch value with nothing and clear which should hide the menu.
+        context.spreadsheetDeltaFetcher()
+            .patchValue(
+                this.id,
+                this.anchoredSelection().selection(),
+                null,
+                Optional.empty()
+            );
+        context.pushHistoryToken(
+            previous.clear()
+        );
     }
 
     // HistoryTokenVisitor..............................................................................................
