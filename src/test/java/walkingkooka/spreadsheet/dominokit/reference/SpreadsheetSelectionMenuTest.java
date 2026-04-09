@@ -1566,6 +1566,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
@@ -3125,6 +3127,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
@@ -4779,6 +4783,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
@@ -6338,6 +6344,8 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    -----\n" +
+                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
