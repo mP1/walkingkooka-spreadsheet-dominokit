@@ -294,7 +294,10 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
                 "      mdi-earth \"Locale\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/locale] id=toolbar-locale-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Locale...\"\n" +
-                "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-*-Link\n" +
+                "      \"Edit styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style] id=toolbar-style-Link\n" +
+                "        TooltipComponent\n" +
+                "          \"Edit styling\"\n" +
+                "      mdi-format-clear \"Clear styling\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/*/save/] CHECKED id=toolbar-style-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Clear styling\"\n" +
                 "      mdi-sign-yield \"Validator\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/validator] id=toolbar-validator-Link\n" +

@@ -100,6 +100,13 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
+     * {@link ToolbarComponentItemAnchorTextStyleEdit}
+     */
+    static ToolbarComponentItem<?> editStyle(final ToolbarComponentContext context) {
+        return ToolbarComponentItemAnchorTextStyleEdit.with(context);
+    }
+
+    /**
      * {@link ToolbarComponentItemAnchorFormatter}
      */
     static ToolbarComponentItem<?> formatter(final ToolbarComponentContext context) {

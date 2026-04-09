@@ -125,7 +125,8 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.parser(context),
             ToolbarComponentItem.decimalNumberSymbols(context),
             ToolbarComponentItem.locale(context),
-            // clear
+            // edit & clear style
+            ToolbarComponentItem.editStyle(context),
             ToolbarComponentItem.clearStyle(context),
             // validator
             ToolbarComponentItem.validator(context),
@@ -237,10 +238,13 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     public static <T> String id(final TextStylePropertyName<T> propertyName,
                                 final Optional<T> value) {
         return TOOLBAR_ID_PREFIX +
-            propertyName.constantName().toLowerCase() +
-            value.map(
-                v -> '-' + v.toString().toUpperCase()
-            ).orElse("");
+            (TextStylePropertyName.WILDCARD == propertyName ?
+                "style" :
+                propertyName.constantName().toLowerCase() +
+                    value.map(
+                        v -> '-' + v.toString().toUpperCase()
+                    ).orElse("")
+            );
     }
 
 
