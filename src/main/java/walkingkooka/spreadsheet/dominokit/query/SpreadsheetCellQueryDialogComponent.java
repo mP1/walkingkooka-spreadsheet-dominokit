@@ -171,7 +171,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         return SpreadsheetCellRangeReferenceComponent.with(
                 ID_PREFIX + "cellRange" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Cell Range")
-            .addValueWatcher2(value -> this.setAndRefresh(
+            .addValueWatcher2(value -> this.setAndPushHistoryToken(
                 t -> t.setSelection(value)
                     .setQuery(
                         t.query()
@@ -190,7 +190,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 this.context
             ).setLabel("Cell Range Path")
             .addValueWatcher2(
-                (Optional<SpreadsheetCellRangeReferencePath> value) -> this.setAndRefresh(
+                (Optional<SpreadsheetCellRangeReferencePath> value) -> this.setAndPushHistoryToken(
                     t -> t.setQuery(
                         t.query()
                             .setPath(value)
@@ -214,7 +214,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
             ).setId(ID_PREFIX + "query" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Query")
             .addValueWatcher2(
-                (v) -> this.setAndRefresh(
+                (v) -> this.setAndPushHistoryToken(
                     t -> t.setQuery(
                         t.query()
                             .setQuery(
@@ -311,7 +311,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
      * Each time a component of the find is updated, a new {@link HistoryToken} is pushed, which will cause a search
      * and refresh of the UI.
      */
-    private void setAndRefresh(final Function<SpreadsheetCellQueryHistoryToken, HistoryToken> historyTokenSetter) {
+    private void setAndPushHistoryToken(final Function<SpreadsheetCellQueryHistoryToken, HistoryToken> historyTokenSetter) {
         final SpreadsheetCellQueryDialogComponentContext context = this.context;
 
         // if setter failed ignore, validation will eventually show an error for the field.
