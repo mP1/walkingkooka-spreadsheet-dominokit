@@ -69,5 +69,5 @@ final class ToolbarComponentItemAnchorTextStyleEdit extends ToolbarComponentItem
         );
     }
 
-    private static final TextStylePropertyName<TextStyle> PROPERTY = TextStylePropertyName.WILDCARD;
+    private static final TextStylePropertyName<TextStyle> PROPERTY = TextStylePropertyName.ALL;
 }

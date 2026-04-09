@@ -69,7 +69,7 @@ final class AppContextTextStyleDialogComponentContextCellStyle extends AppContex
     @Override
     public String dialogTitle() {
         return this.selectionTextStylePropertyDialogTitle(
-            TextStylePropertyName.WILDCARD
+            TextStylePropertyName.ALL
         );
     }
 

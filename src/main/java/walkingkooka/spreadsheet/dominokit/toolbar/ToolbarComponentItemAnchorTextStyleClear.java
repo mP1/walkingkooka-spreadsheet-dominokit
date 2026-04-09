@@ -84,7 +84,7 @@ final class ToolbarComponentItemAnchorTextStyleClear extends ToolbarComponentIte
             );
     }
 
-    private static final TextStylePropertyName<TextStyle> PROPERTY = TextStylePropertyName.WILDCARD;
+    private static final TextStylePropertyName<TextStyle> PROPERTY = TextStylePropertyName.ALL;
 
     private static final Optional<TextStylePropertyName<?>> OPTIONAL_PROPERTY = Optional.of(PROPERTY);
 }

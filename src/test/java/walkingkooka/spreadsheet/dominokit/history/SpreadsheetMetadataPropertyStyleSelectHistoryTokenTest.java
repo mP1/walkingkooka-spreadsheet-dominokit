@@ -80,7 +80,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.WILDCARD,
+                TextStylePropertyName.ALL,
                 Optional.of(value)
             )
         );
@@ -104,7 +104,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                TextStylePropertyName.WILDCARD,
+                TextStylePropertyName.ALL,
                 value
             )
         );
