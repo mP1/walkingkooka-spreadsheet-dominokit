@@ -609,25 +609,25 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
             )
         );
 
-        final SpreadsheetCellQueryRequest findQuery = historyToken.query();
+        final SpreadsheetCellQueryRequest queryRequest = historyToken.query();
 
         this.path.setValue(
-            findQuery.path()
+            queryRequest.path()
         );
         this.valueType.setValue(
-            findQuery.valueType()
+            queryRequest.valueType()
         );
 
         this.value.validate();
 
-        final Optional<SpreadsheetCellQuery> maybeQuery = findQuery.query();
+        final Optional<SpreadsheetCellQuery> query = queryRequest.query();
         this.query.setStringValue(
-            maybeQuery.map(SpreadsheetCellQuery::text)
+            query.map(SpreadsheetCellQuery::text)
         );
-        final SpreadsheetCellQuery query = maybeQuery.orElse(null);
-        if (null != query) {
+        final SpreadsheetCellQuery queryOrNull = query.orElse(null);
+        if (null != queryOrNull) {
             SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisitor.refresh(
-                query.parserToken(),
+                queryOrNull.parserToken(),
                 this
             );
         }
@@ -638,7 +638,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         this.refreshSaveAsHighlightingQuery(historyToken);
         this.refreshClose(historyToken);
 
-        this.findCells(findQuery);
+        this.findCells(queryRequest);
     }
 
     /**
