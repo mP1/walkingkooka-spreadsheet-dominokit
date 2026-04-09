@@ -184,8 +184,8 @@ abstract class SpreadsheetSelectionMenuValues<T> implements TreePrintable {
         this.values();
         this.clear();
 
-        // Style & Value & ValueType dont have edit links
-        if (false == (this.isStyle() || this.isValue() || this.isValueType())) {
+        // Value & ValueType dont have edit links
+        if (false == (this.isValue() || this.isValueType())) {
             this.edit();
         }
 
