@@ -52,7 +52,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
         SPREADSHEET_ID
     );
 
-    private final static TextStyle TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
+    private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
+
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("text-align: CENTER; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -90,26 +92,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             TextStyleDialogComponentContexts.appContextCellStyle(context)
         );
 
+        component.onHistoryTokenChange(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            context
+        );
+
         component.textStyle.setValue(
-            Optional.of(TEXT_STYLE)
+            Optional.of(VALUE_TEXT_STYLE)
         );
 
         this.treePrintAndCheck(
             component,
             "TextStyleDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    id=TextStyle-Dialog includeClose=true CLOSED\n" +
+                "    A1: *\n" +
+                "    id=TextStyle-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                [text-align: left;]\n" +
+                "                [text-align: center; vertical-align: middle;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/text-align:%20left;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/text-align:%20center;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -121,13 +132,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
         final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
 
         final AppContext context = this.appContext(
-            HistoryToken.cellStyle(
+            HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                cell.setDefaultAnchor(),
                 Optional.empty()
             ),
-            Optional.empty() // no textStyle
+            Optional.of(UNDO_TEXT_STYLE)
         );
 
         context.spreadsheetViewportCache()
@@ -148,29 +158,38 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             TextStyleDialogComponentContexts.appContextMetadataStyle(context)
         );
 
+        component.onHistoryTokenChange(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            context
+        );
+
         component.textStyle.setValue(
-            Optional.of(TEXT_STYLE)
+            Optional.of(VALUE_TEXT_STYLE)
         );
 
         this.treePrintAndCheck(
             component,
             "TextStyleDialogComponent\n" +
                 "  DialogComponent\n" +
-                "    id=TextStyle-Dialog includeClose=true CLOSED\n" +
+                "    Spreadsheet: Style (style)\n" +
+                "    id=TextStyle-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                [text-align: left;]\n" +
+                "                [text-align: center; vertical-align: middle;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/text-align:%20left;] id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/text-align:%20left;] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20center;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20left;] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
         );
     }
 
@@ -180,9 +199,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             TextStyleDialogComponentContexts.appContextMetadataStyle(
                 this.appContext(
                     historyToken,
-                    Optional.of(
-                        TextStyle.parse("text-align: CENTER;")
-                    )
+                    Optional.of(UNDO_TEXT_STYLE)
                 )
             )
         );
@@ -223,7 +240,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return METADATA.setOrRemove(
                     SpreadsheetMetadataPropertyName.STYLE,
-                    TEXT_STYLE
+                    textStyle.orElse(null)
                 );
             }
 
