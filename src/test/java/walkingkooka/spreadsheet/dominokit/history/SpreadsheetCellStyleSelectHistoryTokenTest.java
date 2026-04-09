@@ -104,7 +104,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 selection,
-                TextStylePropertyName.WILDCARD,
+                TextStylePropertyName.ALL,
                 Optional.of(value)
             )
         );
@@ -139,10 +139,10 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testSetSaveValueWithTextStylePropertyValueWildcardAndNotEmptyTextStyleValue() {
+    public void testSetSaveValueWithTextStylePropertyValueAllAndNotEmptyTextStyleValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
 
-        final TextStylePropertyName<TextStyle> propertyName = TextStylePropertyName.WILDCARD;
+        final TextStylePropertyName<TextStyle> propertyName = TextStylePropertyName.ALL;
         final TextStyle value = TextStyle.parse("text-align: LEFT; vertical-align: TOP");
 
         final HistoryToken historyToken = HistoryToken.cellStyle(
@@ -166,7 +166,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testSetSaveValueWithoutTextStylePropertyValueWildcardAndNotEmptyTextStyleValue() {
+    public void testSetSaveValueWithoutTextStylePropertyValueAllAndNotEmptyTextStyleValue() {
         final AnchoredSpreadsheetSelection selection = CELL.setDefaultAnchor();
 
         final TextStyle value = TextStyle.parse("text-align: LEFT; vertical-align: TOP");
@@ -185,7 +185,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 selection,
-                TextStylePropertyName.WILDCARD,
+                TextStylePropertyName.ALL,
                 Optional.of(value)
             )
         );
@@ -207,13 +207,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testUrlFragmentCellWildcard() {
+    public void testUrlFragmentCellAll() {
         this.urlFragmentAndCheck(
             SpreadsheetCellStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(TextStylePropertyName.WILDCARD)
+                Optional.of(TextStylePropertyName.ALL)
             ),
             "/123/SpreadsheetName456/cell/A1/style/*"
         );
@@ -265,12 +265,12 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testUrlFragmentWildcard() {
+    public void testUrlFragmentAll() {
         final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            Optional.of(TextStylePropertyName.WILDCARD)
+            Optional.of(TextStylePropertyName.ALL)
         );
         this.urlFragmentAndCheck(
             token,
@@ -295,12 +295,12 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
-    public void testParseWildcard() {
+    public void testParseAllWildcard() {
         final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            Optional.of(TextStylePropertyName.WILDCARD)
+            Optional.of(TextStylePropertyName.ALL)
         );
         this.parseAndCheck(
             token.urlFragment(),

@@ -226,7 +226,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         if (this instanceof SpreadsheetCellStyleHistoryToken) {
             final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
-                .orElse(TextStylePropertyName.WILDCARD);
+                .orElse(TextStylePropertyName.ALL);
 
             historyToken = HistoryToken.cellStyleSave(
                 this.id,

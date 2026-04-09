@@ -238,7 +238,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
     public static <T> String id(final TextStylePropertyName<T> propertyName,
                                 final Optional<T> value) {
         return TOOLBAR_ID_PREFIX +
-            (TextStylePropertyName.WILDCARD == propertyName ?
+            (TextStylePropertyName.ALL == propertyName ?
                 "style" :
                 propertyName.constantName().toLowerCase() +
                     value.map(

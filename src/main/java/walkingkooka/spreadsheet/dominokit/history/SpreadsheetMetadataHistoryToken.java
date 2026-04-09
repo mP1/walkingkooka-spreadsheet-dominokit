@@ -56,7 +56,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
             if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                 final TextStylePropertyName<?> stylePropertyName = this.stylePropertyName()
-                    .orElse(TextStylePropertyName.WILDCARD);
+                    .orElse(TextStylePropertyName.ALL);
 
                 historyToken = HistoryToken.metadataPropertyStyleSave(
                     this.id,
