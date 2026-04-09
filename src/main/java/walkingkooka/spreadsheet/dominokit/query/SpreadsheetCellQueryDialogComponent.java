@@ -88,7 +88,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
         this.validator = this.validator();
         this.formattedValue = this.formattedValue();
 
-        this.run = this.anchor("Run");
+        this.execute = this.anchor("Execute");
         this.reset = this.anchor("Reset");
         this.loadHighlightingQuery = this.anchor("Load Highlighting Query");
         this.saveAsHighlightingQuery = this.anchor("Save as Highlighting Query");
@@ -144,7 +144,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 AnchorListComponent.empty()
                     .setCssProperty("margin-top", "5px")
                     .setCssProperty("margin-left", "-5px")
-                    .appendChild(this.run)
+                    .appendChild(this.execute)
                     .appendChild(this.reset)
                     .appendChild(this.loadHighlightingQuery)
                     .appendChild(this.saveAsHighlightingQuery)
@@ -270,7 +270,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
                 Optional.ofNullable(query)
             );
 
-        this.refreshFind(
+        this.refreshExecute(
             this.context.historyToken()
                 .cast(SpreadsheetCellQueryHistoryToken.class)
                 .setSelection(
@@ -470,13 +470,13 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
 
     // find.............................................................................................................
 
-    private void refreshFind(final SpreadsheetCellQueryHistoryToken historyToken) {
-        this.run.setHistoryToken(
+    private void refreshExecute(final SpreadsheetCellQueryHistoryToken historyToken) {
+        this.execute.setHistoryToken(
             Optional.of(historyToken)
         );
     }
 
-    private final HistoryTokenAnchorComponent run;
+    private final HistoryTokenAnchorComponent execute;
 
     // reset............................................................................................................
 
@@ -632,7 +632,7 @@ public final class SpreadsheetCellQueryDialogComponent implements DialogComponen
             );
         }
 
-        this.refreshFind(historyToken);
+        this.refreshExecute(historyToken);
         this.refreshReset(historyToken);
         this.refreshLoadHighlightingQuery(historyToken);
         this.refreshSaveAsHighlightingQuery(historyToken);
