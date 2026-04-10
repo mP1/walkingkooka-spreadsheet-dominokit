@@ -20,4 +20,9 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
 
 public interface DialogAnchorListComponentContextTesting<C extends DialogAnchorListComponentContext<T>, T> extends HistoryContextTesting<C> {
+
+    @Override
+    default String typeNameSuffix() {
+        return DialogAnchorListComponentContext.class.getSimpleName();
+    }
 }
