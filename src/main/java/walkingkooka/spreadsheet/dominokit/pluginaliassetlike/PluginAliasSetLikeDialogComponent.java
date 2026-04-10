@@ -219,10 +219,8 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
     // dialog links.....................................................................................................
 
     private DialogAnchorListComponent<AS> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                this.context // DialogAnchorListComponentContext
-            ).save()
+        return this.dialogAnchorListComponent(this.context)
+            .save()
             .undo()
             .clearLink()
             .close()

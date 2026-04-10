@@ -62,10 +62,8 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
 
         this.selector = this.selector();
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponent
-            ).saveAutoDisableWhenMissingValue()
+        this.links = this.dialogAnchorListComponent(context)
+            .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()
             .close();

@@ -80,10 +80,8 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
         this.selector = this.selector();
 
-        this.links = DialogAnchorListComponent.empty(
-            this.idPrefix(),
-            context // DialogAnchorListComponentContext
-        ).save()
+        this.links = this.dialogAnchorListComponent(context)
+            .save()
             .clearLink()
             .undo()
             .close();

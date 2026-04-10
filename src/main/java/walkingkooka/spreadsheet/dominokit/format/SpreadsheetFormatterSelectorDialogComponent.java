@@ -310,10 +310,8 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     // dialog links.....................................................................................................
 
     private DialogAnchorListComponent<SpreadsheetFormatterSelector> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponent
-            ).saveAutoDisableWhenMissingValue()
+        return this.dialogAnchorListComponent(this.context)
+            .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()
             .close()

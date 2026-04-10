@@ -302,10 +302,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
     // dialog links.....................................................................................................
 
     private DialogAnchorListComponent<SpreadsheetParserSelector> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                this.context // DialogAnchorListComponentContext
-            ).saveAutoDisableWhenMissingValue()
+        return this.dialogAnchorListComponent(this.context)
+            .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()
             .close()

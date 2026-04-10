@@ -83,10 +83,8 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
                 (e) -> this.onTextBox(this.text())
             );
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).saveAutoDisableWhenMissingValue()
+        this.links = this.dialogAnchorListComponent(context)
+            .saveAutoDisableWhenMissingValue()
             .clearLink()
             .undo()
             .close();
