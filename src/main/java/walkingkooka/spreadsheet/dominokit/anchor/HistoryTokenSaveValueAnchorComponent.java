@@ -75,6 +75,8 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
             if (false == (historyToken.isSave())) {
                 historyToken = null;
             }
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
         } catch (final RuntimeException ignore) {
             // some history tokens do not accept empty values
             historyToken = null;
