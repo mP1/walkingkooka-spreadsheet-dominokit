@@ -71,6 +71,20 @@ public interface DialogComponentLifecycle extends HistoryTokenAwareComponentLife
      */
     void dialogReset();
 
+    /**
+     * Creates a {@link DialogAnchorListComponent} that will only receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
+     * events if this dialog {@link #isOpen()}.
+     */
+    default <T> DialogAnchorListComponent<T> dialogAnchorListComponent(final DialogAnchorListComponentContext<T> context) {
+        return DialogAnchorListComponent.empty(
+            this.idPrefix(),
+            DialogAnchorListComponentContexts.isDialogOpen(
+                this::isOpen,
+                context
+            )
+        );
+    }
+
     // TreePrintable....................................................................................................
 
     @Override

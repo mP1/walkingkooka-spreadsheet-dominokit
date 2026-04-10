@@ -658,10 +658,8 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
     // links............................................................................................................
 
     private DialogAnchorListComponent<DecimalNumberSymbols> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                this.context // DialogAnchorListComponentContext
-            ).save()
+        return this.dialogAnchorListComponent(this.context)
+            .save()
             .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()

@@ -95,10 +95,8 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
     // links............................................................................................................
 
     private DialogAnchorListComponent<?> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                this.context // DialogAnchorListComponentContext
-            ).close();
+        return this.dialogAnchorListComponent(this.context)
+            .close();
     }
 
     private final DialogAnchorListComponent<?> links;

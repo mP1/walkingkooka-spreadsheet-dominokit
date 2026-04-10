@@ -115,10 +115,8 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     // link.............................................................................................................   // links............................................................................................................
 
     private DialogAnchorListComponent<SpreadsheetName> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).save()
+        return this.dialogAnchorListComponent(this.context)
+            .save()
             .undo()
             .close()
             .setComponentWithErrors(this.name);

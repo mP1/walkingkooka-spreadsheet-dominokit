@@ -63,10 +63,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     private TextStyleDialogComponent(final TextStyleDialogComponentContext context) {
         this.context = context;
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponent
-            ).save()
+        this.links = this.dialogAnchorListComponent(context)
+            .save()
             .undo()
             .clearLink()
             .close();

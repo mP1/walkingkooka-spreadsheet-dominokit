@@ -63,10 +63,8 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
 
         this.comparatorNameList = this.comparatorNameList();
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).save()
+        this.links = this.dialogAnchorListComponent(context)
+            .save()
             .clearLink()
             .undo()
             .close();

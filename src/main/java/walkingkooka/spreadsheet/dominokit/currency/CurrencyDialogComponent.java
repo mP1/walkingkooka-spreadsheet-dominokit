@@ -68,10 +68,8 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
     private CurrencyDialogComponent(final CurrencyDialogComponentContext context) {
         this.context = context;
 
-        this.links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponent
-            ).save()
+        this.links = this.dialogAnchorListComponent(context)
+            .save()
             .undo()
             .clearLink()
             .close();

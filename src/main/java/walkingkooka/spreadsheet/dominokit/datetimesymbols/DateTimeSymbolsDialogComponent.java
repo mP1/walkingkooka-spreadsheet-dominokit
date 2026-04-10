@@ -464,10 +464,8 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
     // links............................................................................................................
 
     private DialogAnchorListComponent<DateTimeSymbols> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                this.context // DialogAnchorListComponentContext
-            ).save()
+        return this.dialogAnchorListComponent(this.context)
+            .save()
             .saveAutoDisableWhenMissingValue()
             .undo()
             .clearLink()

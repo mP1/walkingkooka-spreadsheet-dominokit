@@ -182,15 +182,14 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
     // links............................................................................................................
 
     private DialogAnchorListComponent<T> links() {
-        final DialogAnchorListComponent<T> links = DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
+        final DialogAnchorListComponent<T> links = this.dialogAnchorListComponent(
+                this.context
             ).save()
             .undo()
             .clearLink()
             .close();
 
-        final ValueType valueType = context.valueType();
+        final ValueType valueType = this.context.valueType();
         if (ValueType.DATE.equals(valueType) ||
             ValueType.DATE_TIME.equals(valueType) ||
             ValueType.TIME.equals(valueType)) {

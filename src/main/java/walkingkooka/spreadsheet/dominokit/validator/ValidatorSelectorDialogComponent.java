@@ -165,10 +165,8 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     // dialog links.....................................................................................................
 
     private DialogAnchorListComponent<ValidatorSelector> links() {
-        return DialogAnchorListComponent.empty(
-                this.idPrefix(),
-                context // DialogAnchorListComponentContext
-            ).save()
+        return this.dialogAnchorListComponent(this.context)
+            .save()
             .undo()
             .clearLink()
             .close()
