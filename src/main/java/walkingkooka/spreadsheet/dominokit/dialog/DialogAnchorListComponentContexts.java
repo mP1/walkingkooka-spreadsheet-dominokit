@@ -19,7 +19,20 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
+import java.util.function.BooleanSupplier;
+
 public final class DialogAnchorListComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see DialogAnchorListComponentContextDialogOpenAware}
+     */
+    public static <T> DialogAnchorListComponentContext<T> isDialogOpen(final BooleanSupplier isDialogOpen,
+                                                                       final DialogAnchorListComponentContext<T> context) {
+        return DialogAnchorListComponentContextDialogOpenAware.with(
+            isDialogOpen,
+            context
+        );
+    }
 
     /**
      * {@see FakeDialogAnchorListComponentContext}
