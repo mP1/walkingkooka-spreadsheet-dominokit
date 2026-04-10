@@ -47,7 +47,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellSet.with(value)
+            SpreadsheetCellSet.EMPTY.setElements(value)
         );
     }
 
@@ -93,7 +93,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
             id,
             name,
             anchoredSelection,
-            SpreadsheetCellSet.with(value)
+            SpreadsheetCellSet.EMPTY.setElements(value)
         );
     }
 
