@@ -145,7 +145,7 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
     // isEditing........................................................................................................
 
     @Override
-    public boolean isEditing() {
+    public final boolean isEditing() {
         return false;
     }
 
