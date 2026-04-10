@@ -149,7 +149,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
             ),
             "/123/SpreadsheetName456/cell/A1/save/cell/" +
                 marshall(
-                    SpreadsheetCellSet.with(cells)
+                    SpreadsheetCellSet.EMPTY.setElements(cells)
                 )
         );
     }
@@ -170,7 +170,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
             ),
             "/123/SpreadsheetName456/cell/A1/save/cell/" +
                 marshall(
-                    SpreadsheetCellSet.with(cells)
+                    SpreadsheetCellSet.EMPTY.setElements(cells)
                 )
         );
     }
@@ -201,7 +201,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
             ),
             "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" +
                 marshall(
-                    SpreadsheetCellSet.with(cells)
+                    SpreadsheetCellSet.EMPTY.setElements(cells)
                 )
         );
     }
