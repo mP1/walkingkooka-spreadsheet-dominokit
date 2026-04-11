@@ -96,7 +96,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
             Optional.of(
                 this.context.historyToken()
                     .setStyleProperty(
-                        this.textStylePropertyName.setValue(this.value)
+                        this.textStylePropertyName.setOrRemoveValue(this.value)
                     )
             ).filter(HistoryToken::isSave)
         );

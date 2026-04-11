@@ -96,7 +96,7 @@ public abstract class SpreadsheetFormHistoryTokenTestCase<T extends SpreadsheetF
     public final void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
-            TextStylePropertyName.TEXT_ALIGN.setValue(
+            TextStylePropertyName.TEXT_ALIGN.setOrRemoveValue(
                 Optional.of(TextAlign.LEFT)
             )
         );

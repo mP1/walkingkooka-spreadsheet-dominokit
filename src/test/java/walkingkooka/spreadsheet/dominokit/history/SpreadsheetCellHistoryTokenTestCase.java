@@ -473,7 +473,7 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
 
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
-            propertyName.setValue(propertyValue),
+            propertyName.setOrRemoveValue(propertyValue),
             HistoryToken.cellStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
