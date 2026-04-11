@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.textstyle;
 
+import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
@@ -31,14 +32,20 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
+import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 /**
  * A model dialog that displays a {@link TextStyleComponent} allowing the user to pick a {@link TextStyle}.
@@ -70,6 +77,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .close();
 
         // TextStyle after save because TextStyle passes a method reference to #save
+        this.selection = this.selection();
         this.textStyle = this.textStyle();
 
         this.links.setComponentWithErrors(this.textStyle);
@@ -92,6 +100,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             context
         ).appendChild(
             FlexLayoutComponent.row()
+                .appendChild(this.selection)
                 .appendChild(this.textStyle)
         ).appendChild(this.links);
     }
@@ -115,6 +124,28 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     private final static String ID = TextStyle.class.getSimpleName();
 
     private final static String ID_PREFIX = ID + "-";
+
+    // selection........................................................................................................
+
+    private SpreadsheetExpressionReferenceComponent selection() {
+        return SpreadsheetExpressionReferenceComponent.empty()
+            .setId(
+                ID_PREFIX + "selection" + SpreadsheetElementIds.TEXT_BOX
+            ).setLabel("Selection")
+            .addValueWatcher2((Optional<SpreadsheetExpressionReference> value) -> {
+                    this.setAndPushHistoryToken(
+                        t -> t.setSelection(
+                            Cast.to(value)
+                        ).setStylePropertyName(
+                            this.context.historyToken()
+                                .stylePropertyName()
+                        )
+                    );
+                }
+            );
+    }
+
+    private final SpreadsheetExpressionReferenceComponent selection;
 
     // TextStyleComponent...............................................................................................
 
@@ -146,6 +177,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         context.giveFocus(
             this.textStyle::focus
         );
+
+        this.selection.setValue(
+            Cast.to(
+                context.historyToken()
+                    .selection()
+            )
+        );
     }
 
     /**
@@ -154,6 +192,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     @Override
     public void refresh(final RefreshContext context) {
         this.context.refreshDialogTitle(this);
+
+        this.selection.setValue(
+            Cast.to(
+                context.historyToken()
+                    .selection()
+            )
+        );
 
         final Optional<TextStyle> undoTextStyle = this.context.undo();
 
@@ -200,5 +245,29 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     @Override
     public String toString() {
         return this.dialog.toString();
+    }
+
+    /**
+     * Updates a component of the current {@link HistoryToken} and then maybe pushes the new {@link HistoryToken}.
+     */
+    private void setAndPushHistoryToken(final Function<HistoryToken, HistoryToken> historyTokenSetter) {
+        final TextStyleDialogComponentContext context = this.context;
+
+        // if setter failed ignore, validation will eventually show an error for the field.
+        HistoryToken historyToken;
+        try {
+            historyToken = historyTokenSetter.apply(
+                context.historyToken()
+            );
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
+        } catch (final RuntimeException ignore) {
+            historyToken = null;
+        }
+
+        // only update history token if setter was successful.
+        if (historyToken instanceof SpreadsheetMetadataPropertyStyleHistoryToken || historyToken instanceof SpreadsheetCellStyleHistoryToken) {
+            context.pushHistoryToken(historyToken);
+        }
     }
 }
