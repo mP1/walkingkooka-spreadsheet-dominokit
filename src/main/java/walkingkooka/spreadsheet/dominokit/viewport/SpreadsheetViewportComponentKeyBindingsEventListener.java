@@ -452,9 +452,7 @@ public final class SpreadsheetViewportComponentKeyBindingsEventListener implemen
             context.pushHistoryToken(
                 context.historyToken()
                     .setStyleProperty(
-                        name.setOrRemoveValue(
-                            Optional.of(value)
-                        )
+                        name.setValue(value)
                     )
             );
         }
