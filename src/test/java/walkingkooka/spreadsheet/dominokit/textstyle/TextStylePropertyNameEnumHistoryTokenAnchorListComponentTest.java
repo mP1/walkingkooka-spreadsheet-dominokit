@@ -46,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLDivElement>,
     ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<?>>,
+    HasNameTesting<TextStylePropertyName<TextAlign>>,
     ToStringTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>> {
 
     private final static String ID_PREFIX = "TestId123";
