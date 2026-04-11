@@ -154,7 +154,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     public void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
-            TextStylePropertyName.TEXT_ALIGN.setValue(
+            TextStylePropertyName.TEXT_ALIGN.setOrRemoveValue(
                 Optional.of(TextAlign.LEFT)
             )
         );

@@ -261,7 +261,7 @@ public final class SpreadsheetSelectHistoryTokenTest extends SpreadsheetNameHist
 
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
-            propertyName.setValue(propertyValue),
+            propertyName.setOrRemoveValue(propertyValue),
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
