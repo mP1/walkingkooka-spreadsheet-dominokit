@@ -188,55 +188,63 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
             .cast(SpreadsheetCellHistoryToken.class);
         final SpreadsheetFormulaComponent formula = this.formula;
         final SpreadsheetViewportCache cache = this.context.spreadsheetViewportCache();
-        final SpreadsheetSelection notLabelSelection = cache.resolveIfLabelOrFail(
+        final SpreadsheetSelection notLabelSelection = cache.resolveIfLabel(
             token.anchoredSelection()
                 .selection()
-        );
-        final boolean isCell = notLabelSelection.isCell();
-        formula.setEnabled(isCell);
+        ).orElse(null);
 
-        if (isCell) {
-            final SpreadsheetCellReference selectedCell = notLabelSelection.toCell();
+        boolean clear = true;
 
-            // if cell selection changed reload formula text
-            if (false == notLabelSelection.equalsIgnoreReferenceKind(this.selectedCell)) {
-                this.refreshFormula(
-                    selectedCell,
-                    context
-                );
-            } else {
-                // refresh could have happened before label from selection has returned from server.
-                // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
-                Optional<SpreadsheetCell> cell;
-                try {
-                    cell = cache.cell(selectedCell);
-                } catch (final IllegalArgumentException labelNotReady) {
-                    cell = null;
-                }
+        if(null != notLabelSelection) {
+            final boolean isCell = notLabelSelection.isCell();
+            formula.setEnabled(isCell);
 
-                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-                    context.debug(this.getClass().getSimpleName() + ".refresh formula cell: " + cell);
-                }
-                if (null != cell) {
+            if (isCell) {
+                clear = false; // clear if cell-range
+
+                final SpreadsheetCellReference selectedCell = notLabelSelection.toCell();
+
+                // if cell selection changed reload formula text
+                if (false == notLabelSelection.equalsIgnoreReferenceKind(this.selectedCell)) {
                     this.refreshFormula(
                         selectedCell,
                         context
                     );
-                }
-            }
+                } else {
+                    // refresh could have happened before label from selection has returned from server.
+                    // remove try/catch and if != null when https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2575 implemented.
+                    Optional<SpreadsheetCell> cell;
+                    try {
+                        cell = cache.cell(selectedCell);
+                    } catch (final IllegalArgumentException labelNotReady) {
+                        cell = null;
+                    }
 
-            if (token instanceof SpreadsheetCellFormulaHistoryToken & false == this.previousHistoryToken instanceof SpreadsheetCellFormulaHistoryToken) {
-                if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
-                    context.debug(this.getClass().getSimpleName() + ".refresh giving focus");
+                    if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+                        context.debug(this.getClass().getSimpleName() + ".refresh formula cell: " + cell);
+                    }
+                    if (null != cell) {
+                        this.refreshFormula(
+                            selectedCell,
+                            context
+                        );
+                    }
                 }
-                context.giveFocus(formula::focus);
-            }
 
-            this.selectedCell = selectedCell;
-        } else {
+                if (token instanceof SpreadsheetCellFormulaHistoryToken & false == this.previousHistoryToken instanceof SpreadsheetCellFormulaHistoryToken) {
+                    if (SPREADSHEET_VIEWPORT_FORMULA_COMPONENT) {
+                        context.debug(this.getClass().getSimpleName() + ".refresh giving focus");
+                    }
+                    context.giveFocus(formula::focus);
+                }
+
+                this.selectedCell = selectedCell;
+            }
+        }
+
+        if(clear) {
             // not a cell selection clear the formula & helper & error messages.
             formula.clear();
-
             this.selectedCell = null;
         }
 

@@ -40,6 +40,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
@@ -173,7 +175,123 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         );
     }
 
-    static class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
+    @Test
+    public void testRefreshLabel() {
+        final SpreadsheetLabelName label = SpreadsheetSelection.labelName("Label123");
+
+        final TestSpreadsheetViewportFormulaComponentContext context = new TestSpreadsheetViewportFormulaComponentContext(
+            HistoryToken.cellFormula(
+                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                AnchoredSpreadsheetSelection.with(
+                    label,
+                    SpreadsheetViewportAnchor.NONE
+                )
+            )
+        );
+
+        final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
+
+        context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
+            context.spreadsheetMetadata()
+        );
+
+        context.historyTokenWatchers.onHistoryTokenChange(
+            context.historyToken(),
+            context
+        );
+
+        final SpreadsheetCellReference labelTarget = SpreadsheetSelection.A1;
+
+        context.spreadsheetDeltaFetcherWatchers.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell/"),
+            SpreadsheetDelta.EMPTY.setCells(
+                Sets.of(
+                    labelTarget.setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=1+2")
+                    )
+                )
+            ).setLabels(
+                Sets.of(
+                    label.setLabelMappingReference(labelTarget)
+                )
+            )
+        );
+
+        component.refresh(context);
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetViewportFormulaComponent\n" +
+                "  SpreadsheetFormulaComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [=1+2] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testRefreshUnknownLabel() {
+        final TestSpreadsheetViewportFormulaComponentContext context = new TestSpreadsheetViewportFormulaComponentContext(
+            HistoryToken.cellFormula(
+                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                AnchoredSpreadsheetSelection.with(
+                    SpreadsheetSelection.labelName("UnknownLabel404"),
+                    SpreadsheetViewportAnchor.NONE
+                )
+            )
+        );
+
+        final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
+
+        context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
+            context.spreadsheetMetadata()
+        );
+
+        context.historyTokenWatchers.onHistoryTokenChange(
+            context.historyToken(),
+            context
+        );
+
+        context.spreadsheetDeltaFetcherWatchers.onSpreadsheetDelta(
+            HttpMethod.GET,
+            Url.parseRelative("/api/spreadsheet/1/cell/"),
+            SpreadsheetDelta.EMPTY
+        );
+
+        component.refresh(context);
+
+        this.treePrintAndCheck(
+            component,
+            "SpreadsheetViewportFormulaComponent\n" +
+                "  SpreadsheetFormulaComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] DISABLED REQUIRED\n"
+        );
+    }
+
+    final static class TestSpreadsheetViewportFormulaComponentContext extends FakeAppContext implements SpreadsheetViewportFormulaComponentContext {
+
+        TestSpreadsheetViewportFormulaComponentContext() {
+            this(
+                HistoryToken.cellFormula(
+                    SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    AnchoredSpreadsheetSelection.with(
+                        SpreadsheetSelection.A1,
+                        SpreadsheetViewportAnchor.NONE
+                    )
+                )
+            );
+        }
+
+        TestSpreadsheetViewportFormulaComponentContext(final HistoryToken historyToken) {
+            super();
+            this.historyToken = historyToken;
+        }
 
         @Override
         public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -198,15 +316,10 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         @Override
         public HistoryToken historyToken() {
-            return HistoryToken.cellFormula(
-                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                AnchoredSpreadsheetSelection.with(
-                    SpreadsheetSelection.A1,
-                    SpreadsheetViewportAnchor.NONE
-                )
-            );
+            return this.historyToken;
         }
+
+        private final HistoryToken historyToken;
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
