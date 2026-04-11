@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -41,6 +42,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Optional;
 
 public final class TextStyleDialogComponentTest implements DialogComponentLifecycleTesting<TextStyleDialogComponent>,
@@ -112,6 +114,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "    id=TextStyle-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
+                "          SpreadsheetExpressionReferenceComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Selection [A1] id=TextStyle-selection-TextBox REQUIRED\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
@@ -178,6 +184,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "    id=TextStyle-Dialog includeClose=true\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
+                "          SpreadsheetExpressionReferenceComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Selection [] id=TextStyle-selection-TextBox REQUIRED\n" +
+                "                Errors\n" +
+                "                  Empty \"text\"\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
@@ -211,8 +223,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return null;
+                return this.historyTokenWatchers.add(watcher);
             }
+
+            private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
 
             @Override
             public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
@@ -225,9 +239,23 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             }
 
             @Override
-            public HistoryToken historyToken() {
-                return historyToken;
+            public void pushHistoryToken(final HistoryToken token) {
+                Objects.requireNonNull(token, "token");
+
+                final HistoryToken previous = this.currentHistoryToken;
+                this.currentHistoryToken = token;
+                this.historyTokenWatchers.onHistoryTokenChange(
+                    previous,
+                    this // AppContext
+                );
             }
+
+            @Override
+            public HistoryToken historyToken() {
+                return currentHistoryToken;
+            }
+
+            private HistoryToken currentHistoryToken = historyToken;
 
             @Override
             public SpreadsheetViewportCache spreadsheetViewportCache() {
