@@ -35,7 +35,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
-    HasName<TextStylePropertyName<?>> {
+    HasName<TextStylePropertyName<T>> {
 
     public static <T> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                        final TextStylePropertyName<T> propertyName,
