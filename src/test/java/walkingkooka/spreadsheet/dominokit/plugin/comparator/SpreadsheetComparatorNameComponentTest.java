@@ -15,71 +15,60 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorNameListComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetComparatorNameListComponent, SpreadsheetComparatorNameList> {
-
-    @Test
-    public void testParseAndText() {
-        final SpreadsheetComparatorNameList names = SpreadsheetComparatorNameList.with(
-            SpreadsheetComparatorNameList.parse("day-of-month, year")
-        );
-
-        this.checkEquals(
-            names,
-            SpreadsheetComparatorNameList.parse(names.text())
-        );
-    }
+public final class SpreadsheetComparatorNameComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetComparatorNameComponent, SpreadsheetComparatorName> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            SpreadsheetComparatorNameListComponent.empty()
+            SpreadsheetComparatorNameComponent.empty()
                 .setStringValue(
-                    Optional.of("day-of-month, month-of-year")
+                    Optional.of("hello-comparator")
                 ),
-            "SpreadsheetComparatorNameListComponent\n" +
+            "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, month-of-year] REQUIRED\n"
+                "      [hello-comparator] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            SpreadsheetComparatorNameListComponent.empty()
+            SpreadsheetComparatorNameComponent.empty()
                 .setStringValue(
-                    Optional.of("day-of-month, !@#")
+                    Optional.of("!@#")
                 ),
-            "SpreadsheetComparatorNameListComponent\n" +
+            "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, !@#] REQUIRED\n" +
+                "      [!@#] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid character '!' at 14\n"
+                "        Invalid character '!' at 0\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetComparatorNameListComponent createComponent() {
-        return SpreadsheetComparatorNameListComponent.empty();
+    public SpreadsheetComparatorNameComponent createComponent() {
+        return SpreadsheetComparatorNameComponent.empty();
     }
 
     // class............................................................................................................
 
+
     @Override
-    public Class<SpreadsheetComparatorNameListComponent> type() {
-        return SpreadsheetComparatorNameListComponent.class;
+    public Class<SpreadsheetComparatorNameComponent> type() {
+        return SpreadsheetComparatorNameComponent.class;
     }
 
     @Override

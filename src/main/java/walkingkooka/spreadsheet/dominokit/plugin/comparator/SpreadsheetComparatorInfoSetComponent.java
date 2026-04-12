@@ -15,37 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
 
-/**
- * A text box that accepts entry and validates it as a {@link SpreadsheetColumnOrRowSpreadsheetComparatorNames}.
- */
-public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent implements ValueTextBoxComponentDelegator<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent, SpreadsheetColumnOrRowSpreadsheetComparatorNames> {
+public final class SpreadsheetComparatorInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetComparatorInfoSetComponent, SpreadsheetComparatorInfoSet> {
 
-    public static SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent empty() {
-        return new SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent();
+    public static SpreadsheetComparatorInfoSetComponent empty() {
+        return new SpreadsheetComparatorInfoSetComponent();
     }
 
-    private SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent() {
+    private SpreadsheetComparatorInfoSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
-            HasText::text
+            SpreadsheetComparatorInfoSet::parse,
+            SpreadsheetComparatorInfoSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetColumnOrRowSpreadsheetComparatorNames> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetComparatorInfoSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetColumnOrRowSpreadsheetComparatorNames> textBox;
+    private final ValueTextBoxComponent<SpreadsheetComparatorInfoSet> textBox;
 
     // Object...........................................................................................................
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
