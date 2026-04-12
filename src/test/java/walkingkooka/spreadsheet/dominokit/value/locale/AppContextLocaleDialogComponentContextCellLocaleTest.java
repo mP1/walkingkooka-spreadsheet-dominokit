@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.locale;
+package walkingkooka.spreadsheet.dominokit.value.locale;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;

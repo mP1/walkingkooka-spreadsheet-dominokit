@@ -50,8 +50,6 @@ import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogCom
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingListDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponent;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.number.NumberComponent;
@@ -92,6 +90,8 @@ import walkingkooka.spreadsheet.dominokit.value.datetimesymbols.DateTimeSymbolsD
 import walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.email.EmailAddressComponent;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.tree.expression.ExpressionNumber;

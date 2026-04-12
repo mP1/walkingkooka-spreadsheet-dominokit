@@ -15,9 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.locale;
+package walkingkooka.spreadsheet.dominokit.value.locale;
 
-import walkingkooka.ContextTesting;
+abstract class AppContextLocaleDialogComponentContextTestCase<C extends AppContextLocaleDialogComponentContext>
+    implements LocaleDialogComponentContextTesting<C> {
 
-public interface LocaleComponentTesting<C extends LocaleComponentContext<C>> extends ContextTesting<C> {
+    AppContextLocaleDialogComponentContextTestCase() {
+        super();
+    }
+
+    @Override
+    public final void testTypeNaming() {
+        throw new UnsupportedOperationException();
+    }
 }

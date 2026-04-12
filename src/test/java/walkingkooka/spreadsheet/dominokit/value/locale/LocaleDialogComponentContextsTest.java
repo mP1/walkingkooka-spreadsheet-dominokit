@@ -15,17 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.locale;
+package walkingkooka.spreadsheet.dominokit.value.locale;
 
-abstract class AppContextLocaleDialogComponentContextTestCase<C extends AppContextLocaleDialogComponentContext>
-    implements LocaleDialogComponentContextTesting<C> {
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-    AppContextLocaleDialogComponentContextTestCase() {
-        super();
+import java.lang.reflect.Method;
+
+public final class LocaleDialogComponentContextsTest implements PublicStaticHelperTesting<LocaleDialogComponentContexts> {
+
+    @Override
+    public Class<LocaleDialogComponentContexts> type() {
+        return LocaleDialogComponentContexts.class;
     }
 
     @Override
-    public final void testTypeNaming() {
-        throw new UnsupportedOperationException();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }
