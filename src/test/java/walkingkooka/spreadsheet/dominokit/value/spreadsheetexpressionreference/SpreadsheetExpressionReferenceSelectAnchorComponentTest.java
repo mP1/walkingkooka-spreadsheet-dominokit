@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
+package walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
