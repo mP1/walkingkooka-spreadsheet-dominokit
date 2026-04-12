@@ -34,6 +34,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_align_center();
     }
 
+    public static MdiIcon alignClear() {
+        return Icons.format_clear();
+    }
+
     public static MdiIcon alignRight() {
         return Icons.format_align_right();
     }
