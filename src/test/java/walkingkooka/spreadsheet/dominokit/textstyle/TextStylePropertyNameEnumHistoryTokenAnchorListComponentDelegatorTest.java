@@ -23,7 +23,6 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.naming.HasName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
@@ -67,8 +66,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentDeleg
         return JavaVisibility.PUBLIC;
     }
 
-    final static class TestTextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator implements HtmlComponent<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>>,
-        TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextAlign>,
+    final static class TestTextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TestTextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator>,
         HasName<TextStylePropertyName<TextAlign>> {
 
         @Override
