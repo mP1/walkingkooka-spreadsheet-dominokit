@@ -15,9 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.textalign;
+package walkingkooka.spreadsheet.dominokit.textstyle.textalign;
 
-import walkingkooka.spreadsheet.dominokit.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.textstyle.FakeTextStylePropertyHistoryTokenAnchorComponentContext;
 
-public interface TextAlignComponentContext extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext {
+public class FakeTextAlignComponentContext extends FakeTextStylePropertyHistoryTokenAnchorComponentContext
+    implements TextAlignComponentContext {
+
+    public FakeTextAlignComponentContext() {
+        super();
+    }
 }

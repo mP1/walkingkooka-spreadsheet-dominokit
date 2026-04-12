@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.textalign;
+package walkingkooka.spreadsheet.dominokit.textstyle.textalign;
 
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
