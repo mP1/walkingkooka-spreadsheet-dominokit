@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -16,37 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
-
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;
 
-/**
- * A text box that accepts entry and validates it as a {@link SpreadsheetParserName}.
- */
-public final class SpreadsheetParserNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetParserNameComponent, SpreadsheetParserName> {
+public final class SpreadsheetParserAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetParserAliasSetComponent, SpreadsheetParserAliasSet> {
 
-    public static SpreadsheetParserNameComponent empty() {
-        return new SpreadsheetParserNameComponent();
+    public static SpreadsheetParserAliasSetComponent empty() {
+        return new SpreadsheetParserAliasSetComponent();
     }
 
-    private SpreadsheetParserNameComponent() {
+    private SpreadsheetParserAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetParserName::with,
-            SpreadsheetParserName::toString
+            SpreadsheetParserAliasSet::parse,
+            SpreadsheetParserAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetParserName> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetParserAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetParserName> textBox;
+    private final ValueTextBoxComponent<SpreadsheetParserAliasSet> textBox;
 
     // Object...........................................................................................................
 

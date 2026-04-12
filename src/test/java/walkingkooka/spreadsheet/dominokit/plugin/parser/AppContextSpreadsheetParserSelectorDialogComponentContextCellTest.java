@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
@@ -27,13 +27,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadataTest implements SpreadsheetParserSelectorDialogComponentContextTesting<AppContextSpreadsheetParserSelectorDialogComponentContextMetadata> {
+public final class AppContextSpreadsheetParserSelectorDialogComponentContextCellTest implements SpreadsheetParserSelectorDialogComponentContextTesting<AppContextSpreadsheetParserSelectorDialogComponentContextCell> {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(null)
+            () -> AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(null)
         );
     }
 
@@ -61,12 +61,39 @@ public final class AppContextSpreadsheetParserSelectorDialogComponentContextMeta
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
+            true
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetCellParserSaveHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.cellParserSave(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor(),
+                Optional.empty()
+            ),
             false
         );
     }
 
     @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertyNameSelectHistoryTokenDateParser() {
+    public void testIsMatchWithSpreadsheetCellFormatterSelectHistoryToken() {
+        this.isMatchAndCheck(
+            this.createContext(),
+            HistoryToken.cellFormatterSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            ),
+            false
+        );
+    }
+
+    @Test
+    public void testIsMatchWithSpreadsheetMetadataSelectPropertyNameHistoryTokenDateParser() {
         this.isMatchAndCheck(
             this.createContext(),
             HistoryToken.metadataPropertySelect(
@@ -74,51 +101,24 @@ public final class AppContextSpreadsheetParserSelectorDialogComponentContextMeta
                 SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DATE_PARSER
             ),
-            true
-        );
-    }
-
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertyNameSelectHistoryTokenDateFormatter() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySelect(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.DATE_FORMATTER
-            ),
-            false
-        );
-    }
-
-    @Test
-    public void testIsMatchWithSpreadsheetMetadataPropertyNameSaveHistoryTokenDateParser() {
-        this.isMatchAndCheck(
-            this.createContext(),
-            HistoryToken.metadataPropertySave(
-                SPREADSHEET_ID,
-                SPREADSHEET_NAME,
-                SpreadsheetMetadataPropertyName.DATE_PARSER,
-                Optional.empty()
-            ),
             false
         );
     }
 
     @Override
-    public AppContextSpreadsheetParserSelectorDialogComponentContextMetadata createContext() {
-        return AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.with(AppContexts.fake());
+    public AppContextSpreadsheetParserSelectorDialogComponentContextCell createContext() {
+        return AppContextSpreadsheetParserSelectorDialogComponentContextCell.with(AppContexts.fake());
     }
 
     @Override
     public String typeNameSuffix() {
-        return "Metadata";
+        return "Cell";
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetParserSelectorDialogComponentContextMetadata> type() {
-        return AppContextSpreadsheetParserSelectorDialogComponentContextMetadata.class;
+    public Class<AppContextSpreadsheetParserSelectorDialogComponentContextCell> type() {
+        return AppContextSpreadsheetParserSelectorDialogComponentContextCell.class;
     }
 }

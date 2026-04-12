@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;

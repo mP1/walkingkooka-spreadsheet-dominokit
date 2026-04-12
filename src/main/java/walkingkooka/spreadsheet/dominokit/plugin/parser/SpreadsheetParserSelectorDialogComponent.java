@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;

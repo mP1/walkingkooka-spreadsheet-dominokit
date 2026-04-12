@@ -15,27 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
 import java.util.Optional;
 
-public final class SpreadsheetParserNameComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetParserNameComponent, SpreadsheetParserName> {
+public final class SpreadsheetParserSelectorComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetParserSelectorComponent, SpreadsheetParserSelector> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            SpreadsheetParserNameComponent.empty()
+            SpreadsheetParserSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
                         "hello"
                     )
                 ),
-            "SpreadsheetParserNameComponent\n" +
+            "SpreadsheetParserSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello] REQUIRED\n"
@@ -45,13 +45,13 @@ public final class SpreadsheetParserNameComponentTest implements ValueTextBoxCom
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            SpreadsheetParserNameComponent.empty()
+            SpreadsheetParserSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
                         "invalid123!"
                     )
                 ),
-            "SpreadsheetParserNameComponent\n" +
+            "SpreadsheetParserSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [invalid123!] REQUIRED\n" +
@@ -63,14 +63,15 @@ public final class SpreadsheetParserNameComponentTest implements ValueTextBoxCom
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetParserNameComponent createComponent() {
-        return SpreadsheetParserNameComponent.empty();
+    public SpreadsheetParserSelectorComponent createComponent() {
+        return SpreadsheetParserSelectorComponent.empty();
     }
 
     // class............................................................................................................
+
     @Override
-    public Class<SpreadsheetParserNameComponent> type() {
-        return SpreadsheetParserNameComponent.class;
+    public Class<SpreadsheetParserSelectorComponent> type() {
+        return SpreadsheetParserSelectorComponent.class;
     }
 
     @Override

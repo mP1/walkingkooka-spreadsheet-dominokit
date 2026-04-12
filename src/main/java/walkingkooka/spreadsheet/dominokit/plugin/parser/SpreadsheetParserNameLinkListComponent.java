@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;

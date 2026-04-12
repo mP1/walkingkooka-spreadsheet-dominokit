@@ -25,7 +25,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.parser.SpreadsheetParserAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.parser.SpreadsheetParserAliasSetComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAlias;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;

@@ -15,18 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-import java.util.Optional;
-
-public interface SpreadsheetParserNameLinkListComponentContext extends HistoryContext, SpreadsheetParserProvider {
-
-    /**
-     * Returns the currently selected {@link SpreadsheetParserName}.
-     */
-    Optional<SpreadsheetParserName> parserName();
+public interface SpreadsheetParserSelectorDialogComponentContextTesting<C extends SpreadsheetParserSelectorDialogComponentContext> extends DialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting {
 }
