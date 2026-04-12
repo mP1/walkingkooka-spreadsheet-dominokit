@@ -19,9 +19,10 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.spreadsheet.dominokit.value.plugin.PluginSetDialogComponent;
 
 /**
- * A token that reloads the list shown by {@link walkingkooka.spreadsheet.dominokit.plugin.PluginSetDialogComponent}.
+ * A token that reloads the list shown by {@link PluginSetDialogComponent}.
  * <pre>
  * /plugin/reload
  * </pre>
