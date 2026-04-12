@@ -19,24 +19,18 @@ package walkingkooka.spreadsheet.dominokit.textstyle;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.naming.HasName;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V, C extends HtmlComponentDelegator<HTMLDivElement, C>>
-    extends HtmlComponentDelegator<HTMLDivElement, C>,
+public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V, C extends ValueComponentDelegator<HTMLDivElement, V, C>>
+    extends ValueComponentDelegator<HTMLDivElement, V, C>,
     HasName<TextStylePropertyName<V>> {
 
     @Override
     default TextStylePropertyName<V> name() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .name();
-    }
-
-    @Override
-    default boolean isEditing() {
-        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
-            .isEditing();
     }
 
     // TreePrintable....................................................................................................
@@ -55,7 +49,7 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> htmlComponent() {
+    default TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> valueComponent() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
     }
 
