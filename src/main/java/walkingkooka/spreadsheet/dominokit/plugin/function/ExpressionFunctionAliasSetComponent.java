@@ -16,7 +16,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.function;
+package walkingkooka.spreadsheet.dominokit.plugin.function;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;

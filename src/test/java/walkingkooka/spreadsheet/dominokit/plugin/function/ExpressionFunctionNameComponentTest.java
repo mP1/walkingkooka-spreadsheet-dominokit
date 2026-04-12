@@ -15,62 +15,63 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.function;
+package walkingkooka.spreadsheet.dominokit.plugin.function;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
+import walkingkooka.tree.expression.ExpressionFunctionName;
 
 import java.util.Optional;
 
-public final class ExpressionFunctionAliasSetComponentTest implements ValueTextBoxComponentLikeTesting<ExpressionFunctionAliasSetComponent, ExpressionFunctionAliasSet> {
+public final class ExpressionFunctionNameComponentTest implements ValueTextBoxComponentLikeTesting<ExpressionFunctionNameComponent,  ExpressionFunctionName> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            ExpressionFunctionAliasSetComponent.empty()
+            ExpressionFunctionNameComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "alias1 function1, function2"
+                        "hello"
                     )
                 ),
-            "ExpressionFunctionAliasSetComponent\n" +
+            "ExpressionFunctionNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 function1, function2] REQUIRED\n"
+                "      [hello] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            ExpressionFunctionAliasSetComponent.empty()
+            ExpressionFunctionNameComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "alias1 function1, 9"
+                        "invalid123!"
                     )
                 ),
-            "ExpressionFunctionAliasSetComponent\n" +
+            "ExpressionFunctionNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 function1, 9] REQUIRED\n" +
+                "      [invalid123!] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid character '9' at 18\n"
+                "        Invalid character '!' at 10\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public ExpressionFunctionAliasSetComponent createComponent() {
-        return ExpressionFunctionAliasSetComponent.empty();
+    public ExpressionFunctionNameComponent createComponent() {
+        return ExpressionFunctionNameComponent.empty();
     }
 
     // class............................................................................................................
+
     @Override
-    public Class<ExpressionFunctionAliasSetComponent> type() {
-        return ExpressionFunctionAliasSetComponent.class;
+    public Class<ExpressionFunctionNameComponent> type() {
+        return ExpressionFunctionNameComponent.class;
     }
 
     @Override

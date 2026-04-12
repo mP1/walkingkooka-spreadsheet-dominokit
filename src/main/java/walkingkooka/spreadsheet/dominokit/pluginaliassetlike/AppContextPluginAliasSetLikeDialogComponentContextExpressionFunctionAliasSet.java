@@ -25,7 +25,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.ExpressionFunctionFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
-import walkingkooka.spreadsheet.dominokit.function.ExpressionFunctionAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.tree.expression.ExpressionFunctionName;

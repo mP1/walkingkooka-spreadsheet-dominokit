@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -15,35 +16,37 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.function;
+package walkingkooka.spreadsheet.dominokit.plugin.function;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
-import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
+import walkingkooka.tree.expression.ExpressionFunctionName;
 
-public final class ExpressionFunctionInfoSetComponent implements ValueTextBoxComponentDelegator<ExpressionFunctionInfoSetComponent, ExpressionFunctionInfoSet> {
+/**
+ * A text box that accepts entry and validates it as a {@link ExpressionFunctionName}.
+ */
+public final class ExpressionFunctionNameComponent implements ValueTextBoxComponentDelegator<ExpressionFunctionNameComponent, ExpressionFunctionName> {
 
-    public static ExpressionFunctionInfoSetComponent empty() {
-        return new ExpressionFunctionInfoSetComponent();
+    public static ExpressionFunctionNameComponent empty() {
+        return new ExpressionFunctionNameComponent();
     }
 
-    private ExpressionFunctionInfoSetComponent() {
+    private ExpressionFunctionNameComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetExpressionFunctions::parseInfoSet,
-            ExpressionFunctionInfoSet::text
+            ExpressionFunctionName::with,
+            ExpressionFunctionName::toString
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ExpressionFunctionInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ExpressionFunctionName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ExpressionFunctionInfoSet> textBox;
+    private final ValueTextBoxComponent<ExpressionFunctionName> textBox;
 
     // Object...........................................................................................................
 
