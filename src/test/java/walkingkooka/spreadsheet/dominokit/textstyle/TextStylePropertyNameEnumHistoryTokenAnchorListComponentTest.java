@@ -35,6 +35,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Arrays;
@@ -334,6 +335,105 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         this.nameAndCheck(
             this.createComponent(),
             TextStylePropertyName.TEXT_ALIGN
+        );
+    }
+
+    // textStyleValueWatcher............................................................................................
+
+    @Test
+    public void testTextStyleValueWatcherOnValueChange() {
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+
+        anchor.setValue(
+            Optional.of(
+                TextAlign.LEFT
+            )
+        );
+
+        anchor.textStyleValueWatcher()
+            .onValue(
+                Optional.of(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                    )
+                )
+            );
+
+        this.treePrintAndCheck(
+            anchor,
+            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+        );
+    }
+
+    @Test
+    public void testTextStyleValueWatcherOnValueChangeCleared() {
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+
+        anchor.setValue(
+            Optional.of(
+                TextAlign.LEFT
+            )
+        );
+
+        anchor.textStyleValueWatcher()
+            .onValue(
+                Optional.of(TextStyle.EMPTY)
+            );
+
+        this.treePrintAndCheck(
+            anchor,
+            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] CHECKED id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
