@@ -21,8 +21,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.validator.FakeValidator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.validator.FakeValidator;
 
 import java.util.Optional;
 

@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.value.csv;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
-import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 
 import java.util.Objects;
 
