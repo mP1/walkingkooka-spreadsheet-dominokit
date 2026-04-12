@@ -17,11 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.textalign;
 
-import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
@@ -31,8 +29,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextAlignComponent implements HtmlComponent<HTMLDivElement, TextAlignComponent>,
-    TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TextAlignComponent> {
+public final class TextAlignComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TextAlignComponent> {
 
     public static TextAlignComponent with(final String idPrefix,
                                           final TextAlignComponentContext context) {
