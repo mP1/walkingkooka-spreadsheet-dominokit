@@ -15,63 +15,69 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formhandler;
+package walkingkooka.spreadsheet.dominokit.plugin.formhandler;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.validation.form.provider.FormHandlerSelector;
+import walkingkooka.validation.form.provider.FormHandlerAliasSet;
 
 import java.util.Optional;
 
-public final class FormHandlerSelectorComponentTest implements ValueTextBoxComponentLikeTesting<FormHandlerSelectorComponent, FormHandlerSelector> {
+public final class FormHandlerAliasSetComponentTest implements ValueTextBoxComponentLikeTesting<FormHandlerAliasSetComponent, FormHandlerAliasSet> {
 
     @Test
-    public void testSetStringValue() {
-        this.treePrintAndCheck(
-            FormHandlerSelectorComponent.empty()
-                .setStringValue(
-                    Optional.of(
-                        "hello"
-                    )
-                ),
-            "FormHandlerSelectorComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [hello] REQUIRED\n"
+    public void testParseAndText() {
+        final FormHandlerAliasSet alias = FormHandlerAliasSet.parse("alias1 plugin1, plugin2");
+
+        this.checkEquals(
+            alias,
+            FormHandlerAliasSet.parse(alias.text())
         );
     }
 
     @Test
-    public void testSetStringValueWithInvalid() {
+    public void testSetStringValue() {
         this.treePrintAndCheck(
-            FormHandlerSelectorComponent.empty()
+            FormHandlerAliasSetComponent.empty()
                 .setStringValue(
-                    Optional.of(
-                        "invalid123!"
-                    )
+                    Optional.of("alias1 name1, alias2, name2")
                 ),
-            "FormHandlerSelectorComponent\n" +
+            "FormHandlerAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [invalid123!] REQUIRED\n" +
+                "      [alias1 name1, alias2, name2] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidValue() {
+        this.treePrintAndCheck(
+            FormHandlerAliasSetComponent.empty()
+                .setStringValue(
+                    Optional.of("alias1 name1, alias2 !")
+                ),
+            "FormHandlerAliasSetComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [alias1 name1, alias2 !] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid character '!' at 10\n"
+                "        Invalid character '!' at 21\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public FormHandlerSelectorComponent createComponent() {
-        return FormHandlerSelectorComponent.empty();
+    public FormHandlerAliasSetComponent createComponent() {
+        return FormHandlerAliasSetComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<FormHandlerSelectorComponent> type() {
-        return FormHandlerSelectorComponent.class;
+    public Class<FormHandlerAliasSetComponent> type() {
+        return FormHandlerAliasSetComponent.class;
     }
 
     @Override

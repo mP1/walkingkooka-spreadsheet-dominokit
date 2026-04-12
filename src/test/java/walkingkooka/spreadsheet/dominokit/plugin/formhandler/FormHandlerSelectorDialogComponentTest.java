@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formhandler;
+package walkingkooka.spreadsheet.dominokit.plugin.formhandler;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
