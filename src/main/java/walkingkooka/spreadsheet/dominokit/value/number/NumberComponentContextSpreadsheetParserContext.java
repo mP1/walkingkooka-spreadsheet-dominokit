@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.datetime.DateTimeContext;
@@ -31,15 +31,15 @@ import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.util.Locale;
 
-final class WholeNumberComponentContextSpreadsheetParserContext implements SpreadsheetParserContext,
+final class NumberComponentContextSpreadsheetParserContext implements SpreadsheetParserContext,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator {
 
-    static WholeNumberComponentContextSpreadsheetParserContext with(final WholeNumberComponentContext context) {
-        return new WholeNumberComponentContextSpreadsheetParserContext(context);
+    static NumberComponentContextSpreadsheetParserContext with(final NumberComponentContext context) {
+        return new NumberComponentContextSpreadsheetParserContext(context);
     }
 
-    private WholeNumberComponentContextSpreadsheetParserContext(final WholeNumberComponentContext context) {
+    private NumberComponentContextSpreadsheetParserContext(final NumberComponentContext context) {
         this.context = context;
     }
 
@@ -82,6 +82,7 @@ final class WholeNumberComponentContextSpreadsheetParserContext implements Sprea
 
     @Override
     public char valueSeparator() {
+        //return this.context.valueSeparator();
         throw new UnsupportedOperationException();
     }
 
@@ -90,7 +91,7 @@ final class WholeNumberComponentContextSpreadsheetParserContext implements Sprea
         return this.context.expressionNumberKind();
     }
 
-    private final WholeNumberComponentContext context;
+    private final NumberComponentContext context;
 
     // Object...........................................................................................................
 

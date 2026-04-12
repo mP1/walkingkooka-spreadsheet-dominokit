@@ -15,9 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.math.DecimalNumberContextTesting2;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public interface NumberComponentContextTesting<C extends NumberComponentContext> extends DecimalNumberContextTesting2<C> {
+public final class NumberComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see FakeNumberComponentContext}
+     */
+    public static FakeNumberComponentContext fake() {
+        return new FakeNumberComponentContext();
+    }
+
+    /**
+     * Stop creation
+     */
+    private NumberComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

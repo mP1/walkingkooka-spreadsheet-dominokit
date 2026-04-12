@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
@@ -31,19 +31,20 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A text box that supports and validates {@link ExpressionNumber}.
+ * A text box that supports entering a whole number {@link ExpressionNumber} value.
  */
-public final class NumberComponent implements ValueTextBoxComponentDelegator<NumberComponent, ExpressionNumber> {
+public final class WholeNumberComponent implements ValueTextBoxComponentDelegator<WholeNumberComponent, ExpressionNumber> {
 
-    public static NumberComponent empty(final String id,
-                                        final NumberComponentContext context) {
+    public static WholeNumberComponent empty(final String id,
+                                             final WholeNumberComponentContext context) {
         CharSequences.failIfNullOrEmpty(id, id);
         Objects.requireNonNull(context, "context");
-        return new NumberComponent(
+
+        return new WholeNumberComponent(
             ValueTextBoxComponent.with(
                 t -> {
-                    final NumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = NumberComponentContextSpreadsheetParserContext.with(context);
-                    return SpreadsheetParsers.general()
+                    final WholeNumberComponentContextSpreadsheetParserContext numberComponentContextSpreadsheetParserContext = WholeNumberComponentContextSpreadsheetParserContext.with(context);
+                    return SpreadsheetParsers.wholeNumber()
                         .parseText(
                             t,
                             numberComponentContextSpreadsheetParserContext
@@ -53,14 +54,14 @@ public final class NumberComponent implements ValueTextBoxComponentDelegator<Num
                 v -> SpreadsheetFormatters.general()
                     .format(
                         Optional.of(v),
-                        NumberComponentContextSpreadsheetFormatterContext.with(context)
+                        WholeNumberComponentContextSpreadsheetFormatterContext.with(context)
                     ).orElse(TextNode.EMPTY_TEXT)
                     .text() // formatter ExpressionNumber to String
             ).setId(id)
         );
     }
 
-    private NumberComponent(final ValueTextBoxComponent<ExpressionNumber> textBox) {
+    private WholeNumberComponent(final ValueTextBoxComponent<ExpressionNumber> textBox) {
         this.textBox = textBox;
     }
 

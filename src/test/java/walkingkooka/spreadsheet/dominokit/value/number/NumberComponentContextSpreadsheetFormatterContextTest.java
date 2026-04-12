@@ -15,27 +15,22 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
+public final class NumberComponentContextSpreadsheetFormatterContextTest implements ClassTesting<NumberComponentContextSpreadsheetFormatterContext> {
 
-public final class WholeNumberComponentContextsTest implements PublicStaticHelperTesting<WholeNumberComponentContexts> {
+    // class............................................................................................................
 
     @Override
-    public Class<WholeNumberComponentContexts> type() {
-        return WholeNumberComponentContexts.class;
+    public Class<NumberComponentContextSpreadsheetFormatterContext> type() {
+        return NumberComponentContextSpreadsheetFormatterContext.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -15,27 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.math.DecimalNumberContext;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 
-import java.lang.reflect.Method;
+public interface WholeNumberComponentContext extends DecimalNumberContext {
 
-public final class NumberComponentContextsTest implements PublicStaticHelperTesting<NumberComponentContexts> {
+    ExpressionNumberKind expressionNumberKind();
 
-    @Override
-    public Class<NumberComponentContexts> type() {
-        return NumberComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
+    int generalFormatNumberDigitCount();
 }

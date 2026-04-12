@@ -15,14 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
 import walkingkooka.math.FakeDecimalNumberContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public class FakeWholeNumberComponentContext extends FakeDecimalNumberContext implements WholeNumberComponentContext {
+public class FakeNumberComponentContext extends FakeDecimalNumberContext implements NumberComponentContext {
 
-    public FakeWholeNumberComponentContext() {
+    public FakeNumberComponentContext() {
         super();
     }
 

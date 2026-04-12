@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberContext;
