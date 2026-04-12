@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -16,37 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.export;
-
+package walkingkooka.spreadsheet.dominokit.plugin.export;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterAliasSet;
 
-/**
- * A text box that accepts entry and validates it as a {@link SpreadsheetExporterName}.
- */
-public final class SpreadsheetExporterNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetExporterNameComponent, SpreadsheetExporterName> {
+public final class SpreadsheetExporterAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetExporterAliasSetComponent, SpreadsheetExporterAliasSet> {
 
-    public static SpreadsheetExporterNameComponent empty() {
-        return new SpreadsheetExporterNameComponent();
+    public static SpreadsheetExporterAliasSetComponent empty() {
+        return new SpreadsheetExporterAliasSetComponent();
     }
 
-    private SpreadsheetExporterNameComponent() {
+    private SpreadsheetExporterAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetExporterName::with,
-            SpreadsheetExporterName::toString
+            SpreadsheetExporterAliasSet::parse,
+            SpreadsheetExporterAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetExporterName> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetExporterAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetExporterName> textBox;
+    private final ValueTextBoxComponent<SpreadsheetExporterAliasSet> textBox;
 
     // Object...........................................................................................................
 
