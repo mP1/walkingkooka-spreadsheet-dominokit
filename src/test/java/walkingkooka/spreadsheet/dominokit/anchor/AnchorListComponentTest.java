@@ -111,6 +111,22 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
         );
     }
 
+    // get..............................................................................................................
+
+    @Test
+    public void testGet() {
+        final AnchorListComponent anchorListComponent = AnchorListComponent.empty();
+
+        final AnchorComponent<?> child = HistoryTokenAnchorComponent.empty()
+            .setTextContent("Child111");
+
+        this.checkEquals(
+            child,
+            anchorListComponent.appendChild(child)
+                .child(0)
+        );
+    }
+
     // CanBeEmpty.......................................................................................................
 
     @Test
