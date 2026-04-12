@@ -37,8 +37,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatche
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.formatter.SpreadsheetFormatterTableComponent;
-import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
-import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.selector.AppendPluginSelectorTokenComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
