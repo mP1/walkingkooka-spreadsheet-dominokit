@@ -34,7 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryTok
 import walkingkooka.spreadsheet.dominokit.query.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
-import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponent;
+import walkingkooka.spreadsheet.dominokit.value.valuetype.ValueTypeEditComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;

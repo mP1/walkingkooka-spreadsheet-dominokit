@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.valuetype;
+package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 

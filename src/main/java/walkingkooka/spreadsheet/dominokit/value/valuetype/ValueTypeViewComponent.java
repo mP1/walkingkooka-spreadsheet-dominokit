@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.valuetype;
+package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
 import com.google.gwt.core.client.GWT;
 import elemental2.dom.HTMLElement;

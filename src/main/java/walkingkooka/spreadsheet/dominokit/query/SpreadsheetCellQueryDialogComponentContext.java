@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableCompon
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.valuetype.ValueTypeEditComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.valuetype.ValueTypeEditComponentContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
