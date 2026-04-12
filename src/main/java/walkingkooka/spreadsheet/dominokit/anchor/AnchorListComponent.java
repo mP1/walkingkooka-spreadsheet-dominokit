@@ -41,6 +41,11 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
         this.root = FlexLayoutComponent.row();
     }
 
+    public AnchorComponent<?> child(final int index) {
+        return (AnchorComponent<?>)
+            this.root.child(index);
+    }
+
     public AnchorListComponent appendChild(final AnchorComponent<?> anchor) {
         this.root.appendChild(anchor);
         return this;
