@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.datetimesymbols;
+package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;

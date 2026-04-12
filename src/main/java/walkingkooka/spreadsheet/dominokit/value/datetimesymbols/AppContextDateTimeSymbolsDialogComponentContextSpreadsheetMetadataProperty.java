@@ -15,74 +15,74 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.datetimesymbols;
+package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSaveHistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySaveHistoryToken;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell extends AppContextDateTimeSymbolsDialogComponentContext {
+public class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty extends AppContextDateTimeSymbolsDialogComponentContext {
 
-    static AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell with(final AppContext context) {
-        return new AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell(
+    static AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty with(final AppContext context) {
+        return new AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell(final AppContext context) {
+    private AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty(final AppContext context) {
         super(context);
     }
 
     @Override
     public String dialogTitle() {
-        return this.selectionValueDialogTitle(DateTimeSymbols.class);
+        return this.spreadsheetMetadataPropertyNameDialogTitle(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
+    }
+
+    /**
+     * There is no source to copy when editing the {@link SpreadsheetMetadata}.
+     */
+    // TODO support copy values using SpreadsheetMetadataPropertyName#LOCALE
+    @Override
+    public Optional<DateTimeSymbols> copyDateTimeSymbols() {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<DateTimeSymbols> copyDateTimeSymbols() {
+    public Optional<DateTimeSymbols> undo() {
         return this.context.spreadsheetMetadata()
             .get(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
     }
 
     @Override
-    public Optional<DateTimeSymbols> undo() {
-        final AppContext context = this.context;
-
-        return context.spreadsheetViewportCache()
-            .historyTokenCell()
-            .flatMap(SpreadsheetCell::dateTimeSymbols);
-    }
-
-    @Override
     public void save(final Optional<DateTimeSymbols> symbols) {
         final AppContext context = this.context;
-        context.spreadsheetDeltaFetcher()
-            .patchDateTimeSymbols(
+        context.spreadsheetMetadataFetcher()
+            .patchMetadata(
                 context.spreadsheetMetadata()
                     .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
-                context.historyToken()
-                    .cast(SpreadsheetCellDateTimeSymbolsHistoryToken.class)
-                    .selection()
-                    .get(),
-                symbols
+                SpreadsheetMetadata.EMPTY.setOrRemove(
+                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                    symbols.orElse(null)
+                )
             );
     }
 
     @Override
     public boolean shouldIgnore(final HistoryToken token) {
-        return token instanceof SpreadsheetCellDateTimeSymbolsSaveHistoryToken;
+        return token instanceof SpreadsheetMetadataPropertySaveHistoryToken;
     }
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken;
+        return SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS.equals(
+            token.metadataPropertyName()
+                .orElse(null)
+        );
     }
 }
