@@ -1,0 +1,131 @@
+/*
+ * Copyright 2023 Miroslav Pokorny (github.com/mP1)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
+
+import org.junit.jupiter.api.Test;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
+
+import java.util.Optional;
+
+public final class SpreadsheetFormatterInfoSetComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetFormatterInfoSetComponent, SpreadsheetFormatterInfoSet> {
+
+    @Test
+    public void testParseAndText() {
+        final SpreadsheetFormatterInfoSet infos = SpreadsheetFormatterProviders.spreadsheetFormatters()
+            .spreadsheetFormatterInfos();
+
+        this.checkEquals(
+            infos,
+            SpreadsheetFormatterInfoSet.parse(infos.text())
+        );
+    }
+
+    @Test
+    public void testSetStringValue() {
+        this.treePrintAndCheck(
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        SpreadsheetFormatterProviders.spreadsheetFormatters()
+                            .spreadsheetFormatterInfos()
+                            .text()
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/accounting accounting,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/badge-error badge-error,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/currency currency,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/default-text default-text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/expression expression,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date full-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date-time full-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-time full-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/hyperlinking hyperlinking,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date long-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date-time long-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-time long-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date medium-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date-time medium-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-time medium-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/percent percent,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/scientific scientific,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date short-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date-time short-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-time short-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time time] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid() {
+        this.treePrintAndCheck(
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/hello !"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [https://www.example.com/hello !] REQUIRED\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 30\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondUrl() {
+        this.treePrintAndCheck(
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/hello hello, bad://www.example.com hello2"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [https://www.example.com/hello hello, bad://www.example.com hello2] REQUIRED\n" +
+                "      Errors\n" +
+                "        unknown protocol: bad\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidSecondSpreadsheetFormatterName() {
+        this.treePrintAndCheck(
+            SpreadsheetFormatterInfoSetComponent.empty()
+                .setStringValue(
+                    Optional.of(
+                        "https://www.example.com/hello good, https://www.example.com bad!"
+                    )
+                ),
+            "SpreadsheetFormatterInfoSetComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [https://www.example.com/hello good, https://www.example.com bad!] REQUIRED\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 63\n"
+        );
+    }
+
+    // ValueComponent...................................................................................................
+
+    @Override
+    public SpreadsheetFormatterInfoSetComponent createComponent() {
+        return SpreadsheetFormatterInfoSetComponent.empty();
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public Class<SpreadsheetFormatterInfoSetComponent> type() {
+        return SpreadsheetFormatterInfoSetComponent.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+}
