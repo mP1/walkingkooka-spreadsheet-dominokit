@@ -31,9 +31,9 @@ import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.domino.ui.utils.Separator;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
+import walkingkooka.spreadsheet.dominokit.textstyle.color.color.SpreadsheetDominoKitColor;
 
 import java.util.Optional;
 
