@@ -38,7 +38,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements ValueComponent<HTMLDivElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T extends Enum<T>> implements ValueComponent<HTMLDivElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
 
@@ -57,12 +57,12 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
         ).orElse("Clear");
     }
 
-    public static <T> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
-                                                                                       final TextStylePropertyName<T> propertyName,
-                                                                                       final List<T> values,
-                                                                                       final Function<Optional<T>, String> valueToText,
-                                                                                       final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                                       final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
+    public static <T extends Enum<T>> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
+                                                                                                       final TextStylePropertyName<T> propertyName,
+                                                                                                       final List<T> values,
+                                                                                                       final Function<Optional<T>, String> valueToText,
+                                                                                                       final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                                                       final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
         return new TextStylePropertyNameEnumHistoryTokenAnchorListComponent<>(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(propertyName, "stylePropertyName"),
