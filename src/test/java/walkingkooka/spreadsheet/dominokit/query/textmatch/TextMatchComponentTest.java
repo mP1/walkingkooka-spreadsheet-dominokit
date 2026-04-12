@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.textmatch;
+package walkingkooka.spreadsheet.dominokit.query.textmatch;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;

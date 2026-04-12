@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
+import walkingkooka.spreadsheet.dominokit.query.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.formula.parser.ConditionSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.EqualsSpreadsheetFormulaParserToken;
