@@ -79,7 +79,6 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogCompo
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -92,6 +91,7 @@ import walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols.DecimalNumb
 import walkingkooka.spreadsheet.dominokit.value.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.tree.expression.ExpressionNumber;

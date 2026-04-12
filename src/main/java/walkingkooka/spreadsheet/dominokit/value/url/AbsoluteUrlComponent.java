@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.url;
+package walkingkooka.spreadsheet.dominokit.value.url;
 
 
 import walkingkooka.net.AbsoluteUrl;
