@@ -15,40 +15,41 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.text;
+package walkingkooka.spreadsheet.dominokit.value.text;
 
-import org.dominokit.domino.ui.forms.IntegerBox;
+import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class IntegerBoxComponentValidator implements Validator<IntegerBox> {
+final class TextBoxComponentValidator implements Validator<TextBox> {
 
-    static IntegerBoxComponentValidator with(final Validator<Optional<Integer>> validator) {
+    static TextBoxComponentValidator with(final Validator<Optional<String>> validator) {
         Objects.requireNonNull(validator, "validator");
-        return new IntegerBoxComponentValidator(validator);
+        return new TextBoxComponentValidator(validator);
     }
 
-    private IntegerBoxComponentValidator(final Validator<Optional<Integer>> validator) {
+    private TextBoxComponentValidator(final Validator<Optional<String>> validator) {
         this.validator = validator;
     }
 
     @Override
-    public ValidationResult isValid(final IntegerBox component) {
-        final Integer value = component.getValue();
+    public ValidationResult isValid(final TextBox component) {
+        final String value = component.getValue();
 
         return this.validator.isValid(
             Optional.ofNullable(
-                null == value ?
+                CharSequences.isNullOrEmpty(value) ?
                     null :
                     value
             )
         );
     }
 
-    private final Validator<Optional<Integer>> validator;
+    final Validator<Optional<String>> validator;
 
     @Override
     public String toString() {

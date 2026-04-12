@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegatorTest.TestFormValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 public final class FormValueComponentDelegatorTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TestFormValueComponentDelegator> {

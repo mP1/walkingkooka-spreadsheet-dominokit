@@ -23,7 +23,7 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlComponentDelegatorTest.TestSpreadsheetComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.text.TextComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;

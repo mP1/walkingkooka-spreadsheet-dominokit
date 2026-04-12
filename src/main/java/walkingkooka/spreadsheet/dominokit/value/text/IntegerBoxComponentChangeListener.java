@@ -15,40 +15,34 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.text;
+package walkingkooka.spreadsheet.dominokit.value.text;
 
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 
 import java.util.Objects;
 import java.util.Optional;
 
-final class TextBoxComponentChangeListener implements ChangeListener<String> {
+final class IntegerBoxComponentChangeListener implements ChangeListener<Integer> {
 
-    static TextBoxComponentChangeListener with(final ChangeListener<Optional<String>> listener) {
+    static IntegerBoxComponentChangeListener with(final ChangeListener<Optional<Integer>> listener) {
         Objects.requireNonNull(listener, "listener");
-        return new TextBoxComponentChangeListener(listener);
+        return new IntegerBoxComponentChangeListener(listener);
     }
 
-    private TextBoxComponentChangeListener(final ChangeListener<Optional<String>> listener) {
+    private IntegerBoxComponentChangeListener(final ChangeListener<Optional<Integer>> listener) {
         this.listener = listener;
     }
 
     @Override
-    public void onValueChanged(final String oldValue,
-                               final String newValue) {
+    public void onValueChanged(final Integer oldValue,
+                               final Integer newValue) {
         this.listener.onValueChanged(
-            emptyToNull(oldValue),
-            emptyToNull(newValue)
+            Optional.ofNullable(oldValue),
+            Optional.ofNullable(newValue)
         );
     }
 
-    private static Optional<String> emptyToNull(final String text) {
-        return Optional.ofNullable(
-            "".equals(text) ? null : text
-        );
-    }
-
-    private final ChangeListener<Optional<String>> listener;
+    private final ChangeListener<Optional<Integer>> listener;
 
     @Override
     public String toString() {
