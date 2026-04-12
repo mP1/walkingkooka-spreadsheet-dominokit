@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.formula.FakeSpreadsheetFormulaSelectAnchorComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.formula.FakeSpreadsheetFormulaSelectAnchorComponentContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;

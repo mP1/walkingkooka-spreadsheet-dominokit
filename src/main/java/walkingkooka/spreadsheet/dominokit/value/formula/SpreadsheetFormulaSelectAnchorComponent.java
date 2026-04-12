@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;

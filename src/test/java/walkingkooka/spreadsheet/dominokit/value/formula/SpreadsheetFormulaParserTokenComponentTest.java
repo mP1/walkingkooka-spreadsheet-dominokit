@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
