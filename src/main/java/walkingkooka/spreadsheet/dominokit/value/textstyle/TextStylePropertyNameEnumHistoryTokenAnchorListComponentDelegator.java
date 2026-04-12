@@ -25,7 +25,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V, C extends ValueComponentDelegator<HTMLDivElement, V, C>>
+public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends ValueComponentDelegator<HTMLDivElement, V, C>>
     extends ValueComponentDelegator<HTMLDivElement, V, C>,
     HasName<TextStylePropertyName<V>> {
 
