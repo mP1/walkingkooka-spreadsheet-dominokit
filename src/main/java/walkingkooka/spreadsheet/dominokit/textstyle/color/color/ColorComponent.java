@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.color;
+package walkingkooka.spreadsheet.dominokit.textstyle.color.color;
 
 import elemental2.dom.HTMLTableElement;
 import walkingkooka.color.Color;

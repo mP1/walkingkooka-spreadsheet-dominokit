@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.color;
+package walkingkooka.spreadsheet.dominokit.textstyle.color.color;
 
 import walkingkooka.ContextTesting;
 
