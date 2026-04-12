@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviderDe
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.reference.SpreadsheetSelectionMenuContext;
+import walkingkooka.spreadsheet.dominokit.viewport.menu.SpreadsheetSelectionMenuContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
