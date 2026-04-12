@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.error;
+package walkingkooka.spreadsheet.dominokit.value.error;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
