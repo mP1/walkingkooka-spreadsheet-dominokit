@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -16,37 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.importer;
-
+package walkingkooka.spreadsheet.dominokit.plugin.importer;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 
-/**
- * A text box that accepts entry and validates it as a {@link SpreadsheetImporterName}.
- */
-public final class SpreadsheetImporterNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterNameComponent, SpreadsheetImporterName> {
+public final class SpreadsheetImporterAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterAliasSetComponent, SpreadsheetImporterAliasSet> {
 
-    public static SpreadsheetImporterNameComponent empty() {
-        return new SpreadsheetImporterNameComponent();
+    public static SpreadsheetImporterAliasSetComponent empty() {
+        return new SpreadsheetImporterAliasSetComponent();
     }
 
-    private SpreadsheetImporterNameComponent() {
+    private SpreadsheetImporterAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetImporterName::with,
-            SpreadsheetImporterName::toString
+            SpreadsheetImporterAliasSet::parse,
+            SpreadsheetImporterAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetImporterName> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetImporterAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetImporterName> textBox;
+    private final ValueTextBoxComponent<SpreadsheetImporterAliasSet> textBox;
 
     // Object...........................................................................................................
 

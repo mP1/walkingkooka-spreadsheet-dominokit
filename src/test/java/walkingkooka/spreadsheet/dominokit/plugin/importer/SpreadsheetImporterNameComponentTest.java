@@ -15,73 +15,62 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.importer;
+package walkingkooka.spreadsheet.dominokit.plugin.importer;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 
 import java.util.Optional;
 
-public final class SpreadsheetImporterAliasSetComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetImporterAliasSetComponent, SpreadsheetImporterAliasSet> {
-
-    @Test
-    public void testParseAndText() {
-        final SpreadsheetImporterAliasSet alias = SpreadsheetImporterAliasSet.parse("alias1 plugin1, plugin2");
-
-        this.checkEquals(
-            alias,
-            SpreadsheetImporterAliasSet.parse(alias.text())
-        );
-    }
+public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetImporterNameComponent, SpreadsheetImporterName> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            SpreadsheetImporterAliasSetComponent.empty()
+            SpreadsheetImporterNameComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "alias1 importer1, importer2"
+                        "hello"
                     )
                 ),
-            "SpreadsheetImporterAliasSetComponent\n" +
+            "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 importer1, importer2] REQUIRED\n"
+                "      [hello] REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            SpreadsheetImporterAliasSetComponent.empty()
+            SpreadsheetImporterNameComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "alias1 importer1, 9"
+                        "invalid123!"
                     )
                 ),
-            "SpreadsheetImporterAliasSetComponent\n" +
+            "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 importer1, 9] REQUIRED\n" +
+                "      [invalid123!] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid character '9' at 18\n"
+                "        Invalid character '!' at 10\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetImporterAliasSetComponent createComponent() {
-        return SpreadsheetImporterAliasSetComponent.empty();
+    public SpreadsheetImporterNameComponent createComponent() {
+        return SpreadsheetImporterNameComponent.empty();
     }
 
     // class............................................................................................................
-
     @Override
-    public Class<SpreadsheetImporterAliasSetComponent> type() {
-        return SpreadsheetImporterAliasSetComponent.class;
+    public Class<SpreadsheetImporterNameComponent> type() {
+        return SpreadsheetImporterNameComponent.class;
     }
 
     @Override
