@@ -15,23 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.choicelist;
+package walkingkooka.spreadsheet.dominokit.value.choicelist;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public final class ValidationChoiceListComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeValidationChoiceListComponentContext}
-     */
-    public static ValidationChoiceListComponentContext fake() {
-        return new FakeValidationChoiceListComponentContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private ValidationChoiceListComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+public interface ValidationChoiceListComponentContext extends HistoryContext {
 }
