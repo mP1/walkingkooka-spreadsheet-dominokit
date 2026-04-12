@@ -19,11 +19,14 @@ package walkingkooka.spreadsheet.dominokit.anchor;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.CanBeEmpty;
+import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
+
+import java.util.List;
 
 /**
  * Holds a list of {@link AnchorComponent}, and is a dumb container and does not support refreshing all anchors. Refreshing
@@ -39,6 +42,15 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
 
     private AnchorListComponent() {
         this.root = FlexLayoutComponent.row();
+    }
+
+    /**
+     * Getter that returns all {@link AnchorComponent}
+     */
+    public List<AnchorComponent<?>> children() {
+        return Cast.to(
+            this.root.children()
+        );
     }
 
     public AnchorComponent<?> child(final int index) {

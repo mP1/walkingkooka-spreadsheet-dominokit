@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
 import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -124,6 +125,30 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
             child,
             anchorListComponent.appendChild(child)
                 .child(0)
+        );
+    }
+
+    // children.........................................................................................................
+
+    @Test
+    public void testChildren() {
+        final AnchorListComponent anchorListComponent = AnchorListComponent.empty();
+
+        final AnchorComponent<?> child1 = HistoryTokenAnchorComponent.empty()
+            .setTextContent("Child111");
+
+        final AnchorComponent<?> child2 = HistoryTokenAnchorComponent.empty()
+            .setTextContent("Child222");
+
+        anchorListComponent.appendChild(child1)
+            .appendChild(child2);
+
+        this.checkEquals(
+            Lists.of(
+                child1,
+                child2
+            ),
+            anchorListComponent.children()
         );
     }
 
