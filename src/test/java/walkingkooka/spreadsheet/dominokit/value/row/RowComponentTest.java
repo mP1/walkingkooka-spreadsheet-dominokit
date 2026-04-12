@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.row;
+package walkingkooka.spreadsheet.dominokit.value.row;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;

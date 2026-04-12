@@ -16,7 +16,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.row;
+package walkingkooka.spreadsheet.dominokit.value.row;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
