@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.columnrow;
+package walkingkooka.spreadsheet.dominokit.value.columnrow;
 
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
