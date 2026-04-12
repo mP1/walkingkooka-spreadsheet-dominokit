@@ -38,8 +38,8 @@ import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.net.Url;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
-import walkingkooka.spreadsheet.dominokit.textstyle.color.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.color.SpreadsheetDominoKitColor;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
 

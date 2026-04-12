@@ -19,13 +19,14 @@ package walkingkooka.spreadsheet.dominokit.toolbar;
 
 import elemental2.dom.Event;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponent;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
 /**
- * A link that when clicked displays the {@link walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponent}.
+ * A link that when clicked displays the {@link TextStyleDialogComponent}.
  */
 final class ToolbarComponentItemAnchorTextStyleEdit extends ToolbarComponentItemAnchorTextStyle<ToolbarComponentItemAnchorTextStyleEdit> {
 

@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
-import walkingkooka.spreadsheet.dominokit.textstyle.color.color.ColorComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.color.ColorComponent;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.BorderStyle;

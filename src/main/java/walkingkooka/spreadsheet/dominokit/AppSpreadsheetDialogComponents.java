@@ -69,8 +69,6 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponent;
-import walkingkooka.spreadsheet.dominokit.textstyle.TextStyleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -91,6 +89,8 @@ import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.number.NumberComponent;
 import walkingkooka.spreadsheet.dominokit.value.number.WholeNumberComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
