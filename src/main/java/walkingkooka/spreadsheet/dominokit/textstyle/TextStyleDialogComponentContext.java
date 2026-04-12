@@ -22,11 +22,13 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContex
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.textalign.TextAlignComponentContext;
 import walkingkooka.tree.text.TextStyle;
 
 public interface TextStyleDialogComponentContext extends DialogComponentContext,
     ComponentLifecycleMatcher,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadataFetcherWatchers,
-    DialogAnchorListComponentContext<TextStyle> {
+    DialogAnchorListComponentContext<TextStyle>,
+    TextAlignComponentContext {
 }
