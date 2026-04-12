@@ -31,12 +31,6 @@ import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameLi
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateComponentContext;
-import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateTimeComponentContext;
-import walkingkooka.spreadsheet.dominokit.datetime.AppContextTimeComponentContext;
-import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
-import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
@@ -84,6 +78,12 @@ import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogCompo
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.datetime.AppContextDateComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.datetime.AppContextDateTimeComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.datetime.AppContextTimeComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.datetime.DateComponent;
+import walkingkooka.spreadsheet.dominokit.value.datetime.DateTimeComponent;
+import walkingkooka.spreadsheet.dominokit.value.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.value.datetimesymbols.DateTimeSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
