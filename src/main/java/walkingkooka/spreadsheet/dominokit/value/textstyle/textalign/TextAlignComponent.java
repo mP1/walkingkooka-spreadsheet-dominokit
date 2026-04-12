@@ -24,7 +24,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
-import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -53,10 +52,7 @@ public final class TextAlignComponent implements TextStylePropertyNameEnumHistor
                 TextAlign.RIGHT,
                 TextAlign.JUSTIFY
             ),
-            (Optional<TextAlign> valueToText) ->
-                valueToText.map(
-                    (TextAlign textAlign) -> CaseKind.kebabEnumName(textAlign)
-                ).orElse("Clear"), // valueToText
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
             (Optional<TextAlign> valueToIcon) -> Optional.of(
                 valueToIcon.map(
                     (TextAlign textAlign) -> {
