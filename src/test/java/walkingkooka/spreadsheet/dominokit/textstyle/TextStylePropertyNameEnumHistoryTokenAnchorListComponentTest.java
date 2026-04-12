@@ -27,11 +27,11 @@ import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextAlign;
@@ -44,7 +44,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLDivElement>,
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, TextAlign, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
     HasNameTesting<TextStylePropertyName<TextAlign>>,
     ToStringTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>> {
@@ -286,6 +286,47 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         );
     }
 
+    // setValue.........................................................................................................
+
+    @Test
+    public void testSetValue() {
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+
+        anchor.setValue(
+            Optional.of(TextAlign.CENTER)
+        );
+
+        this.treePrintAndCheck(
+            anchor,
+            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+        );
+    }
+
     // HasName..........................................................................................................
 
     @Test
@@ -296,7 +337,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         );
     }
 
-    private TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> createComponent() {
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> createComponent() {
         return this.createComponent(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
