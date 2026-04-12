@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.choicelist;
+package walkingkooka.spreadsheet.dominokit.value.choicelist;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
