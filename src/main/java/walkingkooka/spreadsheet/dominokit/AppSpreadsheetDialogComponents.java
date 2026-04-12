@@ -51,6 +51,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.parser.SpreadsheetParserSelecto
 import walkingkooka.spreadsheet.dominokit.plugin.parser.SpreadsheetParserSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.pluginaliassetlike.PluginAliasSetLikeDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.pluginaliassetlike.PluginAliasSetLikeDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.plugin.validator.ValidatorSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponent;
 import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponent;
@@ -59,8 +61,6 @@ import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogCompo
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponent;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetNameDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
-import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesDialogComponentContexts;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;

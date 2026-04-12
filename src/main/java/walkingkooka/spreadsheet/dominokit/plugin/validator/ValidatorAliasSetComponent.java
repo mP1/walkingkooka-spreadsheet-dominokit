@@ -15,33 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.validation.provider.ValidatorInfoSet;
+import walkingkooka.validation.provider.ValidatorAliasSet;
 
-public final class ValidatorInfoSetComponent implements ValueTextBoxComponentDelegator<ValidatorInfoSetComponent, ValidatorInfoSet> {
+public final class ValidatorAliasSetComponent implements ValueTextBoxComponentDelegator<ValidatorAliasSetComponent, ValidatorAliasSet> {
 
-    public static ValidatorInfoSetComponent empty() {
-        return new ValidatorInfoSetComponent();
+    public static ValidatorAliasSetComponent empty() {
+        return new ValidatorAliasSetComponent();
     }
 
-    private ValidatorInfoSetComponent() {
+    private ValidatorAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            ValidatorInfoSet::parse,
-            ValidatorInfoSet::text
+            ValidatorAliasSet::parse,
+            ValidatorAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ValidatorInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ValidatorAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ValidatorInfoSet> textBox;
+    private final ValueTextBoxComponent<ValidatorAliasSet> textBox;
 
     // Object...........................................................................................................
 

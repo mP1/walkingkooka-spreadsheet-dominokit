@@ -15,27 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.validation.provider.ValidatorName;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
 
-public final class ValidatorNameComponentTest implements ValueTextBoxComponentLikeTesting<ValidatorNameComponent, ValidatorName> {
+public final class ValidatorSelectorComponentTest implements ValueTextBoxComponentLikeTesting<ValidatorSelectorComponent, ValidatorSelector> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            ValidatorNameComponent.empty()
+            ValidatorSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
                         "hello"
                     )
                 ),
-            "ValidatorNameComponent\n" +
+            "ValidatorSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello] REQUIRED\n"
@@ -45,13 +45,13 @@ public final class ValidatorNameComponentTest implements ValueTextBoxComponentLi
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            ValidatorNameComponent.empty()
+            ValidatorSelectorComponent.empty()
                 .setStringValue(
                     Optional.of(
                         "invalid123!"
                     )
                 ),
-            "ValidatorNameComponent\n" +
+            "ValidatorSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [invalid123!] REQUIRED\n" +
@@ -63,14 +63,15 @@ public final class ValidatorNameComponentTest implements ValueTextBoxComponentLi
     // ValueComponent...................................................................................................
 
     @Override
-    public ValidatorNameComponent createComponent() {
-        return ValidatorNameComponent.empty();
+    public ValidatorSelectorComponent createComponent() {
+        return ValidatorSelectorComponent.empty();
     }
 
     // class............................................................................................................
+
     @Override
-    public Class<ValidatorNameComponent> type() {
-        return ValidatorNameComponent.class;
+    public Class<ValidatorSelectorComponent> type() {
+        return ValidatorSelectorComponent.class;
     }
 
     @Override
