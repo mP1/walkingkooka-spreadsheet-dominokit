@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
+package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;

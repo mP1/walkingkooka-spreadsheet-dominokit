@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
+package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Cast;

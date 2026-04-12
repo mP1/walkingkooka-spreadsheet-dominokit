@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
+package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
