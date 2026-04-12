@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
+package walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference;
 
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegator;

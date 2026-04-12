@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference;
+package walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
