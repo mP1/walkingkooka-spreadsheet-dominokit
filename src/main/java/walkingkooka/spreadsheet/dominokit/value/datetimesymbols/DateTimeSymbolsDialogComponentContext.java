@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.DateTimeSymbolsFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelMappingDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelMappingDialogComponent;
 
 import java.util.Optional;
 

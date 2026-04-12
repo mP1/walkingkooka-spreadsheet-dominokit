@@ -15,22 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.insert;
+package walkingkooka.spreadsheet.dominokit.value.label;
 
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelMappingDialogComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 /**
  * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetLabelMappingDialogComponent}.
  */
-public interface SpreadsheetColumnRowInsertCountDialogComponentContext extends
-    DialogComponentContext,
-    ComponentLifecycleMatcher {
+public interface SpreadsheetLabelMappingDialogComponentContext extends DialogComponentContext,
+    SpreadsheetLabelComponentContext {
 
     /**
-     * Saves the given value, preparing the {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken}
-     * which will cause the column/row to be inserted.
+     * Attempts to load the given {@link SpreadsheetLabelName}.
      */
-    void save(final int count);
+    void loadLabel(final SpreadsheetLabelName name);
 }
