@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.textstyle;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V> extends HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V>>,
@@ -35,6 +36,19 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
     default boolean isEditing() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .isEditing();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    default void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.htmlComponent()
+                .printTree(printer);
+        }
+        printer.outdent();
     }
 
     // HtmlComponentDelegator...........................................................................................
