@@ -31,8 +31,6 @@ import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameLi
 import walkingkooka.spreadsheet.dominokit.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.convert.ConverterSelectorDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponent;
-import walkingkooka.spreadsheet.dominokit.currency.CurrencyDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateTimeComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.AppContextTimeComponentContext;
@@ -91,6 +89,8 @@ import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
