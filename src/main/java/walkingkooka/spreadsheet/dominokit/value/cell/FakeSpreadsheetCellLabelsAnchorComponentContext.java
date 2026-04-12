@@ -15,21 +15,18 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.label;
+package walkingkooka.spreadsheet.dominokit.value.cell;
 
-import walkingkooka.spreadsheet.dominokit.value.cell.FakeSpreadsheetCellReferencesAnchorComponentContext;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 
 import java.util.Set;
 
-public class FakeSpreadsheetLabelLinksComponentContext extends FakeSpreadsheetCellReferencesAnchorComponentContext implements SpreadsheetLabelLinksComponentContext {
-
-    public FakeSpreadsheetLabelLinksComponentContext() {
-        super();
-    }
+public class FakeSpreadsheetCellLabelsAnchorComponentContext extends FakeHistoryContext implements SpreadsheetCellLabelsAnchorComponentContext {
 
     @Override
-    public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
+    public Set<SpreadsheetLabelName> cellLabels(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
         throw new UnsupportedOperationException();
     }
 }

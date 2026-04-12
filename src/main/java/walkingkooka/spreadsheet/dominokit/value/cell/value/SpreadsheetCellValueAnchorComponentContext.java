@@ -15,11 +15,18 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.label;
+package walkingkooka.spreadsheet.dominokit.value.cell.value;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContext;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
-public interface SpreadsheetLabelLinksComponentContext extends SpreadsheetCellReferencesAnchorComponentContext,
-    HistoryContext {
+import java.util.Optional;
+
+public interface SpreadsheetCellValueAnchorComponentContext extends HistoryContext {
+
+    /**
+     * Returns the {@link SpreadsheetCell} identified by the given {@link SpreadsheetSelection}.
+     */
+    Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection);
 }

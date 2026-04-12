@@ -17,8 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaSelectAnchorComponentContextTesting;
 
 public interface SpreadsheetDeltaCellsTableComponentContextTesting<C extends SpreadsheetDeltaCellsTableComponentContext> extends SpreadsheetCellReferencesAnchorComponentContextTesting<C>,

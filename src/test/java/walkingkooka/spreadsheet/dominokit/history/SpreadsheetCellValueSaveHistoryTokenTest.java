@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;

@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellLabelsAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
 
 public interface SpreadsheetCellQueryDialogComponentContextTesting<C extends SpreadsheetCellQueryDialogComponentContext> extends DialogComponentContextTesting<C>,
     SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
