@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -162,6 +163,25 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
     @Override
     public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> blur() {
         throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Getter that returns a {@link ValueWatcher} which will cause this component to be update its value, sourced from a
+     * {@link TextStyle} value change.
+     */
+    public ValueWatcher<TextStyle> textStyleValueWatcher() {
+        return new ValueWatcher<TextStyle>() {
+            @Override
+            public void onValue(final Optional<TextStyle> value) {
+                TextStylePropertyNameEnumHistoryTokenAnchorListComponent.this.setValue(
+                    value.flatMap(
+                        (final TextStyle textStyle) -> textStyle.get(
+                            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.this.name
+                        )
+                    )
+                );
+            }
+        };
     }
 
     // HtmlComponentDelegator...........................................................................................
