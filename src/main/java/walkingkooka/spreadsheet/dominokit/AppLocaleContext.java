@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponent;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResource;
 import walkingkooka.spreadsheet.server.locale.LocaleHateosResourceSet;
 

@@ -42,12 +42,12 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleComponent;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentContext;
-import walkingkooka.spreadsheet.dominokit.locale.LocaleComponentSuggestionsValue;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponent;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponentSuggestionsValue;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;

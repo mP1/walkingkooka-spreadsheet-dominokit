@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.locale;
+package walkingkooka.spreadsheet.dominokit.value.locale;
 
 import org.dominokit.domino.ui.menu.MenuItem;
 import walkingkooka.Context;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.locale;
+package walkingkooka.spreadsheet.dominokit.value.locale;
 
 import walkingkooka.Value;
 import walkingkooka.datetime.DateTimeSymbols;
