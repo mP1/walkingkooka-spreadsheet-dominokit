@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.delta;
 
 import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellLinksComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaSelectAnchorComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaSelectAnchorComponentContext;
 
 public interface SpreadsheetDeltaCellsTableComponentContext extends HistoryContext,
     HasSpreadsheetDeltaFetcherWatchers,

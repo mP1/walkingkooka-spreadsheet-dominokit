@@ -15,27 +15,26 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class SpreadsheetFormulaSelectAnchorComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetFormulaSelectAnchorComponentContexts> {
+public final class SpreadsheetFormulaComponentFunctionsTest implements PublicStaticHelperTesting<SpreadsheetFormulaComponentFunctions> {
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 
     @Override
-    public Class<SpreadsheetFormulaSelectAnchorComponentContexts> type() {
-        return SpreadsheetFormulaSelectAnchorComponentContexts.class;
+    public Class<SpreadsheetFormulaComponentFunctions> type() {
+        return SpreadsheetFormulaComponentFunctions.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
         return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
     }
 }

@@ -17,13 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 
 import java.util.function.Function;
 
 /**
  * A {@link Function} that accepts any text and always returns a {@link SpreadsheetFormula}. This function assumes the
- * parent/enclosing {@link walkingkooka.spreadsheet.dominokit.formula.SpreadsheetFormulaComponent} will call the server,
+ * parent/enclosing {@link SpreadsheetFormulaComponent} will call the server,
  * and eventually refresh errors.
  */
 final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction implements Function<String, SpreadsheetFormula> {

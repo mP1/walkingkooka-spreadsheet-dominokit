@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;

@@ -15,24 +15,18 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Optional;
 
-public class FakeSpreadsheetFormulaSelectAnchorComponentContext extends FakeHistoryContext
-    implements SpreadsheetFormulaSelectAnchorComponentContext {
+public interface SpreadsheetFormulaSelectAnchorComponentContext extends HistoryContext {
 
-    public FakeSpreadsheetFormulaSelectAnchorComponentContext() {
-        super();
-    }
-
-    // SpreadsheetFormulaSelectAnchorComponentContext...................................................................
-
-    @Override
-    public Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference) {
-        throw new UnsupportedOperationException();
-    }
+    /**
+     * Tries to return the formula text for a given {@link SpreadsheetExpressionReference} which may include
+     * resolving labels to a {@link walkingkooka.spreadsheet.reference.SpreadsheetCellReference}.
+     */
+    Optional<String> formulaText(final SpreadsheetExpressionReference spreadsheetExpressionReference);
 }

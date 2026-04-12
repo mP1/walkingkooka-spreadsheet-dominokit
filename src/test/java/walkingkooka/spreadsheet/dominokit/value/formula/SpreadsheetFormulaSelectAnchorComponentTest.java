@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formula;
+package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
