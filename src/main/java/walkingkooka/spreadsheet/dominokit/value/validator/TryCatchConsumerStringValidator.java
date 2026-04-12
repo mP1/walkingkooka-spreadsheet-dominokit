@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.value.validator;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;

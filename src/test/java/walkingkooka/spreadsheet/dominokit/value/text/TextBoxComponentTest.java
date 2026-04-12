@@ -25,8 +25,8 @@ import walkingkooka.InvalidCharacterException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 
 import java.util.Optional;
 

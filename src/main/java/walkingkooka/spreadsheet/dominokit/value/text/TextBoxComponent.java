@@ -33,9 +33,9 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.dom.Key;
-import walkingkooka.spreadsheet.dominokit.validator.SpreadsheetValidators;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 

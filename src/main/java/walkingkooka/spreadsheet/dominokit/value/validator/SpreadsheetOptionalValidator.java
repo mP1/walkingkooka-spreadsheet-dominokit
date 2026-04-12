@@ -15,40 +15,44 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.value.validator;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A {@link Validator} that fails if the text is empty or missing.
+ * A {@link Validator} that skips the wrapped {@link Validator} if the value is missing.
  */
-final class SpreadsheetRequiredValidator<T> implements Validator<Optional<T>> {
-
-    static <T> SpreadsheetRequiredValidator<T> instance() {
-        return INSTANCE;
-    }
+final class SpreadsheetOptionalValidator<T> implements Validator<Optional<T>> {
 
     /**
-     * Singleton
+     * Factory
      */
-    private final static SpreadsheetRequiredValidator INSTANCE = new SpreadsheetRequiredValidator<Void>();
+    static <T> SpreadsheetOptionalValidator<T> with(final Validator<Optional<T>> validator) {
+        Objects.requireNonNull(validator, "validator");
 
-    private SpreadsheetRequiredValidator() {
+        return new SpreadsheetOptionalValidator<>(validator);
+    }
+
+    private SpreadsheetOptionalValidator(final Validator<Optional<T>> validator) {
         super();
+        this.validator = validator;
     }
 
     @Override
     public ValidationResult isValid(final Optional<T> value) {
         return false == value.isPresent() ?
-            ValidationResult.invalid("Required") :
-            ValidationResult.valid();
+            ValidationResult.valid() :
+            this.validator.isValid(value);
     }
+
+    private final Validator<Optional<T>> validator;
 
     @Override
     public String toString() {
-        return "Required";
+        return "Optional " + this.validator.toString();
     }
 }
