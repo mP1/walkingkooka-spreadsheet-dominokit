@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.FakeDateComponentContext;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
-import walkingkooka.spreadsheet.dominokit.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -43,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.url.AbsoluteUrlComponent;
+import walkingkooka.spreadsheet.dominokit.value.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
