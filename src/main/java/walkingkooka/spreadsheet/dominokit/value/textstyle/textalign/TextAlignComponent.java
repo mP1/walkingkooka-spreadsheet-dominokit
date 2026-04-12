@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textalign;
 
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.Cast;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -46,38 +47,48 @@ public final class TextAlignComponent implements TextStylePropertyNameEnumHistor
             idPrefix,
             TextStylePropertyName.TEXT_ALIGN,
             Lists.of(
-                TextAlign.values()
+                null,
+                TextAlign.LEFT,
+                TextAlign.CENTER,
+                TextAlign.RIGHT,
+                TextAlign.JUSTIFY
             ),
             (Optional<TextAlign> valueToText) ->
                 valueToText.map(
                     (TextAlign textAlign) -> CaseKind.kebabEnumName(textAlign)
                 ).orElse("Clear"), // valueToText
-            (Optional<TextAlign> valueToIcon) -> valueToIcon.map(
-                (TextAlign textAlign) -> {
-                    final Icon<?> icon;
+            (Optional<TextAlign> valueToIcon) -> Optional.of(
+                valueToIcon.map(
+                    (TextAlign textAlign) -> {
+                        final Icon<?> icon;
 
-                    switch (textAlign) {
-                        case LEFT:
-                            icon = SpreadsheetIcons.alignLeft();
-                            break;
-                        case CENTER:
-                            icon = SpreadsheetIcons.alignCenter();
-                            break;
-                        case RIGHT:
-                            icon = SpreadsheetIcons.alignRight();
-                            break;
-                        case JUSTIFY:
-                            icon = SpreadsheetIcons.alignRight();
-                            break;
-                        default:
-                            icon = NeverError.unhandledEnum(
-                                textAlign,
-                                TextAlign.values()
-                            );
+                        switch (textAlign) {
+                            case LEFT:
+                                icon = SpreadsheetIcons.alignLeft();
+                                break;
+                            case CENTER:
+                                icon = SpreadsheetIcons.alignCenter();
+                                break;
+                            case RIGHT:
+                                icon = SpreadsheetIcons.alignRight();
+                                break;
+                            case JUSTIFY:
+                                icon = SpreadsheetIcons.alignRight();
+                                break;
+                            default:
+                                icon = NeverError.unhandledEnum(
+                                    textAlign,
+                                    TextAlign.values()
+                                );
+                        }
+
+                        return icon;
                     }
-
-                    return icon;
-                }
+                ).orElse(
+                    Cast.to(
+                        SpreadsheetIcons.alignClear()
+                    )
+                )
             ),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
