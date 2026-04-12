@@ -15,11 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.label;
+package walkingkooka.spreadsheet.dominokit.value.cell.value;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContext;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public interface SpreadsheetLabelLinksComponentContext extends SpreadsheetCellReferencesAnchorComponentContext,
-    HistoryContext {
+public interface SpreadsheetCellValueDialogComponentContextTesting<V, C extends SpreadsheetCellValueDialogComponentContext<V>> extends DialogComponentContextTesting<C> {
+
+    @Override
+    default String typeNameSuffix() {
+        return SpreadsheetCellValueDialogComponentContext.class.getSimpleName();
+    }
 }

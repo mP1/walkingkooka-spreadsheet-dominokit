@@ -15,82 +15,112 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.label;
+package walkingkooka.spreadsheet.dominokit.value.cell;
 
 import elemental2.dom.HTMLDivElement;
-import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponent;
-import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
+import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueAnchorComponent;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A container that holds a few links DELETE and CELL REFERENCES for a {@link SpreadsheetLabelName}.
+ * A container that holds a few links CREATE LABELS, LABELS, REFERENCES and DELETE for a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetLabelLinksComponent> {
+public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellLinksComponent> {
 
-    public static SpreadsheetLabelLinksComponent empty(final String id,
-                                                       final SpreadsheetLabelLinksComponentContext context) {
-        return new SpreadsheetLabelLinksComponent(
+    public static SpreadsheetCellLinksComponent empty(final String id,
+                                                      final SpreadsheetCellLinksComponentContext context) {
+        return new SpreadsheetCellLinksComponent(
             id,
             context
         );
     }
 
-    private SpreadsheetLabelLinksComponent(final String id,
-                                           final SpreadsheetLabelLinksComponentContext context) {
+    private SpreadsheetCellLinksComponent(final String id,
+                                          final SpreadsheetCellLinksComponentContext context) {
+        this.value = SpreadsheetCellValueAnchorComponent.with(
+            id + "value" + SpreadsheetElementIds.LINK,
+            context
+        );
+
+        this.createLabel = SpreadsheetCellCreateLabelSelectAnchorComponent.with(
+            id + "createLabel" + SpreadsheetElementIds.LINK,
+            context
+        );
+
+        this.labels = SpreadsheetCellLabelsAnchorComponent.with(
+            id + "label" + SpreadsheetElementIds.LINK,
+            context
+        );
+
         this.references = SpreadsheetCellReferencesAnchorComponent.with(
             id + "references" + SpreadsheetElementIds.LINK,
             context
         );
 
-        this.delete = SpreadsheetLabelDeleteAnchorComponent.with(
+        this.delete = SpreadsheetCellDeleteAnchorComponent.with(
             id + "delete" + SpreadsheetElementIds.LINK,
             context
         );
 
         this.root = AnchorListComponent.empty()
+            .appendChild(this.value)
+            .appendChild(this.createLabel)
+            .appendChild(this.labels)
             .appendChild(this.references)
             .appendChild(this.delete);
 
         this.clearValue();
     }
 
-    public Optional<SpreadsheetLabelName> value() {
-        return this.delete.value();
+    // value............................................................................................................
+
+    public Optional<SpreadsheetExpressionReference> value() {
+        return this.createLabel.value();
     }
 
-    public SpreadsheetLabelLinksComponent setValue(final Optional<SpreadsheetLabelName> value) {
+    public SpreadsheetCellLinksComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         Objects.requireNonNull(value, "value");
 
-        this.references.setValue(
-            Cast.to(value)
-        ).setTextContent("References");
+        this.value.setValue(value)
+            .setTextContent("Value");
+        this.createLabel.setValue(value)
+            .setTextContent("Create Label");
+        this.labels.setValue(value)
+            .setTextContent("Labels");
+        this.references.setValue(value)
+            .setTextContent("References");
         this.delete.setValue(value)
             .setTextContent("Delete");
 
         return this;
     }
 
-    public SpreadsheetLabelLinksComponent clearValue() {
+    public SpreadsheetCellLinksComponent clearValue() {
         return this.setValue(Optional.empty());
     }
 
+    private final SpreadsheetCellValueAnchorComponent value;
+
+    private final SpreadsheetCellCreateLabelSelectAnchorComponent createLabel;
+
+    private final SpreadsheetCellLabelsAnchorComponent labels;
+
     private final SpreadsheetCellReferencesAnchorComponent references;
 
-    private final SpreadsheetLabelDeleteAnchorComponent delete;
+    private final SpreadsheetCellDeleteAnchorComponent delete;
 
     // isEditing........................................................................................................
 
     @Override
     public boolean isEditing() {
-        return this.root.isEditing();
+        return HtmlComponent.hasFocus(this.element());
     }
 
     // HtmlComponentDelegator...........................................................................................

@@ -21,7 +21,6 @@ import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
@@ -31,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.query.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
 import walkingkooka.spreadsheet.dominokit.query.textmatch.TextMatchComponent;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.value.row.RowComponent;

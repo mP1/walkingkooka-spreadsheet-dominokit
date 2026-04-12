@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.Value;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.cell.value.SpreadsheetCellValueDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.label;
 
-import walkingkooka.spreadsheet.dominokit.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
 
 public interface SpreadsheetLabelLinksComponentContextTesting<C extends SpreadsheetLabelLinksComponentContext> extends SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
 }

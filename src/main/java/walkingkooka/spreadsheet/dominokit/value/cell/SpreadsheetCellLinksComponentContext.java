@@ -15,11 +15,13 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.label;
+package walkingkooka.spreadsheet.dominokit.value.cell;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueAnchorComponentContext;
 
-public interface SpreadsheetLabelLinksComponentContext extends SpreadsheetCellReferencesAnchorComponentContext,
+public interface SpreadsheetCellLinksComponentContext extends SpreadsheetCellLabelsAnchorComponentContext,
+    SpreadsheetCellReferencesAnchorComponentContext,
+    SpreadsheetCellValueAnchorComponentContext,
     HistoryContext {
 }
