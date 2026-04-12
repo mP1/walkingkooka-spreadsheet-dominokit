@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.export;
+package walkingkooka.spreadsheet.dominokit.plugin.export;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;

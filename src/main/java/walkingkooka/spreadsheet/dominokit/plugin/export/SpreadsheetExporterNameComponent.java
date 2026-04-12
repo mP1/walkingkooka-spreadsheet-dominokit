@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -15,33 +16,37 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.export;
+package walkingkooka.spreadsheet.dominokit.plugin.export;
+
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterAliasSet;
+import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterName;
 
-public final class SpreadsheetExporterAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetExporterAliasSetComponent, SpreadsheetExporterAliasSet> {
+/**
+ * A text box that accepts entry and validates it as a {@link SpreadsheetExporterName}.
+ */
+public final class SpreadsheetExporterNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetExporterNameComponent, SpreadsheetExporterName> {
 
-    public static SpreadsheetExporterAliasSetComponent empty() {
-        return new SpreadsheetExporterAliasSetComponent();
+    public static SpreadsheetExporterNameComponent empty() {
+        return new SpreadsheetExporterNameComponent();
     }
 
-    private SpreadsheetExporterAliasSetComponent() {
+    private SpreadsheetExporterNameComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetExporterAliasSet::parse,
-            SpreadsheetExporterAliasSet::text
+            SpreadsheetExporterName::with,
+            SpreadsheetExporterName::toString
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetExporterAliasSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetExporterName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetExporterAliasSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetExporterName> textBox;
 
     // Object...........................................................................................................
 
