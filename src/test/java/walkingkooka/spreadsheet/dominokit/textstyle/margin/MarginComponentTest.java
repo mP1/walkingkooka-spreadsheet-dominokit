@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.margin;
+package walkingkooka.spreadsheet.dominokit.textstyle.margin;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
