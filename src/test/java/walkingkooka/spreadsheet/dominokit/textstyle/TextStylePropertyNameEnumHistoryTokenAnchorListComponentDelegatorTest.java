@@ -24,7 +24,6 @@ import walkingkooka.naming.HasName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
-import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -64,15 +63,5 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentDeleg
             (n) -> Optional.empty(),
             new FakeTextStylePropertyNameEnumHistoryTokenAnchorListComponentContext()
         );
-
-        @Override
-        public void printTree(final IndentingPrinter printer) {
-            printer.println(this.getClass().getSimpleName());
-            printer.indent();
-            {
-                this.component.printTree(printer);
-            }
-            printer.outdent();
-        }
     }
 }
