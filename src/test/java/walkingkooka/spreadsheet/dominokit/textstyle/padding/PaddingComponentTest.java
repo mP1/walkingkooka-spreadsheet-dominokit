@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.padding;
+package walkingkooka.spreadsheet.dominokit.textstyle.padding;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;

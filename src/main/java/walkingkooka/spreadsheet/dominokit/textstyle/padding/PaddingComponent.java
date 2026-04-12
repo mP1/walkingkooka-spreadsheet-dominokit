@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.padding;
+package walkingkooka.spreadsheet.dominokit.textstyle.padding;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
@@ -28,10 +28,10 @@ import java.util.Objects;
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
-public final class PaddingComponent implements ValueTextBoxComponentDelegator<walkingkooka.spreadsheet.dominokit.padding.PaddingComponent, Padding> {
+public final class PaddingComponent implements ValueTextBoxComponentDelegator<PaddingComponent, Padding> {
 
-    public static walkingkooka.spreadsheet.dominokit.padding.PaddingComponent empty(final BoxEdge boxEdge) {
-        return new walkingkooka.spreadsheet.dominokit.padding.PaddingComponent(
+    public static PaddingComponent empty(final BoxEdge boxEdge) {
+        return new PaddingComponent(
             Objects.requireNonNull(boxEdge, "boxEdge")
         );
     }
