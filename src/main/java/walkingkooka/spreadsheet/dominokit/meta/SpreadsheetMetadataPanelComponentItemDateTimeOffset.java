@@ -28,11 +28,11 @@ import walkingkooka.convert.FakeConverterContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.datetime.AppContextDateComponentContext;
-import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.datetime.AppContextDateComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.datetime.DateComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
