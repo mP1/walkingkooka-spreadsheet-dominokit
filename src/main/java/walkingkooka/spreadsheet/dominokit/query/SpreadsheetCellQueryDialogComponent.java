@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.query.condition.ConditionRightSpreadsheetFormulaParserTokenComponent;
-import walkingkooka.spreadsheet.dominokit.textmatch.TextMatchComponent;
+import walkingkooka.spreadsheet.dominokit.query.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponentFunctions;
 import walkingkooka.spreadsheet.dominokit.value.row.RowComponent;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.textmatch;
+package walkingkooka.spreadsheet.dominokit.query.textmatch;
 
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
