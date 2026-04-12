@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;

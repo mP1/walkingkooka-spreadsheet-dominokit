@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -15,33 +16,36 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
-import walkingkooka.convert.provider.ConverterAliasSet;
+import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class ConverterAliasSetComponent implements ValueTextBoxComponentDelegator<ConverterAliasSetComponent, ConverterAliasSet> {
+/**
+ * A text box that accepts entry and validates it as a {@link ConverterName}.
+ */
+public final class ConverterNameComponent implements ValueTextBoxComponentDelegator<ConverterNameComponent, ConverterName> {
 
-    public static ConverterAliasSetComponent empty() {
-        return new ConverterAliasSetComponent();
+    public static ConverterNameComponent empty() {
+        return new ConverterNameComponent();
     }
 
-    private ConverterAliasSetComponent() {
+    private ConverterNameComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            ConverterAliasSet::parse,
-            ConverterAliasSet::text
+            ConverterName::with,
+            ConverterName::toString
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ConverterAliasSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ConverterName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ConverterAliasSet> textBox;
+    private final ValueTextBoxComponent<ConverterName> textBox;
 
     // Object...........................................................................................................
 

@@ -15,33 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
-import walkingkooka.convert.provider.ConverterInfoSet;
+import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class ConverterInfoSetComponent implements ValueTextBoxComponentDelegator<ConverterInfoSetComponent, ConverterInfoSet> {
+public final class ConverterAliasSetComponent implements ValueTextBoxComponentDelegator<ConverterAliasSetComponent, ConverterAliasSet> {
 
-    public static ConverterInfoSetComponent empty() {
-        return new ConverterInfoSetComponent();
+    public static ConverterAliasSetComponent empty() {
+        return new ConverterAliasSetComponent();
     }
 
-    private ConverterInfoSetComponent() {
+    private ConverterAliasSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            ConverterInfoSet::parse,
-            ConverterInfoSet::text
+            ConverterAliasSet::parse,
+            ConverterAliasSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ConverterInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ConverterAliasSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ConverterInfoSet> textBox;
+    private final ValueTextBoxComponent<ConverterAliasSet> textBox;
 
     // Object...........................................................................................................
 

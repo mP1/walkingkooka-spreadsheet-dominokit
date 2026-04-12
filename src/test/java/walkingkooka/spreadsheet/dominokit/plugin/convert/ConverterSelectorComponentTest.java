@@ -15,25 +15,25 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.convert.provider.ConverterName;
+import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class ConverterNameComponentTest implements ValueTextBoxComponentLikeTesting<ConverterNameComponent, ConverterName> {
+public final class ConverterSelectorComponentTest implements ValueTextBoxComponentLikeTesting<ConverterSelectorComponent, ConverterSelector> {
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            ConverterNameComponent.empty()
+            ConverterSelectorComponent.empty()
                 .setStringValue(
                     Optional.of("hello")
                 ),
-            "ConverterNameComponent\n" +
+            "ConverterSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello] REQUIRED\n"
@@ -43,11 +43,27 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            ConverterNameComponent.empty()
+            ConverterSelectorComponent.empty()
+                .setStringValue(
+                    Optional.of("!@#")
+                ),
+            "ConverterSelectorComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [!@#] REQUIRED\n" +
+                "      Errors\n" +
+                "        Invalid character '!' at 0\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalid2() {
+        this.treePrintAndCheck(
+            ConverterSelectorComponent.empty()
                 .setStringValue(
                     Optional.of("hello!")
                 ),
-            "ConverterNameComponent\n" +
+            "ConverterSelectorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [hello!] REQUIRED\n" +
@@ -56,34 +72,18 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
         );
     }
 
-    @Test
-    public void testSetStringValueWithInvalidSpaces() {
-        this.treePrintAndCheck(
-            ConverterNameComponent.empty()
-                .setStringValue(
-                    Optional.of(" hello!")
-                ),
-            "ConverterNameComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [ hello!] REQUIRED\n" +
-                "      Errors\n" +
-                "        Invalid character ' ' at 0\n"
-        );
-    }
-
     // ValueComponent...................................................................................................
 
     @Override
-    public ConverterNameComponent createComponent() {
-        return ConverterNameComponent.empty();
+    public ConverterSelectorComponent createComponent() {
+        return ConverterSelectorComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<ConverterNameComponent> type() {
-        return ConverterNameComponent.class;
+    public Class<ConverterSelectorComponent> type() {
+        return ConverterSelectorComponent.class;
     }
 
     @Override

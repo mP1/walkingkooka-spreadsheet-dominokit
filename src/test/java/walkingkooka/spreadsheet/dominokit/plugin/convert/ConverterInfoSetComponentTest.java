@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterInfoSet;
