@@ -37,8 +37,6 @@ import walkingkooka.spreadsheet.dominokit.datetime.AppContextTimeComponentContex
 import walkingkooka.spreadsheet.dominokit.datetime.DateComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.DateTimeComponent;
 import walkingkooka.spreadsheet.dominokit.datetime.TimeComponent;
-import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponent;
-import walkingkooka.spreadsheet.dominokit.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponent;
 import walkingkooka.spreadsheet.dominokit.decimalnumbersymbols.DecimalNumberSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
@@ -91,6 +89,8 @@ import walkingkooka.spreadsheet.dominokit.validator.ValidatorSelectorDialogCompo
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.datetimesymbols.DateTimeSymbolsDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.datetimesymbols.DateTimeSymbolsDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.email.EmailAddressComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
