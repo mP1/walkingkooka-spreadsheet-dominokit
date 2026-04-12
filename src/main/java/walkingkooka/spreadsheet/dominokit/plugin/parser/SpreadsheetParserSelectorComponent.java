@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -15,33 +16,37 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
+import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
+import walkingkooka.text.HasText;
 
-public final class SpreadsheetParserInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetParserInfoSetComponent, SpreadsheetParserInfoSet> {
+/**
+ * A text box that accepts entry and validates it as a {@link SpreadsheetParserSelector}.
+ */
+public final class SpreadsheetParserSelectorComponent implements ValueTextBoxComponentDelegator<SpreadsheetParserSelectorComponent, SpreadsheetParserSelector> {
 
-    public static SpreadsheetParserInfoSetComponent empty() {
-        return new SpreadsheetParserInfoSetComponent();
+    public static SpreadsheetParserSelectorComponent empty() {
+        return new SpreadsheetParserSelectorComponent();
     }
 
-    private SpreadsheetParserInfoSetComponent() {
+    private SpreadsheetParserSelectorComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetParserInfoSet::parse,
-            SpreadsheetParserInfoSet::text
+            SpreadsheetParserSelector::parse,
+            HasText::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetParserInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetParserSelector> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetParserInfoSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetParserSelector> textBox;
 
     // Object...........................................................................................................
 

@@ -15,27 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.parser;
 
+import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
 
-import java.lang.reflect.Method;
-
-public final class SpreadsheetParserSelectorDialogComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetParserSelectorDialogComponentContexts> {
+public final class SpreadsheetParserNameLinkListComponentCardLinkListComponentContextTest implements ClassTesting<SpreadsheetParserNameLinkListComponentCardLinkListComponentContext> {
 
     @Override
-    public Class<SpreadsheetParserSelectorDialogComponentContexts> type() {
-        return SpreadsheetParserSelectorDialogComponentContexts.class;
+    public Class<SpreadsheetParserNameLinkListComponentCardLinkListComponentContext> type() {
+        return SpreadsheetParserNameLinkListComponentCardLinkListComponentContext.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
