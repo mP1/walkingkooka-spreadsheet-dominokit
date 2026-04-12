@@ -69,7 +69,7 @@ public final class TextAlignComponent implements TextStylePropertyNameEnumHistor
                                 icon = SpreadsheetIcons.alignRight();
                                 break;
                             case JUSTIFY:
-                                icon = SpreadsheetIcons.alignRight();
+                                icon = SpreadsheetIcons.alignJustify();
                                 break;
                             default:
                                 icon = NeverError.unhandledEnum(
