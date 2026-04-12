@@ -191,42 +191,42 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
-                "                    Currency format\n" +
+                "                    Currency formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
-                "                    General format\n" +
+                "                    General formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
-                "                    Date format\n" +
+                "                    Date formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
-                "                    Number format\n" +
+                "                    Number formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
-                "                    Percent format\n" +
+                "                    Percent formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
-                "                    Scientific format\n" +
+                "                    Scientific formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
-                "                    Text format\n" +
+                "                    Text formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
-                "                    Time format\n" +
+                "                    Time formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 2\n" +
                 "                ROW 35\n" +
@@ -448,42 +448,42 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
-                "                    Currency format\n" +
+                "                    Currency formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
-                "                    General format\n" +
+                "                    General formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
-                "                    Date format\n" +
+                "                    Date formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
-                "                    Number format\n" +
+                "                    Number formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
-                "                    Percent format\n" +
+                "                    Percent formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
-                "                    Scientific format\n" +
+                "                    Scientific formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
-                "                    Text format\n" +
+                "                    Text formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
-                "                    Time format\n" +
+                "                    Time formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 2\n" +
                 "                ROW 35\n" +
@@ -705,42 +705,42 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
-                "                    Currency format\n" +
+                "                    Currency formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
-                "                    General format\n" +
+                "                    General formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
-                "                    Date format\n" +
+                "                    Date formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
-                "                    Number format\n" +
+                "                    Number formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
-                "                    Percent format\n" +
+                "                    Percent formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
-                "                    Scientific format\n" +
+                "                    Scientific formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
-                "                    Text format\n" +
+                "                    Text formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
-                "                    Time format\n" +
+                "                    Time formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 2\n" +
                 "                ROW 35\n" +
@@ -962,42 +962,42 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "                    control+shift B\n" +
                 "                ROW 27\n" +
                 "                  TextNodeComponent\n" +
-                "                    Currency format\n" +
+                "                    Currency formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 4\n" +
                 "                ROW 28\n" +
                 "                  TextNodeComponent\n" +
-                "                    General format\n" +
+                "                    General formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 7\n" +
                 "                ROW 29\n" +
                 "                  TextNodeComponent\n" +
-                "                    Date format\n" +
+                "                    Date formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 3\n" +
                 "                ROW 30\n" +
                 "                  TextNodeComponent\n" +
-                "                    Number format\n" +
+                "                    Number formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 1\n" +
                 "                ROW 31\n" +
                 "                  TextNodeComponent\n" +
-                "                    Percent format\n" +
+                "                    Percent formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 5\n" +
                 "                ROW 32\n" +
                 "                  TextNodeComponent\n" +
-                "                    Scientific format\n" +
+                "                    Scientific formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 6\n" +
                 "                ROW 33\n" +
                 "                  TextNodeComponent\n" +
-                "                    Text format\n" +
+                "                    Text formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 8\n" +
                 "                ROW 34\n" +
                 "                  TextNodeComponent\n" +
-                "                    Time format\n" +
+                "                    Time formatter\n" +
                 "                  TextNodeComponent\n" +
                 "                    control+shift 2\n" +
                 "                ROW 35\n" +

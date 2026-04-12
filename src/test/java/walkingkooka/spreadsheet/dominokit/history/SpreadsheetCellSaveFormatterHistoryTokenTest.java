@@ -110,7 +110,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": "text-format @"
+    //   "A1": "text-formatter @"
     // }
     @Test
     public void testParseOneCell() {
@@ -132,8 +132,8 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     }
 
     // {
-    //   "A1": "date-format dd/mm/yyyy",
-    //   "A2": "time-format hh:mm"
+    //   "A1": "date-formatter dd/mm/yyyy",
+    //   "A2": "time-formatter hh:mm"
     // }
     @Test
     public void testParseSeveralCells() {

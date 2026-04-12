@@ -56,7 +56,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 /**
- * A {@link SpreadsheetFormatterContext} used to format a {@link ExpressionNumber} into a {@link String}.
+ * A {@link SpreadsheetFormatterContext} used to formatter a {@link ExpressionNumber} into a {@link String}.
  * Most methods throw {@link UnsupportedOperationException}, because those {@link SpreadsheetFormatterContext} methods
  * are not required, eg colors, resolving labels etc.
  */

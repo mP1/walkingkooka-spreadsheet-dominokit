@@ -89,7 +89,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
     }
 
     /**
-     * Used to format a value into text for display.
+     * Used to formatter a value into text for display.
      */
     private final Function<T, String> formatter;
 

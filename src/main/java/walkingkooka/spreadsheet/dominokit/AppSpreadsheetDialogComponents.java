@@ -23,8 +23,6 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.checkbox.CheckboxComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponent;
-import walkingkooka.spreadsheet.dominokit.format.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponent;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardDialogComponent;
@@ -45,6 +43,8 @@ import walkingkooka.spreadsheet.dominokit.plugin.comparator.SpreadsheetComparato
 import walkingkooka.spreadsheet.dominokit.plugin.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.convert.ConverterSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.plugin.formatter.SpreadsheetFormatterSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.formatter.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.formhandler.FormHandlerSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.plugin.formhandler.FormHandlerSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.plugin.parser.SpreadsheetParserSelectorDialogComponent;

@@ -50,7 +50,7 @@ import java.util.OptionalInt;
  * <ul>
  *     <li>Audit info such as create/last updated author and timestamps</li>
  *     <li>Various mathematical properties which control precision and size of number calculations in expressions</li>
- *     <li>Default format patterns for all basic spreadsheet values</li>
+ *     <li>Default formatter patterns for all basic spreadsheet values</li>
  *     <li>Many more properties are available {@link SpreadsheetMetadataPropertyName}</li>
  * </ul>
  * <br>
