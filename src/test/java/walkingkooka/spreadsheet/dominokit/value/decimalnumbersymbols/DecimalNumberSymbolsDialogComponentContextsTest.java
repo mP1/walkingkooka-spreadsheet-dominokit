@@ -15,25 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.decimalnumbersymbols;
+package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public abstract class AppContextDecimalNumberSymbolsDialogComponentContextTestCase<C extends AppContextDecimalNumberSymbolsDialogComponentContext>
-    implements DecimalNumberSymbolsDialogComponentContextTesting<C>,
-    SpreadsheetMetadataTesting {
+import java.lang.reflect.Method;
 
-    AppContextDecimalNumberSymbolsDialogComponentContextTestCase() {
-        super();
+public final class DecimalNumberSymbolsDialogComponentContextsTest implements PublicStaticHelperTesting<DecimalNumberSymbolsDialogComponentContexts> {
+
+    @Override
+    public Class<DecimalNumberSymbolsDialogComponentContexts> type() {
+        return DecimalNumberSymbolsDialogComponentContexts.class;
     }
 
     @Override
-    public final String typeNamePrefix() {
-        return AppContextDecimalNumberSymbolsDialogComponentContext.class.getSimpleName();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 
     @Override
-    public final String typeNameSuffix() {
-        return "";
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }
