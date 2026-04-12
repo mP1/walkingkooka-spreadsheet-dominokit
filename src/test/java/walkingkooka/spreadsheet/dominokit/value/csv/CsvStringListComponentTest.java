@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.csv;
+package walkingkooka.spreadsheet.dominokit.value.csv;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.CsvStringList;

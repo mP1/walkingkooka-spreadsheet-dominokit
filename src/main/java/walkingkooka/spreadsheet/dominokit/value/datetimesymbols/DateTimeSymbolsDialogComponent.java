@@ -29,7 +29,6 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.csv.CsvStringListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
@@ -41,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.csv.CsvStringListComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleComponentSuggestionsValue;
