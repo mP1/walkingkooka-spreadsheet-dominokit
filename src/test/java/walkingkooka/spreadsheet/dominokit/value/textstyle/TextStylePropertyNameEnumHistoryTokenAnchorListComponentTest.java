@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.FontStretch;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -491,6 +493,37 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
             private final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
         };
+    }
+
+    // valueToText......................................................................................................
+
+    @Test
+    public void testValueToText() {
+        this.valueToTextAndCheck(
+            Optional.of(
+                BorderStyle.DASHED
+            ),
+            "Dashed"
+        );
+    }
+
+    @Test
+    public void testValueToText2() {
+        this.valueToTextAndCheck(
+            Optional.of(
+                FontStretch.EXTRA_CONDENSED
+            ),
+            "Extra Condensed"
+        );
+    }
+
+    private <T extends Enum<T>> void valueToTextAndCheck(final Optional<T> value,
+                                                         final String expected) {
+        this.checkEquals(
+            expected,
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.<T>valueToText()
+                .apply(value)
+        );
     }
 
     // toString.........................................................................................................
