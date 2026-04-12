@@ -15,9 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.math.DecimalNumberContextTesting2;
+import walkingkooka.math.DecimalNumberContext;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public interface WholeNumberComponentContextTesting<C extends WholeNumberComponentContext> extends DecimalNumberContextTesting2<C> {
+public interface NumberComponentContext extends DecimalNumberContext {
+
+    ExpressionNumberKind expressionNumberKind();
+
+    int generalFormatNumberDigitCount();
 }

@@ -15,14 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.math.DecimalNumberContext;
-import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public interface NumberComponentContext extends DecimalNumberContext {
+public final class WholeNumberComponentContexts implements PublicStaticHelper {
 
-    ExpressionNumberKind expressionNumberKind();
+    /**
+     * {@see FakeWholeNumberComponentContext}
+     */
+    public static FakeWholeNumberComponentContext fake() {
+        return new FakeWholeNumberComponentContext();
+    }
 
-    int generalFormatNumberDigitCount();
+    /**
+     * Stop creation
+     */
+    private WholeNumberComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

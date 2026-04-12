@@ -15,23 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.number;
+package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.JavaVisibility;
 
-public final class WholeNumberComponentContexts implements PublicStaticHelper {
+public final class WholeNumberComponentContextSpreadsheetFormatterContextTest implements ClassTesting2<WholeNumberComponentContextSpreadsheetFormatterContext> {
 
-    /**
-     * {@see FakeWholeNumberComponentContext}
-     */
-    public static FakeWholeNumberComponentContext fake() {
-        return new FakeWholeNumberComponentContext();
+    @Override
+    public Class<WholeNumberComponentContextSpreadsheetFormatterContext> type() {
+        return WholeNumberComponentContextSpreadsheetFormatterContext.class;
     }
 
-    /**
-     * Stop creation
-     */
-    private WholeNumberComponentContexts() {
-        throw new UnsupportedOperationException();
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
