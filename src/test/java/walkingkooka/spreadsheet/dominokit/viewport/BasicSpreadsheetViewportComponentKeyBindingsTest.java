@@ -56,14 +56,14 @@ public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements S
                 "Vertical Align: top control+shift \"T\" DOWN\n" +
                 "Vertical Align: middle control+shift \"M\" DOWN\n" +
                 "Vertical Align: bottom control+shift \"B\" DOWN\n" +
-                "Currency format control+shift \"4\" DOWN\n" +
-                "General format control+shift \"7\" DOWN\n" +
-                "Date format control+shift \"3\" DOWN\n" +
-                "Number format control+shift \"1\" DOWN\n" +
-                "Percent format control+shift \"5\" DOWN\n" +
-                "Scientific format control+shift \"6\" DOWN\n" +
-                "Text format control+shift \"8\" DOWN\n" +
-                "Time format control+shift \"2\" DOWN\n" +
+                "Currency formatter control+shift \"4\" DOWN\n" +
+                "General formatter control+shift \"7\" DOWN\n" +
+                "Date formatter control+shift \"3\" DOWN\n" +
+                "Number formatter control+shift \"1\" DOWN\n" +
+                "Percent formatter control+shift \"5\" DOWN\n" +
+                "Scientific formatter control+shift \"6\" DOWN\n" +
+                "Text formatter control+shift \"8\" DOWN\n" +
+                "Time formatter control+shift \"2\" DOWN\n" +
                 "Bold control \"b\" DOWN\n" +
                 "Bold control \"2\" DOWN\n" +
                 "Italics control \"i\" DOWN\n" +

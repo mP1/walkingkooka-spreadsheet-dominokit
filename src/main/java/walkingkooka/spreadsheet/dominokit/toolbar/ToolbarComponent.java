@@ -118,7 +118,7 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.textCaseCapitalize(context),
             ToolbarComponentItem.textCaseLowercase(context),
             ToolbarComponentItem.textCaseUppercase(context),
-            // format/pattern
+            // formatter/pattern
             ToolbarComponentItem.currency(context),
             ToolbarComponentItem.formatter(context),
             ToolbarComponentItem.dateTimeSymbols(context),

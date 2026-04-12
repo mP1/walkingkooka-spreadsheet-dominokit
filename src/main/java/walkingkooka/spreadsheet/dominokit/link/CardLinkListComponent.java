@@ -34,7 +34,7 @@ import java.util.function.Function;
 
 /**
  * A card that holds links, each with a save history token link.
- * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a format.
+ * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a formatter.
  */
 public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, CardLinkListComponent> {
 

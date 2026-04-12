@@ -122,9 +122,9 @@ import java.util.function.Function;
  * </pre>
  * This history token will clear column B for spreadsheet with ID=1.
  * <br>
- * A final example is changing the format pattern for a cell to DD/MM/YYYY. This is accomplished by entering the following hash.
+ * A final example is changing the formatter pattern for a cell to DD/MM/YYYY. This is accomplished by entering the following hash.
  * <pre>
- *     #/1/Untitled/cell/D4/formatter/date/save/date-format DD/MM/YYYY
+ *     #/1/Untitled/cell/D4/formatter/date/save/date-formatter DD/MM/YYYY
  * </pre>
  * This architecture makes it possible to program a macro system, manipulating a browser by simply sending new hash tokens.
  */

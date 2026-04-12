@@ -6698,7 +6698,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             Lists.empty(), // recentCurrencies
             Lists.empty(), // recentDateTimeSymbols
             Lists.empty(), // recentDecimalNumberSymbols
-            Lists.empty(), // format patterns
+            Lists.empty(), // formatter patterns
             Lists.empty(), // SpreadsheetFormatterMenu
             Lists.empty(), // locales
             Lists.empty(), // parse patterns

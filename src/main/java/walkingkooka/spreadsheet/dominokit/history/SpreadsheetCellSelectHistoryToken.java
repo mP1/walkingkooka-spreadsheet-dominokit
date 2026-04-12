@@ -102,7 +102,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
         final HistoryToken result;
 
-        // there will be more such as cell/pattern-format/pattern-parse/style
+        // there will be more such as cell/pattern-formatter/pattern-parse/style
         switch (component) {
             case CELL_STRING:
                 result = cellSaveCell(

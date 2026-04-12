@@ -65,7 +65,7 @@ import java.util.stream.Collectors;
  *       "formula": {
  *         "text": "=22"
  *       },
- *       "formatter": "text-format- @"
+ *       "formatter": "text-formatter- @"
  *     }
  *   }
  * }
@@ -94,7 +94,7 @@ import java.util.stream.Collectors;
  * JSON holding {@link SpreadsheetParserSelector}
  * <pre>
  * {
- *   "mediaType": "application/json+walkingkooka.spreadsheet.format.SpreadsheetParserSelector",
+ *   "mediaType": "application/json+walkingkooka.spreadsheet.formatter.SpreadsheetParserSelector",
  *   "cell-range": "A1:B2",
  *   "value": {
  *     "A1": "date dd/mm/yyyy",

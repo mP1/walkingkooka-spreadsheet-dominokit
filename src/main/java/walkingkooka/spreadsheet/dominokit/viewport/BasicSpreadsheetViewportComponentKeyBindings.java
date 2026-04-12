@@ -640,7 +640,7 @@ final class BasicSpreadsheetViewportComponentKeyBindings implements SpreadsheetV
         }
 
         return controlShift(
-            label + " format",
+            label + " formatter",
             String.valueOf(number)
         );
     }

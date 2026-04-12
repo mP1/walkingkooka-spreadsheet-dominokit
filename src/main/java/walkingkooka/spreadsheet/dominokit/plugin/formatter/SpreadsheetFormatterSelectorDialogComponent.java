@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.plugin.parser;
+package walkingkooka.spreadsheet.dominokit.plugin.formatter;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
@@ -30,26 +30,26 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetParserInfoSetFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.NopSpreadsheetFormatterInfoSetFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.meta.SpreadsheetMetadataPropertyNameTabsComponent;
-import walkingkooka.spreadsheet.dominokit.plugin.formatter.SpreadsheetFormatterTableComponent;
 import walkingkooka.spreadsheet.dominokit.selector.AppendPluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.dominokit.selector.RemoveOrReplacePluginSelectorTokenComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelectorToken;
+import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelectorTokenAlternative;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
-import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorTokenAlternative;
-import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
+import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
+import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
@@ -58,48 +58,50 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * A modal dialog that supports editing a {@link SpreadsheetParserSelector}.
+ * A modal dialog that supports editing a {@link SpreadsheetFormatterSelector}.
  */
-public final class SpreadsheetParserSelectorDialogComponent implements DialogComponentLifecycle,
+public final class SpreadsheetFormatterSelectorDialogComponent implements DialogComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
     SpreadsheetDeltaFetcherWatcher,
+    SpreadsheetFormatterFetcherWatcher,
+    NopSpreadsheetFormatterInfoSetFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
-    SpreadsheetParserFetcherWatcher,
-    NopSpreadsheetParserInfoSetFetcherWatcher,
     ComponentLifecycleMatcherDelegator {
 
     /**
-     * Creates a new {@link SpreadsheetParserSelectorDialogComponent}.
+     * Creates a new {@link SpreadsheetFormatterSelectorDialogComponent}.
      */
-    public static SpreadsheetParserSelectorDialogComponent with(final SpreadsheetParserSelectorDialogComponentContext context) {
-        return new SpreadsheetParserSelectorDialogComponent(
+    public static SpreadsheetFormatterSelectorDialogComponent with(final SpreadsheetFormatterSelectorDialogComponentContext context) {
+        return new SpreadsheetFormatterSelectorDialogComponent(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetParserSelectorDialogComponent(final SpreadsheetParserSelectorDialogComponentContext context) {
+    private SpreadsheetFormatterSelectorDialogComponent(final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.context = context;
         context.addHistoryTokenWatcher(this);
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
+        context.addSpreadsheetFormatterFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.tabs = context.shouldShowTabs() ?
             SpreadsheetMetadataPropertyNameTabsComponent.empty(
                 ID + SpreadsheetElementIds.TABS + "-",
                 Cast.to(
-                    SpreadsheetMetadataPropertyName.parsers()
+                    SpreadsheetMetadataPropertyName.formatters()
                 ),
                 context
             ) :
             null;
 
-        this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
-        this.parserName = Optional.empty();
+        this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
 
-        this.table = SpreadsheetFormatterTableComponent.empty(ID + "-");
+        this.table = SpreadsheetFormatterTableComponent.empty(
+            ID + "-"
+        );
 
         this.appender = AppendPluginSelectorTokenComponent.empty(ID + "-appender-");
 
@@ -110,6 +112,8 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         this.links = this.links();
 
         this.dialog = this.dialogCreate();
+
+        this.formatterName = Optional.empty();
     }
 
     // ids..............................................................................................................
@@ -119,15 +123,15 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         return ID + "-";
     }
 
-    private final static String ID = SpreadsheetParserSelector.class.getSimpleName();
+    private final static String ID = SpreadsheetFormatterSelector.class.getSimpleName();
 
     // dialog...........................................................................................................
 
     /**
-     * Creates the modal dialog, loaded with the {@link SpreadsheetParserSelector} textbox and some links.
+     * Creates the modal dialog, loaded with the {@link SpreadsheetFormatterSelector} textbox and some links.
      */
     private DialogComponent dialogCreate() {
-        final SpreadsheetParserSelectorDialogComponentContext context = this.context;
+        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
 
         DialogComponent dialog = DialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
@@ -139,7 +143,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             dialog.appendChild(this.tabs);
         }
 
-        return dialog.appendChild(this.parserNames)
+        return dialog.appendChild(this.formatterNames)
             .appendChild(this.table)
             .appendChild(this.appender)
             .appendChild(this.removeOrReplace)
@@ -154,7 +158,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
     private final DialogComponent dialog;
 
-    private final SpreadsheetParserSelectorDialogComponentContext context;
+    private final SpreadsheetFormatterSelectorDialogComponentContext context;
 
     // tabs............................................................................................................
 
@@ -163,9 +167,9 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
      */
     private final SpreadsheetMetadataPropertyNameTabsComponent tabs;
 
-    // tabs............................................................................................................
+    // formatterNames...................................................................................................
 
-    private final SpreadsheetParserNameLinkListComponent parserNames;
+    private final SpreadsheetFormatterNameLinkListComponent formatterNames;
 
     // sample...........................................................................................................
 
@@ -173,76 +177,76 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
     // appender.........................................................................................................
 
-    private final AppendPluginSelectorTokenComponent<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> appender;
+    private final AppendPluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> appender;
 
     // removeOrReplace..................................................................................................
 
-    private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetParserSelectorToken, SpreadsheetParserSelectorTokenAlternative> removeOrReplace;
+    private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
 
     // selector..........................................................................................................
 
     /**
      * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
      */
-    private SpreadsheetParserSelectorComponent selector() {
-        return SpreadsheetParserSelectorComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+    private SpreadsheetFormatterSelectorComponent selector() {
+        return SpreadsheetFormatterSelectorComponent.empty()
+            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                this::onSelectorValue
+                (v) -> this.onSelectorValue(v)
             );
     }
 
-    private void onSelectorValue(final Optional<SpreadsheetParserSelector> selector) {
-        final SpreadsheetParserSelectorDialogComponentContext context = this.context;
-
-        final String text = selector.map(SpreadsheetParserSelector::text)
-            .orElse("");
-
-        final SpreadsheetParserSelectorEdit edit = SpreadsheetParserSelectorEdit.parse(
-            text,
-            context
-        );
-
-        if (this.selector.hasErrors()) {
+    private void onSelectorValue(final Optional<SpreadsheetFormatterSelector> selector) {
+        if(this.selector.hasErrors()) {
             this.links.disableSave();
         } else {
             this.links.setValue(selector);
         }
 
-        // couldnt get edit in browser, try server
-        if (edit.message().startsWith("Unknown ")) {
-            context.loadSpreadsheetParsersEdit(text);
-        } else {
-            this.onSpreadsheetParserSelectorEdit(
-                edit,
-                context
-            );
-        }
+        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
+
+        final String text = selector.map(SpreadsheetFormatterSelector::text)
+            .orElse("");
+
+        final SpreadsheetFormatterSelectorEdit edit = SpreadsheetFormatterSelectorEdit.parse(
+            text,
+            context
+        );
+
+        this.onSpreadsheetFormatterSelectorEdit(
+            edit,
+            context
+        );
+
+        // edit.message does not report failures such as evaluating ExpressionSpreadsheetFormatter with "1+2".
+        // https://github.com/mP1/walkingkooka-spreadsheet-server/issues/1758
+        context.loadSpreadsheetFormattersEdit(text);
     }
 
     /**
-     * The {@link SpreadsheetParserSelectorComponent} that holds the {@link SpreadsheetParserSelector} in text form.
+     * The {@link SpreadsheetFormatterSelectorComponent} that holds the {@link SpreadsheetFormatterSelector} in text form.
      */
     // @VisibleForTesting
-    final SpreadsheetParserSelectorComponent selector;
+    final SpreadsheetFormatterSelectorComponent selector;
 
-    // SpreadsheetParserFetcherWatcher..................................................................................
+    // SpreadsheetFormatterFetcherWatcher...............................................................................
 
     @Override
-    public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
-                                                final SpreadsheetParserSelectorEdit edit) {
+    public void onSpreadsheetFormatterSelectorEdit(final SpreadsheetId id,
+                                                   final Optional<SpreadsheetExpressionReference> cellOrLabel,
+                                                   final SpreadsheetFormatterSelectorEdit edit) {
         if (this.isOpen()) {
-            this.onSpreadsheetParserSelectorEdit(
+            this.onSpreadsheetFormatterSelectorEdit(
                 edit,
                 this.context
             );
         }
     }
 
-    private void onSpreadsheetParserSelectorEdit(final SpreadsheetParserSelectorEdit edit,
-                                                 final SpreadsheetParserSelectorDialogComponentContext context) {
-        this.parserName = edit.selector()
-            .map(SpreadsheetParserSelector::name);
+    private void onSpreadsheetFormatterSelectorEdit(final SpreadsheetFormatterSelectorEdit edit,
+                                                    final SpreadsheetFormatterSelectorDialogComponentContext context) {
+        this.formatterName = edit.selector()
+            .map(SpreadsheetFormatterSelector::name);
 
         final List<SpreadsheetFormatterSample> samples = edit.samples();
         this.table.setValue(
@@ -252,18 +256,13 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
                     samples
             )
         );
-        this.table.refresh(
-            SpreadsheetParserSelectorDialogComponentSpreadsheetFormatterTableComponentContext.with(
-                edit.selector()
-                    .orElse(null),
-                context
-            )
-        );
 
-        final SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
-            SpreadsheetParserSelectorAppendPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
+        this.table.refresh(context);
+
+        final SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext appenderRemoveOrReplaceContext =
+            SpreadsheetFormatterSelectorAppendComponentPluginSelectorTokenComponentContextRemoveOrReplacePluginSelectorTokenComponentContext.with(
                 edit.selector()
-                    .map(SpreadsheetParserSelector::name)
+                    .map(SpreadsheetFormatterSelector::name)
                     .orElse(null),
                 context
             );
@@ -271,7 +270,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         this.appender.refresh(
             edit.tokens(),
             edit.next()
-                .map(SpreadsheetParserSelectorToken::alternatives)
+                .map(SpreadsheetFormatterSelectorToken::alternatives)
                 .orElse(Lists.empty()),
             appenderRemoveOrReplaceContext
         );
@@ -284,24 +283,33 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         // clear or update the errors
         final String message = edit.message();
         final boolean hasNoError = CharSequences.isNullOrEmpty(message);
-        this.selector.setErrors(
-            hasNoError ?
-                Lists.empty() :
+
+        if(this.selector.stringValue().isEmpty() || hasNoError) {
+            this.links.setValue(
+                this.selector.stringValue().isEmpty() || hasNoError ?
+                    edit.selector() :
+                    Optional.empty()
+            );
+        } else {
+            this.selector.setErrors(
                 Lists.of(message)
-        );
+            );
+            this.links.disableSave();
+        }
 
-        this.links.setValue(
-            this.selector.stringValue().isEmpty() || hasNoError ?
-                edit.selector() :
-                Optional.empty()
-        );
+        this.refreshTitleTabsAndFormatterNames();
+    }
 
-        this.refreshTitleTabsClearClose();
+    @Override
+    public void onSpreadsheetFormatterMenuList(final SpreadsheetId id,
+                                               final SpreadsheetExpressionReference cellOrLabel,
+                                               final SpreadsheetFormatterMenuList menu) {
+        // nop
     }
 
     // dialog links.....................................................................................................
 
-    private DialogAnchorListComponent<SpreadsheetParserSelector> links() {
+    private DialogAnchorListComponent<SpreadsheetFormatterSelector> links() {
         return this.dialogAnchorListComponent(this.context)
             .saveAutoDisableWhenMissingValue()
             .undo()
@@ -310,11 +318,11 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             .setComponentWithErrors(this.selector);
     }
 
-    private final DialogAnchorListComponent<SpreadsheetParserSelector> links;
+    private final DialogAnchorListComponent<SpreadsheetFormatterSelector> links;
 
-    // SpreadsheetDeltaFetcherWatcher...................................................................................
+    // SpreadsheetDeltaFetcherWatcher................................................................................
 
-    // eventually refresh will read the updated *CELL* from the cache following a SAVE
+    // eventually refresh will read the updated *CELL* from the cache
     @Override
     public void onSpreadsheetDelta(final HttpMethod method,
                                    final AbsoluteOrRelativeUrl url,
@@ -361,32 +369,30 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             this.context.undo()
         );
 
-        this.refreshTitleTabsClearClose();
+        this.refreshTitleTabsAndFormatterNames();
     }
 
-    private void refreshTitleTabsClearClose() {
-        final SpreadsheetParserSelectorDialogComponentContext context = this.context;
+    private void refreshTitleTabsAndFormatterNames() {
+        final SpreadsheetFormatterSelectorDialogComponentContext context = this.context;
         context.refreshDialogTitle(this);
 
         if (null != this.tabs) {
             this.tabs.refresh(context);
         }
 
-        this.parserNames.refresh(
-            SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
+        this.formatterNames.refresh(
+            SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
                 context, // HistoryContext
-                context, // SpreadsheetParserProvider,
-                this.parserName
+                context, // SpreadsheetFormatterProvider,
+                this.formatterName
             )
         );
-
-        this.links.refresh(context);
     }
 
-    private Optional<SpreadsheetParserName> parserName;
+    private Optional<SpreadsheetFormatterName> formatterName;
 
     @Override
     public boolean shouldLogLifecycleChanges() {
-        return SPREADSHEET_PARSER_SELECTOR_DIALOG_COMPONENT;
+        return SPREADSHEET_FORMATTER_SELECTOR_DIALOG_COMPONENT;
     }
 }

@@ -82,7 +82,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
 
 
     /**
-     * Sets a new {@link Function} will be used to format values into text for editing
+     * Sets a new {@link Function} will be used to formatter values into text for editing
      */
     private ValueTextBoxComponent<T> setFormatter(final Function<T, String> formatter) {
         Objects.requireNonNull(formatter, "formatter");

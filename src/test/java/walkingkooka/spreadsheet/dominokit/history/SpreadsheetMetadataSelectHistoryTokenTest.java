@@ -34,7 +34,7 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseDateFormatPattern() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/date-format",
+            "/123/SpreadsheetName456/spreadsheet/date-formatter",
             SpreadsheetMetadataSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
