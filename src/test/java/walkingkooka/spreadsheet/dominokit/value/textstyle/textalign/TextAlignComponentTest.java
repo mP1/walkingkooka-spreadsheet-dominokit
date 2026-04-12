@@ -73,10 +73,10 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-right \"justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-right \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -125,10 +125,10 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-right \"justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-right \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
