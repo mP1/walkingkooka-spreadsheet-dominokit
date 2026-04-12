@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.text.IntegerBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.IntegerBoxComponent;
 import walkingkooka.spreadsheet.value.SpreadsheetColumnOrRow;
 
 import java.util.Objects;

@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
-import walkingkooka.spreadsheet.dominokit.text.TextComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;

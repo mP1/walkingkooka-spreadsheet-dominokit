@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.text;
+package walkingkooka.spreadsheet.dominokit.value.text;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Node;

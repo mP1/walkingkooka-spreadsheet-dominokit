@@ -15,51 +15,49 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.text;
+package walkingkooka.spreadsheet.dominokit.value.text;
 
+import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.text.printer.TreePrintableTesting;
-import walkingkooka.tree.text.TextNode;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
-public final class TextNodeComponentTest implements ClassTesting<TextNodeComponent>,
-    TreePrintableTesting {
+public final class TextViewComponentTest implements FormValueComponentTesting<HTMLDivElement, String, TextViewComponent> {
 
     @Test
-    public void testTreePrint() {
+    public void testClearValueAndTreePrint() {
         this.treePrintAndCheck(
-            TextNodeComponent.with(
-                Optional.of(
-                    TextNode.text("Hello123")
-                )
-            ),
-            "TextNodeComponent\n" +
-                "  Hello123\n"
+            TextViewComponent.empty()
+                .clearValue(),
+            "TextViewComponent\n" +
+                "  \"\"\n"
         );
     }
 
     @Test
-    public void testTreePrint2() {
+    public void testSetValueAndTreePrint() {
         this.treePrintAndCheck(
-            TextNodeComponent.with(
-                Optional.of(
-                    TextNode.text("Hello123\nZebra567")
-                )
-            ),
-            "TextNodeComponent\n" +
-                "  Hello123\n" +
-                "  Zebra567\n"
+            TextViewComponent.empty()
+                .setValue(
+                    Optional.of("Hello123")
+                ),
+            "TextViewComponent\n" +
+                "  \"Hello123\"\n"
         );
+    }
+
+    @Override
+    public TextViewComponent createComponent() {
+        return TextViewComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<TextNodeComponent> type() {
-        return TextNodeComponent.class;
+    public Class<TextViewComponent> type() {
+        return TextViewComponent.class;
     }
 
     @Override

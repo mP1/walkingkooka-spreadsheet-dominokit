@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.key;
 
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.text.TextNodeComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.TextNodeComponent;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;

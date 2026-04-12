@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmptyTesting;
 import walkingkooka.spreadsheet.dominokit.card.CardComponent;
-import walkingkooka.spreadsheet.dominokit.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public final class ComponentWithChildrenTest implements TreePrintableTesting,
