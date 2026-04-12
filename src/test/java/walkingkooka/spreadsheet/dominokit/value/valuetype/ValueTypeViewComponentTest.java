@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.valuetype;
+package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
 import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
