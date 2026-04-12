@@ -15,23 +15,19 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public final class ValidatorSelectorNameAnchorListComponentContexts implements PublicStaticHelper {
+public class FakeValidatorSelectorNameAnchorListComponentContext extends FakeHistoryContext implements ValidatorSelectorNameAnchorListComponentContext {
 
-    /**
-     * {@see FakeValidatorSelectorNameAnchorListComponentContext}
-     */
-    public static FakeValidatorSelectorNameAnchorListComponentContext fake() {
-        return new FakeValidatorSelectorNameAnchorListComponentContext();
+    public FakeValidatorSelectorNameAnchorListComponentContext() {
+        super();
     }
 
-    /**
-     * Stop creation
-     */
-    private ValidatorSelectorNameAnchorListComponentContexts() {
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

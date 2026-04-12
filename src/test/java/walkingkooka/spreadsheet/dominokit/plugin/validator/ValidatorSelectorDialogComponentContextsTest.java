@@ -15,19 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.JavaVisibility;
 
-public class FakeValidatorSelectorNameAnchorListComponentContext extends FakeHistoryContext implements ValidatorSelectorNameAnchorListComponentContext {
+public final class ValidatorSelectorDialogComponentContextsTest implements ClassTesting2<ValidatorSelectorDialogComponentContexts> {
 
-    public FakeValidatorSelectorNameAnchorListComponentContext() {
-        super();
+    @Override
+    public Class<ValidatorSelectorDialogComponentContexts> type() {
+        return ValidatorSelectorDialogComponentContexts.class;
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        throw new UnsupportedOperationException();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 }

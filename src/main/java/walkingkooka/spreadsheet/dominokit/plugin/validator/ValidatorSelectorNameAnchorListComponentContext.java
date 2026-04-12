@@ -15,20 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-public final class ValidatorSelectorDialogComponentContextsTest implements ClassTesting2<ValidatorSelectorDialogComponentContexts> {
-
-    @Override
-    public Class<ValidatorSelectorDialogComponentContexts> type() {
-        return ValidatorSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+public interface ValidatorSelectorNameAnchorListComponentContext extends HistoryContext,
+    HasSpreadsheetMetadata {
 }

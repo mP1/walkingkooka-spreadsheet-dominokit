@@ -16,37 +16,37 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.validator;
+package walkingkooka.spreadsheet.dominokit.plugin.validator;
+
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.HasText;
-import walkingkooka.validation.provider.ValidatorSelector;
+import walkingkooka.validation.provider.ValidatorName;
 
 /**
- * A text box that accepts entry and validates it as a {@link ValidatorSelector}.
+ * A text box that accepts entry and validates it as a {@link ValidatorName}.
  */
-public final class ValidatorSelectorComponent implements ValueTextBoxComponentDelegator<ValidatorSelectorComponent, ValidatorSelector> {
+public final class ValidatorNameComponent implements ValueTextBoxComponentDelegator<ValidatorNameComponent, ValidatorName> {
 
-    public static ValidatorSelectorComponent empty() {
-        return new ValidatorSelectorComponent();
+    public static ValidatorNameComponent empty() {
+        return new ValidatorNameComponent();
     }
 
-    private ValidatorSelectorComponent() {
+    private ValidatorNameComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            ValidatorSelector::parse,
-            HasText::text
+            ValidatorName::with,
+            ValidatorName::toString
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<ValidatorSelector> valueTextBoxComponent() {
+    public ValueTextBoxComponent<ValidatorName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<ValidatorSelector> textBox;
+    private final ValueTextBoxComponent<ValidatorName> textBox;
 
     // Object...........................................................................................................
 
