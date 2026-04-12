@@ -15,20 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public final class ConverterSelectorDialogComponentContextsTest implements ClassTesting2<ConverterSelectorDialogComponentContexts> {
-
-    @Override
-    public Class<ConverterSelectorDialogComponentContexts> type() {
-        return ConverterSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+public interface ConverterSelectorDialogComponentContextTesting<C extends ConverterSelectorDialogComponentContext> extends DialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting {
 }

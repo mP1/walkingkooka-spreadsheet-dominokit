@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.PublicStaticHelper;

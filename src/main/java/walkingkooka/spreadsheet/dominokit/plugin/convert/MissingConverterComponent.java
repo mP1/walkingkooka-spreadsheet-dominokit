@@ -15,42 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
-import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
-import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
-import walkingkooka.spreadsheet.dominokit.card.CardComponent;
+import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
+import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A component that displays a {@link MissingConverterSet}.
+ * A component that displays a {@link MissingConverter}.
  */
-final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent>,
-    ComponentWithChildren<MissingConverterSetComponent, HTMLDivElement> {
+final class MissingConverterComponent implements ValueComponent<HTMLDivElement, MissingConverter, MissingConverterComponent> {
 
-    static MissingConverterSetComponent empty(final MissingConverterSet value) {
-        return new MissingConverterSetComponent(
+    static MissingConverterComponent empty(final MissingConverter value) {
+        return new MissingConverterComponent(
             Objects.requireNonNull(value, "value")
         );
     }
 
-    private MissingConverterSetComponent(final MissingConverterSet value) {
+    private MissingConverterComponent(final MissingConverter value) {
         this.flex = FlexLayoutComponent.column();
-        this.card = CardComponent.empty()
-            .setTitle("Missing Converter(s)")
-            .appendChild(this.flex)
-            .hide();
-
         this.setValue(
             Optional.of(value)
         );
@@ -64,7 +55,7 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     }
 
     @Override
-    public MissingConverterSetComponent setId(final String id) {
+    public MissingConverterComponent setId(final String id) {
         this.flex.setId(id);
         return this;
     }
@@ -85,14 +76,14 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     }
 
     @Override
-    public MissingConverterSetComponent setCssText(final String css) {
+    public MissingConverterComponent setCssText(final String css) {
         this.flex.setCssText(css);
         return this;
     }
 
     @Override
-    public MissingConverterSetComponent setCssProperty(final String name,
-                                                       final String value) {
+    public MissingConverterComponent setCssProperty(final String name,
+                                                    final String value) {
         this.flex.setCssProperty(
             name,
             value
@@ -101,24 +92,22 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     }
 
     @Override
-    public MissingConverterSetComponent removeCssProperty(final String name) {
+    public MissingConverterComponent removeCssProperty(final String name) {
         this.flex.removeCssProperty(name);
         return this;
     }
 
     @Override
     public HTMLDivElement element() {
-        return this.card.element();
+        return this.flex.element();
     }
-
-    private final CardComponent card;
 
     private final FlexLayoutComponent flex;
 
     // ValueComponent...................................................................................................
 
     @Override
-    public MissingConverterSetComponent setValue(final Optional<MissingConverterSet> value) {
+    public MissingConverterComponent setValue(final Optional<MissingConverter> value) {
         Objects.requireNonNull(value, "value");
 
         this.value = value;
@@ -126,35 +115,39 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
         final FlexLayoutComponent flex = this.flex;
         flex.removeAllChildren();
 
-        final MissingConverterSet missingConverterSet = value.orElse(null);
-        if (null != missingConverterSet) {
-            for (final MissingConverter missingConverter : missingConverterSet) {
-                this.appendChild(
-                    MissingConverterComponent.empty(missingConverter)
+        final MissingConverter missingConverter = value.orElse(null);
+        if (null != missingConverter) {
+            flex.appendChild(
+                DivComponent.div()
+                    .appendText(
+                        missingConverter.name()
+                            .value()
+                    )
+            );
+
+            final FlexLayoutComponent rowFlex = FlexLayoutComponent.row();
+
+            for (final MissingConverterValue missingConverterValue : missingConverter.values()) {
+                rowFlex.appendChild(
+                    MissingConverterValueComponent.empty(missingConverterValue)
                 );
             }
-        }
 
-        final CardComponent card = this.card;
-
-        if (null == missingConverterSet || missingConverterSet.isEmpty()) {
-            card.hide();
-        } else {
-            card.show();
+            flex.appendChild(rowFlex);
         }
 
         return this;
     }
 
     @Override
-    public Optional<MissingConverterSet> value() {
+    public Optional<MissingConverter> value() {
         return this.value;
     }
 
-    private Optional<MissingConverterSet> value;
+    private Optional<MissingConverter> value;
 
     @Override
-    public Runnable addValueWatcher(final ValueWatcher<MissingConverterSet> watcher) {
+    public Runnable addValueWatcher(final ValueWatcher<MissingConverter> watcher) {
         throw new UnsupportedOperationException();
     }
 
@@ -164,61 +157,33 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     }
 
     @Override
-    public MissingConverterSetComponent setDisabled(final boolean disabled) {
+    public MissingConverterComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public MissingConverterSetComponent hideMarginBottom() {
+    public MissingConverterComponent hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public MissingConverterSetComponent removeBorders() {
+    public MissingConverterComponent removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public MissingConverterSetComponent removePadding() {
+    public MissingConverterComponent removePadding() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public MissingConverterSetComponent focus() {
+    public MissingConverterComponent focus() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public MissingConverterSetComponent blur() {
+    public MissingConverterComponent blur() {
         throw new UnsupportedOperationException();
-    }
-
-    // ComponentWithChildren............................................................................................
-
-    @Override
-    public MissingConverterSetComponent appendChild(final IsElement<?> child) {
-        Objects.requireNonNull(child, "child");
-
-        this.flex.appendChild(child);
-
-        return this;
-    }
-
-    @Override
-    public MissingConverterSetComponent removeChild(final int index) {
-        this.flex.removeChild(index);
-
-        return this;
-    }
-
-    @Override
-    public List<IsElement<?>> children() {
-        return this.flex.children();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return this.flex.isEmpty();
     }
 
     // TreePrintable....................................................................................................
@@ -227,7 +192,7 @@ final class MissingConverterSetComponent implements ValueComponent<HTMLDivElemen
     public void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
 
-        final MissingConverterSet value = this.value.orElse(null);
+        final MissingConverter value = this.value.orElse(null);
         if (null != value) {
             printer.indent();
             {

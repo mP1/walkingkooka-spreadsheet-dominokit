@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.convert;
+package walkingkooka.spreadsheet.dominokit.plugin.convert;
 
 import walkingkooka.collect.map.Maps;
 import walkingkooka.convert.provider.ConverterSelector;
