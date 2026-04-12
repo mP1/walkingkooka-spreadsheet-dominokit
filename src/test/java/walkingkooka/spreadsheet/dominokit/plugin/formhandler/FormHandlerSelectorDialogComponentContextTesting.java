@@ -15,20 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.formhandler;
+package walkingkooka.spreadsheet.dominokit.plugin.formhandler;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
+import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextTesting;
 
-public final class FormHandlerSelectorDialogComponentContextsTest implements ClassTesting2<FormHandlerSelectorDialogComponentContexts> {
-
-    @Override
-    public Class<FormHandlerSelectorDialogComponentContexts> type() {
-        return FormHandlerSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+public interface FormHandlerSelectorDialogComponentContextTesting<C extends FormHandlerSelectorDialogComponentContext> extends DialogComponentContextTesting<C>,
+    ComponentLifecycleMatcherTesting {
 }

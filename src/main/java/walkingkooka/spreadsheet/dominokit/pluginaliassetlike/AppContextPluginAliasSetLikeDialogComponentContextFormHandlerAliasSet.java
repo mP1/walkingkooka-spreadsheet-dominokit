@@ -25,7 +25,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.formhandler.FormHandlerAliasSetComponent;
+import walkingkooka.spreadsheet.dominokit.plugin.formhandler.FormHandlerAliasSetComponent;
 import walkingkooka.validation.form.provider.FormHandlerAlias;
 import walkingkooka.validation.form.provider.FormHandlerAliasSet;
 import walkingkooka.validation.form.provider.FormHandlerInfo;
