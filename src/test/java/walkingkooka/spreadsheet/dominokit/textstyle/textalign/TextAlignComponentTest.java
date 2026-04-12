@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.textalign;
+package walkingkooka.spreadsheet.dominokit.textstyle.textalign;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
