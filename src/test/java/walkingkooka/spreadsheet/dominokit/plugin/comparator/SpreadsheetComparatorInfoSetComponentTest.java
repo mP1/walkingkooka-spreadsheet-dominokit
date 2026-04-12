@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;

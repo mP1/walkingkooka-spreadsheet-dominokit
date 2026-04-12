@@ -15,33 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 
-public final class SpreadsheetComparatorInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetComparatorInfoSetComponent, SpreadsheetComparatorInfoSet> {
+public final class SpreadsheetComparatorNameListComponent implements ValueTextBoxComponentDelegator<SpreadsheetComparatorNameListComponent, SpreadsheetComparatorNameList> {
 
-    public static SpreadsheetComparatorInfoSetComponent empty() {
-        return new SpreadsheetComparatorInfoSetComponent();
+    public static SpreadsheetComparatorNameListComponent empty() {
+        return new SpreadsheetComparatorNameListComponent();
     }
 
-    private SpreadsheetComparatorInfoSetComponent() {
+    private SpreadsheetComparatorNameListComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetComparatorInfoSet::parse,
-            SpreadsheetComparatorInfoSet::text
+            SpreadsheetComparatorNameList::parse,
+            SpreadsheetComparatorNameList::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetComparatorInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetComparatorNameList> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetComparatorInfoSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetComparatorNameList> textBox;
 
     // Object...........................................................................................................
 

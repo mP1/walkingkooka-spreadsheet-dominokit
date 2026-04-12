@@ -15,69 +15,71 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.comparator;
+package walkingkooka.spreadsheet.dominokit.plugin.comparator;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorAliasSet;
+import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorNameList;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetComparatorAliasSetComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetComparatorAliasSetComponent, SpreadsheetComparatorAliasSet> {
+public final class SpreadsheetComparatorNameListComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetComparatorNameListComponent, SpreadsheetComparatorNameList> {
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetComparatorAliasSet alias = SpreadsheetComparatorAliasSet.parse("alias1 plugin1, plugin2");
+        final SpreadsheetComparatorNameList names = SpreadsheetComparatorNameList.with(
+            SpreadsheetComparatorNameList.parse("day-of-month, year")
+        );
 
         this.checkEquals(
-            alias,
-            SpreadsheetComparatorAliasSet.parse(alias.text())
+            names,
+            SpreadsheetComparatorNameList.parse(names.text())
         );
     }
 
     @Test
     public void testSetStringValue() {
         this.treePrintAndCheck(
-            SpreadsheetComparatorAliasSetComponent.empty()
+            SpreadsheetComparatorNameListComponent.empty()
                 .setStringValue(
-                    Optional.of("alias1 name1, alias2, name2")
+                    Optional.of("day-of-month, month-of-year")
                 ),
-            "SpreadsheetComparatorAliasSetComponent\n" +
+            "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 name1, alias2, name2] REQUIRED\n"
+                "      [day-of-month, month-of-year] REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetStringValueWithInvalidValue() {
+    public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            SpreadsheetComparatorAliasSetComponent.empty()
+            SpreadsheetComparatorNameListComponent.empty()
                 .setStringValue(
-                    Optional.of("alias1 name1, alias2 !")
+                    Optional.of("day-of-month, !@#")
                 ),
-            "SpreadsheetComparatorAliasSetComponent\n" +
+            "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 name1, alias2 !] REQUIRED\n" +
+                "      [day-of-month, !@#] REQUIRED\n" +
                 "      Errors\n" +
-                "        Invalid character '!' at 21\n"
+                "        Invalid character '!' at 14\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public SpreadsheetComparatorAliasSetComponent createComponent() {
-        return SpreadsheetComparatorAliasSetComponent.empty();
+    public SpreadsheetComparatorNameListComponent createComponent() {
+        return SpreadsheetComparatorNameListComponent.empty();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetComparatorAliasSetComponent> type() {
-        return SpreadsheetComparatorAliasSetComponent.class;
+    public Class<SpreadsheetComparatorNameListComponent> type() {
+        return SpreadsheetComparatorNameListComponent.class;
     }
 
     @Override
