@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V> extends HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V>>,
+public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V, C extends HtmlComponentDelegator<HTMLDivElement, C>>
+    extends HtmlComponentDelegator<HTMLDivElement, C>,
     HasName<TextStylePropertyName<V>> {
 
     @Override
