@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.csv;
+package walkingkooka.spreadsheet.dominokit.value.csv;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.CsvStringList;
