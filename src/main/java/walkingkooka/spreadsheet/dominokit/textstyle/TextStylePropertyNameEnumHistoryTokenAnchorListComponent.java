@@ -25,6 +25,8 @@ import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -34,7 +36,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements ValueComponent<HTMLDivElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+    HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
 
     public static <T> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
@@ -87,6 +90,78 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> i
     @Override
     public boolean isEditing() {
         return this.list.isEditing();
+    }
+
+    @Override
+    public Optional<T> value() {
+        return this.children()
+            .stream()
+            .filter(TextStylePropertyHistoryTokenAnchorComponent::isChecked)
+            .findFirst()
+            .map(TextStylePropertyHistoryTokenAnchorComponent::value)
+            .orElse(
+                Optional.empty()
+            );
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setValue(final Optional<T> value) {
+        Objects.requireNonNull(value, "value");
+
+        for (final TextStylePropertyHistoryTokenAnchorComponent<T> child : this.children()) {
+            child.setChecked(
+                child.value()
+                    .equals(value)
+            );
+        }
+
+        return this;
+    }
+
+    private List<TextStylePropertyHistoryTokenAnchorComponent<T>> children() {
+        return Cast.to(
+            this.list.children()
+        );
+    }
+
+    @Override
+    public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isDisabled() {
+        return false;
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setDisabled(final boolean disabled) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> hideMarginBottom() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removeBorders() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removePadding() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> blur() {
+        throw new UnsupportedOperationException();
     }
 
     // HtmlComponentDelegator...........................................................................................
