@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.character;
+package walkingkooka.spreadsheet.dominokit.value.character;
 
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.InvalidTextLengthException;

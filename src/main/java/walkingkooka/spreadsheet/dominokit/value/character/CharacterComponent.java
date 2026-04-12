@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.character;
+package walkingkooka.spreadsheet.dominokit.value.character;
 
 import walkingkooka.predicate.character.CharPredicate;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;

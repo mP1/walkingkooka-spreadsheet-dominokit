@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.character;
+package walkingkooka.spreadsheet.dominokit.value.character;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.predicate.character.CharPredicates;
