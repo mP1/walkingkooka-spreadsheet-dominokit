@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.condition;
+package walkingkooka.spreadsheet.dominokit.query.condition;
 
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;

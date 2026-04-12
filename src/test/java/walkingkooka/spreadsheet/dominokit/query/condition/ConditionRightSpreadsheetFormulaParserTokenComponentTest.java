@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.condition;
+package walkingkooka.spreadsheet.dominokit.query.condition;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
