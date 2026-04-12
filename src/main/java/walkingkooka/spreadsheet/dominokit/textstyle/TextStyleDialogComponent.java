@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -82,6 +83,12 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.links.setComponentWithErrors(this.textStyle);
 
+        this.textAlignComponent = this.textAlignComponent();
+
+       this.textStyle.addValueWatcher2(
+           this.textAlignComponent.textStyleValueWatcher()
+       );
+
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
@@ -101,6 +108,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).appendChild(
             FlexLayoutComponent.row()
                 .appendChild(this.selection)
+                .appendChild(this.textAlignComponent)
                 .appendChild(this.textStyle)
         ).appendChild(this.links);
     }
@@ -146,6 +154,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private final SpreadsheetExpressionReferenceComponent selection;
+
+    // TextStylePropertyName components.................................................................................
+
+    private TextAlignComponent textAlignComponent() {
+        return TextAlignComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private TextAlignComponent textAlignComponent;
 
     // TextStyleComponent...............................................................................................
 
