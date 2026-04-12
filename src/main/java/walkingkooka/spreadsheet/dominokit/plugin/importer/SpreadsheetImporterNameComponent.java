@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2023 Miroslav Pokorny (github.com/mP1)
  *
@@ -15,33 +16,37 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.importer;
+package walkingkooka.spreadsheet.dominokit.plugin.importer;
+
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 
-public final class SpreadsheetImporterInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet> {
+/**
+ * A text box that accepts entry and validates it as a {@link SpreadsheetImporterName}.
+ */
+public final class SpreadsheetImporterNameComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterNameComponent, SpreadsheetImporterName> {
 
-    public static SpreadsheetImporterInfoSetComponent empty() {
-        return new SpreadsheetImporterInfoSetComponent();
+    public static SpreadsheetImporterNameComponent empty() {
+        return new SpreadsheetImporterNameComponent();
     }
 
-    private SpreadsheetImporterInfoSetComponent() {
+    private SpreadsheetImporterNameComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetImporterInfoSet::parse,
-            SpreadsheetImporterInfoSet::text
+            SpreadsheetImporterName::with,
+            SpreadsheetImporterName::toString
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetImporterInfoSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetImporterName> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetImporterInfoSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetImporterName> textBox;
 
     // Object...........................................................................................................
 

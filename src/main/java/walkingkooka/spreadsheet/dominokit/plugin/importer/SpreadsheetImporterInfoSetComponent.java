@@ -15,33 +15,33 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.importer;
+package walkingkooka.spreadsheet.dominokit.plugin.importer;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
 
-public final class SpreadsheetImporterAliasSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterAliasSetComponent, SpreadsheetImporterAliasSet> {
+public final class SpreadsheetImporterInfoSetComponent implements ValueTextBoxComponentDelegator<SpreadsheetImporterInfoSetComponent, SpreadsheetImporterInfoSet> {
 
-    public static SpreadsheetImporterAliasSetComponent empty() {
-        return new SpreadsheetImporterAliasSetComponent();
+    public static SpreadsheetImporterInfoSetComponent empty() {
+        return new SpreadsheetImporterInfoSetComponent();
     }
 
-    private SpreadsheetImporterAliasSetComponent() {
+    private SpreadsheetImporterInfoSetComponent() {
         this.textBox = ValueTextBoxComponent.with(
-            SpreadsheetImporterAliasSet::parse,
-            SpreadsheetImporterAliasSet::text
+            SpreadsheetImporterInfoSet::parse,
+            SpreadsheetImporterInfoSet::text
         );
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
 
     @Override
-    public ValueTextBoxComponent<SpreadsheetImporterAliasSet> valueTextBoxComponent() {
+    public ValueTextBoxComponent<SpreadsheetImporterInfoSet> valueTextBoxComponent() {
         return this.textBox;
     }
 
-    private final ValueTextBoxComponent<SpreadsheetImporterAliasSet> textBox;
+    private final ValueTextBoxComponent<SpreadsheetImporterInfoSet> textBox;
 
     // Object...........................................................................................................
 
