@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.currency;
+package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.menu.MenuItem;

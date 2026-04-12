@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.currency;
+package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;

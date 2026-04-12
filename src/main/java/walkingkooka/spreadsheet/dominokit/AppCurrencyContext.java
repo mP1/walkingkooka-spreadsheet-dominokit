@@ -24,11 +24,11 @@ import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
-import walkingkooka.spreadsheet.dominokit.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.currency;
+package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import walkingkooka.currency.HasCurrency;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;

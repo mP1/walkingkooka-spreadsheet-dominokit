@@ -15,17 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.currency;
+package walkingkooka.spreadsheet.dominokit.value.currency;
 
-abstract class AppContextCurrencyDialogComponentContextTestCase<C extends AppContextCurrencyDialogComponentContext>
-    implements CurrencyDialogComponentContextTesting<C> {
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-    AppContextCurrencyDialogComponentContextTestCase() {
-        super();
+import java.lang.reflect.Method;
+
+public final class CurrencyDialogComponentContextsTest implements PublicStaticHelperTesting<CurrencyDialogComponentContexts> {
+
+    @Override
+    public Class<CurrencyDialogComponentContexts> type() {
+        return CurrencyDialogComponentContexts.class;
     }
 
     @Override
-    public final void testTypeNaming() {
-        throw new UnsupportedOperationException();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }

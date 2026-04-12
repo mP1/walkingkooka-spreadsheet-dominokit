@@ -69,7 +69,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContexts;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
-import walkingkooka.spreadsheet.dominokit.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
@@ -140,6 +139,7 @@ import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext
 import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
+import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentContexts;
