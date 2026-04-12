@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.length;
+package walkingkooka.spreadsheet.dominokit.textstyle.length;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
