@@ -15,13 +15,17 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.selector;
+package walkingkooka.spreadsheet.dominokit.plugin.selector;
 
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public class FakeAppendPluginSelectorTokenComponentContext extends FakeHistoryContext implements AppendPluginSelectorTokenComponentContext {
-    @Override
-    public String saveText(final String text) {
-        throw new UnsupportedOperationException();
-    }
+/**
+ * Context for {@link AppendPluginSelectorTokenComponent}.
+ */
+public interface AppendPluginSelectorTokenComponentContext extends HistoryContext {
+
+    /**
+     * Builds the save text that will be passed to {@link walkingkooka.spreadsheet.dominokit.history.HistoryToken#setSaveStringValue(String)}.
+     */
+    String saveText(final String text);
 }

@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.selector;
+package walkingkooka.spreadsheet.dominokit.plugin.selector;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
