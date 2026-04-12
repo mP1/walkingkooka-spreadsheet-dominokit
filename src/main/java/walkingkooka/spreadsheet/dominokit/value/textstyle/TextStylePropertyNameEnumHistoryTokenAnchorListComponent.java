@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
@@ -40,6 +41,21 @@ import java.util.function.Function;
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> implements ValueComponent<HTMLDivElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
+
+    /**
+     * A function that converts {@link Enum#name()} to Title Case.
+     * <pre>
+     * UPPER_CASE -> Upper Case
+     * </pre>
+     */
+    public static <T extends Enum<T>> Function<Optional<T>, String> valueToText() {
+        return (value) -> value.map(
+            (T v) -> CaseKind.SNAKE.change(
+                v.name(),
+                CaseKind.TITLE
+            )
+        ).orElse("Clear");
+    }
 
     public static <T> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                        final TextStylePropertyName<T> propertyName,
