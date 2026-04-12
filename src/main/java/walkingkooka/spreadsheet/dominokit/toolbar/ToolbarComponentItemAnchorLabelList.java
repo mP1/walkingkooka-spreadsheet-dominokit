@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
-import walkingkooka.spreadsheet.dominokit.label.SpreadsheetLabelListAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelListAnchorComponent;
 
 import java.util.Optional;
 
