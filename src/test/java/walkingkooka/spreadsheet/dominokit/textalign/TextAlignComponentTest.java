@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.textalign;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -27,6 +28,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -62,6 +64,57 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
                 TextAlign.CENTER
             )
         );
+
+        this.treePrintAndCheck(
+            component,
+            "TextAlignComponent\n" +
+                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          mdi-format-align-left \"left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-right \"right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-center \"center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+        );
+    }
+
+    @Test
+    public void testTextStyleValueWatcherOnValueChange() {
+        final TextAlignComponent component = TextAlignComponent.with(
+            "Test123-",
+            new FakeTextAlignComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.TEXT_ALIGN
+                        )
+                    );
+                }
+            }
+        );
+
+        component.textStyleValueWatcher()
+            .onValue(
+                Optional.of(
+                    TextStyle.EMPTY.set(
+                        TextStylePropertyName.TEXT_ALIGN,
+                        TextAlign.CENTER
+                    ).set(
+                        TextStylePropertyName.COLOR,
+                        Color.WHITE
+                    )
+                )
+            );
 
         this.treePrintAndCheck(
             component,

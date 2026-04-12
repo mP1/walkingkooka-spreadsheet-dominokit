@@ -20,7 +20,9 @@ package walkingkooka.spreadsheet.dominokit.textstyle;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V, C extends ValueComponentDelegator<HTMLDivElement, V, C>>
@@ -31,6 +33,11 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
     default TextStylePropertyName<V> name() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .name();
+    }
+
+    default ValueWatcher<TextStyle> textStyleValueWatcher() {
+        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+            .textStyleValueWatcher();
     }
 
     // TreePrintable....................................................................................................
