@@ -107,6 +107,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.verticalAlignComponent.textStyleValueWatcher()
         );
 
+        this.textStyle.addValueWatcher2(this.links);
+
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
@@ -278,8 +280,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         final Optional<TextStyle> undoTextStyle = this.context.undo();
 
         this.textStyle.setValue(undoTextStyle);
-
-        this.links.setValue(undoTextStyle);
     }
 
     @Override
