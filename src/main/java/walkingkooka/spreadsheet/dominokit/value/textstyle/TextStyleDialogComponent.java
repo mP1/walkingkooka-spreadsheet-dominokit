@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -84,10 +85,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.links.setComponentWithErrors(this.textStyle);
 
         this.textAlignComponent = this.textAlignComponent();
+        this.verticalAlignComponent = this.verticalAlignComponent();
 
        this.textStyle.addValueWatcher2(
            this.textAlignComponent.textStyleValueWatcher()
        );
+
+        this.textStyle.addValueWatcher2(
+            this.verticalAlignComponent.textStyleValueWatcher()
+        );
 
         this.dialog = this.dialogCreate();
 
@@ -109,6 +115,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             FlexLayoutComponent.row()
                 .appendChild(this.selection)
                 .appendChild(this.textAlignComponent)
+                .appendChild(this.verticalAlignComponent)
                 .appendChild(this.textStyle)
         ).appendChild(this.links);
     }
@@ -165,6 +172,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private TextAlignComponent textAlignComponent;
+
+    // VerticalAlignComponent...........................................................................................
+
+    private VerticalAlignComponent verticalAlignComponent() {
+        return VerticalAlignComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private VerticalAlignComponent verticalAlignComponent;
 
     // TextStyleComponent...............................................................................................
 
