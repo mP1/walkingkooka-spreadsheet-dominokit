@@ -411,7 +411,7 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_clear();
     }
 
-    public static MdiIcon textDecorationNone() {
+    public static MdiIcon textDecorationLineNone() {
         return Icons.format_clear();
     }
 
