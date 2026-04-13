@@ -407,6 +407,10 @@ public final class SpreadsheetIcons implements PublicStaticHelper {
         return Icons.format_letter_case_upper();
     }
 
+    public static MdiIcon textDecorationNone() {
+        return Icons.format_clear();
+    }
+
     public static MdiIcon textWrappingClip() {
         return Icons.format_text_wrapping_clip();
     }
