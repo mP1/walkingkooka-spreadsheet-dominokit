@@ -330,6 +330,49 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         );
     }
 
+    @Test
+    public void testSetValueTwice() {
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+
+        anchor.setValue(
+            Optional.of(TextAlign.RIGHT)
+        );
+
+        anchor.setValue(
+            Optional.of(TextAlign.CENTER)
+        );
+
+        this.treePrintAndCheck(
+            anchor,
+            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+        );
+    }
+
     // HasName..........................................................................................................
 
     @Test
