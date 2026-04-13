@@ -138,6 +138,17 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
                 "                    \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                    mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "          TextDecorationStyleComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              AnchorListComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] CHECKED id=TextStyle-textDecorationStyle-Link\n" +
+                "                    \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                    \"Double\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                    \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                    \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                    \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
@@ -239,6 +250,17 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
                 "                    \"Overline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                    mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "          TextDecorationStyleComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              AnchorListComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/] CHECKED id=TextStyle-textDecorationStyle-Link\n" +
+                "                    \"Solid\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                    \"Double\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                    \"Dashed\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                    \"Dotted\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                    \"Wavy\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              AnchorListComponent\n" +

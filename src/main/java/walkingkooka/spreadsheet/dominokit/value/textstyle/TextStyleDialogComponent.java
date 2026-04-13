@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -87,6 +88,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.textAlignComponent = this.textAlignComponent();
         this.textDecorationLineComponent = this.textDecorationLineComponent();
+        this.textDecorationStyleComponent = this.textDecorationStyleComponent();
         this.verticalAlignComponent = this.verticalAlignComponent();
 
        this.textStyle.addValueWatcher2(
@@ -95,6 +97,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.textStyle.addValueWatcher2(
             this.textDecorationLineComponent.textStyleValueWatcher()
+        );
+
+        this.textStyle.addValueWatcher2(
+            this.textDecorationStyleComponent.textStyleValueWatcher()
         );
 
         this.textStyle.addValueWatcher2(
@@ -122,6 +128,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 .appendChild(this.selection)
                 .appendChild(this.textAlignComponent)
                 .appendChild(this.textDecorationLineComponent)
+                .appendChild(this.textDecorationStyleComponent)
                 .appendChild(this.verticalAlignComponent)
                 .appendChild(this.textStyle)
         ).appendChild(this.links);
@@ -192,6 +199,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private TextDecorationLineComponent textDecorationLineComponent;
+
+    // TextDecorationStyleComponent......................................................................................
+
+    private TextDecorationStyleComponent textDecorationStyleComponent() {
+        return TextDecorationStyleComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private TextDecorationStyleComponent textDecorationStyleComponent;
 
     // VerticalAlignComponent...........................................................................................
 
