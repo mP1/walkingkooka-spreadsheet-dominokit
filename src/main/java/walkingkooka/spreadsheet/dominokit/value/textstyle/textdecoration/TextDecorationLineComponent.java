@@ -65,7 +65,7 @@ public final class TextDecorationLineComponent implements TextStylePropertyNameE
 
                         switch (textDecorationLine) {
                             case NONE:
-                                icon = null;
+                                icon = SpreadsheetIcons.textDecorationLineNone();
                                 break;
                             case LINE_THROUGH:
                                 icon = SpreadsheetIcons.strikethrough();
