@@ -164,6 +164,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // TextStylePropertyName components.................................................................................
 
+    // TextAlignComponent...............................................................................................
+
     private TextAlignComponent textAlignComponent() {
         return TextAlignComponent.with(
             ID_PREFIX,
