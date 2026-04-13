@@ -128,6 +128,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
                 "                    mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                    mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "          TextDecorationLineComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              AnchorListComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] CHECKED id=TextStyle-textDecorationLine-Link\n" +
+                "                    mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                    mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                    mdi-format-clear \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                    mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
@@ -219,6 +229,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
                 "                    mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                    mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "          TextDecorationLineComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              AnchorListComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  ROW\n" +
+                "                    mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/] CHECKED id=TextStyle-textDecorationLine-Link\n" +
+                "                    mdi-format-clear \"None\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                    mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                    mdi-format-clear \"Overline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                    mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
