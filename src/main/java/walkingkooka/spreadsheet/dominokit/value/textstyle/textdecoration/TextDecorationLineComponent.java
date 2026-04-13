@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration;
 
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.Cast;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -49,6 +50,7 @@ public final class TextDecorationLineComponent implements TextStylePropertyNameE
             idPrefix,
             TextStylePropertyName.TEXT_DECORATION_LINE,
             Lists.of(
+                null,
                 TextDecorationLine.NONE,
                 TextDecorationLine.LINE_THROUGH,
                 TextDecorationLine.OVERLINE,
@@ -56,32 +58,38 @@ public final class TextDecorationLineComponent implements TextStylePropertyNameE
             ),
             (Optional<TextDecorationLine> textDecorationLine) -> valueToText.apply(textDecorationLine)
                 .replace("Line Through", "Strikethrough"),
-            (Optional<TextDecorationLine> valueToIcon) -> valueToIcon.map(
-                (TextDecorationLine textDecorationLine) -> {
-                    final Icon<?> icon;
+            (Optional<TextDecorationLine> valueToIcon) -> Optional.of(
+                valueToIcon.map(
+                    (TextDecorationLine textDecorationLine) -> {
+                        final Icon<?> icon;
 
-                    switch (textDecorationLine) {
-                        case NONE:
-                            icon = null;
-                            break;
-                        case LINE_THROUGH:
-                            icon = SpreadsheetIcons.strikethrough();
-                            break;
-                        case OVERLINE:
-                            icon = null;
-                            break;
-                        case UNDERLINE:
-                            icon = SpreadsheetIcons.underline();
-                            break;
-                        default:
-                            icon = NeverError.unhandledEnum(
-                                textDecorationLine,
-                                TextDecorationLine.values()
-                            );
+                        switch (textDecorationLine) {
+                            case NONE:
+                                icon = null;
+                                break;
+                            case LINE_THROUGH:
+                                icon = SpreadsheetIcons.strikethrough();
+                                break;
+                            case OVERLINE:
+                                icon = null;
+                                break;
+                            case UNDERLINE:
+                                icon = SpreadsheetIcons.underline();
+                                break;
+                            default:
+                                icon = NeverError.unhandledEnum(
+                                    textDecorationLine,
+                                    TextDecorationLine.values()
+                                );
+                        }
+
+                        return icon;
                     }
-
-                    return icon;
-                }
+                ).orElse(
+                    Cast.to(
+                        SpreadsheetIcons.textDecorationLineClear()
+                    )
+                )
             ),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
