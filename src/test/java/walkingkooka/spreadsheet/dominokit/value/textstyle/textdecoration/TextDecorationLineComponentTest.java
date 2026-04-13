@@ -72,10 +72,10 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
                 "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
                 "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          mdi-format-clear \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
                 "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
@@ -124,10 +124,10 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
                 "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
                 "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          mdi-format-clear \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
                 "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
