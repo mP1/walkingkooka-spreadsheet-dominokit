@@ -39,6 +39,28 @@ import java.util.function.Function;
 abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
 
+    /**
+     * A function that converts {@link Enum#name()} to Title Case.
+     * <pre>
+     * UPPER_CASE -> Upper Case
+     * </pre>
+     */
+    public static <T extends Enum<T>> Function<Optional<T>, String> valueToText() {
+        return (value) -> value.map(
+            (T v) -> CaseKind.SNAKE.change(
+                v.name(),
+                CaseKind.TITLE
+            )
+        ).orElse("Clear");
+    }
+
+    /**
+     * A {@link Function} which will always return no icons for any value
+     */
+    public static <T extends Enum<T>> Function<Optional<T>, Optional<Icon<?>>> noIcons() {
+        return (value) -> Optional.empty();
+    }
+
     static String propertyNameToLabel(final TextStylePropertyName<?> propertyName) {
         return CaseKind.KEBAB.change(
             propertyName.value(),
