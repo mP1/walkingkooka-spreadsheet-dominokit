@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -124,8 +124,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                      \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] CHECKED id=TextStyle-direction-Link\n" +
+                "                      \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          FontKerningComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -133,8 +133,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/] CHECKED id=TextStyle-fontKerning-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
                 "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          FontStretchComponent\n" +
@@ -143,12 +143,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/] CHECKED id=TextStyle-fontStretch-Link\n" +
                 "                      \"Ultra Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
                 "                      \"Extra Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
                 "                      \"Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                      \"Semi Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] id=TextStyle-fontStretch-NORMAL-Link\n" +
                 "                      \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -158,19 +158,29 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/] CHECKED id=TextStyle-fontStyle-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] id=TextStyle-fontStyle-ITALIC-Link\n" +
                 "                      \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "          FontVariantComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Variant\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/] CHECKED id=TextStyle-fontVariant-Link\n" +
+                "                      \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                      \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] CHECKED id=TextStyle-textAlign-Link\n" +
                 "                      mdi-format-align-left \"Left\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                      mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                      mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TextStyle-textAlign-CENTER-Link\n" +
                 "                      mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                      mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "          TextDecorationLineComponent\n" +
@@ -179,10 +189,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] CHECKED id=TextStyle-textDecorationLine-Link\n" +
                 "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
                 "                      mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                      \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                      \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                      mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          TextDecorationStyleComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -190,11 +200,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] CHECKED id=TextStyle-textDecorationStyle-Link\n" +
                 "                      \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
                 "                      \"Double\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
                 "                      \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                      \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                      \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -202,19 +212,21 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] CHECKED id=TextStyle-verticalAlign-Link\n" +
                 "                      mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; font-variant: small-caps; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Errors\n" +
+                "                  Unknown value \"small-caps\"\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20font-style:%20italic;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
+                "              \"Save\" DISABLED id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -284,8 +296,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                      \"Left to Right\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/] CHECKED id=TextStyle-direction-Link\n" +
+                "                      \"Left to Right\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          FontKerningComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -293,8 +305,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/] CHECKED id=TextStyle-fontKerning-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
                 "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          FontStretchComponent\n" +
@@ -303,12 +315,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/] CHECKED id=TextStyle-fontStretch-Link\n" +
                 "                      \"Ultra Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
                 "                      \"Extra Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
                 "                      \"Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                      \"Semi Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] id=TextStyle-fontStretch-NORMAL-Link\n" +
                 "                      \"Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -318,19 +330,29 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/] CHECKED id=TextStyle-fontStyle-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] id=TextStyle-fontStyle-ITALIC-Link\n" +
                 "                      \"Oblique\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "          FontVariantComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Variant\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/] CHECKED id=TextStyle-fontVariant-Link\n" +
+                "                      \"Initial\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                      \"Small Caps\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] CHECKED id=TextStyle-textAlign-Link\n" +
                 "                      mdi-format-align-left \"Left\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                      mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                      mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TextStyle-textAlign-CENTER-Link\n" +
                 "                      mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                      mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "          TextDecorationLineComponent\n" +
@@ -339,10 +361,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/] CHECKED id=TextStyle-textDecorationLine-Link\n" +
                 "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
                 "                      mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                      \"Overline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                      \"Overline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                      mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          TextDecorationStyleComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -350,11 +372,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/] CHECKED id=TextStyle-textDecorationStyle-Link\n" +
                 "                      \"Solid\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
                 "                      \"Double\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
                 "                      \"Dashed\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                      \"Dotted\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                      \"Dotted\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
@@ -362,19 +384,21 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/] CHECKED id=TextStyle-verticalAlign-Link\n" +
                 "                      mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; font-variant: small-caps; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Errors\n" +
+                "                  Unknown value \"small-caps\"\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20font-style:%20italic;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
+                "              \"Save\" DISABLED id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20left;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
