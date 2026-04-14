@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapC
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify.TextJustifyComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponentContext;
 import walkingkooka.tree.text.TextStyle;
 
@@ -54,5 +55,6 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     TextAlignComponentContext,
     TextDecorationLineComponentContext,
     TextDecorationStyleComponentContext,
+    TextJustifyComponentContext,
     VerticalAlignComponentContext {
 }

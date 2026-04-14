@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -260,6 +260,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
                 "                      \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "          TextJustifyComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Text Justify\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                      \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                      \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Vertical Align\n" +
@@ -273,12 +283,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -484,6 +494,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Dashed\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
                 "                      \"Dotted\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "          TextJustifyComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Text Justify\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                      \"Inter Word\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                      \"Inter Character\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
                 "          VerticalAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Vertical Align\n" +
@@ -497,12 +517,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
