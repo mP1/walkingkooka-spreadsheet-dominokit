@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE; white-space: NOWRAP;");
 
     // setValue.........................................................................................................
 
@@ -291,15 +291,27 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
                 "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "          WhitespaceComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              White Space\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                      \"Nowrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                      \"Pre\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                      \"Pre Line\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                      \"Pre Wrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE; white-space: NOWRAP;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -536,15 +548,27 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
                 "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "          WhitespaceComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              White Space\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                      \"Nowrap\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                      \"Pre\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                      \"Pre Line\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                      \"Pre Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; vertical-align: MIDDLE; white-space: NOWRAP;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
