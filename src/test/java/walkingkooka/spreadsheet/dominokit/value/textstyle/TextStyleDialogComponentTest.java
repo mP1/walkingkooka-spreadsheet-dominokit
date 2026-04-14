@@ -194,6 +194,17 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
                 "                      \"Manual\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "          OverflowComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Overflow X\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/] CHECKED id=TextStyle-overflowX-Link\n" +
+                "                      \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/VISIBLE] id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                      \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                      \"Scroll\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -386,6 +397,17 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
                 "                      \"Manual\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "          OverflowComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Overflow X\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/] CHECKED id=TextStyle-overflowX-Link\n" +
+                "                      \"Visible\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/VISIBLE] id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                      \"Hidden\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                      \"Scroll\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
