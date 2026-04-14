@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextDecorationLineComponentTest implements HtmlComponentTesting<TextDecorationLineComponent, HTMLDivElement> {
+public final class TextDecorationLineComponentTest implements HtmlComponentTesting<TextDecorationLineComponent, HTMLFieldSetElement> {
 
     @Test
     public void testSetValue() {
@@ -69,14 +69,15 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
             component,
             "TextDecorationLineComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
-                "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
-                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
-                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
+                "    Text Decoration Line\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "            mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
+                "            mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
+                "            \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "            mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
 
@@ -121,14 +122,15 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
             component,
             "TextDecorationLineComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
-                "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
-                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
-                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
+                "    Text Decoration Line\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "            mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
+                "            mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
+                "            \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "            mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
 

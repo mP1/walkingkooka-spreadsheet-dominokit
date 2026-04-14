@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Optional;
 
-public final class VerticalAlignComponentTest implements HtmlComponentTesting<VerticalAlignComponent, HTMLDivElement> {
+public final class VerticalAlignComponentTest implements HtmlComponentTesting<VerticalAlignComponent, HTMLFieldSetElement> {
 
     @Test
     public void testSetValue() {
@@ -69,13 +69,14 @@ public final class VerticalAlignComponentTest implements HtmlComponentTesting<Ve
             component,
             "VerticalAlignComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "    Vertical Align\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "            mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "            mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "            mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 
@@ -120,13 +121,14 @@ public final class VerticalAlignComponentTest implements HtmlComponentTesting<Ve
             component,
             "VerticalAlignComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "    Vertical Align\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "            mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "            mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "            mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 

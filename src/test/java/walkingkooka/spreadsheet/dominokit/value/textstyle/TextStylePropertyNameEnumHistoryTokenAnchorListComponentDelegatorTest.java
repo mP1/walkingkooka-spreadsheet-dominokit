@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
@@ -31,7 +31,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegatorTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLDivElement> {
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegatorTest implements HtmlComponentTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLFieldSetElement> {
 
     @Test
     public void testPrintTree() {
@@ -39,13 +39,14 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentDeleg
             new TestTextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator(),
             "TestTextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
-                "          \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n" +
-                "          \"CENTER\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/CENTER] id=Test-textAlign-CENTER-Link\n" +
-                "          \"JUSTIFY\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/JUSTIFY] id=Test-textAlign-JUSTIFY-Link\n"
+                "    Text Align\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
+                "            \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n" +
+                "            \"CENTER\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/CENTER] id=Test-textAlign-CENTER-Link\n" +
+                "            \"JUSTIFY\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/JUSTIFY] id=Test-textAlign-JUSTIFY-Link\n"
         );
     }
 

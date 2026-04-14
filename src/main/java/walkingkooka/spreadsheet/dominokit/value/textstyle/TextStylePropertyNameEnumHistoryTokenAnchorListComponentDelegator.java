@@ -17,16 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.naming.HasName;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends ValueComponentDelegator<HTMLDivElement, V, C>>
-    extends ValueComponentDelegator<HTMLDivElement, V, C>,
+public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>>
+    extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
     HasName<TextStylePropertyName<V>> {
 
     @Override
@@ -56,7 +56,7 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> valueComponent() {
+    default TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> formValueComponent() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
     }
 

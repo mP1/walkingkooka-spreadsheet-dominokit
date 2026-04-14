@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.text.CaseKind;
-import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -29,7 +29,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T> {
+public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T>
+    implements TestHtmlElementComponent<HTMLFieldSetElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>> {
 
     /**
      * A function that converts {@link Enum#name()} to Title Case.
@@ -77,10 +78,6 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
             context
         );
 
-        this.formElement = TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement.with(
-            this.list
-        );
-
         this.setLabel(
             propertyNameToLabel(propertyName)
         );
@@ -94,112 +91,44 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
 
     @Override
     public String label() {
-        return this.formElement.getLabel();
+        return this.label;
     }
 
     @Override
     public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setLabel(final String label) {
-        this.formElement.setLabel(label);
+        this.label = Objects.requireNonNull(label, "label");
         return this;
     }
+
+    private String label;
 
     @Override
     public Optional<String> helperText() {
-        final String helperText = this.formElement.getHelperText();
-
-        return Optional.ofNullable(
-            CharSequences.isNullOrEmpty(helperText) ?
-                null :
-                helperText
-        );
+        return this.helperText;
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> text) {
-        Objects.requireNonNull(text, "text");
+    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> helperText) {
+        Objects.requireNonNull(helperText, "helperText");
 
-        this.formElement.setHelperText(
-            text.orElse(null)
-        );
+        this.helperText = helperText;
         return this;
     }
 
+    private Optional<String> helperText;
+
     @Override
     public List<String> errors() {
-        return this.formElement.getErrors();
+        return this.errors;
     }
 
     @Override
     public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setErrors(final List<String> errors) {
-        this.formElement.invalidate(errors);
+        this.errors = Lists.immutable(
+            Objects.requireNonNull(errors, "errors")
+        );
         return this;
     }
 
-    // id...............................................................................................................
-
-    @Override
-    public String id() {
-        return this.formElement.getId();
-    }
-
-    @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setId(final String id) {
-        this.formElement.setId(id);
-        return this;
-    }
-
-    // width............................................................................................................
-
-    @Override
-    public int width() {
-        return this.formElement.element()
-            .offsetWidth;
-    }
-
-    // height...........................................................................................................
-
-    @Override
-    public int height() {
-        return this.formElement.element()
-            .offsetHeight;
-    }
-
-    // cssXXX...........................................................................................................
-
-    @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setCssText(final String css) {
-        this.formElement.element()
-            .style
-            .cssText = css;
-        return this;
-    }
-
-    @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setCssProperty(final String name,
-                                                                                      final String value) {
-        this.formElement.element()
-            .style
-            .setProperty(
-                name,
-                value
-            );
-        return this;
-    }
-
-    @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removeCssProperty(final String name) {
-        this.formElement.element()
-            .style
-            .removeProperty(name);
-        return this;
-    }
-
-    // Component........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.formElement.element();
-    }
-
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement<T> formElement;
+    private List<String> errors;
 }

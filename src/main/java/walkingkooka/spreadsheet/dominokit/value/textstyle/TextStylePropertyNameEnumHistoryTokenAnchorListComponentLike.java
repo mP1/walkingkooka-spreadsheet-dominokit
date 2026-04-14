@@ -17,16 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.naming.HasName;
-import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
@@ -37,9 +36,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements ValueComponent<HTMLDivElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
-    HtmlComponentDelegator<HTMLDivElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
+
+    static String propertyNameToLabel(final TextStylePropertyName<?> propertyName) {
+        return CaseKind.KEBAB.change(
+            propertyName.value(),
+            CaseKind.TITLE
+        );
+    }
 
     TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike(final String idPrefix,
                                                                  final TextStylePropertyName<T> propertyName,
@@ -120,7 +125,7 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
     public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {
         throw new UnsupportedOperationException();
     }
-
+    
     @Override
     public final boolean isDisabled() {
         return false;
@@ -128,6 +133,31 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
 
     @Override
     public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setDisabled(final boolean disabled) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> alwaysShowHelperText() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final boolean isRequired() {
+        return false;
+    }
+
+    @Override
+    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> optional() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> required() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> validate() {
         throw new UnsupportedOperationException();
     }
 
@@ -175,13 +205,6 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
         };
     }
 
-    // HtmlComponentDelegator...........................................................................................
-
-    @Override
-    public final HtmlComponent<HTMLDivElement, ?> htmlComponent() {
-        return this.list;
-    }
-
     final AnchorListComponent list;
 
     // Object...........................................................................................................
@@ -225,7 +248,43 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            this.list.printTree(printer);
+            final String label = this.label();
+            final boolean missingLabel = CharSequences.isNullOrEmpty(label);
+
+            if(false == missingLabel) {
+                printer.println(label);
+                printer.indent();
+            }
+
+            {
+                this.list.printTree(printer);
+
+                printer.indent();
+                {
+                    final String helperText = this.helperText()
+                        .orElse(null);
+                    if (null != helperText) {
+                        printer.println(helperText);
+                    }
+
+                    final List<String> errors = this.errors();
+                    if (null != errors && false == errors.isEmpty()) {
+                        printer.println("Error(s)");
+                        printer.indent();
+                        {
+                            for (final String error : errors) {
+                                printer.println(error);
+                            }
+                        }
+                        printer.outdent();
+                    }
+                }
+                printer.outdent();
+            }
+
+            if(false == missingLabel) {
+                printer.outdent();
+            }
         }
         printer.outdent();
     }

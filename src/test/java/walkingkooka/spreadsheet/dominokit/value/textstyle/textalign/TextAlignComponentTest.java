@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textalign;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextAlignComponentTest implements HtmlComponentTesting<TextAlignComponent, HTMLDivElement> {
+public final class TextAlignComponentTest implements HtmlComponentTesting<TextAlignComponent, HTMLFieldSetElement> {
 
     @Test
     public void testSetValue() {
@@ -69,14 +69,15 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
             component,
             "TextAlignComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "    Text Align\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "            mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "            mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "            mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "            mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -121,14 +122,15 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
             component,
             "TextAlignComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "    Text Align\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "            mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "            mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "            mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "            mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
