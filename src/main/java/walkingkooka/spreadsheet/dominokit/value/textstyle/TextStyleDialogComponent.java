@@ -98,6 +98,14 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.verticalAlignComponent = this.verticalAlignComponent();
 
         this.textStyle.addValueWatcher2(
+            this.directionComponent.textStyleValueWatcher()
+        );
+
+        this.textStyle.addValueWatcher2(
+            this.fontKerningComponent.textStyleValueWatcher()
+        );
+
+        this.textStyle.addValueWatcher2(
             this.fontStretchComponent.textStyleValueWatcher()
         );
 
