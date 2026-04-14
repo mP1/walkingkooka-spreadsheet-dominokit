@@ -21,7 +21,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -31,28 +30,6 @@ import java.util.function.Function;
 
 public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T>
     implements TestHtmlElementComponent<HTMLFieldSetElement, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>> {
-
-    /**
-     * A function that converts {@link Enum#name()} to Title Case.
-     * <pre>
-     * UPPER_CASE -> Upper Case
-     * </pre>
-     */
-    public static <T extends Enum<T>> Function<Optional<T>, String> valueToText() {
-        return (value) -> value.map(
-            (T v) -> CaseKind.SNAKE.change(
-                v.name(),
-                CaseKind.TITLE
-            )
-        ).orElse("Clear");
-    }
-
-    /**
-     * A {@link Function} which will always return no icons for any value
-     */
-    public static <T extends Enum<T>> Function<Optional<T>, Optional<Icon<?>>> noIcons() {
-        return (value) -> Optional.empty();
-    }
 
     public static <T extends Enum<T>> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                                        final TextStylePropertyName<T> propertyName,
