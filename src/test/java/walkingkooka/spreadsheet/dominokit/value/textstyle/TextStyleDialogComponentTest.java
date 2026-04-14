@@ -118,6 +118,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
                 "                Selection [A1] id=TextStyle-selection-TextBox REQUIRED\n" +
+                "          DirectionComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Direction\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                      \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
+                "                      \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -234,6 +243,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                Selection [] id=TextStyle-selection-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"text\"\n" +
+                "          DirectionComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Direction\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                      \"Left to Right\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
+                "                      \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
