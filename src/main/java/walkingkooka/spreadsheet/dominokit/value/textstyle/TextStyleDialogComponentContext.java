@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVarian
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens.HyphensComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponentContext;
@@ -49,6 +50,7 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     HangingPunctuationComponentContext,
     HyphensComponentContext,
     OverflowComponentContext,
+    OverflowWrapComponentContext,
     TextAlignComponentContext,
     TextDecorationLineComponentContext,
     TextDecorationStyleComponentContext,
