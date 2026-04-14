@@ -137,6 +137,21 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
                 "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "          FontStretchComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Stretch\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/] CHECKED id=TextStyle-fontStretch-Link\n" +
+                "                      \"Ultra Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                      \"Extra Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                      \"Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                      \"Semi Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                      \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                      \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -272,6 +287,21 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
                 "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "          FontStretchComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Stretch\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/] CHECKED id=TextStyle-fontStretch-Link\n" +
+                "                      \"Ultra Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                      \"Extra Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                      \"Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                      \"Semi Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                      \"Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                      \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
