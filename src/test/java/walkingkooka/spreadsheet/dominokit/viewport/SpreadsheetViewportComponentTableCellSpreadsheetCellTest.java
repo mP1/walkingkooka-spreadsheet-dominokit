@@ -234,7 +234,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             0,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px; word-break: keep-all;\"\n"
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 100px; width: 100px; word-break: KEEP_ALL;\"\n"
         );
     }
 
@@ -250,7 +250,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
             0,
             "SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "  TD\n" +
-                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; font-style: italic; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
+                "    id=\"viewport-cell-A1\" tabIndex=0 style=\"background-color: black; box-sizing: border-box; font-style: ITALIC; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
                 "      \"=1+2\"\n"
         );
     }
