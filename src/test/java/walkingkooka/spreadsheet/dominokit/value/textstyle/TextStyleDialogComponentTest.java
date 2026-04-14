@@ -127,6 +127,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
                 "                      \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "          FontKerningComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Kerning\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -252,6 +262,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
                 "                      \"Left to Right\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/LTR] id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "          FontKerningComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Kerning\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
