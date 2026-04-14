@@ -38,7 +38,23 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: left;] REQUIRED\n"
+                "      [color: #111; text-align: LEFT;] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueFontVariantSmallCaps() {
+        this.treePrintAndCheck(
+            TextStyleComponent.empty()
+                .setValue(
+                    Optional.of(
+                        TextStyle.parse("font-variant: SMALL_CAPS;")
+                    )
+                ),
+            "TextStyleComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [font-variant: SMALL_CAPS;] REQUIRED\n"
         );
     }
 
