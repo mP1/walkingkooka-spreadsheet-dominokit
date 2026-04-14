@@ -17,15 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch;
 
-import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.FontStretch;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 public final class FontStretchComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<FontStretch, FontStretchComponent> {
 
@@ -55,47 +51,7 @@ public final class FontStretchComponent implements TextStylePropertyNameEnumHist
                 FontStretch.ULTRA_EXPANDED
             ),
             TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            (Optional<FontStretch> valueToIcon) -> Optional.ofNullable(
-                valueToIcon.map(
-                    (FontStretch fontStretch) -> {
-                        final Icon<?> icon;
-
-                        switch (fontStretch) {
-                            case ULTRA_CONDENSED:
-                                icon = null;
-                                break;
-                            case EXTRA_CONDENSED:
-                                icon = null;
-                                break;
-                            case CONDENSED:
-                                icon = null;
-                                break;
-                            case SEMI_CONDENSED:
-                                icon = null;
-                                break;
-                            case NORMAL:
-                                icon = null;
-                                break;
-                            case EXPANDED:
-                                icon = null;
-                                break;
-                            case EXTRA_EXPANDED:
-                                icon = null;
-                                break;
-                            case ULTRA_EXPANDED:
-                                icon = null;
-                                break;
-                            default:
-                                icon = NeverError.unhandledEnum(
-                                    fontStretch,
-                                    FontStretch.values()
-                                );
-                        }
-
-                        return icon;
-                    }
-                ).orElse(null)
-            ),
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
     }

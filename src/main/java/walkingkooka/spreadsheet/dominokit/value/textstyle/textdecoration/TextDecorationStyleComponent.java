@@ -17,15 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration;
 
-import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextDecorationStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 public final class TextDecorationStyleComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextDecorationStyle, TextDecorationStyleComponent> {
 
@@ -53,40 +49,7 @@ public final class TextDecorationStyleComponent implements TextStylePropertyName
                 TextDecorationStyle.WAVY
             ),
             TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            (Optional<TextDecorationStyle> valueToIcon) -> {
-                final Icon<?> icon;
-
-                final TextDecorationStyle textDecorationStyle = valueToIcon.orElse(null);
-
-                if (null != textDecorationStyle) {
-                    switch (textDecorationStyle) {
-                        case SOLID:
-                            icon = null;
-                            break;
-                        case DOUBLE:
-                            icon = null;
-                            break;
-                        case DASHED:
-                            icon = null;
-                            break;
-                        case DOTTED:
-                            icon = null;
-                            break;
-                        case WAVY:
-                            icon = null;
-                            break;
-                        default:
-                            icon = NeverError.unhandledEnum(
-                                textDecorationStyle,
-                                TextDecorationStyle.values()
-                            );
-                    }
-                } else {
-                    icon = null;
-                }
-
-                return Optional.ofNullable(icon);
-            },
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
     }

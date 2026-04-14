@@ -17,15 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning;
 
-import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.FontKerning;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 public final class FontKerningComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<FontKerning, FontKerningComponent> {
 
@@ -50,32 +46,7 @@ public final class FontKerningComponent implements TextStylePropertyNameEnumHist
                 FontKerning.NORMAL
             ),
             TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            (Optional<FontKerning> valueToIcon) -> Optional.ofNullable(
-                valueToIcon.map(
-                    (FontKerning fontKerning) -> {
-                        final Icon<?> icon;
-
-                        switch (fontKerning) {
-                            case AUTO:
-                                icon = null;
-                                break;
-                            case NONE:
-                                icon = null;
-                                break;
-                            case NORMAL:
-                                icon = null;
-                                break;
-                            default:
-                                icon = NeverError.unhandledEnum(
-                                    fontKerning,
-                                    FontKerning.values()
-                                );
-                        }
-
-                        return icon;
-                    }
-                ).orElse(null)
-            ),
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
     }

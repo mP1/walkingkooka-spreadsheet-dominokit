@@ -178,12 +178,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                      mdi-format-clear \"First\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                      mdi-format-clear \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                      mdi-format-clear \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                      mdi-format-clear \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                      \"First\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                      \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                      \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                      \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -360,12 +360,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
                 "                    ROW\n" +
-                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                      mdi-format-clear \"First\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                      mdi-format-clear \"Last\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                      mdi-format-clear \"Allow End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                      mdi-format-clear \"Force End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                      \"First\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                      \"Last\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                      \"Allow End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                      \"Force End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +

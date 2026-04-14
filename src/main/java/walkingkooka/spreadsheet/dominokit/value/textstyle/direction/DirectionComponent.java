@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.direction;
 
-import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
@@ -69,31 +68,7 @@ public final class DirectionComponent implements TextStylePropertyNameEnumHistor
                     return text;
                 }
             ).orElse("Clear"),
-            (Optional<Direction> valueToIcon) -> Optional.ofNullable(
-                valueToIcon.map(
-                    (Direction direction) -> {
-                        final Icon<?> icon;
-
-                        switch (direction) {
-                            case LTR:
-                                icon = null;
-                                break;
-                            case RTL:
-                                icon = null;
-                                break;
-                            default:
-                                icon = NeverError.unhandledEnum(
-                                    direction,
-                                    Direction.values()
-                                );
-                        }
-
-                        return icon;
-                    }
-                ).orElse(
-                   null
-                )
-            ),
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
     }
