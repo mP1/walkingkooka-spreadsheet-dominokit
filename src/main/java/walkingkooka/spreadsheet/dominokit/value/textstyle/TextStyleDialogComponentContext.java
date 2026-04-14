@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKernin
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponentContext;
@@ -43,6 +44,7 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     FontStretchComponentContext,
     FontStyleComponentContext,
     FontVariantComponentContext,
+    HangingPunctuationComponentContext,
     TextAlignComponentContext,
     TextDecorationLineComponentContext,
     TextDecorationStyleComponentContext,

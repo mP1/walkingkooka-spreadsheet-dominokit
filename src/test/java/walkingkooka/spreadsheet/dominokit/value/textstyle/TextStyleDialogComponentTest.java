@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -172,6 +172,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                      \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "          HangingPunctuationComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Hanging Punctuation\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                      mdi-format-clear \"First\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                      mdi-format-clear \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                      mdi-format-clear \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                      mdi-format-clear \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -219,12 +231,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -342,6 +354,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Initial\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                      \"Small Caps\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "          HangingPunctuationComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Hanging Punctuation\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                      mdi-format-clear \"None\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                      mdi-format-clear \"First\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                      mdi-format-clear \"Last\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                      mdi-format-clear \"Allow End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                      mdi-format-clear \"Force End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -389,12 +413,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
