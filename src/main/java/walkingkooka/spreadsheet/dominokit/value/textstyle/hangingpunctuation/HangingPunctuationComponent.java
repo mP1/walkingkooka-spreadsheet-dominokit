@@ -17,17 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation;
 
-import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.Cast;
-import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.HangingPunctuation;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 public final class HangingPunctuationComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<HangingPunctuation, HangingPunctuationComponent> {
 
@@ -54,42 +48,7 @@ public final class HangingPunctuationComponent implements TextStylePropertyNameE
                 HangingPunctuation.FORCE_END
             ),
             TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            (Optional<HangingPunctuation> valueToIcon) -> Optional.of(
-                valueToIcon.map(
-                    (HangingPunctuation hangingPunctuation) -> {
-                        final Icon<?> icon;
-
-                        switch (hangingPunctuation) {
-                            case NONE:
-                                icon = null;
-                                break;
-                            case FIRST:
-                                icon = null;
-                                break;
-                            case LAST:
-                                icon = null;
-                                break;
-                            case ALLOW_END:
-                                icon = null;
-                                break;
-                            case FORCE_END:
-                                icon = null;
-                                break;
-                            default:
-                                icon = NeverError.unhandledEnum(
-                                    hangingPunctuation,
-                                    HangingPunctuation.values()
-                                );
-                        }
-
-                        return icon;
-                    }
-                ).orElse(
-                    Cast.to(
-                        SpreadsheetIcons.alignClear()
-                    )
-                )
-            ),
+            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
             context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
         );
     }

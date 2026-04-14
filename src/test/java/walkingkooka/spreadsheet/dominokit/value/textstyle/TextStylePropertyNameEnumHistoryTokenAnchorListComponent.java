@@ -47,6 +47,13 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
         ).orElse("Clear");
     }
 
+    /**
+     * A {@link Function} which will always return no icons for any value
+     */
+    public static <T extends Enum<T>> Function<Optional<T>, Optional<Icon<?>>> noIcons() {
+        return (value) -> Optional.empty();
+    }
+
     public static <T extends Enum<T>> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                                        final TextStylePropertyName<T> propertyName,
                                                                                                        final List<T> values,
