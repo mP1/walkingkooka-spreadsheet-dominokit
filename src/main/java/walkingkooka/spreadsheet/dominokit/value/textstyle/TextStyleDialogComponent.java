@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionCom
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
@@ -94,6 +95,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.fontKerningComponent = this.fontKerningComponent();
         this.fontStretchComponent = this.fontStretchComponent();
         this.fontStyleComponent = this.fontStyleComponent();
+        this.fontVariantComponent = this.fontVariantComponent();
         this.textAlignComponent = this.textAlignComponent();
         this.textDecorationLineComponent = this.textDecorationLineComponent();
         this.textDecorationStyleComponent = this.textDecorationStyleComponent();
@@ -113,6 +115,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.textStyle.addValueWatcher2(
             this.fontStyleComponent.textStyleValueWatcher()
+        );
+
+        this.textStyle.addValueWatcher2(
+            this.fontVariantComponent.textStyleValueWatcher()
         );
 
         this.textStyle.addValueWatcher2(
@@ -156,6 +162,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 .appendChild(this.fontKerningComponent)
                 .appendChild(this.fontStretchComponent)
                 .appendChild(this.fontStyleComponent)
+                .appendChild(this.fontVariantComponent)
                 .appendChild(this.textAlignComponent)
                 .appendChild(this.textDecorationLineComponent)
                 .appendChild(this.textDecorationStyleComponent)
@@ -251,6 +258,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private FontStyleComponent fontStyleComponent;
+
+    // FontVariantComponent.............................................................................................
+
+    private FontVariantComponent fontVariantComponent() {
+        return FontVariantComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private FontVariantComponent fontVariantComponent;
 
     // TextAlignComponent...............................................................................................
 
