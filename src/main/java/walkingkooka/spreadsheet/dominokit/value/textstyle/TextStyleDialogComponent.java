@@ -55,6 +55,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDec
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify.TextJustifyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform.TextTransformComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace.WhitespaceComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -117,7 +118,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.textDecorationStyleComponent(),
             this.textJustifyComponent(),
             this.textTransformComponent(),
-            this.verticalAlignComponent()
+            this.verticalAlignComponent(),
+            this.whitespaceComponent()
         );
 
         this.components.forEach(
@@ -343,6 +345,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private VerticalAlignComponent verticalAlignComponent() {
         return VerticalAlignComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // WhitespaceComponent..............................................................................................
+
+    private WhitespaceComponent whitespaceComponent() {
+        return WhitespaceComponent.with(
             ID_PREFIX,
             this.context
         );
