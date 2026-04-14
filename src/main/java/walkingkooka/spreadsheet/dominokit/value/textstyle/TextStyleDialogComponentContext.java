@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform.TextTran
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textwrapping.TextWrappingComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace.WhitespaceComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.wordbreak.WordBreakComponentContext;
 import walkingkooka.tree.text.TextStyle;
 
 public interface TextStyleDialogComponentContext extends DialogComponentContext,
@@ -62,5 +63,6 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     TextTransformComponentContext,
     TextWrappingComponentContext,
     VerticalAlignComponentContext,
-    WhitespaceComponentContext {
+    WhitespaceComponentContext,
+    WordBreakComponentContext {
 }
