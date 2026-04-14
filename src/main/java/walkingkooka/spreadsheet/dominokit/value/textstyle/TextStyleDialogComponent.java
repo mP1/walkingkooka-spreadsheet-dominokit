@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
@@ -88,6 +89,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.links.setComponentWithErrors(this.textStyle);
 
         this.directionComponent = this.directionComponent();
+        this.fontKerningComponent = this.fontKerningComponent();
         this.textAlignComponent = this.textAlignComponent();
         this.textDecorationLineComponent = this.textDecorationLineComponent();
         this.textDecorationStyleComponent = this.textDecorationStyleComponent();
@@ -131,6 +133,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             FlexLayoutComponent.row()
                 .appendChild(this.selection)
                 .appendChild(this.directionComponent)
+                .appendChild(this.fontKerningComponent)
                 .appendChild(this.textAlignComponent)
                 .appendChild(this.textDecorationLineComponent)
                 .appendChild(this.textDecorationStyleComponent)
@@ -193,6 +196,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private DirectionComponent directionComponent;
+
+    // FontKerningComponent.............................................................................................
+
+    private FontKerningComponent fontKerningComponent() {
+        return FontKerningComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private FontKerningComponent fontKerningComponent;
     
     // TextAlignComponent...............................................................................................
 
