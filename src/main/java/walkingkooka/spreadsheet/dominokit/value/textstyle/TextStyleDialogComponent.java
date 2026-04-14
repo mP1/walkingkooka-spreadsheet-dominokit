@@ -107,6 +107,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.hangingPunctuationComponent(),
             this.hyphensComponent(),
             this.overflowXComponent(),
+            this.overflowYComponent(),
             this.textAlignComponent(),
             this.textDecorationLineComponent(),
             this.textDecorationStyleComponent(),
@@ -264,6 +265,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private OverflowComponent overflowXComponent() {
         return OverflowComponent.overflowX(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // OverflowComponent................................................................................................
+
+    private OverflowComponent overflowYComponent() {
+        return OverflowComponent.overflowY(
             ID_PREFIX,
             this.context
         );
