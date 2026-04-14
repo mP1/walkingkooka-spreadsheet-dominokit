@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKernin
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
@@ -96,6 +97,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.fontStretchComponent = this.fontStretchComponent();
         this.fontStyleComponent = this.fontStyleComponent();
         this.fontVariantComponent = this.fontVariantComponent();
+        this.hangingPunctuationComponent = this.hangingPunctuationComponent();
         this.textAlignComponent = this.textAlignComponent();
         this.textDecorationLineComponent = this.textDecorationLineComponent();
         this.textDecorationStyleComponent = this.textDecorationStyleComponent();
@@ -119,6 +121,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.textStyle.addValueWatcher2(
             this.fontVariantComponent.textStyleValueWatcher()
+        );
+
+        this.textStyle.addValueWatcher2(
+            this.hangingPunctuationComponent.textStyleValueWatcher()
         );
 
         this.textStyle.addValueWatcher2(
@@ -163,6 +169,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 .appendChild(this.fontStretchComponent)
                 .appendChild(this.fontStyleComponent)
                 .appendChild(this.fontVariantComponent)
+                .appendChild(this.hangingPunctuationComponent)
                 .appendChild(this.textAlignComponent)
                 .appendChild(this.textDecorationLineComponent)
                 .appendChild(this.textDecorationStyleComponent)
@@ -269,6 +276,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private FontVariantComponent fontVariantComponent;
+
+    // HangingPunctuationComponent......................................................................................
+
+    private HangingPunctuationComponent hangingPunctuationComponent() {
+        return HangingPunctuationComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private HangingPunctuationComponent hangingPunctuationComponent;
 
     // TextAlignComponent...............................................................................................
 
