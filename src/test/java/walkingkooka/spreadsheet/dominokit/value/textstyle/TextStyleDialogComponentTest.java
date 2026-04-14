@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -184,6 +184,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
                 "                      \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
                 "                      \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "          HyphensComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Hyphens\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                      \"Manual\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -231,12 +241,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -366,6 +376,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Last\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
                 "                      \"Allow End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
                 "                      \"Force End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "          HyphensComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Hyphens\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                      \"Manual\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -413,12 +433,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20vertical-align:%20MIDDLE;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
