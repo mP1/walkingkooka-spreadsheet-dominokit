@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
@@ -86,6 +87,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.links.setComponentWithErrors(this.textStyle);
 
+        this.directionComponent = this.directionComponent();
         this.textAlignComponent = this.textAlignComponent();
         this.textDecorationLineComponent = this.textDecorationLineComponent();
         this.textDecorationStyleComponent = this.textDecorationStyleComponent();
@@ -128,6 +130,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).appendChild(
             FlexLayoutComponent.row()
                 .appendChild(this.selection)
+                .appendChild(this.directionComponent)
                 .appendChild(this.textAlignComponent)
                 .appendChild(this.textDecorationLineComponent)
                 .appendChild(this.textDecorationStyleComponent)
@@ -180,6 +183,17 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // TextStylePropertyName components.................................................................................
 
+    // DirectionComponent...............................................................................................
+
+    private DirectionComponent directionComponent() {
+        return DirectionComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    private DirectionComponent directionComponent;
+    
     // TextAlignComponent...............................................................................................
 
     private TextAlignComponent textAlignComponent() {
