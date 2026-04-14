@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; vertical-align: MIDDLE");
 
     // setValue.........................................................................................................
 
@@ -152,6 +152,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "          FontStyleComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Style\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                      \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -199,12 +209,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20font-style:%20italic;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -302,6 +312,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "          FontStyleComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Font Style\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                      \"Oblique\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "          TextAlignComponent\n" +
                 "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
@@ -349,12 +369,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
+                "                Style [direction: ltr; font-kerning: auto; font-stretch: normal; font-style: italic; text-align: center; text-decoration-line: overline; text-decoration-style: dotted; vertical-align: middle;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20ltr;%20font-kerning:%20auto;%20font-stretch:%20normal;%20font-style:%20italic;%20text-align:%20center;%20text-decoration-line:%20overline;%20text-decoration-style:%20dotted;%20vertical-align:%20middle;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20left;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
