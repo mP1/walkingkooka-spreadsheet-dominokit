@@ -56,7 +56,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD;");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;");
 
     // setValue.........................................................................................................
 
@@ -333,15 +333,25 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "          WritingModeComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Writing Mode\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                      \"Horizontal Tb\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                      \"Vertical Lr\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                      \"Vertical Rl\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20writing-mode:%20HORIZONTAL_TB;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -620,15 +630,25 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "          WritingModeComponent\n" +
+                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "              Writing Mode\n" +
+                "                AnchorListComponent\n" +
+                "                  FlexLayoutComponent\n" +
+                "                    ROW\n" +
+                "                      \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                      \"Horizontal Tb\" [#/1/SpreadsheetName1/spreadsheet/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                      \"Vertical Lr\" [#/1/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                      \"Vertical Rl\" [#/1/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD;]\n" +
+                "                Style [direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; hyphens: AUTO; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; white-space: NOWRAP; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;]\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;] id=TextStyle-save-Link\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/direction:%20LTR;%20font-kerning:%20AUTO;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20hanging-punctuation:%20FIRST;%20hyphens:%20AUTO;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20white-space:%20NOWRAP;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20writing-mode:%20HORIZONTAL_TB;] id=TextStyle-save-Link\n" +
                 "              \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "              \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "              \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
