@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextDecorationStyleComponentTest implements HtmlComponentTesting<TextDecorationStyleComponent, HTMLDivElement> {
+public final class TextDecorationStyleComponentTest implements HtmlComponentTesting<TextDecorationStyleComponent, HTMLFieldSetElement> {
 
     @Test
     public void testSetValue() {
@@ -69,15 +69,16 @@ public final class TextDecorationStyleComponentTest implements HtmlComponentTest
             component,
             "TextDecorationStyleComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "    Text Decoration Style\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "            \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 
@@ -122,15 +123,16 @@ public final class TextDecorationStyleComponentTest implements HtmlComponentTest
             component,
             "TextDecorationStyleComponent\n" +
                 "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "    Text Decoration Style\n" +
+                "      AnchorListComponent\n" +
+                "        FlexLayoutComponent\n" +
+                "          ROW\n" +
+                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "            \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 
