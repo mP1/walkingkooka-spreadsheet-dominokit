@@ -56,6 +56,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify.TextJustif
 import walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform.TextTransformComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textwrapping.TextWrappingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.visibility.VisibilityComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace.WhitespaceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.wordbreak.WordBreakComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.wordwrap.WordWrapComponent;
@@ -124,6 +125,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.textTransformComponent(),
             this.textWrappingComponent(),
             this.verticalAlignComponent(),
+            this.visibilityComponent(),
             this.whitespaceComponent(),
             this.wordBreakComponent(),
             this.wordWrapComponent(),
@@ -367,6 +369,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
+    // VisibilityComponent..............................................................................................
+
+    private VisibilityComponent visibilityComponent() {
+        return VisibilityComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+    
     // WhitespaceComponent..............................................................................................
 
     private WhitespaceComponent whitespaceComponent() {
