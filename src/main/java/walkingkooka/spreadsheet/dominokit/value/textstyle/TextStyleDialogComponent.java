@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
@@ -36,6 +37,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
@@ -53,6 +56,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.tree.text.TextStyle;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -93,60 +97,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.links.setComponentWithErrors(this.textStyle);
 
-        this.directionComponent = this.directionComponent();
-        this.fontKerningComponent = this.fontKerningComponent();
-        this.fontStretchComponent = this.fontStretchComponent();
-        this.fontStyleComponent = this.fontStyleComponent();
-        this.fontVariantComponent = this.fontVariantComponent();
-        this.hangingPunctuationComponent = this.hangingPunctuationComponent();
-        this.hyphensComponent = this.hyphensComponent();
-        this.textAlignComponent = this.textAlignComponent();
-        this.textDecorationLineComponent = this.textDecorationLineComponent();
-        this.textDecorationStyleComponent = this.textDecorationStyleComponent();
-        this.verticalAlignComponent = this.verticalAlignComponent();
-
-        this.textStyle.addValueWatcher2(
-            this.directionComponent.textStyleValueWatcher()
+        this.components = Lists.of(
+            this.directionComponent(),
+            this.fontKerningComponent(),
+            this.fontStretchComponent(),
+            this.fontStyleComponent(),
+            this.fontVariantComponent(),
+            this.hangingPunctuationComponent(),
+            this.hyphensComponent(),
+            this.textAlignComponent(),
+            this.textDecorationLineComponent(),
+            this.textDecorationStyleComponent(),
+            this.verticalAlignComponent()
         );
 
-        this.textStyle.addValueWatcher2(
-            this.fontKerningComponent.textStyleValueWatcher()
-        );
+        this.components.forEach(
+            (FormValueComponent<?, ?, ?> component) -> {
+                final ValueWatcher<TextStyle> valueWatcher;
+                if(component instanceof TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator){
+                    valueWatcher = ((TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<?, ?>) component)
+                        .textStyleValueWatcher();
+                } else {
+                    throw new UnsupportedOperationException(component.getClass().getSimpleName() + " " + component.toString());
+                }
 
-        this.textStyle.addValueWatcher2(
-            this.fontStretchComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.fontStyleComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.fontVariantComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.hangingPunctuationComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.hyphensComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.textAlignComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.textDecorationLineComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.textDecorationStyleComponent.textStyleValueWatcher()
-        );
-
-        this.textStyle.addValueWatcher2(
-            this.verticalAlignComponent.textStyleValueWatcher()
+                this.textStyle.addValueWatcher2(valueWatcher);
+            }
         );
 
         this.textStyle.addValueWatcher2(this.links);
@@ -170,17 +146,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).appendChild(
             FlexLayoutComponent.row()
                 .appendChild(this.selection)
-                .appendChild(this.directionComponent)
-                .appendChild(this.fontKerningComponent)
-                .appendChild(this.fontStretchComponent)
-                .appendChild(this.fontStyleComponent)
-                .appendChild(this.fontVariantComponent)
-                .appendChild(this.hangingPunctuationComponent)
-                .appendChild(this.hyphensComponent)
-                .appendChild(this.textAlignComponent)
-                .appendChild(this.textDecorationLineComponent)
-                .appendChild(this.textDecorationStyleComponent)
-                .appendChild(this.verticalAlignComponent)
+                .appendChildren(this.components)
                 .appendChild(this.textStyle)
         ).appendChild(this.links);
     }
@@ -238,8 +204,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private DirectionComponent directionComponent;
-
     // FontKerningComponent.............................................................................................
 
     private FontKerningComponent fontKerningComponent() {
@@ -248,8 +212,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.context
         );
     }
-
-    private FontKerningComponent fontKerningComponent;
 
     // FontStretchComponent.............................................................................................
 
@@ -260,8 +222,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private FontStretchComponent fontStretchComponent;
-
     // FontStyleComponent...............................................................................................
 
     private FontStyleComponent fontStyleComponent() {
@@ -270,8 +230,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.context
         );
     }
-
-    private FontStyleComponent fontStyleComponent;
 
     // FontVariantComponent.............................................................................................
 
@@ -282,8 +240,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private FontVariantComponent fontVariantComponent;
-
     // HangingPunctuationComponent......................................................................................
 
     private HangingPunctuationComponent hangingPunctuationComponent() {
@@ -292,8 +248,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.context
         );
     }
-
-    private HangingPunctuationComponent hangingPunctuationComponent;
 
     // HyphensComponent..................................................................................................
 
@@ -304,8 +258,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private HyphensComponent hyphensComponent;
-
     // TextAlignComponent...............................................................................................
 
     private TextAlignComponent textAlignComponent() {
@@ -314,8 +266,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.context
         );
     }
-
-    private TextAlignComponent textAlignComponent;
 
     // TextDecorationLineComponent......................................................................................
 
@@ -326,8 +276,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private TextDecorationLineComponent textDecorationLineComponent;
-
     // TextDecorationStyleComponent......................................................................................
 
     private TextDecorationStyleComponent textDecorationStyleComponent() {
@@ -337,8 +285,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
-    private TextDecorationStyleComponent textDecorationStyleComponent;
-
     // VerticalAlignComponent...........................................................................................
 
     private VerticalAlignComponent verticalAlignComponent() {
@@ -347,8 +293,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.context
         );
     }
-
-    private VerticalAlignComponent verticalAlignComponent;
 
     // TextStyleComponent...............................................................................................
 
@@ -361,6 +305,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // @VisibleForTesting
     final TextStyleComponent textStyle;
+
+    final List<FormValueComponent<?, ?, ?>> components;
 
     // links............................................................................................................
 
