@@ -53,6 +53,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignCom
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify.TextJustifyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform.TextTransformComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -115,6 +116,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.textDecorationLineComponent(),
             this.textDecorationStyleComponent(),
             this.textJustifyComponent(),
+            this.textTransformComponent(),
             this.verticalAlignComponent()
         );
 
@@ -323,6 +325,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private TextJustifyComponent textJustifyComponent() {
         return TextJustifyComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // TextTransformComponent...........................................................................................
+
+    private TextTransformComponent textTransformComponent() {
+        return TextTransformComponent.with(
             ID_PREFIX,
             this.context
         );
