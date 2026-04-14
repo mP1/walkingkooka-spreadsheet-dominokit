@@ -229,7 +229,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     private TextStyleComponent textStyle() {
         return TextStyleComponent.empty()
             .optional()
-            .addValueWatcher2(this.links);
+            .addValueWatcher2(this.links)
+            .setLabel("Style");
     }
 
     // @VisibleForTesting
