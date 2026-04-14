@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherW
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponentContext;
@@ -39,6 +40,7 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     DirectionComponentContext,
     FontKerningComponentContext,
     FontStretchComponentContext,
+    FontStyleComponentContext,
     TextAlignComponentContext,
     TextDecorationLineComponentContext,
     TextDecorationStyleComponentContext,
