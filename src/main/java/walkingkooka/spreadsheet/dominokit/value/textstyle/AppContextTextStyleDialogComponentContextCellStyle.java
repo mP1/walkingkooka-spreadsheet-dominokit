@@ -84,13 +84,6 @@ final class AppContextTextStyleDialogComponentContextCellStyle extends AppContex
 
     @Override
     public Runnable addSpreadsheetMetadataFetcherWatcherOnce(final SpreadsheetMetadataFetcherWatcher watcher) {
-        // NOP
-        return null;
-    }
-
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        // NOP
-        return null;
+        return this.context.addSpreadsheetMetadataFetcherWatcherOnce(watcher);
     }
 }

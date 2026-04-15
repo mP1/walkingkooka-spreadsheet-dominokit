@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
@@ -50,6 +51,11 @@ public class FakeTextStyleDialogComponentContext extends FakeDialogAnchorListCom
 
     @Override
     public String dialogTitle() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 
