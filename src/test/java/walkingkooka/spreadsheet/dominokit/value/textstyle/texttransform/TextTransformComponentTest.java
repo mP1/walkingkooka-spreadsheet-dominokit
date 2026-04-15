@@ -68,7 +68,7 @@ public final class TextTransformComponentTest implements HtmlComponentTesting<Te
         this.treePrintAndCheck(
             component,
             "TextTransformComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Transform\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -121,7 +121,7 @@ public final class TextTransformComponentTest implements HtmlComponentTesting<Te
         this.treePrintAndCheck(
             component,
             "TextTransformComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Transform\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

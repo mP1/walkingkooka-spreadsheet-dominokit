@@ -68,7 +68,7 @@ public final class HyphensComponentTest implements HtmlComponentTesting<HyphensC
         this.treePrintAndCheck(
             component,
             "HyphensComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Hyphens\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class HyphensComponentTest implements HtmlComponentTesting<HyphensC
         this.treePrintAndCheck(
             component,
             "HyphensComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Hyphens\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

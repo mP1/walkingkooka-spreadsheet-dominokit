@@ -68,7 +68,7 @@ public final class OverflowComponentTest implements HtmlComponentTesting<Overflo
         this.treePrintAndCheck(
             component,
             "OverflowComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Overflow X\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -124,7 +124,7 @@ public final class OverflowComponentTest implements HtmlComponentTesting<Overflo
         this.treePrintAndCheck(
             component,
             "OverflowComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Overflow Y\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

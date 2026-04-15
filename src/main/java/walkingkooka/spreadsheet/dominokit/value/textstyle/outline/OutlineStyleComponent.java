@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.outline;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.OutlineStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class OutlineStyleComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<OutlineStyle, OutlineStyleComponent> {
+public final class OutlineStyleComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<OutlineStyle, OutlineStyleComponent> {
 
     public static OutlineStyleComponent with(final String idPrefix,
                                              final OutlineStyleComponentContext context) {
@@ -36,7 +36,7 @@ public final class OutlineStyleComponent implements TextStylePropertyNameEnumHis
     private OutlineStyleComponent(final String idPrefix,
                                   final OutlineStyleComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.OUTLINE_STYLE,
             Lists.of(
@@ -52,18 +52,18 @@ public final class OutlineStyleComponent implements TextStylePropertyNameEnumHis
                 OutlineStyle.INSET,
                 OutlineStyle.OUTSET
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<OutlineStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<OutlineStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<OutlineStyle> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<OutlineStyle> component;
 
     // Object...........................................................................................................
 

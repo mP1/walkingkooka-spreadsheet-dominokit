@@ -68,7 +68,7 @@ public final class HangingPunctuationComponentTest implements HtmlComponentTesti
         this.treePrintAndCheck(
             component,
             "HangingPunctuationComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Hanging Punctuation\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -122,7 +122,7 @@ public final class HangingPunctuationComponentTest implements HtmlComponentTesti
         this.treePrintAndCheck(
             component,
             "HangingPunctuationComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Hanging Punctuation\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

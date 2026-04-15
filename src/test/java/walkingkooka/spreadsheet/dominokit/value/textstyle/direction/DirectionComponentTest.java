@@ -68,7 +68,7 @@ public final class DirectionComponentTest implements HtmlComponentTesting<Direct
         this.treePrintAndCheck(
             component,
             "DirectionComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Direction\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -119,7 +119,7 @@ public final class DirectionComponentTest implements HtmlComponentTesting<Direct
         this.treePrintAndCheck(
             component,
             "DirectionComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Direction\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

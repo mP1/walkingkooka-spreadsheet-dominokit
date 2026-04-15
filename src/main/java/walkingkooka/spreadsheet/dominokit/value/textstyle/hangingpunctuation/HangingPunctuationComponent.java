@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.HangingPunctuation;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class HangingPunctuationComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<HangingPunctuation, HangingPunctuationComponent> {
+public final class HangingPunctuationComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<HangingPunctuation, HangingPunctuationComponent> {
 
     public static HangingPunctuationComponent with(final String idPrefix,
                                                    final HangingPunctuationComponentContext context) {
@@ -36,7 +36,7 @@ public final class HangingPunctuationComponent implements TextStylePropertyNameE
     private HangingPunctuationComponent(final String idPrefix,
                                         final HangingPunctuationComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.HANGING_PUNCTUATION,
             Lists.of(
@@ -47,18 +47,18 @@ public final class HangingPunctuationComponent implements TextStylePropertyNameE
                 HangingPunctuation.ALLOW_END,
                 HangingPunctuation.FORCE_END
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<HangingPunctuation> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<HangingPunctuation> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<HangingPunctuation> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<HangingPunctuation> component;
 
     // Object...........................................................................................................
 

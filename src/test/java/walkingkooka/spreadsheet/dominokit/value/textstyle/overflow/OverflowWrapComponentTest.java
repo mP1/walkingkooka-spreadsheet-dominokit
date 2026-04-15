@@ -68,7 +68,7 @@ public final class OverflowWrapComponentTest implements HtmlComponentTesting<Ove
         this.treePrintAndCheck(
             component,
             "OverflowWrapComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Overflow Wrap\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class OverflowWrapComponentTest implements HtmlComponentTesting<Ove
         this.treePrintAndCheck(
             component,
             "OverflowWrapComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Overflow Wrap\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

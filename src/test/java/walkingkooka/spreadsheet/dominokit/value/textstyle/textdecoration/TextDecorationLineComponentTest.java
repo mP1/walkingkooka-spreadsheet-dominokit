@@ -68,7 +68,7 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
         this.treePrintAndCheck(
             component,
             "TextDecorationLineComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Decoration Line\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -121,7 +121,7 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
         this.treePrintAndCheck(
             component,
             "TextDecorationLineComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Decoration Line\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

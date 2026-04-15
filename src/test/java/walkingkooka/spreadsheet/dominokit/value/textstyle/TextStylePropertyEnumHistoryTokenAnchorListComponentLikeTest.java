@@ -21,7 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLikeTest implements ClassTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<?>> {
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentLikeTest implements ClassTesting<TextStylePropertyEnumHistoryTokenAnchorListComponentLike<?>> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -29,8 +29,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLikeT
     }
 
     @Override
-    public Class<TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<?>> type() {
-        return Cast.to(TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike.class);
+    public Class<TextStylePropertyEnumHistoryTokenAnchorListComponentLike<?>> type() {
+        return Cast.to(TextStylePropertyEnumHistoryTokenAnchorListComponentLike.class);
     }
 
     @Override

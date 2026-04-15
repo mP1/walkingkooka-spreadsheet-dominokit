@@ -68,7 +68,7 @@ public final class TextJustifyComponentTest implements HtmlComponentTesting<Text
         this.treePrintAndCheck(
             component,
             "TextJustifyComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Justify\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class TextJustifyComponentTest implements HtmlComponentTesting<Text
         this.treePrintAndCheck(
             component,
             "TextJustifyComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Justify\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

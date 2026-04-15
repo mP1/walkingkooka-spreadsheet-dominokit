@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
 
-public interface HyphensComponentContext extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext {
+public interface HyphensComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
 }

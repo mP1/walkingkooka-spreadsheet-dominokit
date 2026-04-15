@@ -36,7 +36,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>>,
+abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>>,
     HasName<TextStylePropertyName<T>> {
 
     /**
@@ -68,12 +68,12 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
         );
     }
 
-    TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike(final String idPrefix,
-                                                                 final TextStylePropertyName<T> propertyName,
-                                                                 final List<T> values,
-                                                                 final Function<Optional<T>, String> valueToText,
-                                                                 final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                 final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
+    TextStylePropertyEnumHistoryTokenAnchorListComponentLike(final String idPrefix,
+                                                             final TextStylePropertyName<T> propertyName,
+                                                             final List<T> values,
+                                                             final Function<Optional<T>, String> valueToText,
+                                                             final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                             final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         super();
 
         CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix");
@@ -124,7 +124,7 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setValue(final Optional<T> value) {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
         for (final TextStylePropertyHistoryTokenAnchorComponent<T> child : this.children()) {
@@ -134,7 +134,7 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
             );
         }
 
-        return (TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T>) this;
+        return (TextStylePropertyEnumHistoryTokenAnchorListComponent<T>) this;
     }
 
     private List<TextStylePropertyHistoryTokenAnchorComponent<T>> children() {
@@ -154,12 +154,12 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setDisabled(final boolean disabled) {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> alwaysShowHelperText() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> alwaysShowHelperText() {
         throw new UnsupportedOperationException();
     }
 
@@ -169,42 +169,42 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> optional() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> optional() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> required() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> required() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> validate() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> validate() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> hideMarginBottom() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removeBorders() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removePadding() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> removePadding() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> focus() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> focus() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> blur() {
+    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> blur() {
         throw new UnsupportedOperationException();
     }
 
@@ -216,10 +216,10 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
         return new ValueWatcher<TextStyle>() {
             @Override
             public void onValue(final Optional<TextStyle> value) {
-                TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike.this.setValue(
+                TextStylePropertyEnumHistoryTokenAnchorListComponentLike.this.setValue(
                     value.flatMap(
                         (final TextStyle textStyle) -> textStyle.get(
-                            TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike.this.name
+                            TextStylePropertyEnumHistoryTokenAnchorListComponentLike.this.name
                         )
                     )
                 );
@@ -239,11 +239,11 @@ abstract class TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T ex
     @Override
     public final boolean equals(final Object other) {
         return this == other ||
-            other instanceof TextStylePropertyNameEnumHistoryTokenAnchorListComponent &&
+            other instanceof TextStylePropertyEnumHistoryTokenAnchorListComponent &&
                 this.equals0(Cast.to(other));
     }
 
-    private boolean equals0(final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<?> other) {
+    private boolean equals0(final TextStylePropertyEnumHistoryTokenAnchorListComponent<?> other) {
         return this.list.equals(other.list);
     }
 

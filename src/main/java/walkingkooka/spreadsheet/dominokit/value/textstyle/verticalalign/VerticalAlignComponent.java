@@ -22,14 +22,14 @@ import walkingkooka.Cast;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Optional;
 
-public final class VerticalAlignComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<VerticalAlign, VerticalAlignComponent> {
+public final class VerticalAlignComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<VerticalAlign, VerticalAlignComponent> {
 
     public static VerticalAlignComponent with(final String idPrefix,
                                               final VerticalAlignComponentContext context) {
@@ -42,7 +42,7 @@ public final class VerticalAlignComponent implements TextStylePropertyNameEnumHi
     private VerticalAlignComponent(final String idPrefix,
                                    final VerticalAlignComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.VERTICAL_ALIGN,
             Lists.of(
@@ -51,7 +51,7 @@ public final class VerticalAlignComponent implements TextStylePropertyNameEnumHi
                 VerticalAlign.MIDDLE,
                 VerticalAlign.BOTTOM
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             (Optional<VerticalAlign> valueToIcon) -> Optional.of(
                 valueToIcon.map(
                     (VerticalAlign verticalAlign) -> {
@@ -82,16 +82,16 @@ public final class VerticalAlignComponent implements TextStylePropertyNameEnumHi
                     )
                 )
             ),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<VerticalAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<VerticalAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<VerticalAlign> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<VerticalAlign> component;
 
     // Object...........................................................................................................
 

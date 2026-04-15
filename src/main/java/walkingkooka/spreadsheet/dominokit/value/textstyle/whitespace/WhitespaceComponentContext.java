@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
 
-public interface WhitespaceComponentContext extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext {
+public interface WhitespaceComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
 }

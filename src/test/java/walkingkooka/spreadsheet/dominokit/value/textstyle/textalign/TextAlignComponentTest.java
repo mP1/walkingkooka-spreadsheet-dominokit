@@ -68,7 +68,7 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
         this.treePrintAndCheck(
             component,
             "TextAlignComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Align\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -121,7 +121,7 @@ public final class TextAlignComponentTest implements HtmlComponentTesting<TextAl
         this.treePrintAndCheck(
             component,
             "TextAlignComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Align\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

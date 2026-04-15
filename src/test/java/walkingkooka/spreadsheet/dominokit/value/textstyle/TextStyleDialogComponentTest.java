@@ -119,7 +119,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              TextBoxComponent\n" +
                 "                Selection [A1] id=TextStyle-selection-TextBox REQUIRED\n" +
                 "          DirectionComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Direction\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -128,7 +128,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          FontKerningComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Kerning\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -138,7 +138,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          FontStretchComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Stretch\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -153,7 +153,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "          FontStyleComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Style\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -163,7 +163,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
                 "                      \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "          FontVariantComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Variant\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -173,7 +173,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                      \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "          HangingPunctuationComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Hanging Punctuation\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -185,7 +185,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
                 "                      \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          HyphensComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Hyphens\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -195,7 +195,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Manual\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "          OverflowComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow X\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -206,7 +206,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Scroll\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "          OverflowComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow Y\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -217,7 +217,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Scroll\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "          OverflowWrapComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow Wrap\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -227,7 +227,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Anywhere\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "          TextAlignComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -238,7 +238,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                      mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "          TextDecorationLineComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Decoration Line\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -249,7 +249,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                      mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          TextDecorationStyleComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Decoration Style\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -261,7 +261,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          TextJustifyComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Justify\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -271,7 +271,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                      \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
                 "          TextTransformComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Transform\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -282,7 +282,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
                 "                      mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "          TextWrappingComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Wrapping\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -292,7 +292,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "                      \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "          VerticalAlignComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Vertical Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -302,7 +302,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "          VisibilityComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Visibility\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -312,7 +312,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
                 "                      \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "          WhitespaceComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              White Space\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -324,7 +324,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Pre Line\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
                 "                      \"Pre Wrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "          WordBreakComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Word Break\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -335,7 +335,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Keep All\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "          WordWrapComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Word Wrap\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -344,7 +344,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "          WritingModeComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Writing Mode\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -426,7 +426,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                Errors\n" +
                 "                  Empty \"text\"\n" +
                 "          DirectionComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Direction\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -435,7 +435,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Left to Right\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
                 "                      \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "          FontKerningComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Kerning\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -445,7 +445,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"None\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "          FontStretchComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Stretch\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -460,7 +460,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                      \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "          FontStyleComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Style\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -470,7 +470,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
                 "                      \"Oblique\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "          FontVariantComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Font Variant\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -480,7 +480,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                      \"Small Caps\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "          HangingPunctuationComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Hanging Punctuation\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -492,7 +492,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Allow End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
                 "                      \"Force End\" [#/1/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "          HyphensComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Hyphens\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -502,7 +502,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Manual\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "          OverflowComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow X\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -513,7 +513,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Scroll\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "          OverflowComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow Y\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -524,7 +524,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Scroll\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
                 "                      \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "          OverflowWrapComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Overflow Wrap\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -534,7 +534,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Anywhere\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "          TextAlignComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -545,7 +545,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
                 "                      mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "          TextDecorationLineComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Decoration Line\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -556,7 +556,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Overline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
                 "                      mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "          TextDecorationStyleComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Decoration Style\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -568,7 +568,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Dotted\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
                 "                      \"Wavy\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "          TextJustifyComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Justify\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -578,7 +578,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Inter Word\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                      \"Inter Character\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
                 "          TextTransformComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Transform\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -589,7 +589,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/spreadsheet/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
                 "                      mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "          TextWrappingComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Text Wrapping\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -599,7 +599,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "                      \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "          VerticalAlignComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Vertical Align\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -609,7 +609,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
                 "                      mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "          VisibilityComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Visibility\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -619,7 +619,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Hidden\" [#/1/SpreadsheetName1/spreadsheet/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
                 "                      \"Collapse\" [#/1/SpreadsheetName1/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "          WhitespaceComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              White Space\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -631,7 +631,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Pre Line\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
                 "                      \"Pre Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "          WordBreakComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Word Break\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -642,7 +642,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Keep All\" [#/1/SpreadsheetName1/spreadsheet/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "          WordWrapComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Word Wrap\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +
@@ -651,7 +651,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
                 "                      \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "          WritingModeComponent\n" +
-                "            TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "            TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "              Writing Mode\n" +
                 "                AnchorListComponent\n" +
                 "                  FlexLayoutComponent\n" +

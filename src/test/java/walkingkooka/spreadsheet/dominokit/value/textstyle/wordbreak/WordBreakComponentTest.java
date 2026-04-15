@@ -69,7 +69,7 @@ public final class WordBreakComponentTest implements HtmlComponentTesting<WordBr
         this.treePrintAndCheck(
             component,
             "WordBreakComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Word Break\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -123,7 +123,7 @@ public final class WordBreakComponentTest implements HtmlComponentTesting<WordBr
         this.treePrintAndCheck(
             component,
             "WordBreakComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Word Break\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

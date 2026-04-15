@@ -69,7 +69,7 @@ public final class WordWrapComponentTest implements HtmlComponentTesting<WordWra
         this.treePrintAndCheck(
             component,
             "WordWrapComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Word Wrap\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -121,7 +121,7 @@ public final class WordWrapComponentTest implements HtmlComponentTesting<WordWra
         this.treePrintAndCheck(
             component,
             "WordWrapComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Word Wrap\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
