@@ -264,13 +264,17 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         );
     }
 
-    // TODO Add more later BorderStyles
-    // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/2189
     private final static List<BorderStyle> BORDER_STYLE = Lists.of(
         BorderStyle.NONE,
-        BorderStyle.DASHED,
+        BorderStyle.HIDDEN,
         BorderStyle.DOTTED,
-        BorderStyle.SOLID
+        BorderStyle.DASHED,
+        BorderStyle.SOLID,
+        BorderStyle.DOUBLE,
+        BorderStyle.GROOVE,
+        BorderStyle.RIDGE,
+        BorderStyle.INSET,
+        BorderStyle.OUTSET
     );
 
     // none
