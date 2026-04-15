@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle.border.border;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
