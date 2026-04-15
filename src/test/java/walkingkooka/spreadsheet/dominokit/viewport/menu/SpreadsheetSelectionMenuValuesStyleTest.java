@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -72,8 +73,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-color-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -256,8 +257,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-backgroundColor-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -455,8 +456,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderTopColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -653,8 +654,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -851,8 +852,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderRightColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -1049,8 +1050,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -1247,8 +1248,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -1481,8 +1482,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-color-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -1665,8 +1666,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-backgroundColor-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -1864,8 +1865,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderTopColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -2062,8 +2063,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -2260,8 +2261,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderRightColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -2458,8 +2459,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -2656,8 +2657,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -2889,8 +2890,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-color-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -3073,8 +3074,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "            TBODY\n" +
                 "              TR\n",
                 "                TD\n" +
-                "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    DISABLED id=test-Style-backgroundColor-color-1-Link\n" +
+                "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -3272,8 +3273,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderTopColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -3470,8 +3471,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -3668,8 +3669,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderRightColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -3866,8 +3867,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -4064,8 +4065,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                TBODY\n" +
                 "                  TR\n",
                 "                    TD\n" +
-                "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        DISABLED id=test-Style-borderColor-color-1-Link\n" +
+                "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -4334,7 +4335,14 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 return SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.LOCALE,
                     LOCALE
-                ).loadFromLocale(CURRENCY_LOCALE_CONTEXT);
+                ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
+                    .set(
+                        SpreadsheetMetadataPropertyName.namedColor(SpreadsheetColorName.BLACK),
+                        1
+                    ).set(
+                        SpreadsheetMetadataPropertyName.numberedColor(1),
+                        Color.BLACK
+                    );
             }
         };
     }
