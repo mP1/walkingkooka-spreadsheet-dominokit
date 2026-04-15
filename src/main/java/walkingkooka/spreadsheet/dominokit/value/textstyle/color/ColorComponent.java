@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -60,6 +61,16 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     private final static int COLUMNS = 8;
 
     private final static int COLOR_COUNT = ROWS * COLUMNS;
+
+    public static Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer(final TextStylePropertyName<Color> textStylePropertyName) {
+        Objects.requireNonNull(textStylePropertyName, "textStylePropertyName");
+
+        return (final HistoryToken historyToken) -> Optional.of(
+            historyToken.setStylePropertyName(
+                Optional.of(textStylePropertyName)
+            )
+        );
+    }
 
     public static ColorComponent with(final String idPrefix,
                                       final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,

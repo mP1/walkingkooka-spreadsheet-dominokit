@@ -347,11 +347,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         sub.item(
             ColorComponent.with(
                 id + "-",
-                (h) -> Optional.of(
-                    h.setStylePropertyName(
-                        Optional.of(color)
-                    )
-                ),
+                ColorComponent.historyTokenPreparer(color),
                 context
             )
         );
