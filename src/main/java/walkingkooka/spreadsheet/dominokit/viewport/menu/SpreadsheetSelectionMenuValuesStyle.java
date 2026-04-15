@@ -349,6 +349,12 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
                 id + "-",
                 ColorComponent.historyTokenPreparer(color),
                 context
+            ).setValue(
+                context.selectionSummary()
+                    .flatMap(
+                        (SpreadsheetCell cell) -> cell.style()
+                            .get(color)
+                    )
             )
         );
     }
