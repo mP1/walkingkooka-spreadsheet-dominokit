@@ -26,7 +26,8 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>>
-    extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
+    extends HasTextStyleValueWatcherValueWatcher,
+    FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
     HasName<TextStylePropertyName<V>> {
 
     @Override
@@ -35,6 +36,7 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
             .name();
     }
 
+    @Override
     default ValueWatcher<TextStyle> textStyleValueWatcher() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .textStyleValueWatcher();
