@@ -33,7 +33,7 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.color.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 
 import java.util.Optional;
 

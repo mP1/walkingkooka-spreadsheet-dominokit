@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle.color.color;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import org.dominokit.domino.ui.style.CssClass;
 import walkingkooka.color.Color;

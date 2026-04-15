@@ -15,9 +15,23 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle.color.color;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.ContextTesting;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public interface ColorComponentContextTesting<C extends ColorComponentContext> extends ContextTesting<C> {
+public final class ColorComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@see FakeColorComponentContext}
+     */
+    public static FakeColorComponentContext fake() {
+        return new FakeColorComponentContext();
+    }
+
+    /**
+     * Stop creation
+     */
+    private ColorComponentContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

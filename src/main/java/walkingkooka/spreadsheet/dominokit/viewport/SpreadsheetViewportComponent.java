@@ -68,7 +68,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateLinkComponent;
 import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellLinksComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.color.SpreadsheetDominoKitColor;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.viewport.menu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterAliasSet;
