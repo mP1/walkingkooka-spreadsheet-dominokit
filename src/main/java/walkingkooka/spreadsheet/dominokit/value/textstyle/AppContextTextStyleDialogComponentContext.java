@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
 
@@ -32,6 +34,16 @@ abstract class AppContextTextStyleDialogComponentContext implements TextStyleDia
     AppContextTextStyleDialogComponentContext(final AppContext context) {
         super();
         this.context = Objects.requireNonNull(context, "context");
+    }
+
+    @Override
+    public final SpreadsheetMetadata spreadsheetMetadata() {
+        return this.context.spreadsheetMetadata();
+    }
+
+    @Override
+    public final Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
+        return this.context.addSpreadsheetMetadataFetcherWatcher(watcher);
     }
 
     // DialogComponentContextDelegator..................................................................................

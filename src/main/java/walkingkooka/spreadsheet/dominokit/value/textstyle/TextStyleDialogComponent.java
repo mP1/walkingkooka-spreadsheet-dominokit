@@ -40,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponent;
@@ -108,6 +109,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.links.setComponentWithErrors(this.textStyle);
 
         this.components = Lists.of(
+            this.backgroundColorComponent(),
             this.directionComponent(),
             this.fontKerningComponent(),
             this.fontStretchComponent(),
@@ -216,6 +218,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // TextStylePropertyName components.................................................................................
 
+    // BackgroundColorComponent.........................................................................................
+
+    private BackgroundColorComponent backgroundColorComponent() {
+        return BackgroundColorComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+    
     // DirectionComponent...............................................................................................
 
     private DirectionComponent directionComponent() {
