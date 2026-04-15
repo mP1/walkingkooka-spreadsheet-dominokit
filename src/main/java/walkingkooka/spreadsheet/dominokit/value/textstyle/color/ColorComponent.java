@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.text.CharSequences;
@@ -247,19 +248,25 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     public ColorComponent setValue(final Optional<Color> value) {
         Objects.requireNonNull(value, "value");
 
+        final Optional<Color> previous = this.value;
         this.value = value;
+
+        if(false == previous.equals(value)) {
+            this.valueWatchers.onValue(value);
+        }
+
         this.refreshAnchors();
         return this;
     }
 
-    private Optional<Color> value;
+    private Optional<Color> value = Optional.empty();
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-        throw new UnsupportedOperationException();
+        return this.valueWatchers.add(watcher);
     }
+
+    private final ValueWatchers<Color> valueWatchers = ValueWatchers.empty();
 
     @Override
     public boolean isDisabled() {
