@@ -68,7 +68,7 @@ public final class FontKerningComponentTest implements HtmlComponentTesting<Font
         this.treePrintAndCheck(
             component,
             "FontKerningComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Font Kerning\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class FontKerningComponentTest implements HtmlComponentTesting<Font
         this.treePrintAndCheck(
             component,
             "FontKerningComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Font Kerning\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

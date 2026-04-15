@@ -68,7 +68,7 @@ public final class TextWrappingComponentTest implements HtmlComponentTesting<Tex
         this.treePrintAndCheck(
             component,
             "TextWrappingComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Wrapping\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class TextWrappingComponentTest implements HtmlComponentTesting<Tex
         this.treePrintAndCheck(
             component,
             "TextWrappingComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Text Wrapping\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

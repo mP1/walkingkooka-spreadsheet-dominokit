@@ -21,14 +21,14 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 
 import java.util.Optional;
 
-public final class TextTransformComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextTransform, TextTransformComponent> {
+public final class TextTransformComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextTransform, TextTransformComponent> {
 
     public static TextTransformComponent with(final String idPrefix,
                                               final TextTransformComponentContext context) {
@@ -41,7 +41,7 @@ public final class TextTransformComponent implements TextStylePropertyNameEnumHi
     private TextTransformComponent(final String idPrefix,
                                    final TextTransformComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.TEXT_TRANSFORM,
             Lists.of(
@@ -51,7 +51,7 @@ public final class TextTransformComponent implements TextStylePropertyNameEnumHi
                 TextTransform.UPPERCASE,
                 TextTransform.LOWERCASE
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             (Optional<TextTransform> valueToIcon) -> Optional.ofNullable(
                 valueToIcon.map(
                     (TextTransform textTransform) -> {
@@ -81,16 +81,16 @@ public final class TextTransformComponent implements TextStylePropertyNameEnumHi
                     }
                 ).orElse(null)
             ),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextTransform> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextTransform> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextTransform> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextTransform> component;
 
     // Object...........................................................................................................
 

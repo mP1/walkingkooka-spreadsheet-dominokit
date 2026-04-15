@@ -21,15 +21,15 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextDecorationLineComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextDecorationLine, TextDecorationLineComponent> {
+public final class TextDecorationLineComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextDecorationLine, TextDecorationLineComponent> {
 
     public static TextDecorationLineComponent with(final String idPrefix,
                                                    final TextDecorationLineComponentContext context) {
@@ -43,9 +43,9 @@ public final class TextDecorationLineComponent implements TextStylePropertyNameE
                                         final TextDecorationLineComponentContext context) {
         super();
 
-        final Function<Optional<TextDecorationLine>, String> valueToText = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText();
+        final Function<Optional<TextDecorationLine>, String> valueToText = TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText();
 
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.TEXT_DECORATION_LINE,
             Lists.of(
@@ -88,16 +88,16 @@ public final class TextDecorationLineComponent implements TextStylePropertyNameE
 
                 return Optional.ofNullable(icon);
             },
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextDecorationLine> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextDecorationLine> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextDecorationLine> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextDecorationLine> component;
 
     // Object...........................................................................................................
 

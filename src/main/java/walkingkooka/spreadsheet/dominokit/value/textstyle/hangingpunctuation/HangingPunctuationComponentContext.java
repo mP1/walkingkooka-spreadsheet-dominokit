@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
 
-public interface HangingPunctuationComponentContext extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext {
+public interface HangingPunctuationComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
 }

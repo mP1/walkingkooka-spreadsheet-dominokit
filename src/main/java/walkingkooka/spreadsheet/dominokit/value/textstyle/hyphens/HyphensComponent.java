@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class HyphensComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<Hyphens, HyphensComponent> {
+public final class HyphensComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Hyphens, HyphensComponent> {
 
     public static HyphensComponent with(final String idPrefix,
                                         final HyphensComponentContext context) {
@@ -36,7 +36,7 @@ public final class HyphensComponent implements TextStylePropertyNameEnumHistoryT
     private HyphensComponent(final String idPrefix,
                              final HyphensComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.HYPHENS,
             Lists.of(
@@ -45,18 +45,18 @@ public final class HyphensComponent implements TextStylePropertyNameEnumHistoryT
                 Hyphens.MANUAL,
                 Hyphens.AUTO
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Hyphens> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<Hyphens> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Hyphens> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<Hyphens> component;
 
     // Object...........................................................................................................
 

@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.FontStretch;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class FontStretchComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<FontStretch, FontStretchComponent> {
+public final class FontStretchComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<FontStretch, FontStretchComponent> {
 
     public static FontStretchComponent with(final String idPrefix,
                                             final FontStretchComponentContext context) {
@@ -36,7 +36,7 @@ public final class FontStretchComponent implements TextStylePropertyNameEnumHist
     private FontStretchComponent(final String idPrefix,
                                  final FontStretchComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.FONT_STRETCH,
             Lists.of(
@@ -50,18 +50,18 @@ public final class FontStretchComponent implements TextStylePropertyNameEnumHist
                 FontStretch.EXTRA_EXPANDED,
                 FontStretch.ULTRA_EXPANDED
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<FontStretch> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<FontStretch> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<FontStretch> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<FontStretch> component;
 
     // Object...........................................................................................................
 

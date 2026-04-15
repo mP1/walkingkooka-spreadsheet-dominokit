@@ -68,7 +68,7 @@ public final class WhitespaceComponentTest implements HtmlComponentTesting<White
         this.treePrintAndCheck(
             component,
             "WhitespaceComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    White Space\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -122,7 +122,7 @@ public final class WhitespaceComponentTest implements HtmlComponentTesting<White
         this.treePrintAndCheck(
             component,
             "WhitespaceComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    White Space\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

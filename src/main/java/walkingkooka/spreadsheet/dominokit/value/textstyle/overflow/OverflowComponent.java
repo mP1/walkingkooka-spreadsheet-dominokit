@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.Overflow;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class OverflowComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<Overflow, OverflowComponent> {
+public final class OverflowComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Overflow, OverflowComponent> {
 
     public static OverflowComponent overflowX(final String idPrefix,
                                               final OverflowComponentContext context) {
@@ -57,7 +57,7 @@ public final class OverflowComponent implements TextStylePropertyNameEnumHistory
                               final TextStylePropertyName<Overflow> propertyName,
                               final OverflowComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             propertyName,
             Lists.of(
@@ -67,18 +67,18 @@ public final class OverflowComponent implements TextStylePropertyNameEnumHistory
                 Overflow.SCROLL,
                 Overflow.AUTO
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Overflow> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<Overflow> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Overflow> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<Overflow> component;
 
     // Object...........................................................................................................
 

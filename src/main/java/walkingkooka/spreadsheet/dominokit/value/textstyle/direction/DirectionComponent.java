@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.direction;
 
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.Direction;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class DirectionComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<Direction, DirectionComponent> {
+public final class DirectionComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Direction, DirectionComponent> {
 
     public static DirectionComponent with(final String idPrefix,
                                           final DirectionComponentContext context) {
@@ -39,7 +39,7 @@ public final class DirectionComponent implements TextStylePropertyNameEnumHistor
     private DirectionComponent(final String idPrefix,
                                final DirectionComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.DIRECTION,
             Lists.of(
@@ -68,17 +68,17 @@ public final class DirectionComponent implements TextStylePropertyNameEnumHistor
                     return text;
                 }
             ).orElse("Clear"),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Direction> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<Direction> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<Direction> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<Direction> component;
 
     // Object...........................................................................................................
 

@@ -68,7 +68,7 @@ public final class VerticalAlignComponentTest implements HtmlComponentTesting<Ve
         this.treePrintAndCheck(
             component,
             "VerticalAlignComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Vertical Align\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class VerticalAlignComponentTest implements HtmlComponentTesting<Ve
         this.treePrintAndCheck(
             component,
             "VerticalAlignComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Vertical Align\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

@@ -68,7 +68,7 @@ public final class OutlineStyleComponentTest implements HtmlComponentTesting<Out
         this.treePrintAndCheck(
             component,
             "OutlineStyleComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Outline Style\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -127,7 +127,7 @@ public final class OutlineStyleComponentTest implements HtmlComponentTesting<Out
         this.treePrintAndCheck(
             component,
             "OutlineStyleComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Outline Style\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

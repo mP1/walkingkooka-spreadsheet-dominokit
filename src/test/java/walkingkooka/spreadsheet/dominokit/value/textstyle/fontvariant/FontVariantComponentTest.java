@@ -68,7 +68,7 @@ public final class FontVariantComponentTest implements HtmlComponentTesting<Font
         this.treePrintAndCheck(
             component,
             "FontVariantComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Font Variant\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class FontVariantComponentTest implements HtmlComponentTesting<Font
         this.treePrintAndCheck(
             component,
             "FontVariantComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Font Variant\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

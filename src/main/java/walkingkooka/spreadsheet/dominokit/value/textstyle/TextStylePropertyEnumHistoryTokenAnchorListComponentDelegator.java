@@ -25,7 +25,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>>
+public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>>
     extends HasTextStyleValueWatcherValueWatcher,
     FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
     HasName<TextStylePropertyName<V>> {
@@ -58,9 +58,9 @@ public interface TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegat
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> formValueComponent() {
+    default TextStylePropertyEnumHistoryTokenAnchorListComponent<V> formValueComponent() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
     }
 
-    TextStylePropertyNameEnumHistoryTokenAnchorListComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();
+    TextStylePropertyEnumHistoryTokenAnchorListComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();
 }

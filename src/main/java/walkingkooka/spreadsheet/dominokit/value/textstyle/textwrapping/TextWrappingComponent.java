@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textwrapping;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextWrapping;
 
-public final class TextWrappingComponent implements TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<TextWrapping, TextWrappingComponent> {
+public final class TextWrappingComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextWrapping, TextWrappingComponent> {
 
     public static TextWrappingComponent with(final String idPrefix,
                                              final TextWrappingComponentContext context) {
@@ -36,7 +36,7 @@ public final class TextWrappingComponent implements TextStylePropertyNameEnumHis
     private TextWrappingComponent(final String idPrefix,
                                   final TextWrappingComponentContext context) {
         super();
-        this.component = TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
             TextStylePropertyName.TEXT_WRAPPING,
             Lists.of(
@@ -45,18 +45,18 @@ public final class TextWrappingComponent implements TextStylePropertyNameEnumHis
                 TextWrapping.WRAP,
                 TextWrapping.CLIP
             ),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.noIcons(),
-            context // TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextWrapping> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextWrapping> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextWrapping> component;
+    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextWrapping> component;
 
     // Object...........................................................................................................
 

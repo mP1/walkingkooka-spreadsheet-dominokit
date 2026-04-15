@@ -48,10 +48,10 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextAlign, TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>>,
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextAlign, TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
     HasNameTesting<TextStylePropertyName<TextAlign>>,
-    ToStringTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>> {
+    ToStringTesting<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>> {
 
     private final static String ID_PREFIX = "TestId123";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
@@ -78,7 +78,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             null
     );
 
-    private final static TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext CONTEXT = new FakeTextStylePropertyNameEnumHistoryTokenAnchorListComponentContext();
+    private final static TextStylePropertyEnumHistoryTokenAnchorListComponentContext CONTEXT = new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext();
 
     // with.............................................................................................................
 
@@ -86,7 +86,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullIdPrefixFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 null,
                 PROPERTY_NAME,
                 VALUES,
@@ -101,7 +101,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithEmptyIdPrefixFails() {
         assertThrows(
             EmptyTextException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 "",
                 PROPERTY_NAME,
                 VALUES,
@@ -116,7 +116,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullPropertyNameFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 ID_PREFIX,
                 null,
                 VALUES,
@@ -131,7 +131,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullValuesFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 ID_PREFIX,
                 PROPERTY_NAME,
                 null,
@@ -146,7 +146,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullValueToTextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 ID_PREFIX,
                 PROPERTY_NAME,
                 VALUES,
@@ -161,7 +161,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullValueToIconFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 ID_PREFIX,
                 PROPERTY_NAME,
                 VALUES,
@@ -176,7 +176,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
                 ID_PREFIX,
                 PROPERTY_NAME,
                 VALUES,
@@ -199,7 +199,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 )
             ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -223,7 +223,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                         .setDefaultAnchor()
                 )
             ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -245,7 +245,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                     SPREADSHEET_NAME
                 )
             ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -260,7 +260,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
     @Test
     public void testTreePrintWhenCellSelectHistoryTokenChange() {
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -268,7 +268,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             )
         );
 
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -281,7 +281,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
         this.treePrintAndCheck(
             anchor,
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -298,7 +298,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
     @Test
     public void testSetValue() {
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -306,7 +306,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             )
         );
 
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -323,7 +323,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
         this.treePrintAndCheck(
             anchor,
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -338,7 +338,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
     @Test
     public void testSetValueTwice() {
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -346,7 +346,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             )
         );
 
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -367,7 +367,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
         this.treePrintAndCheck(
             anchor,
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -394,7 +394,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -402,7 +402,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             )
         );
 
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -431,7 +431,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
         this.treePrintAndCheck(
             anchor,
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -446,7 +446,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
     @Test
     public void testTextStyleValueWatcherOnValueChangeCleared() {
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -454,7 +454,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
             )
         );
 
-        final TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -478,7 +478,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
 
         this.treePrintAndCheck(
             anchor,
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -492,7 +492,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> createComponent() {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> createComponent() {
         return this.createComponent(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
@@ -501,14 +501,14 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         );
     }
 
-    private TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> createComponent(final HistoryToken historyToken) {
+    private TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> createComponent(final HistoryToken historyToken) {
         return this.createComponent(
             this.createContext(historyToken)
         );
     }
 
-    private TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign> createComponent(final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
-        return TextStylePropertyNameEnumHistoryTokenAnchorListComponent.with(
+    private TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> createComponent(final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
+        return TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             ID_PREFIX,
             PROPERTY_NAME,
             VALUES,
@@ -518,8 +518,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
         );
     }
 
-    private TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext createContext(final HistoryToken historyToken) {
-        return new FakeTextStylePropertyNameEnumHistoryTokenAnchorListComponentContext() {
+    private TextStylePropertyEnumHistoryTokenAnchorListComponentContext createContext(final HistoryToken historyToken) {
+        return new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext() {
 
             @Override
             public HistoryToken historyToken() {
@@ -573,7 +573,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                                                          final String expected) {
         this.checkEquals(
             expected,
-            TextStylePropertyNameEnumHistoryTokenAnchorListComponent.<T>valueToText()
+            TextStylePropertyEnumHistoryTokenAnchorListComponent.<T>valueToText()
                 .apply(value)
         );
     }
@@ -584,7 +584,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     public void testPrintTree() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -604,7 +604,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                 .setHelperText(
                     Optional.of("HelperText 123")
                 ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -629,7 +629,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                         "Error333"
                     )
                 ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -659,7 +659,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
                         "Error333"
                     )
                 ),
-            "TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "  Text Align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
@@ -690,8 +690,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentTest 
     // class............................................................................................................
 
     @Override
-    public Class<TextStylePropertyNameEnumHistoryTokenAnchorListComponent<TextAlign>> type() {
-        return Cast.to(TextStylePropertyNameEnumHistoryTokenAnchorListComponent.class);
+    public Class<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>> type() {
+        return Cast.to(TextStylePropertyEnumHistoryTokenAnchorListComponent.class);
     }
 
     @Override

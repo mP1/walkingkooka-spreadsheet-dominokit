@@ -31,15 +31,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentLike<T> {
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T> {
 
-    public static <T extends Enum<T>> TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
-                                                                                                       final TextStylePropertyName<T> propertyName,
-                                                                                                       final List<T> values,
-                                                                                                       final Function<Optional<T>, String> valueToText,
-                                                                                                       final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                                                       final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
-        return new TextStylePropertyNameEnumHistoryTokenAnchorListComponent<>(
+    public static <T extends Enum<T>> TextStylePropertyEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
+                                                                                                   final TextStylePropertyName<T> propertyName,
+                                                                                                   final List<T> values,
+                                                                                                   final Function<Optional<T>, String> valueToText,
+                                                                                                   final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                                                   final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
+        return new TextStylePropertyEnumHistoryTokenAnchorListComponent<>(
             idPrefix,
             propertyName,
             values,
@@ -49,12 +49,12 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
         );
     }
 
-    private TextStylePropertyNameEnumHistoryTokenAnchorListComponent(final String idPrefix,
-                                                                     final TextStylePropertyName<T> propertyName,
-                                                                     final List<T> values,
-                                                                     final Function<Optional<T>, String> valueToText,
-                                                                     final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                     final TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext context) {
+    private TextStylePropertyEnumHistoryTokenAnchorListComponent(final String idPrefix,
+                                                                 final TextStylePropertyName<T> propertyName,
+                                                                 final List<T> values,
+                                                                 final Function<Optional<T>, String> valueToText,
+                                                                 final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                 final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         super(
             idPrefix,
             propertyName,
@@ -85,7 +85,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setLabel(final String label) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setLabel(final String label) {
         this.formElement.setLabel(label);
         return this;
     }
@@ -102,7 +102,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> text) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
         this.formElement.setHelperText(
@@ -117,7 +117,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setErrors(final List<String> errors) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setErrors(final List<String> errors) {
         this.formElement.invalidate(errors);
         return this;
     }
@@ -130,7 +130,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setId(final String id) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setId(final String id) {
         this.formElement.setId(id);
         return this;
     }
@@ -154,7 +154,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     // cssXXX...........................................................................................................
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setCssText(final String css) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setCssText(final String css) {
         this.formElement.element()
             .style
             .cssText = css;
@@ -162,8 +162,8 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> setCssProperty(final String name,
-                                                                                      final String value) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setCssProperty(final String name,
+                                                                                  final String value) {
         this.formElement.element()
             .style
             .setProperty(
@@ -174,7 +174,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
     }
 
     @Override
-    public TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T> removeCssProperty(final String name) {
+    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> removeCssProperty(final String name) {
         this.formElement.element()
             .style
             .removeProperty(name);

@@ -68,7 +68,7 @@ public final class WritingModeComponentTest implements HtmlComponentTesting<Writ
         this.treePrintAndCheck(
             component,
             "WritingModeComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Writing Mode\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class WritingModeComponentTest implements HtmlComponentTesting<Writ
         this.treePrintAndCheck(
             component,
             "WritingModeComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Writing Mode\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

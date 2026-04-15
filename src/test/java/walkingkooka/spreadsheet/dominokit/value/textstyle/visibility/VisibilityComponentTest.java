@@ -68,7 +68,7 @@ public final class VisibilityComponentTest implements HtmlComponentTesting<Visib
         this.treePrintAndCheck(
             component,
             "VisibilityComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Visibility\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
@@ -120,7 +120,7 @@ public final class VisibilityComponentTest implements HtmlComponentTesting<Visib
         this.treePrintAndCheck(
             component,
             "VisibilityComponent\n" +
-                "  TextStylePropertyNameEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "    Visibility\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +

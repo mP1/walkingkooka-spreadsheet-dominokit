@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
 
-public interface VerticalAlignComponentContext extends TextStylePropertyNameEnumHistoryTokenAnchorListComponentContext {
+public interface VerticalAlignComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
 }
