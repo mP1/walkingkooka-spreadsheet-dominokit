@@ -17,9 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormElement;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -61,7 +64,7 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
             context
         );
 
-        this.formElement = TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement.with(
+        this.formElement = FormElement.with(
             this.list
         );
 
@@ -185,5 +188,5 @@ public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponent<T ex
         return this.formElement.element();
     }
 
-    private final TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement<T> formElement;
+    private final FormElement<T, HTMLDivElement, AnchorListComponent> formElement;
 }
