@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormElementDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -63,7 +64,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         );
 
         this.setLabel(
-            propertyNameToLabel(propertyName)
+            FormElementDelegator.propertyNameToLabel(propertyName)
         );
         this.setHelperText(
             Optional.empty()

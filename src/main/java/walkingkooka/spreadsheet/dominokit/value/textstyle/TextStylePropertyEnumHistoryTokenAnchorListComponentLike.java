@@ -61,13 +61,6 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
         return (value) -> Optional.empty();
     }
 
-    static String propertyNameToLabel(final TextStylePropertyName<?> propertyName) {
-        return CaseKind.KEBAB.change(
-            propertyName.value(),
-            CaseKind.TITLE
-        );
-    }
-
     TextStylePropertyEnumHistoryTokenAnchorListComponentLike(final String idPrefix,
                                                              final TextStylePropertyName<T> propertyName,
                                                              final List<T> values,
