@@ -24,10 +24,13 @@ import org.dominokit.domino.ui.utils.ApplyFunction;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link AbstractFormElement} that wraps the given {@link HtmlComponent} adding the label, error messages and helper text.
- * All value related operations such as getting/setting and validation will throw {@link UnsupportedOperationException}.
+ * Value operations such as {@link #getValue()}, {@link #setValue(Object)} will throw {@link UnsupportedOperationException}
+ * if the wrapped component is not a {@link ValueComponent}.
+ * Validation {@link #validate()}} will throw {@link UnsupportedOperationException}.
  */
 public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElement<V, E, C>, V> {
 
@@ -41,38 +44,64 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
         super();
         this.wrapperElement.appendChild(component);
         this.wrapperElement.removeCss(dui_input_wrapper); // remove rounded corner border
+
+        this.component = component;
     }
+
+    private final static boolean SET_VALUE_SILENT = false;
 
     @Override
     public FormElement<V, E, C> withValue(final V value) {
-        throw new UnsupportedOperationException();
+        return this.withValue(
+            value,
+            SET_VALUE_SILENT
+        );
     }
 
     @Override
     public FormElement<V, E, C> withValue(final V value,
                                           final boolean silent) {
-        throw new UnsupportedOperationException();
+        this.valueComponentOrFail()
+            .setValue(
+                Optional.of(value)
+            );
+        return this;
     }
 
     @Override
     public void setValue(final V value) {
-        throw new UnsupportedOperationException();
+        this.withValue(value);
     }
 
     @Override
     public V getValue() {
-        throw new UnsupportedOperationException();
+        return this.valueComponentOrFail()
+            .value()
+            .orElse(null);
     }
 
     @Override
     public FormElement<V, E, C> clear() {
+        this.clear(SET_VALUE_SILENT);
         return this;
     }
 
     @Override
     public FormElement<V, E, C> clear(final boolean silent) {
+        this.valueComponentOrFail()
+            .clearValue();
         return this;
     }
+
+    private ValueComponent<?, V, ?> valueComponentOrFail() {
+        final C component = this.component;
+        if (false == component instanceof ValueComponent) {
+            throw new UnsupportedOperationException();
+        }
+        return (ValueComponent<?, V, ?>) component;
+    }
+
+    private final C component;
 
     @Override
     public AutoValidator createAutoValidator(final ApplyFunction autoValidate) {
