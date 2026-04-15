@@ -153,6 +153,8 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         this.historyTokenPreparer = historyTokenPreparer;
         this.context = context;
 
+        this.value = Optional.empty();
+
         this.refreshAnchors();
     }
 
@@ -167,6 +169,9 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
 
         final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
+
+        final Color selectedColorOrNull = this.value
+            .orElse(null);
 
         for (int i = 0; i < COLOR_COUNT; i++) {
             final int colorNumber = 1 + i;
@@ -184,14 +189,19 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
                 // update the link that when clicked will save the selected color
                 final HistoryTokenAnchorComponent anchor = anchors[i];
                 anchor.setTextContent(text);
-                anchor.setHistoryToken(
-                    historyTokenPreparer.apply(historyToken)
-                        .map(
-                            h -> h.setSaveValue(
-                                Optional.of(color)
+
+                if(color.equals(selectedColorOrNull)) {
+                    anchor.disabled();
+                } else {
+                    anchor.setHistoryToken(
+                        historyTokenPreparer.apply(historyToken)
+                            .map(
+                                h -> h.setSaveValue(
+                                    Optional.of(color)
+                                )
                             )
-                        )
-                );
+                    );
+                }
             }
         }
 
@@ -230,13 +240,19 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
 
     @Override
     public Optional<Color> value() {
-        return Optional.empty();
+        return this.value;
     }
 
     @Override
     public ColorComponent setValue(final Optional<Color> value) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(value, "value");
+
+        this.value = value;
+        this.refreshAnchors();
+        return this;
     }
+
+    private Optional<Color> value;
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
