@@ -135,8 +135,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.components.forEach(
             (FormValueComponent<?, ?, ?> component) -> {
                 final ValueWatcher<TextStyle> valueWatcher;
-                if(component instanceof TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator){
-                    valueWatcher = ((TextStylePropertyNameEnumHistoryTokenAnchorListComponentDelegator<?, ?>) component)
+                if(component instanceof HasTextStyleValueWatcherValueWatcher){
+                    valueWatcher = ((HasTextStyleValueWatcherValueWatcher) component)
                         .textStyleValueWatcher();
                 } else {
                     throw new UnsupportedOperationException(component.getClass().getSimpleName() + " " + component.toString());
