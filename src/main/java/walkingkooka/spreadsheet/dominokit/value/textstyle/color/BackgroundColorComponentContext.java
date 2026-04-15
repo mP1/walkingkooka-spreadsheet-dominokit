@@ -17,5 +17,5 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-public interface BackgroundColorTextStyleColorComponentContext extends TextStylePropertyColorComponentContext {
+public interface BackgroundColorComponentContext extends TextStylePropertyColorComponentContext {
 }
