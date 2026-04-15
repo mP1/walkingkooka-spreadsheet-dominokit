@@ -18,20 +18,19 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElement;
-import walkingkooka.text.CharSequences;
+import walkingkooka.spreadsheet.dominokit.value.FormElementDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T> {
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T>
+    implements FormElementDelegator<T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     public static <T extends Enum<T>> TextStylePropertyEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                                    final TextStylePropertyName<T> propertyName,
@@ -79,113 +78,11 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         );
     }
 
-    @Override
-    public String label() {
-        return this.formElement.getLabel();
-    }
+    // FormElementDelegator.............................................................................................
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setLabel(final String label) {
-        this.formElement.setLabel(label);
-        return this;
-    }
-
-    @Override
-    public Optional<String> helperText() {
-        final String helperText = this.formElement.getHelperText();
-
-        return Optional.ofNullable(
-            CharSequences.isNullOrEmpty(helperText) ?
-                null :
-                helperText
-        );
-    }
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> text) {
-        Objects.requireNonNull(text, "text");
-
-        this.formElement.setHelperText(
-            text.orElse(null)
-        );
-        return this;
-    }
-
-    @Override
-    public List<String> errors() {
-        return this.formElement.getErrors();
-    }
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setErrors(final List<String> errors) {
-        this.formElement.invalidate(errors);
-        return this;
-    }
-
-    // id...............................................................................................................
-
-    @Override
-    public String id() {
-        return this.formElement.getId();
-    }
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setId(final String id) {
-        this.formElement.setId(id);
-        return this;
-    }
-
-    // width............................................................................................................
-
-    @Override
-    public int width() {
-        return this.formElement.element()
-            .offsetWidth;
-    }
-
-    // height...........................................................................................................
-
-    @Override
-    public int height() {
-        return this.formElement.element()
-            .offsetHeight;
-    }
-
-    // cssXXX...........................................................................................................
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setCssText(final String css) {
-        this.formElement.element()
-            .style
-            .cssText = css;
-        return this;
-    }
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setCssProperty(final String name,
-                                                                                  final String value) {
-        this.formElement.element()
-            .style
-            .setProperty(
-                name,
-                value
-            );
-        return this;
-    }
-
-    @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> removeCssProperty(final String name) {
-        this.formElement.element()
-            .style
-            .removeProperty(name);
-        return this;
-    }
-
-    // Component........................................................................................................
-
-    @Override
-    public HTMLFieldSetElement element() {
-        return this.formElement.element();
+    public FormElement<T, ?, ?> formElement() {
+        return this.formElement;
     }
 
     private final FormElement<T, HTMLDivElement, AnchorListComponent> formElement;
