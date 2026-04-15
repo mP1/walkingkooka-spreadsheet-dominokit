@@ -42,10 +42,10 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class BackgroundColorTextStyleColorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Color, BackgroundColorTextStyleColorComponent>,
+public final class BackgroundColorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Color, BackgroundColorComponent>,
     ComponentLifecycleMatcherTesting,
     HasNameTesting<TextStylePropertyName<Color>>,
-    ToStringTesting<BackgroundColorTextStyleColorComponent>,
+    ToStringTesting<BackgroundColorComponent>,
     SpreadsheetMetadataTesting {
 
     static {
@@ -77,7 +77,7 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
                 .setValue(
                     Optional.of(COLOR)
                 ),
-            "BackgroundColorTextStyleColorComponent\n" +
+            "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
                 "      ColorComponent\n" +
@@ -268,7 +268,7 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final BackgroundColorTextStyleColorComponent component = BackgroundColorTextStyleColorComponent.with(
+        final BackgroundColorComponent component = BackgroundColorComponent.with(
             "Test123-",
             this.createContext(
                 HistoryToken.cellStyle(
@@ -297,7 +297,7 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
 
         this.treePrintAndCheck(
             component,
-            "BackgroundColorTextStyleColorComponent\n" +
+            "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
                 "      ColorComponent\n" +
@@ -487,8 +487,8 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
     }
 
     @Override
-    public BackgroundColorTextStyleColorComponent createComponent() {
-        return BackgroundColorTextStyleColorComponent.with(
+    public BackgroundColorComponent createComponent() {
+        return BackgroundColorComponent.with(
             "TestIdPrefix-",
             this.createContext(
                 HistoryToken.spreadsheetSelect(
@@ -499,8 +499,8 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
         );
     }
 
-    private BackgroundColorTextStyleColorComponentContext createContext(final HistoryToken historyToken) {
-        return new FakeBackgroundColorTextStyleColorComponentContext() {
+    private BackgroundColorComponentContext createContext(final HistoryToken historyToken) {
+        return new FakeBackgroundColorComponentContext() {
 
             @Override
             public HistoryToken historyToken() {
@@ -534,8 +534,8 @@ public final class BackgroundColorTextStyleColorComponentTest implements ValueCo
     }
 
     @Override
-    public Class<BackgroundColorTextStyleColorComponent> type() {
-        return BackgroundColorTextStyleColorComponent.class;
+    public Class<BackgroundColorComponent> type() {
+        return BackgroundColorComponent.class;
     }
 
     @Override

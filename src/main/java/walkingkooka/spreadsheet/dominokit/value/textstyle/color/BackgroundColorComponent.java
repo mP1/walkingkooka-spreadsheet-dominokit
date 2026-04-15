@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class BackgroundColorTextStyleColorComponent implements TextStylePropertyColorComponentDelegator<BackgroundColorTextStyleColorComponent> {
+public final class BackgroundColorComponent implements TextStylePropertyColorComponentDelegator<BackgroundColorComponent> {
 
-    public static BackgroundColorTextStyleColorComponent with(final String idPrefix,
-                                                              final BackgroundColorTextStyleColorComponentContext context) {
-        return new BackgroundColorTextStyleColorComponent(
+    public static BackgroundColorComponent with(final String idPrefix,
+                                                final BackgroundColorComponentContext context) {
+        return new BackgroundColorComponent(
             idPrefix,
             context
         );
     }
 
-    private BackgroundColorTextStyleColorComponent(final String idPrefix,
-                                                   final BackgroundColorTextStyleColorComponentContext context) {
+    private BackgroundColorComponent(final String idPrefix,
+                                     final BackgroundColorComponentContext context) {
         super();
 
         this.component = TextStylePropertyColorComponent.with(
             idPrefix,
             TextStylePropertyName.BACKGROUND_COLOR,
-            context // BackgroundColorTextStyleColorComponentContext
+            context // BackgroundColorComponentContext
         );
     }
 
