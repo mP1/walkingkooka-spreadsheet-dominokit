@@ -15,21 +15,21 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value;
 
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElementTest implements ClassTesting<TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement<?>> {
+public final class FormElementTest implements ClassTesting<FormElement<?, ?, ?>> {
 
     @Override
-    public Class<TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement<?>> type() {
-        return Cast.to(TextStylePropertyNameEnumHistoryTokenAnchorListComponentFormElement.class);
+    public Class<FormElement<?, ?, ?>> type() {
+        return Cast.to(FormElement.class);
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+        return JavaVisibility.PUBLIC;
     }
 }
