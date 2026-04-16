@@ -279,4 +279,11 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     public final void printTreeChildren(final IndentingPrinter printer) {
         printer.println(this.element.outerHTML);
     }
+
+    // Object...........................................................................................................
+
+    @Override
+    public final String toString() {
+        return this.element.toString();
+    }
 }
