@@ -46,26 +46,28 @@ abstract class TextStylePropertyColorComponentLike implements FormValueComponent
 
         this.name = propertyName;
 
-        this.colorComponent = ColorComponent.with(
+        this.textStyleColorComponentMenu = TextStyleColorComponentMenu.with(
+            ColorComponent.with(
             idPrefix,
             ColorComponent.historyTokenPreparer(propertyName),
             context // ColorComponentContext
+        )
         );
     }
 
     @Override
     public final boolean isEditing() {
-        return this.colorComponent.isEditing();
+        return this.textStyleColorComponentMenu.isEditing();
     }
 
     @Override
     public final Optional<Color> value() {
-        return this.colorComponent.value();
+        return this.textStyleColorComponentMenu.value();
     }
 
     @Override
     public final TextStylePropertyColorComponent setValue(final Optional<Color> value) {
-        this.colorComponent.setValue(value);
+        this.textStyleColorComponentMenu.setValue(value);
         return (TextStylePropertyColorComponent) this;
     }
 
@@ -153,13 +155,13 @@ abstract class TextStylePropertyColorComponentLike implements FormValueComponent
         };
     }
 
-    final ColorComponent colorComponent;
+    final TextStyleColorComponentMenu textStyleColorComponentMenu;
 
     // Object...........................................................................................................
 
     @Override
     public final int hashCode() {
-        return this.colorComponent.hashCode();
+        return this.textStyleColorComponentMenu.hashCode();
     }
 
     @Override
@@ -170,13 +172,13 @@ abstract class TextStylePropertyColorComponentLike implements FormValueComponent
     }
 
     private boolean equals0(final TextStylePropertyColorComponentLike other) {
-        return this.colorComponent.equals(other.colorComponent);
+        return this.textStyleColorComponentMenu.equals(other.textStyleColorComponentMenu);
     }
 
     @Override
     public final String toString() {
         return ToStringBuilder.empty()
-            .value(this.colorComponent)
+            .value(this.textStyleColorComponentMenu)
             .build();
     }
 
@@ -204,7 +206,7 @@ abstract class TextStylePropertyColorComponentLike implements FormValueComponent
                 printer.indent();
             }
 
-            this.colorComponent.printTree(printer);
+            this.textStyleColorComponentMenu.printTree(printer);
 
             if (false == missingLabel) {
                 printer.outdent();
