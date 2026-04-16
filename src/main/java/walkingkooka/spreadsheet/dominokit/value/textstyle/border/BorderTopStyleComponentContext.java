@@ -17,5 +17,5 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-public interface BorderTopStyleComponentContext extends BorderStyleComponentContext {
+public interface BorderTopStyleComponentContext extends BorderStyleSharedComponentContext {
 }

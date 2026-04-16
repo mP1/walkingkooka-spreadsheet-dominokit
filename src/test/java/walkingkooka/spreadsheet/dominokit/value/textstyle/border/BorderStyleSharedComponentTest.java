@@ -21,11 +21,11 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class BorderStyleComponentTest implements ClassTesting<BorderStyleComponent<?>> {
+public final class BorderStyleSharedComponentTest implements ClassTesting<BorderStyleSharedComponent<?>> {
 
     @Override
-    public Class<BorderStyleComponent<?>> type() {
-        return Cast.to(BorderStyleComponent.class);
+    public Class<BorderStyleSharedComponent<?>> type() {
+        return Cast.to(BorderStyleSharedComponent.class);
     }
 
     @Override
