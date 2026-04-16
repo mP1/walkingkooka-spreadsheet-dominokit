@@ -17,15 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
+import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Opacity;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Opacity}.
  */
-public final class OpacityComponent implements ValueTextBoxComponentDelegator<OpacityComponent, Opacity> {
+public final class OpacityComponent implements ValueTextBoxComponentDelegator<OpacityComponent, Opacity>,
+    HasName<TextStylePropertyName<Opacity>> {
 
     public static OpacityComponent empty() {
         return new OpacityComponent();
@@ -36,6 +39,13 @@ public final class OpacityComponent implements ValueTextBoxComponentDelegator<Op
             Opacity::parse,
             Opacity::text
         );
+    }
+
+    // HasName..........................................................................................................
+
+    @Override
+    public TextStylePropertyName<Opacity> name() {
+        return TextStylePropertyName.OPACITY;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................

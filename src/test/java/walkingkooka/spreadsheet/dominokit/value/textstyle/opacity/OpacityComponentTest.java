@@ -18,13 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.Opacity;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class OpacityComponentTest implements ValueTextBoxComponentLikeTesting<OpacityComponent, Opacity> {
+public final class OpacityComponentTest implements ValueTextBoxComponentLikeTesting<OpacityComponent, Opacity>,
+    HasNameTesting<TextStylePropertyName<Opacity>> {
     
     private final static Opacity OPACITY = Opacity.parse("50%");
 
@@ -92,6 +95,16 @@ public final class OpacityComponentTest implements ValueTextBoxComponentLikeTest
     @Override
     public OpacityComponent createComponent() {
         return OpacityComponent.empty();
+    }
+
+    // HasName..........................................................................................................
+
+    @Test
+    public void testName() {
+        this.nameAndCheck(
+            this.createComponent(),
+            TextStylePropertyName.OPACITY
+        );
     }
 
     // class............................................................................................................
