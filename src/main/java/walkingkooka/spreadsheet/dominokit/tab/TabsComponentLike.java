@@ -25,38 +25,50 @@ import walkingkooka.text.printer.IndentingPrinter;
 /**
  * Defines the public interface of a {@link TabsComponent}.
  */
-public interface TabsComponentLike extends HtmlComponent<HTMLDivElement, TabsComponent> {
+abstract class TabsComponentLike implements HtmlComponent<HTMLDivElement, TabsComponent> {
 
     /**
      * Appends a new tab. The anchor holding the title will be disabled.
      */
-    TabsComponentLike appendTab(final String id,
-                                final String title);
+    public abstract TabsComponent appendTab(final String id,
+                                            final String title);
 
     /**
      * Fetches the anchor holding the tab text.
      */
-    HistoryTokenAnchorComponent anchor(final int index);
+    public abstract HistoryTokenAnchorComponent anchor(final int index);
 
     /**
      * Activate the given tab and de-actives all other tabs.
      */
-    TabsComponentLike setTab(final int index);
+    public abstract TabsComponent setTab(final int index);
 
     /**
      * Returns the selected tab index.
      */
-    int selectedTab();
+    public abstract int selectedTab();
 
     /**
      * Returns the number of added tabs
      */
-    int tabCount();
+    public abstract int tabCount();
+
+    // focus/blur.......................................................................................................
+
+    @Override
+    public final TabsComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public final TabsComponent blur() {
+        throw new UnsupportedOperationException();
+    }
 
     // TreePrintable....................................................................................................
 
     @Override
-    default void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
