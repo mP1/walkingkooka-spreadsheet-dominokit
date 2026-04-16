@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleCom
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens.HyphensComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
@@ -119,6 +120,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.fontVariantComponent(),
             this.hangingPunctuationComponent(),
             this.hyphensComponent(),
+            this.opacityComponent(),
             this.overflowXComponent(),
             this.overflowYComponent(),
             this.overflowWrapComponent(),
@@ -301,6 +303,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
+    // OpacityComponent.................................................................................................
+
+    private OpacityComponent opacityComponent() {
+        return OpacityComponent.empty()
+            .optional()
+            .setLabel("Opacity")
+            .setId(ID_PREFIX + "opacity" + SpreadsheetElementIds.TEXT_BOX);
+    }
+    
     // OverflowWrapComponent............................................................................................
 
     private OverflowWrapComponent overflowWrapComponent() {
