@@ -80,7 +80,7 @@ public final class BackgroundColorComponentTest implements ValueComponentTesting
             "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
-                "      TextStyleColorComponentMenu\n" +
+                "      TextStylePropertyColorComponentMenu\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +
@@ -308,7 +308,7 @@ public final class BackgroundColorComponentTest implements ValueComponentTesting
             "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
-                "      TextStyleColorComponentMenu\n" +
+                "      TextStylePropertyColorComponentMenu\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +

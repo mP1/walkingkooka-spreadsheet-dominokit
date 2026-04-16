@@ -148,7 +148,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -355,7 +355,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -560,7 +560,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -779,7 +779,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             anchor,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1004,7 +1004,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1231,7 +1231,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1476,7 +1476,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1704,7 +1704,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1964,7 +1964,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
             this.createComponent(),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2167,7 +2167,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2374,7 +2374,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2583,7 +2583,7 @@ public final class TextStylePropertyColorComponentTest implements ValueComponent
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStyleColorComponentMenu\n" +
+                "    TextStylePropertyColorComponentMenu\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +

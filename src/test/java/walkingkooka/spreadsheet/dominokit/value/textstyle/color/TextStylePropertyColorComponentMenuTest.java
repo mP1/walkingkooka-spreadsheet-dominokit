@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class TextStyleColorComponentMenuTest implements ClassTesting<TextStyleColorComponentMenu> {
+public final class TextStylePropertyColorComponentMenuTest implements ClassTesting<TextStylePropertyColorComponentMenu> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -28,8 +28,8 @@ public final class TextStyleColorComponentMenuTest implements ClassTesting<TextS
     }
 
     @Override
-    public Class<TextStyleColorComponentMenu> type() {
-        return TextStyleColorComponentMenu.class;
+    public Class<TextStylePropertyColorComponentMenu> type() {
+        return TextStylePropertyColorComponentMenu.class;
     }
 
     @Override
