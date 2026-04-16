@@ -69,6 +69,21 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
     public abstract C setCssProperty(final String name,
                                      final String value);
 
+    public final C setOrRemoveCssProperty(final String name,
+                                          final Optional<String> value) {
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(value, "value");
+
+        final String valueOrNull = value.orElse(null);
+
+        return null != valueOrNull ?
+            this.setCssProperty(
+                name,
+                valueOrNull
+            ) :
+            this.removeCssProperty(name);
+    }
+
     @Override
     public abstract C setCssText(final String cssText);
 
