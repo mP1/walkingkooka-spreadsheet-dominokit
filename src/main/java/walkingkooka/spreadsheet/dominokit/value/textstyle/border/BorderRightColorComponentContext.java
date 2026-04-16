@@ -17,7 +17,5 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponentContext;
-
-public interface BorderRightColorComponentContext extends TextStylePropertyColorComponentContext {
+public interface BorderRightColorComponentContext extends BorderColorSharedComponentContext {
 }

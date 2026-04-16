@@ -17,11 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponentDelegator;
+import walkingkooka.color.Color;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class BorderTopColorComponent implements TextStylePropertyColorComponentDelegator<BorderTopColorComponent> {
+public final class BorderTopColorComponent extends BorderColorSharedComponent<BorderTopColorComponent> {
 
     public static BorderTopColorComponent with(final String idPrefix,
                                                final BorderTopColorComponentContext context) {
@@ -33,26 +32,14 @@ public final class BorderTopColorComponent implements TextStylePropertyColorComp
 
     private BorderTopColorComponent(final String idPrefix,
                                     final BorderTopColorComponentContext context) {
-        super();
-
-        this.component = TextStylePropertyColorComponent.with(
+        super(
             idPrefix,
-            TextStylePropertyName.BORDER_TOP_COLOR,
-            context // TextStylePropertyColorComponentContext
+            context
         );
     }
 
     @Override
-    public TextStylePropertyColorComponent textStylePropertyColorComponent() {
-        return this.component;
-    }
-
-    private final TextStylePropertyColorComponent component;
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.component.toString();
+    public TextStylePropertyName<Color> name() {
+        return TextStylePropertyName.BORDER_TOP_COLOR;
     }
 }
