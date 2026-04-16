@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class BorderTopStyleComponent extends BorderStyleComponent<BorderTopStyleComponent> {
+public final class BorderTopStyleComponent extends BorderStyleSharedComponent<BorderTopStyleComponent> {
 
     public static BorderTopStyleComponent with(final String idPrefix,
                                                final BorderTopStyleComponentContext context) {

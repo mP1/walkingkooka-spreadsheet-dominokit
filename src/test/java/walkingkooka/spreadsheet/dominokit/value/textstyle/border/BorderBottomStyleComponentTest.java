@@ -30,7 +30,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class BorderBottomStyleComponentTest extends BorderStyleComponentTestCase<BorderBottomStyleComponent> {
+public final class BorderBottomStyleComponentTest extends BorderStyleSharedComponentTestCase<BorderBottomStyleComponent> {
 
     @Test
     public void testSetValue() {

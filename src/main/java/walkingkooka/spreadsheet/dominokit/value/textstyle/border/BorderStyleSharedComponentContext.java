@@ -17,18 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
 
-public abstract class BorderStyleComponentTestCase<C extends BorderStyleComponent<C>> implements HtmlComponentTesting<C, HTMLFieldSetElement> {
-
-    public BorderStyleComponentTestCase() {
-        super();
-    }
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+public interface BorderStyleSharedComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
 }

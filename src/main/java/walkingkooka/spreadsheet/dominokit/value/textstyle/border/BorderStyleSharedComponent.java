@@ -22,10 +22,10 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumH
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.BorderStyle;
 
-abstract class BorderStyleComponent<C extends BorderStyleComponent<C>> implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<BorderStyle, C> {
+abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<BorderStyle, C> {
 
-    BorderStyleComponent(final String idPrefix,
-                         final BorderStyleComponentContext context) {
+    BorderStyleSharedComponent(final String idPrefix,
+                               final BorderStyleSharedComponentContext context) {
         super();
         this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             idPrefix,
