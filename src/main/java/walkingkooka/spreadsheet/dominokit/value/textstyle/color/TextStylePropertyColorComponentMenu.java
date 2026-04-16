@@ -36,15 +36,15 @@ import java.util.Optional;
  * Wraps a {@link walkingkooka.color.ColorComponent} adding a drop down menu when a button is clicked. The button
  * shows the {@link Color#text()} and a small box with its background-color filled.
  */
-final class TextStyleColorComponentMenu implements ValueComponent<HTMLDivElement, Color, TextStyleColorComponentMenu> {
+final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDivElement, Color, TextStylePropertyColorComponentMenu> {
 
-    public static TextStyleColorComponentMenu with(final ColorComponent colorComponent) {
-        return new TextStyleColorComponentMenu(
+    public static TextStylePropertyColorComponentMenu with(final ColorComponent colorComponent) {
+        return new TextStylePropertyColorComponentMenu(
             Objects.requireNonNull(colorComponent, "colorComponent")
         );
     }
 
-    private TextStyleColorComponentMenu(final ColorComponent colorComponent) {
+    private TextStylePropertyColorComponentMenu(final ColorComponent colorComponent) {
         super();
 
         this.name = HtmlElementComponent.div()
@@ -96,7 +96,7 @@ final class TextStyleColorComponentMenu implements ValueComponent<HTMLDivElement
     }
 
     @Override
-    public TextStyleColorComponentMenu setId(final String id) {
+    public TextStylePropertyColorComponentMenu setId(final String id) {
         this.root.setId(id);
         return this;
     }
@@ -107,7 +107,7 @@ final class TextStyleColorComponentMenu implements ValueComponent<HTMLDivElement
     }
 
     @Override
-    public TextStyleColorComponentMenu setValue(final Optional<Color> value) {
+    public TextStylePropertyColorComponentMenu setValue(final Optional<Color> value) {
         this.colorComponent.setValue(value);
         return this;
     }
@@ -123,33 +123,33 @@ final class TextStyleColorComponentMenu implements ValueComponent<HTMLDivElement
     }
 
     @Override
-    public TextStyleColorComponentMenu setDisabled(final boolean disabled) {
+    public TextStylePropertyColorComponentMenu setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public TextStyleColorComponentMenu hideMarginBottom() {
+    public TextStylePropertyColorComponentMenu hideMarginBottom() {
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu removeBorders() {
+    public TextStylePropertyColorComponentMenu removeBorders() {
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu removePadding() {
+    public TextStylePropertyColorComponentMenu removePadding() {
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu focus() {
+    public TextStylePropertyColorComponentMenu focus() {
         this.colorComponent.focus();
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu blur() {
+    public TextStylePropertyColorComponentMenu blur() {
         this.colorComponent.blur();
         return this;
     }
@@ -170,20 +170,20 @@ final class TextStyleColorComponentMenu implements ValueComponent<HTMLDivElement
     }
 
     @Override
-    public TextStyleColorComponentMenu setCssText(final String css) {
+    public TextStylePropertyColorComponentMenu setCssText(final String css) {
         this.root.setCssText(css);
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu setCssProperty(final String name,
-                                                      final String value) {
+    public TextStylePropertyColorComponentMenu setCssProperty(final String name,
+                                                              final String value) {
         this.root.setCssProperty(name, value);
         return this;
     }
 
     @Override
-    public TextStyleColorComponentMenu removeCssProperty(final String name) {
+    public TextStylePropertyColorComponentMenu removeCssProperty(final String name) {
         this.root.removeCssProperty(name);
         return this;
     }

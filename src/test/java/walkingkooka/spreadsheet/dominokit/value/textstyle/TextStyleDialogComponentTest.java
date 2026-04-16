@@ -121,7 +121,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          BackgroundColorComponent\n" +
                 "            TextStylePropertyColorComponent\n" +
                 "              Background Color\n" +
-                "                TextStyleColorComponentMenu\n" +
+                "                TextStylePropertyColorComponentMenu\n" +
                 "                  DIV\n" +
                 "                    style=\"display: block;\"\n" +
                 "                      DIV\n" +
@@ -315,7 +315,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                Color\n" +
-                "                  TextStyleColorComponentMenu\n" +
+                "                  TextStylePropertyColorComponentMenu\n" +
                 "                    DIV\n" +
                 "                      style=\"display: block;\"\n" +
                 "                        DIV\n" +
@@ -816,7 +816,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          BackgroundColorComponent\n" +
                 "            TextStylePropertyColorComponent\n" +
                 "              Background Color\n" +
-                "                TextStyleColorComponentMenu\n" +
+                "                TextStylePropertyColorComponentMenu\n" +
                 "                  DIV\n" +
                 "                    style=\"display: block;\"\n" +
                 "                      DIV\n" +
@@ -1010,7 +1010,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                Color\n" +
-                "                  TextStyleColorComponentMenu\n" +
+                "                  TextStylePropertyColorComponentMenu\n" +
                 "                    DIV\n" +
                 "                      style=\"display: block;\"\n" +
                 "                        DIV\n" +
