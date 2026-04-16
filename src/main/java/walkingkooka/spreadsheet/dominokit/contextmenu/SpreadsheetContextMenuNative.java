@@ -108,11 +108,12 @@ final class SpreadsheetContextMenuNative {
             );
         }
 
-        // NOTE: Cast to raw type needed so compiler selects appendChild(AbstractMenuItem) and not appendChild(Node)
+        // NOTE: Cast to raw type AbstractMenuItem needed so compiler selects appendChild(AbstractMenuItem) and not appendChild(Node)
         menu.menu.appendChild(
-            menuItem.setMenu(
-                Cast.to(subMenu)
-            )
+            (AbstractMenuItem)
+                menuItem.setMenu(
+                    Cast.to(subMenu)
+                )
         );
 
         return subMenu;
