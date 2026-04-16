@@ -24,7 +24,7 @@ import walkingkooka.tree.text.TextStyle;
  * Typically a {@link walkingkooka.spreadsheet.dominokit.value.ValueComponent} that provides a {@link ValueWatcher} to
  * extract the property value from a given {@link TextStyle}.
  */
-public interface HasTextStyleValueWatcherValueWatcher {
+public interface HasTextStyleValueWatcher {
 
     ValueWatcher<TextStyle> textStyleValueWatcher();
 }
