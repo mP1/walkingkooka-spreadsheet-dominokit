@@ -136,8 +136,9 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemDateTimeOffset focus() {
         this.dateComponent.focus();
+        return this;
     }
 
     private final DateComponent dateComponent;

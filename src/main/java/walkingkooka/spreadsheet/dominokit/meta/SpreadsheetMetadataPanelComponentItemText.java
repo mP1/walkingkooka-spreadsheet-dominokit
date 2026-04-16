@@ -113,8 +113,9 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemText focus() {
         this.textBox.focus();
+        return this;
     }
 
     // ComponentRefreshable.............................................................................................

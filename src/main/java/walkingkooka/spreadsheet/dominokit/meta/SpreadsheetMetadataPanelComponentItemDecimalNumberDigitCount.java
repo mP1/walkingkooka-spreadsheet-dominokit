@@ -74,8 +74,9 @@ final class SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount extends
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemDecimalNumberDigitCount focus() {
         this.integerBox.focus();
+        return this;
     }
 
     private final IntegerBoxComponent integerBox;

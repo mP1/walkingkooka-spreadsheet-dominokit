@@ -88,4 +88,16 @@ public interface TestHtmlElementComponent<E extends HTMLElement, C extends HtmlC
         // ignore
         return (C) this;
     }
+
+    // focus/blur.......................................................................................................
+
+    @Override
+    default C focus() {
+        return (C) this;
+    }
+
+    @Override
+    default C blur() {
+        return (C) this;
+    }
 }

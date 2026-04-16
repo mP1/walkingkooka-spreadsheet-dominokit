@@ -44,6 +44,10 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
      */
     int height();
 
+    C focus();
+
+    C blur();
+
     /**
      * Helper that may be used mostly by implementations to test if an element has focus.
      */

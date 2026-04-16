@@ -85,5 +85,21 @@ public interface HtmlComponentDelegator<E extends HTMLElement, C extends HtmlCom
             .element();
     }
 
+    // focus/blur.......................................................................................................
+
+    @Override
+    default C focus() {
+        this.htmlComponent()
+            .focus();
+        return (C) this;
+    }
+
+    @Override
+    default C blur() {
+        this.htmlComponent()
+            .blur();
+        return (C) this;
+    }
+
     HtmlComponent<E, ?> htmlComponent();
 }

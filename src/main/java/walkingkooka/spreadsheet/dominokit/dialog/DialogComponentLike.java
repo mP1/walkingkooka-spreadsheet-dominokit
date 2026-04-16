@@ -149,6 +149,20 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
         return false;
     }
 
+    // focus............................................................................................................
+
+    @Override
+    public DialogComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    // blur.............................................................................................................
+
+    @Override
+    public final DialogComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
     // ComponentWithChildren............................................................................................
 
     @Override

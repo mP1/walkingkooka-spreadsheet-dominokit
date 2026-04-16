@@ -58,8 +58,9 @@ abstract class SpreadsheetMetadataPanelComponentItemAnchor<T> extends Spreadshee
     }
 
     @Override //
-    final void focus() {
+    public final SpreadsheetMetadataPanelComponentItemAnchor<T> focus() {
         this.anchor.focus();
+        return this;
     }
 
     // ComponentRefreshable.............................................................................................

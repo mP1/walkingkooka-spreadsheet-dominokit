@@ -187,11 +187,6 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
 
     abstract C addFocusListener(final EventListener listener);
 
-    /**
-     * Give focus to an element so the user can update the value.
-     */
-    abstract void focus();
-
     // DOM factory methods..............................................................................................
 
     /**
