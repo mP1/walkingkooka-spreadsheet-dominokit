@@ -71,8 +71,9 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemReadOnlyText<T> focus() {
         // NOP cant give focus to read only value.
+        return this;
     }
 
     // ComponentRefreshable.............................................................................................

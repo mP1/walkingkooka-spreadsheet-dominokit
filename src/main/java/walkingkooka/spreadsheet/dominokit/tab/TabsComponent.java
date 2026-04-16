@@ -188,6 +188,18 @@ public final class TabsComponent implements TabsComponentLike {
         return this;
     }
 
+    // focus/blur.......................................................................................................
+
+    @Override
+    public TabsComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public TabsComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
     // isEditing........................................................................................................
 
     @Override

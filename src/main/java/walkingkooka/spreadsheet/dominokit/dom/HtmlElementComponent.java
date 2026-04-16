@@ -231,6 +231,20 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         return (C) this;
     }
 
+    // focus/blur.......................................................................................................
+
+    @Override
+    public final C focus() {
+        this.element.focus();
+        return (C) this;
+    }
+
+    @Override
+    public final C blur() {
+        this.element.blur();
+        return (C) this;
+    }
+
     // IsElement........................................................................................................
 
     @Override

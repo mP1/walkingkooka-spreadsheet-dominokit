@@ -99,6 +99,18 @@ public final class RowComponent implements HtmlComponent<HTMLDivElement, RowComp
             .offsetHeight;
     }
 
+    // focus/blur.......................................................................................................
+
+    @Override
+    public RowComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public RowComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
     // css..............................................................................................................
 
     @Override

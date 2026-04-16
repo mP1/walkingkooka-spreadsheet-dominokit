@@ -60,8 +60,4 @@ public interface ValueComponentLike<E extends HTMLElement, C extends ValueCompon
     C removeBorders();
 
     C removePadding();
-
-    C focus();
-
-    C blur();
 }

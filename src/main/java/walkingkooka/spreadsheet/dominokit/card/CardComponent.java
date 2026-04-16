@@ -209,6 +209,20 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
      */
     private final List<IsElement<?>> children;
 
+    // focus............................................................................................................
+
+    @Override
+    public CardComponent focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    // blur.............................................................................................................
+
+    @Override
+    public CardComponent blur() {
+        throw new UnsupportedOperationException();
+    }
+
     // CanBeEmpty.......................................................................................................
 
     @Override

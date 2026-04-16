@@ -69,6 +69,16 @@ public class FakeHtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
     }
 
     @Override
+    public C focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public C blur() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public E element() {
         throw new UnsupportedOperationException();
     }

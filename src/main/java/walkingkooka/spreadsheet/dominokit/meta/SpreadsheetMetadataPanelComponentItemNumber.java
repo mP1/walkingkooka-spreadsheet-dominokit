@@ -83,8 +83,9 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemNumber focus() {
         this.integerBox.focus();
+        return this;
     }
 
     // ComponentRefreshable.............................................................................................

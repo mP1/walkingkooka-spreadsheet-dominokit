@@ -104,8 +104,9 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemPrecision focus() {
         this.integerBox.focus();
+        return this;
     }
 
     private final IntegerBoxComponent integerBox;

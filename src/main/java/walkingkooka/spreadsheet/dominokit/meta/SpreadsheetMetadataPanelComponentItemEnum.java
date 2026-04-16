@@ -106,8 +106,9 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     }
 
     @Override
-    void focus() {
+    public SpreadsheetMetadataPanelComponentItemEnum<T> focus() {
         this.firstAnchor.focus();
+        return this;
     }
 
     /**

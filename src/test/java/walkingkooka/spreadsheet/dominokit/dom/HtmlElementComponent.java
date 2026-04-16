@@ -291,6 +291,18 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
 
     private String text;
 
+    // focus/blur.......................................................................................................
+
+    @Override
+    public C focus() {
+        return (C) this;
+    }
+
+    @Override
+    public C blur() {
+        return (C) this;
+    }
+
     // listeners........................................................................................................
 
     @Override

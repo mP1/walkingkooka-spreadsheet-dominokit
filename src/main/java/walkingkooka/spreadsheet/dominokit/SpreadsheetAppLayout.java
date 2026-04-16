@@ -294,6 +294,20 @@ final class SpreadsheetAppLayout extends AppLayout implements
         return this;
     }
 
+    // focus............................................................................................................
+
+    @Override
+    public SpreadsheetAppLayout focus() {
+        throw new UnsupportedOperationException();
+    }
+
+    // blur.............................................................................................................
+
+    @Override
+    public SpreadsheetAppLayout blur() {
+        throw new UnsupportedOperationException();
+    }
+
     // TreePrintable....................................................................................................
 
     @Override
