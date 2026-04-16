@@ -21,14 +21,12 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
-import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -37,7 +35,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>>,
-    HasName<TextStylePropertyName<T>> {
+    HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     /**
      * A function that converts {@link Enum#name()} to Title Case.
@@ -199,25 +197,6 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
     @Override
     public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> blur() {
         throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Getter that returns a {@link ValueWatcher} which will cause this component to be update its value, sourced from a
-     * {@link TextStyle} value change.
-     */
-    public final ValueWatcher<TextStyle> textStyleValueWatcher() {
-        return new ValueWatcher<TextStyle>() {
-            @Override
-            public void onValue(final Optional<TextStyle> value) {
-                TextStylePropertyEnumHistoryTokenAnchorListComponentLike.this.setValue(
-                    value.flatMap(
-                        (final TextStyle textStyle) -> textStyle.get(
-                            TextStylePropertyEnumHistoryTokenAnchorListComponentLike.this.name
-                        )
-                    )
-                );
-            }
-        };
     }
 
     final AnchorListComponent list;
