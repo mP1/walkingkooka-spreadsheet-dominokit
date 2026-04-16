@@ -17,23 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.ToStringTesting;
-import walkingkooka.color.Color;
-import walkingkooka.naming.HasNameTesting;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.color.SpreadsheetColors;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
-import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
@@ -42,34 +32,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class BorderRightColorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Color, BorderRightColorComponent>,
-    ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<Color>>,
-    ToStringTesting<BorderRightColorComponent>,
-    SpreadsheetMetadataTesting {
+public final class BorderRightColorComponentTest extends BorderColorSharedComponentTestCase<BorderRightColorComponent> {
 
-    static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.METADATA_EN_AU;
-
-        for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
-            spreadsheetMetadata = spreadsheetMetadata.set(
-                SpreadsheetMetadataPropertyName.numberedColor(i),
-                Color.fromRgb(i)
-            );
-        }
-
-        COLOR = spreadsheetMetadata.getOrFail(
-            SpreadsheetMetadataPropertyName.numberedColor(
-                SpreadsheetColors.MIN
-            )
-        );
-        SPREADSHEET_METADATA = spreadsheetMetadata;
-    }
-
-    private final static Color COLOR;
-
-    private final static SpreadsheetMetadata SPREADSHEET_METADATA;
-    
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
@@ -552,10 +516,5 @@ public final class BorderRightColorComponentTest implements ValueComponentTestin
     @Override
     public Class<BorderRightColorComponent> type() {
         return BorderRightColorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

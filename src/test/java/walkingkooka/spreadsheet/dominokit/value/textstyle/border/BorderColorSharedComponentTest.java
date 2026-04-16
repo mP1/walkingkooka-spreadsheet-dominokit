@@ -17,5 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-public interface BorderLeftColorComponentContext extends BorderColorSharedComponentContext {
+import walkingkooka.Cast;
+import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.JavaVisibility;
+
+public final class BorderColorSharedComponentTest implements ClassTesting<BorderColorSharedComponent<?>> {
+
+    @Override
+    public Class<BorderColorSharedComponent<?>> type() {
+        return Cast.to(BorderColorSharedComponent.class);
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
+    }
 }
