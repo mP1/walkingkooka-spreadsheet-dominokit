@@ -32,7 +32,7 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class TabsComponent implements TabsComponentLike {
+public final class TabsComponent extends TabsComponentLike {
 
     public static TabsComponent with(final HistoryContext context) {
         Objects.requireNonNull(context, "context");
@@ -186,18 +186,6 @@ public final class TabsComponent implements TabsComponentLike {
     public TabsComponent removeCssProperty(final String name) {
         this.tabsPanel.removeCssProperty(name);
         return this;
-    }
-
-    // focus/blur.......................................................................................................
-
-    @Override
-    public TabsComponent focus() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public TabsComponent blur() {
-        throw new UnsupportedOperationException();
     }
 
     // isEditing........................................................................................................

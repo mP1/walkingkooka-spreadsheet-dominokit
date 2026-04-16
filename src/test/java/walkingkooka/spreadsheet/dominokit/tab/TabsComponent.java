@@ -30,7 +30,8 @@ import java.util.Objects;
 /**
  * Wraps a DOMINO-KIT TabsPanel and tabs.
  */
-public final class TabsComponent implements TabsComponentLike, TestHtmlElementComponent<HTMLDivElement, TabsComponent> {
+public final class TabsComponent extends TabsComponentLike
+    implements TestHtmlElementComponent<HTMLDivElement, TabsComponent> {
 
     private final HistoryContext context;
     private final List<HistoryTokenAnchorComponent> anchors;
