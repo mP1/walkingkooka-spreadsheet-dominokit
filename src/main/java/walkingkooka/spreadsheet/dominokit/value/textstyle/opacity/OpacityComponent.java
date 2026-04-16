@@ -17,9 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
-import walkingkooka.naming.HasName;
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.HasTextStyleValueWatcherValueComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -28,7 +29,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
  * A text box that accepts text entry and validates it as a {@link Opacity}.
  */
 public final class OpacityComponent implements ValueTextBoxComponentDelegator<OpacityComponent, Opacity>,
-    HasName<TextStylePropertyName<Opacity>> {
+    HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, Opacity, OpacityComponent> {
 
     public static OpacityComponent empty() {
         return new OpacityComponent();
