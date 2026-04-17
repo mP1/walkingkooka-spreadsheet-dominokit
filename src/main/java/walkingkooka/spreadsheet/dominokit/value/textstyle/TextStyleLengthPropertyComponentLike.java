@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
+import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.Length;
 
 public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
@@ -30,7 +31,13 @@ public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthP
 
     default C setIdPrefix(final String idPrefix) {
         return this.setId(
-            idPrefix + this.name() + SpreadsheetElementIds.TEXT_BOX
+            idPrefix +
+                CaseKind.KEBAB.change(
+                    this.name()
+                        .text(),
+                    CaseKind.CAMEL
+                ) +
+                SpreadsheetElementIds.TEXT_BOX
         );
     }
 }
