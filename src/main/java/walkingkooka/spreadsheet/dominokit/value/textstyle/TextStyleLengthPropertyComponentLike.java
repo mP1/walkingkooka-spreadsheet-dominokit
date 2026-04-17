@@ -25,8 +25,7 @@ import walkingkooka.tree.text.Length;
 
 public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
-    LengthComponentDelegator<C>,
-    HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, Length<?>, C> {
+    LengthComponentDelegator<C> {
 
     default C setIdPrefix(final String idPrefix) {
         return this.setId(

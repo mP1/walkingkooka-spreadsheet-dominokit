@@ -20,7 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 import elemental2.dom.HTMLElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Optional;
 
 /**
  * Common interface for any {@link walkingkooka.spreadsheet.dominokit.value.ValueComponent} that can appear within a {@link TextStyleDialogComponent},
@@ -29,6 +33,20 @@ import walkingkooka.tree.text.TextStylePropertyName;
  */
 public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponent<E, V, C>,
-    HasName<TextStylePropertyName<V>>,
-    HasTextStyleValueWatcher {
+    HasName<TextStylePropertyName<V>> {
+
+    /**
+     * Getter that returns a {@link ValueWatcher} which will cause this component to be update its value, sourced from a
+     * {@link TextStyle} value change.
+     */
+    default ValueWatcher<TextStyle> textStyleValueWatcher() {
+        return (final Optional<TextStyle> value) ->
+            TextStylePropertyComponent.this.setValue(
+                value.flatMap(
+                    (final TextStyle textStyle) -> textStyle.get(
+                        TextStylePropertyComponent.this.name()
+                    )
+                )
+            );
+    }
 }
