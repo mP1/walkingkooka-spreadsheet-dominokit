@@ -18,24 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C> {
-
-    static String propertyNameToLabel(final TextStylePropertyName<?> propertyName) {
-        Objects.requireNonNull(propertyName, "propertyName");
-
-        return CaseKind.KEBAB.change(
-            propertyName.value(),
-            CaseKind.TITLE
-        );
-    }
 
     @Override
     default String label() {

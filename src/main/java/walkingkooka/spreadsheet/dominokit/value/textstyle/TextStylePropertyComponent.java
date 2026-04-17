@@ -21,6 +21,7 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -34,6 +35,16 @@ import java.util.Optional;
 public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponent<E, V, C>,
     HasName<TextStylePropertyName<V>> {
+
+    default C setLabelFromPropertyName() {
+        return this.setLabel(
+            CaseKind.KEBAB.change(
+                this.name()
+                    .value(),
+                CaseKind.TITLE
+            )
+        );
+    }
 
     /**
      * Getter that returns a {@link ValueWatcher} which will cause this component to be update its value, sourced from a

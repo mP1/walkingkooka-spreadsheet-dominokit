@@ -21,7 +21,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormElementDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -50,9 +49,7 @@ public final class TextStylePropertyColorComponent extends TextStylePropertyColo
             context
         );
 
-        this.setLabel(
-            FormElementDelegator.propertyNameToLabel(propertyName)
-        );
+        this.setLabelFromPropertyName();
         this.setHelperText(
             Optional.empty()
         );
