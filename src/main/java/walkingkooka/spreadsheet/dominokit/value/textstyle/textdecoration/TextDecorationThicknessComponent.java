@@ -24,12 +24,13 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 public final class TextDecorationThicknessComponent implements TextStyleLengthPropertyComponentLike<TextDecorationThicknessComponent> {
 
-    public static TextDecorationThicknessComponent empty() {
-        return new TextDecorationThicknessComponent();
+    public static TextDecorationThicknessComponent empty(final String idPrefix) {
+        return new TextDecorationThicknessComponent(idPrefix);
     }
 
-    private TextDecorationThicknessComponent() {
+    private TextDecorationThicknessComponent(final String idPrefix) {
         this.lengthComponent = LengthComponent.empty();
+        this.setIdPrefix(idPrefix);
     }
 
     @Override
