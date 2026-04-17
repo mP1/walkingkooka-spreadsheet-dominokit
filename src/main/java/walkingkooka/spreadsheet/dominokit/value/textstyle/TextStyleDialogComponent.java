@@ -371,8 +371,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     // TextIndentComponent..............................................................................................
 
     private TextIndentComponent textIndentComponent() {
-        return TextIndentComponent.empty()
-            .setId(ID_PREFIX + "textIndent" + SpreadsheetElementIds.TEXT_BOX);
+        return TextIndentComponent.empty(ID_PREFIX);
     }
     
     // TextJustifyComponent.............................................................................................
