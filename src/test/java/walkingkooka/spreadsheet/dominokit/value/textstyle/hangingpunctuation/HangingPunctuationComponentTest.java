@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class HangingPunctuationComponentTest implements HtmlComponentTesting<HangingPunctuationComponent, HTMLFieldSetElement> {
+public final class HangingPunctuationComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, HangingPunctuation, HangingPunctuationComponent> {
 
     @Test
     public void testSetValue() {
-        final HangingPunctuationComponent component = HangingPunctuationComponent.with(
-            "Test123-",
-            new FakeHangingPunctuationComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.HANGING_PUNCTUATION
-                        )
-                    );
-                }
-            }
-        );
+        final HangingPunctuationComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -84,27 +64,7 @@ public final class HangingPunctuationComponentTest implements HtmlComponentTesti
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final HangingPunctuationComponent component = HangingPunctuationComponent.with(
-            "Test123-",
-            new FakeHangingPunctuationComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.HANGING_PUNCTUATION
-                        )
-                    );
-                }
-            }
-        );
+        final HangingPunctuationComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -133,6 +93,32 @@ public final class HangingPunctuationComponentTest implements HtmlComponentTesti
                 "            \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
                 "            \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
                 "            \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
+        );
+    }
+
+    @Override
+    public HangingPunctuationComponent createComponent() {
+        return HangingPunctuationComponent.with(
+            "Test123-",
+            new FakeHangingPunctuationComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.HANGING_PUNCTUATION
+                        )
+                    );
+                }
+            }
         );
     }
 

@@ -34,27 +34,7 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
 
     @Test
     public void testSetValue() {
-        final BorderTopStyleComponent component = BorderTopStyleComponent.with(
-            "Test123-",
-            new FakeBorderTopStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_TOP_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderTopStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -140,6 +120,31 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
                 "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=Test123-borderTopStyle-RIDGE-Link\n" +
                 "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=Test123-borderTopStyle-INSET-Link\n" +
                 "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=Test123-borderTopStyle-OUTSET-Link\n"
+        );
+    }
+
+    @Override
+    public BorderTopStyleComponent createComponent() {
+        return BorderTopStyleComponent.with(
+            "Test123-",
+            new FakeBorderTopStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.BORDER_TOP_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextDecorationStyleComponentTest implements HtmlComponentTesting<TextDecorationStyleComponent, HTMLFieldSetElement> {
+public final class TextDecorationStyleComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextDecorationStyle, TextDecorationStyleComponent> {
 
     @Test
     public void testSetValue() {
-        final TextDecorationStyleComponent component = TextDecorationStyleComponent.with(
-            "Test123-",
-            new FakeTextDecorationStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_DECORATION_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final TextDecorationStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -84,27 +64,7 @@ public final class TextDecorationStyleComponentTest implements HtmlComponentTest
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final TextDecorationStyleComponent component = TextDecorationStyleComponent.with(
-            "Test123-",
-            new FakeTextDecorationStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_DECORATION_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final TextDecorationStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -133,6 +93,32 @@ public final class TextDecorationStyleComponentTest implements HtmlComponentTest
                 "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
                 "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
                 "            \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+        );
+    }
+
+    @Override
+    public TextDecorationStyleComponent createComponent() {
+        return TextDecorationStyleComponent.with(
+            "Test123-",
+            new FakeTextDecorationStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.TEXT_DECORATION_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

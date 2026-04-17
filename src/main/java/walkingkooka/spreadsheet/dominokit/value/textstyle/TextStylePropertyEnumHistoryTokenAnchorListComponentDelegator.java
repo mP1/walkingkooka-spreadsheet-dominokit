@@ -18,17 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends FormValueComponentDelegator<HTMLFieldSetElement, V, C>>
-    extends HasTextStyleValueWatcher,
-    FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
-    HasName<TextStylePropertyName<V>> {
+public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>>
+    extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>,
+    FormValueComponentDelegator<HTMLFieldSetElement, V, C> {
 
     @Override
     default TextStylePropertyName<V> name() {

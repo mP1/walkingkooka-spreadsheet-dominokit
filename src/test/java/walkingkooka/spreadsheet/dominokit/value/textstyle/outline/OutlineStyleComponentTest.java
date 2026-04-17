@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class OutlineStyleComponentTest implements HtmlComponentTesting<OutlineStyleComponent, HTMLFieldSetElement> {
+public final class OutlineStyleComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, OutlineStyle, OutlineStyleComponent> {
 
     @Test
     public void testSetValue() {
-        final OutlineStyleComponent component = OutlineStyleComponent.with(
-            "Test123-",
-            new FakeOutlineStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.OUTLINE_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final OutlineStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -89,27 +69,7 @@ public final class OutlineStyleComponentTest implements HtmlComponentTesting<Out
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final OutlineStyleComponent component = OutlineStyleComponent.with(
-            "Test123-",
-            new FakeOutlineStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.OUTLINE_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final OutlineStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -143,6 +103,32 @@ public final class OutlineStyleComponentTest implements HtmlComponentTesting<Out
                 "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/outline-style/save/RIDGE] id=Test123-outlineStyle-RIDGE-Link\n" +
                 "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/outline-style/save/INSET] id=Test123-outlineStyle-INSET-Link\n" +
                 "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/outline-style/save/OUTSET] id=Test123-outlineStyle-OUTSET-Link\n"
+        );
+    }
+
+    @Override
+    public OutlineStyleComponent createComponent() {
+        return OutlineStyleComponent.with(
+            "Test123-",
+            new FakeOutlineStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.OUTLINE_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

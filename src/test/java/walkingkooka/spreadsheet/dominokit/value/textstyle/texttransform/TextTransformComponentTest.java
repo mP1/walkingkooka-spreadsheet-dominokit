@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextTransform;
 
 import java.util.Optional;
 
-public final class TextTransformComponentTest implements HtmlComponentTesting<TextTransformComponent, HTMLFieldSetElement> {
+public final class TextTransformComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextTransform, TextTransformComponent> {
 
     @Test
     public void testSetValue() {
-        final TextTransformComponent component = TextTransformComponent.with(
-            "Test123-",
-            new FakeTextTransformComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_TRANSFORM
-                        )
-                    );
-                }
-            }
-        );
+        final TextTransformComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -83,27 +63,7 @@ public final class TextTransformComponentTest implements HtmlComponentTesting<Te
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final TextTransformComponent component = TextTransformComponent.with(
-            "Test123-",
-            new FakeTextTransformComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_TRANSFORM
-                        )
-                    );
-                }
-            }
-        );
+        final TextTransformComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -131,6 +91,32 @@ public final class TextTransformComponentTest implements HtmlComponentTesting<Te
                 "            mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
                 "            mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] id=Test123-textTransform-UPPERCASE-Link\n" +
                 "            mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] CHECKED id=Test123-textTransform-LOWERCASE-Link\n"
+        );
+    }
+
+    @Override
+    public TextTransformComponent createComponent() {
+        return TextTransformComponent.with(
+            "Test123-",
+            new FakeTextTransformComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.TEXT_TRANSFORM
+                        )
+                    );
+                }
+            }
         );
     }
 
