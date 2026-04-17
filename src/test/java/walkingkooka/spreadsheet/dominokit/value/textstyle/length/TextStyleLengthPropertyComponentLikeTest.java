@@ -43,7 +43,7 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [12.5px] REQUIRED\n"
+                "        [12.5px] id=TestIdPrefix123-width-TextBox REQUIRED\n"
         );
     }
 
@@ -70,7 +70,9 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
     final static class TestTextStyleLengthPropertyComponentLike implements TextStyleLengthPropertyComponentLike<TestTextStyleLengthPropertyComponentLike> {
 
         TestTextStyleLengthPropertyComponentLike() {
-            super();
+            this.setIdPrefix(
+                "TestIdPrefix123-"
+            );
         }
 
         @Override
