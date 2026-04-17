@@ -32,6 +32,7 @@ public final class TextIndentComponent implements TextStyleLengthPropertyCompone
         this.lengthComponent = LengthComponent.empty();
 
         this.setIdPrefix(idPrefix);
+        this.setLabelFromPropertyName();
     }
 
     @Override
