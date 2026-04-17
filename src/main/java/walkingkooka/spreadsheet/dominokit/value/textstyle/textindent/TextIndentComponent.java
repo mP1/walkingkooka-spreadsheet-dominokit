@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.textindent;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.HasTextStyleValueWatcherValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class TextIndentComponent implements LengthComponentDelegator<TextIndentComponent>,
-    HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, Length<?>, TextIndentComponent> {
+public final class TextIndentComponent implements TextStyleLengthPropertyComponentLike<TextIndentComponent> {
 
     public static TextIndentComponent empty() {
         return new TextIndentComponent();
