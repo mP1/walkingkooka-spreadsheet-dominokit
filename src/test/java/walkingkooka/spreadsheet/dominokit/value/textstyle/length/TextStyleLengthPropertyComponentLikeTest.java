@@ -43,9 +43,7 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] REQUIRED\n" +
-                "        Errors\n" +
-                "          Empty \"text\"\n"
+                "        [12.5px] REQUIRED\n"
         );
     }
 
@@ -71,10 +69,16 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
 
     final static class TestTextStyleLengthPropertyComponentLike implements TextStyleLengthPropertyComponentLike<TestTextStyleLengthPropertyComponentLike> {
 
+        TestTextStyleLengthPropertyComponentLike() {
+            super();
+        }
+
         @Override
         public LengthComponent lengthComponent() {
-            return LengthComponent.empty();
+            return this.lengthComponent;
         }
+
+        private final LengthComponent lengthComponent = LengthComponent.empty();
 
         @Override
         public TextStylePropertyName<Length<?>> name() {
