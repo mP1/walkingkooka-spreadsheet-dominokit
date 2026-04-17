@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextWhitespace;
 
 import java.util.Optional;
 
-public final class WhitespaceComponentTest implements HtmlComponentTesting<WhitespaceComponent, HTMLFieldSetElement> {
+public final class WhitespaceComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextWhitespace, WhitespaceComponent> {
 
     @Test
     public void testSetValue() {
-        final WhitespaceComponent component = WhitespaceComponent.with(
-            "Test123-",
-            new FakeWhitespaceComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WHITE_SPACE
-                        )
-                    );
-                }
-            }
-        );
+        final WhitespaceComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -84,27 +64,7 @@ public final class WhitespaceComponentTest implements HtmlComponentTesting<White
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final WhitespaceComponent component = WhitespaceComponent.with(
-            "Test123-",
-            new FakeWhitespaceComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WHITE_SPACE
-                        )
-                    );
-                }
-            }
-        );
+        final WhitespaceComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -133,6 +93,32 @@ public final class WhitespaceComponentTest implements HtmlComponentTesting<White
                 "            \"Pre\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
                 "            \"Pre Line\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_LINE] id=Test123-whiteSpace-PRE_LINE-Link\n" +
                 "            \"Pre Wrap\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
+        );
+    }
+
+    @Override
+    public WhitespaceComponent createComponent() {
+        return WhitespaceComponent.with(
+            "Test123-",
+            new FakeWhitespaceComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.WHITE_SPACE
+                        )
+                    );
+                }
+            }
         );
     }
 

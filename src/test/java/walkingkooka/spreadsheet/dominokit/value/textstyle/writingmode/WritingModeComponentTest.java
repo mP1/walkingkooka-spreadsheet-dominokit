@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.WritingMode;
 
 import java.util.Optional;
 
-public final class WritingModeComponentTest implements HtmlComponentTesting<WritingModeComponent, HTMLFieldSetElement> {
+public final class WritingModeComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, WritingMode, WritingModeComponent> {
 
     @Test
     public void testSetValue() {
-        final WritingModeComponent component = WritingModeComponent.with(
-            "Test123-",
-            new FakeWritingModeComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WRITING_MODE
-                        )
-                    );
-                }
-            }
-        );
+        final WritingModeComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -82,27 +62,7 @@ public final class WritingModeComponentTest implements HtmlComponentTesting<Writ
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final WritingModeComponent component = WritingModeComponent.with(
-            "Test123-",
-            new FakeWritingModeComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WRITING_MODE
-                        )
-                    );
-                }
-            }
-        );
+        final WritingModeComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -129,6 +89,32 @@ public final class WritingModeComponentTest implements HtmlComponentTesting<Writ
                 "            \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
                 "            \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] CHECKED id=Test123-writingMode-VERTICAL_LR-Link\n" +
                 "            \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
+        );
+    }
+
+    @Override
+    public WritingModeComponent createComponent() {
+        return WritingModeComponent.with(
+            "Test123-",
+            new FakeWritingModeComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.WRITING_MODE
+                        )
+                    );
+                }
+            }
         );
     }
 

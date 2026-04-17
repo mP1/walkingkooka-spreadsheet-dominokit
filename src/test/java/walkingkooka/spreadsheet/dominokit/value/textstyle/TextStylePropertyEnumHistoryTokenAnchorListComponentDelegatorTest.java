@@ -19,19 +19,18 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.naming.HasName;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest.TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements HtmlComponentTesting<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>, HTMLFieldSetElement> {
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
 
     @Test
     public void testPrintTree() {
@@ -50,6 +49,11 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
         );
     }
 
+    @Override
+    public TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator createComponent() {
+        return new TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator();
+    }
+
     // class............................................................................................................
 
     @Override
@@ -58,13 +62,13 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
     }
 
     @Override
-    public Class<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>> type() {
-        return Cast.to(TextStylePropertyEnumHistoryTokenAnchorListComponent.class);
+    public Class<TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> type() {
+        return TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator.class;
     }
 
     @Override
     public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+        return JavaVisibility.PACKAGE_PRIVATE;
     }
 
     final static class TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator>,

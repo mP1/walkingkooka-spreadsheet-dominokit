@@ -34,27 +34,7 @@ public final class BorderStyleComponentTest extends BorderStyleSharedComponentTe
 
     @Test
     public void testSetValue() {
-        final BorderStyleComponent component = BorderStyleComponent.with(
-            "Test123-",
-            new FakeBorderStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -86,27 +66,7 @@ public final class BorderStyleComponentTest extends BorderStyleSharedComponentTe
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final BorderStyleComponent component = BorderStyleComponent.with(
-            "Test123-",
-            new FakeBorderStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -140,6 +100,31 @@ public final class BorderStyleComponentTest extends BorderStyleSharedComponentTe
                 "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-style/save/RIDGE] id=Test123-borderStyle-RIDGE-Link\n" +
                 "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-style/save/INSET] id=Test123-borderStyle-INSET-Link\n" +
                 "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-style/save/OUTSET] id=Test123-borderStyle-OUTSET-Link\n"
+        );
+    }
+
+    @Override
+    public BorderStyleComponent createComponent() {
+        return BorderStyleComponent.with(
+            "Test123-",
+            new FakeBorderStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.BORDER_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

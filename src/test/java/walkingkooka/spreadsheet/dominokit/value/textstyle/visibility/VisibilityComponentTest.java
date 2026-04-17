@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.Visibility;
 
 import java.util.Optional;
 
-public final class VisibilityComponentTest implements HtmlComponentTesting<VisibilityComponent, HTMLFieldSetElement> {
+public final class VisibilityComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Visibility, VisibilityComponent> {
 
     @Test
     public void testSetValue() {
-        final VisibilityComponent component = VisibilityComponent.with(
-            "Test123-",
-            new FakeVisibilityComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.VISIBILITY
-                        )
-                    );
-                }
-            }
-        );
+        final VisibilityComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -82,27 +62,7 @@ public final class VisibilityComponentTest implements HtmlComponentTesting<Visib
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final VisibilityComponent component = VisibilityComponent.with(
-            "Test123-",
-            new FakeVisibilityComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.VISIBILITY
-                        )
-                    );
-                }
-            }
-        );
+        final VisibilityComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -129,6 +89,32 @@ public final class VisibilityComponentTest implements HtmlComponentTesting<Visib
                 "            \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] id=Test123-visibility-VISIBLE-Link\n" +
                 "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
                 "            \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] CHECKED id=Test123-visibility-COLLAPSE-Link\n"
+        );
+    }
+
+    @Override
+    public VisibilityComponent createComponent() {
+        return VisibilityComponent.with(
+            "Test123-",
+            new FakeVisibilityComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.VISIBILITY
+                        )
+                    );
+                }
+            }
         );
     }
 

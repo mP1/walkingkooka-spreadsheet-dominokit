@@ -34,27 +34,7 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
 
     @Test
     public void testSetValue() {
-        final BorderBottomStyleComponent component = BorderBottomStyleComponent.with(
-            "Test123-",
-            new FakeBorderBottomStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_BOTTOM_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderBottomStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -86,27 +66,7 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final BorderBottomStyleComponent component = BorderBottomStyleComponent.with(
-            "Test123-",
-            new FakeBorderBottomStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_BOTTOM_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderBottomStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -140,6 +100,31 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
                 "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/RIDGE] id=Test123-borderBottomStyle-RIDGE-Link\n" +
                 "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/INSET] id=Test123-borderBottomStyle-INSET-Link\n" +
                 "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/OUTSET] id=Test123-borderBottomStyle-OUTSET-Link\n"
+        );
+    }
+
+    @Override
+    public BorderBottomStyleComponent createComponent() {
+        return BorderBottomStyleComponent.with(
+            "Test123-",
+            new FakeBorderBottomStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.BORDER_BOTTOM_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

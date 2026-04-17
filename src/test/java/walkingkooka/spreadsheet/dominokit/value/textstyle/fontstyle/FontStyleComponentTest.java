@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class FontStyleComponentTest implements HtmlComponentTesting<FontStyleComponent, HTMLFieldSetElement> {
+public final class FontStyleComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontStyle, FontStyleComponent> {
 
     @Test
     public void testSetValue() {
-        final FontStyleComponent component = FontStyleComponent.with(
-            "Test123-",
-            new FakeFontStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.FONT_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final FontStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -82,27 +62,7 @@ public final class FontStyleComponentTest implements HtmlComponentTesting<FontSt
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final FontStyleComponent component = FontStyleComponent.with(
-            "Test123-",
-            new FakeFontStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.FONT_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final FontStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -129,6 +89,32 @@ public final class FontStyleComponentTest implements HtmlComponentTesting<FontSt
                 "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
                 "            mdi-format-italic \"Italic\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] id=Test123-fontStyle-ITALIC-Link\n" +
                 "            \"Oblique\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/OBLIQUE] CHECKED id=Test123-fontStyle-OBLIQUE-Link\n"
+        );
+    }
+
+    @Override
+    public FontStyleComponent createComponent() {
+        return FontStyleComponent.with(
+            "Test123-",
+            new FakeFontStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.FONT_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 

@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +33,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class DirectionComponentTest implements HtmlComponentTesting<DirectionComponent, HTMLFieldSetElement> {
+public final class DirectionComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Direction, DirectionComponent> {
 
     @Test
     public void testSetValue() {
@@ -127,6 +127,31 @@ public final class DirectionComponentTest implements HtmlComponentTesting<Direct
                 "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
                 "            \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
                 "            \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+        );
+    }
+
+    @Override
+    public DirectionComponent createComponent() {
+        return DirectionComponent.with(
+            "Test123-",
+            new FakeDirectionComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.DIRECTION
+                        )
+                    );
+                }
+            }
         );
     }
 

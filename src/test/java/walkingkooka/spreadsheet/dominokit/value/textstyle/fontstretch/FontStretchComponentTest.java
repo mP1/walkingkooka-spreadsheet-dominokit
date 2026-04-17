@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class FontStretchComponentTest implements HtmlComponentTesting<FontStretchComponent, HTMLFieldSetElement> {
+public final class FontStretchComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontStretch, FontStretchComponent> {
 
     @Test
     public void testSetValue() {
-        final FontStretchComponent component = FontStretchComponent.with(
-            "Test123-",
-            new FakeFontStretchComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.FONT_STRETCH
-                        )
-                    );
-                }
-            }
-        );
+        final FontStretchComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -87,27 +67,7 @@ public final class FontStretchComponentTest implements HtmlComponentTesting<Font
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final FontStretchComponent component = FontStretchComponent.with(
-            "Test123-",
-            new FakeFontStretchComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.FONT_STRETCH
-                        )
-                    );
-                }
-            }
-        );
+        final FontStretchComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -139,6 +99,32 @@ public final class FontStretchComponentTest implements HtmlComponentTesting<Font
                 "            \"Expanded\" [#/1/SpreadsheetName111/cell/A1/style/font-stretch/save/EXPANDED] id=Test123-fontStretch-EXPANDED-Link\n" +
                 "            \"Extra Expanded\" [#/1/SpreadsheetName111/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=Test123-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "            \"Ultra Expanded\" [#/1/SpreadsheetName111/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=Test123-fontStretch-ULTRA_EXPANDED-Link\n"
+        );
+    }
+
+    @Override
+    public FontStretchComponent createComponent() {
+        return FontStretchComponent.with(
+            "Test123-",
+            new FakeFontStretchComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.FONT_STRETCH
+                        )
+                    );
+                }
+            }
         );
     }
 

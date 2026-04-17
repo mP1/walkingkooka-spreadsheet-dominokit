@@ -34,27 +34,7 @@ public final class BorderLeftStyleComponentTest extends BorderStyleSharedCompone
 
     @Test
     public void testSetValue() {
-        final BorderLeftStyleComponent component = BorderLeftStyleComponent.with(
-            "Test123-",
-            new FakeBorderLeftStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_LEFT_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderLeftStyleComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -86,27 +66,7 @@ public final class BorderLeftStyleComponentTest extends BorderStyleSharedCompone
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final BorderLeftStyleComponent component = BorderLeftStyleComponent.with(
-            "Test123-",
-            new FakeBorderLeftStyleComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.BORDER_LEFT_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final BorderLeftStyleComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -143,6 +103,31 @@ public final class BorderLeftStyleComponentTest extends BorderStyleSharedCompone
         );
     }
 
+    @Override
+    public BorderLeftStyleComponent createComponent() {
+        return BorderLeftStyleComponent.with(
+            "Test123-",
+            new FakeBorderLeftStyleComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {};
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.BORDER_LEFT_STYLE
+                        )
+                    );
+                }
+            }
+        );
+    }
+    
     // class............................................................................................................
 
     @Override

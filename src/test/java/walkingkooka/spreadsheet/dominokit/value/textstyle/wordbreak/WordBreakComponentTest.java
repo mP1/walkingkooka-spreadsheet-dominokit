@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,32 +33,11 @@ import walkingkooka.tree.text.WordBreak;
 
 import java.util.Optional;
 
-public final class WordBreakComponentTest implements HtmlComponentTesting<WordBreakComponent, HTMLFieldSetElement> {
+public final class WordBreakComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, WordBreak, WordBreakComponent> {
 
     @Test
     public void testSetValue() {
-        final WordBreakComponent component = WordBreakComponent.with(
-            "Test123-",
-            new FakeWordBreakComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WORD_BREAK
-                        )
-                    );
-                }
-            }
-        );
+        final WordBreakComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -84,28 +63,7 @@ public final class WordBreakComponentTest implements HtmlComponentTesting<WordBr
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final WordBreakComponent component = WordBreakComponent.with(
-            "Test123-",
-            new FakeWordBreakComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WORD_BREAK
-                        )
-                    );
-                }
-            }
-        );
+        final WordBreakComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -133,6 +91,32 @@ public final class WordBreakComponentTest implements HtmlComponentTesting<WordBr
                 "            \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
                 "            \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
                 "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] id=Test123-wordBreak-BREAK_WORD-Link\n"
+        );
+    }
+
+    @Override
+    public WordBreakComponent createComponent() {
+        return WordBreakComponent.with(
+            "Test123-",
+            new FakeWordBreakComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.WORD_BREAK
+                        )
+                    );
+                }
+            }
         );
     }
 

@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,32 +33,11 @@ import walkingkooka.tree.text.WordWrap;
 
 import java.util.Optional;
 
-public final class WordWrapComponentTest implements HtmlComponentTesting<WordWrapComponent, HTMLFieldSetElement> {
+public final class WordWrapComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, WordWrap, WordWrapComponent> {
 
     @Test
     public void testSetValue() {
-        final WordWrapComponent component = WordWrapComponent.with(
-            "Test123-",
-            new FakeWordWrapComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WORD_WRAP
-                        )
-                    );
-                }
-            }
-        );
+        final WordWrapComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -82,28 +61,7 @@ public final class WordWrapComponentTest implements HtmlComponentTesting<WordWra
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final WordWrapComponent component = WordWrapComponent.with(
-            "Test123-",
-            new FakeWordWrapComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {
-                    };
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.WORD_WRAP
-                        )
-                    );
-                }
-            }
-        );
+        final WordWrapComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -129,6 +87,32 @@ public final class WordWrapComponentTest implements HtmlComponentTesting<WordWra
                 "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
                 "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
                 "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
+        );
+    }
+
+    @Override
+    public WordWrapComponent createComponent() {
+        return WordWrapComponent.with(
+            "Test123-",
+            new FakeWordWrapComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.WORD_WRAP
+                        )
+                    );
+                }
+            }
         );
     }
 

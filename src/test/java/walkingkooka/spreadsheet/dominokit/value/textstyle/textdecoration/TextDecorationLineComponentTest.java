@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextDecorationLineComponentTest implements HtmlComponentTesting<TextDecorationLineComponent, HTMLFieldSetElement> {
+public final class TextDecorationLineComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextDecorationLine, TextDecorationLineComponent> {
 
     @Test
     public void testSetValue() {
-        final TextDecorationLineComponent component = TextDecorationLineComponent.with(
-            "Test123-",
-            new FakeTextDecorationLineComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_DECORATION_LINE
-                        )
-                    );
-                }
-            }
-        );
+        final TextDecorationLineComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -83,27 +63,7 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final TextDecorationLineComponent component = TextDecorationLineComponent.with(
-            "Test123-",
-            new FakeTextDecorationLineComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.TEXT_DECORATION_LINE
-                        )
-                    );
-                }
-            }
-        );
+        final TextDecorationLineComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -131,6 +91,32 @@ public final class TextDecorationLineComponentTest implements HtmlComponentTesti
                 "            mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
                 "            \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
                 "            mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
+        );
+    }
+
+    @Override
+    public TextDecorationLineComponent createComponent() {
+        return TextDecorationLineComponent.with(
+            "Test123-",
+            new FakeTextDecorationLineComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.TEXT_DECORATION_LINE
+                        )
+                    );
+                }
+            }
         );
     }
 

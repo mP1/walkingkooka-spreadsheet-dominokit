@@ -19,9 +19,10 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.tree.text.BorderStyle;
 
-public abstract class BorderStyleSharedComponentTestCase<C extends BorderStyleSharedComponent<C>> implements HtmlComponentTesting<C, HTMLFieldSetElement> {
+public abstract class BorderStyleSharedComponentTestCase<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyComponentTesting<HTMLFieldSetElement, BorderStyle, C> {
 
     public BorderStyleSharedComponentTestCase() {
         super();

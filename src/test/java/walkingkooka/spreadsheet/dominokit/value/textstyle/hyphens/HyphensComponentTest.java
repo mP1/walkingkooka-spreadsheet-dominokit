@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class HyphensComponentTest implements HtmlComponentTesting<HyphensComponent, HTMLFieldSetElement> {
+public final class HyphensComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Hyphens, HyphensComponent> {
 
     @Test
     public void testSetValue() {
-        final HyphensComponent component = HyphensComponent.with(
-            "Test123-",
-            new FakeHyphensComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.HYPHENS
-                        )
-                    );
-                }
-            }
-        );
+        final HyphensComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -82,27 +62,7 @@ public final class HyphensComponentTest implements HtmlComponentTesting<HyphensC
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final HyphensComponent component = HyphensComponent.with(
-            "Test123-",
-            new FakeHyphensComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.HYPHENS
-                        )
-                    );
-                }
-            }
-        );
+        final HyphensComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -129,6 +89,32 @@ public final class HyphensComponentTest implements HtmlComponentTesting<HyphensC
                 "            \"None\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/NONE] id=Test123-hyphens-NONE-Link\n" +
                 "            \"Manual\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/MANUAL] CHECKED id=Test123-hyphens-MANUAL-Link\n" +
                 "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/AUTO] id=Test123-hyphens-AUTO-Link\n"
+        );
+    }
+
+    @Override
+    public HyphensComponent createComponent() {
+        return HyphensComponent.with(
+            "Test123-",
+            new FakeHyphensComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.HYPHENS
+                        )
+                    );
+                }
+            }
         );
     }
 

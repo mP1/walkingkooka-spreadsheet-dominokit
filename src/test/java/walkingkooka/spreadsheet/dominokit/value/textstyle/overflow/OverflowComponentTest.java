@@ -21,9 +21,9 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,31 +33,11 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class OverflowComponentTest implements HtmlComponentTesting<OverflowComponent, HTMLFieldSetElement> {
+public final class OverflowComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Overflow, OverflowComponent> {
 
     @Test
     public void testSetValue() {
-        final OverflowComponent component = OverflowComponent.overflowX(
-            "Test123-",
-            new FakeOverflowComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.OUTLINE_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final OverflowComponent component = this.createComponent();
 
         component.setValue(
             Optional.of(
@@ -69,41 +49,21 @@ public final class OverflowComponentTest implements HtmlComponentTesting<Overflo
             component,
             "OverflowComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Overflow X\n" +
+                "    Overflow Y\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-x/save/] id=Test123-overflowX-Link\n" +
-                "            \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/overflow-x/save/VISIBLE] id=Test123-overflowX-VISIBLE-Link\n" +
-                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/overflow-x/save/HIDDEN] CHECKED id=Test123-overflowX-HIDDEN-Link\n" +
-                "            \"Scroll\" [#/1/SpreadsheetName111/cell/A1/style/overflow-x/save/SCROLL] id=Test123-overflowX-SCROLL-Link\n" +
-                "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/overflow-x/save/AUTO] id=Test123-overflowX-AUTO-Link\n"
+                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/] id=Test123-overflowY-Link\n" +
+                "            \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/VISIBLE] id=Test123-overflowY-VISIBLE-Link\n" +
+                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
+                "            \"Scroll\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
+                "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
         );
     }
 
     @Test
     public void testTextStyleValueWatcherOnValueChange() {
-        final OverflowComponent component = OverflowComponent.overflowY(
-            "Test123-",
-            new FakeOverflowComponentContext() {
-                @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return () -> {};
-                }
-
-                @Override
-                public HistoryToken historyToken() {
-                    return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
-                        SpreadsheetSelection.A1.setDefaultAnchor(),
-                        Optional.of(
-                            TextStylePropertyName.OUTLINE_STYLE
-                        )
-                    );
-                }
-            }
-        );
+        final OverflowComponent component = this.createComponent();
 
         component.textStyleValueWatcher()
             .onValue(
@@ -134,6 +94,32 @@ public final class OverflowComponentTest implements HtmlComponentTesting<Overflo
                 "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
                 "            \"Scroll\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
                 "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
+        );
+    }
+
+    @Override
+    public OverflowComponent createComponent() {
+        return OverflowComponent.overflowY(
+            "Test123-",
+            new FakeOverflowComponentContext() {
+                @Override
+                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    return () -> {
+                    };
+                }
+
+                @Override
+                public HistoryToken historyToken() {
+                    return HistoryToken.cellStyle(
+                        SpreadsheetId.with(1),
+                        SpreadsheetName.with("SpreadsheetName111"),
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.OUTLINE_STYLE
+                        )
+                    );
+                }
+            }
         );
     }
 
