@@ -37,8 +37,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
@@ -147,17 +145,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
 
         this.components.forEach(
-            (FormValueComponent<?, ?, ?> component) -> {
-                final ValueWatcher<TextStyle> valueWatcher;
-                if(component instanceof HasTextStyleValueWatcher){
-                    valueWatcher = ((HasTextStyleValueWatcher) component)
-                        .textStyleValueWatcher();
-                } else {
-                    throw new UnsupportedOperationException(component.getClass().getSimpleName() + " " + component.toString());
-                }
-
-                this.textStyle.addValueWatcher2(valueWatcher);
-            }
+            (TextStylePropertyComponent<?, ?, ?> component) ->
+                this.textStyle.addValueWatcher2(
+                    component.textStyleValueWatcher()
+                )
         );
 
         this.textStyle.addValueWatcher2(this.links);
@@ -495,7 +486,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     // @VisibleForTesting
     final TextStyleComponent textStyle;
 
-    final List<FormValueComponent<?, ?, ?>> components;
+    final List<TextStylePropertyComponent<?, ?, ?>> components;
 
     // links............................................................................................................
 
