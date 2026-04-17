@@ -43,7 +43,7 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [12.5px] id=TestIdPrefix123-width-TextBox REQUIRED\n"
+                "        [12.5px] id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n"
         );
     }
 
@@ -84,7 +84,7 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
 
         @Override
         public TextStylePropertyName<Length<?>> name() {
-            return TextStylePropertyName.WIDTH;
+            return TextStylePropertyName.TEXT_DECORATION_THICKNESS;
         }
     }
 }
