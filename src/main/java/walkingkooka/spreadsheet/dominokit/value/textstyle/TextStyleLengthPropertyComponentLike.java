@@ -18,24 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
-import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.Length;
 
 public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
     LengthComponentDelegator<C> {
-
-    default C setIdPrefix(final String idPrefix) {
-        return this.setId(
-            idPrefix +
-                CaseKind.KEBAB.change(
-                    this.name()
-                        .text(),
-                    CaseKind.CAMEL
-                ) +
-                SpreadsheetElementIds.TEXT_BOX
-        );
-    }
 }
