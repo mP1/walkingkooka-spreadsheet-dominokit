@@ -33,8 +33,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>>,
-    HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
+abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     /**
      * A function that converts {@link Enum#name()} to Title Case.
