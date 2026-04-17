@@ -20,19 +20,16 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
-import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.color.SpreadsheetColors;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.tree.text.TextStylePropertyName;
 
-public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSharedComponent<C>> implements ValueComponentTesting<HTMLFieldSetElement, Color, C>,
+public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSharedComponent<C>> implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Color, C>,
     ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<Color>>,
     ToStringTesting<C>,
     SpreadsheetMetadataTesting {
 
