@@ -32,6 +32,7 @@ public final class HeightComponent implements TextStyleLengthPropertyComponentLi
         this.lengthComponent = LengthComponent.empty();
 
         this.setIdPrefix(idPrefix);
+        this.setLabelFromPropertyName();
     }
 
     @Override

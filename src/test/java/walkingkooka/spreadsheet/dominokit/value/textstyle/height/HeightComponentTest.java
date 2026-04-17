@@ -39,7 +39,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] id=TestIdPrefix123-height-TextBox REQUIRED\n" +
+                "        Height [] id=TestIdPrefix123-height-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -56,7 +56,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [1px] id=TestIdPrefix123-height-TextBox REQUIRED\n"
+                "        Height [1px] id=TestIdPrefix123-height-TextBox REQUIRED\n"
         );
     }
 
