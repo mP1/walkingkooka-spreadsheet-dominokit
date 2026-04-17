@@ -31,13 +31,13 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            TextDecorationThicknessComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "TextDecorationThicknessComponent\n" +
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] REQUIRED\n" +
+                "        [] id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -46,7 +46,7 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            TextDecorationThicknessComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(LENGTH)
                 ),
@@ -54,7 +54,7 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [1px] REQUIRED\n"
+                "        [1px] id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n"
         );
     }
 
@@ -62,7 +62,9 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
 
     @Override
     public TextDecorationThicknessComponent createComponent() {
-        return TextDecorationThicknessComponent.empty();
+        return TextDecorationThicknessComponent.empty(
+            "TestIdPrefix123-"
+        );
     }
 
     // class............................................................................................................
