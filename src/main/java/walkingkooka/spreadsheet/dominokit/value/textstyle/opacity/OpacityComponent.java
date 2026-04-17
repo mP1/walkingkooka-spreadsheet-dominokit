@@ -18,9 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -31,15 +33,19 @@ import walkingkooka.tree.text.TextStylePropertyName;
 public final class OpacityComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Opacity, OpacityComponent>,
     ValueTextBoxComponentDelegator<OpacityComponent, Opacity> {
 
-    public static OpacityComponent empty() {
-        return new OpacityComponent();
+    public static OpacityComponent with(final String idPrefix) {
+        return new OpacityComponent(
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"
+            )
+        );
     }
 
-    private OpacityComponent() {
+    private OpacityComponent(final String idPrefix) {
         this.textBox = ValueTextBoxComponent.with(
             Opacity::parse,
             Opacity::text
         );
+        this.setId(idPrefix + this.name() + SpreadsheetElementIds.TEXT_BOX);
         this.setLabelFromPropertyName();
     }
 
