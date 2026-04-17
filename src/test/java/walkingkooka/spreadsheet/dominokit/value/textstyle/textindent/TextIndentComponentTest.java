@@ -17,15 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textindent;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public final class TextIndentComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Length<?>, TextIndentComponent> {
+public final class TextIndentComponentTest implements TextStyleLengthPropertyComponentLikeTesting<TextIndentComponent> {
 
     private final static Length<?> LENGTH = Length.parse("1px");
 
