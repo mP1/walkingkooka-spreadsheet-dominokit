@@ -312,9 +312,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     // OpacityComponent.................................................................................................
 
     private OpacityComponent opacityComponent() {
-        return OpacityComponent.empty()
-            .optional()
-            .setId(ID_PREFIX + "opacity" + SpreadsheetElementIds.TEXT_BOX);
+        return OpacityComponent.with(ID_PREFIX)
+            .optional();
     }
     
     // OverflowWrapComponent............................................................................................

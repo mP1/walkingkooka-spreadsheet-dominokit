@@ -27,20 +27,38 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class OpacityComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Opacity, OpacityComponent>,
     ValueTextBoxComponentLikeTesting<OpacityComponent, Opacity> {
     
     private final static Opacity OPACITY = Opacity.parse("50%");
 
     @Test
+    public void testWithNullIdPrefixFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> OpacityComponent.with(null)
+        );
+    }
+
+    @Test
+    public void testWithEmptyIdPrefixFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> OpacityComponent.with("")
+        );
+    }
+
+    @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            OpacityComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [] REQUIRED\n" +
+                "      Opacity [] id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -49,34 +67,34 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
     @Test
     public void testClearValueOpacity() {
         this.treePrintAndCheck(
-            OpacityComponent.empty()
+            this.createComponent()
                 .optional()
                 .clearValue(),
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity []\n"
+                "      Opacity [] id=TestIdPrefix123-opacity-TextBox\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            OpacityComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(OPACITY)
                 ),
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [0.5] REQUIRED\n"
+                "      Opacity [0.5] id=TestIdPrefix123-opacity-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            OpacityComponent.empty()
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
@@ -85,7 +103,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [Invalid123!] REQUIRED\n" +
+                "      Opacity [Invalid123!] id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );
@@ -95,7 +113,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
 
     @Override
     public OpacityComponent createComponent() {
-        return OpacityComponent.empty();
+        return OpacityComponent.with("TestIdPrefix123-");
     }
 
     // HasName..........................................................................................................
