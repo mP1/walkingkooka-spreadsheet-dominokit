@@ -19,13 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.Length;
 
 public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
-    extends ValueComponent<HTMLFieldSetElement, Length<?>, C>,
+    extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
     LengthComponentDelegator<C>,
     HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, Length<?>, C> {
 
