@@ -21,9 +21,8 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.color.Color;
-import walkingkooka.naming.HasName;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
@@ -32,8 +31,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Objects;
 import java.util.Optional;
 
-abstract class TextStylePropertyColorComponentLike implements FormValueComponent<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
-    HasName<TextStylePropertyName<Color>> {
+abstract class TextStylePropertyColorComponentLike implements TextStylePropertyComponent<HTMLFieldSetElement, Color, TextStylePropertyColorComponent> {
 
     TextStylePropertyColorComponentLike(final String idPrefix,
                                         final TextStylePropertyName<Color> propertyName,

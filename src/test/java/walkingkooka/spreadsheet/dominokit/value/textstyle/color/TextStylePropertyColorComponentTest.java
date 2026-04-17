@@ -24,7 +24,6 @@ import walkingkooka.EmptyTextException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
-import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.color.SpreadsheetColors;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
@@ -32,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -44,9 +43,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyColorComponentTest implements ValueComponentTesting<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
+public final class TextStylePropertyColorComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
     ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<Color>>,
     ToStringTesting<TextStylePropertyColorComponent>,
     SpreadsheetMetadataTesting {
 
