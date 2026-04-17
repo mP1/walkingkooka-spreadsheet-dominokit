@@ -576,7 +576,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [55px] id=TextStyle-height-TextBox\n" +
+                "                      Height [55px] id=TextStyle-height-TextBox\n" +
                 "              HyphensComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Hyphens\n" +
@@ -1295,7 +1295,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [55px] id=TextStyle-height-TextBox\n" +
+                "                      Height [55px] id=TextStyle-height-TextBox\n" +
                 "              HyphensComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Hyphens\n" +
