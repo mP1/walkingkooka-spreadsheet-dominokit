@@ -32,6 +32,6 @@ public final class BorderBottomWidthComponent extends BorderWidthSharedComponent
 
     @Override
     public TextStylePropertyName<Length<?>> name() {
-        return TextStylePropertyName.TEXT_INDENT;
+        return TextStylePropertyName.BORDER_BOTTOM_WIDTH;
     }
 }
