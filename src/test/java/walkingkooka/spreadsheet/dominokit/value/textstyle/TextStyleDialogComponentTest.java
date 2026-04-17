@@ -734,7 +734,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [44px] id=TextStyle-width-TextBox\n" +
+                "                      Width [44px] id=TextStyle-width-TextBox\n" +
                 "              WordBreakComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Word Break\n" +
@@ -1453,7 +1453,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [44px] id=TextStyle-width-TextBox\n" +
+                "                      Width [44px] id=TextStyle-width-TextBox\n" +
                 "              WordBreakComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Word Break\n" +
