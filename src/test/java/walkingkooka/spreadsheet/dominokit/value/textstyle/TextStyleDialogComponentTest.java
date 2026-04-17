@@ -666,7 +666,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [123px] id=TextStyle-textIndent-TextBox REQUIRED\n" +
+                "                      [123px] id=TextStyle-textIndent-TextBox\n" +
                 "              TextJustifyComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Text Justify\n" +
@@ -1385,7 +1385,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [123px] id=TextStyle-textIndent-TextBox REQUIRED\n" +
+                "                      [123px] id=TextStyle-textIndent-TextBox\n" +
                 "              TextJustifyComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Text Justify\n" +
