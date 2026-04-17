@@ -314,7 +314,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     private OpacityComponent opacityComponent() {
         return OpacityComponent.empty()
             .optional()
-            .setLabel("Opacity")
             .setId(ID_PREFIX + "opacity" + SpreadsheetElementIds.TEXT_BOX);
     }
     

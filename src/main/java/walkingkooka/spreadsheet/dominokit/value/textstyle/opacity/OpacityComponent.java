@@ -40,6 +40,7 @@ public final class OpacityComponent implements TextStylePropertyComponent<HTMLFi
             Opacity::parse,
             Opacity::text
         );
+        this.setLabelFromPropertyName();
     }
 
     // HasName..........................................................................................................

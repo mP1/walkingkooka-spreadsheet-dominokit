@@ -40,7 +40,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n" +
+                "      Opacity [] REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -55,7 +55,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      Opacity []\n"
         );
     }
 
@@ -69,7 +69,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0.5] REQUIRED\n"
+                "      Opacity [0.5] REQUIRED\n"
         );
     }
 
@@ -85,7 +85,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
+                "      Opacity [Invalid123!] REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );
