@@ -22,7 +22,6 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -34,7 +33,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements FormValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>>,
+abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>>,
     HasTextStyleValueWatcherValueComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     /**

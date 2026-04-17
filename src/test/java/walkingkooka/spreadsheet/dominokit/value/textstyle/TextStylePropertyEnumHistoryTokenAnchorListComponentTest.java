@@ -24,7 +24,6 @@ import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.naming.HasNameTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -32,7 +31,6 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.BorderStyle;
@@ -48,9 +46,8 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextAlign, TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>>,
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextAlign, TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
-    HasNameTesting<TextStylePropertyName<TextAlign>>,
     ToStringTesting<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>> {
 
     private final static String ID_PREFIX = "TestId123";
