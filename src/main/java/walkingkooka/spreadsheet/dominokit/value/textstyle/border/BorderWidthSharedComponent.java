@@ -22,8 +22,9 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent
 
 abstract class BorderWidthSharedComponent<C extends BorderWidthSharedComponent<C>> implements TextStyleLengthPropertyComponentLike<C> {
 
-    BorderWidthSharedComponent() {
+    BorderWidthSharedComponent(final String idPrefix) {
         this.lengthComponent = LengthComponent.empty();
+        this.setIdPrefix(idPrefix);
     }
 
     // LengthComponentDelegator.........................................................................................

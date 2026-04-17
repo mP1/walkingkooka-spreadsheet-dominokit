@@ -22,12 +22,12 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 public final class BorderBottomWidthComponent extends BorderWidthSharedComponent<BorderBottomWidthComponent> {
 
-    public static BorderBottomWidthComponent empty() {
-        return new BorderBottomWidthComponent();
+    public static BorderBottomWidthComponent empty(final String idPrefix) {
+        return new BorderBottomWidthComponent(idPrefix);
     }
 
-    private BorderBottomWidthComponent() {
-        super();
+    private BorderBottomWidthComponent(final String idPrefix) {
+        super(idPrefix);
     }
 
     @Override
