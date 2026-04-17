@@ -31,6 +31,7 @@ public final class TextDecorationThicknessComponent implements TextStyleLengthPr
     private TextDecorationThicknessComponent(final String idPrefix) {
         this.lengthComponent = LengthComponent.empty();
         this.setIdPrefix(idPrefix);
+        this.setLabelFromPropertyName();
     }
 
     @Override

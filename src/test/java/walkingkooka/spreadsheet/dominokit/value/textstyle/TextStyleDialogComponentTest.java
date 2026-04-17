@@ -661,7 +661,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                      Text Decoration Thickness [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
                 "              TextIndentComponent\n" +
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
@@ -1380,7 +1380,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                      Text Decoration Thickness [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
                 "              TextIndentComponent\n" +
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
