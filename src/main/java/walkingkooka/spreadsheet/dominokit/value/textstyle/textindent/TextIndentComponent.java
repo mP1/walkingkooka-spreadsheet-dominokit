@@ -24,12 +24,14 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 public final class TextIndentComponent implements TextStyleLengthPropertyComponentLike<TextIndentComponent> {
 
-    public static TextIndentComponent empty() {
-        return new TextIndentComponent();
+    public static TextIndentComponent empty(final String idPrefix) {
+        return new TextIndentComponent(idPrefix);
     }
 
-    private TextIndentComponent() {
+    private TextIndentComponent(final String idPrefix) {
         this.lengthComponent = LengthComponent.empty();
+
+        this.setIdPrefix(idPrefix);
     }
 
     @Override

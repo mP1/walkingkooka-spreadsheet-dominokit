@@ -26,18 +26,20 @@ import java.util.Optional;
 
 public final class TextIndentComponentTest implements TextStyleLengthPropertyComponentLikeTesting<TextIndentComponent> {
 
+    private final static String ID_PREFIX = "TestIdPrefix123-";
+
     private final static Length<?> LENGTH = Length.parse("1px");
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            TextIndentComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "TextIndentComponent\n" +
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] REQUIRED\n" +
+                "        [] id=TestIdPrefix123-textIndent-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -46,7 +48,7 @@ public final class TextIndentComponentTest implements TextStyleLengthPropertyCom
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            TextIndentComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(LENGTH)
                 ),
@@ -54,7 +56,7 @@ public final class TextIndentComponentTest implements TextStyleLengthPropertyCom
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [1px] REQUIRED\n"
+                "        [1px] id=TestIdPrefix123-textIndent-TextBox REQUIRED\n"
         );
     }
 
@@ -62,7 +64,7 @@ public final class TextIndentComponentTest implements TextStyleLengthPropertyCom
 
     @Override
     public TextIndentComponent createComponent() {
-        return TextIndentComponent.empty();
+        return TextIndentComponent.empty(ID_PREFIX);
     }
 
     // class............................................................................................................
