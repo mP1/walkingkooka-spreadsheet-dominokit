@@ -39,6 +39,7 @@ public final class SpreadsheetFormulaComponent implements ValueTextBoxComponentD
             parser,
             HasText::text
         ).setValidator(SpreadsheetFormulaComponentValidator.with(parser));
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
