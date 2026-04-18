@@ -40,6 +40,7 @@ public final class SpreadsheetColumnOrRowReferenceComponent implements ValueText
             SpreadsheetSelection::parseColumnOrRow,
             HasText::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
