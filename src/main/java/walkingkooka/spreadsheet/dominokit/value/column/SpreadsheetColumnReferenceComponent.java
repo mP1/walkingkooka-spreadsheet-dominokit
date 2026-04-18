@@ -37,6 +37,7 @@ public final class SpreadsheetColumnReferenceComponent implements ValueTextBoxCo
             SpreadsheetSelection::parseColumn,
             HasText::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
