@@ -91,6 +91,11 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     }
 
     @Override
+    public Optional<Icon<?>> icon() {
+        return this.icon;
+    }
+
+    @Override
     public TextBoxComponent clearIcon() {
         return this.setIcon(
             SpreadsheetIcons.textBoxClear()
@@ -110,9 +115,12 @@ public final class TextBoxComponent extends TextBoxComponentLike {
                 PostfixAddOn.of(icon)
             )
         );
+        this.icon = Optional.of(icon);
 
         return this;
     }
+
+    private Optional<Icon<?>> icon = Optional.empty();
 
     @Override
     public TextBoxComponent disableSpellcheck() {

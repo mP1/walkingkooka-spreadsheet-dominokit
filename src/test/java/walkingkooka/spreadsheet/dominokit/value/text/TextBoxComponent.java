@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -230,12 +231,24 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
+    public Optional<Icon<?>> icon() {
+        return this.icon;
+    }
+
+    private Optional<Icon<?>> icon = Optional.empty();
+
+    @Override
     public TextBoxComponent clearIcon() {
-        return this;
+        return this.setIcon(
+            SpreadsheetIcons.textBoxClear()
+        );
     }
 
     @Override
     public TextBoxComponent setIcon(final Icon<?> icon) {
+        Objects.requireNonNull(icon, "icon");
+
+        this.icon = Optional.of(icon);
         return this;
     }
 
