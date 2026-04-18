@@ -36,7 +36,7 @@ public final class SpreadsheetExporterNameComponent implements ValueTextBoxCompo
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExporterName::with,
             SpreadsheetExporterName::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

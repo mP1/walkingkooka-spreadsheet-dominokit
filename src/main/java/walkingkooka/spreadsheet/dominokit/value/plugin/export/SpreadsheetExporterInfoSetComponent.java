@@ -31,7 +31,7 @@ public final class SpreadsheetExporterInfoSetComponent implements ValueTextBoxCo
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExporterInfoSet::parse,
             SpreadsheetExporterInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

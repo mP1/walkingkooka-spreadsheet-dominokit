@@ -31,7 +31,7 @@ public final class SpreadsheetExporterAliasSetComponent implements ValueTextBoxC
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExporterAliasSet::parse,
             SpreadsheetExporterAliasSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
