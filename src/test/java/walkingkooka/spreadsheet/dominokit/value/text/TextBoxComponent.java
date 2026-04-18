@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.text;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.ToStringBuilder;
@@ -230,6 +231,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
 
     @Override
     public TextBoxComponent clearIcon() {
+        return this;
+    }
+
+    @Override
+    public TextBoxComponent setIcon(final Icon<?> icon) {
         return this;
     }
 

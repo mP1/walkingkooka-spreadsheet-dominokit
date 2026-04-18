@@ -25,6 +25,7 @@ import elemental2.dom.KeyboardEvent;
 import jsinterop.base.Js;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.TextBox;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.DominoElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
@@ -91,17 +92,25 @@ public final class TextBoxComponent extends TextBoxComponentLike {
 
     @Override
     public TextBoxComponent clearIcon() {
+        return this.setIcon(
+            SpreadsheetIcons.textBoxClear()
+                .clickable()
+                .addClickListener(
+                    event -> this.textBox.clear()
+                )
+        );
+    }
+
+    @Override
+    public TextBoxComponent setIcon(final Icon<?> icon) {
+        Objects.requireNonNull(icon, "icon");
+
         this.textBox.apply(
             self -> self.appendChild(
-                PostfixAddOn.of(
-                    SpreadsheetIcons.textBoxClear()
-                        .clickable()
-                        .addClickListener(
-                            event -> this.textBox.clear()
-                        )
-                )
+                PostfixAddOn.of(icon)
             )
         );
+
         return this;
     }
 

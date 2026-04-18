@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.text;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
@@ -38,6 +39,8 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     public abstract TextBoxComponent autocompleteOff();
 
     public abstract TextBoxComponent clearIcon();
+
+    public abstract TextBoxComponent setIcon(final Icon<?> icon);
 
     public abstract TextBoxComponent disableSpellcheck();
 
