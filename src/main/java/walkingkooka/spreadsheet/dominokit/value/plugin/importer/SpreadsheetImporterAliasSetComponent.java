@@ -31,7 +31,7 @@ public final class SpreadsheetImporterAliasSetComponent implements ValueTextBoxC
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetImporterAliasSet::parse,
             SpreadsheetImporterAliasSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
