@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.icons.Icon;
-import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.text.CharSequences;
@@ -28,7 +27,6 @@ import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Provides a default {@link TreePrintable#printTree(IndentingPrinter)}.
@@ -42,55 +40,63 @@ public interface FormValueComponentTreePrintable<E extends HTMLElement, C extend
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            final List<String> components = Lists.array();
-
             final String label = this.label();
             if (null != label) {
-                components.add(label);
+                printer.print(label);
+                printer.print(" ");
             }
 
-            components.add(
-                "[" +
-                    this.value()
-                        .map(Object::toString)
-                        .orElse("") +
-                    "]"
+            // [$VALUE]
+            printer.print("[");
+            printer.print(
+                this.value()
+                    .map(Object::toString)
+                    .orElse("")
             );
+            printer.print("]");
 
-            if(this instanceof TextBoxComponent) {
+            String separator = " ";
+
+            if (this instanceof TextBoxComponent) {
                 final TextBoxComponent textBoxComponent = (TextBoxComponent) this;
 
                 final Icon<?> icon = textBoxComponent.icon()
                     .orElse(null);
-                if(null != icon) {
-                    components.add(
-                        "icon=" + icon.getName()
-                    );
+                if (null != icon) {
+                    printer.print(separator);
+                    printer.print("icon=");
+                    printer.print(icon.getName());
+                    separator = " ";
                 }
             }
 
             final String id = this.id();
             if (null != id) {
-                components.add("id=" + id);
+                printer.print(separator);
+                printer.print("id=");
+                printer.print(id);
+                separator = " ";
             }
 
             final Optional<String> helperText = this.helperText();
             if (helperText.isPresent()) {
-                components.add("helperText=" + CharSequences.quoteAndEscape(helperText.get()));
+                printer.print(separator);
+                printer.print("helperText=");
+                printer.print(CharSequences.quoteAndEscape(helperText.get()));
+                separator = " ";
             }
 
             if (this.isDisabled()) {
-                components.add("DISABLED");
+                printer.print(separator);
+                printer.print("DISABLED");
+                separator = " ";
             }
 
             if (this.isRequired()) {
-                components.add("REQUIRED");
+                printer.print(separator);
+                printer.print("REQUIRED");
             }
-
-            printer.println(
-                components.stream()
-                    .collect(Collectors.joining(" "))
-            );
+            printer.println();
 
             this.treePrintAlternateValues(printer);
 
