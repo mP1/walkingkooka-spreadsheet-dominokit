@@ -57,6 +57,7 @@ public final class NumberComponent implements ValueTextBoxComponentDelegator<Num
                     ).orElse(TextNode.EMPTY_TEXT)
                     .text() // formatter ExpressionNumber to String
             ).setId(id)
+                .clearIcon()
         );
     }
 
