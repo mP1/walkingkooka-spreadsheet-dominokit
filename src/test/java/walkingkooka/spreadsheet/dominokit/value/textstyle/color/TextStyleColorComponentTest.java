@@ -78,7 +78,7 @@ public final class TextStyleColorComponentTest implements TextStylePropertyCompo
             "TextStyleColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +
@@ -306,7 +306,7 @@ public final class TextStyleColorComponentTest implements TextStylePropertyCompo
             "TextStyleColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +

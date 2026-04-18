@@ -146,7 +146,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -353,7 +353,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -558,7 +558,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -777,7 +777,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             anchor,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1002,7 +1002,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1229,7 +1229,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1474,7 +1474,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1702,7 +1702,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             component,
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -1962,7 +1962,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             this.createComponent(),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2165,7 +2165,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2372,7 +2372,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +
@@ -2581,7 +2581,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 ),
             "TextStylePropertyColorComponent\n" +
                 "  Background Color\n" +
-                "    TextStylePropertyColorComponentMenu\n" +
+                "    ColorComponent\n" +
                 "      DIV\n" +
                 "        style=\"display: block;\"\n" +
                 "          DIV\n" +

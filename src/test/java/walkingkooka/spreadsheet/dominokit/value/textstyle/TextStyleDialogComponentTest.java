@@ -121,7 +121,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          BackgroundColorComponent\n" +
                 "            TextStylePropertyColorComponent\n" +
                 "              Background Color\n" +
-                "                TextStylePropertyColorComponentMenu\n" +
+                "                ColorComponent\n" +
                 "                  DIV\n" +
                 "                    style=\"display: block;\"\n" +
                 "                      DIV\n" +
@@ -315,7 +315,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                Color\n" +
-                "                  TextStylePropertyColorComponentMenu\n" +
+                "                  ColorComponent\n" +
                 "                    DIV\n" +
                 "                      style=\"display: block;\"\n" +
                 "                        DIV\n" +
@@ -840,7 +840,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          BackgroundColorComponent\n" +
                 "            TextStylePropertyColorComponent\n" +
                 "              Background Color\n" +
-                "                TextStylePropertyColorComponentMenu\n" +
+                "                ColorComponent\n" +
                 "                  DIV\n" +
                 "                    style=\"display: block;\"\n" +
                 "                      DIV\n" +
@@ -1034,7 +1034,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                Color\n" +
-                "                  TextStylePropertyColorComponentMenu\n" +
+                "                  ColorComponent\n" +
                 "                    DIV\n" +
                 "                      style=\"display: block;\"\n" +
                 "                        DIV\n" +
