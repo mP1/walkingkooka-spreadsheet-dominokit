@@ -58,6 +58,7 @@ public final class WholeNumberComponent implements ValueTextBoxComponentDelegato
                     ).orElse(TextNode.EMPTY_TEXT)
                     .text() // formatter ExpressionNumber to String
             ).setId(id)
+                .clearIcon()
         );
     }
 
