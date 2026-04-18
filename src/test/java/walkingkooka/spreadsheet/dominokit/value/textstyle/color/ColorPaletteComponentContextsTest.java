@@ -17,7 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.ContextTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public interface ColorComponentContextTesting<C extends ColorComponentContext> extends ContextTesting<C> {
+import java.lang.reflect.Method;
+
+public final class ColorPaletteComponentContextsTest implements PublicStaticHelperTesting<ColorPaletteComponentContexts> {
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
+
+    @Override
+    public Class<ColorPaletteComponentContexts> type() {
+        return ColorPaletteComponentContexts.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
 }

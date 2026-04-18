@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.FakeColorComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.FakeColorPaletteComponentContext;
 
-public class FakeBorderTopColorComponentContext extends FakeColorComponentContext
+public class FakeBorderTopColorComponentContext extends FakeColorPaletteComponentContext
     implements BorderTopColorComponentContext {
 
     public FakeBorderTopColorComponentContext() {

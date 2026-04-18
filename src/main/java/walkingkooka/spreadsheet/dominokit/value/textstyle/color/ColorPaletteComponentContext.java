@@ -17,25 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-import java.lang.reflect.Method;
+public interface ColorPaletteComponentContext extends HistoryContext,
+    HasSpreadsheetMetadata {
 
-public final class ColorComponentContextsTest implements PublicStaticHelperTesting<ColorComponentContexts> {
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
-
-    @Override
-    public Class<ColorComponentContexts> type() {
-        return ColorComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
 }

@@ -67,7 +67,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -251,7 +251,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-backgroundColor-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -450,7 +450,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderTopColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -654,7 +654,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderLeftColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -858,7 +858,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderRightColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -1062,7 +1062,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderBottomColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -1266,7 +1266,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -1506,7 +1506,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -1690,7 +1690,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-backgroundColor-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -1889,7 +1889,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderTopColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -2093,7 +2093,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderLeftColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -2297,7 +2297,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderRightColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -2501,7 +2501,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderBottomColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -2705,7 +2705,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -2944,7 +2944,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
                 "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -3128,7 +3128,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
-                "      ColorComponent\n" +
+                "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"test-Style-backgroundColor-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
@@ -3327,7 +3327,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderTopColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -3531,7 +3531,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderLeftColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -3735,7 +3735,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderRightColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -3939,7 +3939,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderBottomColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -4143,7 +4143,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"test-Style-borderColor-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +

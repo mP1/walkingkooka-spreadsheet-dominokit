@@ -38,13 +38,13 @@ import java.util.Optional;
  */
 final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDivElement, Color, TextStylePropertyColorComponentMenu> {
 
-    public static TextStylePropertyColorComponentMenu with(final ColorComponent colorComponent) {
+    public static TextStylePropertyColorComponentMenu with(final ColorPaletteComponent colorComponent) {
         return new TextStylePropertyColorComponentMenu(
             Objects.requireNonNull(colorComponent, "colorComponent")
         );
     }
 
-    private TextStylePropertyColorComponentMenu(final ColorComponent colorComponent) {
+    private TextStylePropertyColorComponentMenu(final ColorPaletteComponent colorComponent) {
         super();
 
         this.name = HtmlElementComponent.div()
@@ -188,7 +188,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
         return this;
     }
 
-    private final ColorComponent colorComponent;
+    private final ColorPaletteComponent colorComponent;
 
     @Override
     public HTMLDivElement element() {

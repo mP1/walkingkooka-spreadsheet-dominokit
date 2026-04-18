@@ -22,7 +22,7 @@ import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.FakeColorComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.FakeColorPaletteComponentContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
@@ -42,7 +42,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetSelectionMenuContext extends FakeColorComponentContext implements SpreadsheetSelectionMenuContext {
+public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteComponentContext implements SpreadsheetSelectionMenuContext {
 
     @Override
     public List<SpreadsheetComparatorName> sortComparatorNames() {

@@ -154,7 +154,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -361,7 +361,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -566,7 +566,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -785,7 +785,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -1010,7 +1010,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"#000001\"\n" +
                 "          DIV\n" +
                 "            style=\"background-color: #000001; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -1237,7 +1237,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"#000002\"\n" +
                 "          DIV\n" +
                 "            style=\"background-color: #000002; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -1482,7 +1482,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"#000002\"\n" +
                 "          DIV\n" +
                 "            style=\"background-color: #000002; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -1710,7 +1710,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -1970,7 +1970,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -2173,7 +2173,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -2380,7 +2380,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +
@@ -2589,7 +2589,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "              \"None\"\n" +
                 "          DIV\n" +
                 "            style=\"border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: hidden; width: 20px;\"\n" +
-                "        ColorComponent\n" +
+                "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestId123-Table\" className=dui dui-menu-item\n" +
                 "              TBODY\n" +

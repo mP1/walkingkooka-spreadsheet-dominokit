@@ -36,7 +36,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ColorComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorComponent>,
+public final class ColorPaletteComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorPaletteComponent>,
     SpreadsheetMetadataTesting {
 
     private final static String ID_PREFIX = "TestColorPicker-";
@@ -51,10 +51,10 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> ColorComponent.with(
+            () -> ColorPaletteComponent.with(
                 ID_PREFIX,
                 null,
-                ColorComponentContexts.fake()
+                ColorPaletteComponentContexts.fake()
             )
         );
     }
@@ -63,10 +63,10 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     public void testWithEmptyIdFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> ColorComponent.with(
+            () -> ColorPaletteComponent.with(
                 "",
                 null,
-                ColorComponentContexts.fake()
+                ColorPaletteComponentContexts.fake()
             )
         );
     }
@@ -75,10 +75,10 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     public void testWithNullHistoryTokenPreparerFails() {
         assertThrows(
             NullPointerException.class,
-            () -> ColorComponent.with(
+            () -> ColorPaletteComponent.with(
                 ID_PREFIX,
                 null,
-                ColorComponentContexts.fake()
+                ColorPaletteComponentContexts.fake()
             )
         );
     }
@@ -87,7 +87,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> ColorComponent.with(
+            () -> ColorPaletteComponent.with(
                 ID_PREFIX,
                 HISTORY_TOKEN_PREPARER,
                 null
@@ -99,7 +99,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     public void testTreePrint() {
         this.treePrintAndCheck(
             this.createComponent(),
-            "ColorComponent\n" +
+            "ColorPaletteComponent\n" +
                 "  TABLE\n" +
                 "    id=\"TestColorPicker-Table\" className=dui dui-menu-item\n" +
                 "      TBODY\n" +
@@ -290,7 +290,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
         this.treePrintAndCheck(
             this.createComponent()
                 .clearValue(),
-            "ColorComponent\n" +
+            "ColorPaletteComponent\n" +
                 "  TABLE\n" +
                 "    id=\"TestColorPicker-Table\" className=dui dui-menu-item\n" +
                 "      TBODY\n" +
@@ -483,7 +483,7 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
                 .setValue(
                     Optional.of(Color.BLACK)
                 ),
-            "ColorComponent\n" +
+            "ColorPaletteComponent\n" +
                 "  TABLE\n" +
                 "    id=\"TestColorPicker-Table\" className=dui dui-menu-item\n" +
                 "      TBODY\n" +
@@ -678,11 +678,11 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     }
 
     @Override
-    public ColorComponent createComponent() {
-        return ColorComponent.with(
+    public ColorPaletteComponent createComponent() {
+        return ColorPaletteComponent.with(
             ID_PREFIX,
             HISTORY_TOKEN_PREPARER,
-            new FakeColorComponentContext() {
+            new FakeColorPaletteComponentContext() {
                 @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
                     return null;
@@ -709,8 +709,8 @@ public final class ColorComponentTest implements ValueComponentTesting<HTMLTable
     // class............................................................................................................
 
     @Override
-    public Class<ColorComponent> type() {
-        return ColorComponent.class;
+    public Class<ColorPaletteComponent> type() {
+        return ColorPaletteComponent.class;
     }
 
     @Override
