@@ -31,7 +31,7 @@ public final class PluginNameSetComponent implements ValueTextBoxComponentDelega
         this.textBox = ValueTextBoxComponent.with(
             PluginNameSet::parse,
             PluginNameSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
