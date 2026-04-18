@@ -31,7 +31,7 @@ public final class ConverterInfoSetComponent implements ValueTextBoxComponentDel
         this.textBox = ValueTextBoxComponent.with(
             ConverterInfoSet::parse,
             ConverterInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

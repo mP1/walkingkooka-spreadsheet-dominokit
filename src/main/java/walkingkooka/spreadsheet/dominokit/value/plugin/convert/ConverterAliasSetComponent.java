@@ -31,7 +31,7 @@ public final class ConverterAliasSetComponent implements ValueTextBoxComponentDe
         this.textBox = ValueTextBoxComponent.with(
             ConverterAliasSet::parse,
             ConverterAliasSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

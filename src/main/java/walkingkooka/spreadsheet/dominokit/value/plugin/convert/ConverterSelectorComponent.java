@@ -35,7 +35,7 @@ public final class ConverterSelectorComponent implements ValueTextBoxComponentDe
         this.textBox = ValueTextBoxComponent.with(
             ConverterSelector::parse,
             ConverterSelector::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
