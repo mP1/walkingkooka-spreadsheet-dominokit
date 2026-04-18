@@ -32,6 +32,7 @@ public final class DecimalNumberSymbolsComponent implements ValueTextBoxComponen
             DecimalNumberSymbols::parse,
             DecimalNumberSymbols::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
