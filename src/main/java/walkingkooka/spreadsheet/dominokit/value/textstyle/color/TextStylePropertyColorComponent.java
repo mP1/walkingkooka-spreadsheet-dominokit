@@ -17,19 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.collect.list.Lists;
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.dominokit.value.FormElement;
-import walkingkooka.spreadsheet.dominokit.value.FormElementDelegator;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
+import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Optional;
 
 /**
  * A general purpose {@link walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent}, that accepts
  * a {@link TextStylePropertyName} for a {@link Color}.
  */
-public final class TextStylePropertyColorComponent extends TextStylePropertyColorComponentLike implements FormElementDelegator<Color, TextStylePropertyColorComponent> {
+public final class TextStylePropertyColorComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
+    FormValueComponentDelegator<HTMLFieldSetElement, Color, TextStylePropertyColorComponent> {
 
     public static TextStylePropertyColorComponent with(final String idPrefix,
                                                        final TextStylePropertyName<Color> propertyName,
@@ -44,29 +45,51 @@ public final class TextStylePropertyColorComponent extends TextStylePropertyColo
     private TextStylePropertyColorComponent(final String idPrefix,
                                             final TextStylePropertyName<Color> propertyName,
                                             final TextStylePropertyColorComponentContext context) {
-        super(
-            idPrefix,
-            propertyName,
-            context
+        super();
+
+        this.propertyName = propertyName;
+        this.component = ColorComponent.with(
+            ColorPaletteComponent.with(
+                idPrefix,
+                ColorPaletteComponent.historyTokenPreparer(propertyName),
+                context // ColorPaletteComponentContext
+            )
         );
 
-        this.formElement = FormElement.with(
-            this.colorComponent
-        );
-
+        this.setIdPrefix(idPrefix);
         this.setLabelFromPropertyName();
-        this.setHelperText(
-            Optional.empty()
-        );
-        this.setErrors(
-            Lists.empty()
-        );
     }
 
     @Override
-    public FormElement<Color, ?, ?> formElement() {
-        return this.formElement;
+    public TextStylePropertyName<Color> name() {
+        return this.propertyName;
     }
 
-    private final FormElement<Color, ?, ?> formElement;
+    private final TextStylePropertyName<Color> propertyName;
+
+    @Override
+    public FormValueComponent<HTMLFieldSetElement, Color, ?> formValueComponent() {
+        return this.component;
+    }
+
+    private final ColorComponent component;
+
+    // Object...........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.component.toString();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+        printer.indent();
+        {
+            this.component.printTree(printer);
+        }
+        printer.outdent();
+    }
 }
