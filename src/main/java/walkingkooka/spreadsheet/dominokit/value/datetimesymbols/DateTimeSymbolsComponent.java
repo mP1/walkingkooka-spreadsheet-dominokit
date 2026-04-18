@@ -32,6 +32,7 @@ public final class DateTimeSymbolsComponent implements ValueTextBoxComponentDele
             DateTimeSymbols::parse,
             DateTimeSymbols::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
