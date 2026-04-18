@@ -31,7 +31,7 @@ public final class SpreadsheetFormatterInfoSetComponent implements ValueTextBoxC
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetFormatterInfoSet::parse,
             SpreadsheetFormatterInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

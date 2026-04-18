@@ -35,7 +35,7 @@ public final class SpreadsheetFormatterSelectorComponent implements ValueTextBox
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetFormatterSelector::parse,
             SpreadsheetFormatterSelector::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
