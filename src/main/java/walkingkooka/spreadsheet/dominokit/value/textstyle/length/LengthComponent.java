@@ -36,6 +36,7 @@ public final class LengthComponent implements ValueTextBoxComponentDelegator<Len
             Length::parse,
             HasText::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
