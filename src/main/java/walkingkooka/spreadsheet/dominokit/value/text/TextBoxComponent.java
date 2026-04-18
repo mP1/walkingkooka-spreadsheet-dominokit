@@ -110,10 +110,17 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     public TextBoxComponent setIcon(final Icon<?> icon) {
         Objects.requireNonNull(icon, "icon");
 
-        this.textBox.apply(
-            self -> self.appendChild(
-                PostfixAddOn.of(icon)
-            )
+        final TextBox textBox = this.textBox;
+
+        final PostfixAddOn<?> iconPostfix = this.iconPostfix;
+        if(null != iconPostfix) {
+            textBox.getPostfixElement()
+                .removeChild(iconPostfix);
+        }
+
+        this.iconPostfix = PostfixAddOn.of(icon);
+        textBox.apply(
+            self -> self.appendChild(this.iconPostfix)
         );
         this.icon = Optional.of(icon);
 
@@ -121,6 +128,8 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     }
 
     private Optional<Icon<?>> icon = Optional.empty();
+
+    private PostfixAddOn<?> iconPostfix = null;
 
     @Override
     public TextBoxComponent disableSpellcheck() {
