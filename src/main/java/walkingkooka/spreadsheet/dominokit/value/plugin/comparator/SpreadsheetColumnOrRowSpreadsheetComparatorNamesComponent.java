@@ -35,7 +35,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent imp
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetColumnOrRowSpreadsheetComparatorNames::parse,
             HasText::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
