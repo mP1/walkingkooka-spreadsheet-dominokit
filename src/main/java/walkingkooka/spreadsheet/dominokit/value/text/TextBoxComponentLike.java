@@ -38,6 +38,8 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     public abstract TextBoxComponent autocompleteOff();
 
+    public abstract Optional<Icon<?>> icon();
+
     public abstract TextBoxComponent clearIcon();
 
     public abstract TextBoxComponent setIcon(final Icon<?> icon);
