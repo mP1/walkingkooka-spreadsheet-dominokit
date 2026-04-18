@@ -36,7 +36,7 @@ public final class FormHandlerSelectorComponent implements ValueTextBoxComponent
         this.textBox = ValueTextBoxComponent.with(
             FormHandlerSelector::parse,
             HasText::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

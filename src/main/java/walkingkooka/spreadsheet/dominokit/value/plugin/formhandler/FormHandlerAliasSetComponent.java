@@ -31,7 +31,7 @@ public final class FormHandlerAliasSetComponent implements ValueTextBoxComponent
         this.textBox = ValueTextBoxComponent.with(
             FormHandlerAliasSet::parse,
             FormHandlerAliasSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
