@@ -38,13 +38,13 @@ import java.util.Optional;
  */
 final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDivElement, Color, TextStylePropertyColorComponentMenu> {
 
-    public static TextStylePropertyColorComponentMenu with(final ColorPaletteComponent colorComponent) {
+    public static TextStylePropertyColorComponentMenu with(final ColorPaletteComponent colorPaletteComponent) {
         return new TextStylePropertyColorComponentMenu(
-            Objects.requireNonNull(colorComponent, "colorComponent")
+            Objects.requireNonNull(colorPaletteComponent, "colorPaletteComponent")
         );
     }
 
-    private TextStylePropertyColorComponentMenu(final ColorPaletteComponent colorComponent) {
+    private TextStylePropertyColorComponentMenu(final ColorPaletteComponent colorPaletteComponent) {
         super();
 
         this.name = HtmlElementComponent.div()
@@ -64,7 +64,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
             .appendChild(this.name)
             .appendChild(this.filledBox);
 
-        this.colorComponent = colorComponent.addValueWatcher2(
+        this.colorPaletteComponent = colorPaletteComponent.addValueWatcher2(
             (Optional<Color> color) -> {
                 this.name.setText(
                     color.map(Color::toString)
@@ -83,7 +83,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
                     this.root.element()
                 ).setDropMenu(
                     Menu.create()
-                        .appendChild(colorComponent)
+                        .appendChild(colorPaletteComponent)
                 );
         }
     }
@@ -103,18 +103,18 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
 
     @Override
     public Optional<Color> value() {
-        return this.colorComponent.value();
+        return this.colorPaletteComponent.value();
     }
 
     @Override
     public TextStylePropertyColorComponentMenu setValue(final Optional<Color> value) {
-        this.colorComponent.setValue(value);
+        this.colorPaletteComponent.setValue(value);
         return this;
     }
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
-        return this.colorComponent.addValueWatcher(watcher);
+        return this.colorPaletteComponent.addValueWatcher(watcher);
     }
 
     @Override
@@ -144,19 +144,19 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
 
     @Override
     public TextStylePropertyColorComponentMenu focus() {
-        this.colorComponent.focus();
+        this.colorPaletteComponent.focus();
         return this;
     }
 
     @Override
     public TextStylePropertyColorComponentMenu blur() {
-        this.colorComponent.blur();
+        this.colorPaletteComponent.blur();
         return this;
     }
 
     @Override
     public boolean isEditing() {
-        return this.colorComponent.isEditing();
+        return this.colorPaletteComponent.isEditing();
     }
 
     @Override
@@ -188,7 +188,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
         return this;
     }
 
-    private final ColorPaletteComponent colorComponent;
+    private final ColorPaletteComponent colorPaletteComponent;
 
     @Override
     public HTMLDivElement element() {
@@ -215,7 +215,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
 
     @Override
     public String toString() {
-        return this.colorComponent.toString();
+        return this.colorPaletteComponent.toString();
     }
 
     // TreePrintable....................................................................................................
@@ -228,7 +228,7 @@ final class TextStylePropertyColorComponentMenu implements ValueComponent<HTMLDi
             this.root.printTree(printer);
             printer.indent();
             {
-                this.colorComponent.printTree(printer);
+                this.colorPaletteComponent.printTree(printer);
             }
         }
         printer.outdent();
