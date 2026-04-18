@@ -91,11 +91,6 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     }
 
     @Override
-    public Optional<Icon<?>> icon() {
-        return this.icon;
-    }
-
-    @Override
     public TextBoxComponent clearIcon() {
         return this.setIcon(
             SpreadsheetIcons.textBoxClear()
@@ -122,12 +117,12 @@ public final class TextBoxComponent extends TextBoxComponentLike {
         textBox.apply(
             self -> self.appendChild(this.iconPostfix)
         );
-        this.icon = Optional.of(icon);
+        this.icon = icon;
 
         return this;
     }
 
-    private Optional<Icon<?>> icon = Optional.empty();
+    private Icon<?> icon = null;
 
     private PostfixAddOn<?> iconPostfix = null;
 
@@ -489,6 +484,15 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     private final TextBox textBox;
 
     // FormValueComponentTreePrintable..................................................................................
+
+    @Override
+    public void treePrintIcons(final IndentingPrinter printer) {
+        final Icon<?> icon = this.icon;
+        if (null != icon) {
+            printer.print("icon=");
+            printer.print(icon.getName());
+        }
+    }
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {
