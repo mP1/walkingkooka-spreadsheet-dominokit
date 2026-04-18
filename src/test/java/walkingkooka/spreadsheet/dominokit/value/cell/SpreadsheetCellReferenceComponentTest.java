@@ -51,7 +51,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] id=cell-id REQUIRED\n" +
+                "      [] icon=mdi-close-circle id=cell-id REQUIRED\n" +
                 "      Errors\n" +
                 "        End of text, expected CELL\n"
         );
@@ -69,7 +69,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1] id=cell-id REQUIRED\n"
+                "      [A1] icon=mdi-close-circle id=cell-id REQUIRED\n"
         );
     }
 
@@ -87,7 +87,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [!invalid] id=cell-id REQUIRED\n" +
+                "      [!invalid] icon=mdi-close-circle id=cell-id REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
         );
@@ -105,7 +105,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [B2:C3] id=cell-id REQUIRED\n" +
+                "      [B2:C3] icon=mdi-close-circle id=cell-id REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 2\n"
         );
@@ -123,7 +123,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [C3] id=cell-id REQUIRED\n"
+                "      [C3] icon=mdi-close-circle id=cell-id REQUIRED\n"
         );
     }
 
@@ -139,7 +139,7 @@ public final class SpreadsheetCellReferenceComponentTest implements ValueTextBox
             "SpreadsheetCellReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$D4] id=cell-id REQUIRED\n"
+                "      [$D4] icon=mdi-close-circle id=cell-id REQUIRED\n"
         );
     }
 

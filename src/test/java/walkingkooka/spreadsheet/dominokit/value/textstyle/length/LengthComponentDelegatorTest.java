@@ -42,7 +42,7 @@ public final class LengthComponentDelegatorTest implements FormValueComponentTes
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] REQUIRED\n" +
+                "        [] icon=mdi-close-circle REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );

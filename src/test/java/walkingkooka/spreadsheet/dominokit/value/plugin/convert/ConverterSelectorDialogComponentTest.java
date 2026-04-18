@@ -62,7 +62,7 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "      ConverterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [undo-converter] id=ConverterSelector-TextBox REQUIRED\n" +
+                "            [undo-converter] icon=mdi-close-circle id=ConverterSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

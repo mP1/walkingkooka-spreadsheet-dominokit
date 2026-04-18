@@ -38,7 +38,7 @@ public final class SpreadsheetNameComponentTest implements ValueTextBoxComponent
             "SpreadsheetNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Spreadsheet123] REQUIRED\n"
+                "      [Spreadsheet123] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class SpreadsheetNameComponentTest implements ValueTextBoxComponent
             "SpreadsheetNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n" +
+                "      [] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"name\"\n"
         );

@@ -39,7 +39,7 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
             "FormFieldLabelComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Label123] REQUIRED\n"
+                "      [Label123] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -51,7 +51,7 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
             "FormFieldLabelComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n"
+                "      [] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
             "FormFieldLabelComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] REQUIRED\n" +
+                "      [aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Length 51 of \"label\" not between 0..50 = \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\n"
         );

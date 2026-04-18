@@ -117,7 +117,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          SpreadsheetExpressionReferenceComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Selection [A1] id=TextStyle-selection-TextBox REQUIRED\n" +
+                "                Selection [A1] icon=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "          BackgroundColorComponent\n" +
                 "            TextStylePropertyColorComponent\n" +
                 "              Background Color\n" +
@@ -576,7 +576,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Height [55px] id=TextStyle-height-TextBox\n" +
+                "                      Height [55px] icon=mdi-close-circle id=TextStyle-height-TextBox\n" +
                 "              HyphensComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Hyphens\n" +
@@ -590,7 +590,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              OpacityComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Opacity [0.5] id=TextStyle-opacity-TextBox\n" +
+                "                    Opacity [0.5] icon=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "              OverflowComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Overflow X\n" +
@@ -661,12 +661,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Text Decoration Thickness [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                      Text Decoration Thickness [123px] icon=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "              TextIndentComponent\n" +
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Text Indent [123px] id=TextStyle-textIndent-TextBox\n" +
+                "                      Text Indent [123px] icon=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "              TextJustifyComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Text Justify\n" +
@@ -734,7 +734,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Width [44px] id=TextStyle-width-TextBox\n" +
+                "                      Width [44px] icon=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "              WordBreakComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Word Break\n" +
@@ -768,7 +768,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              TextStyleComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Style [background-color: black; color: black; direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;]\n" +
+                "                    Style [background-color: black; color: black; direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icon=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +
@@ -834,7 +834,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          SpreadsheetExpressionReferenceComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Selection [] id=TextStyle-selection-TextBox REQUIRED\n" +
+                "                Selection [] icon=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"text\"\n" +
                 "          BackgroundColorComponent\n" +
@@ -1295,7 +1295,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Height [55px] id=TextStyle-height-TextBox\n" +
+                "                      Height [55px] icon=mdi-close-circle id=TextStyle-height-TextBox\n" +
                 "              HyphensComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Hyphens\n" +
@@ -1309,7 +1309,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              OpacityComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Opacity [0.5] id=TextStyle-opacity-TextBox\n" +
+                "                    Opacity [0.5] icon=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "              OverflowComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Overflow X\n" +
@@ -1380,12 +1380,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Text Decoration Thickness [123px] id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                      Text Decoration Thickness [123px] icon=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "              TextIndentComponent\n" +
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Text Indent [123px] id=TextStyle-textIndent-TextBox\n" +
+                "                      Text Indent [123px] icon=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "              TextJustifyComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Text Justify\n" +
@@ -1453,7 +1453,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                LengthComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Width [44px] id=TextStyle-width-TextBox\n" +
+                "                      Width [44px] icon=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "              WordBreakComponent\n" +
                 "                TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                  Word Break\n" +
@@ -1487,7 +1487,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              TextStyleComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Style [background-color: black; color: black; direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;]\n" +
+                "                    Style [background-color: black; color: black; direction: LTR; font-kerning: AUTO; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icon=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +

@@ -38,7 +38,7 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueTextBoxC
             "SpreadsheetRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123] REQUIRED\n"
+                "      [123] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueTextBoxC
             "SpreadsheetRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$123] REQUIRED\n"
+                "      [$123] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetRowReferenceComponentTest implements ValueTextBoxC
             "SpreadsheetRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
+                "      [Invalid123!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );

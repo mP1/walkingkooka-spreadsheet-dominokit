@@ -34,7 +34,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n" +
+                "      [] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
         );
@@ -49,7 +49,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      []\n"
+                "      [] icon=mdi-close-circle\n"
         );
     }
 
@@ -63,7 +63,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n" +
+                "      [] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"Letter\"\n"
         );
@@ -79,7 +79,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1] REQUIRED\n" +
+                "      [1] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Not a letter\n"
         );
@@ -95,7 +95,7 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
             "CharacterComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A] REQUIRED\n"
+                "      [A] icon=mdi-close-circle REQUIRED\n"
         );
     }
 

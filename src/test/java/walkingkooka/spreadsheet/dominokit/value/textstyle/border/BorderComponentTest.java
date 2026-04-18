@@ -49,7 +49,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  TOP\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] REQUIRED\n"
+                "        [] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  TOP\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [black DASHED 1px] REQUIRED\n"
+                "        [black DASHED 1px] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -89,7 +89,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  ALL\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [white SOLID 123px] REQUIRED\n"
+                "        [white SOLID 123px] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -106,7 +106,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  TOP\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [black DASHED 1px] REQUIRED\n"
+                "        [black DASHED 1px] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -127,7 +127,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  ALL\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [white SOLID 123px] REQUIRED\n"
+                "        [white SOLID 123px] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -144,7 +144,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "  TOP\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [Invalid123!] REQUIRED\n" +
+                "        [Invalid123!] icon=mdi-close-circle REQUIRED\n" +
                 "        Errors\n" +
                 "          Unknown color name \"Invalid123!\"\n"
         );

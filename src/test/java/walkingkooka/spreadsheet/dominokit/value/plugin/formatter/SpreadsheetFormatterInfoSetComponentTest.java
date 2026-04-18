@@ -52,7 +52,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueText
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/accounting accounting,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/badge-error badge-error,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/currency currency,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/default-text default-text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/expression expression,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date full-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date-time full-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-time full-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/hyperlinking hyperlinking,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date long-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date-time long-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-time long-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date medium-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date-time medium-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-time medium-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/percent percent,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/scientific scientific,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date short-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date-time short-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-time short-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time time] REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/accounting accounting,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/automatic automatic,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/badge-error badge-error,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/currency currency,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/date-time date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/default-text default-text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/expression expression,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date full-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-date-time full-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/full-time full-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/general general,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/hyperlinking hyperlinking,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date long-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-date-time long-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/long-time long-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date medium-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-date-time medium-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/medium-time medium-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/number number,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/percent percent,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/scientific scientific,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date short-date,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-date-time short-date-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/short-time short-time,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/text text,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetFormatter/time time] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueText
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello !] REQUIRED\n" +
+                "      [https://www.example.com/hello !] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -86,7 +86,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueText
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello hello, bad://www.example.com hello2] REQUIRED\n" +
+                "      [https://www.example.com/hello hello, bad://www.example.com hello2] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -104,7 +104,7 @@ public final class SpreadsheetFormatterInfoSetComponentTest implements ValueText
             "SpreadsheetFormatterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello good, https://www.example.com bad!] REQUIRED\n" +
+                "      [https://www.example.com/hello good, https://www.example.com bad!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 63\n"
         );
