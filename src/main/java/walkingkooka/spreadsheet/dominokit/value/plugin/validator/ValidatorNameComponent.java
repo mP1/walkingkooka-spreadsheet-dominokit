@@ -36,7 +36,7 @@ public final class ValidatorNameComponent implements ValueTextBoxComponentDelega
         this.textBox = ValueTextBoxComponent.with(
             ValidatorName::with,
             ValidatorName::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

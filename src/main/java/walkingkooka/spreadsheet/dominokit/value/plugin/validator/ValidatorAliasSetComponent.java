@@ -31,7 +31,7 @@ public final class ValidatorAliasSetComponent implements ValueTextBoxComponentDe
         this.textBox = ValueTextBoxComponent.with(
             ValidatorAliasSet::parse,
             ValidatorAliasSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

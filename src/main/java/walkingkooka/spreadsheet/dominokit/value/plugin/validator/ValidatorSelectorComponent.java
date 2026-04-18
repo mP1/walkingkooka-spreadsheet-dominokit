@@ -36,7 +36,7 @@ public final class ValidatorSelectorComponent implements ValueTextBoxComponentDe
         this.textBox = ValueTextBoxComponent.with(
             ValidatorSelector::parse,
             HasText::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

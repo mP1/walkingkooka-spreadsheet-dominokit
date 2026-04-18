@@ -31,7 +31,7 @@ public final class ValidatorInfoSetComponent implements ValueTextBoxComponentDel
         this.textBox = ValueTextBoxComponent.with(
             ValidatorInfoSet::parse,
             ValidatorInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
