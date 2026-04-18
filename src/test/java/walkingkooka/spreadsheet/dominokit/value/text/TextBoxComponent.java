@@ -231,13 +231,6 @@ public final class TextBoxComponent extends TextBoxComponentLike
     }
 
     @Override
-    public Optional<Icon<?>> icon() {
-        return this.icon;
-    }
-
-    private Optional<Icon<?>> icon = Optional.empty();
-
-    @Override
     public TextBoxComponent clearIcon() {
         return this.setIcon(
             SpreadsheetIcons.textBoxClear()
@@ -248,9 +241,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
     public TextBoxComponent setIcon(final Icon<?> icon) {
         Objects.requireNonNull(icon, "icon");
 
-        this.icon = Optional.of(icon);
+        this.icon = icon;
         return this;
     }
+
+    private Icon<?> icon = null;
 
     @Override
     public TextBoxComponent disableSpellcheck() {
@@ -362,5 +357,16 @@ public final class TextBoxComponent extends TextBoxComponentLike
         b.value(this.errors);
 
         return b.build();
+    }
+
+    // FormValueComponentTreePrintable..................................................................................
+
+    @Override
+    public void treePrintIcons(final IndentingPrinter printer) {
+        final Icon<?> icon = this.icon;
+        if (null != icon) {
+            printer.print("icon=");
+            printer.print(icon.getName());
+        }
     }
 }

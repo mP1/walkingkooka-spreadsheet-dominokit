@@ -39,8 +39,6 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     public abstract TextBoxComponent autocompleteOff();
 
-    public abstract Optional<Icon<?>> icon();
-
     public abstract TextBoxComponent clearIcon();
 
     public abstract TextBoxComponent setIcon(final Icon<?> icon);
@@ -147,12 +145,5 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     // FormValueComponentTreePrintable..................................................................................
 
-    public final void treePrintIcons(final IndentingPrinter printer) {
-        final Icon<?> icon = this.icon()
-            .orElse(null);
-        if (null != icon) {
-            printer.print("icon=");
-            printer.print(icon.getName());
-        }
-    }
+    public abstract void treePrintIcons(final IndentingPrinter printer);
 }
