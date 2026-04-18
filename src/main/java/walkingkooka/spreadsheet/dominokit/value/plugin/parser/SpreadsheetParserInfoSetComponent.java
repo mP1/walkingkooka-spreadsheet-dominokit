@@ -31,7 +31,7 @@ public final class SpreadsheetParserInfoSetComponent implements ValueTextBoxComp
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetParserInfoSet::parse,
             SpreadsheetParserInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
