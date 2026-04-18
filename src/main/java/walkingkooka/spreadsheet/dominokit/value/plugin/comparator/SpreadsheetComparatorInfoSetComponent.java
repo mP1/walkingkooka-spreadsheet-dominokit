@@ -31,7 +31,7 @@ public final class SpreadsheetComparatorInfoSetComponent implements ValueTextBox
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetComparatorInfoSet::parse,
             SpreadsheetComparatorInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
