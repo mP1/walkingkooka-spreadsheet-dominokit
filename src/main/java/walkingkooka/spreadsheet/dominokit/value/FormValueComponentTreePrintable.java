@@ -18,11 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
-import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.Printers;
 import walkingkooka.text.printer.TreePrintable;
 
 import java.util.List;
@@ -60,12 +60,20 @@ public interface FormValueComponentTreePrintable<E extends HTMLElement, C extend
             if (this instanceof TextBoxComponent) {
                 final TextBoxComponent textBoxComponent = (TextBoxComponent) this;
 
-                final Icon<?> icon = textBoxComponent.icon()
-                    .orElse(null);
-                if (null != icon) {
+                final StringBuilder icons = new StringBuilder();
+                final IndentingPrinter iconPrinter = Printers.stringBuilder(
+                    icons,
+                    printer.lineEnding()
+                ).indenting(printer.indentation());
+
+                textBoxComponent.treePrintIcons(iconPrinter);
+
+                iconPrinter.flush();
+
+                final String printedIcon = icons.toString();
+                if (false == printedIcon.isEmpty()) {
                     printer.print(separator);
-                    printer.print("icon=");
-                    printer.print(icon.getName());
+                    printer.print(printedIcon);
                     separator = " ";
                 }
             }
