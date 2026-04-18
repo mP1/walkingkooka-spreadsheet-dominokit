@@ -37,7 +37,7 @@ public final class SpreadsheetRowReferenceComponent implements ValueTextBoxCompo
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetSelection::parseRow,
             HasText::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
