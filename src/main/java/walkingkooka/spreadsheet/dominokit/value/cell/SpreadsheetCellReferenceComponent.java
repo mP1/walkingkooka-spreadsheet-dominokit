@@ -36,7 +36,7 @@ public final class SpreadsheetCellReferenceComponent implements ValueTextBoxComp
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetSelection::parseCell,
             HasText::text
-        );
+        ).clearIcon();
         this.setId(id);
     }
 
