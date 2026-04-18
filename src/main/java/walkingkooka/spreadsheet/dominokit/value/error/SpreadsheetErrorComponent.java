@@ -35,6 +35,7 @@ public final class SpreadsheetErrorComponent implements ValueTextBoxComponentDel
             SpreadsheetError::parse,
             SpreadsheetError::textIncludingMessage
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
