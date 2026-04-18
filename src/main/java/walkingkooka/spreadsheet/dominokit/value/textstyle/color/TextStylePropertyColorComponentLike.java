@@ -44,7 +44,7 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
 
         this.name = propertyName;
 
-        this.textStylePropertyColorComponentMenu = TextStylePropertyColorComponentMenu.with(
+        this.colorComponent = ColorComponent.with(
             ColorPaletteComponent.with(
             idPrefix,
             ColorPaletteComponent.historyTokenPreparer(propertyName),
@@ -55,17 +55,17 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
 
     @Override
     public final boolean isEditing() {
-        return this.textStylePropertyColorComponentMenu.isEditing();
+        return this.colorComponent.isEditing();
     }
 
     @Override
     public final Optional<Color> value() {
-        return this.textStylePropertyColorComponentMenu.value();
+        return this.colorComponent.value();
     }
 
     @Override
     public final TextStylePropertyColorComponent setValue(final Optional<Color> value) {
-        this.textStylePropertyColorComponentMenu.setValue(value);
+        this.colorComponent.setValue(value);
         return (TextStylePropertyColorComponent) this;
     }
 
@@ -153,13 +153,13 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
         };
     }
 
-    final TextStylePropertyColorComponentMenu textStylePropertyColorComponentMenu;
+    final ColorComponent colorComponent;
 
     // Object...........................................................................................................
 
     @Override
     public final int hashCode() {
-        return this.textStylePropertyColorComponentMenu.hashCode();
+        return this.colorComponent.hashCode();
     }
 
     @Override
@@ -170,13 +170,13 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
     }
 
     private boolean equals0(final TextStylePropertyColorComponentLike other) {
-        return this.textStylePropertyColorComponentMenu.equals(other.textStylePropertyColorComponentMenu);
+        return this.colorComponent.equals(other.colorComponent);
     }
 
     @Override
     public final String toString() {
         return ToStringBuilder.empty()
-            .value(this.textStylePropertyColorComponentMenu)
+            .value(this.colorComponent)
             .build();
     }
 
@@ -204,7 +204,7 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
                 printer.indent();
             }
 
-            this.textStylePropertyColorComponentMenu.printTree(printer);
+            this.colorComponent.printTree(printer);
 
             if (false == missingLabel) {
                 printer.outdent();

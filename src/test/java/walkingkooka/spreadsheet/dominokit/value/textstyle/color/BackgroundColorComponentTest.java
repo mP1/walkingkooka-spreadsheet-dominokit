@@ -78,7 +78,7 @@ public final class BackgroundColorComponentTest implements TextStylePropertyComp
             "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +
@@ -306,7 +306,7 @@ public final class BackgroundColorComponentTest implements TextStylePropertyComp
             "BackgroundColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Background Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +

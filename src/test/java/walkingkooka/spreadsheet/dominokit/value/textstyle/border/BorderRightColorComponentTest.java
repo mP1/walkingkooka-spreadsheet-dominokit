@@ -44,7 +44,7 @@ public final class BorderRightColorComponentTest extends BorderColorSharedCompon
             "BorderRightColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Border Right Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +
@@ -272,7 +272,7 @@ public final class BorderRightColorComponentTest extends BorderColorSharedCompon
             "BorderRightColorComponent\n" +
                 "  TextStylePropertyColorComponent\n" +
                 "    Border Right Color\n" +
-                "      TextStylePropertyColorComponentMenu\n" +
+                "      ColorComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: block;\"\n" +
                 "            DIV\n" +

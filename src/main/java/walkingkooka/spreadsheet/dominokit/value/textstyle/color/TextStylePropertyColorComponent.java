@@ -51,7 +51,7 @@ public final class TextStylePropertyColorComponent extends TextStylePropertyColo
         );
 
         this.formElement = FormElement.with(
-            this.textStylePropertyColorComponentMenu
+            this.colorComponent
         );
 
         this.setLabelFromPropertyName();
