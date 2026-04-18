@@ -25,6 +25,10 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+/**
+ * A general purpose {@link walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent}, that accepts
+ * a {@link TextStylePropertyName} for a {@link Color}.
+ */
 public final class TextStylePropertyColorComponent extends TextStylePropertyColorComponentLike implements FormElementDelegator<Color, TextStylePropertyColorComponent> {
 
     public static TextStylePropertyColorComponent with(final String idPrefix,
