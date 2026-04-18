@@ -37,7 +37,7 @@ public final class ExpressionFunctionAliasSetComponent implements ValueTextBoxCo
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExpressionFunctions::parseAliasSet,
             ExpressionFunctionAliasSet::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

@@ -33,7 +33,7 @@ public final class ExpressionFunctionInfoSetComponent implements ValueTextBoxCom
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetExpressionFunctions::parseInfoSet,
             ExpressionFunctionInfoSet::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................

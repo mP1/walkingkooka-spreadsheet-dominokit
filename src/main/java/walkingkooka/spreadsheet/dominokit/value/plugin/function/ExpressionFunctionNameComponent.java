@@ -36,7 +36,7 @@ public final class ExpressionFunctionNameComponent implements ValueTextBoxCompon
         this.textBox = ValueTextBoxComponent.with(
             ExpressionFunctionName::with,
             ExpressionFunctionName::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
