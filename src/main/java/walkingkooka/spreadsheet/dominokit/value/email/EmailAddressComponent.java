@@ -36,6 +36,7 @@ public final class EmailAddressComponent implements ValueTextBoxComponentDelegat
             EmailAddress::parse,
             EmailAddress::text
         );
+        this.textBox.clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
