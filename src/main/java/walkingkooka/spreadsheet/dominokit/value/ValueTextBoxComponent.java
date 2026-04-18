@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.CanBeEmpty;
@@ -212,6 +213,18 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     @Override
     public Optional<String> helperText() {
         return this.textBox.helperText();
+    }
+
+    @Override
+    public ValueTextBoxComponent<T> clearIcon() {
+        this.textBox.clearIcon();
+        return this;
+    }
+
+    @Override
+    public ValueTextBoxComponent<T> setIcon(final Icon<?> icon) {
+        this.textBox.setIcon(icon);
+        return this;
     }
 
     @Override

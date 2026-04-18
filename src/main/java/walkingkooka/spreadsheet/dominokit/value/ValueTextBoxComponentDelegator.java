@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -43,6 +44,20 @@ public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentD
     default C setStringValue(final Optional<String> stringValue) {
         this.valueTextBoxComponent()
             .setStringValue(stringValue);
+        return (C) this;
+    }
+
+    @Override
+    default C clearIcon() {
+        this.valueTextBoxComponent()
+            .clearIcon();
+        return (C) this;
+    }
+
+    @Override
+    default C setIcon(final Icon<?> icon) {
+        this.valueTextBoxComponent()
+            .setIcon(icon);
         return (C) this;
     }
 
