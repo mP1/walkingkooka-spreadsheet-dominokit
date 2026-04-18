@@ -36,7 +36,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n" +
+                "      [] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -51,7 +51,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle\n"
+                "      [] icons=mdi-close-circle\n"
         );
     }
 
@@ -65,7 +65,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1px] icon=mdi-close-circle REQUIRED\n"
+                "      [1px] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -81,7 +81,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1px] icon=mdi-close-circle REQUIRED\n"
+                "      [1px] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -98,7 +98,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [none] icon=mdi-close-circle REQUIRED\n"
+                "      [none] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -114,7 +114,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!] icon=mdi-close-circle REQUIRED\n" +
+                "      [Invalid123!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid number length \"Invalid123!\"\n"
         );

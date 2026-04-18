@@ -48,7 +48,7 @@ public final class ValidatorAliasSetComponentTest implements ValueTextBoxCompone
             "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 validator1, validator2] icon=mdi-close-circle REQUIRED\n"
+                "      [alias1 validator1, validator2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class ValidatorAliasSetComponentTest implements ValueTextBoxCompone
             "ValidatorAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 validator1, 9] icon=mdi-close-circle REQUIRED\n" +
+                "      [alias1 validator1, 9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 19\n"
         );

@@ -42,7 +42,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
+                "      [] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -57,7 +57,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle id=TestId123-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestId123-TextBox\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle id=TestId123-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestId123-TextBox\n"
         );
     }
 
@@ -84,7 +84,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
+                "      [] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -101,7 +101,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle id=TestId123-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestId123-TextBox\n"
         );
     }
 
@@ -115,7 +115,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [0] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -129,7 +129,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [123] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -143,7 +143,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [12345678901234567890] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [12345678901234567890] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -157,7 +157,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [45.75] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [45.75] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -171,7 +171,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [8E+2] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [8E+2] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -187,7 +187,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [abcdef] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
+                "      [abcdef] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'a' at 0\n"
         );
@@ -205,7 +205,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123XYZ] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
+                "      [123XYZ] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'X' at 3\n"
         );
@@ -223,7 +223,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123.5] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [123.5] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -239,7 +239,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [456] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [456] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 
@@ -256,7 +256,7 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
             "NumberComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [0] icon=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
+                "      [0] icons=mdi-close-circle id=TestId123-TextBox REQUIRED\n"
         );
     }
 

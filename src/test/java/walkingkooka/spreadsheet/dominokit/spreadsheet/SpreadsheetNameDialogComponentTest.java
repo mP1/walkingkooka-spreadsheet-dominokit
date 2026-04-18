@@ -63,7 +63,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] icon=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
+                "            [] icons=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"name\"\n" +
                 "      DialogAnchorListComponent\n" +
@@ -110,7 +110,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [DifferentSpreadsheetName222] icon=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
+                "            [DifferentSpreadsheetName222] icons=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -153,7 +153,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [SpreadsheetName1] icon=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
+                "            [SpreadsheetName1] icons=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

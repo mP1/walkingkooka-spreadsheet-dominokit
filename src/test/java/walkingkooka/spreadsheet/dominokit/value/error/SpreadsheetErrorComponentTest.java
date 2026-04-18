@@ -64,7 +64,7 @@ public final class SpreadsheetErrorComponentTest implements ValueTextBoxComponen
             "SpreadsheetErrorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [#DIV/0! Hello Error 123] icon=mdi-close-circle REQUIRED\n"
+                "      [#DIV/0! Hello Error 123] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -80,7 +80,7 @@ public final class SpreadsheetErrorComponentTest implements ValueTextBoxComponen
             "SpreadsheetErrorComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [#BAD Message123] icon=mdi-close-circle REQUIRED\n" +
+                "      [#BAD Message123] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid error kind\n"
         );

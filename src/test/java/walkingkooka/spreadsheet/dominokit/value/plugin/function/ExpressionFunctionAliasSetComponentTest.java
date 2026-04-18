@@ -38,7 +38,7 @@ public final class ExpressionFunctionAliasSetComponentTest implements ValueTextB
             "ExpressionFunctionAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 function1, function2] icon=mdi-close-circle REQUIRED\n"
+                "      [alias1 function1, function2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class ExpressionFunctionAliasSetComponentTest implements ValueTextB
             "ExpressionFunctionAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 function1, 9] icon=mdi-close-circle REQUIRED\n" +
+                "      [alias1 function1, 9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 18\n"
         );

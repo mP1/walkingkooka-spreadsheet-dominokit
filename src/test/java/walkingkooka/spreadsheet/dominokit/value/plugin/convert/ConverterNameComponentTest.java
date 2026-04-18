@@ -36,7 +36,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello] icon=mdi-close-circle REQUIRED\n"
+                "      [hello] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello!] icon=mdi-close-circle REQUIRED\n" +
+                "      [hello!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 5\n"
         );
@@ -66,7 +66,7 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
             "ConverterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [ hello!] icon=mdi-close-circle REQUIRED\n" +
+                "      [ hello!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ' ' at 0\n"
         );

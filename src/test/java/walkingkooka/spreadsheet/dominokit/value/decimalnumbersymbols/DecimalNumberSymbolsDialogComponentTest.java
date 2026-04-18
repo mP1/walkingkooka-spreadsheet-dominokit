@@ -79,71 +79,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [] icons=mdi-close-circle REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
                 "      LocaleComponent\n" +
@@ -200,47 +200,47 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [-] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [-] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [+] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [+] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [0] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [0] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [$] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [$] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [.] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [.] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [e] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [e] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [,] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [,] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [∞] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [∞] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [.] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [.] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [NaN] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [NaN] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [%] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [%] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [‰] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [‰] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰] icons=mdi-close-circle REQUIRED\n" +
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
@@ -298,71 +298,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [invalid123] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [invalid123] icons=mdi-close-circle REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 1\n" +
                 "      LocaleComponent\n" +
@@ -412,71 +412,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [] icons=mdi-close-circle REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
                 "      LocaleComponent\n" +
@@ -524,47 +524,47 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [-] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [-] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [+] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [+] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [0] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [0] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [$] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [$] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [.] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [.] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [e] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [e] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [,] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [,] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [∞] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [∞] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [.] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [.] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [NaN] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [NaN] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [%] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [%] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [‰] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [‰] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [-,+,0,$,.,e,\",\",∞,.,NaN,%,‰] icons=mdi-close-circle REQUIRED\n" +
                 "      LocaleComponent\n" +
                 "        SuggestBoxComponent\n" +
                 "          Load from Locale []\n" +
@@ -610,71 +610,71 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Negative sign [] icon=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
+                "                Negative sign [] icons=mdi-close-circle id=DecimalNumberSymbols-negativeSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Negative sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Positive sign [] icon=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
+                "                Positive sign [] icons=mdi-close-circle id=DecimalNumberSymbols-positiveSign-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Positive sign\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Zero digit [] icon=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
+                "                Zero digit [] icons=mdi-close-circle id=DecimalNumberSymbols-zeroDigit-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Zero digit\"\n" +
                 "          TextBoxComponent\n" +
-                "            Currency [] icon=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
+                "            Currency [] icons=mdi-close-circle id=DecimalNumberSymbols-CurrencySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
+                "                Decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-decimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Exponent [] icon=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
+                "            Exponent [] icons=mdi-close-circle id=DecimalNumberSymbols-ExponentSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Group separator [] icon=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
+                "                Group separator [] icons=mdi-close-circle id=DecimalNumberSymbols-groupSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Group separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Infinity [] icon=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
+                "            Infinity [] icons=mdi-close-circle id=DecimalNumberSymbols-InfinitySymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Monetary decimal separator [] icon=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
+                "                Monetary decimal separator [] icons=mdi-close-circle id=DecimalNumberSymbols-monetaryDecimalSeparator-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Monetary decimal separator\"\n" +
                 "          TextBoxComponent\n" +
-                "            Nan [] icon=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
+                "            Nan [] icons=mdi-close-circle id=DecimalNumberSymbols-NanSymbol-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Required\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Percent symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
+                "                Percent symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-percentSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Percent symbol\"\n" +
                 "          CharacterComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Permill symbol [] icon=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
+                "                Permill symbol [] icons=mdi-close-circle id=DecimalNumberSymbols-permillSymbol-TextBox REQUIRED\n" +
                 "                Errors\n" +
                 "                  Empty \"Permill symbol\"\n" +
                 "          DecimalNumberSymbolsComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Date Time Symbols [] icon=mdi-close-circle REQUIRED\n" +
+                "                Date Time Symbols [] icons=mdi-close-circle REQUIRED\n" +
                 "                Errors\n" +
                 "                  Expected 12 tokens but got 0\n" +
                 "      LocaleComponent\n" +

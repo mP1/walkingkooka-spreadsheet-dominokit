@@ -48,7 +48,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueText
             "SpreadsheetExporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 exporter1, exporter2] icon=mdi-close-circle REQUIRED\n"
+                "      [alias1 exporter1, exporter2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetExporterAliasSetComponentTest implements ValueText
             "SpreadsheetExporterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 exporter1, 9] icon=mdi-close-circle REQUIRED\n" +
+                "      [alias1 exporter1, 9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 18\n"
         );

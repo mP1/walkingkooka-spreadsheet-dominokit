@@ -278,7 +278,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "      EmailAddressComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [user123@example.com] icon=mdi-close-circle REQUIRED\n" +
+                "            [user123@example.com] icons=mdi-close-circle REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -437,7 +437,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "      AbsoluteUrlComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [https://example.com/path1/k1%3Dv2] icon=mdi-close-circle REQUIRED\n" +
+                "            [https://example.com/path1/k1%3Dv2] icons=mdi-close-circle REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

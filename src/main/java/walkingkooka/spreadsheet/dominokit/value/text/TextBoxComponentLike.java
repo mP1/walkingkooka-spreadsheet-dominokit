@@ -22,11 +22,13 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
 
+import java.util.List;
 import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
@@ -145,5 +147,16 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     // FormValueComponentTreePrintable..................................................................................
 
-    public abstract void treePrintIcons(final IndentingPrinter printer);
+    public final void treePrintIcons(final IndentingPrinter printer) {
+        String separator = "icons=";
+
+        for (final Icon<?> icon : this.icons) {
+            printer.print(separator);
+            printer.print(icon.getName());
+
+            separator = ", ";
+        }
+    }
+
+    final List<Icon<?>> icons = Lists.array();
 }

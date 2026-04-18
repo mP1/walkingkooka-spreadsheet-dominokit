@@ -148,7 +148,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -352,7 +352,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -554,7 +554,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -770,7 +770,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -992,7 +992,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [#000001] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [#000001] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1214,7 +1214,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [#000002] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [#000002] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1454,7 +1454,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [#000002] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [#000002] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1677,7 +1677,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -1934,7 +1934,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -2134,7 +2134,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -2338,7 +2338,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Error111\n" +
                 "          Error222\n" +
@@ -2546,7 +2546,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icon=mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
+                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
                 "        Errors\n" +
                 "          Error111\n" +
                 "          Error222\n" +

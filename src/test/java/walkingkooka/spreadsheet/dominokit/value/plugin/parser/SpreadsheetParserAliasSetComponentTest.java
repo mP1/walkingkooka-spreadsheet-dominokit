@@ -48,7 +48,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements ValueTextBo
             "SpreadsheetParserAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 parser1, parser2] icon=mdi-close-circle REQUIRED\n"
+                "      [alias1 parser1, parser2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetParserAliasSetComponentTest implements ValueTextBo
             "SpreadsheetParserAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 parser1, 9] icon=mdi-close-circle REQUIRED\n" +
+                "      [alias1 parser1, 9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 16\n"
         );

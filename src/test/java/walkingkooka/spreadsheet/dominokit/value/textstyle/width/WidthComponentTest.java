@@ -39,7 +39,7 @@ public final class WidthComponentTest implements TextStyleLengthPropertyComponen
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Width [] icon=mdi-close-circle id=TestIdPrefix123-width-TextBox REQUIRED\n" +
+                "        Width [] icons=mdi-close-circle id=TestIdPrefix123-width-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -56,7 +56,7 @@ public final class WidthComponentTest implements TextStyleLengthPropertyComponen
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Width [1px] icon=mdi-close-circle id=TestIdPrefix123-width-TextBox REQUIRED\n"
+                "        Width [1px] icons=mdi-close-circle id=TestIdPrefix123-width-TextBox REQUIRED\n"
         );
     }
 

@@ -38,7 +38,7 @@ public final class FormNameComponentTest implements ValueTextBoxComponentLikeTes
             "FormNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Form123] icon=mdi-close-circle REQUIRED\n"
+                "      [Form123] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class FormNameComponentTest implements ValueTextBoxComponentLikeTes
             "FormNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n" +
+                "      [] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"name\"\n"
         );

@@ -52,7 +52,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json] icon=mdi-close-circle REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/Hello !] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -86,7 +86,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello hello, bad://example.com] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/hello hello, bad://example.com] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -104,7 +104,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 good, https://example.com/2 bad!] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );
