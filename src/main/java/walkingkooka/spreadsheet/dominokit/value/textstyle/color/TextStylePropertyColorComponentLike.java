@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -132,25 +131,6 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
     @Override
     public final TextStylePropertyColorComponent blur() {
         throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Getter that returns a {@link ValueWatcher} which will cause this component to be update its value, sourced from a
-     * {@link TextStyle} value change.
-     */
-    public final ValueWatcher<TextStyle> textStyleValueWatcher() {
-        return new ValueWatcher<TextStyle>() {
-            @Override
-            public void onValue(final Optional<TextStyle> value) {
-                TextStylePropertyColorComponentLike.this.setValue(
-                    value.flatMap(
-                        (final TextStyle textStyle) -> textStyle.get(
-                            TextStylePropertyColorComponentLike.this.name
-                        )
-                    )
-                );
-            }
-        };
     }
 
     final ColorComponent colorComponent;
