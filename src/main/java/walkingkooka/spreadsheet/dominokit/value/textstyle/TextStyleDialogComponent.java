@@ -227,7 +227,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         return BackgroundColorComponent.with(
             ID_PREFIX,
             this.context
-        );
+        ).optional();
     }
 
     // TextStyleColorComponent.........................................................................................
@@ -236,7 +236,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         return TextStyleColorComponent.with(
             ID_PREFIX,
             this.context
-        );
+        ).optional();
     }
     
     // DirectionComponent...............................................................................................

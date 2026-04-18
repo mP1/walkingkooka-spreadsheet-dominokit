@@ -395,6 +395,10 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         return this.textBox.value();
     }
 
+    public TextBoxComponent textBox() {
+        return this.textBox;
+    }
+
     private final TextBoxComponent textBox;
 
     // Object...........................................................................................................
