@@ -55,6 +55,7 @@ public final class CsvStringListComponent implements ValueTextBoxComponentDelega
             ),
             CsvStringList::text
         );
+        this.textBox.clearIcon();
     }
 
     public Validator<CsvStringListComponent> validator() {
