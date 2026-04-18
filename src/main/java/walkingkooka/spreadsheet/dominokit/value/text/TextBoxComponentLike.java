@@ -25,6 +25,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
@@ -143,4 +144,15 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     abstract TextBoxComponent addEventListener(final EventType eventType,
                                                final EventListener listener);
+
+    // FormValueComponentTreePrintable..................................................................................
+
+    public final void treePrintIcons(final IndentingPrinter printer) {
+        final Icon<?> icon = this.icon()
+            .orElse(null);
+        if (null != icon) {
+            printer.print("icon=");
+            printer.print(icon.getName());
+        }
+    }
 }
