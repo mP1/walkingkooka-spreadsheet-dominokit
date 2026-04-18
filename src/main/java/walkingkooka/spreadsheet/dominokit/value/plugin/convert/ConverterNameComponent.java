@@ -35,7 +35,7 @@ public final class ConverterNameComponent implements ValueTextBoxComponentDelega
         this.textBox = ValueTextBoxComponent.with(
             ConverterName::with,
             ConverterName::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
