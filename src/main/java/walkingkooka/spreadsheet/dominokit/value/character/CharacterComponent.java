@@ -45,7 +45,7 @@ public final class CharacterComponent implements ValueTextBoxComponentDelegator<
                 message
             ),
             Object::toString
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
