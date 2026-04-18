@@ -36,7 +36,7 @@ public final class SpreadsheetExpressionReferenceComponent implements ValueTextB
         this.textBox = ValueTextBoxComponent.with(
             SpreadsheetSelection::parseExpressionReference,
             HasText::text
-        );
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator..................................................................................
