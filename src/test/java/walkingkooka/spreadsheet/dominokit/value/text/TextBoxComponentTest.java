@@ -25,6 +25,7 @@ import walkingkooka.InvalidCharacterException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 
@@ -381,6 +382,41 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                 .magnifyingGlassIcon(),
             "TextBoxComponent\n" +
                 "  [] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testClearIcon() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .clearIcon(),
+            "TextBoxComponent\n" +
+                "  [] icons=mdi-close-circle REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetIcon() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setIcon(
+                    SpreadsheetIcons.italics()
+                ),
+            "TextBoxComponent\n" +
+                "  [] icons=mdi-format-italic REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testClearIconSetIcon() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .clearIcon()
+                .setIcon(
+                    SpreadsheetIcons.italics()
+                ),
+            "TextBoxComponent\n" +
+                "  [] icons=mdi-close-circle, mdi-format-italic REQUIRED\n"
         );
     }
 

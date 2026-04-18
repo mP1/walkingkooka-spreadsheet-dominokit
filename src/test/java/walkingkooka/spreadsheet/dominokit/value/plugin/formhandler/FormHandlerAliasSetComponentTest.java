@@ -46,7 +46,7 @@ public final class FormHandlerAliasSetComponentTest implements ValueTextBoxCompo
             "FormHandlerAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 name1, alias2, name2] icon=mdi-close-circle REQUIRED\n"
+                "      [alias1 name1, alias2, name2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -60,7 +60,7 @@ public final class FormHandlerAliasSetComponentTest implements ValueTextBoxCompo
             "FormHandlerAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 name1, alias2 !] icon=mdi-close-circle REQUIRED\n" +
+                "      [alias1 name1, alias2 !] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 21\n"
         );

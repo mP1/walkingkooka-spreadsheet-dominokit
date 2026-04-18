@@ -55,7 +55,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      FlexLayoutComponent\n" +
@@ -68,7 +68,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
@@ -96,7 +96,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [Z=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [Z=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Invalid column(s) Z are not within B2:C3\n" +
                 "      FlexLayoutComponent\n" +
@@ -109,7 +109,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [Z=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [Z=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Invalid Column Z is not within B2:C3\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
@@ -147,7 +147,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [99=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [99=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Invalid row(s) 99 are not within B2:C3\n" +
                 "      FlexLayoutComponent\n" +
@@ -188,7 +188,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [99=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [99=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Invalid Row 99 is not within B2:C3\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
@@ -226,7 +226,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -255,7 +255,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Missing '='\n" +
                 "      FlexLayoutComponent\n" +
@@ -268,7 +268,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Missing '='\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
@@ -302,7 +302,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -329,7 +329,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Missing comparator name\n" +
                 "      FlexLayoutComponent\n" +
@@ -342,7 +342,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Missing comparator name\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
@@ -376,7 +376,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -405,7 +405,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -416,7 +416,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -452,7 +452,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -479,7 +479,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text,text2] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text,text2] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -490,7 +490,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text,text2] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text,text2] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -527,7 +527,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -554,7 +554,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text;C=text2] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text;C=text2] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -565,7 +565,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -601,7 +601,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [C=text2] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [C=text2] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -654,7 +654,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text;B=text2] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text;B=text2] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Duplicate column B\n" +
                 "      FlexLayoutComponent\n" +
@@ -667,7 +667,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -703,7 +703,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text2] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [B=text2] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Duplicate Column B\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -757,7 +757,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text;C=text2] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text;C=text2] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -768,7 +768,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -804,7 +804,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [C=text2] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [C=text2] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/C=text2;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -841,7 +841,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-2-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-2-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-2-moveUp-Link\n" +
@@ -873,7 +873,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -884,7 +884,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -920,7 +920,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -953,7 +953,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text;B=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text;B=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Duplicate column B\n" +
                 "      FlexLayoutComponent\n" +
@@ -966,7 +966,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1002,7 +1002,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [B=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Duplicate Column B\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -1059,7 +1059,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [B=text;2=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [B=text;2=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Got Row 2 expected Column\n" +
                 "      FlexLayoutComponent\n" +
@@ -1072,7 +1072,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [B=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [B=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/2=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1108,7 +1108,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [2=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [2=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Got Row 2 expected Column\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/2=text-case-insensitive;B=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -1165,7 +1165,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [3=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [3=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
@@ -1176,7 +1176,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [3=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [3=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1212,7 +1212,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Empty \"text\"\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
@@ -1245,7 +1245,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [3=text;4=text;3=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [3=text;4=text;3=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Duplicate row 3\n" +
                 "      FlexLayoutComponent\n" +
@@ -1258,7 +1258,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [3=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [3=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1294,7 +1294,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [4=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [4=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/4=text;3=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;3=text-case-insensitive;4=text] id=SpreadsheetCellSort-comparatorNames-1-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1330,7 +1330,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [3=text-case-insensitive] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-2-TextBox REQUIRED\n" +
+                "                          [3=text-case-insensitive] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-2-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Duplicate Row 3\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;3=text-case-insensitive;4=text] id=SpreadsheetCellSort-comparatorNames-2-moveUp-Link\n" +
@@ -1387,7 +1387,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "      SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [3=text;A=text] icon=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
+                "            [3=text;A=text] icons=mdi-close-circle id=SpreadsheetCellSort-columnOrRowComparatorNamesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Got Column A expected Row\n" +
                 "      FlexLayoutComponent\n" +
@@ -1400,7 +1400,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [3=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
+                "                          [3=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-0-TextBox REQUIRED\n" +
                 "                    \"Move Up\" DISABLED id=SpreadsheetCellSort-comparatorNames-0-moveUp-Link\n" +
                 "                    \"Move Down\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/A=text;3=text] id=SpreadsheetCellSort-comparatorNames-0-moveDown-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent\n" +
@@ -1436,7 +1436,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                    SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [A=text] icon=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
+                "                          [A=text] icons=mdi-close-circle id=SpreadsheetCellSort-comparatorNames-1-TextBox REQUIRED\n" +
                 "                          Errors\n" +
                 "                            Got Column A expected Row\n" +
                 "                    \"Move Up\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/A=text;3=text] id=SpreadsheetCellSort-comparatorNames-1-moveUp-Link\n" +

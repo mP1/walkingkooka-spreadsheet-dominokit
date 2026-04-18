@@ -92,37 +92,51 @@ public final class TextBoxComponent extends TextBoxComponentLike {
 
     @Override
     public TextBoxComponent clearIcon() {
-        return this.setIcon(
-            SpreadsheetIcons.textBoxClear()
+        if(false == this.clearIcon) {
+            final Icon<?> icon = SpreadsheetIcons.textBoxClear()
                 .clickable()
                 .addClickListener(
                     event -> this.textBox.clear()
+                );
+
+            this.textBox.apply(
+                self -> self.appendChild(
+                    PostfixAddOn.of(icon)
                 )
-        );
+            );
+
+            this.icons.add(icon);
+
+            this.clearIcon = true;
+        }
+
+        return this;
     }
+
+    private boolean clearIcon;
 
     @Override
     public TextBoxComponent setIcon(final Icon<?> icon) {
         Objects.requireNonNull(icon, "icon");
 
         final TextBox textBox = this.textBox;
+        final List<Icon<?>> icons = this.icons;
 
         final PostfixAddOn<?> iconPostfix = this.iconPostfix;
         if(null != iconPostfix) {
             textBox.getPostfixElement()
                 .removeChild(iconPostfix);
+            icons.remove(iconPostfix);
         }
 
         this.iconPostfix = PostfixAddOn.of(icon);
         textBox.apply(
             self -> self.appendChild(this.iconPostfix)
         );
-        this.icon = icon;
+        this.icons.add(icon);
 
         return this;
     }
-
-    private Icon<?> icon = null;
 
     private PostfixAddOn<?> iconPostfix = null;
 
@@ -484,15 +498,6 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     private final TextBox textBox;
 
     // FormValueComponentTreePrintable..................................................................................
-
-    @Override
-    public void treePrintIcons(final IndentingPrinter printer) {
-        final Icon<?> icon = this.icon;
-        if (null != icon) {
-            printer.print("icon=");
-            printer.print(icon.getName());
-        }
-    }
 
     @Override
     public void treePrintAlternateValues(final IndentingPrinter printer) {

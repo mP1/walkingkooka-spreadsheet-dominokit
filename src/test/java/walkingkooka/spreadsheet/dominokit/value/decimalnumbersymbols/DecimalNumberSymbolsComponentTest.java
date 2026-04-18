@@ -56,7 +56,7 @@ public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComp
             "DecimalNumberSymbolsComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [-,+,0,¤,.,E,\",\",∞,.,NaN,%,‰] icon=mdi-close-circle REQUIRED\n"
+                "      [-,+,0,¤,.,E,\",\",∞,.,NaN,%,‰] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -72,7 +72,7 @@ public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComp
             "DecimalNumberSymbolsComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello, !] icon=mdi-close-circle REQUIRED\n" +
+                "      [hello, !] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Expected 12 tokens but got 2\n"
         );

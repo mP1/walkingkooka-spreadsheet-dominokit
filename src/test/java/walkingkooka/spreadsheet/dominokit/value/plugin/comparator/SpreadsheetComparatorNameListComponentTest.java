@@ -48,7 +48,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueTe
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, month-of-year] icon=mdi-close-circle REQUIRED\n"
+                "      [day-of-month, month-of-year] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -62,7 +62,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueTe
             "SpreadsheetComparatorNameListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [day-of-month, !@#] icon=mdi-close-circle REQUIRED\n" +
+                "      [day-of-month, !@#] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 14\n"
         );

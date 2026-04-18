@@ -95,7 +95,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "            SpreadsheetNameComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  [] icon=mdi-close-circle id=metadata-spreadsheetName-TextBox REQUIRED\n" +
+                "                  [] icons=mdi-close-circle id=metadata-spreadsheetName-TextBox REQUIRED\n" +
                 "                  Errors\n" +
                 "                    Empty \"name\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +

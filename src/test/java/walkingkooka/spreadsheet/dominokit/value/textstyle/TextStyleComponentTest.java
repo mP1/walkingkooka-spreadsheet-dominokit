@@ -38,7 +38,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: LEFT;] icon=mdi-close-circle REQUIRED\n"
+                "      [color: #111; text-align: LEFT;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_CAPS;] icon=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_CAPS;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: left;] icon=mdi-close-circle REQUIRED\n"
+                "      [color: #111; text-align: left;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -86,7 +86,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_CAPS;] icon=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_CAPS;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -102,7 +102,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_caps;] icon=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_caps;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -118,7 +118,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [  color:  #111;  text-align:  left;] icon=mdi-close-circle REQUIRED\n"
+                "      [  color:  #111;  text-align:  left;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -134,7 +134,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: XYZ;] icon=mdi-close-circle REQUIRED\n" +
+                "      [color: #111; text-align: XYZ;] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Unknown value \"XYZ\"\n"
         );
@@ -148,7 +148,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n"
+                "      [] icons=mdi-close-circle REQUIRED\n"
         );
     }
 

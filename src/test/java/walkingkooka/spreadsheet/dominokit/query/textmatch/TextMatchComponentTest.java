@@ -33,7 +33,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n"
+                "      [] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -47,7 +47,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [   ] icon=mdi-close-circle REQUIRED\n"
+                "      [   ] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -65,7 +65,7 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
             "TextMatchComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [starts* ends* *contains*] icon=mdi-close-circle REQUIRED\n"
+                "      [starts* ends* *contains*] icons=mdi-close-circle REQUIRED\n"
         );
     }
 

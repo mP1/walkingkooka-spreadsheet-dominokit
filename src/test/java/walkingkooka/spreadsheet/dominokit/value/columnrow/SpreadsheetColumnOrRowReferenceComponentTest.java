@@ -38,7 +38,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [AB] icon=mdi-close-circle REQUIRED\n"
+                "      [AB] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1!] icon=mdi-close-circle REQUIRED\n" +
+                "      [A1!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 1\n"
         );
@@ -72,7 +72,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [C:D] icon=mdi-close-circle REQUIRED\n" +
+                "      [C:D] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
         );
@@ -90,7 +90,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1] icon=mdi-close-circle REQUIRED\n"
+                "      [1] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -106,7 +106,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1:2] icon=mdi-close-circle REQUIRED\n" +
+                "      [1:2] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 1\n"
         );
@@ -124,7 +124,7 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
             "SpreadsheetColumnOrRowReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Z9] icon=mdi-close-circle REQUIRED\n" +
+                "      [Z9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 1\n"
         );

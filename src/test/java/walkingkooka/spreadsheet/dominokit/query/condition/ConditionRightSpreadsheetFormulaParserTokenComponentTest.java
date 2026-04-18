@@ -40,7 +40,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [< 123] icon=mdi-close-circle REQUIRED\n"
+                "      [< 123] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -56,7 +56,7 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
             "ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1+2] icon=mdi-close-circle REQUIRED\n" +
+                "      [1+2] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 0 expected (\"=\" | \"<>\" | \">=\" | \">\" | \"<=\" | \"<\"), [WHITESPACE], CONDITION_RIGHT_VALUE_OR_EXPRESSION_REQUIRED, [WHITESPACE]\n"
         );

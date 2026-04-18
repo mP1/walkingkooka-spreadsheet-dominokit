@@ -37,7 +37,7 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Text Decoration Thickness [] icon=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
+                "        Text Decoration Thickness [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -54,7 +54,7 @@ public final class TextDecorationThicknessComponentTest implements TextStyleLeng
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Text Decoration Thickness [1px] icon=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n"
+                "        Text Decoration Thickness [1px] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n"
         );
     }
 

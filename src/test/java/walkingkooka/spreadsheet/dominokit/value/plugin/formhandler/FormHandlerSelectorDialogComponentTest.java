@@ -67,7 +67,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
                 "      FormHandlerSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [hello-form-handler] icon=mdi-close-circle id=FormHandlerSelector-TextBox REQUIRED\n" +
+                "            [hello-form-handler] icons=mdi-close-circle id=FormHandlerSelector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

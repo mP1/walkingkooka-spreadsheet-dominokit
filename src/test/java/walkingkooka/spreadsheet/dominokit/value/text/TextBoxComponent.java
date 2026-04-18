@@ -232,16 +232,27 @@ public final class TextBoxComponent extends TextBoxComponentLike
 
     @Override
     public TextBoxComponent clearIcon() {
-        return this.setIcon(
-            SpreadsheetIcons.textBoxClear()
-        );
+        if (false == this.clearIcon) {
+            this.icons.add(
+                SpreadsheetIcons.textBoxClear()
+            );
+            this.clearIcon = true;
+        }
+        return this;
     }
+
+    private boolean clearIcon = false;
 
     @Override
     public TextBoxComponent setIcon(final Icon<?> icon) {
         Objects.requireNonNull(icon, "icon");
 
+        final Icon<?> previous = this.icon;
+        if (null != previous) {
+            this.icons.remove(previous);
+        }
         this.icon = icon;
+        this.icons.add(icon);
         return this;
     }
 
@@ -357,16 +368,5 @@ public final class TextBoxComponent extends TextBoxComponentLike
         b.value(this.errors);
 
         return b.build();
-    }
-
-    // FormValueComponentTreePrintable..................................................................................
-
-    @Override
-    public void treePrintIcons(final IndentingPrinter printer) {
-        final Icon<?> icon = this.icon;
-        if (null != icon) {
-            printer.print("icon=");
-            printer.print(icon.getName());
-        }
     }
 }

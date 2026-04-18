@@ -38,7 +38,7 @@ public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxC
             "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello] icon=mdi-close-circle REQUIRED\n"
+                "      [hello] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxC
             "SpreadsheetImporterNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [invalid123!] icon=mdi-close-circle REQUIRED\n" +
+                "      [invalid123!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );

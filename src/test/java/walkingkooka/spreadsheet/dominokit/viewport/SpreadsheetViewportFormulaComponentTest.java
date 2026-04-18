@@ -171,7 +171,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
                 "  SpreadsheetFormulaComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [=1+2] icon=mdi-close-circle REQUIRED\n"
+                "        [=1+2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -227,7 +227,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
                 "  SpreadsheetFormulaComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [=1+2] icon=mdi-close-circle REQUIRED\n"
+                "        [=1+2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -269,7 +269,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
                 "  SpreadsheetFormulaComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] icon=mdi-close-circle DISABLED REQUIRED\n"
+                "        [] icons=mdi-close-circle DISABLED REQUIRED\n"
         );
     }
 

@@ -52,7 +52,7 @@ public final class ValidatorInfoSetComponentTest implements ValueTextBoxComponen
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-validation/Validator/absolute-url absolute-url,https://github.com/mP1/walkingkooka-validation/Validator/checkbox checkbox,https://github.com/mP1/walkingkooka-validation/Validator/choice-list choice-list,https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/email-address email-address,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length,https://github.com/mP1/walkingkooka-validation/Validator/text-mask text-mask] icon=mdi-close-circle REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-validation/Validator/absolute-url absolute-url,https://github.com/mP1/walkingkooka-validation/Validator/checkbox checkbox,https://github.com/mP1/walkingkooka-validation/Validator/choice-list choice-list,https://github.com/mP1/walkingkooka-validation/Validator/collection collection,https://github.com/mP1/walkingkooka-validation/Validator/email-address email-address,https://github.com/mP1/walkingkooka-validation/Validator/expression expression,https://github.com/mP1/walkingkooka-validation/Validator/non-null non-null,https://github.com/mP1/walkingkooka-validation/Validator/text-length text-length,https://github.com/mP1/walkingkooka-validation/Validator/text-mask text-mask] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -68,7 +68,7 @@ public final class ValidatorInfoSetComponentTest implements ValueTextBoxComponen
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/Hello !] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -86,7 +86,7 @@ public final class ValidatorInfoSetComponentTest implements ValueTextBoxComponen
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/hello hello, bad://example.com] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/hello hello, bad://example.com] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        unknown protocol: bad\n"
         );
@@ -104,7 +104,7 @@ public final class ValidatorInfoSetComponentTest implements ValueTextBoxComponen
             "ValidatorInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/1 good, https://example.com/2 bad!] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://www.example.com/1 good, https://example.com/2 bad!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 57\n"
         );

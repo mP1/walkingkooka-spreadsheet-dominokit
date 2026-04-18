@@ -48,7 +48,7 @@ public final class PluginNameSetComponentTest implements ValueTextBoxComponentLi
             "PluginNameSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [plugin1, plugin2] icon=mdi-close-circle REQUIRED\n"
+                "      [plugin1, plugin2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class PluginNameSetComponentTest implements ValueTextBoxComponentLi
             "PluginNameSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [plugin111, 9] icon=mdi-close-circle REQUIRED\n" +
+                "      [plugin111, 9] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 11\n"
         );

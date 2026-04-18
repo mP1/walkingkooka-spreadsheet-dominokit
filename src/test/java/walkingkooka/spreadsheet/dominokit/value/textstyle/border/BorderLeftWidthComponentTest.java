@@ -32,7 +32,7 @@ public final class BorderLeftWidthComponentTest extends BorderWidthSharedCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] icon=mdi-close-circle id=TestIdPrefix123-borderLeftWidth-TextBox REQUIRED\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-borderLeftWidth-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -49,7 +49,7 @@ public final class BorderLeftWidthComponentTest extends BorderWidthSharedCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [1px] icon=mdi-close-circle id=TestIdPrefix123-borderLeftWidth-TextBox REQUIRED\n"
+                "        [1px] icons=mdi-close-circle id=TestIdPrefix123-borderLeftWidth-TextBox REQUIRED\n"
         );
     }
 

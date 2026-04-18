@@ -58,7 +58,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
                 "              \"fields\": [\n" +
                 "                {\n" +
                 "                  \"reference\": {\n" +
-                "      ] icon=mdi-close-circle REQUIRED\n" +
+                "      ] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '\\n' at 87 expected [OBJECT_PROPERTY, {[WHITESPACE], \",\", OBJECT_PROPERTY_REQUIRED}], [WHITESPACE], \"}\"\n"
         );
@@ -96,7 +96,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
                 "                  }\n" +
                 "                }\n" +
             "              ]\n" +
-                "            }] icon=mdi-close-circle REQUIRED\n"
+                "            }] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -140,7 +140,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
                 "      }\n" +
                 "      }\n" +
                 "      ]\n" +
-                "      }] icon=mdi-close-circle REQUIRED\n"
+                "      }] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -172,7 +172,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
                 "            }\n" +
                 "          }\n" +
                 "        ]\n" +
-                "      }] icon=mdi-close-circle REQUIRED\n"
+                "      }] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -209,7 +209,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
                 "            }\n" +
                 "          }\n" +
                 "        ]\n" +
-                "      }] icon=mdi-close-circle REQUIRED\n"
+                "      }] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -221,7 +221,7 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
             "FormComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n" +
+                "      [] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );

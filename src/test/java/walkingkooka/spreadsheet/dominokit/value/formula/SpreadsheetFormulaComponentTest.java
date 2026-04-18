@@ -40,7 +40,7 @@ public final class SpreadsheetFormulaComponentTest implements ValueTextBoxCompon
             "SpreadsheetFormulaComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1+2] icon=mdi-close-circle REQUIRED\n"
+                "      [1+2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -76,7 +76,7 @@ public final class SpreadsheetFormulaComponentTest implements ValueTextBoxCompon
             "SpreadsheetFormulaComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1+!!!] icon=mdi-close-circle REQUIRED\n" +
+                "      [1+!!!] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 2 expected LAMBDA_FUNCTION | NAMED_FUNCTION | \"TRUE\" | \"FALSE\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"\n"
         );

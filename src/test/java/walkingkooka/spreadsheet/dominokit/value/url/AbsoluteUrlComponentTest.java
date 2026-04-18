@@ -35,7 +35,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle REQUIRED\n" +
+                "      [] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        no protocol: \n"
         );
@@ -50,7 +50,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle\n"
+                "      [] icons=mdi-close-circle\n"
         );
     }
 
@@ -63,7 +63,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icon=mdi-close-circle\n"
+                "      [] icons=mdi-close-circle\n"
         );
     }
 
@@ -77,7 +77,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://example.com] icon=mdi-close-circle REQUIRED\n"
+                "      [https://example.com] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -91,7 +91,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [HTTPS://example.com] icon=mdi-close-circle REQUIRED\n"
+                "      [HTTPS://example.com] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -107,7 +107,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://] icon=mdi-close-circle REQUIRED\n" +
+                "      [https://] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Missing host name\n"
         );
@@ -125,7 +125,7 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
             "AbsoluteUrlComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://example.com/path1/k2%3Dv2] icon=mdi-close-circle REQUIRED\n"
+                "      [https://example.com/path1/k2%3Dv2] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
