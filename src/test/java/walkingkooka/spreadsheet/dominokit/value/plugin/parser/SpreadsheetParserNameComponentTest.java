@@ -38,7 +38,7 @@ public final class SpreadsheetParserNameComponentTest implements ValueTextBoxCom
             "SpreadsheetParserNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello] REQUIRED\n"
+                "      [hello] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetParserNameComponentTest implements ValueTextBoxCom
             "SpreadsheetParserNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [invalid123!] REQUIRED\n" +
+                "      [invalid123!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );

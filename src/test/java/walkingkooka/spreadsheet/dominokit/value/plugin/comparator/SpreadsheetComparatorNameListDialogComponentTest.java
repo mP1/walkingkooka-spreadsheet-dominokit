@@ -70,7 +70,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "      SpreadsheetComparatorNameListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [day-of-month!!!] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
+                "            [day-of-month!!!] icon=mdi-close-circle id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Invalid character '!' at 12\n" +
                 "      DialogAnchorListComponent\n" +
@@ -118,7 +118,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "      SpreadsheetComparatorNameListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [month-of-year] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
+                "            [month-of-year] icon=mdi-close-circle id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -163,7 +163,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "      SpreadsheetComparatorNameListComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [day-of-month] id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
+                "            [day-of-month] icon=mdi-close-circle id=SpreadsheetComparatorNameList-namesList-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

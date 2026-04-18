@@ -96,7 +96,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -154,7 +154,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [name1] id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
+                "            [name1] icon=mdi-close-circle id=PluginAliasSetLike-selector-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

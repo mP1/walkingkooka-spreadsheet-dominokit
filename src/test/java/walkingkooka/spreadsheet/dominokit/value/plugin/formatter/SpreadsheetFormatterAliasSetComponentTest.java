@@ -48,7 +48,7 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements ValueTex
             "SpreadsheetFormatterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 formatter1, formatter2] REQUIRED\n"
+                "      [alias1 formatter1, formatter2] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -64,7 +64,7 @@ public final class SpreadsheetFormatterAliasSetComponentTest implements ValueTex
             "SpreadsheetFormatterAliasSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [alias1 formatter1, 9] REQUIRED\n" +
+                "      [alias1 formatter1, 9] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '9' at 19\n"
         );

@@ -36,7 +36,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A] REQUIRED\n" +
+                "      [A] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Missing '='\n"
         );
@@ -52,7 +52,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=] REQUIRED\n" +
+                "      [A=] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Missing comparator name\n"
         );
@@ -70,7 +70,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=text;B=text-case-insensitive] REQUIRED\n"
+                "      [A=text;B=text-case-insensitive] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -84,7 +84,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=good;!B=bad] REQUIRED\n" +
+                "      [A=good;!B=bad] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 7\n"
         );
@@ -100,7 +100,7 @@ public class SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponentTest i
             "SpreadsheetColumnOrRowSpreadsheetComparatorNamesListComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A=good;B=bad!] REQUIRED\n" +
+                "      [A=good;B=bad!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 12\n"
         );

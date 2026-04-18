@@ -70,7 +70,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "      SpreadsheetCellReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=navigate-home-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=navigate-home-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
@@ -107,7 +107,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "      SpreadsheetCellReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=navigate-home-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=navigate-home-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
@@ -146,7 +146,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "      SpreadsheetCellReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=navigate-home-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=navigate-home-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
@@ -185,7 +185,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "      SpreadsheetCellReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=navigate-home-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=navigate-home-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +
@@ -224,7 +224,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "      SpreadsheetCellReferenceComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [] id=navigate-home-TextBox REQUIRED\n" +
+                "            [] icon=mdi-close-circle id=navigate-home-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              End of text, expected CELL\n" +
                 "      AnchorListComponent\n" +

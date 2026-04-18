@@ -36,7 +36,7 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueTextBo
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [hello-comparator] REQUIRED\n"
+                "      [hello-comparator] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -50,7 +50,7 @@ public final class SpreadsheetComparatorNameComponentTest implements ValueTextBo
             "SpreadsheetComparatorNameComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [!@#] REQUIRED\n" +
+                "      [!@#] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 0\n"
         );

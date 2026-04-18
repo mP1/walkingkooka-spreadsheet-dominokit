@@ -230,7 +230,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] REQUIRED\n" +
+                "      [] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -248,7 +248,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1+2] REQUIRED\n"
+                "      [=1+2] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -264,7 +264,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [>3] REQUIRED\n"
+                "      [>3] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -280,7 +280,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=\"Hello\"] REQUIRED\n"
+                "      [=\"Hello\"] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -296,7 +296,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=123.0] REQUIRED\n"
+                "      [=123.0] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -312,7 +312,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1999/12/31] REQUIRED\n"
+                "      [=1999/12/31] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -328,7 +328,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1999/12/31 12:58] REQUIRED\n"
+                "      [=1999/12/31 12:58] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -344,7 +344,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=12:58:59] REQUIRED\n"
+                "      [=12:58:59] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -360,7 +360,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
             "SpreadsheetFormulaParserTokenComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [=1.25+] REQUIRED\n" +
+                "      [=1.25+] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        End of text, expected LAMBDA_FUNCTION | NAMED_FUNCTION | \"TRUE\" | \"FALSE\" | LABEL | CELL_RANGE | CELL | GROUP | NEGATIVE | \"#.#E+#;#.#%;#.#;#%;#\" | TEXT | \"#NULL!\" | \"#DIV/0!\" | \"#VALUE!\" | \"#REF!\" | \"#NAME?\" | \"#NAME?\" | \"#NUM!\" | \"#N/A\" | \"#ERROR\" | \"#SPILL!\" | \"#CALC!\"\n"
         );

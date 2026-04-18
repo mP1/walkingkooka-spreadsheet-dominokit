@@ -38,7 +38,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1] REQUIRED\n"
+                "      [A1] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -54,7 +54,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$A$1] REQUIRED\n"
+                "      [$A$1] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [A1:B2] REQUIRED\n" +
+                "      [A1:B2] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character ':' at 2\n"
         );
@@ -88,7 +88,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Label123] REQUIRED\n"
+                "      [Label123] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -104,7 +104,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [Invalid123!] REQUIRED\n" +
+                "      [Invalid123!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 10\n"
         );
@@ -122,7 +122,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [$A] REQUIRED\n" +
+                "      [$A] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '$' at 0\n"
         );
@@ -140,7 +140,7 @@ public final class SpreadsheetValidationReferenceComponentTest implements ValueT
             "SpreadsheetValidationReferenceComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [123] REQUIRED\n" +
+                "      [123] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '1' at 0\n"
         );

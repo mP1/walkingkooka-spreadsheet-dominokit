@@ -58,7 +58,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [] id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
+                "      Opacity [] icon=mdi-close-circle id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );
@@ -73,7 +73,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [] id=TestIdPrefix123-opacity-TextBox\n"
+                "      Opacity [] icon=mdi-close-circle id=TestIdPrefix123-opacity-TextBox\n"
         );
     }
 
@@ -87,7 +87,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [0.5] id=TestIdPrefix123-opacity-TextBox REQUIRED\n"
+                "      Opacity [0.5] icon=mdi-close-circle id=TestIdPrefix123-opacity-TextBox REQUIRED\n"
         );
     }
 
@@ -103,7 +103,7 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
             "OpacityComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Opacity [Invalid123!] id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
+                "      Opacity [Invalid123!] icon=mdi-close-circle id=TestIdPrefix123-opacity-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );

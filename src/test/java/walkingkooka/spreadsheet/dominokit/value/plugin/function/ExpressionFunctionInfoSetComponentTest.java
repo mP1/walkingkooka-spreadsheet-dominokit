@@ -53,7 +53,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueTextBo
             "ExpressionFunctionInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName] REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName] icon=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -69,7 +69,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueTextBo
             "ExpressionFunctionInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Hello !] REQUIRED\n" +
+                "      [https://www.example.com/Hello !] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 30\n"
         );
@@ -87,7 +87,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueTextBo
             "ExpressionFunctionInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://www.example.com/Good Good, https://www.example.com/Bad bad!] REQUIRED\n" +
+                "      [https://www.example.com/Good Good, https://www.example.com/Bad bad!] icon=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Invalid character '!' at 66\n"
         );

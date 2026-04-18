@@ -105,7 +105,7 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
                 ),
             "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
-                "    [AB!12] id=id123 REQUIRED\n" +
+                "    [AB!12] icon=mdi-close-circle id=id123 REQUIRED\n" +
                 "    Errors\n" +
                 "      Invalid character '!' at 2\n"
         );
@@ -123,7 +123,7 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
                 ),
             "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
-                "    [AB12] id=id123 REQUIRED\n"
+                "    [AB12] icon=mdi-close-circle id=id123 REQUIRED\n"
         );
     }
 
