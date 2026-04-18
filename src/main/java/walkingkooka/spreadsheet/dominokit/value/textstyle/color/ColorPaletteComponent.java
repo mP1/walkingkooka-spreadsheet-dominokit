@@ -51,8 +51,8 @@ import java.util.function.Function;
  * If a {@link SpreadsheetColorName} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
  * Each cell will have a link with a {@link HistoryToken} that saves its {@link Color}.
  */
-public final class ColorComponent implements ValueComponent<HTMLTableElement, Color, ColorComponent>,
-    HtmlComponentDelegator<HTMLTableElement, ColorComponent>,
+public final class ColorPaletteComponent implements ValueComponent<HTMLTableElement, Color, ColorPaletteComponent>,
+    HtmlComponentDelegator<HTMLTableElement, ColorPaletteComponent>,
     SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
@@ -73,19 +73,19 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
         );
     }
 
-    public static ColorComponent with(final String idPrefix,
-                                      final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
-                                      final ColorComponentContext context) {
-        return new ColorComponent(
+    public static ColorPaletteComponent with(final String idPrefix,
+                                             final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+                                             final ColorPaletteComponentContext context) {
+        return new ColorPaletteComponent(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(historyTokenPreparer, "historyTokenPreparer"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private ColorComponent(final String idPrefix,
-                           final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
-                           final ColorComponentContext context) {
+    private ColorPaletteComponent(final String idPrefix,
+                                  final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer,
+                                  final ColorPaletteComponentContext context) {
         final TBodyComponent tbody = HtmlElementComponent.tbody();
 
         int i = 0;
@@ -160,7 +160,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     }
 
     private void refreshAnchors() {
-        final ColorComponentContext context = this.context;
+        final ColorPaletteComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
@@ -225,7 +225,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
      */
     private final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer;
 
-    private final ColorComponentContext context;
+    private final ColorPaletteComponentContext context;
 
     // ValueComponent...................................................................................................
 
@@ -235,7 +235,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     }
 
     @Override
-    public ColorComponent setId(final String id) {
+    public ColorPaletteComponent setId(final String id) {
         throw new UnsupportedOperationException();
     }
 
@@ -245,7 +245,7 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     }
 
     @Override
-    public ColorComponent setValue(final Optional<Color> value) {
+    public ColorPaletteComponent setValue(final Optional<Color> value) {
         Objects.requireNonNull(value, "value");
 
         final Optional<Color> previous = this.value;
@@ -274,32 +274,32 @@ public final class ColorComponent implements ValueComponent<HTMLTableElement, Co
     }
 
     @Override
-    public ColorComponent setDisabled(final boolean disabled) {
+    public ColorPaletteComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ColorComponent hideMarginBottom() {
+    public ColorPaletteComponent hideMarginBottom() {
         return this;
     }
 
     @Override
-    public ColorComponent removeBorders() {
+    public ColorPaletteComponent removeBorders() {
         return this;
     }
 
     @Override
-    public ColorComponent removePadding() {
+    public ColorPaletteComponent removePadding() {
         return this;
     }
 
     @Override
-    public ColorComponent focus() {
+    public ColorPaletteComponent focus() {
         return this;
     }
 
     @Override
-    public ColorComponent blur() {
+    public ColorPaletteComponent blur() {
         return this;
     }
 

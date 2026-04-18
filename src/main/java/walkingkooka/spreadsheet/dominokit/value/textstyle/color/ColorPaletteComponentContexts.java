@@ -17,23 +17,21 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.reflect.PublicStaticHelper;
 
-public class FakeColorComponentContext extends FakeHistoryContext implements ColorComponentContext {
+public final class ColorPaletteComponentContexts implements PublicStaticHelper {
 
-    public FakeColorComponentContext() {
-        super();
+    /**
+     * {@see FakeColorPaletteComponentContext}
+     */
+    public static FakeColorPaletteComponentContext fake() {
+        return new FakeColorPaletteComponentContext();
     }
 
-    @Override
-    public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    /**
+     * Stop creation
+     */
+    private ColorPaletteComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

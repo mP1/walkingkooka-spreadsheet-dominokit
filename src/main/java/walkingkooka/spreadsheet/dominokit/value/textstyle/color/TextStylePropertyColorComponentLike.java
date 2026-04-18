@@ -45,10 +45,10 @@ abstract class TextStylePropertyColorComponentLike implements TextStylePropertyC
         this.name = propertyName;
 
         this.textStylePropertyColorComponentMenu = TextStylePropertyColorComponentMenu.with(
-            ColorComponent.with(
+            ColorPaletteComponent.with(
             idPrefix,
-            ColorComponent.historyTokenPreparer(propertyName),
-            context // ColorComponentContext
+            ColorPaletteComponent.historyTokenPreparer(propertyName),
+            context // ColorPaletteComponentContext
         )
         );
     }

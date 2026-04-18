@@ -129,7 +129,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"black\"\n" +
                 "                      DIV\n" +
                 "                        style=\"background-color: black; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "                    ColorComponent\n" +
+                "                    ColorPaletteComponent\n" +
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                          TBODY\n" +
@@ -323,7 +323,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"black\"\n" +
                 "                        DIV\n" +
                 "                          style=\"background-color: black; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "                      ColorComponent\n" +
+                "                      ColorPaletteComponent\n" +
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                            TBODY\n" +
@@ -848,7 +848,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"black\"\n" +
                 "                      DIV\n" +
                 "                        style=\"background-color: black; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "                    ColorComponent\n" +
+                "                    ColorPaletteComponent\n" +
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                          TBODY\n" +
@@ -1042,7 +1042,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"black\"\n" +
                 "                        DIV\n" +
                 "                          style=\"background-color: black; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "                      ColorComponent\n" +
+                "                      ColorPaletteComponent\n" +
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                            TBODY\n" +

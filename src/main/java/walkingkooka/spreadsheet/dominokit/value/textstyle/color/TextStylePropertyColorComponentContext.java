@@ -20,5 +20,5 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public interface TextStylePropertyColorComponentContext extends HistoryContext,
-    ColorComponentContext{
+    ColorPaletteComponentContext {
 }

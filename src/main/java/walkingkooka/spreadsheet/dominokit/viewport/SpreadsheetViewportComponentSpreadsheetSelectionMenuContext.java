@@ -290,7 +290,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     private final SpreadsheetViewportComponentContext context;
 
-    // ColorComponentContext............................................................................................
+    // ColorPaletteComponentContext............................................................................................
 
     /**
      * Components within a menu should not react to any {@link walkingkooka.spreadsheet.dominokit.fetcher.FetcherWatcher} events.

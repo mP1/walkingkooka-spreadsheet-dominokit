@@ -52,7 +52,7 @@ public final class BorderTopColorComponentTest extends BorderColorSharedComponen
                 "                \"#000001\"\n" +
                 "            DIV\n" +
                 "              style=\"background-color: #000001; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"TestIdPrefix-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +
@@ -280,7 +280,7 @@ public final class BorderTopColorComponentTest extends BorderColorSharedComponen
                 "                \"#000001\"\n" +
                 "            DIV\n" +
                 "              style=\"background-color: #000001; border: 1px solid black; display: inline-block; height: 20px; margin-bottom: -5px; margin-left: 5px; visibility: visible; width: 20px;\"\n" +
-                "          ColorComponent\n" +
+                "          ColorPaletteComponent\n" +
                 "            TABLE\n" +
                 "              id=\"Test123-Table\" className=dui dui-menu-item\n" +
                 "                TBODY\n" +

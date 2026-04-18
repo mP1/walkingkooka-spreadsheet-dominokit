@@ -17,12 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.ContextTesting;
 
-public interface ColorComponentContext extends HistoryContext,
-    HasSpreadsheetMetadata {
-
-    Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher);
+public interface ColorPaletteComponentContextTesting<C extends ColorPaletteComponentContext> extends ContextTesting<C> {
 }

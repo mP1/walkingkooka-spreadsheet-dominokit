@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
-public class FakeBackgroundColorComponentContext extends FakeColorComponentContext
+public class FakeBackgroundColorComponentContext extends FakeColorPaletteComponentContext
     implements BackgroundColorComponentContext {
 
     public FakeBackgroundColorComponentContext() {
