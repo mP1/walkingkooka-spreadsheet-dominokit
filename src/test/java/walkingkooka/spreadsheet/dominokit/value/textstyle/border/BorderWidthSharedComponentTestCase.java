@@ -17,9 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
+import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
 import walkingkooka.tree.text.Length;
+
+import java.util.Optional;
 
 public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSharedComponent<C>> implements TextStyleLengthPropertyComponentLikeTesting<C> {
 
@@ -27,6 +31,34 @@ public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSh
 
     public BorderWidthSharedComponentTestCase() {
         super();
+    }
+
+    @Test
+    public final void testSetValueWithNoneLength() {
+        this.setValueAndCheck(
+            this.createComponent(),
+            Length.none()
+        );
+    }
+
+    @Test
+    public final void testSetValueWithNormalLength() {
+        final C component = this.createComponent();
+        component.setValue(
+            Optional.of(Length.normal())
+        );
+        this.checkNotEquals(
+            Lists.empty(),
+            component.errors()
+        );
+    }
+
+    @Test
+    public final void testSetValueWithPixelLength() {
+        this.setValueAndCheck(
+            this.createComponent(),
+            Length.pixel(123.5)
+        );
     }
 
     @Override

@@ -46,7 +46,43 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
     }
 
     @Test
-    public void testSetValue() {
+    public void testSetValueWithNoneLength() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        Length.none()
+                    )
+                ),
+            "HeightComponent\n" +
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        Height [none] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithNormalLengthErrors() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        Length.normal()
+                    )
+                ),
+            "HeightComponent\n" +
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        Height [normal] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
+                "        Errors\n" +
+                "          Invalid \"height\" expected NoneLength | PixelLength but got NormalLength\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithPixelLength() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setValue(

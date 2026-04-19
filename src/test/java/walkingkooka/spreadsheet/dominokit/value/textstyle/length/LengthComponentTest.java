@@ -21,17 +21,28 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class LengthComponentTest implements ValueTextBoxComponentLikeTesting<LengthComponent, Length<?>> {
 
     private final static Length<?> LENGTH = Length.pixel(1.0);
 
     @Test
+    public void testWithNullTextStylePropertyNameFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> LengthComponent.with(null)
+        );
+    }
+
+    @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "LengthComponent\n" +
                 "  ValueTextBoxComponent\n" +
@@ -45,7 +56,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     @Test
     public void testClearValueOptional() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .clearValue()
                 .optional(),
             "LengthComponent\n" +
@@ -58,7 +69,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(LENGTH)
                 ),
@@ -72,7 +83,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     @Test
     public void testSetStringValuePixel() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         LENGTH.text()
@@ -88,7 +99,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     @Test
     public void testSetStringValueNoneLength() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         Length.none()
@@ -105,7 +116,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            LengthComponent.empty()
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
@@ -124,7 +135,9 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
 
     @Override
     public LengthComponent createComponent() {
-        return LengthComponent.empty();
+        return LengthComponent.with(
+            TextStylePropertyName.HEIGHT
+        );
     }
 
     // class............................................................................................................

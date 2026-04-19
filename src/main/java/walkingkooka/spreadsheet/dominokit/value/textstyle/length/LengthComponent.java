@@ -17,26 +17,48 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.length;
 
+import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.text.HasText;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Length}.
  */
 public final class LengthComponent implements ValueTextBoxComponentDelegator<LengthComponent, Length<?>> {
 
-    public static LengthComponent empty() {
-        return new LengthComponent();
+    public static LengthComponent with(final TextStylePropertyName<Length<?>> textStylePropertyName) {
+        return new LengthComponent(
+            Objects.requireNonNull(textStylePropertyName, "textStylePropertyName")
+        );
     }
 
-    private LengthComponent() {
+    private LengthComponent(final TextStylePropertyName<Length<?>> textStylePropertyName) {
         this.textBox = ValueTextBoxComponent.with(
-            Length::parse,
+            textStylePropertyName::parseValue,
             HasText::text
         );
-        this.textBox.clearIcon();
+        this.textBox.setValidator(
+            (Optional<String> text) -> {
+                ValidationResult validationResult;
+                try {
+                    textStylePropertyName.parseValue(
+                        text.orElse("")
+                    );
+                    validationResult = ValidationResult.valid();
+                } catch (final UnsupportedOperationException rethrow) {
+                    throw rethrow;
+                } catch (final RuntimeException cause) {
+                    validationResult = ValidationResult.invalid(cause.getMessage());
+                }
+                return validationResult;
+            }
+        ).clearIcon();
     }
 
     // ValueTextBoxComponentDelegator...................................................................................

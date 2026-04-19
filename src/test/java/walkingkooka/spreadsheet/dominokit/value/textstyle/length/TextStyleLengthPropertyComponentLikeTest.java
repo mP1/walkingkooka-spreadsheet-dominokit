@@ -80,7 +80,9 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
             return this.lengthComponent;
         }
 
-        private final LengthComponent lengthComponent = LengthComponent.empty();
+        private final LengthComponent lengthComponent = LengthComponent.with(
+            TextStylePropertyName.TEXT_INDENT
+        );
 
         @Override
         public TextStylePropertyName<Length<?>> name() {

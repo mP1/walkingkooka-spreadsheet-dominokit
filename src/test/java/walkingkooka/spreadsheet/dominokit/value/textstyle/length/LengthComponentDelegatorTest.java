@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegatorTest.TestLengthComponentDelegator;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -73,7 +74,9 @@ public final class LengthComponentDelegatorTest implements FormValueComponentTes
 
         @Override
         public LengthComponent lengthComponent() {
-            return LengthComponent.empty();
+            return LengthComponent.with(
+                TextStylePropertyName.HEIGHT
+            );
         }
     }
 }
