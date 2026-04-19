@@ -29,7 +29,9 @@ public final class TextIndentComponent implements TextStyleLengthPropertyCompone
     }
 
     private TextIndentComponent(final String idPrefix) {
-        this.lengthComponent = LengthComponent.empty();
+        this.lengthComponent = LengthComponent.with(
+            this.name()
+        );
 
         this.setIdPrefix(idPrefix);
         this.setLabelFromPropertyName();
