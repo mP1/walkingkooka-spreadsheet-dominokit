@@ -155,6 +155,8 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     }
 
     public ValueTextBoxComponent<T> setValidator(final Validator<Optional<String>> validator) {
+        Objects.requireNonNull(validator, "validator");
+
         this.textBox.setValidator(
             Optional.of(validator)
         );

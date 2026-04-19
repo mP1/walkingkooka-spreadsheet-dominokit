@@ -94,6 +94,17 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
     }
 
     @Test
+    public void testSetValidatorWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setValidator(
+                    null
+                )
+        );
+    }
+
+    @Test
     public void testPrintTreeSetStringValueInvalidCharacter() {
         this.treePrintAndCheck(
             this.createComponent()
