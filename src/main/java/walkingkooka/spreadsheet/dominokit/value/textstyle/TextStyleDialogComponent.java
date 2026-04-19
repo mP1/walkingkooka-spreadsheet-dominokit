@@ -48,6 +48,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVarian
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.height.HeightComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens.HyphensComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.letterspacing.LetterSpacingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponent;
@@ -123,6 +124,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.hangingPunctuationComponent(),
             this.heightComponent(),
             this.hyphensComponent(),
+            this.letterSpacingComponent(),
             this.opacityComponent(),
             this.overflowXComponent(),
             this.overflowYComponent(),
@@ -307,6 +309,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             ID_PREFIX,
             this.context
         );
+    }
+
+    // LetterSpacingComponent...........................................................................................
+
+    private LetterSpacingComponent letterSpacingComponent() {
+        return LetterSpacingComponent.empty(ID_PREFIX)
+            .optional();
     }
 
     // OpacityComponent.................................................................................................
