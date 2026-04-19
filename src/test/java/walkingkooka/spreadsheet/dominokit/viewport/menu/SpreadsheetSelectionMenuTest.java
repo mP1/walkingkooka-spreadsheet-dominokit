@@ -560,7 +560,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/bold] id=test-Style-bold-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
@@ -2151,7 +2151,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/bold] id=test-Style-bold-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
@@ -3837,7 +3837,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/bold] id=test-Style-bold-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
@@ -5428,7 +5428,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/bold] id=test-Style-bold-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
                 "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
                 "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +

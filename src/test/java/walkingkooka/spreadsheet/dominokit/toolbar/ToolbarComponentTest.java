@@ -234,7 +234,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             "ToolbarComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      mdi-format-bold \"Bold\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-weight/save/bold] id=toolbar-font_weight-BOLD-Link\n" +
+                "      mdi-format-bold \"Bold\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-weight/save/BOLD] id=toolbar-font_weight-BOLD-Link\n" +
                 "        TooltipComponent\n" +
                 "          \"Bold\"\n" +
                 "      mdi-format-italic \"Italics\" [#/1/Spreadsheet123/cell/A1:B2/bottom-right/style/font-style/save/ITALIC] id=toolbar-font_style-ITALIC-Link\n" +
