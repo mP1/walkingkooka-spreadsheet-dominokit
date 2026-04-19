@@ -164,7 +164,7 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
                 "      TextBoxComponent\n" +
                 "        Font Weight [Invalid] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
                 "        Errors\n" +
-                "          For input string: \"Invalid\"\n"
+                "          Invalid character 'I' at 0\n"
         );
     }
 
