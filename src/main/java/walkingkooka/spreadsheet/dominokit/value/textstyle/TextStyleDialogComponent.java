@@ -45,6 +45,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKernin
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight.FontWeightComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation.HangingPunctuationComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.height.HeightComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens.HyphensComponent;
@@ -122,6 +123,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.fontStretchComponent(),
             this.fontStyleComponent(),
             this.fontVariantComponent(),
+            this.fontWeightComponent(),
             this.hangingPunctuationComponent(),
             this.heightComponent(),
             this.hyphensComponent(),
@@ -286,6 +288,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             ID_PREFIX,
             this.context
         );
+    }
+
+    // FontWeightComponent.............................................................................................
+
+    private FontWeightComponent fontWeightComponent() {
+        return FontWeightComponent.with(ID_PREFIX)
+            .optional();
     }
 
     // HangingPunctuationComponent......................................................................................
