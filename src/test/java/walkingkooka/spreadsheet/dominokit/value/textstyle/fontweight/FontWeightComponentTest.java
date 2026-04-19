@@ -17,24 +17,27 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.FontWeight;
 
 import java.util.Optional;
 
-public final class FontWeightComponentTest implements ValueTextBoxComponentLikeTesting<FontWeightComponent, FontWeight> {
+public final class FontWeightComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontWeight, FontWeightComponent>,
+    ValueTextBoxComponentLikeTesting<FontWeightComponent, FontWeight> {
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            FontWeightComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [] icons=mdi-close-circle REQUIRED\n" +
+                "        Font Weight [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -43,35 +46,35 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
     @Test
     public void testSetValueWithBold() {
         this.treePrintAndCheck(
-            FontWeightComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(FontWeight.BOLD)
                 ),
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [BOLD] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [BOLD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetValueWithNormal() {
         this.treePrintAndCheck(
-            FontWeightComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(FontWeight.NORMAL)
                 ),
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [NORMAL] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [NORMAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetValueWithNumber() {
         this.treePrintAndCheck(
-            FontWeightComponent.empty()
+            this.createComponent()
                 .setValue(
                     Optional.of(
                         FontWeight.with(123)
@@ -80,13 +83,13 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [123] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueBold() {
-        final FontWeightComponent component = FontWeightComponent.empty();
+        final FontWeightComponent component = this.createComponent();
 
         final String text = "BolD";
 
@@ -101,13 +104,13 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [BolD] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [BolD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueNormal() {
-        final FontWeightComponent component = FontWeightComponent.empty();
+        final FontWeightComponent component = this.createComponent();
 
         final String text = "normAL";
 
@@ -122,13 +125,13 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [normAL] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [normAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueNumber() {
-        final FontWeightComponent component = FontWeightComponent.empty();
+        final FontWeightComponent component = this.createComponent();
 
         final String text = "123";
 
@@ -143,14 +146,14 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [123] icons=mdi-close-circle REQUIRED\n"
+                "        Font Weight [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            FontWeightComponent.empty()
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         "Invalid"
@@ -159,7 +162,7 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
             "FontWeightComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        [Invalid] icons=mdi-close-circle REQUIRED\n" +
+                "        Font Weight [Invalid] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          For input string: \"Invalid\"\n"
         );
@@ -169,7 +172,7 @@ public final class FontWeightComponentTest implements ValueTextBoxComponentLikeT
 
     @Override
     public FontWeightComponent createComponent() {
-        return FontWeightComponent.empty();
+        return FontWeightComponent.with("TestIdPrefix123-");
     }
 
     // class............................................................................................................

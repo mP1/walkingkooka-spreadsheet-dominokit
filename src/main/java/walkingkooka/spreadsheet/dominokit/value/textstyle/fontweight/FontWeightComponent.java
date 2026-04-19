@@ -17,25 +17,36 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.FontWeight;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A text box that accepts a {@link FontWeight}.
  */
-public final class FontWeightComponent implements ValueTextBoxComponentDelegator<FontWeightComponent, FontWeight> {
+public final class FontWeightComponent implements TextStylePropertyComponent<HTMLFieldSetElement, FontWeight, FontWeightComponent>,
+    ValueTextBoxComponentDelegator<FontWeightComponent, FontWeight> {
 
-    public static FontWeightComponent empty() {
-        return new FontWeightComponent();
+    public static FontWeightComponent with(final String idPrefix) {
+        return new FontWeightComponent(idPrefix);
     }
 
-    private FontWeightComponent() {
+    private FontWeightComponent(final String idPrefix) {
         this.textBox = ValueTextBoxComponent.with(
             FontWeight::parse,
             FontWeight::toString
         );
+        this.setIdPrefix(idPrefix);
+        this.setLabelFromPropertyName();
+    }
+
+    @Override
+    public TextStylePropertyName<FontWeight> name() {
+        return TextStylePropertyName.FONT_WEIGHT;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
