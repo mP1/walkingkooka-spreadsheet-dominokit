@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
                 "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
                 "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=normal (walkingkooka.tree.text.FontWeight)\n" +
+                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
                 "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
                 "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
                 "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
@@ -140,7 +140,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
                 "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
                 "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=normal (walkingkooka.tree.text.FontWeight)\n" +
+                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
                 "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
                 "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
                 "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
@@ -274,7 +274,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
                 "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
                 "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=normal (walkingkooka.tree.text.FontWeight)\n" +
+                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
                 "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
                 "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
                 "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
@@ -335,7 +335,7 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
                 "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
                 "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=normal (walkingkooka.tree.text.FontWeight)\n" +
+                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
                 "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
                 "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
                 "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
