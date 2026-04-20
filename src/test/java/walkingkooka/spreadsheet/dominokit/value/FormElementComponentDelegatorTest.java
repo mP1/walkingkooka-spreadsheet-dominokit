@@ -21,13 +21,13 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class FormElementDelegatorTest implements ClassTesting<FormElementDelegator<?, ?>> {
+public final class FormElementComponentDelegatorTest implements ClassTesting<FormElementComponentDelegator<?, ?>> {
 
     // class............................................................................................................
 
     @Override
-    public Class<FormElementDelegator<?, ?>> type() {
-        return Cast.to(FormElementDelegator.class);
+    public Class<FormElementComponentDelegator<?, ?>> type() {
+        return Cast.to(FormElementComponentDelegator.class);
     }
 
     @Override

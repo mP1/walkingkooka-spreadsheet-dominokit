@@ -32,15 +32,15 @@ import java.util.Optional;
  * if the wrapped component is not a {@link ValueComponent}.
  * Validation {@link #validate()}} will throw {@link UnsupportedOperationException}.
  */
-public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElement<V, E, C>, V> {
+public final class FormElementComponent<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElementComponent<V, E, C>, V> {
 
-    public static <V, E extends HTMLElement, C extends HtmlComponent<E, C>> FormElement<V, E, C> with(final C component) {
-        return new FormElement<>(
+    public static <V, E extends HTMLElement, C extends HtmlComponent<E, C>> FormElementComponent<V, E, C> with(final C component) {
+        return new FormElementComponent<>(
             Objects.requireNonNull(component, "component")
         );
     }
 
-    private FormElement(final C component) {
+    private FormElementComponent(final C component) {
         super();
         this.wrapperElement.appendChild(component);
         this.wrapperElement.removeCss(dui_input_wrapper); // remove rounded corner border
@@ -51,7 +51,7 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
     private final static boolean SET_VALUE_SILENT = false;
 
     @Override
-    public FormElement<V, E, C> withValue(final V value) {
+    public FormElementComponent<V, E, C> withValue(final V value) {
         return this.withValue(
             value,
             SET_VALUE_SILENT
@@ -59,8 +59,8 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
     }
 
     @Override
-    public FormElement<V, E, C> withValue(final V value,
-                                          final boolean silent) {
+    public FormElementComponent<V, E, C> withValue(final V value,
+                                                   final boolean silent) {
         this.valueComponentOrFail()
             .setValue(
                 Optional.of(value)
@@ -81,13 +81,13 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
     }
 
     @Override
-    public FormElement<V, E, C> clear() {
+    public FormElementComponent<V, E, C> clear() {
         this.clear(SET_VALUE_SILENT);
         return this;
     }
 
     @Override
-    public FormElement<V, E, C> clear(final boolean silent) {
+    public FormElementComponent<V, E, C> clear(final boolean silent) {
         this.valueComponentOrFail()
             .clearValue();
         return this;
@@ -109,13 +109,13 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
     }
 
     @Override
-    public FormElement<V, E, C> triggerChangeListeners(final V oldValue,
-                                                       final V newValue) {
+    public FormElementComponent<V, E, C> triggerChangeListeners(final V oldValue,
+                                                                final V newValue) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public FormElement<V, E, C> triggerClearListeners(final V oldValue) {
+    public FormElementComponent<V, E, C> triggerClearListeners(final V oldValue) {
         throw new UnsupportedOperationException();
     }
 
@@ -125,7 +125,7 @@ public final class FormElement<V, E extends HTMLElement, C extends HtmlComponent
     }
 
     @Override
-    public FormElement<V, E, C> setName(final String name) {
+    public FormElementComponent<V, E, C> setName(final String name) {
         throw new UnsupportedOperationException();
     }
 

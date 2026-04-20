@@ -21,8 +21,8 @@ import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormElement;
-import walkingkooka.spreadsheet.dominokit.value.FormElementDelegator;
+import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
+import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -30,7 +30,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T>
-    implements FormElementDelegator<T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
+    implements FormElementComponentDelegator<T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     public static <T extends Enum<T>> TextStylePropertyEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
                                                                                                    final TextStylePropertyName<T> propertyName,
@@ -63,7 +63,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
             context
         );
 
-        this.formElement = FormElement.with(
+        this.formElementComponent = FormElementComponent.with(
             this.list
         );
 
@@ -76,12 +76,12 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         );
     }
 
-    // FormElementDelegator.............................................................................................
+    // FormElementComponentDelegator.............................................................................................
 
     @Override
-    public FormElement<T, ?, ?> formElement() {
-        return this.formElement;
+    public FormElementComponent<T, ?, ?> formElementComponent() {
+        return this.formElementComponent;
     }
 
-    private final FormElement<T, HTMLDivElement, AnchorListComponent> formElement;
+    private final FormElementComponent<T, HTMLDivElement, AnchorListComponent> formElementComponent;
 }
