@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
@@ -60,6 +61,33 @@ public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSh
             Length.pixel(123.5)
         );
     }
+
+    @Test
+    public final void testAddValueWatcher() {
+        this.fired = null;
+
+        final C component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<Length<?>>() {
+                @Override
+                public void onValue(Optional<Length<?>> value) {
+                    BorderWidthSharedComponentTestCase.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        component.setValue(
+            Optional.of(LENGTH)
+        );
+
+        this.checkEquals(
+            LENGTH,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Length<?> fired;
 
     @Override
     public final JavaVisibility typeVisibility() {
