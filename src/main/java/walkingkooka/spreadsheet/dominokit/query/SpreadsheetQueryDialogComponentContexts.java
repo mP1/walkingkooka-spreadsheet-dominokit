@@ -20,20 +20,20 @@ package walkingkooka.spreadsheet.dominokit.query;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
-public final class SpreadsheetCellQueryDialogComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetQueryDialogComponentContexts implements PublicStaticHelper {
 
-    public static SpreadsheetCellQueryDialogComponentContext appContext(final AppContext context) {
-        return AppContextSpreadsheetCellQueryDialogComponentContext.with(context);
+    public static SpreadsheetQueryDialogComponentContext appContext(final AppContext context) {
+        return AppContextSpreadsheetQueryDialogComponentContext.with(context);
     }
 
     /**
-     * {@see FakeSpreadsheetCellQueryDialogComponentContext}
+     * {@see FakeSpreadsheetQueryDialogComponentContext}
      */
-    public static SpreadsheetCellQueryDialogComponentContext fake() {
-        return new FakeSpreadsheetCellQueryDialogComponentContext();
+    public static SpreadsheetQueryDialogComponentContext fake() {
+        return new FakeSpreadsheetQueryDialogComponentContext();
     }
 
-    private SpreadsheetCellQueryDialogComponentContexts() {
+    private SpreadsheetQueryDialogComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

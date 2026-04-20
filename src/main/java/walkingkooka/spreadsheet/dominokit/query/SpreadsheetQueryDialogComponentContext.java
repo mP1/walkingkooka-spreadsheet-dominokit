@@ -38,9 +38,9 @@ import java.util.Locale;
 import java.util.Optional;
 
 /**
- * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetCellQueryDialogComponent}.
+ * The {@link walkingkooka.Context} accompanying a {@link SpreadsheetQueryDialogComponent}.
  */
-public interface SpreadsheetCellQueryDialogComponentContext extends HistoryContext,
+public interface SpreadsheetQueryDialogComponentContext extends HistoryContext,
     SpreadsheetDeltaCellsTableComponentContext,
     HasSpreadsheetDeltaFetcherWatchers,
     HasSpreadsheetMetadata,
@@ -59,12 +59,12 @@ public interface SpreadsheetCellQueryDialogComponentContext extends HistoryConte
                    final SpreadsheetCellQueryRequest find);
 
     @Override
-    default SpreadsheetCellQueryDialogComponentContext cloneEnvironment() {
+    default SpreadsheetQueryDialogComponentContext cloneEnvironment() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    default SpreadsheetCellQueryDialogComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
+    default SpreadsheetQueryDialogComponentContext setEnvironmentContext(final EnvironmentContext environmentContext) {
         throw new UnsupportedOperationException();
     }
 

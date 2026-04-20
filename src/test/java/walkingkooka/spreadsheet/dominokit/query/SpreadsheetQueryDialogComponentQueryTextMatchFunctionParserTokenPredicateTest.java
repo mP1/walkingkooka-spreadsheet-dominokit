@@ -27,15 +27,15 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
-public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicateTest implements PredicateTesting,
-    ToStringTesting<SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
-    ClassTesting<SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
+public final class SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicateTest implements PredicateTesting,
+    ToStringTesting<SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
+    ClassTesting<SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
     SpreadsheetMetadataTesting {
 
     @Test
     public void testTestNonCallExpression() {
         this.testFalse(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("string-literal-123")
         );
     }
@@ -43,7 +43,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpression() {
         this.testFalse(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("dummy()")
         );
     }
@@ -51,7 +51,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpressionTextMatchMissingCellGetter() {
         this.testFalse(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("textMatch(\"hello\")")
         );
     }
@@ -59,7 +59,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpressionTextMatchDifferentCellGetter() {
         this.testFalse(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("textMatch(\"hello\", cellFormatter())")
         );
     }
@@ -67,7 +67,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpressionTextMatchCellGetter() {
         this.testTrue(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("textMatch(\"hello\", cellFormula())")
         );
     }
@@ -75,7 +75,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpressionTextMatchCellGetterFunctionNameDifferentCase1() {
         this.testTrue(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("TEXTMATCH(\"hello\", cellFormula())")
         );
     }
@@ -83,7 +83,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testTestCallExpressionTextMatchCellGetterFunctionNameDifferentCase2() {
         this.testTrue(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             token("textMatch(\"hello\", CELLFORMULA())")
         );
     }
@@ -101,7 +101,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     @Test
     public void testToString() {
         this.toStringAndCheck(
-            SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
+            SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(SpreadsheetExpressionFunctions.CELL_FORMULA),
             "textMatch(\"\", cellFormula())"
         );
     }
@@ -109,8 +109,8 @@ public final class SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionPars
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate> type() {
-        return SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.class;
+    public Class<SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate> type() {
+        return SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.class;
     }
 
     @Override

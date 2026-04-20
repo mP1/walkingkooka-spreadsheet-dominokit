@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardDialogComponent
 import walkingkooka.spreadsheet.dominokit.key.SpreadsheetKeyboardDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponent;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponent;
-import walkingkooka.spreadsheet.dominokit.query.SpreadsheetCellQueryDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.query.SpreadsheetQueryDialogComponent;
+import walkingkooka.spreadsheet.dominokit.query.SpreadsheetQueryDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponent;
 import walkingkooka.spreadsheet.dominokit.sort.SpreadsheetCellSortDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.spreadsheet.SpreadsheetListDialogComponent;
@@ -340,8 +340,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void find(final AppContext context) {
-        SpreadsheetCellQueryDialogComponent.with(
-            SpreadsheetCellQueryDialogComponentContexts.appContext(context)
+        SpreadsheetQueryDialogComponent.with(
+            SpreadsheetQueryDialogComponentContexts.appContext(context)
         );
     }
 

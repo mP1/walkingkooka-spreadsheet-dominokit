@@ -55,7 +55,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetCellQueryDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellQueryDialogComponent>,
+public final class SpreadsheetQueryDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetQueryDialogComponent>,
     SpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
@@ -70,8 +70,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
         );
 
         this.isMatchAndCheck(
-            SpreadsheetCellQueryDialogComponent.with(
-                new TestSpreadsheetCellQueryDialogComponentContext(
+            SpreadsheetQueryDialogComponent.with(
+                new TestSpreadsheetQueryDialogComponentContext(
                     this.appContext(
                         Optional.empty(), // no highlighting query
                         historyToken
@@ -96,13 +96,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -229,13 +229,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -362,13 +362,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -493,13 +493,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -664,7 +664,7 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -820,13 +820,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -951,13 +951,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1082,13 +1082,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1213,13 +1213,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1344,13 +1344,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1475,13 +1475,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1606,13 +1606,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1737,13 +1737,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1868,13 +1868,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -1999,13 +1999,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2130,13 +2130,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2261,13 +2261,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2392,13 +2392,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2523,13 +2523,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2654,13 +2654,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2785,13 +2785,13 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
             historyToken
         );
 
-        final SpreadsheetCellQueryDialogComponent dialog = SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(appContext)
+        final SpreadsheetQueryDialogComponent dialog = SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(appContext)
         );
         this.onHistoryTokenChangeAndCheck(
             dialog,
             appContext,
-            "SpreadsheetCellQueryDialogComponent\n" +
+            "SpreadsheetQueryDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
@@ -2988,9 +2988,9 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
         }
     }
 
-    static class TestSpreadsheetCellQueryDialogComponentContext extends FakeSpreadsheetCellQueryDialogComponentContext {
+    static class TestSpreadsheetQueryDialogComponentContext extends FakeSpreadsheetQueryDialogComponentContext {
 
-        TestSpreadsheetCellQueryDialogComponentContext(final AppContext context) {
+        TestSpreadsheetQueryDialogComponentContext(final AppContext context) {
             this.context = context;
         }
 
@@ -3063,9 +3063,9 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
     }
 
     @Override
-    public SpreadsheetCellQueryDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
-        return SpreadsheetCellQueryDialogComponent.with(
-            new TestSpreadsheetCellQueryDialogComponentContext(
+    public SpreadsheetQueryDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
+        return SpreadsheetQueryDialogComponent.with(
+            new TestSpreadsheetQueryDialogComponentContext(
                 new TestAppContext(
                     Optional.empty(),
                     historyToken
@@ -3077,8 +3077,8 @@ public final class SpreadsheetCellQueryDialogComponentTest implements DialogComp
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetCellQueryDialogComponent> type() {
-        return SpreadsheetCellQueryDialogComponent.class;
+    public Class<SpreadsheetQueryDialogComponent> type() {
+        return SpreadsheetQueryDialogComponent.class;
     }
 
     @Override
