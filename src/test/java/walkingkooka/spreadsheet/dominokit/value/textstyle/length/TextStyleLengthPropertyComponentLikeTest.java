@@ -31,6 +31,21 @@ import java.util.Optional;
 public final class TextStyleLengthPropertyComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Length<?>, TestTextStyleLengthPropertyComponentLike> {
 
     @Test
+    public void testSetLabelFromPropertyName() {
+        this.treePrintAndCheck(
+            new TestTextStyleLengthPropertyComponentLike()
+                .setLabelFromPropertyName(),
+            "TestTextStyleLengthPropertyComponentLike\n" +
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        Text Decoration Thickness [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
+                "        Errors\n" +
+                "          Empty \"text\"\n"
+        );
+    }
+
+    @Test
     public void testSetValue() {
         this.treePrintAndCheck(
             new TestTextStyleLengthPropertyComponentLike()
