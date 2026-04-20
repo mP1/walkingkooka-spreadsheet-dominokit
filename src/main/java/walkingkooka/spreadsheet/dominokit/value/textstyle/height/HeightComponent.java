@@ -34,7 +34,6 @@ public final class HeightComponent implements TextStyleLengthPropertyComponentLi
         );
 
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
