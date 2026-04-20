@@ -23,11 +23,13 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.FontSize;
 
 import java.util.Optional;
 
-public final class FontSizeComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, FontSize, FontSizeComponent> {
+public final class FontSizeComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontSize, FontSizeComponent>,
+    FormValueComponentTesting<HTMLFieldSetElement, FontSize, FontSizeComponent> {
 
     @Test
     public void testTreePrintWithoutValue() {

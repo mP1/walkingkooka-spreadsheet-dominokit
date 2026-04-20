@@ -17,12 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.FontSize;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +34,7 @@ import java.util.Optional;
  * A component that supports displaying or editing as text or picking from a list of {@link FontSize}.
  */
 public final class FontSizeComponent implements SuggestBoxComponentDelegator<FontSize, FontSizeComponent>,
+    TextStylePropertyComponent<HTMLFieldSetElement, FontSize, FontSizeComponent>,
     TreePrintable {
 
     /**
@@ -100,6 +104,13 @@ public final class FontSizeComponent implements SuggestBoxComponentDelegator<Fon
     }
 
     private final SuggestBoxComponent<FontSize> suggestBox;
+
+    // HasName..........................................................................................................
+
+    @Override
+    public TextStylePropertyName<FontSize> name() {
+        return TextStylePropertyName.FONT_SIZE;
+    }
 
     // Object...........................................................................................................
 
