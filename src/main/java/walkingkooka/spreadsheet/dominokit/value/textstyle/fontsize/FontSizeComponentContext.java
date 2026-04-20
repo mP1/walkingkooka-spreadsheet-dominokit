@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
 import walkingkooka.tree.text.FontSize;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -43,10 +44,8 @@ public interface FontSizeComponentContext extends SuggestBoxComponentSuggestions
             value.text(),
             Optional.of(
                 historyContext.historyToken()
-                    .setSaveValue(
-                        Optional.of(
-                            value.value()
-                        )
+                    .setStyleProperty(
+                        TextStylePropertyName.FONT_SIZE.setValue(value)
                     )
             )
         );
