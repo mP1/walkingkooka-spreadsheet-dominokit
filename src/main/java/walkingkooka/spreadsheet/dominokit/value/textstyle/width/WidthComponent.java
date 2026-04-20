@@ -34,7 +34,6 @@ public final class WidthComponent implements TextStyleLengthPropertyComponentLik
         );
 
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
