@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.FontWeight;
 
@@ -182,6 +183,37 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
         );
     }
 
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final FontWeightComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(Optional<FontWeight> value) {
+                    FontWeightComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        final FontWeight value = FontWeight.BOLD;
+
+        component.setValue(
+            Optional.of(value)
+        );
+
+        this.checkEquals(
+            value,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private FontWeight fired;
+    
     // ValueComponent...................................................................................................
 
     @Override
