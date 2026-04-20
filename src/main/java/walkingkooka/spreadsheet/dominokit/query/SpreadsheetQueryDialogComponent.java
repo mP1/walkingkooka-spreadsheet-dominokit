@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -24,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.delta.SpreadsheetDeltaCellsTableComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
+import walkingkooka.spreadsheet.dominokit.grid.FourColumnComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -33,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.query.textmatch.TextMatchComponent;
 import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellRangeReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaComponentFunctions;
-import walkingkooka.spreadsheet.dominokit.value.row.RowComponent;
 import walkingkooka.spreadsheet.dominokit.value.valuetype.ValueTypeEditComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
@@ -118,27 +119,25 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
                 DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(
-                RowComponent.columnSpan3()
-                    .appendChild(this.cellRange)
-                    .appendChild(this.path)
-                    .appendChild(this.valueType)
-                    .appendChild(this.formula)
-            ).appendChild(
-                RowComponent.columnSpan3()
-                    .appendChild(this.currency)
-                    .appendChild(this.dateTimeSymbols)
-                    .appendChild(this.decimalNumberSymbols)
-                    .appendChild(this.formatter)
-            ).appendChild(
-                RowComponent.columnSpan3()
-                    .appendChild(this.locale)
-                    .appendChild(this.parser)
-                    .appendChild(this.style)
-                    .appendChild(this.value)
-            ).appendChild(
-                RowComponent.columnSpan3()
-                    .appendChild(this.validator)
-                    .appendChild(this.formattedValue)
+                FourColumnComponent.empty()
+                    .appendChildren(
+                        Lists.of(
+                            this.cellRange,
+                            this.path,
+                            this.valueType,
+                            this.formula,
+                            this.currency,
+                            this.dateTimeSymbols,
+                            this.decimalNumberSymbols,
+                            this.formatter,
+                            this.locale,
+                            this.parser,
+                            this.style,
+                            this.value,
+                            this.validator,
+                            this.formattedValue
+                        )
+                    )
             ).appendChild(this.query)
             .appendChild(
                 AnchorListComponent.empty()
