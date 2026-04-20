@@ -42,6 +42,8 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorC
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize.FontSizeComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize.FontSizeComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch.FontStretchComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontstyle.FontStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant.FontVariantComponent;
@@ -120,6 +122,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.textStyleColorComponent(),
             this.directionComponent(),
             this.fontKerningComponent(),
+            this.fontSizeComponent(),
             this.fontStretchComponent(),
             this.fontStyleComponent(),
             this.fontVariantComponent(),
@@ -270,6 +273,14 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
+    // FontSizeComponent................................................................................................
+
+    private FontSizeComponent fontSizeComponent() {
+        return FontSizeComponent.empty(
+            FontSizeComponentContexts.historyContext(this.context)
+        ).optional();
+    }
+    
     // FontStretchComponent.............................................................................................
 
     private FontStretchComponent fontStretchComponent() {
