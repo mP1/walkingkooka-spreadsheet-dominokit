@@ -18,12 +18,46 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.length;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
+
 public interface TextStyleLengthPropertyComponentLikeTesting<C extends TextStyleLengthPropertyComponentLike<C>> extends ValueComponentTesting<HTMLFieldSetElement, Length<?>, C>,
     HasNameTesting<TextStylePropertyName<Length<?>>> {
+
+    @Test
+    default void testAddValueWatcher() {
+        final AtomicReference<Length<?>> fired = new AtomicReference<>();
+
+        final C component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<Length<?>>() {
+                @Override
+                public void onValue(Optional<Length<?>> value) {
+                    fired.set(
+                        value.orElse(null)
+                    );
+                }
+            }
+        );
+
+        final Length<?> value = Length.pixel(123.5);
+
+        component.setValue(
+            Optional.of(value)
+        );
+
+        this.checkEquals(
+            value,
+            fired.get(),
+            "fired value"
+        );
+    }
 }
