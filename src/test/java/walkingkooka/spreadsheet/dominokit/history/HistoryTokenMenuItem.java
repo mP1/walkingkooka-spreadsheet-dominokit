@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import org.dominokit.domino.ui.menu.AbstractMenuItem;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasSelectionListeners;
+import walkingkooka.Cast;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 
@@ -43,6 +44,29 @@ public final class HistoryTokenMenuItem<T> extends MenuItem<T> implements TreePr
 
     public T addSelectionListener(final HasSelectionListeners.SelectionListener<?, T> selectionHandler) {
         return (T) this;
+    }
+
+    // Object...........................................................................................................
+
+    @Override
+    public int hashCode() {
+        return this.anchor.hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other ||
+            other instanceof HistoryTokenMenuItem &&
+                this.equals0(Cast.to(other));
+    }
+
+    private boolean equals0(final HistoryTokenMenuItem<?> other) {
+        return this.anchor.equals(other.anchor);
+    }
+
+    @Override
+    public String toString() {
+        return this.anchor.toString();
     }
 
     // TreePrintable....................................................................................................
