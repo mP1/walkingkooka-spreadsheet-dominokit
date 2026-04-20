@@ -24,24 +24,24 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C> {
+public interface FormElementComponentDelegator<V, C extends FormElementComponentDelegator<V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C> {
 
     @Override
     default String label() {
-        return this.formElement()
+        return this.formElementComponent()
             .getLabel();
     }
 
     @Override
     default C setLabel(final String label) {
-        this.formElement()
+        this.formElementComponent()
             .setLabel(label);
         return (C) this;
     }
 
     @Override
     default Optional<String> helperText() {
-        final String helperText = this.formElement()
+        final String helperText = this.formElementComponent()
             .getHelperText();
 
         return Optional.ofNullable(
@@ -55,7 +55,7 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
     default C setHelperText(final Optional<String> text) {
         Objects.requireNonNull(text, "text");
 
-        this.formElement().setHelperText(
+        this.formElementComponent().setHelperText(
             text.orElse(null)
         );
         return (C) this;
@@ -63,12 +63,12 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default List<String> errors() {
-        return this.formElement().getErrors();
+        return this.formElementComponent().getErrors();
     }
 
     @Override
     default C setErrors(final List<String> errors) {
-        this.formElement()
+        this.formElementComponent()
             .invalidate(errors);
         return (C) this;
     }
@@ -77,13 +77,13 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default String id() {
-        return this.formElement()
+        return this.formElementComponent()
             .getId();
     }
 
     @Override
     default C setId(final String id) {
-        this.formElement()
+        this.formElementComponent()
             .setId(id);
         return (C) this;
     }
@@ -92,7 +92,7 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default int width() {
-        return this.formElement()
+        return this.formElementComponent()
             .element()
             .offsetWidth;
     }
@@ -101,7 +101,7 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default int height() {
-        return this.formElement()
+        return this.formElementComponent()
             .element()
             .offsetHeight;
     }
@@ -110,7 +110,7 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default C setCssText(final String css) {
-        this.formElement()
+        this.formElementComponent()
             .element()
             .style
             .cssText = css;
@@ -120,7 +120,7 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
     @Override
     default C setCssProperty(final String name,
                              final String value) {
-        this.formElement()
+        this.formElementComponent()
             .element()
             .style
             .setProperty(
@@ -132,19 +132,19 @@ public interface FormElementDelegator<V, C extends FormElementDelegator<V, C>> e
 
     @Override
     default C removeCssProperty(final String name) {
-        this.formElement().element()
+        this.formElementComponent().element()
             .style
             .removeProperty(name);
         return (C) this;
     }
 
-    FormElement<V, ?, ?> formElement();
+    FormElementComponent<V, ?, ?> formElementComponent();
 
     // Component........................................................................................................
 
     @Override
     default HTMLFieldSetElement element() {
-        return this.formElement()
+        return this.formElementComponent()
             .element();
     }
 }
