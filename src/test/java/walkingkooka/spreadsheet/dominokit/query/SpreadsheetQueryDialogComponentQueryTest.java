@@ -34,7 +34,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.lang.reflect.Method;
 import java.util.Optional;
 
-public final class SpreadsheetCellQueryDialogComponentQueryTest implements PublicStaticHelperTesting<SpreadsheetCellQueryDialogComponentQuery>,
+public final class SpreadsheetQueryDialogComponentQueryTest implements PublicStaticHelperTesting<SpreadsheetQueryDialogComponentQuery>,
     TreePrintableTesting,
     SpreadsheetMetadataTesting {
 
@@ -1297,7 +1297,7 @@ public final class SpreadsheetCellQueryDialogComponentQueryTest implements Publi
         this.checkEquals(
             parseFormula(expected),
             parseFormula(
-                SpreadsheetCellQueryDialogComponentQuery.query(
+                SpreadsheetQueryDialogComponentQuery.query(
                     query,
                     formula,
                     currency,
@@ -1342,8 +1342,8 @@ public final class SpreadsheetCellQueryDialogComponentQueryTest implements Publi
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellQueryDialogComponentQuery> type() {
-        return SpreadsheetCellQueryDialogComponentQuery.class;
+    public Class<SpreadsheetQueryDialogComponentQuery> type() {
+        return SpreadsheetQueryDialogComponentQuery.class;
     }
 
     @Override

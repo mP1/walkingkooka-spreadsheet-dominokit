@@ -41,15 +41,15 @@ import java.util.Optional;
  * A {@link SpreadsheetFormulaParserTokenVisitor} that visits a token and attempts to find functions composed of a textMatch
  * with a cellXXX getter and string literal and a cellValue() within a comparison.
  */
-final class SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisitor extends SpreadsheetFormulaParserTokenVisitor {
+final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor extends SpreadsheetFormulaParserTokenVisitor {
 
     static void refresh(final SpreadsheetFormulaParserToken query,
-                        final SpreadsheetCellQueryDialogComponent wizard) {
-        new SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisitor(wizard)
+                        final SpreadsheetQueryDialogComponent wizard) {
+        new SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor(wizard)
             .accept(query);
     }
 
-    SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisitor(final SpreadsheetCellQueryDialogComponent wizard) {
+    SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor(final SpreadsheetQueryDialogComponent wizard) {
         super();
         this.wizard = wizard;
     }
@@ -93,7 +93,7 @@ final class SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisi
     private void textMatchFunctionParameters(final SpreadsheetFormulaParserToken left,
                                              final SpreadsheetFormulaParserToken right) {
         for (; ; ) {
-            final SpreadsheetCellQueryDialogComponent wizard = this.wizard;
+            final SpreadsheetQueryDialogComponent wizard = this.wizard;
 
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMULA, wizard.formula)) {
                 break;
@@ -254,5 +254,5 @@ final class SpreadsheetCellQueryDialogComponentSpreadsheetFormulaParserTokenVisi
         return test;
     }
 
-    private final SpreadsheetCellQueryDialogComponent wizard;
+    private final SpreadsheetQueryDialogComponent wizard;
 }

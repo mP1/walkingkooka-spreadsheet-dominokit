@@ -41,14 +41,14 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class AppContextSpreadsheetCellQueryDialogComponentContextTest implements SpreadsheetCellQueryDialogComponentContextTesting<AppContextSpreadsheetCellQueryDialogComponentContext>,
+public final class AppContextSpreadsheetQueryDialogComponentContextTest implements SpreadsheetQueryDialogComponentContextTesting<AppContextSpreadsheetQueryDialogComponentContext>,
     SpreadsheetMetadataTesting {
 
     @Test
     public void testWithNullAppContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> AppContextSpreadsheetCellQueryDialogComponentContext.with(null)
+            () -> AppContextSpreadsheetQueryDialogComponentContext.with(null)
         );
     }
 
@@ -61,7 +61,7 @@ public final class AppContextSpreadsheetCellQueryDialogComponentContextTest impl
         final SpreadsheetExpressionReference spreadsheetExpressionReference = SpreadsheetSelection.A1;
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetCellQueryDialogComponentContext.with(
+            AppContextSpreadsheetQueryDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -105,7 +105,7 @@ public final class AppContextSpreadsheetCellQueryDialogComponentContextTest impl
         final SpreadsheetCellReference label2Target = SpreadsheetSelection.A1;
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetCellQueryDialogComponentContext.with(
+            AppContextSpreadsheetQueryDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -154,7 +154,7 @@ public final class AppContextSpreadsheetCellQueryDialogComponentContextTest impl
         final SpreadsheetLabelName label1 = SpreadsheetSelection.labelName("Label111");
 
         this.cellLabelsAndCheck(
-            AppContextSpreadsheetCellQueryDialogComponentContext.with(
+            AppContextSpreadsheetQueryDialogComponentContext.with(
                 new TestAppContext() {
 
                     @Override
@@ -191,8 +191,8 @@ public final class AppContextSpreadsheetCellQueryDialogComponentContextTest impl
     // context..........................................................................................................
 
     @Override
-    public AppContextSpreadsheetCellQueryDialogComponentContext createContext() {
-        return AppContextSpreadsheetCellQueryDialogComponentContext.with(AppContexts.fake());
+    public AppContextSpreadsheetQueryDialogComponentContext createContext() {
+        return AppContextSpreadsheetQueryDialogComponentContext.with(AppContexts.fake());
     }
 
     abstract static class TestAppContext extends FakeAppContext {
@@ -224,13 +224,13 @@ public final class AppContextSpreadsheetCellQueryDialogComponentContextTest impl
 
     @Override
     public String typeNameSuffix() {
-        return SpreadsheetCellQueryDialogComponentContext.class.getSimpleName();
+        return SpreadsheetQueryDialogComponentContext.class.getSimpleName();
     }
 
     // class............................................................................................................
 
     @Override
-    public Class<AppContextSpreadsheetCellQueryDialogComponentContext> type() {
-        return AppContextSpreadsheetCellQueryDialogComponentContext.class;
+    public Class<AppContextSpreadsheetQueryDialogComponentContext> type() {
+        return AppContextSpreadsheetQueryDialogComponentContext.class;
     }
 }

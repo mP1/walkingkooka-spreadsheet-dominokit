@@ -29,20 +29,20 @@ import java.util.function.Predicate;
 /**
  * A {@link Predicate} that matches OR function with a TEXTMATCH in the first parameter ignoring the second.
  */
-final class SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate implements Predicate<ParserToken> {
+final class SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate implements Predicate<ParserToken> {
 
-    static SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate with(final int parameterIndex,
-                                                                                                final ExpressionFunctionName getter) {
-        return new SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate(
+    static SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate with(final int parameterIndex,
+                                                                                            final ExpressionFunctionName getter) {
+        return new SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate(
             parameterIndex,
             getter
         );
     }
 
-    private SpreadsheetCellQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate(final int parameterIndex,
-                                                                                            final ExpressionFunctionName getter) {
+    private SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate(final int parameterIndex,
+                                                                                        final ExpressionFunctionName getter) {
         this.parameterIndex = parameterIndex;
-        this.textMatch = SpreadsheetCellQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(getter);
+        this.textMatch = SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate.with(getter);
     }
 
     @Override

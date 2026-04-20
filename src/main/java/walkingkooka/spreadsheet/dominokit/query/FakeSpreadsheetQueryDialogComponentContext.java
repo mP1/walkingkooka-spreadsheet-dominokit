@@ -49,7 +49,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetCellQueryDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetCellQueryDialogComponentContext {
+public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogComponentContext implements SpreadsheetQueryDialogComponentContext {
     @Override
     public LocalDateTime now() {
         throw new UnsupportedOperationException();

@@ -45,19 +45,19 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-final class AppContextSpreadsheetCellQueryDialogComponentContext implements SpreadsheetCellQueryDialogComponentContext,
+final class AppContextSpreadsheetQueryDialogComponentContext implements SpreadsheetQueryDialogComponentContext,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     DialogComponentContextDelegator,
     SpreadsheetParserProviderDelegator,
     ProviderContextDelegator {
 
-    static AppContextSpreadsheetCellQueryDialogComponentContext with(final AppContext context) {
-        return new AppContextSpreadsheetCellQueryDialogComponentContext(
+    static AppContextSpreadsheetQueryDialogComponentContext with(final AppContext context) {
+        return new AppContextSpreadsheetQueryDialogComponentContext(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextSpreadsheetCellQueryDialogComponentContext(final AppContext context) {
+    private AppContextSpreadsheetQueryDialogComponentContext(final AppContext context) {
         this.context = context;
     }
 
@@ -167,22 +167,22 @@ final class AppContextSpreadsheetCellQueryDialogComponentContext implements Spre
 
     @Override
     public LineEnding lineEnding() {
-        return SpreadsheetCellQueryDialogComponentContext.super.lineEnding();
+        return SpreadsheetQueryDialogComponentContext.super.lineEnding();
     }
 
     @Override
     public void setLineEnding(final LineEnding lineEnding) {
-        SpreadsheetCellQueryDialogComponentContext.super.setLineEnding(lineEnding);
+        SpreadsheetQueryDialogComponentContext.super.setLineEnding(lineEnding);
     }
 
     @Override
     public void setLocale(final Locale locale) {
-        SpreadsheetCellQueryDialogComponentContext.super.setLocale(locale);
+        SpreadsheetQueryDialogComponentContext.super.setLocale(locale);
     }
 
     @Override
     public void setUser(final Optional<EmailAddress> user) {
-        SpreadsheetCellQueryDialogComponentContext.super.setUser(user);
+        SpreadsheetQueryDialogComponentContext.super.setUser(user);
     }
 
     // DialogComponentContext...........................................................................................
