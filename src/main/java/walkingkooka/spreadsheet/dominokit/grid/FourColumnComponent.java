@@ -43,7 +43,7 @@ public final class FourColumnComponent implements HtmlComponentDelegator<HTMLDiv
     private FourColumnComponent() {
         super();
         this.div = DivComponent.div()
-            .setCssText("display: grid; grid-template-columns: 25% 25% 25% 25%; gap: 5px;");
+            .setCssText("display: grid; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px); gap: 5px;");
         this.children = Lists.array();
     }
 
