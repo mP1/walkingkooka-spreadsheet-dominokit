@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
 public final class FontSizeComponentContexts implements PublicStaticHelper {
 
@@ -26,6 +27,13 @@ public final class FontSizeComponentContexts implements PublicStaticHelper {
      */
     public static FakeFontSizeComponentContext fake() {
         return new FakeFontSizeComponentContext();
+    }
+
+    /**
+     * {@see HistoryContextFontSizeComponentContext}
+     */
+    public static FontSizeComponentContext historyContext(final HistoryContext historyContext) {
+        return HistoryContextFontSizeComponentContext.with(historyContext);
     }
 
     /**
