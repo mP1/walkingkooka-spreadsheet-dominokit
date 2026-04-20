@@ -67,7 +67,6 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
             this.list
         );
 
-        this.setLabelFromPropertyName();
         this.setHelperText(
             Optional.empty()
         );

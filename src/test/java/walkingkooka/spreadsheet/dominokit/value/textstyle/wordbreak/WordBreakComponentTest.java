@@ -49,15 +49,14 @@ public final class WordBreakComponentTest implements TextStylePropertyComponentT
             component,
             "WordBreakComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Word Break\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] id=Test123-wordBreak-NORMAL-Link\n" +
-                "            \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
-                "            \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
-                "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=Test123-wordBreak-BREAK_WORD-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] id=Test123-wordBreak-NORMAL-Link\n" +
+                "          \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
+                "          \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=Test123-wordBreak-BREAK_WORD-Link\n"
         );
     }
 
@@ -82,15 +81,14 @@ public final class WordBreakComponentTest implements TextStylePropertyComponentT
             component,
             "WordBreakComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Word Break\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] CHECKED id=Test123-wordBreak-NORMAL-Link\n" +
-                "            \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
-                "            \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
-                "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] id=Test123-wordBreak-BREAK_WORD-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] CHECKED id=Test123-wordBreak-NORMAL-Link\n" +
+                "          \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
+                "          \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] id=Test123-wordBreak-BREAK_WORD-Link\n"
         );
     }
 

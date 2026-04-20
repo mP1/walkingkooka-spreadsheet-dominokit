@@ -49,14 +49,13 @@ public final class WritingModeComponentTest implements TextStylePropertyComponen
             component,
             "WritingModeComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Writing Mode\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
-                "            \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
-                "            \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] id=Test123-writingMode-VERTICAL_LR-Link\n" +
-                "            \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
+                "          \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
+                "          \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] id=Test123-writingMode-VERTICAL_LR-Link\n" +
+                "          \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
         );
     }
 
@@ -81,14 +80,13 @@ public final class WritingModeComponentTest implements TextStylePropertyComponen
             component,
             "WritingModeComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Writing Mode\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
-                "            \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
-                "            \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] CHECKED id=Test123-writingMode-VERTICAL_LR-Link\n" +
-                "            \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
+                "          \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
+                "          \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] CHECKED id=Test123-writingMode-VERTICAL_LR-Link\n" +
+                "          \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
         );
     }
 

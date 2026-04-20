@@ -197,15 +197,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 )
             ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -221,15 +220,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 )
             ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" DISABLED id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" DISABLED id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" DISABLED id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" DISABLED id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" DISABLED id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" DISABLED id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" DISABLED id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" DISABLED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" DISABLED id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" DISABLED id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -243,15 +241,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 )
             ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -266,6 +263,44 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         );
 
         final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        context.pushHistoryToken(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.parseCell("B2")
+                    .setDefaultAnchor()
+            )
+        );
+
+        this.treePrintAndCheck(
+            anchor,
+            "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+        );
+    }
+
+    // setLabelFromPropertyName.........................................................................................
+
+    @Test
+    public void testSetLabelFromPropertyName() {
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context)
+                .setLabelFromPropertyName();
 
         context.pushHistoryToken(
             HistoryToken.cellSelect(
@@ -321,15 +356,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         this.treePrintAndCheck(
             anchor,
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -365,15 +399,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         this.treePrintAndCheck(
             anchor,
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -429,15 +462,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         this.treePrintAndCheck(
             anchor,
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -476,15 +508,14 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         this.treePrintAndCheck(
             anchor,
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] CHECKED id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] CHECKED id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -582,41 +613,39 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         this.treePrintAndCheck(
             this.createComponent(),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
     @Test
-    public void testPrintTreeHelperText() {
+    public void testSetHelperText() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setHelperText(
                     Optional.of("HelperText 123")
                 ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
-                "      HelperText 123\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "    HelperText 123\n"
         );
     }
 
     @Test
-    public void testPrintTreeErrors() {
+    public void testSetErrors() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setErrors(
@@ -627,24 +656,23 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                     )
                 ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
-                "      Error(s)\n" +
-                "        Error111\n" +
-                "        Error222\n" +
-                "        Error333\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "    Error(s)\n" +
+                "      Error111\n" +
+                "      Error222\n" +
+                "      Error333\n"
         );
     }
 
     @Test
-    public void testPrintTreeHelperTextErrors() {
+    public void testSetHelperTextSetErrors() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setHelperText(
@@ -657,20 +685,19 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                     )
                 ),
             "TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "  Text Align\n" +
-                "    AnchorListComponent\n" +
-                "      FlexLayoutComponent\n" +
-                "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
-                "      HelperText 123\n" +
-                "      Error(s)\n" +
-                "        Error111\n" +
-                "        Error222\n" +
-                "        Error333\n"
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "    HelperText 123\n" +
+                "    Error(s)\n" +
+                "      Error111\n" +
+                "      Error222\n" +
+                "      Error333\n"
         );
     }
 

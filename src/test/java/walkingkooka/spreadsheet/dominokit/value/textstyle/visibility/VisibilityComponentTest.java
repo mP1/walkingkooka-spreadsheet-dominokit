@@ -49,14 +49,13 @@ public final class VisibilityComponentTest implements TextStylePropertyComponent
             component,
             "VisibilityComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Visibility\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
-                "            \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] CHECKED id=Test123-visibility-VISIBLE-Link\n" +
-                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
-                "            \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] id=Test123-visibility-COLLAPSE-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] CHECKED id=Test123-visibility-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
+                "          \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] id=Test123-visibility-COLLAPSE-Link\n"
         );
     }
 
@@ -81,14 +80,13 @@ public final class VisibilityComponentTest implements TextStylePropertyComponent
             component,
             "VisibilityComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Visibility\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
-                "            \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] id=Test123-visibility-VISIBLE-Link\n" +
-                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
-                "            \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] CHECKED id=Test123-visibility-COLLAPSE-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] id=Test123-visibility-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
+                "          \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] CHECKED id=Test123-visibility-COLLAPSE-Link\n"
         );
     }
 

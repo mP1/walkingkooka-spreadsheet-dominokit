@@ -49,15 +49,14 @@ public final class TextAlignComponentTest implements TextStylePropertyComponentT
             component,
             "TextAlignComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Align\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "            mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "            mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "            mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "            mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -82,15 +81,14 @@ public final class TextAlignComponentTest implements TextStylePropertyComponentT
             component,
             "TextAlignComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Align\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "            mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "            mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "            mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "            mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 

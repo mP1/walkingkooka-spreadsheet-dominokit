@@ -49,14 +49,13 @@ public final class FontVariantComponentTest implements TextStylePropertyComponen
             component,
             "FontVariantComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Font Variant\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
-                "            \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] id=Test123-fontVariant-NORMAL-Link\n" +
-                "            \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=Test123-fontVariant-SMALL_CAPS-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
+                "          \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] id=Test123-fontVariant-NORMAL-Link\n" +
+                "          \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=Test123-fontVariant-SMALL_CAPS-Link\n"
         );
     }
 
@@ -81,14 +80,13 @@ public final class FontVariantComponentTest implements TextStylePropertyComponen
             component,
             "FontVariantComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Font Variant\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
-                "            \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] CHECKED id=Test123-fontVariant-NORMAL-Link\n" +
-                "            \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] id=Test123-fontVariant-SMALL_CAPS-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
+                "          \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] CHECKED id=Test123-fontVariant-NORMAL-Link\n" +
+                "          \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] id=Test123-fontVariant-SMALL_CAPS-Link\n"
         );
     }
 

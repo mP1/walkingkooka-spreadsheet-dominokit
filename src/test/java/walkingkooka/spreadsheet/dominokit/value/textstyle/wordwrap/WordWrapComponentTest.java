@@ -49,13 +49,12 @@ public final class WordWrapComponentTest implements TextStylePropertyComponentTe
             component,
             "WordWrapComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Word Wrap\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
-                "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -80,13 +79,12 @@ public final class WordWrapComponentTest implements TextStylePropertyComponentTe
             component,
             "WordWrapComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Word Wrap\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "            \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
-                "            \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 
