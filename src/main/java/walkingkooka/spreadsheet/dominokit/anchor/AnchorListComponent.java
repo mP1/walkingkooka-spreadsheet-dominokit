@@ -25,8 +25,10 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Holds a list of {@link AnchorComponent}, and is a dumb container and does not support refreshing all anchors. Refreshing
@@ -59,6 +61,13 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
     }
 
     public AnchorListComponent appendChild(final AnchorComponent<?> anchor) {
+        Objects.requireNonNull(anchor, "anchor");
+
+        // stops unnecessary margin-left causing indentation for first anchor.
+        anchor.removeCssProperty(
+            TextStylePropertyName.MARGIN_LEFT.value()
+        );
+
         this.root.appendChild(anchor);
         return this;
     }

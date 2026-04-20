@@ -54,20 +54,20 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
 
     @Test
     public void testAppendChild() {
+        final HistoryTokenAnchorComponent anchor = HistoryTokenAnchorComponent.empty()
+            .setTextContent("Edit spreadsheet name")
+            .setHistoryToken(
+                Optional.of(
+                    HistoryToken.spreadsheetSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME
+                    )
+                )
+            );
+
         this.treePrintAndCheck(
             AnchorListComponent.empty()
-                .appendChild(
-                    HistoryTokenAnchorComponent.empty()
-                        .setTextContent("Edit spreadsheet name")
-                        .setHistoryToken(
-                            Optional.of(
-                                HistoryToken.spreadsheetSelect(
-                                    SPREADSHEET_ID,
-                                    SPREADSHEET_NAME
-                                )
-                            )
-                        )
-                ),
+                .appendChild(anchor),
             "AnchorListComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
