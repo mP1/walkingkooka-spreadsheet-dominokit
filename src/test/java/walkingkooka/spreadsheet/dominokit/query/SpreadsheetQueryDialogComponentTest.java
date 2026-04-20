@@ -106,83 +106,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -239,83 +238,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -372,83 +370,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -503,83 +500,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -668,83 +664,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [BULR] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -830,83 +825,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -961,83 +955,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1092,83 +1085,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [*formatter*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [*formatter*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1223,83 +1215,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1354,83 +1345,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [*AUD*] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [*AUD*] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1485,83 +1475,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [*Hello*] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [*Hello*] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1616,83 +1605,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [<10] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [<10] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1747,83 +1735,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [*Hello*] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [*Hello*] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1878,83 +1865,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [*formatter*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [*formatter*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2009,83 +1995,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [*en-AU*] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [*en-AU*] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2140,83 +2125,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [*parser*] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [*parser*] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2271,83 +2255,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [*style*] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [*style*] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2402,83 +2385,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [<999] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [<999] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2533,83 +2515,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [*validator123*] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [*validator123*] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2664,83 +2645,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [*formatted-value*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [*formatted-value*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -2795,83 +2775,82 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "  DialogComponent\n" +
                 "    Query\n" +
                 "    id=SpreadsheetCellQuery-Dialog includeClose=true\n" +
-                "      RowComponent\n" +
-                "        SpreadsheetCellRangeReferenceComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
-                "        SpreadsheetCellRangeReferencePathComponent\n" +
-                "          SelectComponent\n" +
-                "            Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
-                "              \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
-                "              \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
-                "              \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
-                "              \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
-                "              \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
-                "              \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
-                "              \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
-                "              \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
-                "        ValueTypeEditComponent\n" +
-                "          SelectComponent\n" +
-                "            Value type [] id=SpreadsheetCellQuery-valueType-\n" +
-                "              \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
-                "              \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
-                "              \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
-                "              \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
-                "              \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
-                "              \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
-                "              \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
-                "              \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
-                "              \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
-                "              \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "              \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatter [*formatted*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Locale [*locale*] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Parser [*parser*] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Style [*style*] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
-                "        ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Value [<10] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
-                "      RowComponent\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Validator [*validator*] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
-                "        TextMatchComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              Formatted [*formattedValue*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "      FourColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
+                "            SpreadsheetCellRangeReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Cell Range [A1] icons=mdi-close-circle id=SpreadsheetCellQuery-cellRange-TextBox REQUIRED\n" +
+                "            SpreadsheetCellRangeReferencePathComponent\n" +
+                "              SelectComponent\n" +
+                "                Cell Range Path [] id=SpreadsheetCellQuery-cellRangePath-\n" +
+                "                  \"Left-Right Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRTD-Option\n" +
+                "                  \"Right-Left Top-Down\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLTD-Option\n" +
+                "                  \"Left-Right Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-LRBU-Option\n" +
+                "                  \"Right-Left Bottom-Up\" DISABLED id=SpreadsheetCellQuery-cellRangePath-RLBU-Option\n" +
+                "                  \"Top-Down Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDLR-Option\n" +
+                "                  \"Top-Down Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-TDRL-Option\n" +
+                "                  \"Bottom-Up Left-Right\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BULR-Option\n" +
+                "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
+                "            ValueTypeEditComponent\n" +
+                "              SelectComponent\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
+                "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
+                "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
+                "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-date-time-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
+                "                  \"Error(spreadsheet)\" DISABLED id=SpreadsheetCellQuery-valueType-error(spreadsheet)-Option\n" +
+                "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
+                "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
+                "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
+                "                  \"Whole Number\" DISABLED id=SpreadsheetCellQuery-valueType-whole-number-Option\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formula [*formula*] icons=mdi-close-circle id=SpreadsheetCellQuery-formula-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Currency [] icons=mdi-close-circle id=SpreadsheetCellQuery-currency-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Date Time Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-dateTimeSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Decimal Number Symbols [] icons=mdi-close-circle id=SpreadsheetCellQuery-decimalNumberSymbols-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatter [*formatted*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatter-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Locale [*locale*] icons=mdi-close-circle id=SpreadsheetCellQuery-locale-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Parser [*parser*] icons=mdi-close-circle id=SpreadsheetCellQuery-parser-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Style [*style*] icons=mdi-close-circle id=SpreadsheetCellQuery-style-TextBox\n" +
+                "            ConditionRightSpreadsheetFormulaParserTokenComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Value [<10] icons=mdi-close-circle id=SpreadsheetCellQuery-value-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Validator [*validator*] icons=mdi-close-circle id=SpreadsheetCellQuery-validator-TextBox\n" +
+                "            TextMatchComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Formatted [*formattedValue*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
