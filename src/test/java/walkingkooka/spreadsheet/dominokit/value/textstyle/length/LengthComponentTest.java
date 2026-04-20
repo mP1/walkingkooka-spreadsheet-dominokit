@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.length;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -130,6 +131,33 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
                 "        Invalid number length \"Invalid123!\"\n"
         );
     }
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final LengthComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<Length<?>>() {
+                @Override
+                public void onValue(Optional<Length<?>> value) {
+                    LengthComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        component.setValue(
+            Optional.of(LENGTH)
+        );
+
+        this.checkEquals(
+            LENGTH,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Length<?> fired;
 
     // ValueComponent...................................................................................................
 
