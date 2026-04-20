@@ -39,7 +39,7 @@ public final class TextIndentComponentTest implements TextStyleLengthPropertyCom
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Text Indent [] icons=mdi-close-circle id=TestIdPrefix123-textIndent-TextBox REQUIRED\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-textIndent-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -56,7 +56,7 @@ public final class TextIndentComponentTest implements TextStyleLengthPropertyCom
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Text Indent [1px] icons=mdi-close-circle id=TestIdPrefix123-textIndent-TextBox REQUIRED\n"
+                "        [1px] icons=mdi-close-circle id=TestIdPrefix123-textIndent-TextBox REQUIRED\n"
         );
     }
 

@@ -34,7 +34,6 @@ public final class TextIndentComponent implements TextStyleLengthPropertyCompone
         );
 
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
