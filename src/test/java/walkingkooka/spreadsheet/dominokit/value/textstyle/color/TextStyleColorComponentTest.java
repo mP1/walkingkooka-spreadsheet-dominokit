@@ -80,7 +80,7 @@ public final class TextStyleColorComponentTest implements TextStylePropertyCompo
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Color [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-color-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-color-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestIdPrefix-Table\" className=dui dui-menu-item\n" +
@@ -303,7 +303,7 @@ public final class TextStyleColorComponentTest implements TextStylePropertyCompo
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Color [#000001] icons=mdi-close-circle, mdi-palette id=Test123-color-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=Test123-color-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"Test123-Table\" className=dui dui-menu-item\n" +

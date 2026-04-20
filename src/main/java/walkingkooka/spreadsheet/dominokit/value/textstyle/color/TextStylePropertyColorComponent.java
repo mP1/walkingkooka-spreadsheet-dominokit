@@ -57,7 +57,6 @@ public final class TextStylePropertyColorComponent implements TextStylePropertyC
         );
 
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
