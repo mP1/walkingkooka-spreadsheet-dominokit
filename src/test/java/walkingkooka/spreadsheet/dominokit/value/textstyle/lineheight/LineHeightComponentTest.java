@@ -39,7 +39,7 @@ public final class LineHeightComponentTest implements TextStyleLengthPropertyCom
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Line Height [] icons=mdi-close-circle id=TestIdPrefix123-lineHeight-TextBox REQUIRED\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-lineHeight-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -56,7 +56,7 @@ public final class LineHeightComponentTest implements TextStyleLengthPropertyCom
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Line Height [1px] icons=mdi-close-circle id=TestIdPrefix123-lineHeight-TextBox REQUIRED\n"
+                "        [1px] icons=mdi-close-circle id=TestIdPrefix123-lineHeight-TextBox REQUIRED\n"
         );
     }
 
