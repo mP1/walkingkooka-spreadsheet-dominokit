@@ -41,7 +41,6 @@ public final class FontWeightComponent implements TextStylePropertyComponent<HTM
             FontWeight::toString
         );
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
