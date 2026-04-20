@@ -171,7 +171,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     private DialogComponent dialogCreate() {
         final TextStyleDialogComponentContext context = this.context;
 
-        return DialogComponent.smallerPrompt(
+        return DialogComponent.largeEdit(
             ID + SpreadsheetElementIds.DIALOG,
             DialogComponent.INCLUDE_CLOSE,
             context
