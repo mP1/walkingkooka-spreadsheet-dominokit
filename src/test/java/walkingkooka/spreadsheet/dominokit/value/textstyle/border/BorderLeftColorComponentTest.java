@@ -46,7 +46,7 @@ public final class BorderLeftColorComponentTest extends BorderColorSharedCompone
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Border Left Color [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-borderLeftColor-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-borderLeftColor-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestIdPrefix-Table\" className=dui dui-menu-item\n" +
@@ -269,7 +269,7 @@ public final class BorderLeftColorComponentTest extends BorderColorSharedCompone
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Border Left Color [#000001] icons=mdi-close-circle, mdi-palette id=Test123-borderLeftColor-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=Test123-borderLeftColor-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"Test123-Table\" className=dui dui-menu-item\n" +

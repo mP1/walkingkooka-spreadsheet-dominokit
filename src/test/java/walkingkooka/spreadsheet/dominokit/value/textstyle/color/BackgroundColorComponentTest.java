@@ -80,7 +80,7 @@ public final class BackgroundColorComponentTest implements TextStylePropertyComp
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Background Color [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-backgroundColor-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-backgroundColor-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestIdPrefix-Table\" className=dui dui-menu-item\n" +
@@ -303,7 +303,7 @@ public final class BackgroundColorComponentTest implements TextStylePropertyComp
                 "    ColorComponent\n" +
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
-                "          Background Color [#000001] icons=mdi-close-circle, mdi-palette id=Test123-backgroundColor-TextBox REQUIRED\n" +
+                "          [#000001] icons=mdi-close-circle, mdi-palette id=Test123-backgroundColor-TextBox REQUIRED\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"Test123-Table\" className=dui dui-menu-item\n" +
