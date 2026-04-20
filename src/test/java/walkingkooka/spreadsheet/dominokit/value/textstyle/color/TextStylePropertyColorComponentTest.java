@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -1400,6 +1401,43 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "                    \"Clear\" [#/1/SpreadsheetName1/cell/B2/style/background-color/save/] id=TestId123-color-clear-Link\n"
         );
     }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        final TextStylePropertyColorComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyColorComponent component = this.createComponent(context);
+
+        this.fired = null;
+        component.addValueWatcher(
+            new ValueWatcher<Color>() {
+                @Override
+                public void onValue(final Optional<Color> value) {
+                    TextStylePropertyColorComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        component.setValue(
+            Optional.of(COLOR1)
+        );
+
+        this.checkEquals(
+            COLOR1,
+            this.fired,
+            "fired"
+        );
+    }
+
+    private Color fired;
 
     // HasName..........................................................................................................
 
