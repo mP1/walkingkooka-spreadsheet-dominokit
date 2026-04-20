@@ -39,7 +39,7 @@ public final class LetterSpacingComponentTest implements TextStyleLengthProperty
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Letter Spacing [] icons=mdi-close-circle id=TestIdPrefix123-letterSpacing-TextBox REQUIRED\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-letterSpacing-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -56,7 +56,7 @@ public final class LetterSpacingComponentTest implements TextStyleLengthProperty
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Letter Spacing [1px] icons=mdi-close-circle id=TestIdPrefix123-letterSpacing-TextBox REQUIRED\n"
+                "        [1px] icons=mdi-close-circle id=TestIdPrefix123-letterSpacing-TextBox REQUIRED\n"
         );
     }
 

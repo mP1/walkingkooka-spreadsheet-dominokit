@@ -34,7 +34,6 @@ public final class LetterSpacingComponent implements TextStyleLengthPropertyComp
         );
 
         this.setIdPrefix(idPrefix);
-        this.setLabelFromPropertyName();
     }
 
     @Override
