@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -108,6 +109,35 @@ public final class OpacityComponentTest implements TextStylePropertyComponentTes
                 "        Invalid character 'I' at 0\n"
         );
     }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final OpacityComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(Optional<Opacity> value) {
+                    OpacityComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        component.setValue(
+            Optional.of(OPACITY)
+        );
+
+        this.checkEquals(
+            OPACITY,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Opacity fired;
 
     // ValueComponent...................................................................................................
 
