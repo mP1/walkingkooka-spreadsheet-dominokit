@@ -46,7 +46,7 @@ public final class FourColumnComponentTest implements HtmlComponentTesting<FourC
                 ),
             "FourColumnComponent\n" +
                 "  DIV\n" +
-                "    style=\"display: grid; gap: 5px; grid-template-columns: 25% 25% 25% 25%;\"\n" +
+                "    style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
                 "      TextBoxComponent\n" +
                 "        [Value111] REQUIRED\n" +
                 "      TextBoxComponent\n" +
@@ -72,7 +72,7 @@ public final class FourColumnComponentTest implements HtmlComponentTesting<FourC
                 ),
             "FourColumnComponent\n" +
                 "  DIV\n" +
-                "    id=\"Id123\" style=\"display: grid; gap: 5px; grid-template-columns: 25% 25% 25% 25%;\"\n" +
+                "    id=\"Id123\" style=\"display: grid; gap: 5px; grid-template-columns: calc(25% - 5px) calc(25% - 5px) calc(25% - 5px) calc(25% - 5px);\"\n" +
                 "      TextBoxComponent\n" +
                 "        [Value111] REQUIRED\n" +
                 "      TextBoxComponent\n" +
