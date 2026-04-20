@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
+import walkingkooka.spreadsheet.dominokit.grid.ThreeColumnComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
@@ -168,19 +168,23 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // dialog...........................................................................................................
 
+    // SELECTION
+    // COLUMN 1 | COLUMN 2 | COLUMN 3
+    // TextStyleComponent
+    // LINKS
     private DialogComponent dialogCreate() {
         final TextStyleDialogComponentContext context = this.context;
 
         return DialogComponent.largeEdit(
-            ID + SpreadsheetElementIds.DIALOG,
-            DialogComponent.INCLUDE_CLOSE,
-            context
-        ).appendChild(
-            FlexLayoutComponent.row()
-                .appendChild(this.selection)
-                .appendChildren(this.components)
-                .appendChild(this.textStyle)
-        ).appendChild(this.links);
+                ID + SpreadsheetElementIds.DIALOG,
+                DialogComponent.INCLUDE_CLOSE,
+                context
+            ).appendChild(this.selection)
+            .appendChild(
+                ThreeColumnComponent.empty()
+                    .appendChildren(this.components)
+            ).appendChild(this.textStyle)
+            .appendChild(this.links);
     }
 
     private final DialogComponent dialog;
