@@ -23,6 +23,7 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.FontSize;
 
@@ -57,6 +58,37 @@ public final class FontSizeComponentTest implements TextStylePropertyComponentTe
                 "    [10] REQUIRED\n"
         );
     }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final FontSizeComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(Optional<FontSize> value) {
+                    FontSizeComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        final FontSize value = FontSize.with(123);
+
+        component.setValue(
+            Optional.of(value)
+        );
+
+        this.checkEquals(
+            value,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private FontSize fired;
 
     @Override
     public void testAllMethodsVisibility() {
