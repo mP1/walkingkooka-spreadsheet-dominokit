@@ -49,16 +49,15 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyC
             component,
             "HangingPunctuationComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Hanging Punctuation\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
-                "            \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
-                "            \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] id=Test123-hangingPunctuation-FIRST-Link\n" +
-                "            \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
-                "            \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] CHECKED id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
-                "            \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
+                "          \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] id=Test123-hangingPunctuation-FIRST-Link\n" +
+                "          \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
+                "          \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] CHECKED id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
+                "          \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
         );
     }
 
@@ -83,16 +82,15 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyC
             component,
             "HangingPunctuationComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Hanging Punctuation\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
-                "            \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
-                "            \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=Test123-hangingPunctuation-FIRST-Link\n" +
-                "            \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
-                "            \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
-                "            \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
+                "          \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=Test123-hangingPunctuation-FIRST-Link\n" +
+                "          \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
+                "          \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
+                "          \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
         );
     }
 

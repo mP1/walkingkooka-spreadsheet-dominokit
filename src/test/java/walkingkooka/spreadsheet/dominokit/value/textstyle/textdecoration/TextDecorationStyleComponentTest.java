@@ -49,16 +49,15 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
             component,
             "TextDecorationStyleComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Decoration Style\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "            \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 
@@ -83,16 +82,15 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
             component,
             "TextDecorationStyleComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Decoration Style\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "            \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 

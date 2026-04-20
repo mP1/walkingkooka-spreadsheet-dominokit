@@ -38,14 +38,13 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
             new TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator(),
             "TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Align\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
-                "            \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n" +
-                "            \"CENTER\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/CENTER] id=Test-textAlign-CENTER-Link\n" +
-                "            \"JUSTIFY\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/JUSTIFY] id=Test-textAlign-JUSTIFY-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
+                "          \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n" +
+                "          \"CENTER\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/CENTER] id=Test-textAlign-CENTER-Link\n" +
+                "          \"JUSTIFY\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/JUSTIFY] id=Test-textAlign-JUSTIFY-Link\n"
         );
     }
 

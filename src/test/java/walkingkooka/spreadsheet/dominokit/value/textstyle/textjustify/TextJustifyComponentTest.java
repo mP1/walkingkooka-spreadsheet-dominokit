@@ -49,14 +49,13 @@ public final class TextJustifyComponentTest implements TextStylePropertyComponen
             component,
             "TextJustifyComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Justify\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
-                "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] CHECKED id=Test123-textJustify-AUTO-Link\n" +
-                "            \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "            \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] CHECKED id=Test123-textJustify-AUTO-Link\n" +
+                "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
+                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n"
         );
     }
 
@@ -81,14 +80,13 @@ public final class TextJustifyComponentTest implements TextStylePropertyComponen
             component,
             "TextJustifyComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Text Justify\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
-                "            \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] id=Test123-textJustify-AUTO-Link\n" +
-                "            \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "            \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] id=Test123-textJustify-AUTO-Link\n" +
+                "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
+                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n"
         );
     }
 

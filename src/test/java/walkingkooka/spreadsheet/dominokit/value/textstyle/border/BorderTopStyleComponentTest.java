@@ -46,21 +46,20 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
             component,
             "BorderTopStyleComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Border Top Style\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=Test123-borderTopStyle-Link\n" +
-                "            \"None\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=Test123-borderTopStyle-NONE-Link\n" +
-                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=Test123-borderTopStyle-HIDDEN-Link\n" +
-                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=Test123-borderTopStyle-DOTTED-Link\n" +
-                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] CHECKED id=Test123-borderTopStyle-DASHED-Link\n" +
-                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] id=Test123-borderTopStyle-SOLID-Link\n" +
-                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=Test123-borderTopStyle-DOUBLE-Link\n" +
-                "            \"Groove\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=Test123-borderTopStyle-GROOVE-Link\n" +
-                "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=Test123-borderTopStyle-RIDGE-Link\n" +
-                "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=Test123-borderTopStyle-INSET-Link\n" +
-                "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=Test123-borderTopStyle-OUTSET-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=Test123-borderTopStyle-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=Test123-borderTopStyle-NONE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=Test123-borderTopStyle-HIDDEN-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=Test123-borderTopStyle-DOTTED-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] CHECKED id=Test123-borderTopStyle-DASHED-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] id=Test123-borderTopStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=Test123-borderTopStyle-DOUBLE-Link\n" +
+                "          \"Groove\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=Test123-borderTopStyle-GROOVE-Link\n" +
+                "          \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=Test123-borderTopStyle-RIDGE-Link\n" +
+                "          \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=Test123-borderTopStyle-INSET-Link\n" +
+                "          \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=Test123-borderTopStyle-OUTSET-Link\n"
         );
     }
 
@@ -105,21 +104,20 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
             component,
             "BorderTopStyleComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Border Top Style\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=Test123-borderTopStyle-Link\n" +
-                "            \"None\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=Test123-borderTopStyle-NONE-Link\n" +
-                "            \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=Test123-borderTopStyle-HIDDEN-Link\n" +
-                "            \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=Test123-borderTopStyle-DOTTED-Link\n" +
-                "            \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] id=Test123-borderTopStyle-DASHED-Link\n" +
-                "            \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] CHECKED id=Test123-borderTopStyle-SOLID-Link\n" +
-                "            \"Double\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=Test123-borderTopStyle-DOUBLE-Link\n" +
-                "            \"Groove\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=Test123-borderTopStyle-GROOVE-Link\n" +
-                "            \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=Test123-borderTopStyle-RIDGE-Link\n" +
-                "            \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=Test123-borderTopStyle-INSET-Link\n" +
-                "            \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=Test123-borderTopStyle-OUTSET-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=Test123-borderTopStyle-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=Test123-borderTopStyle-NONE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=Test123-borderTopStyle-HIDDEN-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=Test123-borderTopStyle-DOTTED-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] id=Test123-borderTopStyle-DASHED-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] CHECKED id=Test123-borderTopStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=Test123-borderTopStyle-DOUBLE-Link\n" +
+                "          \"Groove\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=Test123-borderTopStyle-GROOVE-Link\n" +
+                "          \"Ridge\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=Test123-borderTopStyle-RIDGE-Link\n" +
+                "          \"Inset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=Test123-borderTopStyle-INSET-Link\n" +
+                "          \"Outset\" [#/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=Test123-borderTopStyle-OUTSET-Link\n"
         );
     }
 

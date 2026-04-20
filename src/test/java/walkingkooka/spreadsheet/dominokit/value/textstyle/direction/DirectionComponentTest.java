@@ -69,13 +69,12 @@ public final class DirectionComponentTest implements TextStylePropertyComponentT
             component,
             "DirectionComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Direction\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "            \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "            \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 
@@ -120,13 +119,12 @@ public final class DirectionComponentTest implements TextStylePropertyComponentT
             component,
             "DirectionComponent\n" +
                 "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
-                "    Direction\n" +
-                "      AnchorListComponent\n" +
-                "        FlexLayoutComponent\n" +
-                "          ROW\n" +
-                "            \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "            \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "            \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 
