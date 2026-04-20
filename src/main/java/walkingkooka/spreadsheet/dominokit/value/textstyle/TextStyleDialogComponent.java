@@ -151,10 +151,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
 
         this.components.forEach(
-            (TextStylePropertyComponent<?, ?, ?> component) ->
+            (TextStylePropertyComponent<?, ?, ?> component) -> {
+                component.setLabelFromPropertyName();
+
                 this.textStyle.addValueWatcher2(
                     component.textStyleValueWatcher()
-                )
+                );
+            }
         );
 
         this.textStyle.addValueWatcher2(this.links);
