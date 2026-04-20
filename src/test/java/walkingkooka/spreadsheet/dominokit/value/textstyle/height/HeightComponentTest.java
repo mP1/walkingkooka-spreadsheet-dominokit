@@ -39,7 +39,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Height [] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
@@ -58,7 +58,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Height [none] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n"
+                "        [none] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n"
         );
     }
 
@@ -75,7 +75,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Height [normal] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
+                "        [normal] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Invalid \"height\" expected NoneLength | PixelLength but got NormalLength\n"
         );
@@ -92,7 +92,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Height [1px] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n"
+                "        [1px] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n"
         );
     }
 
