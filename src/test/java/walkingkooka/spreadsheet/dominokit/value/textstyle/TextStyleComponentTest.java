@@ -19,10 +19,21 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStyleProperty;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTesting<TextStyleComponent, TextStyle> {
 
@@ -149,6 +160,94 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [] icons=mdi-close-circle REQUIRED\n"
+        );
+    }
+
+    // pushHistoryTokenIfNecessary......................................................................................
+
+    @Test
+    public void testPushHistoryTokenIfNecessaryWithNullPropertyFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .pushHistoryTokenIfNecessary(
+                    null,
+                    HistoryContexts.fake()
+                )
+        );
+    }
+
+    private final static TextStyleProperty<TextAlign> PROPERTY = TextStylePropertyName.TEXT_ALIGN.setValue(TextAlign.LEFT);
+
+    @Test
+    public void testPushHistoryTokenIfNecessaryWithNullContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .pushHistoryTokenIfNecessary(
+                    PROPERTY,
+                    null
+                )
+        );
+    }
+
+    @Test
+    public void testPushHistoryTokenIfNecessaryWithSame() {
+        this.createComponent()
+            .setValue(
+                Optional.of(
+                    TextStyle.EMPTY.set(
+                        PROPERTY.name(),
+                        PROPERTY.value()
+                            .get()
+                    )
+                )
+            ).pushHistoryTokenIfNecessary(
+                PROPERTY,
+                new FakeHistoryContext()
+            );
+    }
+
+    @Test
+    public void testPushHistoryTokenIfNecessaryWithDifferent() {
+        final TextStyle textStyle = TextStyle.parse("color: #111;");
+
+        final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
+        final SpreadsheetName spreadsheetName = SpreadsheetName.with("SpreadsheetName111");
+
+        final HistoryContext historyContext = new FakeHistoryContext() {
+            @Override
+            public HistoryToken historyToken() {
+                return this.historyToken;
+            }
+
+            private HistoryToken historyToken = HistoryToken.spreadsheetSelect(
+                spreadsheetId,
+                spreadsheetName
+            );
+
+            @Override
+            public void pushHistoryToken(final HistoryToken token) {
+                this.historyToken = token;
+            }
+        };
+
+        this.createComponent()
+            .setValue(
+                Optional.of(textStyle)
+            ).pushHistoryTokenIfNecessary(
+                PROPERTY,
+                historyContext
+            );
+
+        this.checkEquals(
+            HistoryToken.metadataPropertyStyleSave(
+                spreadsheetId,
+                spreadsheetName,
+                PROPERTY.name(),
+                PROPERTY.value()
+            ),
+            historyContext.historyToken()
         );
     }
 
