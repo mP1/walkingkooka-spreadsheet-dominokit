@@ -22,10 +22,7 @@ import walkingkooka.reflect.JavaVisibility;
 
 public final class ColorComponentTest implements ClassTesting<ColorComponent> {
 
-    @Override
-    public void testAllMethodsVisibility() {
-        throw new UnsupportedOperationException();
-    }
+    // class............................................................................................................
 
     @Override
     public Class<ColorComponent> type() {
@@ -35,5 +32,10 @@ public final class ColorComponentTest implements ClassTesting<ColorComponent> {
     @Override
     public JavaVisibility typeVisibility() {
         return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public void testAllMethodsVisibility() {
+        throw new UnsupportedOperationException();
     }
 }
