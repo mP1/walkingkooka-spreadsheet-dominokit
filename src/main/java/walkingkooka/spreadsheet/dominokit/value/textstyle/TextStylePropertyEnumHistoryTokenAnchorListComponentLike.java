@@ -134,7 +134,7 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
 
     @Override
     public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        throw new UnsupportedOperationException();
+        return () -> {}; // NOP
     }
     
     @Override
