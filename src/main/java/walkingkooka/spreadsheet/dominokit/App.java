@@ -919,6 +919,13 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public CurrencyCode currencyCode() {
+        return CurrencyCode.fromCurrency(
+            this.currency()
+        );
+    }
+
+    @Override
     public Optional<StoragePath> currentWorkingDirectory() {
         return this.spreadsheetEnvironmentContext().currentWorkingDirectory();
     }
