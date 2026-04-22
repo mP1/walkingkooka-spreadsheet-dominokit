@@ -136,7 +136,7 @@ public final class PaddingComponentTest implements ValueTextBoxComponentLikeTest
                 "      TextBoxComponent\n" +
                 "        [Invalid123!] icons=mdi-close-circle REQUIRED\n" +
                 "        Errors\n" +
-                "          Invalid number length \"Invalid123!\"\n"
+                "          Invalid character 'I' at 0\n"
         );
     }
 
