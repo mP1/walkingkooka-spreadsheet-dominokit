@@ -37,6 +37,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
@@ -154,11 +155,28 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
 
         this.components.forEach(
-            (TextStylePropertyComponent<?, ?, ?> component) -> {
+            (final TextStylePropertyComponent<?, ?, ?> component) -> {
                 component.setLabelFromPropertyName();
 
                 this.textStyle.addValueWatcher2(
                     component.textStyleValueWatcher()
+                );
+
+                component.addValueWatcher(
+                    new ValueWatcher() {
+                        @Override
+                        public void onValue(final Optional value) {
+                            TextStyleDialogComponent.this.textStyle.pushHistoryTokenIfNecessary(
+                                Cast.to(
+                                    component.name()
+                                        .setOrRemoveValue(
+                                            value
+                                        )
+                                ),
+                                TextStyleDialogComponent.this.context
+                            );
+                        }
+                    }
                 );
             }
         );
