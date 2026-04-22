@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContexts;
-import walkingkooka.currency.FakeCanCurrencyExchangeRate;
+import walkingkooka.currency.FakeCurrencyExchangeRater;
 import walkingkooka.locale.LocaleContexts;
 
 import java.util.Currency;
@@ -32,7 +32,7 @@ final class HistoryContextMenuItem {
 
         CURRENCY_CONTEXT = CurrencyContexts.jre(
             Currency.getInstance(locale),
-            new FakeCanCurrencyExchangeRate(),
+            new FakeCurrencyExchangeRater(),
             LocaleContexts.jre(locale)
         );
     }
