@@ -255,8 +255,8 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
-    public Number exchangeRate(final Currency from,
-                               final Currency to,
+    public Number exchangeRate(final CurrencyCode from,
+                               final CurrencyCode to,
                                final Optional<LocalDateTime> dateTime) {
         throw new UnsupportedOperationException();
     }
