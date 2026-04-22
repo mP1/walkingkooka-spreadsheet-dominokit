@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.number;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.datetime.DateTimeContexts;
@@ -138,6 +139,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     @Override
     public boolean canNumbersHaveGroupSeparator() {
         return false;
+    }
+
+    @Override
+    public CurrencyCode currencyCode() {
+        throw new UnsupportedOperationException();
     }
 
     @Override
