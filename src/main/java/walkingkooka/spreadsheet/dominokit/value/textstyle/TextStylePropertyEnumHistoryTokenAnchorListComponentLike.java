@@ -23,6 +23,7 @@ import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -116,11 +117,16 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
     public final TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
-        for (final TextStylePropertyHistoryTokenAnchorComponent<T> child : this.children()) {
-            child.setChecked(
-                child.value()
-                    .equals(value)
-            );
+        // only refresh and fire value change event if the value is different.
+        if(false == this.value().equals(value)) {
+            for (final TextStylePropertyHistoryTokenAnchorComponent<T> child : this.children()) {
+                child.setChecked(
+                    child.value()
+                        .equals(value)
+                );
+            }
+
+            this.valueWatchers.onValue(value);
         }
 
         return (TextStylePropertyEnumHistoryTokenAnchorListComponent<T>) this;
@@ -134,8 +140,10 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
 
     @Override
     public final Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        return () -> {}; // NOP
+        return this.valueWatchers.add(watcher); // NOP
     }
+
+    private final ValueWatchers<T> valueWatchers = ValueWatchers.empty();
     
     @Override
     public final boolean isDisabled() {
