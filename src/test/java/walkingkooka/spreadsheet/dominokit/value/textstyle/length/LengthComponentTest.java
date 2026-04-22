@@ -115,6 +115,22 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
     }
 
     @Test
+    public void testSetStringValueNumber() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setStringValue(
+                    Optional.of(
+                        "123.5"
+                    )
+                ),
+            "LengthComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [123.5] icons=mdi-close-circle REQUIRED\n"
+        );
+    }
+
+    @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
             this.createComponent()

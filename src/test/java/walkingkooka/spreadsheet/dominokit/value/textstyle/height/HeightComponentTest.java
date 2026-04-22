@@ -77,7 +77,7 @@ public final class HeightComponentTest implements TextStyleLengthPropertyCompone
                 "      TextBoxComponent\n" +
                 "        [normal] icons=mdi-close-circle id=TestIdPrefix123-height-TextBox REQUIRED\n" +
                 "        Errors\n" +
-                "          Invalid \"height\" expected NoneLength | PixelLength but got NormalLength\n"
+                "          Invalid \"height\" expected NoneLength | NumberLength | PixelLength but got NormalLength\n"
         );
     }
 
