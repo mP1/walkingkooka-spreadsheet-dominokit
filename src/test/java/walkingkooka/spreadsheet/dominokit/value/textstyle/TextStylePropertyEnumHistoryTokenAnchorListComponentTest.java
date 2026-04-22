@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.BorderStyle;
@@ -409,6 +410,71 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcherSetValueSame() {
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        anchor.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<TextAlign> value) {
+                    TextStylePropertyEnumHistoryTokenAnchorListComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        anchor.setValue(
+            anchor.value()
+        );
+    }
+
+    @Test
+    public void testAddValueWatcherSetValueDifferent() {
+        final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context = this.createContext(
+            HistoryToken.cellSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SpreadsheetSelection.A1.setDefaultAnchor()
+            )
+        );
+
+        final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> anchor = this.createComponent(context);
+
+        anchor.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<TextAlign> value) {
+                    TextStylePropertyEnumHistoryTokenAnchorListComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        this.fired = null;
+        final TextAlign value = TextAlign.CENTER;
+
+        anchor.setValue(
+            Optional.of(value)
+        );
+
+        this.checkEquals(
+            value,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Object fired;
 
     // HasName..........................................................................................................
 
