@@ -22,7 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContextTesting2;
 import walkingkooka.currency.CurrencyContexts;
-import walkingkooka.currency.FakeCanCurrencyExchangeRate;
+import walkingkooka.currency.FakeCurrencyExchangeRater;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcherWatchers;
@@ -253,7 +253,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
             HAS_CURRENCY_FETCHER_WATCHERS,
             CurrencyContexts.jre(
                 Currency.getInstance(locale),
-                new FakeCanCurrencyExchangeRate(),
+                new FakeCurrencyExchangeRater(),
                 LocaleContexts.jre(locale)
             )
         );
