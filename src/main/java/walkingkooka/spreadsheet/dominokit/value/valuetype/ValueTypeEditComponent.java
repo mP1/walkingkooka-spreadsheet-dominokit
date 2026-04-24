@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.validation.ValueType;
@@ -37,15 +38,15 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
     SelectComponentDelegator<ValueType, ValueTypeEditComponent>,
     TreePrintable {
 
-    public static ValueTypeEditComponent empty(final String id,
+    public static ValueTypeEditComponent empty(final String idPrefix,
                                                final ValueTypeEditComponentContext context) {
         return new ValueTypeEditComponent(
-            id,
+            idPrefix,
             context
         );
     }
 
-    private ValueTypeEditComponent(final String id,
+    private ValueTypeEditComponent(final String idPrefix,
                                    final ValueTypeEditComponentContext context) {
         final SelectComponent<ValueType> select = SelectComponent.empty(
             (v) -> {
@@ -53,7 +54,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
                 final String nameText = n.text();
 
                 return context.selectOption(
-                    id + nameText + SpreadsheetElementIds.OPTION, // id
+                    idPrefix + nameText + SpreadsheetElementIds.OPTION, // id
                     n.isAny() ?
                         "Any" :
                         CaseKind.KEBAB.change(
@@ -77,7 +78,13 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
         }
 
         this.select = select;
-        this.setId(id);
+        this.setId(
+            CharSequences.subSequence(
+                idPrefix,
+                0,
+                -1
+            ) + SpreadsheetElementIds.SELECT
+        );
     }
 
     // SelectComponentDelegator.........................................................................................
