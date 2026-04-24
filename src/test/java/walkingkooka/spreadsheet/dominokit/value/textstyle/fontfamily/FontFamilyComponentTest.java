@@ -42,10 +42,10 @@ public final class FontFamilyComponentTest implements FormValueComponentTesting<
             this.createComponent(),
             "FontFamilyComponent\n" +
                 "  SelectComponent\n" +
-                "    [] id=FontFamily123-FontFamily-Select\n" +
-                "      \"Courier\" DISABLED id=FontFamily123-FontFamily-courier-Option\n" +
-                "      \"Helvetica\" DISABLED id=FontFamily123-FontFamily-helvetica-Option\n" +
-                "      \"Times New Roman\" DISABLED id=FontFamily123-FontFamily-timesNewRoman-Option\n"
+                "    [] id=FontFamily123-Select\n" +
+                "      \"Courier\" DISABLED id=FontFamily123-courier-Option\n" +
+                "      \"Helvetica\" DISABLED id=FontFamily123-helvetica-Option\n" +
+                "      \"Times New Roman\" DISABLED id=FontFamily123-timesNewRoman-Option\n"
         );
     }
 
@@ -58,10 +58,10 @@ public final class FontFamilyComponentTest implements FormValueComponentTesting<
                 ),
             "FontFamilyComponent\n" +
                 "  SelectComponent\n" +
-                "    [Courier] id=FontFamily123-FontFamily-Select\n" +
-                "      \"Courier\" DISABLED id=FontFamily123-FontFamily-courier-Option\n" +
-                "      \"Helvetica\" DISABLED id=FontFamily123-FontFamily-helvetica-Option\n" +
-                "      \"Times New Roman\" DISABLED id=FontFamily123-FontFamily-timesNewRoman-Option\n"
+                "    [Courier] id=FontFamily123-Select\n" +
+                "      \"Courier\" DISABLED id=FontFamily123-courier-Option\n" +
+                "      \"Helvetica\" DISABLED id=FontFamily123-helvetica-Option\n" +
+                "      \"Times New Roman\" DISABLED id=FontFamily123-timesNewRoman-Option\n"
         );
     }
 

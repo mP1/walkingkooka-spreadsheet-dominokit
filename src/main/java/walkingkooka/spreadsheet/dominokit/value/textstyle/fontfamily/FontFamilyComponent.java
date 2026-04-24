@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.FontFamily;
@@ -39,7 +40,7 @@ public final class FontFamilyComponent implements FormValueComponent<HTMLFieldSe
     public static FontFamilyComponent empty(final String idPrefix,
                                             final FontFamilyComponentContext context) {
         return new FontFamilyComponent(
-            idPrefix + "FontFamily",
+            idPrefix,
             context
         );
     }
@@ -52,7 +53,7 @@ public final class FontFamilyComponent implements FormValueComponent<HTMLFieldSe
                 final String nameText = fontFamily.text();
 
                 return context.selectOption(
-                    idPrefix + '-' + CaseKind.TITLE.change(
+                    idPrefix + CaseKind.TITLE.change(
                         nameText,
                         CaseKind.CAMEL
                     ) + SpreadsheetElementIds.OPTION, // id
@@ -70,7 +71,13 @@ public final class FontFamilyComponent implements FormValueComponent<HTMLFieldSe
         }
 
         this.select = select;
-        this.setId(idPrefix + SpreadsheetElementIds.SELECT);
+        this.setId(
+            CharSequences.subSequence(
+                idPrefix,
+                0,
+                -1
+            ) + SpreadsheetElementIds.SELECT
+        );
     }
 
     // SelectComponentDelegator.........................................................................................
