@@ -203,7 +203,13 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
 
     @Override
     public SelectComponent<T> setValue(final Optional<T> value) {
+        final Optional<T> previous = this.value();
         this.value = Objects.requireNonNull(value, "value");
+
+        if (false == previous.equals(value)) {
+            this.valueWatchers.onValue(value);
+        }
+
         return this;
     }
 

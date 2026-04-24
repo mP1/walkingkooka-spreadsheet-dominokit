@@ -34,7 +34,7 @@ import java.util.Optional;
 public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueType, SelectComponent<ValueType>> {
 
     @Test
-    public void testTreePrint() {
+    public void testSetLabelSetValue() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setLabel("Label123")
@@ -58,6 +58,35 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
                 "    \"Text time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/time] id=TestId-time\n"
         );
     }
+
+    @Test
+    public void testAddValueWatcherSetValue() {
+        this.fired = null;
+
+        final SelectComponent<ValueType> component = this.createComponent()
+            .appendOption(
+                Optional.of(ValueType.DATE)
+            ).appendOption(
+                Optional.of(ValueType.TEXT)
+            ).appendOption(
+                Optional.of(ValueType.TIME)
+            );
+        component.addValueWatcher(
+            (Optional<ValueType> newValue) -> {
+                SelectComponentTest.this.fired = newValue;
+            }
+        );
+
+        final Optional<ValueType> newValue = Optional.of(ValueType.TIME);
+        component.setValue(newValue);
+
+        this.checkEquals(
+            newValue,
+            this.fired
+        );
+    }
+
+    private Object fired;
 
     // ValueComponent...................................................................................................
 

@@ -51,6 +51,13 @@ public final class SelectComponent<T> extends SelectComponentLike<T> {
         this.select.addValidator(SelectComponentValidator.with(this));
 
         this.selectCreator = selectCreator;
+
+        this.select.addChangeListener(
+            (final T oldValue,
+             final T newValue) -> this.valueWatchers.onValue(
+                 Optional.ofNullable(newValue)
+            )
+        );
     }
 
     /**
@@ -110,9 +117,15 @@ public final class SelectComponent<T> extends SelectComponentLike<T> {
     public SelectComponent<T> setValue(final Optional<T> value) {
         Objects.requireNonNull(value, "value");
 
+        final Optional<T> previous = this.value();
         this.select.setValue(
             value.orElse(null)
         );
+
+        if (false == previous.equals(value)) {
+            this.valueWatchers.onValue(previous);
+        }
+
         return this;
     }
 
