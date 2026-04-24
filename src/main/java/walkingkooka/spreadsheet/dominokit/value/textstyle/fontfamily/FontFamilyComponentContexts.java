@@ -18,6 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.tree.text.FontFamily;
+
+import java.util.List;
 
 public final class FontFamilyComponentContexts implements PublicStaticHelper {
 
@@ -26,6 +30,17 @@ public final class FontFamilyComponentContexts implements PublicStaticHelper {
      */
     public static FontFamilyComponentContext fake() {
         return new FakeFontFamilyComponentContext();
+    }
+
+    /**
+     * {@see HistoryContextFontFamilyComponentContext}
+     */
+    public static FontFamilyComponentContext historyContext(final List<FontFamily> fontFamilies,
+                                                            final HistoryContext historyContext) {
+        return HistoryContextFontFamilyComponentContext.with(
+            fontFamilies,
+            historyContext
+        );
     }
 
     /**
