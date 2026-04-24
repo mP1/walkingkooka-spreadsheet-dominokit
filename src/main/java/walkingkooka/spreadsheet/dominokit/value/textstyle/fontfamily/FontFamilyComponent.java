@@ -21,21 +21,20 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.FontFamily;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
 /**
  * A drop down that supports picking an optional {@link FontFamily}.
  */
-public final class FontFamilyComponent implements FormValueComponent<HTMLFieldSetElement, FontFamily, FontFamilyComponent>,
-    SelectComponentDelegator<FontFamily, FontFamilyComponent>,
-    TreePrintable {
+public final class FontFamilyComponent implements TextStylePropertyComponent<HTMLFieldSetElement, FontFamily, FontFamilyComponent>,
+    SelectComponentDelegator<FontFamily, FontFamilyComponent> {
 
     public static FontFamilyComponent empty(final String idPrefix,
                                             final FontFamilyComponentContext context) {
@@ -78,6 +77,13 @@ public final class FontFamilyComponent implements FormValueComponent<HTMLFieldSe
                 -1
             ) + SpreadsheetElementIds.SELECT
         );
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public TextStylePropertyName<FontFamily> name() {
+        return TextStylePropertyName.FONT_FAMILY;
     }
 
     // SelectComponentDelegator.........................................................................................
