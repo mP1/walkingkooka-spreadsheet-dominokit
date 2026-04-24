@@ -42,6 +42,8 @@ import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.S
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize.FontSizeComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize.FontSizeComponentContexts;
@@ -75,6 +77,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode.WritingMod
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.List;
@@ -122,6 +125,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.backgroundColorComponent(),
             this.textStyleColorComponent(),
             this.directionComponent(),
+            this.fontFamilyComponent(),
             this.fontKerningComponent(),
             this.fontSizeComponent(),
             this.fontStretchComponent(),
@@ -282,6 +286,22 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
+    // FontFamilyComponent.............................................................................................
+
+    private FontFamilyComponent fontFamilyComponent() {
+        return FontFamilyComponent.empty(
+            ID_PREFIX,
+            FontFamilyComponentContexts.historyContext(
+                Lists.of(
+                    FontFamily.with("Courier"),
+                    FontFamily.with("Sans Serif"),
+                    FontFamily.with("Times New Roman")
+                ),
+                this.context
+            )
+        );
+    }
+    
     // FontKerningComponent.............................................................................................
 
     private FontKerningComponent fontKerningComponent() {
