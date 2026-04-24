@@ -118,6 +118,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
                 "            Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
+                "      TextStyleSampleComponent\n" +
+                "        DIV\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: grid; gap: 5px; grid-template-columns: 33% 33% 33%;\"\n" +
@@ -851,6 +855,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            Selection [] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
+                "      TextStyleSampleComponent\n" +
+                "        DIV\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: grid; gap: 5px; grid-template-columns: 33% 33% 33%;\"\n" +
@@ -1599,6 +1607,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            Selection [] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
+                "      TextStyleSampleComponent\n" +
+                "        DIV\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
                 "          style=\"display: grid; gap: 5px; grid-template-columns: 33% 33% 33%;\"\n" +
