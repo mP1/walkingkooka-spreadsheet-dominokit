@@ -117,6 +117,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         // TextStyle after save because TextStyle passes a method reference to #save
         this.selection = this.selection();
+        this.sample = this.sample();
         this.textStyle = this.textStyle();
 
         this.links.setComponentWithErrors(this.textStyle);
@@ -185,7 +186,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             }
         );
 
-        this.textStyle.addValueWatcher2(this.links);
+        this.textStyle.addValueWatcher2(this.links)
+            .addValueWatcher2(this.sample);
 
         this.dialog = this.dialogCreate();
 
@@ -208,6 +210,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(this.selection)
+            .appendChild(this.sample)
             .appendChild(
                 ThreeColumnComponent.empty()
                     .appendChildren(this.components)
@@ -256,6 +259,14 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private final SpreadsheetExpressionReferenceComponent selection;
+
+    // sample...........................................................................................................
+
+    private TextStyleSampleComponent sample() {
+        return TextStyleSampleComponent.empty();
+    }
+
+    private final TextStyleSampleComponent sample;
 
     // TextStylePropertyName components.................................................................................
 
