@@ -126,7 +126,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -258,7 +258,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -390,7 +390,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -520,7 +520,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -684,7 +684,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [date] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [date] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -845,7 +845,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -975,7 +975,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1105,7 +1105,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1235,7 +1235,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1365,7 +1365,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1495,7 +1495,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1625,7 +1625,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1755,7 +1755,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -1885,7 +1885,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2015,7 +2015,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2145,7 +2145,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2275,7 +2275,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2405,7 +2405,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2535,7 +2535,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2665,7 +2665,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +
@@ -2795,7 +2795,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Bottom-Up Right-Left\" DISABLED id=SpreadsheetCellQuery-cellRangePath-BURL-Option\n" +
                 "            ValueTypeEditComponent\n" +
                 "              SelectComponent\n" +
-                "                Value type [] id=SpreadsheetCellQuery-valueType-\n" +
+                "                Value type [] id=SpreadsheetCellQuery-valueType-Select\n" +
                 "                  \"Any\" DISABLED id=SpreadsheetCellQuery-valueType-*-Option\n" +
                 "                  \"Boolean\" DISABLED id=SpreadsheetCellQuery-valueType-boolean-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-date-Option\n" +

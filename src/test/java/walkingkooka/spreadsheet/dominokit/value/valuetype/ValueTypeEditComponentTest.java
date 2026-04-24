@@ -38,7 +38,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
             this.createComponent(),
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
-                "    [] id=ValueType123-\n" +
+                "    [] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
@@ -60,7 +60,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 .setValue(Optional.of(SpreadsheetValueType.ANY)),
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
-                "    [*] id=ValueType123-\n" +
+                "    [*] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
@@ -86,7 +86,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 ),
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
-                "    [boolean] id=ValueType123-\n" +
+                "    [boolean] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
