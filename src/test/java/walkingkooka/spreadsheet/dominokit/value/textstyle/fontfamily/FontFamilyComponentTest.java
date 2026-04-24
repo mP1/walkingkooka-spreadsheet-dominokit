@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -32,7 +32,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.List;
 import java.util.Optional;
 
-public final class FontFamilyComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, FontFamily, FontFamilyComponent> {
+public final class FontFamilyComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontFamily, FontFamilyComponent> {
 
     private final static FontFamily COURIER = FontFamily.with("Courier");
 
@@ -94,6 +94,16 @@ public final class FontFamilyComponentTest implements FormValueComponentTesting<
                     );
                 }
             }
+        );
+    }
+
+    // HasName..........................................................................................................
+
+    @Test
+    public void testName() {
+        this.nameAndCheck(
+            this.createComponent(),
+            TextStylePropertyName.FONT_FAMILY
         );
     }
 
