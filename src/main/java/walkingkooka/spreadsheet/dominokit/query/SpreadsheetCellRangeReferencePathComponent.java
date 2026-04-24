@@ -32,22 +32,22 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellRangeReferencePathComponent implements SelectComponentDelegator<SpreadsheetCellRangeReferencePath, SpreadsheetCellRangeReferencePathComponent> {
 
-    public static SpreadsheetCellRangeReferencePathComponent empty(final String id,
+    public static SpreadsheetCellRangeReferencePathComponent empty(final String idPrefix,
                                                                    final SpreadsheetCellRangeReferencePathComponentContext context) {
         return new SpreadsheetCellRangeReferencePathComponent(
-            CharSequences.failIfNullOrEmpty(id, "id"),
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetCellRangeReferencePathComponent(final String id,
+    private SpreadsheetCellRangeReferencePathComponent(final String idPrefix,
                                                        final SpreadsheetCellRangeReferencePathComponentContext context) {
         final SelectComponent<SpreadsheetCellRangeReferencePath> select = SelectComponent.empty(
             (v) -> {
                 final SpreadsheetCellRangeReferencePath p = v.orElseThrow(() -> new IllegalArgumentException("Missing SpreadsheetCellRangeReferencePath"));
 
                 return context.selectOption(
-                    id + p.name() + SpreadsheetElementIds.OPTION, // id
+                    idPrefix + p.name() + SpreadsheetElementIds.OPTION, // id
                     p.labelText(), // text
                     v, // value
                     Optional.empty() // HistoryToken
@@ -62,7 +62,13 @@ public final class SpreadsheetCellRangeReferencePathComponent implements SelectC
         }
 
         this.select = select;
-        this.setId(id);
+        this.setId(
+            CharSequences.subSequence(
+                idPrefix,
+                0,
+                -1
+            ) + SpreadsheetElementIds.SELECT
+        );
     }
 
     // SelectComponentDelegator.........................................................................................

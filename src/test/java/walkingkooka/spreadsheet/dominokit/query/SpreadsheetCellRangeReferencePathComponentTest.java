@@ -34,7 +34,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
             this.createComponent(),
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
-                "    [] id=Path123-\n" +
+                "    [] id=Path123-Select\n" +
                 "      \"Left-Right Top-Down\" DISABLED id=Path123-LRTD-Option\n" +
                 "      \"Right-Left Top-Down\" DISABLED id=Path123-RLTD-Option\n" +
                 "      \"Left-Right Bottom-Up\" DISABLED id=Path123-LRBU-Option\n" +
@@ -55,7 +55,7 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
                 ),
             "SpreadsheetCellRangeReferencePathComponent\n" +
                 "  SelectComponent\n" +
-                "    [BULR] id=Path123-\n" +
+                "    [BULR] id=Path123-Select\n" +
                 "      \"Left-Right Top-Down\" DISABLED id=Path123-LRTD-Option\n" +
                 "      \"Right-Left Top-Down\" DISABLED id=Path123-RLTD-Option\n" +
                 "      \"Left-Right Bottom-Up\" DISABLED id=Path123-LRBU-Option\n" +
