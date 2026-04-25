@@ -60,20 +60,31 @@ public interface FormValueComponentTreePrintable<E extends HTMLElement, C extend
             if (this instanceof TextBoxComponent) {
                 final TextBoxComponent textBoxComponent = (TextBoxComponent) this;
 
+                final StringBuilder innerRight = new StringBuilder();
+                final IndentingPrinter innerRightPrinter = Printers.stringBuilder(
+                    innerRight,
+                    printer.lineEnding()
+                ).indenting(printer.indentation());
+
+                textBoxComponent.treePrintInnerRight(innerRightPrinter);
+
                 final StringBuilder icons = new StringBuilder();
-                final IndentingPrinter iconPrinter = Printers.stringBuilder(
+                final IndentingPrinter iconsPrinter = Printers.stringBuilder(
                     icons,
                     printer.lineEnding()
                 ).indenting(printer.indentation());
 
-                textBoxComponent.treePrintIcons(iconPrinter);
+                textBoxComponent.treePrintIcons(iconsPrinter);
 
-                iconPrinter.flush();
-
-                final String printedIcon = icons.toString();
-                if (false == printedIcon.isEmpty()) {
+                if (innerRight.length() > 0) {
                     printer.print(separator);
-                    printer.print(printedIcon);
+                    printer.print(innerRight);
+                    separator = " ";
+                }
+
+                if (icons.length() > 0) {
+                    printer.print(separator);
+                    printer.print(icons);
                     separator = " ";
                 }
             }
