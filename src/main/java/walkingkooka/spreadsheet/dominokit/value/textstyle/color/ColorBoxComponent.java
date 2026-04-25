@@ -63,8 +63,10 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
         final DivComponent component = this.component;
         final Color colorOrNull = value.orElse(null);
 
-        component.setVisibility(
-            null != colorOrNull
+        component.setDisplay(
+            null != colorOrNull ?
+                "" :
+                "none"
         );
 
         if(null != colorOrNull) {
