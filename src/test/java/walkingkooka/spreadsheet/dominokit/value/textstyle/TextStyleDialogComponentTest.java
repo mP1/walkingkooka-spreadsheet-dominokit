@@ -131,6 +131,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
                 "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                        innerRight\n" +
+                "                          ColorBoxComponent\n" +
+                "                            black\n" +
                 "                    ColorPaletteComponent\n" +
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
@@ -320,6 +323,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-color-TextBox\n" +
+                "                          innerRight\n" +
+                "                            ColorBoxComponent\n" +
+                "                              black\n" +
                 "                      ColorPaletteComponent\n" +
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
@@ -868,6 +874,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
                 "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                        innerRight\n" +
+                "                          ColorBoxComponent\n" +
+                "                            black\n" +
                 "                    ColorPaletteComponent\n" +
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
@@ -1057,6 +1066,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-color-TextBox\n" +
+                "                          innerRight\n" +
+                "                            ColorBoxComponent\n" +
+                "                              black\n" +
                 "                      ColorPaletteComponent\n" +
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
@@ -1620,6 +1632,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
                 "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                        innerRight\n" +
+                "                          ColorBoxComponent\n" +
+                "                            black\n" +
                 "                    ColorPaletteComponent\n" +
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
@@ -1809,6 +1824,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-color-TextBox\n" +
+                "                          innerRight\n" +
+                "                            ColorBoxComponent\n" +
+                "                              black\n" +
                 "                      ColorPaletteComponent\n" +
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +

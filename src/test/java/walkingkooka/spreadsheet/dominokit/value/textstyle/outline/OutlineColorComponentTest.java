@@ -81,6 +81,9 @@ public final class OutlineColorComponentTest implements TextStylePropertyCompone
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
                 "          [#000001] icons=mdi-close-circle, mdi-palette id=TestIdPrefix-outlineColor-TextBox REQUIRED\n" +
+                "            innerRight\n" +
+                "              ColorBoxComponent\n" +
+                "                #000001\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"TestIdPrefix-Table\" className=dui dui-menu-item\n" +
@@ -304,6 +307,9 @@ public final class OutlineColorComponentTest implements TextStylePropertyCompone
                 "      ValueTextBoxComponent\n" +
                 "        TextBoxComponent\n" +
                 "          [#000001] icons=mdi-close-circle, mdi-palette id=Test123-outlineColor-TextBox REQUIRED\n" +
+                "            innerRight\n" +
+                "              ColorBoxComponent\n" +
+                "                #000001\n" +
                 "        ColorPaletteComponent\n" +
                 "          TABLE\n" +
                 "            id=\"Test123-Table\" className=dui dui-menu-item\n" +

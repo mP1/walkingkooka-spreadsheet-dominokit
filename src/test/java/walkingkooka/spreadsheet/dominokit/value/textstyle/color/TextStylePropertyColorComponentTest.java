@@ -150,6 +150,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -354,6 +356,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -556,6 +560,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -772,6 +778,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -994,6 +1002,9 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [#000001] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
+                "              #000001\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1216,6 +1227,9 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [#000002] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
+                "              #000002\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1493,6 +1507,9 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [#000002] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
+                "              #000002\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
                 "          id=\"TestId123-Table\" className=dui dui-menu-item\n" +
@@ -1716,6 +1733,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -1973,6 +1992,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -2171,6 +2192,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -2371,6 +2394,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n" +
                 "      ColorPaletteComponent\n" +
@@ -2575,6 +2600,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Error111\n" +
                 "          Error222\n" +
@@ -2783,6 +2810,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox helperText=\"HelperText 123\" REQUIRED\n" +
+                "          innerRight\n" +
+                "            ColorBoxComponent\n" +
                 "        Errors\n" +
                 "          Error111\n" +
                 "          Error222\n" +
@@ -2979,7 +3008,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
     public void testToString() {
         this.toStringAndCheck(
             this.createComponent(),
-            "[] id=TestId123-backgroundColor-TextBox REQUIRED Errors=\"Empty \"text\"\" TABLE [TBODY [TR [TD [\"Black\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000001] id=TestId123-color-1-Link], TD [\"White\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000002] id=TestId123-color-2-Link], TD [\"color 3\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000003] id=TestId123-color-3-Link], TD [\"color 4\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000004] id=TestId123-color-4-Link], TD [\"color 5\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000005] id=TestId123-color-5-Link], TD [\"color 6\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000006] id=TestId123-color-6-Link], TD [\"color 7\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000007] id=TestId123-color-7-Link], TD [\"color 8\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000008] id=TestId123-color-8-Link]], TR [TD [\"color 9\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000009] id=TestId123-color-9-Link], TD [\"color 10\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000a] id=TestId123-color-10-Link], TD [\"color 11\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000b] id=TestId123-color-11-Link], TD [\"color 12\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000c] id=TestId123-color-12-Link], TD [\"color 13\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000d] id=TestId123-color-13-Link], TD [\"color 14\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000e] id=TestId123-color-14-Link], TD [\"color 15\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000f] id=TestId123-color-15-Link], TD [\"color 16\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000010] id=TestId123-color-16-Link]], TR [TD [\"color 17\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23001] id=TestId123-color-17-Link], TD [\"color 18\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000012] id=TestId123-color-18-Link], TD [\"color 19\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000013] id=TestId123-color-19-Link], TD [\"color 20\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000014] id=TestId123-color-20-Link], TD [\"color 21\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000015] id=TestId123-color-21-Link], TD [\"color 22\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000016] id=TestId123-color-22-Link], TD [\"color 23\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000017] id=TestId123-color-23-Link], TD [\"color 24\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000018] id=TestId123-color-24-Link]], TR [TD [\"color 25\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000019] id=TestId123-color-25-Link], TD [\"color 26\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001a] id=TestId123-color-26-Link], TD [\"color 27\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001b] id=TestId123-color-27-Link], TD [\"color 28\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001c] id=TestId123-color-28-Link], TD [\"color 29\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001d] id=TestId123-color-29-Link], TD [\"color 30\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001e] id=TestId123-color-30-Link], TD [\"color 31\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001f] id=TestId123-color-31-Link], TD [\"color 32\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000020] id=TestId123-color-32-Link]], TR [TD [\"color 33\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000021] id=TestId123-color-33-Link], TD [\"color 34\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23002] id=TestId123-color-34-Link], TD [\"color 35\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000023] id=TestId123-color-35-Link], TD [\"color 36\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000024] id=TestId123-color-36-Link], TD [\"color 37\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000025] id=TestId123-color-37-Link], TD [\"color 38\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000026] id=TestId123-color-38-Link], TD [\"color 39\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000027] id=TestId123-color-39-Link], TD [\"color 40\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000028] id=TestId123-color-40-Link]], TR [TD [\"color 41\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000029] id=TestId123-color-41-Link], TD [\"color 42\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002a] id=TestId123-color-42-Link], TD [\"color 43\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002b] id=TestId123-color-43-Link], TD [\"color 44\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002c] id=TestId123-color-44-Link], TD [\"color 45\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002d] id=TestId123-color-45-Link], TD [\"color 46\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002e] id=TestId123-color-46-Link], TD [\"color 47\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002f] id=TestId123-color-47-Link], TD [\"color 48\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000030] id=TestId123-color-48-Link]], TR [TD [\"color 49\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000031] id=TestId123-color-49-Link], TD [\"color 50\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000032] id=TestId123-color-50-Link], TD [\"color 51\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23003] id=TestId123-color-51-Link], TD [\"color 52\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000034] id=TestId123-color-52-Link], TD [\"color 53\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000035] id=TestId123-color-53-Link], TD [\"color 54\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000036] id=TestId123-color-54-Link], TD [\"color 55\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000037] id=TestId123-color-55-Link], TD [DISABLED id=TestId123-color-56-Link]], TR [TD [\"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TestId123-color-clear-Link]]]]"
+            "[] id=TestId123-backgroundColor-TextBox REQUIRED Errors=\"Empty \"text\"\"  TABLE [TBODY [TR [TD [\"Black\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000001] id=TestId123-color-1-Link], TD [\"White\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000002] id=TestId123-color-2-Link], TD [\"color 3\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000003] id=TestId123-color-3-Link], TD [\"color 4\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000004] id=TestId123-color-4-Link], TD [\"color 5\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000005] id=TestId123-color-5-Link], TD [\"color 6\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000006] id=TestId123-color-6-Link], TD [\"color 7\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000007] id=TestId123-color-7-Link], TD [\"color 8\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000008] id=TestId123-color-8-Link]], TR [TD [\"color 9\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000009] id=TestId123-color-9-Link], TD [\"color 10\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000a] id=TestId123-color-10-Link], TD [\"color 11\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000b] id=TestId123-color-11-Link], TD [\"color 12\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000c] id=TestId123-color-12-Link], TD [\"color 13\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000d] id=TestId123-color-13-Link], TD [\"color 14\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000e] id=TestId123-color-14-Link], TD [\"color 15\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000f] id=TestId123-color-15-Link], TD [\"color 16\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000010] id=TestId123-color-16-Link]], TR [TD [\"color 17\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23001] id=TestId123-color-17-Link], TD [\"color 18\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000012] id=TestId123-color-18-Link], TD [\"color 19\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000013] id=TestId123-color-19-Link], TD [\"color 20\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000014] id=TestId123-color-20-Link], TD [\"color 21\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000015] id=TestId123-color-21-Link], TD [\"color 22\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000016] id=TestId123-color-22-Link], TD [\"color 23\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000017] id=TestId123-color-23-Link], TD [\"color 24\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000018] id=TestId123-color-24-Link]], TR [TD [\"color 25\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000019] id=TestId123-color-25-Link], TD [\"color 26\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001a] id=TestId123-color-26-Link], TD [\"color 27\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001b] id=TestId123-color-27-Link], TD [\"color 28\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001c] id=TestId123-color-28-Link], TD [\"color 29\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001d] id=TestId123-color-29-Link], TD [\"color 30\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001e] id=TestId123-color-30-Link], TD [\"color 31\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001f] id=TestId123-color-31-Link], TD [\"color 32\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000020] id=TestId123-color-32-Link]], TR [TD [\"color 33\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000021] id=TestId123-color-33-Link], TD [\"color 34\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23002] id=TestId123-color-34-Link], TD [\"color 35\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000023] id=TestId123-color-35-Link], TD [\"color 36\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000024] id=TestId123-color-36-Link], TD [\"color 37\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000025] id=TestId123-color-37-Link], TD [\"color 38\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000026] id=TestId123-color-38-Link], TD [\"color 39\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000027] id=TestId123-color-39-Link], TD [\"color 40\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000028] id=TestId123-color-40-Link]], TR [TD [\"color 41\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000029] id=TestId123-color-41-Link], TD [\"color 42\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002a] id=TestId123-color-42-Link], TD [\"color 43\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002b] id=TestId123-color-43-Link], TD [\"color 44\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002c] id=TestId123-color-44-Link], TD [\"color 45\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002d] id=TestId123-color-45-Link], TD [\"color 46\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002e] id=TestId123-color-46-Link], TD [\"color 47\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002f] id=TestId123-color-47-Link], TD [\"color 48\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000030] id=TestId123-color-48-Link]], TR [TD [\"color 49\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000031] id=TestId123-color-49-Link], TD [\"color 50\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000032] id=TestId123-color-50-Link], TD [\"color 51\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23003] id=TestId123-color-51-Link], TD [\"color 52\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000034] id=TestId123-color-52-Link], TD [\"color 53\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000035] id=TestId123-color-53-Link], TD [\"color 54\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000036] id=TestId123-color-54-Link], TD [\"color 55\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/%23000037] id=TestId123-color-55-Link], TD [DISABLED id=TestId123-color-56-Link]], TR [TD [\"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TestId123-color-clear-Link]]]]"
         );
     }
 
