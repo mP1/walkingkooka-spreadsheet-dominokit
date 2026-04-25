@@ -218,6 +218,12 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     }
 
     @Override
+    public ValueTextBoxComponent<T> setInnerRight(final HtmlComponent<?, ?> innerRight) {
+        this.textBox.setInnerRight(innerRight);
+        return this;
+    }
+
+    @Override
     public ValueTextBoxComponent<T> clearIcon() {
         this.textBox.clearIcon();
         return this;

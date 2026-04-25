@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.HasText;
@@ -123,7 +124,7 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
     }
 
     @Test
-    public void testTreePrint() {
+    public void testSetIdSetValueSetInnerRight() {
         this.treePrintAndCheck(
             this.createComponent()
                 .setId("id123")
@@ -131,10 +132,14 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
                     Optional.of(
                         SpreadsheetSelection.parseCell("AB12")
                     )
+                ).setInnerRight(
+                    TextComponent.with(
+                        Optional.of("Hello")
+                    )
                 ),
             "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
-                "    [AB12] icons=mdi-close-circle id=id123 REQUIRED\n"
+                "    [AB12] innerRight=\"Hello\" icons=mdi-close-circle id=id123 REQUIRED\n"
         );
     }
 
