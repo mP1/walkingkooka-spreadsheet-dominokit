@@ -143,4 +143,13 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
             printer.outdent();
         }
     }
+
+    // toString.........................................................................................................
+
+    @Override
+    public String toString() {
+        return this.color.map(Color::toString)
+            .orElse("");
+    }
+
 }
