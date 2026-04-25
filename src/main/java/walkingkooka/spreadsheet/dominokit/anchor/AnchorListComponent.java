@@ -64,8 +64,8 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
         Objects.requireNonNull(anchor, "anchor");
 
         // stops unnecessary margin-left causing indentation for first anchor.
-        anchor.removeCssProperty(
-            TextStylePropertyName.MARGIN_LEFT.value()
+        anchor.removeStyleProperty(
+            TextStylePropertyName.MARGIN_LEFT
         );
 
         this.root.appendChild(anchor);

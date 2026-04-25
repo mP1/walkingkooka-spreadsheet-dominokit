@@ -74,8 +74,8 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
                 colorOrNull.toString()
             );
         } else {
-            component.removeCssProperty(
-                TextStylePropertyName.BACKGROUND_COLOR.toString()
+            component.removeStyleProperty(
+                TextStylePropertyName.BACKGROUND_COLOR
             );
         }
         return this;
