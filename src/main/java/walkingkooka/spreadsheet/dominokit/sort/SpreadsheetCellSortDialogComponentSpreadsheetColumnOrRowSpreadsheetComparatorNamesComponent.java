@@ -35,6 +35,8 @@ import walkingkooka.spreadsheet.dominokit.value.plugin.comparator.SpreadsheetCol
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
@@ -86,13 +88,13 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
             ).setCssText("flex-grow: 1; width: fit-content;");
         this.names = names;
 
-        final String paddingTop = "10px";
+        final Length<?> paddingTop = Length.pixel(10.0);
 
         final HistoryTokenAnchorComponent moveUpLink = context.historyToken()
             .link(id + "moveUp")
             .setTextContent("Move Up")
-            .setCssProperty(
-                "padding-top",
+            .setStyleProperty(
+                TextStylePropertyName.PADDING_TOP,
                 paddingTop
             );
         this.moveUpLink = moveUpLink;
@@ -101,8 +103,8 @@ final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetC
         final HistoryTokenAnchorComponent moveDownLink = context.historyToken()
             .link(id + "moveDown")
             .setTextContent("Move Down")
-            .setCssProperty(
-                "padding-top",
+            .setStyleProperty(
+                TextStylePropertyName.PADDING_TOP,
                 paddingTop
             );
         this.moveDownLink = moveDownLink;

@@ -26,6 +26,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 
@@ -49,12 +51,12 @@ public final class ColorComponent implements ValueTextBoxComponentDelegator<Colo
         );
 
         this.colorBox = ColorBoxComponent.empty()
-            .setCssProperty(
-                "width",
-                "20px"
-            ).setCssProperty(
-                "height",
-                "20px"
+            .setStyleProperty(
+                TextStylePropertyName.WIDTH,
+                Length.pixel(20.0)
+            ).setStyleProperty(
+                TextStylePropertyName.HEIGHT,
+                Length.pixel(20.0)
             );
         textBox.setInnerRight(this.colorBox);
 

@@ -94,6 +94,21 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
                      final String value);
 
     /**
+     * A type safe way to set a {@link TextStylePropertyName} and value. Note that not all CSS properties
+     * have a {@link TextStylePropertyName} or value, in which case {@link #setCssProperty(String, String) must be used.}
+     */
+    default <T> C setStyleProperty(final TextStylePropertyName<T> name,
+                                   final T value) {
+        Objects.requireNonNull(name, "name");
+        name.checkValue(value);
+
+        return this.setCssProperty(
+            name.value(),
+            value.toString()
+        );
+    }
+
+    /**
      * Removes a CSS property from this component.
      */
     C removeCssProperty(final String name);

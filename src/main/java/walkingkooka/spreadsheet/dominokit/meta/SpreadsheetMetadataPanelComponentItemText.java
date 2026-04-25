@@ -30,6 +30,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -95,8 +97,13 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
         ).clear();
 
         // clear the margin-bottom: 16px
-        return textBox.setCssProperty("width", TEXT_BOX_WIDTH)
-            .setCssProperty("margin-bottom", "0");
+        return textBox.setStyleProperty(
+            TextStylePropertyName.WIDTH,
+            TEXT_BOX_WIDTH
+        ).setStyleProperty(
+            TextStylePropertyName.MARGIN_BOTTOM,
+            Length.none()
+        );
     }
 
     private void saveText(final TextBoxComponent textBox) {

@@ -31,6 +31,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -86,9 +88,13 @@ public final class SpreadsheetLabelMappingListDialogComponent implements DialogC
             ).appendChild(this.table)
             .appendChild(
                 AnchorListComponent.empty()
-                    .setCssProperty("margin-top", "5px")
-                    .setCssProperty("margin-left", "-5px")
-                    .appendChild(this.create)
+                    .setStyleProperty(
+                        TextStylePropertyName.MARGIN_TOP,
+                        Length.pixel(5.0)
+                    ).setStyleProperty(
+                        TextStylePropertyName.MARGIN_LEFT,
+                        Length.pixel(-5.0)
+                    ).appendChild(this.create)
                     .appendChild(this.close)
             );
     }

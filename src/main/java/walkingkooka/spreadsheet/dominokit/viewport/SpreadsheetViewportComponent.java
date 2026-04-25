@@ -93,7 +93,10 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationList;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.BorderStyle;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStyleProperty;
+import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Currency;
@@ -355,12 +358,22 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     SpreadsheetViewportScrollbarComponent<SpreadsheetColumnReference> horizontalScrollbar(final SpreadsheetViewportScrollbarComponentContext context) {
         return SpreadsheetViewportScrollbarComponent.columns(context)
             .setCssProperty("flex-grow", "2")
-            .setCssProperty("height", SCROLLBAR_LENGTH + "px")
-            .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
-            .setCssProperty("border-style", "solid")
-            .setCssProperty("border-width", "1px")
-            .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
-            .addValueWatcher2(
+            .setStyleProperty(
+                TextStylePropertyName.HEIGHT,
+                Length.pixel((double)SCROLLBAR_LENGTH)
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_COLOR,
+                SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_STYLE,
+                BorderStyle.SOLID
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_WIDTH,
+                Length.pixel(1.0)
+            ).setStyleProperty(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR
+            ).addValueWatcher2(
                 (Optional<SpreadsheetColumnReference> value) -> this.pushNewHome(
                     value.orElse(null)
                 )
@@ -375,12 +388,22 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             .setCssProperty("top", "0")
             .setCssProperty("right", "0")
             .setCssProperty("z-index", "1")
-            .setCssProperty("width", SCROLLBAR_LENGTH + "px")
-            .setCssProperty("border-color", SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR.toString())
-            .setCssProperty("border-style", "solid")
-            .setCssProperty("border-width", "1px")
-            .setCssProperty("background-color", SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR.toString())
-            .addValueWatcher2(
+            .setStyleProperty(
+                TextStylePropertyName.WIDTH,
+                Length.pixel((double) SCROLLBAR_LENGTH)
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_COLOR,
+                SpreadsheetDominoKitColor.VIEWPORT_LINES_COLOR
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_STYLE,
+                BorderStyle.SOLID
+            ).setStyleProperty(
+                TextStylePropertyName.BORDER_WIDTH,
+                Length.pixel(1.0)
+            ).setStyleProperty(
+                TextStylePropertyName.BACKGROUND_COLOR,
+                SpreadsheetDominoKitColor.VIEWPORT_HEADER_UNSELECTED_BACKGROUND_COLOR
+            ).addValueWatcher2(
                 (Optional<SpreadsheetRowReference> value) -> this.pushNewHome(
                     value.orElse(null)
                 )
@@ -555,12 +578,15 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
         this.viewportGridHeight = viewportGridHeight;
 
         this.horizontalScrollbar.setAutoHideScrollbars(autoHideScrollbars);
-        this.verticalScrollbar.setCssProperty(
-            "height",
-            (viewportGridHeight - SCROLLBAR_LENGTH) + "px"
+        this.verticalScrollbar.setStyleProperty(
+            TextStylePropertyName.HEIGHT,
+            Length.pixel((double) (viewportGridHeight - SCROLLBAR_LENGTH))
         ).setAutoHideScrollbars(autoHideScrollbars);
 
-        this.bottom.setCssProperty("width", width + "px");
+        this.bottom.setStyleProperty(
+            TextStylePropertyName.WIDTH,
+            Length.pixel((double) width)
+        );
     }
 
     // SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext.autoHideScrollbars()
