@@ -19,13 +19,15 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
+import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
 
-public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDivElement, Color, ColorBoxComponent> {
+public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDivElement, Color, ColorBoxComponent>,
+    ToStringTesting<ColorBoxComponent> {
 
     @Test
     public void testEmpty() {
@@ -61,6 +63,27 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
     @Override
     public ColorBoxComponent createComponent() {
         return ColorBoxComponent.empty();
+    }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            this.createComponent(),
+            ""
+        );
+    }
+
+    @Test
+    public void testToStringWithColor() {
+        this.toStringAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(Color.BLACK)
+                ),
+            "black"
+        );
     }
 
     // class............................................................................................................
