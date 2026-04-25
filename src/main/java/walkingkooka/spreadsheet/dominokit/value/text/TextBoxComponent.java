@@ -38,7 +38,6 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 import walkingkooka.text.CharSequences;
-import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.List;
 import java.util.Objects;
@@ -507,11 +506,4 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     }
 
     private final TextBox textBox;
-
-    // FormValueComponentTreePrintable..................................................................................
-
-    @Override
-    public void treePrintAlternateValues(final IndentingPrinter printer) {
-        // NOP
-    }
 }

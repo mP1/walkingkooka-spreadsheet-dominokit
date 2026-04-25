@@ -156,15 +156,20 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     // FormValueComponentTreePrintable..................................................................................
 
-    public final void treePrintInnerRight(final IndentingPrinter printer) {
-        String separator = "innerRight=";
-
+    @Override
+    public void treePrintAlternateValues(final IndentingPrinter printer) {
         final HtmlComponent<?, ?> innerRight = this.innerRight;
         if (null != innerRight) {
-            printer.print(separator);
-            printer.print(
-                innerRight.toString()
-            );
+            printer.indent();
+            {
+                printer.println("innerRight");
+                printer.indent();
+                {
+                    innerRight.printTree(printer);
+                }
+                printer.outdent();
+            }
+            printer.outdent();
         }
     }
 
