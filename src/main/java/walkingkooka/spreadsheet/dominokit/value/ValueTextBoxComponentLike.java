@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 
@@ -31,6 +32,8 @@ public interface ValueTextBoxComponentLike<C extends ValueTextBoxComponentLike<C
     Optional<String> stringValue();
 
     C setStringValue(final Optional<String> stringValue);
+
+    C setInnerRight(final HtmlComponent<?, ?> innerRight);
 
     C clearIcon();
 
