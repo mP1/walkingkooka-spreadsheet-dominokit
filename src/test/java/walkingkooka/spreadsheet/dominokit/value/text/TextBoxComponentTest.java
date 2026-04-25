@@ -404,7 +404,9 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                     new TestInnerRightComponent()
                 ),
             "TextBoxComponent\n" +
-                "  [] innerRight=TestInnerRightComponent REQUIRED\n"
+                "  [] REQUIRED\n" +
+                "    innerRight\n" +
+                "      TestInnerRightComponent\n"
         );
     }
 
@@ -453,7 +455,9 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
                     new TestInnerRightComponent()
                 ),
             "TextBoxComponent\n" +
-                "  [] innerRight=TestInnerRightComponent icons=mdi-format-underline REQUIRED\n"
+                "  [] icons=mdi-format-underline REQUIRED\n" +
+                "    innerRight\n" +
+                "      TestInnerRightComponent\n"
         );
     }
 

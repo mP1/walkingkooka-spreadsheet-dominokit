@@ -139,7 +139,10 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
                 ),
             "ValueTextBoxComponent\n" +
                 "  TextBoxComponent\n" +
-                "    [AB12] innerRight=\"Hello\" icons=mdi-close-circle id=id123 REQUIRED\n"
+                "    [AB12] icons=mdi-close-circle id=id123 REQUIRED\n" +
+                "      innerRight\n" +
+                "        TextComponent\n" +
+                "          \"Hello\"\n"
         );
     }
 
