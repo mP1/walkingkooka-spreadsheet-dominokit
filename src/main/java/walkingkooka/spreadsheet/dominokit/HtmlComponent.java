@@ -23,6 +23,9 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
@@ -94,6 +97,14 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
      * Removes a CSS property from this component.
      */
     C removeCssProperty(final String name);
+
+    default C removeStyleProperty(final TextStylePropertyName<?> propertyName) {
+        Objects.requireNonNull(propertyName, "propertyName");
+
+        return this.removeCssProperty(
+            propertyName.value()
+        );
+    }
 
     String VISIBILITY = "visibility";
     String HIDDEN = "hidden";
