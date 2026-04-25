@@ -141,6 +141,17 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     private PostfixAddOn<?> iconPostfix = null;
 
     @Override
+    public TextBoxComponent setInnerRight(final HtmlComponent<?, ?> innerRight) {
+        Objects.requireNonNull(innerRight, "innerRight");
+
+        this.textBox.apply(
+            self -> self.appendChild(this.innerRight)
+        );
+        this.innerRight = innerRight;
+        return this;
+    }
+
+    @Override
     public TextBoxComponent disableSpellcheck() {
         this.textBox.getInputElement()
             .element()

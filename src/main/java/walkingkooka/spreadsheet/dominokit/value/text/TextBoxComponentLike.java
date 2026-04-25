@@ -23,6 +23,7 @@ import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
@@ -44,6 +45,14 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     public abstract TextBoxComponent clearIcon();
 
     public abstract TextBoxComponent setIcon(final Icon<?> icon);
+
+    /**
+     * Sets a component which will appear inside the text box but to the right. Note ordering of {@link #clearIcon()},
+     * {@link #setIcon(Icon)} and {@link #setInnerRight(HtmlComponent)} growing from right to left.
+     */
+    public abstract TextBoxComponent setInnerRight(final HtmlComponent<?, ?> innerRight);
+
+    HtmlComponent<?, ?> innerRight = null;
 
     public abstract TextBoxComponent disableSpellcheck();
 
@@ -146,6 +155,18 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
                                                final EventListener listener);
 
     // FormValueComponentTreePrintable..................................................................................
+
+    public final void treePrintInnerRight(final IndentingPrinter printer) {
+        String separator = "innerRight=";
+
+        final HtmlComponent<?, ?> innerRight = this.innerRight;
+        if (null != innerRight) {
+            printer.print(separator);
+            printer.print(
+                innerRight.toString()
+            );
+        }
+    }
 
     public final void treePrintIcons(final IndentingPrinter printer) {
         String separator = "icons=";

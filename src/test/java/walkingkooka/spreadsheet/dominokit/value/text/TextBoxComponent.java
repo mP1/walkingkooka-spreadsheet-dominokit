@@ -26,6 +26,7 @@ import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.ToStringBuilderOption;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.ValidatorHelper;
@@ -259,6 +260,14 @@ public final class TextBoxComponent extends TextBoxComponentLike
     private Icon<?> icon = null;
 
     @Override
+    public TextBoxComponent setInnerRight(final HtmlComponent<?, ?> innerRight) {
+        Objects.requireNonNull(innerRight, "innerRight");
+
+        this.innerRight = innerRight;
+        return this;
+    }
+
+    @Override
     public TextBoxComponent disableSpellcheck() {
         return this;
     }
@@ -342,6 +351,7 @@ public final class TextBoxComponent extends TextBoxComponentLike
         );
 
         b.labelSeparator("=");
+
         b.label("id");
         b.value(
             this.id()
@@ -366,6 +376,11 @@ public final class TextBoxComponent extends TextBoxComponentLike
                 .valueSeparator(", ");
         b.label("Errors");
         b.value(this.errors);
+
+        b.label("innerRight");
+        b.value(
+            this.innerRight
+        );
 
         return b.build();
     }

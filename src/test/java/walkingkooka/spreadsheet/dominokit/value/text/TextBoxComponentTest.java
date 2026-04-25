@@ -25,9 +25,11 @@ import walkingkooka.InvalidCharacterException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.FakeHtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
+import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
@@ -386,6 +388,27 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
     }
 
     @Test
+    public void testSetInnerRightWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setInnerRight(null)
+        );
+    }
+
+    @Test
+    public void testSetInnerRight() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setInnerRight(
+                    new TestInnerRightComponent()
+                ),
+            "TextBoxComponent\n" +
+                "  [] innerRight=TestInnerRightComponent REQUIRED\n"
+        );
+    }
+
+    @Test
     public void testClearIcon() {
         this.treePrintAndCheck(
             TextBoxComponent.empty()
@@ -418,6 +441,32 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
             "TextBoxComponent\n" +
                 "  [] icons=mdi-close-circle, mdi-format-italic REQUIRED\n"
         );
+    }
+
+    @Test
+    public void testSetIconSetInnerRight() {
+        this.treePrintAndCheck(
+            TextBoxComponent.empty()
+                .setIcon(
+                    SpreadsheetIcons.underline()
+                ).setInnerRight(
+                    new TestInnerRightComponent()
+                ),
+            "TextBoxComponent\n" +
+                "  [] innerRight=TestInnerRightComponent icons=mdi-format-underline REQUIRED\n"
+        );
+    }
+
+    final static class TestInnerRightComponent extends FakeHtmlComponent<HTMLFieldSetElement, TestInnerRightComponent> {
+        @Override
+        public void printTree(final IndentingPrinter printer) {
+            printer.println(this.getClass().getSimpleName());
+        }
+
+        @Override
+        public String toString() {
+            return this.getClass().getSimpleName();
+        }
     }
 
     // ValueComponent...................................................................................................
