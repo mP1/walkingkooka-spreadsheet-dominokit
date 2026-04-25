@@ -24,6 +24,7 @@ import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -4395,6 +4396,11 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
             @Override
             public HistoryToken historyToken() {
                 return historyToken;
+            }
+
+            @Override
+            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                return () -> {};
             }
 
             @Override

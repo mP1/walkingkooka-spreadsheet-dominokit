@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLTableElement;
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -157,6 +158,11 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         this.value = Optional.empty();
 
         this.refreshAnchors();
+
+        context.addHistoryTokenWatcher(
+            (final HistoryToken previous,
+             final AppContext appContext) -> this.refreshAnchors()
+        );
     }
 
     private void refreshAnchors() {
