@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.TextWhitespace;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -44,9 +46,9 @@ public final class TextViewComponent extends TextViewComponentLike
 
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/4338
         // honour(render) "file" line endings
-        this.setCssProperty(
-            "white-space",
-            "pre;"
+        this.setStyleProperty(
+            TextStylePropertyName.WHITE_SPACE,
+            TextWhitespace.PRE
         );
     }
 

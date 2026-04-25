@@ -48,6 +48,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.expression.Expression;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -141,8 +143,8 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
             ).appendChild(this.query)
             .appendChild(
                 AnchorListComponent.empty()
-                    .setCssProperty("margin-top", "5px")
-                    .setCssProperty("margin-left", "-5px")
+                    .setStyleProperty(TextStylePropertyName.MARGIN_TOP, Length.parse("5px"))
+                    .setStyleProperty(TextStylePropertyName.MARGIN_LEFT, Length.parse("-5px"))
                     .appendChild(this.execute)
                     .appendChild(this.reset)
                     .appendChild(this.loadHighlightingQuery)

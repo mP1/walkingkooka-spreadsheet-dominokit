@@ -31,6 +31,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListDeleteHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -74,9 +76,9 @@ public final class SpreadsheetListDialogComponent implements DialogComponentLife
         return this.context.historyToken()
             .link(ID_PREFIX + "reload")
             .setTextContent("Reload")
-            .setCssProperty(
-                "margin-top",
-                "1px"
+            .setStyleProperty(
+                TextStylePropertyName.MARGIN_TOP,
+                Length.pixel(1.0)
             ).setIconAfter(
                 Optional.of(
                     SpreadsheetIcons.spreadsheetListReload()

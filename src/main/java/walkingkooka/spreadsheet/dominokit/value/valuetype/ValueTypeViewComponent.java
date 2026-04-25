@@ -99,9 +99,9 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
 
             if (null != color) {
                 if (GWT.isScript()) {
-                    this.label.setCssProperty(
-                        TextStylePropertyName.BACKGROUND_COLOR.value(),
-                        color.text()
+                    this.label.setStyleProperty(
+                        TextStylePropertyName.BACKGROUND_COLOR,
+                        color
                     );
                 }
             }

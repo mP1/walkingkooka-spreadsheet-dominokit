@@ -34,6 +34,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
@@ -230,7 +232,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
         );
     }
 
-    final static String TEXT_BOX_WIDTH = "170px";
+    final static Length<?> TEXT_BOX_WIDTH = Length.pixel(170.0);
 
     /**
      * Factory that creates an {@link IntegerBox} and fires save when the value changes or ENTER is typed.
@@ -242,8 +244,13 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
             v -> SpreadsheetMetadataPanelComponentItem.this.saveIntegerValue(integerBox)
         ).clear();
 
-        return integerBox.setCssProperty("width", TEXT_BOX_WIDTH)
-            .setCssProperty("margin-bottom", "0");
+        return integerBox.setStyleProperty(
+                TextStylePropertyName.WIDTH,
+                TEXT_BOX_WIDTH
+            ).setStyleProperty(
+                TextStylePropertyName.MARGIN_BOTTOM,
+            Length.none()
+        );
     }
 
     private void saveIntegerValue(final IntegerBoxComponent integerBox) {
