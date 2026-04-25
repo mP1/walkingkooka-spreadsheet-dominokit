@@ -143,10 +143,12 @@ public final class TextBoxComponent extends TextBoxComponentLike {
     public TextBoxComponent setInnerRight(final HtmlComponent<?, ?> innerRight) {
         Objects.requireNonNull(innerRight, "innerRight");
 
-        this.textBox.apply(
-            self -> self.appendChild(this.innerRight)
-        );
         this.innerRight = innerRight;
+        this.textBox.apply(
+            self -> self.appendChild(
+                PostfixAddOn.of(this.innerRight)
+            )
+        );
         return this;
     }
 
