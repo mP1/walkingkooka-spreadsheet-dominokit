@@ -47,6 +47,8 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [] icons=mdi-close-circle, mdi-palette REQUIRED\n" +
+                "        innerRight\n" +
+                "          ColorBoxComponent\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n" +
                 "    ColorPaletteComponent\n" +
@@ -246,6 +248,9 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [black] icons=mdi-close-circle, mdi-palette REQUIRED\n" +
+                "        innerRight\n" +
+                "          ColorBoxComponent\n" +
+                "            black\n" +
                 "    ColorPaletteComponent\n" +
                 "      TABLE\n" +
                 "        id=\"TestIdPrefix123-Table\" className=dui dui-menu-item\n" +

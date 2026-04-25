@@ -47,6 +47,17 @@ public final class ColorComponent implements ValueTextBoxComponentDelegator<Colo
             Color::parseRgb,
             Color::text
         );
+
+        this.colorBox = ColorBoxComponent.empty()
+            .setCssProperty(
+                "width",
+                "20px"
+            ).setCssProperty(
+                "height",
+                "20px"
+            );
+        textBox.setInnerRight(this.colorBox);
+
         textBox.clearIcon();
 
         final MdiIcon paletteIcon = SpreadsheetIcons.palette();
@@ -54,11 +65,13 @@ public final class ColorComponent implements ValueTextBoxComponentDelegator<Colo
         textBox.setIcon(paletteIcon);
 
         this.textBox = textBox;
+
         this.colorPaletteComponent = colorPaletteComponent.addValueWatcher2(this::setValue);
 
         textBox.addValueWatcher2(
             this.colorPaletteComponent::setValue
         );
+        textBox.addValueWatcher2(this.colorBox::setValue);
 
         if (GWT.isScript()) {
             DominoWrapper.wrap(
@@ -82,13 +95,15 @@ public final class ColorComponent implements ValueTextBoxComponentDelegator<Colo
      */
     private final ValueTextBoxComponent<Color> textBox;
 
+    private final ColorBoxComponent colorBox;
+
     private final ColorPaletteComponent colorPaletteComponent;
 
     // Object...........................................................................................................
 
     @Override
     public String toString() {
-        return this.textBox + " " + this.colorPaletteComponent;
+        return this.textBox + " " + this.colorBox + " " + this.colorPaletteComponent;
     }
 
     // TreePrintable....................................................................................................
