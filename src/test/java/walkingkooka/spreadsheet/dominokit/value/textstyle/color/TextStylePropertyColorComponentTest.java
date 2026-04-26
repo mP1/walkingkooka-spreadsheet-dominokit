@@ -1432,7 +1432,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
 
         this.fired = null;
         component.addValueWatcher(
-            new ValueWatcher<Color>() {
+            new ValueWatcher<>() {
                 @Override
                 public void onValue(final Optional<Color> value) {
                     TextStylePropertyColorComponentTest.this.fired = value.orElse(null);

@@ -38,7 +38,7 @@ public interface TextStyleLengthPropertyComponentLikeTesting<C extends TextStyle
 
         final C component = this.createComponent();
         component.addValueWatcher(
-            new ValueWatcher<Length<?>>() {
+            new ValueWatcher<>() {
                 @Override
                 public void onValue(Optional<Length<?>> value) {
                     fired.set(
