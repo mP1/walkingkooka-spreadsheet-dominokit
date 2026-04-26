@@ -192,7 +192,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         return SpreadsheetFormatterSelectorComponent.empty()
             .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                (v) -> this.onSelectorValue(v)
+                this::onSelectorValue
             );
     }
 
