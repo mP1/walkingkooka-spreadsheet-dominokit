@@ -21,7 +21,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -33,10 +32,7 @@ public final class OpacityComponent implements TextStylePropertyComponent<HTMLFi
     ValueTextBoxComponentDelegator<OpacityComponent, Opacity> {
 
     public static OpacityComponent with(final String idPrefix) {
-        return new OpacityComponent(
-            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"
-            )
-        );
+        return new OpacityComponent(idPrefix);
     }
 
     private OpacityComponent(final String idPrefix) {
