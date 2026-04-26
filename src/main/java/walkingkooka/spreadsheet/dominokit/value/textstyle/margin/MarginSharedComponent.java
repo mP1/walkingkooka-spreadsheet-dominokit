@@ -23,32 +23,22 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Margin;
 
-import java.util.Objects;
-
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
  */
-public final class MarginComponent implements ValueTextBoxComponentDelegator<MarginComponent, Margin> {
+abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> implements ValueTextBoxComponentDelegator<C, Margin> {
 
-    public static MarginComponent empty(final BoxEdge boxEdge) {
-        return new MarginComponent(
-            Objects.requireNonNull(boxEdge, "boxEdge")
-        );
-    }
-
-    private MarginComponent(final BoxEdge boxEdge) {
+    MarginSharedComponent(final BoxEdge boxEdge) {
         this.textBox = ValueTextBoxComponent.with(
             boxEdge::parseMargin,
             Margin::text
         );
-
-        this.boxEdge = boxEdge;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
 
     @Override
-    public ValueTextBoxComponent<Margin> valueTextBoxComponent() {
+    public final ValueTextBoxComponent<Margin> valueTextBoxComponent() {
         return this.textBox;
     }
 
@@ -57,28 +47,20 @@ public final class MarginComponent implements ValueTextBoxComponentDelegator<Mar
     // TreePrintable....................................................................................................
 
     @Override
-    public void printTree(final IndentingPrinter printer) {
+    public final void printTree(final IndentingPrinter printer) {
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            printer.println(this.boxEdge.name());
-
-            printer.indent();
-            {
-                this.valueTextBoxComponent()
-                    .printTree(printer);
-            }
-            printer.outdent();
+            this.valueTextBoxComponent()
+                .printTree(printer);
         }
         printer.outdent();
     }
-
-    private final BoxEdge boxEdge;
     
     // Object...........................................................................................................
 
     @Override
-    public String toString() {
+    public final String toString() {
         return this.textBox.toString();
     }
 }
