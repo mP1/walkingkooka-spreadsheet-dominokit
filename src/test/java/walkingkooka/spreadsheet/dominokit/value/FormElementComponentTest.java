@@ -17,11 +17,34 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class FormElementComponentTest implements ClassTesting<FormElementComponent<?, ?, ?>> {
+import java.util.Optional;
+
+public final class FormElementComponentTest implements ClassTesting<FormElementComponent<?, ?, ?>>,
+    TreePrintableTesting {
+
+    @Test
+    public void testTreePrint() {
+        this.treePrintAndCheck(
+            FormElementComponent.with(
+                TextBoxComponent.empty()
+                    .setValue(
+                        Optional.of("Text123")
+                    )
+            ),
+            "FormElementComponent\n" +
+                "  TextBoxComponent\n" +
+                "    [Text123] REQUIRED\n"
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<FormElementComponent<?, ?, ?>> type() {
