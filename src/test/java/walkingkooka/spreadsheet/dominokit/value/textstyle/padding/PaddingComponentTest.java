@@ -17,134 +17,154 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.tree.text.Padding;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class PaddingComponentTest implements ValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    private final static BoxEdge BOX_EDGE = BoxEdge.ALL;
+public final class PaddingComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Padding, PaddingComponent>,
+    ValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
 
-    private final static Padding PADDING = Padding.parse("1px");
+    private final static Padding PADDING = Padding.parse("1px 2px -3px 4.5px");
+
+    @Test
+    public void testWithNullIdPrefixFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> PaddingComponent.with(null)
+        );
+    }
+
+    @Test
+    public void testWithEmptyIdPrefixFails() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> PaddingComponent.with("")
+        );
+    }
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            PaddingComponent.empty(BOX_EDGE)
+            this.createComponent()
                 .clearValue(),
             "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [] icons=mdi-close-circle REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testOptionalClearValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .optional()
+                .clearValue(),
+            "PaddingComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n"
+        );
+    }
+
+    @Test
+    public void testClearValuePadding() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .optional()
+                .clearValue(),
+            "PaddingComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            PaddingComponent.empty(BOX_EDGE)
+            this.createComponent()
                 .setValue(
                     Optional.of(PADDING)
                 ),
             "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [1px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValueTopRightBottomAll() {
-        final PaddingComponent component = PaddingComponent.empty(BOX_EDGE);
-
-        final String text = "1px 2px 3px 4px";
-
-        this.setStringValueAndCheck(
-            component,
-            text,
-            Padding.parse(text)
-        );
-
-        this.treePrintAndCheck(
-            component,
-            "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [1px 2px 3px 4px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValueOneLength() {
-        final PaddingComponent component = PaddingComponent.empty(BOX_EDGE);
-
-        final String text = "1px";
-
-        this.setStringValueAndCheck(
-            component,
-            text,
-            Padding.parse(text)
-        );
-
-        this.treePrintAndCheck(
-            component,
-            "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [1px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValueTop() {
-        this.treePrintAndCheck(
-            PaddingComponent.empty(BOX_EDGE)
-                .setStringValue(
-                    Optional.of(
-                        PADDING.setEdge(BoxEdge.TOP)
-                            .text()
-                    )
-                ),
-            "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [1px] icons=mdi-close-circle REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            PaddingComponent.empty(BOX_EDGE)
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
                         "Invalid123!"
                     )
                 ),
             "PaddingComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [Invalid123!] icons=mdi-close-circle REQUIRED\n" +
-                "        Errors\n" +
-                "          Invalid character 'I' at 0\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [Invalid123!] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "      Errors\n" +
+                "        Invalid character 'I' at 0\n"
         );
     }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final PaddingComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<Padding> value) {
+                    PaddingComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        component.setValue(
+            Optional.of(PADDING)
+        );
+
+        this.checkEquals(
+            PADDING,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Padding fired;
 
     // ValueComponent...................................................................................................
 
     @Override
     public PaddingComponent createComponent() {
-        return PaddingComponent.empty(BOX_EDGE);
+        return PaddingComponent.with("TestIdPrefix123-");
+    }
+
+    // HasName..........................................................................................................
+
+    @Test
+    public void testName() {
+        this.nameAndCheck(
+            this.createComponent(),
+            TextStylePropertyName.PADDING
+        );
     }
 
     // class............................................................................................................
