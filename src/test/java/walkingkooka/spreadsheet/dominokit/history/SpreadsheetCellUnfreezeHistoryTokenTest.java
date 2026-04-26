@@ -101,7 +101,7 @@ public final class SpreadsheetCellUnfreezeHistoryTokenTest extends SpreadsheetCe
     // stylePropertyName................................................................................................
 
     @Test
-    public final void testStylePropertyName() {
+    public void testStylePropertyName() {
         this.stylePropertyNameAndCheck(
             this.createHistoryToken()
         );
