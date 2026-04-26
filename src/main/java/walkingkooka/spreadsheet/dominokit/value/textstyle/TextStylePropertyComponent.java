@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -38,6 +39,8 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
     HasName<TextStylePropertyName<V>> {
 
     default C setIdPrefix(final String idPrefix) {
+        CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix");
+
         return this.setId(
             idPrefix +
                 CaseKind.KEBAB.change(
