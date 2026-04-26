@@ -18,38 +18,38 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.tree.text.BoxEdge;
-import walkingkooka.tree.text.Margin;
 
 import java.util.Optional;
 
 public final class MarginTopComponentTest extends MarginComponentTestCase<MarginTopComponent> {
 
-    final static Margin MARGIN = BoxEdge.TOP.parseMargin("top: 1px;");
-
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            MarginTopComponent.empty()
+            this.createComponent()
                 .clearValue(),
             "MarginTopComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle REQUIRED\n"
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-marginTop-TextBox REQUIRED\n" +
+                "        Errors\n" +
+                "          Empty \"text\"\n"
         );
     }
 
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            MarginTopComponent.empty()
+            this.createComponent()
                 .setValue(
-                    Optional.of(MARGIN)
+                    Optional.of(LENGTH)
                 ),
             "MarginTopComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] icons=mdi-close-circle REQUIRED\n"
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [12.5px] icons=mdi-close-circle id=TestIdPrefix123-marginTop-TextBox REQUIRED\n"
         );
     }
 
@@ -59,24 +59,25 @@ public final class MarginTopComponentTest extends MarginComponentTestCase<Margin
 
         this.setStringValueAndCheck(
             component,
-            MARGIN.text(),
-            MARGIN
+            LENGTH.text(),
+            LENGTH
         );
 
         this.treePrintAndCheck(
             component,
             "MarginTopComponent\n" +
-                "  ValueTextBoxComponent\n" +
-                "    TextBoxComponent\n" +
-                "      [1px] icons=mdi-close-circle REQUIRED\n"
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [12.5px] icons=mdi-close-circle id=TestIdPrefix123-marginTop-TextBox REQUIRED\n"
         );
     }
 
     // ValueComponent...................................................................................................
 
     @Override
-    public MarginTopComponent createComponent() {
-        return MarginTopComponent.empty();
+    public MarginTopComponent createComponent(final String idPrefix) {
+        return MarginTopComponent.with(idPrefix);
     }
 
     // class............................................................................................................
