@@ -195,6 +195,7 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
                 return recentParsers;
             }
 
+            @Override
             public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
                 return Lists.of(
                     PARSER1,
