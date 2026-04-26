@@ -21,8 +21,13 @@ import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.forms.AbstractFormElement;
 import org.dominokit.domino.ui.forms.AutoValidator;
 import org.dominokit.domino.ui.utils.ApplyFunction;
+import org.gwtproject.core.shared.GWT;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.text.CharSequences;
+import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.text.printer.TreePrintable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -32,7 +37,8 @@ import java.util.Optional;
  * if the wrapped component is not a {@link ValueComponent}.
  * Validation {@link #validate()}} will throw {@link UnsupportedOperationException}.
  */
-public final class FormElementComponent<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElementComponent<V, E, C>, V> {
+public final class FormElementComponent<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElementComponent<V, E, C>, V>
+    implements TreePrintable {
 
     public static <V, E extends HTMLElement, C extends HtmlComponent<E, C>> FormElementComponent<V, E, C> with(final C component) {
         return new FormElementComponent<>(
@@ -42,8 +48,10 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
 
     private FormElementComponent(final C component) {
         super();
-        this.wrapperElement.appendChild(component);
-        this.wrapperElement.removeCss(dui_input_wrapper); // remove rounded corner border
+        if(GWT.isScript()) {
+            this.wrapperElement.appendChild(component);
+            this.wrapperElement.removeCss(dui_input_wrapper); // remove rounded corner border
+        }
 
         this.component = component;
     }
@@ -142,5 +150,57 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
     @Override
     public boolean isEmptyIgnoreSpaces() {
         return this.isEmpty();
+    }
+
+    // TreePrintable....................................................................................................
+
+    @Override
+    public void printTree(final IndentingPrinter printer) {
+        printer.println(this.getClass().getSimpleName());
+
+        printer.indent();
+        {
+            int i = 0;
+
+            final String label = this.getLabel();
+            if (false == CharSequences.isNullOrEmpty(label)) {
+                printer.println("label");
+                printer.println(label);
+
+                i++;
+            }
+
+            final String helperText = this.getHelperText();
+            if (false == CharSequences.isNullOrEmpty(helperText)) {
+                printer.println("helperText");
+                printer.println(helperText);
+
+                i++;
+            }
+
+            final List<String> errors = this.getErrors();
+            if (false == errors.isEmpty()) {
+                printer.println("errors");
+                printer.indent();
+
+                for (final String error : errors) {
+                    printer.println(error);
+                    i++;
+                }
+
+                printer.outdent();
+            }
+
+            if (i > 0) {
+                printer.indent();
+            }
+            {
+                this.component.printTree(printer);
+            }
+            if (i > 0) {
+                printer.outdent();
+            }
+        }
+        printer.outdent();
     }
 }
