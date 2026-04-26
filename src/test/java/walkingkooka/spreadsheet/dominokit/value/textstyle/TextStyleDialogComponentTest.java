@@ -61,7 +61,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle UNDO_TEXT_STYLE = TextStyle.parse("text-align: LEFT;");
 
-    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("background-color: BLACK; color: BLACK; direction: LTR; font-family: Courier; font-kerning: AUTO; font-stretch: NORMAL; font-size: 99; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;");
+    private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("background-color: BLACK; color: BLACK; direction: LTR; font-family: Courier; font-kerning: AUTO; font-stretch: NORMAL; font-size: 99; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-top: 1px; margin-right: 2px; margin-bottom: 3px; margin-left: 4px; opacity: 50%; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;");
 
     // setStringValue...................................................................................................
 
@@ -157,7 +157,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "      TextStyleSampleComponent\n" +
                 "        DIV\n" +
-                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
@@ -658,6 +658,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        Line Height [!Invalid] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "                        Errors\n" +
                 "                          Invalid character '!' at 0\n" +
+                "                BigMarginComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Margin\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        MarginTopComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Top [1px] icons=mdi-close-circle id=TextStyle-marginTop-TextBox\n" +
+                "                        MarginRightComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Right [2px] icons=mdi-close-circle id=TextStyle-marginRight-TextBox\n" +
+                "                        MarginBottomComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Bottom [3px] icons=mdi-close-circle id=TextStyle-marginBottom-TextBox\n" +
+                "                        MarginLeftComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Left [4px] icons=mdi-close-circle id=TextStyle-marginLeft-TextBox\n" +
+                "                        MarginComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              All [1px 2px 3px 4px] icons=mdi-close-circle id=TextStyle-margin-TextBox\n" +
                 "                OpacityComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
@@ -847,12 +877,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
+                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:%20NOWRAP;%20width:%2044px;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20writin id=TextStyle-save-Link\n" +
+                "                  \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:% id=TextStyle-save-Link\n" +
                 "                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "                  \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "                  \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -935,7 +965,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "      TextStyleSampleComponent\n" +
                 "        DIV\n" +
-                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
@@ -1428,6 +1458,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                BigMarginComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Margin\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        MarginTopComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Top [1px] icons=mdi-close-circle id=TextStyle-marginTop-TextBox\n" +
+                "                        MarginRightComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Right [2px] icons=mdi-close-circle id=TextStyle-marginRight-TextBox\n" +
+                "                        MarginBottomComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Bottom [3px] icons=mdi-close-circle id=TextStyle-marginBottom-TextBox\n" +
+                "                        MarginLeftComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Left [4px] icons=mdi-close-circle id=TextStyle-marginLeft-TextBox\n" +
+                "                        MarginComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              All [1px 2px 3px 4px] icons=mdi-close-circle id=TextStyle-margin-TextBox\n" +
                 "                OpacityComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
@@ -1683,7 +1743,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "      TextStyleSampleComponent\n" +
                 "        DIV\n" +
-                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
@@ -2176,6 +2236,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                BigMarginComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Margin\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        MarginTopComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Top [1px] icons=mdi-close-circle id=TextStyle-marginTop-TextBox\n" +
+                "                        MarginRightComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Right [2px] icons=mdi-close-circle id=TextStyle-marginRight-TextBox\n" +
+                "                        MarginBottomComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Bottom [3px] icons=mdi-close-circle id=TextStyle-marginBottom-TextBox\n" +
+                "                        MarginLeftComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Left [4px] icons=mdi-close-circle id=TextStyle-marginLeft-TextBox\n" +
+                "                        MarginComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              All [1px 2px 3px 4px] icons=mdi-close-circle id=TextStyle-margin-TextBox\n" +
                 "                OpacityComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
@@ -2357,12 +2447,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
+                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:%20NOWRAP;%20width:%2044px;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20writin id=TextStyle-save-Link\n" +
+                "                  \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:% id=TextStyle-save-Link\n" +
                 "                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
                 "                  \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
                 "                  \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
@@ -2426,7 +2516,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              Empty \"text\"\n" +
                 "      TextStyleSampleComponent\n" +
                 "        DIV\n" +
-                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
@@ -2919,6 +3009,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                BigMarginComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Margin\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        MarginTopComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Top [1px] icons=mdi-close-circle id=TextStyle-marginTop-TextBox\n" +
+                "                        MarginRightComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Right [2px] icons=mdi-close-circle id=TextStyle-marginRight-TextBox\n" +
+                "                        MarginBottomComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Bottom [3px] icons=mdi-close-circle id=TextStyle-marginBottom-TextBox\n" +
+                "                        MarginLeftComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Left [4px] icons=mdi-close-circle id=TextStyle-marginLeft-TextBox\n" +
+                "                        MarginComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              All [1px 2px 3px 4px] icons=mdi-close-circle id=TextStyle-margin-TextBox\n" +
                 "                OpacityComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
@@ -3100,12 +3220,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
+                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:%20NOWRAP;%20width:%2044px;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20wr id=TextStyle-save-Link\n" +
+                "                  \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-spa id=TextStyle-save-Link\n" +
                 "                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "                  \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
                 "                  \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
@@ -3182,7 +3302,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              Empty \"text\"\n" +
                 "      TextStyleSampleComponent\n" +
                 "        DIV\n" +
-                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "          style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "            \"The quick brown fox jumps over the lazy dog\"\n" +
                 "      ThreeColumnComponent\n" +
                 "        DIV\n" +
@@ -3675,6 +3795,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    ValueTextBoxComponent\n" +
                 "                      TextBoxComponent\n" +
                 "                        Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                BigMarginComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Margin\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        MarginTopComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Top [1px] icons=mdi-close-circle id=TextStyle-marginTop-TextBox\n" +
+                "                        MarginRightComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Right [2px] icons=mdi-close-circle id=TextStyle-marginRight-TextBox\n" +
+                "                        MarginBottomComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Bottom [3px] icons=mdi-close-circle id=TextStyle-marginBottom-TextBox\n" +
+                "                        MarginLeftComponent\n" +
+                "                          LengthComponent\n" +
+                "                            ValueTextBoxComponent\n" +
+                "                              TextBoxComponent\n" +
+                "                                Left [4px] icons=mdi-close-circle id=TextStyle-marginLeft-TextBox\n" +
+                "                        MarginComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              All [1px 2px 3px 4px] icons=mdi-close-circle id=TextStyle-margin-TextBox\n" +
                 "                OpacityComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
@@ -3856,14 +4006,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +
-                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
+                "                Style [background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;] icons=mdi-close-circle\n" +
                 "          DialogAnchorListComponent\n" +
                 "            AnchorListComponent\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:%20NOWRAP;%20width:%2044px;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20wr id=TextStyle-save-Link\n" +
+                "                  \"Save\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-spa id=TextStyle-save-Link\n" +
                 "                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
-                "                  \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-space:%20NOWRAP;%20width:%2044px;%20word-break:%20BREAK_WORD;%20word-wrap:%20BREAK_WORD;%20wr id=TextStyle-undo-Link\n" +
+                "                  \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-transform:%20UPPERCASE;%20text-wrapping:%20WRAP;%20vertical-align:%20MIDDLE;%20visibility:%20VISIBLE;%20white-spa id=TextStyle-undo-Link\n" +
                 "                  \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
         );
     }
