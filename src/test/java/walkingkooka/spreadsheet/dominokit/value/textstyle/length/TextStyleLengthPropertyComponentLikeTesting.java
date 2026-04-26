@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.length;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
 import walkingkooka.tree.text.Length;
@@ -29,7 +28,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-public interface TextStyleLengthPropertyComponentLikeTesting<C extends TextStyleLengthPropertyComponentLike<C>> extends ValueComponentTesting<HTMLFieldSetElement, Length<?>, C>,
+public interface TextStyleLengthPropertyComponentLikeTesting<C extends TextStyleLengthPropertyComponentLike<C>>
+    extends ValueTextBoxComponentLikeTesting<C, Length<?>>,
     HasNameTesting<TextStylePropertyName<Length<?>>> {
 
     @Test

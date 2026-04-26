@@ -17,11 +17,103 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.icons.Icon;
+import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
+import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.tree.text.Length;
 
+import java.util.Optional;
+
 public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
+    ValueTextBoxComponentLike<C, Length<?>>,
     LengthComponentDelegator<C> {
+
+    @Override
+    default Optional<String> stringValue() {
+        return this.lengthComponent()
+            .stringValue();
+    }
+
+    @Override
+    default C setStringValue(final Optional<String> stringValue) {
+        this.lengthComponent()
+            .setStringValue(stringValue);
+        return (C) this;
+    }
+
+    @Override
+    default C setInnerRight(final HtmlComponent<?, ?> innerRight) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C clearIcon() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C setIcon(final Icon<?> icon) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    default C addBlurListener(final EventListener listener) {
+        this.lengthComponent()
+            .addBlurListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addClickListener(final EventListener listener) {
+        this.lengthComponent()
+            .addClickListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addChangeListener(final ChangeListener<Optional<Length<?>>> listener) {
+        this.lengthComponent()
+            .addChangeListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addContextMenuListener(final EventListener listener) {
+        this.lengthComponent()
+            .addContextMenuListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addFocusListener(final EventListener listener) {
+        this.lengthComponent()
+            .addFocusListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addInputListener(final EventListener listener) {
+        this.lengthComponent()
+            .addInputListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addKeyDownListener(final EventListener listener) {
+        this.lengthComponent()
+            .addKeyDownListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addKeyUpListener(final EventListener listener) {
+        this.lengthComponent()
+            .addKeyUpListener(listener);
+        return (C) this;
+    }
 }
