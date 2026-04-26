@@ -17,32 +17,37 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
-
-import java.util.Objects;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
-public final class PaddingComponent implements ValueTextBoxComponentDelegator<PaddingComponent, Padding> {
+public final class PaddingComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Padding, PaddingComponent>,
+    ValueTextBoxComponentDelegator<PaddingComponent, Padding> {
 
-    public static PaddingComponent empty(final BoxEdge boxEdge) {
-        return new PaddingComponent(
-            Objects.requireNonNull(boxEdge, "boxEdge")
-        );
+    public static PaddingComponent with(final String idPrefix) {
+        return new PaddingComponent(idPrefix);
     }
 
-    private PaddingComponent(final BoxEdge boxEdge) {
+    private PaddingComponent(final String idPrefix) {
         this.textBox = ValueTextBoxComponent.with(
-            boxEdge::parsePadding,
+            Padding::parse,
             Padding::text
         );
+        this.setIdPrefix(idPrefix);
+    }
 
-        this.boxEdge = boxEdge;
+    // HasName..........................................................................................................
+
+    @Override
+    public TextStylePropertyName<Padding> name() {
+        return TextStylePropertyName.PADDING;
     }
 
     // ValueTextBoxComponentDelegator...................................................................................
@@ -61,19 +66,11 @@ public final class PaddingComponent implements ValueTextBoxComponentDelegator<Pa
         printer.println(this.getClass().getSimpleName());
         printer.indent();
         {
-            printer.println(this.boxEdge.name());
-
-            printer.indent();
-            {
-                this.valueTextBoxComponent()
-                    .printTree(printer);
-            }
-            printer.outdent();
+            this.valueTextBoxComponent()
+                .printTree(printer);
         }
         printer.outdent();
     }
-
-    private final BoxEdge boxEdge;
 
     // Object...........................................................................................................
 
