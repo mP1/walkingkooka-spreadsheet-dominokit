@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
@@ -39,6 +40,40 @@ public final class FormElementComponentTest implements ClassTesting<FormElementC
                     )
             ),
             "FormElementComponent\n" +
+                "  TextBoxComponent\n" +
+                "    [Text123] REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetLabelSetHelperTextSetErrorsTreePrint() {
+        final FormElementComponent<?, ?, ?> formElementComponent = FormElementComponent.with(
+            TextBoxComponent.empty()
+                .setValue(
+                    Optional.of("Text123")
+                )
+        );
+        formElementComponent.setLabel("Label123");
+        formElementComponent.setHelperText("HelperText123");
+        formElementComponent.setErrors(
+            Lists.of(
+                "Error111",
+                "Error22",
+                "Error333"
+            )
+        );
+
+        this.treePrintAndCheck(
+            formElementComponent,
+            "FormElementComponent\n" +
+                "  label\n" +
+                "    Label123\n" +
+                "  helperText\n" +
+                "    HelperText123\n" +
+                "  errors\n" +
+                "    Error111\n" +
+                "    Error22\n" +
+                "    Error333\n" +
                 "  TextBoxComponent\n" +
                 "    [Text123] REQUIRED\n"
         );
