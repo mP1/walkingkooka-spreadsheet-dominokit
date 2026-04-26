@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.AbstractFormElement;
 import org.dominokit.domino.ui.forms.AutoValidator;
 import org.dominokit.domino.ui.utils.ApplyFunction;
@@ -38,7 +39,8 @@ import java.util.Optional;
  * Validation {@link #validate()}} will throw {@link UnsupportedOperationException}.
  */
 public final class FormElementComponent<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElementComponent<V, E, C>, V>
-    implements TreePrintable {
+    implements HtmlComponent<HTMLFieldSetElement, FormElementComponent<V, E, C>>,
+    TreePrintable {
 
     public static <V, E extends HTMLElement, C extends HtmlComponent<E, C>> FormElementComponent<V, E, C> with(final C component) {
         return new FormElementComponent<>(
@@ -55,6 +57,8 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
 
         this.component = component;
     }
+
+    // FormElementComponent.............................................................................................
 
     private final static boolean SET_VALUE_SILENT = false;
 
@@ -150,6 +154,40 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
     @Override
     public boolean isEmptyIgnoreSpaces() {
         return this.isEmpty();
+    }
+
+    // HtmlComponent....................................................................................................
+
+    @Override
+    public String id() {
+        return this.element.id();
+    }
+
+    @Override
+    public int width() {
+        return this.element.width();
+    }
+
+    @Override
+    public int height() {
+        return this.element.height();
+    }
+
+    @Override
+    public FormElementComponent<V, E, C> focus() {
+        this.component.focus();
+        return this;
+    }
+
+    @Override
+    public boolean isEditing() {
+        return this.component.isEditing();
+    }
+
+    @Override
+    public FormElementComponent<V, E, C> setCssText(final String css) {
+        this.element.setCssText(css);
+        return this;
     }
 
     // TreePrintable....................................................................................................
