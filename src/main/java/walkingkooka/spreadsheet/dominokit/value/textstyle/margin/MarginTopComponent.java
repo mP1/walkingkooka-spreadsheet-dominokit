@@ -17,19 +17,24 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
-import walkingkooka.tree.text.BoxEdge;
-import walkingkooka.tree.text.Margin;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
- * A text box that accepts text entry and validates it as a {@link Margin}.
+ * A text box that accepts text entry and validates it as a {@link TextStylePropertyName#MARGIN_TOP}.
  */
 public final class MarginTopComponent extends MarginSharedComponent<MarginTopComponent> {
 
-    public static MarginTopComponent empty() {
-        return new MarginTopComponent();
+    public static MarginTopComponent with(final String idPrefix) {
+        return new MarginTopComponent(idPrefix);
     }
 
-    private MarginTopComponent() {
-        super(BoxEdge.TOP);
+    private MarginTopComponent(final String idPrefix) {
+        super(idPrefix);
+    }
+
+    @Override
+    public TextStylePropertyName<Length<?>> name() {
+        return TextStylePropertyName.MARGIN_TOP;
     }
 }

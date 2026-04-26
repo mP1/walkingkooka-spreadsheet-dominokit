@@ -17,50 +17,38 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Margin;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
  */
-abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> implements ValueTextBoxComponentDelegator<C, Margin> {
+abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> implements TextStyleLengthPropertyComponentLike<C> {
 
-    MarginSharedComponent(final BoxEdge boxEdge) {
-        this.textBox = ValueTextBoxComponent.with(
-            boxEdge::parseMargin,
-            Margin::text
+    MarginSharedComponent(final String idPrefix) {
+        super();
+
+        this.lengthComponent = LengthComponent.with(
+            this.name()
         );
+
+        this.setIdPrefix(idPrefix);
     }
 
-    // ValueTextBoxComponentDelegator...................................................................................
+    // LengthComponentDelegator.........................................................................................
 
     @Override
-    public final ValueTextBoxComponent<Margin> valueTextBoxComponent() {
-        return this.textBox;
+    public final LengthComponent lengthComponent() {
+        return this.lengthComponent;
     }
 
-    private final ValueTextBoxComponent<Margin> textBox;
+    private final LengthComponent lengthComponent;
 
-    // TreePrintable....................................................................................................
-
-    @Override
-    public final void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.valueTextBoxComponent()
-                .printTree(printer);
-        }
-        printer.outdent();
-    }
-    
     // Object...........................................................................................................
 
     @Override
-    public final String toString() {
-        return this.textBox.toString();
+    public String toString() {
+        return this.lengthComponent.toString();
     }
 }
