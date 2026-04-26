@@ -1581,8 +1581,6 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             TextStyleDialogComponentContexts.appContextMetadataStyle(context)
         );
 
-        final HistoryToken historyToken = context.historyToken();
-
         for (TextStylePropertyComponent<?, ?, ?> component : dialogComponent.components) {
             component.setValue(
                 Cast.to(
