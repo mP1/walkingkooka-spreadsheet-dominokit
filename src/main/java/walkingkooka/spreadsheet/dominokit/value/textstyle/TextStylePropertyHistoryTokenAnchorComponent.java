@@ -116,7 +116,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
         return this.value;
     }
 
-    private Optional<V> value;
+    private final Optional<V> value;
 
     @Override
     public TextStylePropertyHistoryTokenAnchorComponent<V> setValue(final Optional<V> value) {
