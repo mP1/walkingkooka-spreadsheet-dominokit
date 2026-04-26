@@ -198,22 +198,24 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
 
         printer.indent();
         {
-            int i = 0;
-
             final String label = this.getLabel();
             if (false == CharSequences.isNullOrEmpty(label)) {
                 printer.println("label");
-                printer.println(label);
-
-                i++;
+                printer.indent();
+                {
+                    printer.println(label);
+                }
+                printer.outdent();
             }
 
             final String helperText = this.getHelperText();
             if (false == CharSequences.isNullOrEmpty(helperText)) {
                 printer.println("helperText");
-                printer.println(helperText);
-
-                i++;
+                printer.indent();
+                {
+                    printer.println(helperText);
+                }
+                printer.outdent();
             }
 
             final List<String> errors = this.getErrors();
@@ -223,21 +225,12 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
 
                 for (final String error : errors) {
                     printer.println(error);
-                    i++;
                 }
 
                 printer.outdent();
             }
 
-            if (i > 0) {
-                printer.indent();
-            }
-            {
-                this.component.printTree(printer);
-            }
-            if (i > 0) {
-                printer.outdent();
-            }
+            this.component.printTree(printer);
         }
         printer.outdent();
     }
