@@ -23,6 +23,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -102,6 +104,61 @@ public final class PaddingComponentTest implements TextStylePropertyComponentTes
                 "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
         );
     }
+
+    @Test
+    public void testSetValueWithPaddingLeft() {
+        final PaddingComponent component = this.createComponent();
+
+        component.setValue(
+            Optional.of(
+                BoxEdge.LEFT.setPadding(
+                    Optional.of(
+                        Length.pixel(12.5)
+                    )
+                )
+            )
+        );
+        this.valueAndCheck(
+            component,
+            Padding.parse("left: 12.5px")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "PaddingComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithPaddingRight() {
+        final PaddingComponent component = this.createComponent();
+
+        component.setValue(
+            Optional.of(
+                BoxEdge.RIGHT.setPadding(
+                    Optional.of(
+                        Length.pixel(12.5)
+                    )
+                )
+            )
+        );
+        this.valueAndCheck(
+            component,
+            Padding.parse("right: 12.5px")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "PaddingComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+        );
+    }
+
 
     @Test
     public void testSetStringValueWithInvalid() {
