@@ -69,6 +69,27 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
     }
 
     @Test
+    public void testSetValueDifferentEdge() {
+        this.treePrintAndCheck(
+            BorderComponent.empty(BoxEdge.TOP)
+                .setValue(
+                    Optional.of(
+                        BoxEdge.RIGHT.setBorder(
+                            Optional.of(Color.BLACK),
+                            Optional.of(BorderStyle.SOLID),
+                            Optional.of(Length.pixel(12.5))
+                        )
+                    )
+                ),
+            "BorderComponent\n" +
+                "  TOP\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] icons=mdi-close-circle REQUIRED\n"
+        );
+    }
+
+    @Test
     public void testSetValueAll() {
         final BoxEdge boxEdge = BoxEdge.ALL;
 
@@ -90,6 +111,29 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        [white SOLID 123px] icons=mdi-close-circle REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueAllWithRight() {
+        this.treePrintAndCheck(
+            BorderComponent.empty(BoxEdge.ALL)
+                .setValue(
+                    Optional.of(
+                        BoxEdge.RIGHT.setBorder(
+                            Optional.of(Color.WHITE),
+                            Optional.of(BorderStyle.SOLID),
+                            Optional.of(
+                                Length.pixel(123.0)
+                            )
+                        )
+                    )
+                ),
+            "BorderComponent\n" +
+                "  ALL\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [right-color: white; right-style: SOLID; right-width: 123px;] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
