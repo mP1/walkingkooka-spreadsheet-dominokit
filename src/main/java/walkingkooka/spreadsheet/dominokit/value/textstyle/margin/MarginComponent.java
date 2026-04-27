@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Margin;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -38,7 +39,8 @@ public final class MarginComponent implements TextStylePropertyComponent<HTMLFie
     private MarginComponent(final String idPrefix) {
         this.textBox = ValueTextBoxComponent.with(
             Margin::parse,
-            Margin::text
+            (Margin margin) -> margin.setEdge(BoxEdge.ALL)
+                .text()
         );
         this.setIdPrefix(idPrefix);
     }

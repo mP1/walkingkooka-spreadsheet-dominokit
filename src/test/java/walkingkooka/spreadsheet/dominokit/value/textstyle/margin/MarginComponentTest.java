@@ -23,6 +23,8 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -100,6 +102,60 @@ public final class MarginComponentTest implements TextStylePropertyComponentTest
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithMarginLeft() {
+        final MarginComponent component = this.createComponent();
+
+        component.setValue(
+            Optional.of(
+                BoxEdge.LEFT.setMargin(
+                    Optional.of(
+                        Length.pixel(12.5)
+                    )
+                )
+            )
+        );
+        this.valueAndCheck(
+            component,
+            Margin.parse("left: 12.5px")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "MarginComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+        );
+    }
+
+    @Test
+    public void testSetValueWithMarginRight() {
+        final MarginComponent component = this.createComponent();
+
+        component.setValue(
+            Optional.of(
+                BoxEdge.RIGHT.setMargin(
+                    Optional.of(
+                        Length.pixel(12.5)
+                    )
+                )
+            )
+        );
+        this.valueAndCheck(
+            component,
+            Margin.parse("right: 12.5px")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "MarginComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
         );
     }
 
