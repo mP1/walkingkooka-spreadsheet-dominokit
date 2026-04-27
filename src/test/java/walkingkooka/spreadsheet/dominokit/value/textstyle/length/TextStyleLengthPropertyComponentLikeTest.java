@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTest.TestTextStyleLengthPropertyComponentLike;
 import walkingkooka.tree.text.Length;
@@ -40,6 +41,28 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
                 "        Text Decoration Thickness [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
+                "        Errors\n" +
+                "          Empty \"text\"\n"
+        );
+    }
+
+    @Test
+    public void testSetInnerRight() {
+        this.treePrintAndCheck(
+            new TestTextStyleLengthPropertyComponentLike()
+                .setInnerRight(
+                    TextComponent.with(
+                            Optional.of("HelloInnerRight")
+                    )
+                ),
+            "TestTextStyleLengthPropertyComponentLike\n" +
+                "  LengthComponent\n" +
+                "    ValueTextBoxComponent\n" +
+                "      TextBoxComponent\n" +
+                "        [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
+                "          innerRight\n" +
+                "            TextComponent\n" +
+                "              \"HelloInnerRight\"\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );

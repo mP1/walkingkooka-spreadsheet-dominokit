@@ -48,7 +48,9 @@ public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthP
 
     @Override
     default C setInnerRight(final HtmlComponent<?, ?> innerRight) {
-        throw new UnsupportedOperationException();
+        this.lengthComponent()
+            .setInnerRight(innerRight);
+        return (C) this;
     }
 
     @Override
