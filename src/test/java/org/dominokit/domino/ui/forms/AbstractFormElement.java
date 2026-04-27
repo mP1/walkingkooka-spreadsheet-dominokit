@@ -23,9 +23,20 @@ import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 
 import java.util.List;
 
-public class AbstractFormElement {
+public class AbstractFormElement<T extends AbstractFormElement<T, V>, V> {
 
     protected final DivComponent wrapperElement = HtmlElementComponent.div();
+
+    public String getId() {
+        return this.id;
+    }
+
+    public T setId(final String id) {
+        this.id = id;
+        return (T) this;
+    }
+
+    private String id;
 
     public String getLabel() {
         return this.label;

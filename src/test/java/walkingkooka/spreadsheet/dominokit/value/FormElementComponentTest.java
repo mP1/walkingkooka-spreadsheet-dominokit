@@ -46,6 +46,21 @@ public final class FormElementComponentTest implements ClassTesting<FormElementC
     }
 
     @Test
+    public void testSetId() {
+        this.treePrintAndCheck(
+            FormElementComponent.with(
+                TextBoxComponent.empty()
+                    .setValue(
+                        Optional.of("Text123")
+                    )
+            ).setId("TestIdPrefix123-form"),
+            "FormElementComponent\n" +
+                "  TextBoxComponent\n" +
+                "    [Text123] REQUIRED\n"
+        );
+    }
+
+    @Test
     public void testSetLabelSetHelperTextSetErrorsTreePrint() {
         final FormElementComponent<?, ?, ?> formElementComponent = FormElementComponent.with(
             TextBoxComponent.empty()
