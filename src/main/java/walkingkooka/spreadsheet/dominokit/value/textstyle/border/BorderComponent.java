@@ -39,7 +39,8 @@ public final class BorderComponent implements ValueTextBoxComponentDelegator<Bor
     private BorderComponent(final BoxEdge boxEdge) {
         this.textBox = ValueTextBoxComponent.with(
             boxEdge::parseBorder,
-            Border::text
+            (Border border) -> border.setEdge(boxEdge)
+                .text()
         );
 
         this.boxEdge = boxEdge;
