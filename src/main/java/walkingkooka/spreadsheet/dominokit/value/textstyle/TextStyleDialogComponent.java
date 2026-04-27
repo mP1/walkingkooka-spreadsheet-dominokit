@@ -246,7 +246,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 ID_PREFIX + "selection" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Selection")
             .addValueWatcher2((Optional<SpreadsheetExpressionReference> value) -> {
-                    this.setAndPushHistoryToken(
+                    this.pushHistoryTokenWithSelection(
                         t -> t.setSelection(
                             Cast.to(value)
                         ).setStylePropertyName(
@@ -259,6 +259,30 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private final SpreadsheetExpressionReferenceComponent selection;
+
+    /**
+     * Updates a component of the current {@link HistoryToken} and then maybe pushes the new {@link HistoryToken}.
+     */
+    private void pushHistoryTokenWithSelection(final Function<HistoryToken, HistoryToken> historyTokenSetter) {
+        final TextStyleDialogComponentContext context = this.context;
+
+        // if setter failed ignore, validation will eventually show an error for the field.
+        HistoryToken historyToken;
+        try {
+            historyToken = historyTokenSetter.apply(
+                context.historyToken()
+            );
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
+        } catch (final RuntimeException ignore) {
+            historyToken = null;
+        }
+
+        // only update history token if setter was successful.
+        if (historyToken instanceof SpreadsheetMetadataPropertyStyleHistoryToken || historyToken instanceof SpreadsheetCellStyleHistoryToken) {
+            context.pushHistoryToken(historyToken);
+        }
+    }
 
     // sample...........................................................................................................
 
@@ -666,29 +690,5 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     @Override
     public String toString() {
         return this.dialog.toString();
-    }
-
-    /**
-     * Updates a component of the current {@link HistoryToken} and then maybe pushes the new {@link HistoryToken}.
-     */
-    private void setAndPushHistoryToken(final Function<HistoryToken, HistoryToken> historyTokenSetter) {
-        final TextStyleDialogComponentContext context = this.context;
-
-        // if setter failed ignore, validation will eventually show an error for the field.
-        HistoryToken historyToken;
-        try {
-            historyToken = historyTokenSetter.apply(
-                context.historyToken()
-            );
-        } catch (final UnsupportedOperationException rethrow) {
-            throw rethrow;
-        } catch (final RuntimeException ignore) {
-            historyToken = null;
-        }
-
-        // only update history token if setter was successful.
-        if (historyToken instanceof SpreadsheetMetadataPropertyStyleHistoryToken || historyToken instanceof SpreadsheetCellStyleHistoryToken) {
-            context.pushHistoryToken(historyToken);
-        }
     }
 }
