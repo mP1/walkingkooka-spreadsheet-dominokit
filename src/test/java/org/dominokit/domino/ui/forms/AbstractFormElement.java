@@ -23,7 +23,11 @@ import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 
 import java.util.List;
 
-public class AbstractFormElement<T extends AbstractFormElement<T, V>, V> {
+public abstract class AbstractFormElement<T extends AbstractFormElement<T, V>, V> {
+
+    protected AbstractFormElement() {
+        super();
+    }
 
     protected final DivComponent wrapperElement = HtmlElementComponent.div();
 
