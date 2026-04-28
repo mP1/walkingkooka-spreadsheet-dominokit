@@ -63,6 +63,15 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
             .enterFiresValueChange();
         this.setParser(parser);
         this.setFormatter(formatter);
+
+        this.textBox.addValueWatcher(
+            (Optional<String> text) -> {
+                this.validate();
+                this.valueWatchers.onValue(
+                    this.value()
+                );
+            }
+        );
     }
 
     /**
@@ -315,12 +324,15 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
-        return this.textBox.addValueWatcher(
-            (v) -> watcher.onValue(
-                ValueTextBoxComponent.this.value()
-            )
-        );
+//        return this.textBox.addValueWatcher(
+//            (v) -> watcher.onValue(
+//                ValueTextBoxComponent.this.value()
+//            )
+//        );
+        return this.valueWatchers.add(watcher);
     }
+
+    private final ValueWatchers<T> valueWatchers = ValueWatchers.empty();
 
     // HtmlComponentDelegator...........................................................................................
 
