@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLTableElement;
+import walkingkooka.Cast;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -67,11 +68,19 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
     public static Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer(final TextStylePropertyName<Color> textStylePropertyName) {
         Objects.requireNonNull(textStylePropertyName, "textStylePropertyName");
 
-        return (final HistoryToken historyToken) -> Optional.of(
-            historyToken.setStylePropertyName(
-                Optional.of(textStylePropertyName)
-            )
-        );
+        return (final HistoryToken historyToken) -> {
+            HistoryToken after = historyToken.setStylePropertyName(
+                Optional.of(
+                    Cast.to(textStylePropertyName)
+                )
+            );
+            if (false == textStylePropertyName.equals(
+                after.stylePropertyName().orElse(null)
+            )) {
+                after = null;
+            }
+            return Optional.ofNullable(after);
+        };
     }
 
     public static ColorPaletteComponent with(final String idPrefix,
@@ -167,7 +176,9 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
 
     private void refreshAnchors() {
         final ColorPaletteComponentContext context = this.context;
-        final HistoryToken historyToken = context.historyToken();
+        final Optional<HistoryToken> historyToken = this.historyTokenPreparer.apply(
+            context.historyToken()
+        );
         final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
 
         final TdComponent[] cells = this.cells;
@@ -175,7 +186,7 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         final Function<Integer, Optional<Color>> numberToColors = metadata.numberToColor();
         final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
 
-        final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
+        //final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
 
         final Color selectedColorOrNull = this.value
             .orElse(null);
@@ -201,7 +212,8 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
                     anchor.disabled();
                 } else {
                     anchor.setHistoryToken(
-                        historyTokenPreparer.apply(historyToken)
+                        //historyTokenPreparer.apply(historyToken)
+                        historyToken
                             .map(
                                 h -> h.setSaveValue(
                                     Optional.of(color)
@@ -213,7 +225,8 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         }
 
         this.clearAnchor.setHistoryToken(
-            historyTokenPreparer.apply(historyToken)
+            //historyTokenPreparer.apply(historyToken)
+            historyToken
                 .map(HistoryToken::clearSaveValue)
         );
     }
