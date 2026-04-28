@@ -18,8 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.OptionalInt;
 
@@ -86,6 +88,14 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
     public final void testStylePropertyName() {
         this.stylePropertyNameAndCheck(
             this.createHistoryToken()
+        );
+    }
+
+    @Test
+    public final void testSetStylePropertyName() {
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            TextStylePropertyName.COLOR.setValue(Color.BLACK)
         );
     }
 

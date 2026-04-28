@@ -5070,13 +5070,20 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final HistoryToken setStyleProperty(final TextStyleProperty<?> styleProperty) {
         Objects.requireNonNull(styleProperty, "styleProperty");
 
-        final HistoryToken historyToken = this.setStylePropertyName(
-            Optional.of(
-                styleProperty.name()
-            )
-        ).setSaveValue(
-            styleProperty.value()
+        final TextStylePropertyName<?> propertyName = styleProperty.name();
+
+        HistoryToken historyToken = this.setStylePropertyName(
+            Optional.of(propertyName)
         );
+
+        // test is necessary because setStylePropertyName might not always work, eg PluginHistoryToken
+        if (propertyName.equals(historyToken.stylePropertyName().orElse(null))) {
+            historyToken = historyToken.setSaveValue(
+                styleProperty.value()
+            );
+        } else {
+            historyToken = null;
+        }
 
         return this.elseIfDifferent(historyToken);
     }

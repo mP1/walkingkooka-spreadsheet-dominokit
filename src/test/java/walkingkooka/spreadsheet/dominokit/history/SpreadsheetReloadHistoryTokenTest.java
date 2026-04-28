@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -246,6 +247,14 @@ public final class SpreadsheetReloadHistoryTokenTest extends SpreadsheetNameHist
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
             TextStylePropertyName.TEXT_ALIGN.setValue(TextAlign.LEFT)
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyName() {
+        this.setStylePropertyAndCheck(
+            this.createHistoryToken(),
+            TextStylePropertyName.COLOR.setValue(Color.BLACK)
         );
     }
 
