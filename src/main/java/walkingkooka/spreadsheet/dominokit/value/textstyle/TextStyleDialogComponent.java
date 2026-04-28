@@ -107,7 +107,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private TextStyleDialogComponent(final TextStyleDialogComponentContext context) {
-        this.context = context;
+        this.context = TextStyleDialogComponentContexts.dialogComponentOpenAware(
+            this::isOpen,
+            context
+        );
 
         this.links = this.dialogAnchorListComponent(context)
             .save()
