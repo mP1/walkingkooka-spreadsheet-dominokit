@@ -28,8 +28,8 @@ import java.util.function.BooleanSupplier;
  */
 final class DialogComponentOpenAwareHistoryContext implements HistoryContextDelegator {
 
-    static <T> DialogComponentOpenAwareHistoryContext with(final BooleanSupplier isDialogOpen,
-                                                           final HistoryContext context) {
+    static DialogComponentOpenAwareHistoryContext with(final BooleanSupplier isDialogOpen,
+                                                       final HistoryContext context) {
         return new DialogComponentOpenAwareHistoryContext(
             Objects.requireNonNull(isDialogOpen, "isDialogOpen"),
             Objects.requireNonNull(context, "context")
