@@ -52,7 +52,9 @@ final class TryCatchConsumerStringValidator implements Validator<Optional<String
                 value.orElse("")
             );
             result = ValidationResult.valid();
-        } catch (final Exception fail) {
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
+        } catch (final RuntimeException fail) {
             result = ValidationResult.invalid(fail.getMessage());
         }
         return result;
