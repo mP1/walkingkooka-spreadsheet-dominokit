@@ -84,6 +84,21 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
     }
 
     @Test
+    public void testSetStringValueWithInvalidFails() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setStringValue(
+                    Optional.of("A!")
+                ),
+            "ValueTextBoxComponent\n" +
+                "  TextBoxComponent\n" +
+                "    [A!] icons=mdi-close-circle REQUIRED\n" +
+                "    Errors\n" +
+                "      Invalid character '!' at 1\n"
+        );
+    }
+
+    @Test
     public void testSetStringValue() {
         final String text = "AB12";
 
