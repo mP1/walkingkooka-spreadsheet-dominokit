@@ -19,7 +19,20 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
+import java.util.function.BooleanSupplier;
+
 public final class HistoryContexts implements PublicStaticHelper {
+
+    /**
+     * {@see DialogComponentOpenAwareHistoryContext}
+     */
+    public static HistoryContext dialogComponentOpenAware(final BooleanSupplier isDialogOpen,
+                                                          final HistoryContext context) {
+        return DialogComponentOpenAwareHistoryContext.with(
+            isDialogOpen,
+            context
+        );
+    }
 
     /**
      * {@see FakeHistoryContext}
