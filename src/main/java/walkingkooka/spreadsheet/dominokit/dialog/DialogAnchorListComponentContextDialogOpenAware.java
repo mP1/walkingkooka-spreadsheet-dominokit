@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,8 +43,12 @@ final class DialogAnchorListComponentContextDialogOpenAware<T> implements Dialog
     private DialogAnchorListComponentContextDialogOpenAware(final BooleanSupplier isDialogOpen,
                                                             final DialogAnchorListComponentContext<T> context) {
         super();
-        this.isDialogOpen = isDialogOpen;
+
         this.context = context;
+        this.historyContext = HistoryContexts.dialogComponentOpenAware(
+            isDialogOpen,
+            context
+        );
     }
 
     @Override
@@ -52,36 +56,16 @@ final class DialogAnchorListComponentContextDialogOpenAware<T> implements Dialog
         return this.context.undo();
     }
 
+    private final DialogAnchorListComponentContext<T> context;
+
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcher(
-            DialogAnchorListComponentContextDialogOpenAwareHistoryTokenWatcher.with(
-                this.isDialogOpen,
-                watcher
-            )
-        );
-    }
-
-    @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcherOnce(
-            DialogAnchorListComponentContextDialogOpenAwareHistoryTokenWatcher.with(
-                this.isDialogOpen,
-                watcher
-            )
-        );
-    }
-
-    private final BooleanSupplier isDialogOpen;
-
-    @Override
     public HistoryContext historyContext() {
-        return this.context;
+        return this.historyContext;
     }
 
-    private final DialogAnchorListComponentContext<T> context;
+    private final HistoryContext historyContext;
 
     // Object...........................................................................................................
 
