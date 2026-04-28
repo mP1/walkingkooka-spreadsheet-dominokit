@@ -66,4 +66,11 @@ public interface HistoryContextTesting<C extends HistoryContext> extends Context
                 .addHistoryTokenWatcherOnce(null)
         );
     }
+
+    // Class............................................................................................................
+
+    @Override
+    default String typeNameSuffix() {
+        return HistoryContext.class.getSimpleName();
+    }
 }
