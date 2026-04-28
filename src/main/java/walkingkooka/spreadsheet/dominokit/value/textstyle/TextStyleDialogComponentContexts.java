@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 
+import java.util.function.BooleanSupplier;
+
 /**
  * A collection of {@link TextStyleDialogComponentContext}
  */
@@ -37,6 +39,17 @@ public final class TextStyleDialogComponentContexts implements PublicStaticHelpe
      */
     public static TextStyleDialogComponentContext appContextMetadataStyle(final AppContext context) {
         return AppContextTextStyleDialogComponentContextMetadataStyle.with(context);
+    }
+
+    /**
+     * {@link DialogOpenAwareTextStyleDialogComponentContext}
+     */
+    public static TextStyleDialogComponentContext dialogComponentOpenAware(final BooleanSupplier dialogIsOpen,
+                                                                           final TextStyleDialogComponentContext context) {
+        return DialogOpenAwareTextStyleDialogComponentContext.with(
+            dialogIsOpen,
+            context
+        );
     }
 
     /**
