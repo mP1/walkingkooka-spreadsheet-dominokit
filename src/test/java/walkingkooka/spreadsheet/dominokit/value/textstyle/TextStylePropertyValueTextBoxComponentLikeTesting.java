@@ -17,8 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 public interface TextStylePropertyValueTextBoxComponentLikeTesting<C extends TextStylePropertyValueTextBoxComponentLike<C, V>, V>
-    extends ValueTextBoxComponentLikeTesting<C, V> {
+    extends TextStylePropertyComponentTesting<HTMLFieldSetElement, V, C>,
+    ValueTextBoxComponentLikeTesting<C, V> {
 }
