@@ -166,11 +166,11 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             (final TextStylePropertyComponent<?, ?, ?> component) -> {
                 component.setLabelFromPropertyName();
 
-                this.textStyle.addValueWatcher2(
+                this.textStyle.addValueWatcherSkipIfErrors2(
                     component.textStyleValueWatcher()
                 );
 
-                component.addValueWatcher(
+                component.addValueWatcherSkipIfErrors2(
                     new ValueWatcher() {
                         @Override
                         public void onValue(final Optional value) {
