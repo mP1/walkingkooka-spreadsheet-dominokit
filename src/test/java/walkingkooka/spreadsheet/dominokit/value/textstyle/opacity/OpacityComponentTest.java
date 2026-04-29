@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -30,8 +28,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class OpacityComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Opacity, OpacityComponent>,
-    ValueTextBoxComponentLikeTesting<OpacityComponent, Opacity> {
+public final class OpacityComponentTest implements TextStylePropertyValueTextBoxComponentLikeTesting<OpacityComponent, Opacity> {
     
     private final static Opacity OPACITY = Opacity.parse("50%");
 
