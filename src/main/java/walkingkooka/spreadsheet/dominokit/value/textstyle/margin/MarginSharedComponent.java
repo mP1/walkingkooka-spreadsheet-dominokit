@@ -17,14 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Margin;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
  */
-abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> implements TextStyleLengthPropertyComponentLike<C> {
+abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> implements TextStylePropertyLengthComponentLike<C> {
 
     MarginSharedComponent(final String idPrefix) {
         super();

@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class MarginComponentTestCase<C extends MarginSharedComponent<C>> implements TextStyleLengthPropertyComponentLikeTesting<C> {
+public abstract class MarginComponentTestCase<C extends MarginSharedComponent<C>> implements TextStylePropertyLengthComponentLikeTesting<C> {
 
     final static String ID_PREFIX = "TestIdPrefix123-";
 

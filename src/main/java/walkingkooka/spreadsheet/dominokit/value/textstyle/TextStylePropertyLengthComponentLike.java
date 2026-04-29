@@ -29,7 +29,7 @@ import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthPropertyComponentLike<C>>
+public interface TextStylePropertyLengthComponentLike<C extends TextStylePropertyLengthComponentLike<C>>
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
     ValueTextBoxComponentLike<C, Length<?>>,
     LengthComponentDelegator<C> {

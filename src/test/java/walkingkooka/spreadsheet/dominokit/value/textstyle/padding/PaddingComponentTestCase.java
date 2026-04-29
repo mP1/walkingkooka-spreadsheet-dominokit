@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class PaddingComponentTestCase<C extends PaddingSharedComponent<C>> implements TextStyleLengthPropertyComponentLikeTesting<C> {
+public abstract class PaddingComponentTestCase<C extends PaddingSharedComponent<C>> implements TextStylePropertyLengthComponentLikeTesting<C> {
 
     final static String ID_PREFIX = "TestIdPrefix123-";
 

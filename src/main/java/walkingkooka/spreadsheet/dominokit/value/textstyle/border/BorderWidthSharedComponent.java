@@ -17,10 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 
-abstract class BorderWidthSharedComponent<C extends BorderWidthSharedComponent<C>> implements TextStyleLengthPropertyComponentLike<C> {
+abstract class BorderWidthSharedComponent<C extends BorderWidthSharedComponent<C>> implements TextStylePropertyLengthComponentLike<C> {
 
     BorderWidthSharedComponent(final String idPrefix) {
         this.lengthComponent = LengthComponent.with(

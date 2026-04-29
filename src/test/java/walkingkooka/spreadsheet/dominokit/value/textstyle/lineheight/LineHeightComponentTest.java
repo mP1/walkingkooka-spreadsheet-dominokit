@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.lineheight;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public final class LineHeightComponentTest implements TextStyleLengthPropertyComponentLikeTesting<LineHeightComponent> {
+public final class LineHeightComponentTest implements TextStylePropertyLengthComponentLikeTesting<LineHeightComponent> {
 
     private final static String ID_PREFIX = "TestIdPrefix123-";
 
