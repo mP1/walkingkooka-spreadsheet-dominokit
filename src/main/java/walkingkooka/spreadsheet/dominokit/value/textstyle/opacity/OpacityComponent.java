@@ -17,20 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Opacity}.
  */
-public final class OpacityComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Opacity, OpacityComponent>,
-    ValueTextBoxComponentDelegator<OpacityComponent, Opacity> {
+public final class OpacityComponent implements TextStylePropertyValueTextBoxComponentLike<OpacityComponent, Opacity> {
 
     public static OpacityComponent with(final String idPrefix) {
         return new OpacityComponent(idPrefix);
@@ -54,27 +50,14 @@ public final class OpacityComponent implements TextStylePropertyComponent<HTMLFi
         return TextStylePropertyName.OPACITY;
     }
 
-    // ValueTextBoxComponentDelegator...................................................................................
+    // TextStylePropertyValueTextBoxComponentLikeDelegator..............................................................
 
     @Override
-    public ValueTextBoxComponent<Opacity> valueTextBoxComponent() {
+    public ValueTextBoxComponent<Opacity> textStylePropertyValueTextBoxComponentLike() {
         return this.textBox;
     }
 
     private final ValueTextBoxComponent<Opacity> textBox;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.valueTextBoxComponent()
-                .printTree(printer);
-        }
-        printer.outdent();
-    }
 
     // Object...........................................................................................................
 
