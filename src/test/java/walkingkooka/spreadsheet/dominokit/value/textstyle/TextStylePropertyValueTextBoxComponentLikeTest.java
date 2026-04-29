@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTest.TestTextStylePropertyValueTextBoxComponentLike;
@@ -30,7 +28,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyValueTextBoxComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Color, TestTextStylePropertyValueTextBoxComponentLike> {
+public final class TextStylePropertyValueTextBoxComponentLikeTest implements TextStylePropertyValueTextBoxComponentLikeTesting<TestTextStylePropertyValueTextBoxComponentLike, Color> {
 
     @Test
     public void testSetLabelFromPropertyName() {
