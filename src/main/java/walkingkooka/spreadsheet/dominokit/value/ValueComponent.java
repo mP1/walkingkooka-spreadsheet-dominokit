@@ -41,6 +41,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         );
     }
 
+    // addValueWatcher..................................................................................................
+
     Runnable addValueWatcher(final ValueWatcher<V> watcher);
 
     default C addValueWatcher2(final ValueWatcher<V> watcher,
@@ -55,6 +57,8 @@ public interface ValueComponent<E extends HTMLElement, V, C extends ValueCompone
         this.addValueWatcher(watcher);
         return (C) this;
     }
+
+    // changeListener...................................................................................................
 
     /**
      * Provides an adapter that takes a value and fires an {@link Optional} value to the given {@link ChangeListener}.
