@@ -38,6 +38,13 @@ public final class FormValueComponentTestingTest implements FormValueComponentTe
     }
 
     @Override
+    public void testAddValueWatcherSkipIfErrors2WithNullConsumerFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    // class............................................................................................................
+
+    @Override
     public Class<TestFormValueComponent> type() {
         return TestFormValueComponent.class;
     }
