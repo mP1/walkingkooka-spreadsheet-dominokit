@@ -56,6 +56,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.height.HeightComponent
 import walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens.HyphensComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.letterspacing.LetterSpacingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.lineheight.LineHeightComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.margin.BigMarginComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponent;
@@ -141,6 +142,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.hyphensComponent(),
             this.letterSpacingComponent(),
             this.lineHeightComponent(),
+            this.marginComponent(),
             this.opacityComponent(),
             this.overflowXComponent(),
             this.overflowYComponent(),
@@ -427,6 +429,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private LineHeightComponent lineHeightComponent() {
         return LineHeightComponent.empty(ID_PREFIX)
+            .optional();
+    }
+
+    // BigMarginComponent...............................................................................................
+
+    private BigMarginComponent marginComponent() {
+        return BigMarginComponent.with(ID_PREFIX)
             .optional();
     }
 
