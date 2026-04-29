@@ -322,13 +322,6 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
-        Objects.requireNonNull(watcher, "watcher");
-
-//        return this.textBox.addValueWatcher(
-//            (v) -> watcher.onValue(
-//                ValueTextBoxComponent.this.value()
-//            )
-//        );
         return this.valueWatchers.add(watcher);
     }
 
