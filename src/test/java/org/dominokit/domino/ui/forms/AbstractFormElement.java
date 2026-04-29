@@ -17,13 +17,15 @@
 
 package org.dominokit.domino.ui.forms;
 
+import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.utils.BaseDominoElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 
 import java.util.List;
 
-public abstract class AbstractFormElement<T extends AbstractFormElement<T, V>, V> {
+public abstract class AbstractFormElement<T extends AbstractFormElement<T, V>, V> extends BaseDominoElement<HTMLFieldSetElement, T> {
 
     protected AbstractFormElement() {
         super();
@@ -31,23 +33,13 @@ public abstract class AbstractFormElement<T extends AbstractFormElement<T, V>, V
 
     protected final DivComponent wrapperElement = HtmlElementComponent.div();
 
-    public String getId() {
-        return this.id;
-    }
-
-    public T setId(final String id) {
-        this.id = id;
-        return (T) this;
-    }
-
-    private String id;
-
     public String getLabel() {
         return this.label;
     }
 
-    public void setLabel(String label) {
+    public T setLabel(final String label) {
         this.label = label;
+        return (T) this;
     }
 
     private String label;
