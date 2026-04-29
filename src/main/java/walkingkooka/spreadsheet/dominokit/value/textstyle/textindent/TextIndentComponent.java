@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textindent;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class TextIndentComponent implements TextStyleLengthPropertyComponentLike<TextIndentComponent> {
+public final class TextIndentComponent implements TextStylePropertyLengthComponentLike<TextIndentComponent> {
 
     public static TextIndentComponent empty(final String idPrefix) {
         return new TextIndentComponent(idPrefix);

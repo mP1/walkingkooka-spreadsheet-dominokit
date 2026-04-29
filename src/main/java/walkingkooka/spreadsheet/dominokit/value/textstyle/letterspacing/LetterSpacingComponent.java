@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.letterspacing;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class LetterSpacingComponent implements TextStyleLengthPropertyComponentLike<LetterSpacingComponent> {
+public final class LetterSpacingComponent implements TextStylePropertyLengthComponentLike<LetterSpacingComponent> {
 
     public static LetterSpacingComponent empty(final String idPrefix) {
         return new LetterSpacingComponent(idPrefix);

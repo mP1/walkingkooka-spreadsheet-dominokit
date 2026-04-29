@@ -17,14 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Padding;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
-abstract class PaddingSharedComponent<C extends PaddingSharedComponent<C>> implements TextStyleLengthPropertyComponentLike<C> {
+abstract class PaddingSharedComponent<C extends PaddingSharedComponent<C>> implements TextStylePropertyLengthComponentLike<C> {
 
     PaddingSharedComponent(final String idPrefix) {
         super();

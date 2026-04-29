@@ -22,21 +22,21 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTest.TestTextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTest.TestTextStylePropertyLengthComponentLike;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStyleLengthPropertyComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Length<?>, TestTextStyleLengthPropertyComponentLike> {
+public final class TextStylePropertyLengthComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Length<?>, TestTextStylePropertyLengthComponentLike> {
 
     @Test
     public void testSetLabelFromPropertyName() {
         this.treePrintAndCheck(
-            new TestTextStyleLengthPropertyComponentLike()
+            new TestTextStylePropertyLengthComponentLike()
                 .setLabelFromPropertyName(),
-            "TestTextStyleLengthPropertyComponentLike\n" +
+            "TestTextStylePropertyLengthComponentLike\n" +
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
@@ -49,13 +49,13 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
     @Test
     public void testSetInnerRight() {
         this.treePrintAndCheck(
-            new TestTextStyleLengthPropertyComponentLike()
+            new TestTextStylePropertyLengthComponentLike()
                 .setInnerRight(
                     TextComponent.with(
                             Optional.of("HelloInnerRight")
                     )
                 ),
-            "TestTextStyleLengthPropertyComponentLike\n" +
+            "TestTextStylePropertyLengthComponentLike\n" +
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
@@ -71,13 +71,13 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            new TestTextStyleLengthPropertyComponentLike()
+            new TestTextStylePropertyLengthComponentLike()
                 .setValue(
                     Optional.of(
                         Length.pixel(12.5)
                     )
                 ),
-            "TestTextStyleLengthPropertyComponentLike\n" +
+            "TestTextStylePropertyLengthComponentLike\n" +
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
@@ -86,8 +86,8 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
     }
 
     @Override
-    public TestTextStyleLengthPropertyComponentLike createComponent() {
-        return new TestTextStyleLengthPropertyComponentLike();
+    public TestTextStylePropertyLengthComponentLike createComponent() {
+        return new TestTextStylePropertyLengthComponentLike();
     }
 
     @Override
@@ -96,8 +96,8 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
     }
 
     @Override
-    public Class<TestTextStyleLengthPropertyComponentLike> type() {
-        return TestTextStyleLengthPropertyComponentLike.class;
+    public Class<TestTextStylePropertyLengthComponentLike> type() {
+        return TestTextStylePropertyLengthComponentLike.class;
     }
 
     @Override
@@ -105,9 +105,9 @@ public final class TextStyleLengthPropertyComponentLikeTest implements FormValue
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestTextStyleLengthPropertyComponentLike implements TextStyleLengthPropertyComponentLike<TestTextStyleLengthPropertyComponentLike> {
+    final static class TestTextStylePropertyLengthComponentLike implements TextStylePropertyLengthComponentLike<TestTextStylePropertyLengthComponentLike> {
 
-        TestTextStyleLengthPropertyComponentLike() {
+        TestTextStylePropertyLengthComponentLike() {
             this.setIdPrefix(
                 "TestIdPrefix123-"
             );

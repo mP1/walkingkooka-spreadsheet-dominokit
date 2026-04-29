@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.lineheight;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class LineHeightComponent implements TextStyleLengthPropertyComponentLike<LineHeightComponent> {
+public final class LineHeightComponent implements TextStylePropertyLengthComponentLike<LineHeightComponent> {
 
     public static LineHeightComponent empty(final String idPrefix) {
         return new LineHeightComponent(idPrefix);

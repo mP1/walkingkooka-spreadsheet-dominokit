@@ -21,14 +21,14 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-public interface TextStyleLengthPropertyComponentLikeTesting<C extends TextStyleLengthPropertyComponentLike<C>>
+public interface TextStylePropertyLengthComponentLikeTesting<C extends TextStylePropertyLengthComponentLike<C>>
     extends ValueTextBoxComponentLikeTesting<C, Length<?>>,
     HasNameTesting<TextStylePropertyName<Length<?>>> {
 

@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSharedComponent<C>> implements TextStyleLengthPropertyComponentLikeTesting<C> {
+public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSharedComponent<C>> implements TextStylePropertyLengthComponentLikeTesting<C> {
 
     final static Length<?> LENGTH = Length.parse("1px");
 

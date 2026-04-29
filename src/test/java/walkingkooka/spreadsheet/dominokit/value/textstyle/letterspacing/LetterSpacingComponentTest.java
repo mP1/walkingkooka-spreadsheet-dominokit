@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.letterspacing;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStyleLengthPropertyComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public final class LetterSpacingComponentTest implements TextStyleLengthPropertyComponentLikeTesting<LetterSpacingComponent> {
+public final class LetterSpacingComponentTest implements TextStylePropertyLengthComponentLikeTesting<LetterSpacingComponent> {
 
     private final static String ID_PREFIX = "TestIdPrefix123-";
 

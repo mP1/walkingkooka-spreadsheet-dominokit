@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.height;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleLengthPropertyComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class HeightComponent implements TextStyleLengthPropertyComponentLike<HeightComponent> {
+public final class HeightComponent implements TextStylePropertyLengthComponentLike<HeightComponent> {
 
     public static HeightComponent empty(final String idPrefix) {
         return new HeightComponent(idPrefix);
