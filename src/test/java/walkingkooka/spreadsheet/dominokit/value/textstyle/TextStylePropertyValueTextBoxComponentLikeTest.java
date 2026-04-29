@@ -25,12 +25,12 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyTextComponentLikeTest.TestTextStylePropertyValueTextBoxComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTest.TestTextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyTextComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Color, TestTextStylePropertyValueTextBoxComponentLike> {
+public final class TextStylePropertyValueTextBoxComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Color, TestTextStylePropertyValueTextBoxComponentLike> {
 
     @Test
     public void testSetLabelFromPropertyName() {
