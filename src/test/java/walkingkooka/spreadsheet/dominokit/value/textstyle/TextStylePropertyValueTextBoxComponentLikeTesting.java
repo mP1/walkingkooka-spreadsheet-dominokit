@@ -19,6 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
-public interface TextStylePropertyTextComponentLikeTesting<C extends TextStylePropertyValueTextBoxComponentLike<C, V>, V>
+public interface TextStylePropertyValueTextBoxComponentLikeTesting<C extends TextStylePropertyValueTextBoxComponentLike<C, V>, V>
     extends ValueTextBoxComponentLikeTesting<C, V> {
 }
