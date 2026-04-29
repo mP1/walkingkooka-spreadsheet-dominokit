@@ -17,20 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 /**
  * A text box that accepts a {@link FontWeight}.
  */
-public final class FontWeightComponent implements TextStylePropertyComponent<HTMLFieldSetElement, FontWeight, FontWeightComponent>,
-    ValueTextBoxComponentDelegator<FontWeightComponent, FontWeight> {
+public final class FontWeightComponent implements TextStylePropertyValueTextBoxComponentLike<FontWeightComponent, FontWeight> {
 
     public static FontWeightComponent with(final String idPrefix) {
         return new FontWeightComponent(idPrefix);
@@ -52,31 +48,14 @@ public final class FontWeightComponent implements TextStylePropertyComponent<HTM
         return TextStylePropertyName.FONT_WEIGHT;
     }
 
-    // ValueTextBoxComponentDelegator...................................................................................
+    // TextStylePropertyValueTextBoxComponentLike.......................................................................
 
     @Override
-    public ValueTextBoxComponent<FontWeight> valueTextBoxComponent() {
+    public ValueTextBoxComponent<FontWeight> textStylePropertyValueTextBoxComponentLike() {
         return this.textBox;
     }
 
     private final ValueTextBoxComponent<FontWeight> textBox;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.indent();
-            {
-                this.valueTextBoxComponent()
-                    .printTree(printer);
-            }
-            printer.outdent();
-        }
-        printer.outdent();
-    }
 
     // Object...........................................................................................................
 
