@@ -17,12 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
-import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -30,8 +27,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
-public final class PaddingComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Padding, PaddingComponent>,
-    ValueTextBoxComponentDelegator<PaddingComponent, Padding> {
+public final class PaddingComponent implements TextStylePropertyValueTextBoxComponentLike<PaddingComponent, Padding> {
 
     public static PaddingComponent with(final String idPrefix) {
         return new PaddingComponent(idPrefix);
@@ -56,27 +52,14 @@ public final class PaddingComponent implements TextStylePropertyComponent<HTMLFi
         return TextStylePropertyName.PADDING;
     }
 
-    // ValueTextBoxComponentDelegator...................................................................................
+    // TextStylePropertyValueTextBoxComponentLikeDelegator..............................................................
 
     @Override
-    public ValueTextBoxComponent<Padding> valueTextBoxComponent() {
+    public ValueTextBoxComponent<Padding> textStylePropertyValueTextBoxComponentLike() {
         return this.textBox;
     }
 
     private final ValueTextBoxComponent<Padding> textBox;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.valueTextBoxComponent()
-                .printTree(printer);
-        }
-        printer.outdent();
-    }
 
     // Object...........................................................................................................
 
