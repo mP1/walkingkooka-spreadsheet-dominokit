@@ -19,10 +19,54 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Consumer;
+
 /**
  * A {@link FormValueComponentLike} that also includes value getter/setter support.
  */
 public interface FormValueComponent<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
     extends FormValueComponentLike<E, C>,
     ValueComponent<E, V, C> {
+
+    // addValueWatcherSkipsIfErrors.....................................................................................
+
+    /**
+     * Adds a {@link ValueWatcher} which will only be fired if this {@link FormValueComponent} has no errors.
+     */
+    default Runnable addValueWatcherSkipIfErrors(final ValueWatcher<V> watcher) {
+        return this.addValueWatcher(
+            this.skipIfErrorPresent(watcher)
+        );
+    }
+
+    default C addValueWatcherSkipIfErrors2(final ValueWatcher<V> watcher,
+                                           final Consumer<Runnable> remover) {
+        this.addValueWatcher2(
+            this.skipIfErrorPresent(watcher),
+            remover
+        );
+        return (C) this;
+    }
+
+    default C addValueWatcherSkipIfErrors2(final ValueWatcher<V> watcher) {
+        this.addValueWatcher(
+            this.skipIfErrorPresent(watcher)
+        );
+        return (C) this;
+    }
+
+    /**
+     * Wraps the given {@link ValueWatcher} which will only be fired if this {@link FormValueComponent} has no errors.
+     */
+    default ValueWatcher<V> skipIfErrorPresent(final ValueWatcher<V> watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
+        return (Optional<V> value) -> {
+            if(this.errors().isEmpty()) {
+                watcher.onValue(value);
+            }
+        };
+    }
 }

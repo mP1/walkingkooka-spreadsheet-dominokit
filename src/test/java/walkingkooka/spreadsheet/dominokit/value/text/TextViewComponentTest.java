@@ -53,6 +53,11 @@ public final class TextViewComponentTest implements FormValueComponentTesting<HT
         return TextViewComponent.empty();
     }
 
+    @Override
+    public void testAddValueWatcherSkipIfErrors2WithNullConsumerFails() {
+        throw new UnsupportedOperationException();
+    }
+
     // class............................................................................................................
 
     @Override

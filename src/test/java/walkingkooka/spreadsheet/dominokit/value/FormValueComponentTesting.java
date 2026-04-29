@@ -18,8 +18,60 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface FormValueComponentTesting<E extends HTMLElement, V, C extends FormValueComponent<E, V, C>>
     extends FormValueComponentLikeTesting<E, C>,
     ValueComponentTesting<E, V, C> {
+
+    // addValueWatcherSkipIfErrors......................................................................................
+
+    @Test
+    default void testAddValueWatcherSkipIfErrorsWithNullValueWatcherFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .addValueWatcherSkipIfErrors(null)
+        );
+    }
+
+    // addValueWatcherSkipIfErrors2.....................................................................................
+
+    @Test
+    default void testAddValueWatcherSkipIfErrors2WithNullValueWatcherFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .addValueWatcherSkipIfErrors2(
+                    null
+                )
+        );
+    }
+
+    @Test
+    default void testAddValueWatcherSkipIfErrors2WithNullValueWatcherAndConsumerFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .addValueWatcherSkipIfErrors2(
+                    null,
+                    (c) -> {
+                    }
+                )
+        );
+    }
+
+    @Test
+    default void testAddValueWatcherSkipIfErrors2WithNullConsumerFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .addValueWatcherSkipIfErrors2(
+                    new FakeValueWatcher<>(),
+                    null
+                )
+        );
+    }
 }
