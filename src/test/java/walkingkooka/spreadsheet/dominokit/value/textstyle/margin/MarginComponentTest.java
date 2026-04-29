@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
@@ -32,8 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class MarginComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Margin, MarginComponent>,
-    ValueTextBoxComponentLikeTesting<MarginComponent, Margin> {
+public final class MarginComponentTest implements TextStylePropertyValueTextBoxComponentLikeTesting<MarginComponent, Margin> {
     
     private final static Margin MARGIN = Margin.parse("1px 2px -3px 4.5px");
 
