@@ -17,18 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.FontWeight;
 
 import java.util.Optional;
 
-public final class FontWeightComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, FontWeight, FontWeightComponent>,
-    ValueTextBoxComponentLikeTesting<FontWeightComponent, FontWeight> {
+public final class FontWeightComponentTest implements TextStylePropertyValueTextBoxComponentLikeTesting<FontWeightComponent, FontWeight> {
 
     @Test
     public void testSetLabelFromPropertyName() {
@@ -36,11 +33,11 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
             this.createComponent()
                 .setLabelFromPropertyName(),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        Font Weight [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
-                "        Errors\n" +
-                "          Empty \"text\"\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      Font Weight [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
@@ -50,11 +47,11 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
             this.createComponent()
                 .clearValue(),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
-                "        Errors\n" +
-                "          Empty \"text\"\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
+                "      Errors\n" +
+                "        Empty \"text\"\n"
         );
     }
 
@@ -66,9 +63,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
                     Optional.of(FontWeight.BOLD)
                 ),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [BOLD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [BOLD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -80,9 +77,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
                     Optional.of(FontWeight.NORMAL)
                 ),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [NORMAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [NORMAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -96,9 +93,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
                     )
                 ),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -117,9 +114,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
         this.treePrintAndCheck(
             component,
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [BolD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [BolD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -138,9 +135,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
         this.treePrintAndCheck(
             component,
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [normAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [normAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -159,9 +156,9 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
         this.treePrintAndCheck(
             component,
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n"
         );
     }
 
@@ -175,11 +172,11 @@ public final class FontWeightComponentTest implements TextStylePropertyComponent
                     )
                 ),
             "FontWeightComponent\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [Invalid] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
-                "        Errors\n" +
-                "          Invalid character 'I' at 0\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [Invalid] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
+                "      Errors\n" +
+                "        Invalid character 'I' at 0\n"
         );
     }
 
