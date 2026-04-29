@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
@@ -56,7 +57,10 @@ public final class TextStylePropertyColorComponent implements TextStylePropertyC
             )
         );
 
-        this.setIdPrefix(idPrefix);
+        this.setIdPrefix(
+            idPrefix,
+            SpreadsheetElementIds.TEXT_BOX
+        );
     }
 
     @Override

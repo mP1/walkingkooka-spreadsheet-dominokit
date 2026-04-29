@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
@@ -40,7 +41,10 @@ public final class OpacityComponent implements TextStylePropertyComponent<HTMLFi
             Opacity::parse,
             Opacity::text
         );
-        this.setIdPrefix(idPrefix);
+        this.setIdPrefix(
+            idPrefix,
+            SpreadsheetElementIds.TEXT_BOX
+        );
     }
 
     // HasName..........................................................................................................
