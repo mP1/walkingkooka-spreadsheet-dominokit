@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.naming.HasName;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CaseKind;
@@ -38,7 +37,8 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
     extends FormValueComponent<E, V, C>,
     HasName<TextStylePropertyName<V>> {
 
-    default C setIdPrefix(final String idPrefix) {
+    default C setIdPrefix(final String idPrefix,
+                          final String suffix) {
         CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix");
 
         return this.setId(
@@ -48,7 +48,7 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
                         .text(),
                     CaseKind.CAMEL
                 ) +
-                SpreadsheetElementIds.TEXT_BOX
+                suffix
         );
     }
 

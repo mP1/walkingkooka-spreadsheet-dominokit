@@ -22,6 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.tree.text.Length;
@@ -32,6 +33,13 @@ public interface TextStyleLengthPropertyComponentLike<C extends TextStyleLengthP
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
     ValueTextBoxComponentLike<C, Length<?>>,
     LengthComponentDelegator<C> {
+
+    default C setIdPrefix(final String idPrefix) {
+        return this.setIdPrefix(
+            idPrefix,
+            SpreadsheetElementIds.TEXT_BOX
+        );
+    }
 
     @Override
     default Optional<String> stringValue() {

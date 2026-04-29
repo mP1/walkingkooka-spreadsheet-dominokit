@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
 import walkingkooka.naming.HasName;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
@@ -31,6 +32,13 @@ public interface TextStylePropertyColorComponentDelegator<C extends TextStylePro
     extends TextStylePropertyComponent<HTMLFieldSetElement, Color, C>,
     FormValueComponentDelegator<HTMLFieldSetElement, Color, C>,
     HasName<TextStylePropertyName<Color>> {
+
+    default C setIdPrefix(final String idPrefix) {
+        return this.setIdPrefix(
+            idPrefix,
+            SpreadsheetElementIds.TEXT_BOX
+        );
+    }
 
     @Override
     default TextStylePropertyName<Color> name() {

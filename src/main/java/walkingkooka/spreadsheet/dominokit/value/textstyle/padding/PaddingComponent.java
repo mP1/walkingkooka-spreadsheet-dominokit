@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
@@ -42,7 +43,10 @@ public final class PaddingComponent implements TextStylePropertyComponent<HTMLFi
             (Padding padding) -> padding.setEdge(BoxEdge.ALL)
                 .text()
         );
-        this.setIdPrefix(idPrefix);
+        this.setIdPrefix(
+            idPrefix,
+            SpreadsheetElementIds.TEXT_BOX
+        );
     }
 
     // HasName..........................................................................................................
