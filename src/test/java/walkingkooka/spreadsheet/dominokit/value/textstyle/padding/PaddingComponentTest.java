@@ -17,12 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Padding;
@@ -32,8 +30,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class PaddingComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Padding, PaddingComponent>,
-    ValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
+public final class PaddingComponentTest implements TextStylePropertyValueTextBoxComponentLikeTesting<PaddingComponent, Padding> {
 
     private final static Padding PADDING = Padding.parse("1px 2px -3px 4.5px");
 
