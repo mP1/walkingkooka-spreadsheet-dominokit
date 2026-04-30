@@ -343,7 +343,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         // dont refresh textBox#setValue if value is the "same".
         if (false == value.equals(this.value())) {
             this.textBox.setValue(
-                value.map(this.formatter::apply)
+                value.map(this.formatter)
             );
         }
 
