@@ -55,9 +55,7 @@ public final class FormValueComponentTest implements ClassTesting<FormValueCompo
         final Optional<Object> fired = Optional.of("FiredValue111");
 
         component.addValueWatcherSkipIfErrors(
-            (Optional<Object> value) -> {
-                FormValueComponentTest.this.fired = value;
-            }
+            (Optional<Object> value) -> FormValueComponentTest.this.fired = value
         );
 
         component.watchers.onValue(fired);

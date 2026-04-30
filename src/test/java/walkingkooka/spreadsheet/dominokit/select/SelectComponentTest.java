@@ -72,9 +72,7 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
                 Optional.of(ValueType.TIME)
             );
         component.addValueWatcher(
-            (Optional<ValueType> newValue) -> {
-                SelectComponentTest.this.fired = newValue;
-            }
+            (Optional<ValueType> newValue) -> SelectComponentTest.this.fired = newValue
         );
 
         final Optional<ValueType> newValue = Optional.of(ValueType.TIME);

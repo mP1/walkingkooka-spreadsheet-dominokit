@@ -283,11 +283,9 @@ public final class TagBoxComponent<T> extends TagBoxComponentLike<T> {
         Objects.requireNonNull(watcher, "watcher");
 
         final ChangeListener<List<T>> changeListener = (final List<T> oldValue,
-                                                        final List<T> newValue) -> {
-            watcher.onValue(
-                Optional.ofNullable(newValue)
-            );
-        };
+                                                        final List<T> newValue) -> watcher.onValue(
+                                                            Optional.ofNullable(newValue)
+        );
         this.tagBox.addChangeListener(changeListener);
 
         return () -> this.tagBox.removeChangeListener(changeListener);

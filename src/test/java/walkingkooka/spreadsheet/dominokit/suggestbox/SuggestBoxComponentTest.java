@@ -74,9 +74,7 @@ public final class SuggestBoxComponentTest implements FormValueComponentTesting<
         this.treePrintAndCheck(
             this.createComponent()
                 .addValueWatcher2(
-                    v -> {
-                        this.firedValue = v;
-                    }
+                    v -> this.firedValue = v
                 ).setValue(value),
             "SuggestBoxComponent\n" +
                 "  [A1] REQUIRED\n"

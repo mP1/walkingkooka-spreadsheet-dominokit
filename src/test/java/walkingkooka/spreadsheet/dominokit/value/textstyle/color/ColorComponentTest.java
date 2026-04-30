@@ -442,9 +442,7 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
         final ColorComponent component = this.createComponent();
 
         component.addValueWatcher(
-            value -> {
-                ColorComponentTest.this.fired = value.orElse(null);
-            }
+            value -> ColorComponentTest.this.fired = value.orElse(null)
         );
 
         this.fired = null;
