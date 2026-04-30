@@ -156,7 +156,7 @@ public final class LengthComponentTest implements ValueTextBoxComponentLikeTesti
         component.addValueWatcher(
             new ValueWatcher<>() {
                 @Override
-                public void onValue(Optional<Length<?>> value) {
+                public void onValue(final Optional<Length<?>> value) {
                     LengthComponentTest.this.fired = value.orElse(null);
                 }
             }

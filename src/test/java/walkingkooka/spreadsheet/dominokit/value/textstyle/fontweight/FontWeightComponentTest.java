@@ -190,7 +190,7 @@ public final class FontWeightComponentTest implements TextStylePropertyValueText
         component.addValueWatcher(
             new ValueWatcher<>() {
                 @Override
-                public void onValue(Optional<FontWeight> value) {
+                public void onValue(final Optional<FontWeight> value) {
                     FontWeightComponentTest.this.fired = value.orElse(null);
                 }
             }

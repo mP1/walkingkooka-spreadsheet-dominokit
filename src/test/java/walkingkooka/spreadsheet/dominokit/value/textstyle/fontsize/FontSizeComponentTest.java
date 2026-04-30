@@ -69,7 +69,7 @@ public final class FontSizeComponentTest implements TextStylePropertyComponentTe
         component.addValueWatcher(
             new ValueWatcher<>() {
                 @Override
-                public void onValue(Optional<FontSize> value) {
+                public void onValue(final Optional<FontSize> value) {
                     FontSizeComponentTest.this.fired = value.orElse(null);
                 }
             }
