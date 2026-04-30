@@ -61,7 +61,9 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n"
         );
     }
 
@@ -99,7 +101,9 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n"
         );
     }
 
@@ -141,7 +145,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -187,7 +200,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -233,7 +255,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -279,7 +310,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -325,7 +365,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -370,6 +419,8 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              All [!invalid] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
                 "              Errors\n" +
                 "                Invalid character '!' at 0\n"
         );
@@ -434,7 +485,16 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "        MarginComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n"
+                "              All [1px 2px 3px 4px] icons=mdi-close-circle id=testIdPrefix123-margin-TextBox\n" +
+                "                innerRight\n" +
+                "                  MarginBoxComponent\n" +
+                "                    Margin\n" +
+                "                      ALL\n" +
+                "                        TextStyle\n" +
+                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
 
         return component;
