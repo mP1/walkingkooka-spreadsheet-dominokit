@@ -39,9 +39,10 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
 
     @Test
     public void testSetValue() {
+        final ColorBoxComponent component = this.createComponent();
+
         this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
+            component.setValue(
                     Optional.of(
                         Color.BLACK
                     )
@@ -49,14 +50,27 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
             "ColorBoxComponent\n" +
                 "  black\n"
         );
+
+        this.treePrintAndCheck(
+            component.component,
+            "DIV\n" +
+                "  style=\"background-color: black; border-color: black; border-style: solid; border-width: 1px; display: ;\"\n"
+        );
     }
 
     @Test
     public void testClearValue() {
+        final ColorBoxComponent component = this.createComponent();
+
         this.treePrintAndCheck(
-            this.createComponent()
-                .clearValue(),
+            component.clearValue(),
             "ColorBoxComponent\n"
+        );
+
+        this.treePrintAndCheck(
+            component.component,
+            "DIV\n" +
+                "  style=\"border-color: black; border-style: solid; border-width: 1px; display: none;\"\n"
         );
     }
 
