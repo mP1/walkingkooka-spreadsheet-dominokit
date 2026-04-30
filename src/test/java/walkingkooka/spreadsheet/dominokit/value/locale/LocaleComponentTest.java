@@ -122,9 +122,7 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
         this.treePrintAndCheck(
             this.createComponent()
                 .addValueWatcher2(
-                    (v) -> {
-                        this.firedValue = v;
-                    }
+                    (v) -> this.firedValue = v
                 ).setValue(value),
             "LocaleComponent\n" +
                 "  SuggestBoxComponent\n" +

@@ -80,11 +80,9 @@ public final class DateComponent extends DominoKitPickerComponent<LocalDate, Dat
         Objects.requireNonNull(watcher, "watcher");
 
         final ChangeListener<Date> changeListener = (final Date oldValue,
-                                                     final Date newValue) -> {
-            watcher.onValue(
-                dateToLocalDate(newValue)
-            );
-        };
+                                                     final Date newValue) -> watcher.onValue(
+                                                         dateToLocalDate(newValue)
+        );
 
         this.dateBox.addChangeListener(changeListener);
         return () -> this.dateBox.removeChangeListener(changeListener);

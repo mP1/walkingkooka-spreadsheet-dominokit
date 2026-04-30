@@ -83,9 +83,7 @@ public final class SpreadsheetColumnOrRowReferenceBoundedComponentTest implement
 
         final SpreadsheetColumnOrRowReferenceBoundedComponent component = this.createComponent()
             .addValueWatcher2(
-                (v) -> {
-                    this.firedValue = v;
-                }
+                (v) -> this.firedValue = v
             );
 
         final Optional<SpreadsheetColumnOrRowReference> value = Optional.of(

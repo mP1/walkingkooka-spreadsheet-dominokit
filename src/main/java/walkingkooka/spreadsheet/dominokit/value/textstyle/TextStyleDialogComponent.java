@@ -250,16 +250,14 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .setId(
                 ID_PREFIX + "selection" + SpreadsheetElementIds.TEXT_BOX
             ).setLabel("Selection")
-            .addValueWatcher2((Optional<SpreadsheetExpressionReference> value) -> {
-                    this.pushHistoryTokenWithSelection(
-                        t -> t.setSelection(
-                            Cast.to(value)
-                        ).setStylePropertyName(
-                            this.context.historyToken()
-                                .stylePropertyName()
-                        )
-                    );
-                }
+            .addValueWatcher2((Optional<SpreadsheetExpressionReference> value) -> this.pushHistoryTokenWithSelection(
+                    t -> t.setSelection(
+                        Cast.to(value)
+                    ).setStylePropertyName(
+                        this.context.historyToken()
+                            .stylePropertyName()
+                    )
+                )
             );
     }
 

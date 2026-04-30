@@ -188,9 +188,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
 
         final TextBoxComponent box = this.createComponent()
             .addValueWatcher2(
-                v -> {
-                    this.firedValue = v;
-                }
+                v -> this.firedValue = v
             ).setValue(value);
         this.valueAndCheck(box, value);
 
