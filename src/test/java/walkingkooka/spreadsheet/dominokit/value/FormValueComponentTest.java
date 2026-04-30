@@ -66,7 +66,7 @@ public final class FormValueComponentTest implements ClassTesting<FormValueCompo
         );
     }
 
-    class TestFormValueComponent extends FakeFormValueComponent<HTMLElement, Object, TestFormValueComponent> {
+    final static class TestFormValueComponent extends FakeFormValueComponent<HTMLElement, Object, TestFormValueComponent> {
 
         TestFormValueComponent(final String... errors) {
             this.errors = Lists.of(errors);
