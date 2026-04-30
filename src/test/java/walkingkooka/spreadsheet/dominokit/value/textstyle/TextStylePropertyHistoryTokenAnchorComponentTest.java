@@ -42,7 +42,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, TextAlign, TextStylePropertyHistoryTokenAnchorComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
-    HashCodeEqualsDefinedTesting2<TextStylePropertyHistoryTokenAnchorComponent> {
+    HashCodeEqualsDefinedTesting2<TextStylePropertyHistoryTokenAnchorComponent<TextAlign>> {
 
     private final static String ID_PREFIX = "TestID123-";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;
@@ -312,7 +312,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     }
 
     @Override
-    public TextStylePropertyHistoryTokenAnchorComponent createObject() {
+    public TextStylePropertyHistoryTokenAnchorComponent<TextAlign> createObject() {
         return this.createComponent();
     }
 
