@@ -173,7 +173,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             );
             anchor.setDisabled(
                 Objects.equals(
-                    metadataValue,
+                    metadataValue.orElse(null),
                     value
                 )
             );
