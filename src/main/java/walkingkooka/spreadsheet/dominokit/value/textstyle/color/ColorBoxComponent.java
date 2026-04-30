@@ -20,12 +20,9 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.BoxComponent;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -35,8 +32,7 @@ import java.util.Optional;
  * A simple component that displays a box and fills the background with the given {@link Color}, showing if a value is present,
  * hiding if absent.
  */
-public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, Color, ColorBoxComponent>,
-    HtmlComponentDelegator<HTMLDivElement, ColorBoxComponent> {
+public final class ColorBoxComponent implements BoxComponent<Color, ColorBoxComponent> {
 
     public static ColorBoxComponent empty() {
         return new ColorBoxComponent();
@@ -45,7 +41,7 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
     private ColorBoxComponent() {
         super();
         this.component = HtmlElementComponent.div()
-            .setCssText("border-color: black; border-style: solid; border-width: 1px;");
+            .setCssText(DEFAULT_BOX_COMPONENT_CSS_TEXT);
         this.setValue(Optional.empty());
     }
 
@@ -69,7 +65,7 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
                 "none"
         );
 
-        if(null != colorOrNull) {
+        if (null != colorOrNull) {
             component.setBackgroundColor(
                 colorOrNull.toString()
             );
@@ -83,41 +79,6 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
 
     private Optional<Color> color;
 
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return false;
-    }
-
-    @Override
-    public ColorBoxComponent setDisabled(final boolean disabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ColorBoxComponent hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ColorBoxComponent removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public ColorBoxComponent removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isEditing() {
-        return false;
-    }
-
     // HtmlComponentDelegator...........................................................................................
 
     @Override
@@ -126,23 +87,6 @@ public final class ColorBoxComponent implements ValueComponent<HTMLDivElement, C
     }
 
     private final DivComponent component;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-
-        final Color colorOrNull = this.color.orElse(null);
-        if(null != colorOrNull) {
-
-            printer.indent();
-            {
-                colorOrNull.printTree(printer);
-            }
-            printer.outdent();
-        }
-    }
 
     // toString.........................................................................................................
 
