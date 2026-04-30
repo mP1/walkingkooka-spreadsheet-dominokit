@@ -128,7 +128,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
      * Accepts a new {@link Length} ignoring it when errors are present patches the current {@link Margin} and updates the {@link MarginComponent}
      */
     private ValueWatcher<Length<?>> lengthToMarginValueWatcher(final TextStylePropertyLengthComponentLike<?> length) {
-        return new ValueWatcher<Length<?>>() {
+        return new ValueWatcher<>() {
             @Override
             public void onValue(final Optional<Length<?>> value) {
                 // only copy value if no errors
