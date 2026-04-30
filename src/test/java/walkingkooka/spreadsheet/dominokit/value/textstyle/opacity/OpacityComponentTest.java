@@ -117,7 +117,7 @@ public final class OpacityComponentTest implements TextStylePropertyValueTextBox
         component.addValueWatcher(
             new ValueWatcher<>() {
                 @Override
-                public void onValue(Optional<Opacity> value) {
+                public void onValue(final Optional<Opacity> value) {
                     OpacityComponentTest.this.fired = value.orElse(null);
                 }
             }
