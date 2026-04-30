@@ -41,9 +41,7 @@ final class IntegerBoxComponentValidator implements Validator<IntegerBox> {
 
         return this.validator.isValid(
             Optional.ofNullable(
-                null == value ?
-                    null :
-                    value
+                value
             )
         );
     }
