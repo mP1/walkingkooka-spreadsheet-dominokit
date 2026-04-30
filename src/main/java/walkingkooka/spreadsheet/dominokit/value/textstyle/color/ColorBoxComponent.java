@@ -86,7 +86,8 @@ public final class ColorBoxComponent implements BoxComponent<Color, ColorBoxComp
         return this.component;
     }
 
-    private final DivComponent component;
+    // @VisibleForTesting
+    final DivComponent component;
 
     // toString.........................................................................................................
 
