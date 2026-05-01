@@ -49,7 +49,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     private BigMarginComponent(final String idPrefix) {
         super();
 
-        this.margin = MarginComponent.with(idPrefix)
+        this.all = MarginComponent.with(idPrefix)
             .optional()
             .setLabel("All");
 
@@ -80,7 +80,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
         );
 
         // ignore new Margin if margin has errors, otherwise other components top/right/bottom/left being cleared.
-        this.margin.addValueWatcherSkipIfErrors2(
+        this.all.addValueWatcherSkipIfErrors2(
             (Optional<Margin> value) -> {
                 this.top.setValue(
                     value.flatMap(
@@ -113,7 +113,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
                 .appendChild(this.right.setCssProperty("width", width))
                 .appendChild(this.bottom.setCssProperty("width", width))
                 .appendChild(this.left.setCssProperty("width", width))
-                .appendChild(this.margin)
+                .appendChild(this.all)
                 .setCssProperty("justify-content", "space-between")
         );
 
@@ -161,7 +161,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     final MarginLeftComponent left;
 
     // @VisibleForTesting
-    final MarginComponent margin;
+    final MarginComponent all;
 
     // HasName..........................................................................................................
 
@@ -177,14 +177,14 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
     @Override
     public Optional<Margin> value() {
-        return this.margin.value();
+        return this.all.value();
     }
 
     @Override
     public BigMarginComponent setValue(final Optional<Margin> value) {
         Objects.requireNonNull(value, "value");
 
-        final Margin before = this.margin.value()
+        final Margin before = this.all.value()
             .orElse(EMPTY_MARGIN);
 
         final Margin valueOrEmpty = value.orElse(EMPTY_MARGIN);
@@ -211,7 +211,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
                 break;
         }
 
-        this.margin.setValue(
+        this.all.setValue(
             Optional.ofNullable(after)
         );
         return this;
@@ -221,35 +221,35 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Margin> watcher) {
-        return this.margin.addValueWatcher(watcher);
+        return this.all.addValueWatcher(watcher);
     }
 
     @Override
     public boolean isDisabled() {
-        return this.margin.isDisabled();
+        return this.all.isDisabled();
     }
 
     @Override
     public BigMarginComponent setDisabled(final boolean disabled) {
-        this.margin.setDisabled(disabled);
+        this.all.setDisabled(disabled);
         return this;
     }
 
     @Override
     public BigMarginComponent optional() {
-        this.margin.optional();
+        this.all.optional();
         return this;
     }
 
     @Override
     public BigMarginComponent required() {
-        this.margin.required();
+        this.all.required();
         return this;
     }
 
     @Override
     public boolean isRequired() {
-        return this.margin.isRequired();
+        return this.all.isRequired();
     }
 
     @Override
@@ -274,7 +274,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
     @Override
     public boolean isEditing() {
-        return this.margin.isEditing();
+        return this.all.isEditing();
     }
 
     // FormElementComponentDelegator....................................................................................
@@ -286,13 +286,13 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
     @Override
     public BigMarginComponent focus() {
-        this.margin.focus();
+        this.all.focus();
         return this;
     }
 
     @Override
     public BigMarginComponent blur() {
-        this.margin.blur();
+        this.all.blur();
         return this;
     }
 

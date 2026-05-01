@@ -381,7 +381,7 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
     @Test
     public void testAllSetStringValueFails() {
         final BigMarginComponent component = this.createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue();
-        component.margin.setStringValue(
+        component.all.setStringValue(
             Optional.of(
                 "!invalid"
             )
