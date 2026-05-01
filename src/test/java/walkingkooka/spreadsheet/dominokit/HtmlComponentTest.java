@@ -27,6 +27,8 @@ import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?>> {
 
     // setStyleProperty.................................................................................................
@@ -81,12 +83,98 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
             testHtmlComponent.css
         );
     }
+    
+    // setOrRemoveStyleProperty.........................................................................................
+
+    @Test
+    public void testSetOrRemoveStylePropertyWithColorValue() {
+        this.setOrRemoveStylePropertyAndCheck(
+            TextStylePropertyName.COLOR,
+            Color.BLACK,
+            "color: black"
+        );
+    }
+
+    @Test
+    public void testSetOrRemoveStylePropertyWithColorMissing() {
+        this.setOrRemoveStylePropertyAndCheck(
+            TextStylePropertyName.COLOR,
+            ""
+        );
+    }
+
+    @Test
+    public void testSetOrRemoveStylePropertyWithEnumValue() {
+        this.setOrRemoveStylePropertyAndCheck(
+            TextStylePropertyName.TEXT_ALIGN,
+            TextAlign.LEFT,
+            "text-align: LEFT"
+        );
+    }
+
+    @Test
+    public void testSetOrRemoveStylePropertyWithLengthValue() {
+        this.setOrRemoveStylePropertyAndCheck(
+            TextStylePropertyName.MARGIN_TOP,
+            Length.pixel(1.0),
+            "margin-top: 1px"
+        );
+    }
+
+    @Test
+    public void testSetOrRemoveStylePropertyWithLengthValue2() {
+        this.setOrRemoveStylePropertyAndCheck(
+            TextStylePropertyName.MARGIN_TOP,
+            Length.pixel(2.5),
+            "margin-top: 2.5px"
+        );
+    }
+
+    private <T> void setOrRemoveStylePropertyAndCheck(final TextStylePropertyName<T> name,
+                                                      final String expected) {
+        this.setOrRemoveStylePropertyAndCheck(
+            name,
+            Optional.empty(),
+            expected
+        );
+    }
+
+    private <T> void setOrRemoveStylePropertyAndCheck(final TextStylePropertyName<T> name,
+                                                      final T value,
+                                                      final String expected) {
+        this.setOrRemoveStylePropertyAndCheck(
+            name,
+            Optional.of(value),
+            expected
+        );
+    }
+
+    private <T> void setOrRemoveStylePropertyAndCheck(final TextStylePropertyName<T> name,
+                                                      final Optional<T> value,
+                                                      final String expected) {
+        final TestHtmlComponent testHtmlComponent = new TestHtmlComponent();
+        testHtmlComponent.setOrRemoveStyleProperty(
+            name,
+            value
+        );
+
+        this.checkEquals(
+            expected,
+            testHtmlComponent.css
+        );
+    }
 
     final static class TestHtmlComponent extends FakeHtmlComponent<HTMLDivElement, TestHtmlComponent> {
         @Override
         public TestHtmlComponent setCssProperty(final String name,
                                                 final String value) {
             this.css = name + ": " + value;
+            return this;
+        }
+
+        @Override
+        public TestHtmlComponent removeCssProperty(final String name) {
+            this.css = "";
             return this;
         }
 
