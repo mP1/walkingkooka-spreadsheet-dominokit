@@ -254,7 +254,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
     @Override
     public BigMarginComponent validate() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
