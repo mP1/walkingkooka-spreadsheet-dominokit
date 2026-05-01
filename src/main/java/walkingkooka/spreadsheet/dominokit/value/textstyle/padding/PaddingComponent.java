@@ -24,6 +24,8 @@ import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
  */
@@ -34,16 +36,26 @@ public final class PaddingComponent implements TextStylePropertyValueTextBoxComp
     }
 
     private PaddingComponent(final String idPrefix) {
+        super();
+        this.box = PaddingBoxComponent.empty();
+
         this.textBox = ValueTextBoxComponent.with(
             Padding::parse,
             (Padding padding) -> padding.setEdge(BoxEdge.ALL)
                 .text()
         );
+
+        this.textBox.setInnerRight(this.box)
+            .addValueWatcher(
+                (final Optional<Padding> padding) -> this.box.setValue(padding));
+
         this.setIdPrefix(
             idPrefix,
             SpreadsheetElementIds.TEXT_BOX
         );
     }
+
+    private final PaddingBoxComponent box;
 
     // HasName..........................................................................................................
 

@@ -58,7 +58,9 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n"
         );
     }
 
@@ -71,7 +73,9 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n"
         );
     }
 
@@ -84,7 +88,9 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n"
         );
     }
 
@@ -98,7 +104,16 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+                "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n" +
+                "            Padding\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  padding-bottom=-3px\n" +
+                "                  padding-left=4.5px\n" +
+                "                  padding-right=2px\n" +
+                "                  padding-top=1px\n"
         );
     }
 
@@ -125,7 +140,13 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n" +
+                "            Padding\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  padding-left=12.5px\n"
         );
     }
 
@@ -152,7 +173,13 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
             "PaddingComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n"
+                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n" +
+                "            Padding\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  padding-right=12.5px\n"
         );
     }
 
@@ -170,6 +197,8 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!] icons=mdi-close-circle id=TestIdPrefix123-padding-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          PaddingBoxComponent\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );
