@@ -18,31 +18,18 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.NeverError;
-import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.BigMarginOrPaddingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
-import walkingkooka.tree.text.MarginOrPadding;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Objects;
-import java.util.Optional;
+import walkingkooka.tree.text.MarginOrPaddingKind;
 
 /**
  * A {@link TextStylePropertyComponent} that supports editing individual margin {@link Length} or the entire {@link Margin}
  * as text.
  */
-public final class BigMarginComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Margin, BigMarginComponent>,
-    FormElementComponentDelegator<Margin, BigMarginComponent> {
+public final class BigMarginComponent implements BigMarginOrPaddingComponent<Margin, BigMarginComponent> {
 
     public static BigMarginComponent with(final String idPrefix) {
         return new BigMarginComponent(idPrefix);
@@ -51,64 +38,17 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     private BigMarginComponent(final String idPrefix) {
         super();
 
-        this.all = MarginComponent.with(idPrefix)
-            .optional()
-            .setLabel("All");
+        this.all = MarginComponent.with(idPrefix);
+        this.top = MarginTopComponent.with(idPrefix);
+        this.right = MarginRightComponent.with(idPrefix);
+        this.bottom = MarginBottomComponent.with(idPrefix);
+        this.left = MarginLeftComponent.with(idPrefix);
 
-        this.top = MarginTopComponent.with(idPrefix)
-            .setLabel("Top")
-            .optional();
-        this.right = MarginRightComponent.with(idPrefix)
-            .setLabel("Right")
-            .optional();
-        this.bottom = MarginBottomComponent.with(idPrefix)
-            .setLabel("Bottom")
-            .optional();
-        this.left = MarginLeftComponent.with(idPrefix)
-            .setLabel("Left")
-            .optional();
-
-        this.top.addValueWatcherSkipIfErrors2(
-            this.lengthToMarginValueWatcher(this.top)
-        );
-        this.right.addValueWatcherSkipIfErrors2(
-            this.lengthToMarginValueWatcher(this.right)
-        );
-        this.bottom.addValueWatcherSkipIfErrors2(
-            this.lengthToMarginValueWatcher(this.bottom)
-        );
-        this.left.addValueWatcherSkipIfErrors2(
-            this.lengthToMarginValueWatcher(this.left)
-        );
-
-        // ignore new Margin if margin has errors, otherwise other components top/right/bottom/left being cleared.
-        this.all.addValueWatcherSkipIfErrors2(
-            (Optional<Margin> value) -> {
-                this.top.setValue(
-                    value.flatMap(MarginOrPadding::top)
-                );
-                this.right.setValue(
-                    value.flatMap(MarginOrPadding::right)
-                );
-                this.bottom.setValue(
-                    value.flatMap(MarginOrPadding::bottom)
-                );
-                this.left.setValue(
-                    value.flatMap(MarginOrPadding::left)
-                );
-            }
-        );
-
-        final String width = "calc(25% - 5px)";
-
-        this.formElementComponent = FormElementComponent.with(
-            FlexLayoutComponent.row()
-                .appendChild(this.top.setCssProperty("width", width))
-                .appendChild(this.right.setCssProperty("width", width))
-                .appendChild(this.bottom.setCssProperty("width", width))
-                .appendChild(this.left.setCssProperty("width", width))
-                .appendChild(this.all)
-                .setCssProperty("justify-content", "space-between")
+        this.formElementComponent = this.createFormElementComponent(
+            this.top,
+            this.right,
+            this.bottom,
+            this.left
         );
 
         this.setIdPrefix(
@@ -116,28 +56,6 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
             "" // no suffix
         );
         this.setLabelFromPropertyName();
-    }
-
-    /**
-     * Accepts a new {@link Length} ignoring it when errors are present patches the current {@link Margin} and updates the {@link MarginComponent}
-     */
-    private ValueWatcher<Length<?>> lengthToMarginValueWatcher(final TextStylePropertyLengthComponentLike<?> component) {
-        return new ValueWatcher<>() {
-            @Override
-            public void onValue(final Optional<Length<?>> length) {
-
-                final Margin margin = BigMarginComponent.this.value()
-                    .orElse(EMPTY_MARGIN)
-                    .setOrRemoveProperty(
-                        component.name(),
-                        length
-                    );
-
-                BigMarginComponent.this.setValue(
-                    Optional.of(margin)
-                );
-            }
-        };
     }
 
     // @VisibleForTesting
@@ -152,131 +70,17 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     // @VisibleForTesting
     final MarginLeftComponent left;
 
+    @Override
+    public MarginComponent all() {
+        return this.all;
+    }
+
     // @VisibleForTesting
     final MarginComponent all;
 
-    // HasName..........................................................................................................
-
     @Override
-    public TextStylePropertyName<Margin> name() {
-        return TextStylePropertyName.MARGIN;
-    }
-
-    @Override
-    public BigMarginComponent alwaysShowHelperText() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Margin> value() {
-        return this.all.value();
-    }
-
-    @Override
-    public BigMarginComponent setValue(final Optional<Margin> value) {
-        Objects.requireNonNull(value, "value");
-
-        final Margin after;
-
-        final Margin valueOrEmpty = value.orElse(null);
-        if (null != valueOrEmpty) {
-            final BoxEdge edge = valueOrEmpty.edge();
-
-            switch (edge) {
-                case TOP:
-                case RIGHT:
-                case BOTTOM:
-                case LEFT:
-                    final TextStylePropertyName<Length<?>> textStylePropertyName = edge.marginPropertyName();
-
-                    final Margin before = this.all.value()
-                        .orElse(EMPTY_MARGIN);
-
-                    after = before.setOrRemoveProperty(
-                        textStylePropertyName,
-                        before.getProperty(
-                            textStylePropertyName
-                        )
-                    );
-                    break;
-                case ALL:
-                    after = valueOrEmpty;
-                    break;
-                default:
-                    after = NeverError.unhandledEnum(
-                        edge,
-                        BoxEdge.values()
-                    );
-                    break;
-            }
-        } else {
-            after = null;
-        }
-
-        this.all.setValue(
-            Optional.ofNullable(after)
-        );
-        return this;
-    }
-
-    private final static Margin EMPTY_MARGIN = BoxEdge.ALL.margin(TextStyle.EMPTY);
-
-    @Override
-    public Runnable addValueWatcher(final ValueWatcher<Margin> watcher) {
-        return this.all.addValueWatcher(watcher);
-    }
-
-    @Override
-    public boolean isDisabled() {
-        return this.all.isDisabled();
-    }
-
-    @Override
-    public BigMarginComponent setDisabled(final boolean disabled) {
-        this.all.setDisabled(disabled);
-        return this;
-    }
-
-    @Override
-    public BigMarginComponent optional() {
-        this.all.optional();
-        return this;
-    }
-
-    @Override
-    public BigMarginComponent required() {
-        this.all.required();
-        return this;
-    }
-
-    @Override
-    public boolean isRequired() {
-        return this.all.isRequired();
-    }
-
-    @Override
-    public BigMarginComponent validate() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public BigMarginComponent hideMarginBottom() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public BigMarginComponent removeBorders() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public BigMarginComponent removePadding() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean isEditing() {
-        return this.all.isEditing();
+    public MarginOrPaddingKind marginOrPaddingKind() {
+        return MarginOrPaddingKind.MARGIN;
     }
 
     // FormElementComponentDelegator....................................................................................
@@ -286,31 +90,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
         return this.formElementComponent;
     }
 
-    @Override
-    public BigMarginComponent focus() {
-        this.all.focus();
-        return this;
-    }
-
-    @Override
-    public BigMarginComponent blur() {
-        this.all.blur();
-        return this;
-    }
-
     private final FormElementComponent<Margin, HTMLDivElement, ?> formElementComponent;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.formElementComponent.printTree(printer);
-        }
-        printer.outdent();
-    }
 
     // Object...........................................................................................................
 
