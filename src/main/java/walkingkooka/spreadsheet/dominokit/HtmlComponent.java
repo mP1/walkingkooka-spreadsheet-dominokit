@@ -23,6 +23,12 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.dominokit.domino.ui.IsElement;
 import walkingkooka.spreadsheet.dominokit.dom.Doms;
+import walkingkooka.text.HasText;
+import walkingkooka.tree.text.Border;
+import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.Margin;
+import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -103,10 +109,125 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
         Objects.requireNonNull(name, "name");
         name.checkValue(value);
 
-        return this.setCssProperty(
-            name.value(),
-            value.toString()
-        );
+        final String nameString = name.value();
+        switch (nameString) {
+            case "border":
+                final Border border = (Border) value;
+
+                for (final BoxEdge boxEdge : BoxEdge.topRightBottomLeft()) {
+                    final TextStylePropertyName<Border> propertyName = boxEdge.borderPropertyName();
+
+                    this.setOrRemoveStyleProperty(
+                        propertyName,
+                        border.getProperty(propertyName)
+                    );
+                }
+                break;
+            case "border-top":
+                final Border borderTop = (Border) value;
+
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_TOP_COLOR,
+                    borderTop.getProperty(TextStylePropertyName.BORDER_TOP_COLOR)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_TOP_STYLE,
+                    borderTop.getProperty(TextStylePropertyName.BORDER_TOP_STYLE)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_TOP_WIDTH,
+                    borderTop.getProperty(TextStylePropertyName.BORDER_TOP_WIDTH)
+                );
+                break;
+            case "border-right":
+                final Border borderRight = (Border) value;
+
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_RIGHT_COLOR,
+                    borderRight.getProperty(TextStylePropertyName.BORDER_RIGHT_COLOR)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_RIGHT_STYLE,
+                    borderRight.getProperty(TextStylePropertyName.BORDER_RIGHT_STYLE)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_RIGHT_WIDTH,
+                    borderRight.getProperty(TextStylePropertyName.BORDER_RIGHT_WIDTH)
+                );
+                break;
+            case "border-bottom":
+                final Border borderBottom = (Border) value;
+
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_BOTTOM_COLOR,
+                    borderBottom.getProperty(TextStylePropertyName.BORDER_BOTTOM_COLOR)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_BOTTOM_STYLE,
+                    borderBottom.getProperty(TextStylePropertyName.BORDER_BOTTOM_STYLE)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_BOTTOM_WIDTH,
+                    borderBottom.getProperty(TextStylePropertyName.BORDER_BOTTOM_WIDTH)
+                );
+                break;
+            case "border-left":
+                final Border borderLeft = (Border) value;
+
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_LEFT_COLOR,
+                    borderLeft.getProperty(TextStylePropertyName.BORDER_LEFT_COLOR)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_LEFT_STYLE,
+                    borderLeft.getProperty(TextStylePropertyName.BORDER_LEFT_STYLE)
+                );
+                this.setOrRemoveStyleProperty(
+                    TextStylePropertyName.BORDER_LEFT_WIDTH,
+                    borderLeft.getProperty(TextStylePropertyName.BORDER_LEFT_WIDTH)
+                );
+                break;
+            case "margin":
+                final Margin margin = (Margin) value;
+
+                for (final BoxEdge boxEdge : BoxEdge.topRightBottomLeft()) {
+                    final TextStylePropertyName<Length<?>> propertyName = boxEdge.marginPropertyName();
+
+                    this.setOrRemoveStyleProperty(
+                        propertyName,
+                        margin.getProperty(propertyName)
+                    );
+                }
+                break;
+            case "padding":
+                final Padding padding = (Padding) value;
+
+                for (final BoxEdge boxEdge : BoxEdge.topRightBottomLeft()) {
+                    final TextStylePropertyName<Length<?>> propertyName = boxEdge.paddingPropertyName();
+
+                    this.setOrRemoveStyleProperty(
+                        propertyName,
+                        padding.getProperty(propertyName)
+                    );
+                }
+                break;
+            default:
+                if (value instanceof HasText) {
+                    this.setCssProperty(
+                        nameString,
+                        ((HasText) value)
+                            .text()
+                    );
+                } else {
+                    this.setCssProperty(
+                        nameString,
+                        value.toString()
+                    );
+                }
+                break;
+        }
+
+        return (C) this;
     }
 
     default <T> C setOrRemoveStyleProperty(final TextStylePropertyName<T> name,

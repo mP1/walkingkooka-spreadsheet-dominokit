@@ -20,18 +20,111 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.Length;
+import walkingkooka.tree.text.Margin;
+import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?>> {
 
     // setStyleProperty.................................................................................................
+
+    @Test
+    public void testSetStylePropertyWithBorderDifferentValues() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER,
+            Border.parse(
+                "top-color: BLACK; top-style: SOLID; top-width: 1px;" +
+                    "right-color: WHITE; right-style: DOTTED; right-width: 2px;" +
+                    "bottom-color: RED; bottom-style: DASHED; bottom-width: 3px;" +
+                    "left-color: BLUE; left-style: DOUBLE; left-width: 4px;"
+                ),
+            "border-top-color: black; border-top-style: SOLID; border-top-width: 1px; " +
+                "border-right-color: white; border-right-style: DOTTED; border-right-width: 2px; " +
+                "border-bottom-color: red; border-bottom-style: DASHED; border-bottom-width: 3px; " +
+                "border-left-color: blue; border-left-style: DOUBLE; border-left-width: 4px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderEmpty() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER,
+            Border.parse(
+                ""
+            ),
+            ""
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderSame() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER,
+            Border.parse(
+                "BLACK SOLID 1px"
+            ),
+            "border-top-color: black; border-top-style: SOLID; border-top-width: 1px; " +
+                "border-right-color: black; border-right-style: SOLID; border-right-width: 1px; " +
+                "border-bottom-color: black; border-bottom-style: SOLID; border-bottom-width: 1px; " +
+                "border-left-color: black; border-left-style: SOLID; border-left-width: 1px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderBottom() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER_BOTTOM,
+            Border.parse(
+                "BLACK SOLID 1px"
+            ),
+            "border-bottom-color: black; border-bottom-style: SOLID; border-bottom-width: 1px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderLeft() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER_LEFT,
+            Border.parse(
+                "BLACK SOLID 1px"
+            ),
+            "border-left-color: black; border-left-style: SOLID; border-left-width: 1px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderRight() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER_RIGHT,
+            Border.parse(
+                "BLACK SOLID 1px"
+            ),
+            "border-right-color: black; border-right-style: SOLID; border-right-width: 1px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithBorderTop() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.BORDER_TOP,
+            Border.parse(
+                "BLACK SOLID 1px"
+            ),
+            "border-top-color: black; border-top-style: SOLID; border-top-width: 1px"
+        );
+    }
 
     @Test
     public void testSetStylePropertyWithColor() {
@@ -69,6 +162,28 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
         );
     }
 
+    @Test
+    public void testSetStylePropertyWithMargin() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.MARGIN,
+            Margin.parse(
+                "1px 2px 3px 4px"
+            ),
+            "margin-top: 1px; margin-right: 2px; margin-bottom: 3px; margin-left: 4px"
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyWithPadding() {
+        this.setStylePropertyAndCheck(
+            TextStylePropertyName.PADDING,
+            Padding.parse(
+                "1px 2px 3px 4px"
+            ),
+            "padding-top: 1px; padding-right: 2px; padding-bottom: 3px; padding-left: 4px"
+        );
+    }
+
     private <T> void setStylePropertyAndCheck(final TextStylePropertyName<T> name,
                                               final T value,
                                               final String expected) {
@@ -80,7 +195,7 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
 
         this.checkEquals(
             expected,
-            testHtmlComponent.css
+            testHtmlComponent.text()
         );
     }
     
@@ -160,7 +275,7 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
 
         this.checkEquals(
             expected,
-            testHtmlComponent.css
+            testHtmlComponent.text()
         );
     }
 
@@ -168,17 +283,27 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
         @Override
         public TestHtmlComponent setCssProperty(final String name,
                                                 final String value) {
-            this.css = name + ": " + value;
+            this.nameToValue.put(
+                name,
+                value
+            );
             return this;
         }
 
         @Override
         public TestHtmlComponent removeCssProperty(final String name) {
-            this.css = "";
+            this.nameToValue.remove(name);
             return this;
         }
 
-        String css;
+        String text() {
+            return this.nameToValue.entrySet()
+                .stream()
+                .map((Entry<String, String> nameAndValue) -> nameAndValue.getKey() + ": " + nameAndValue.getValue())
+                .collect(Collectors.joining("; "));
+        }
+
+        private final Map<String, String> nameToValue = Maps.ordered();
     }
 
     // class............................................................................................................
