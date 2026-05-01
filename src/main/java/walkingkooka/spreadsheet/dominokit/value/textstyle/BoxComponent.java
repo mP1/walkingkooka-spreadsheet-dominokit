@@ -31,7 +31,7 @@ public interface BoxComponent<V, C extends BoxComponent<V, C>> extends ValueComp
     HtmlComponentDelegator<HTMLDivElement, C>,
     TreePrintable {
 
-    String DEFAULT_BOX_COMPONENT_CSS_TEXT = "border-color: black; border-style: solid; border-width: 1px;";
+    String DEFAULT_BOX_COMPONENT_CSS_TEXT = "width: 20px; height: 20px; border-color: black; border-style: solid; border-width: 1px;";
 
     @Override
     default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
