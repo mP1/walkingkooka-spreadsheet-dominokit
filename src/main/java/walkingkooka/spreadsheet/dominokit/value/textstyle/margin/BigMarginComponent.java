@@ -29,6 +29,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
+import walkingkooka.tree.text.MarginOrPadding;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -83,24 +84,16 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
         this.all.addValueWatcherSkipIfErrors2(
             (Optional<Margin> value) -> {
                 this.top.setValue(
-                    value.flatMap(
-                        (Margin margin) -> margin.getProperty(TextStylePropertyName.MARGIN_TOP)
-                    )
+                    value.flatMap(MarginOrPadding::top)
                 );
                 this.right.setValue(
-                    value.flatMap(
-                        (Margin margin) -> margin.getProperty(TextStylePropertyName.MARGIN_RIGHT)
-                    )
+                    value.flatMap(MarginOrPadding::right)
                 );
                 this.bottom.setValue(
-                    value.flatMap(
-                        (Margin margin) -> margin.getProperty(TextStylePropertyName.MARGIN_BOTTOM)
-                    )
+                    value.flatMap(MarginOrPadding::bottom)
                 );
                 this.left.setValue(
-                    value.flatMap(
-                        (Margin margin) -> margin.getProperty(TextStylePropertyName.MARGIN_LEFT)
-                    )
+                    value.flatMap(MarginOrPadding::left)
                 );
             }
         );
