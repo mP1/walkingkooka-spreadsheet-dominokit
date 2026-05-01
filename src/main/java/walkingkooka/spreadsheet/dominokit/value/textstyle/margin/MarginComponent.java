@@ -24,6 +24,8 @@ import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Margin;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
  */
@@ -34,16 +36,26 @@ public final class MarginComponent implements TextStylePropertyValueTextBoxCompo
     }
 
     private MarginComponent(final String idPrefix) {
+        super();
+        this.box = MarginBoxComponent.empty();
+
         this.textBox = ValueTextBoxComponent.with(
             Margin::parse,
             (Margin margin) -> margin.setEdge(BoxEdge.ALL)
                 .text()
         );
+
+        this.textBox.setInnerRight(this.box)
+            .addValueWatcher(
+                (final Optional<Margin> margin) -> this.box.setValue(margin));
+
         this.setIdPrefix(
             idPrefix,
             SpreadsheetElementIds.TEXT_BOX
         );
     }
+
+    private final MarginBoxComponent box;
 
     // HasName..........................................................................................................
 

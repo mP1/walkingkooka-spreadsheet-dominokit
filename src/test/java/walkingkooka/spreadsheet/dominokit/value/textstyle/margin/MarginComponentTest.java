@@ -58,7 +58,9 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n"
         );
     }
 
@@ -71,7 +73,9 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n"
         );
     }
 
@@ -84,7 +88,9 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n"
         );
     }
 
@@ -98,7 +104,16 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+                "      [1px 2px -3px 4.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n" +
+                "            Margin\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  margin-bottom=-3px (walkingkooka.tree.text.PixelLength)\n" +
+                "                  margin-left=4.5px (walkingkooka.tree.text.PixelLength)\n" +
+                "                  margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
+                "                  margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -125,7 +140,13 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+                "      [left: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n" +
+                "            Margin\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  margin-left=12.5px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -152,7 +173,13 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
             "MarginComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n"
+                "      [right: 12.5px] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n" +
+                "            Margin\n" +
+                "              ALL\n" +
+                "                TextStyle\n" +
+                "                  margin-right=12.5px (walkingkooka.tree.text.PixelLength)\n"
         );
     }
 
@@ -169,6 +196,8 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid123!] icons=mdi-close-circle id=TestIdPrefix123-margin-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          MarginBoxComponent\n" +
                 "      Errors\n" +
                 "        Invalid character 'I' at 0\n"
         );
