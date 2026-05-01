@@ -24,7 +24,6 @@ import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.Margin;
 import walkingkooka.tree.text.MarginOrPadding;
 
 import java.util.Optional;
@@ -54,9 +53,7 @@ public interface MarginOrPaddingBoxComponent<V extends MarginOrPadding, C extend
         for (final BoxEdge boxEdge : BoxEdge.topRightBottomLeft()) {
             final Border border = null == valueOrNull ||
                 valueOrNull.getProperty(
-                    valueOrNull instanceof Margin ?
-                        boxEdge.marginPropertyName() :
-                        boxEdge.paddingPropertyName()
+                    boxEdge.marginOrPropertyName(valueOrNull)
                 ).isEmpty() ?
                 UNSELECTED :
                 SELECTED;
