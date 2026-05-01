@@ -54,7 +54,7 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
         this.treePrintAndCheck(
             component.component,
             "DIV\n" +
-                "  style=\"background-color: black; border-color: black; border-style: solid; border-width: 1px; display: ;\"\n"
+                "  style=\"background-color: black; border-color: black; border-style: solid; border-width: 1px; display: ; height: 20px; width: 20px;\"\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
         this.treePrintAndCheck(
             component.component,
             "DIV\n" +
-                "  style=\"border-color: black; border-style: solid; border-width: 1px; display: none;\"\n"
+                "  style=\"border-color: black; border-style: solid; border-width: 1px; display: none; height: 20px; width: 20px;\"\n"
         );
     }
 
