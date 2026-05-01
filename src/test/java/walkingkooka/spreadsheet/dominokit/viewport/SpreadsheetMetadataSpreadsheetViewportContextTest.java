@@ -73,23 +73,23 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
         this.treePrintAndCheck(
             cellStyle,
             "TextStyle\n" +
-                "  background-color=green (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
-                "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
-                "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
-                "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
-                "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  text-align=LEFT (walkingkooka.tree.text.TextAlign)\n" +
-                "  vertical-align=TOP (walkingkooka.tree.text.VerticalAlign)\n" +
-                "  word-break=NORMAL (walkingkooka.tree.text.WordBreak)\n"
+                "  background-color=green\n" +
+                "  font-size=11\n" +
+                "  font-style=NORMAL\n" +
+                "  font-variant=NORMAL\n" +
+                "  font-weight=NORMAL\n" +
+                "  hyphens=NONE\n" +
+                "  margin-bottom=none\n" +
+                "  margin-left=none\n" +
+                "  margin-right=none\n" +
+                "  margin-top=none\n" +
+                "  padding-bottom=none\n" +
+                "  padding-left=none\n" +
+                "  padding-right=none\n" +
+                "  padding-top=none\n" +
+                "  text-align=LEFT\n" +
+                "  vertical-align=TOP\n" +
+                "  word-break=NORMAL\n"
         );
     }
 
@@ -124,35 +124,35 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
         this.treePrintAndCheck(
             cellStyle,
             "TextStyle\n" +
-                "  background-color=green (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-bottom-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-left-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-left-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-left-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-right-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-right-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-right-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-top-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-top-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-top-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
-                "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
-                "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
-                "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
-                "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  text-align=LEFT (walkingkooka.tree.text.TextAlign)\n" +
-                "  vertical-align=TOP (walkingkooka.tree.text.VerticalAlign)\n" +
-                "  word-break=NORMAL (walkingkooka.tree.text.WordBreak)\n"
+                "  background-color=green\n" +
+                "  border-bottom-color=#888\n" +
+                "  border-bottom-style=SOLID\n" +
+                "  border-bottom-width=1px\n" +
+                "  border-left-color=#888\n" +
+                "  border-left-style=SOLID\n" +
+                "  border-left-width=1px\n" +
+                "  border-right-color=#888\n" +
+                "  border-right-style=SOLID\n" +
+                "  border-right-width=1px\n" +
+                "  border-top-color=#888\n" +
+                "  border-top-style=SOLID\n" +
+                "  border-top-width=1px\n" +
+                "  font-size=11\n" +
+                "  font-style=NORMAL\n" +
+                "  font-variant=NORMAL\n" +
+                "  font-weight=NORMAL\n" +
+                "  hyphens=NONE\n" +
+                "  margin-bottom=none\n" +
+                "  margin-left=none\n" +
+                "  margin-right=none\n" +
+                "  margin-top=none\n" +
+                "  padding-bottom=none\n" +
+                "  padding-left=none\n" +
+                "  padding-right=none\n" +
+                "  padding-top=none\n" +
+                "  text-align=LEFT\n" +
+                "  vertical-align=TOP\n" +
+                "  word-break=NORMAL\n"
         );
     }
 
@@ -269,24 +269,24 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 )
             ),
             "TextStyle\n" +
-                "  background-color=#2f8f2f (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  color=purple (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
-                "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
-                "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
-                "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
-                "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  text-align=LEFT (walkingkooka.tree.text.TextAlign)\n" +
-                "  vertical-align=TOP (walkingkooka.tree.text.VerticalAlign)\n" +
-                "  word-break=NORMAL (walkingkooka.tree.text.WordBreak)\n"
+                "  background-color=#2f8f2f\n" +
+                "  color=purple\n" +
+                "  font-size=11\n" +
+                "  font-style=NORMAL\n" +
+                "  font-variant=NORMAL\n" +
+                "  font-weight=NORMAL\n" +
+                "  hyphens=NONE\n" +
+                "  margin-bottom=none\n" +
+                "  margin-left=none\n" +
+                "  margin-right=none\n" +
+                "  margin-top=none\n" +
+                "  padding-bottom=none\n" +
+                "  padding-left=none\n" +
+                "  padding-right=none\n" +
+                "  padding-top=none\n" +
+                "  text-align=LEFT\n" +
+                "  vertical-align=TOP\n" +
+                "  word-break=NORMAL\n"
         );
     }
 
@@ -318,36 +318,36 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
                 )
             ),
             "TextStyle\n" +
-                "  background-color=#2f8f2f (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-bottom-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-bottom-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-left-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-left-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-left-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-right-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-right-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-right-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  border-top-color=#888 (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  border-top-style=SOLID (walkingkooka.tree.text.BorderStyle)\n" +
-                "  border-top-width=1px (walkingkooka.tree.text.PixelLength)\n" +
-                "  color=purple (walkingkooka.color.OpaqueRgbColor)\n" +
-                "  font-size=11 (walkingkooka.tree.text.FontSize)\n" +
-                "  font-style=NORMAL (walkingkooka.tree.text.FontStyle)\n" +
-                "  font-variant=NORMAL (walkingkooka.tree.text.FontVariant)\n" +
-                "  font-weight=NORMAL (walkingkooka.tree.text.FontWeight)\n" +
-                "  hyphens=NONE (walkingkooka.tree.text.Hyphens)\n" +
-                "  margin-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  margin-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-bottom=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-left=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-right=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  padding-top=none (walkingkooka.tree.text.NoneLength)\n" +
-                "  text-align=LEFT (walkingkooka.tree.text.TextAlign)\n" +
-                "  vertical-align=TOP (walkingkooka.tree.text.VerticalAlign)\n" +
-                "  word-break=NORMAL (walkingkooka.tree.text.WordBreak)\n"
+                "  background-color=#2f8f2f\n" +
+                "  border-bottom-color=#888\n" +
+                "  border-bottom-style=SOLID\n" +
+                "  border-bottom-width=1px\n" +
+                "  border-left-color=#888\n" +
+                "  border-left-style=SOLID\n" +
+                "  border-left-width=1px\n" +
+                "  border-right-color=#888\n" +
+                "  border-right-style=SOLID\n" +
+                "  border-right-width=1px\n" +
+                "  border-top-color=#888\n" +
+                "  border-top-style=SOLID\n" +
+                "  border-top-width=1px\n" +
+                "  color=purple\n" +
+                "  font-size=11\n" +
+                "  font-style=NORMAL\n" +
+                "  font-variant=NORMAL\n" +
+                "  font-weight=NORMAL\n" +
+                "  hyphens=NONE\n" +
+                "  margin-bottom=none\n" +
+                "  margin-left=none\n" +
+                "  margin-right=none\n" +
+                "  margin-top=none\n" +
+                "  padding-bottom=none\n" +
+                "  padding-left=none\n" +
+                "  padding-right=none\n" +
+                "  padding-top=none\n" +
+                "  text-align=LEFT\n" +
+                "  vertical-align=TOP\n" +
+                "  word-break=NORMAL\n"
         );
     }
 

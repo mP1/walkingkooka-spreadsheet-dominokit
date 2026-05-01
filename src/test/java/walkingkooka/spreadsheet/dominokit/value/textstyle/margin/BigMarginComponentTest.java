@@ -151,10 +151,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
     }
 
@@ -206,10 +206,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
     }
 
@@ -261,10 +261,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
     }
 
@@ -316,10 +316,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
     }
 
@@ -371,10 +371,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
     }
 
@@ -491,10 +491,10 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
                 "                    Margin\n" +
                 "                      ALL\n" +
                 "                        TextStyle\n" +
-                "                          margin-bottom=3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-left=4px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                          margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                          margin-bottom=3px\n" +
+                "                          margin-left=4px\n" +
+                "                          margin-right=2px\n" +
+                "                          margin-top=1px\n"
         );
 
         return component;
