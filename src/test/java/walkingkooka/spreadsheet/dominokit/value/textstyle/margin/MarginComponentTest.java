@@ -110,10 +110,10 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
                 "            Margin\n" +
                 "              ALL\n" +
                 "                TextStyle\n" +
-                "                  margin-bottom=-3px (walkingkooka.tree.text.PixelLength)\n" +
-                "                  margin-left=4.5px (walkingkooka.tree.text.PixelLength)\n" +
-                "                  margin-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "                  margin-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "                  margin-bottom=-3px\n" +
+                "                  margin-left=4.5px\n" +
+                "                  margin-right=2px\n" +
+                "                  margin-top=1px\n"
         );
     }
 
@@ -146,7 +146,7 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
                 "            Margin\n" +
                 "              ALL\n" +
                 "                TextStyle\n" +
-                "                  margin-left=12.5px (walkingkooka.tree.text.PixelLength)\n"
+                "                  margin-left=12.5px\n"
         );
     }
 
@@ -179,7 +179,7 @@ public final class MarginComponentTest implements TextStylePropertyValueTextBoxC
                 "            Margin\n" +
                 "              ALL\n" +
                 "                TextStyle\n" +
-                "                  margin-right=12.5px (walkingkooka.tree.text.PixelLength)\n"
+                "                  margin-right=12.5px\n"
         );
     }
 

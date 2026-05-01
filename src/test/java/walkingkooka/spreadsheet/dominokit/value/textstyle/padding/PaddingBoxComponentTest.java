@@ -50,10 +50,10 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    ALL\n" +
                 "      TextStyle\n" +
-                "        padding-bottom=-3px (walkingkooka.tree.text.PixelLength)\n" +
-                "        padding-left=4.5px (walkingkooka.tree.text.PixelLength)\n" +
-                "        padding-right=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "        padding-top=1px (walkingkooka.tree.text.PixelLength)\n"
+                "        padding-bottom=-3px\n" +
+                "        padding-left=4.5px\n" +
+                "        padding-right=2px\n" +
+                "        padding-top=1px\n"
         );
     }
 
@@ -70,7 +70,7 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    TOP\n" +
                 "      TextStyle\n" +
-                "        padding-top=1px (walkingkooka.tree.text.PixelLength)\n",
+                "        padding-top=1px\n",
             "DIV\n" +
                 "  style=\"background-color: #dddddd; border-bottom-color: #444444; border-bottom-style: DOTTED; border-bottom-width: 3px; border-color: black; border-left-color: #444444; border-left-style: DOTTED; border-left-width: 3px; border-right-color: #444444; border-right-style: DOTTED; border-right-width: 3px; border-style: solid; border-top-color: black; border-top-style: SOLID; border-top-width: 3px; border-width: 1px; height: 20px; width: 20px;\"\n"
         );
@@ -89,7 +89,7 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    RIGHT\n" +
                 "      TextStyle\n" +
-                "        padding-right=2px (walkingkooka.tree.text.PixelLength)\n",
+                "        padding-right=2px\n",
             "DIV\n" +
                 "  style=\"background-color: #dddddd; border-bottom-color: #444444; border-bottom-style: DOTTED; border-bottom-width: 3px; border-color: black; border-left-color: #444444; border-left-style: DOTTED; border-left-width: 3px; border-right-color: black; border-right-style: SOLID; border-right-width: 3px; border-style: solid; border-top-color: #444444; border-top-style: DOTTED; border-top-width: 3px; border-width: 1px; height: 20px; width: 20px;\"\n"
         );
@@ -108,7 +108,7 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    BOTTOM\n" +
                 "      TextStyle\n" +
-                "        padding-bottom=-3px (walkingkooka.tree.text.PixelLength)\n",
+                "        padding-bottom=-3px\n",
             "DIV\n" +
                 "  style=\"background-color: #dddddd; border-bottom-color: black; border-bottom-style: SOLID; border-bottom-width: 3px; border-color: black; border-left-color: #444444; border-left-style: DOTTED; border-left-width: 3px; border-right-color: #444444; border-right-style: DOTTED; border-right-width: 3px; border-style: solid; border-top-color: #444444; border-top-style: DOTTED; border-top-width: 3px; border-width: 1px; height: 20px; width: 20px;\"\n"
         );
@@ -127,7 +127,7 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    LEFT\n" +
                 "      TextStyle\n" +
-                "        padding-left=4.5px (walkingkooka.tree.text.PixelLength)\n",
+                "        padding-left=4.5px\n",
             "DIV\n" +
                 "  style=\"background-color: #dddddd; border-bottom-color: #444444; border-bottom-style: DOTTED; border-bottom-width: 3px; border-color: black; border-left-color: black; border-left-style: SOLID; border-left-width: 3px; border-right-color: #444444; border-right-style: DOTTED; border-right-width: 3px; border-style: solid; border-top-color: #444444; border-top-style: DOTTED; border-top-width: 3px; border-width: 1px; height: 20px; width: 20px;\"\n"
         );
@@ -146,8 +146,8 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
                 "  Padding\n" +
                 "    ALL\n" +
                 "      TextStyle\n" +
-                "        padding-left=2px (walkingkooka.tree.text.PixelLength)\n" +
-                "        padding-right=1px (walkingkooka.tree.text.PixelLength)\n",
+                "        padding-left=2px\n" +
+                "        padding-right=1px\n",
             "DIV\n" +
                 "  style=\"background-color: #dddddd; border-bottom-color: #444444; border-bottom-style: DOTTED; border-bottom-width: 3px; border-color: black; border-left-color: black; border-left-style: SOLID; border-left-width: 3px; border-right-color: black; border-right-style: SOLID; border-right-width: 3px; border-style: solid; border-top-color: #444444; border-top-style: DOTTED; border-top-width: 3px; border-width: 1px; height: 20px; width: 20px;\"\n"
         );
