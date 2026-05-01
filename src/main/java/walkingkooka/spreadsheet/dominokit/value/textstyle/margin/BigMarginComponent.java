@@ -178,37 +178,41 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     public BigMarginComponent setValue(final Optional<Margin> value) {
         Objects.requireNonNull(value, "value");
 
-        final Margin before = this.all.value()
-            .orElse(EMPTY_MARGIN);
-
-        final Margin valueOrEmpty = value.orElse(EMPTY_MARGIN);
-
-        final BoxEdge edge = valueOrEmpty.edge();
-
         final Margin after;
 
-        switch (edge) {
-            case TOP:
-            case RIGHT:
-            case BOTTOM:
-            case LEFT:
-                final TextStylePropertyName<Length<?>> textStylePropertyName = edge.marginPropertyName();
-                after = before.setOrRemoveProperty(
-                    textStylePropertyName,
-                    valueOrEmpty.getProperty(
-                        textStylePropertyName
-                    )
-                );
-                break;
-            case ALL:
-                after = valueOrEmpty;
-                break;
-            default:
-                after = NeverError.unhandledEnum(
-                    edge,
-                    BoxEdge.values()
-                );
-                break;
+        final Margin valueOrEmpty = value.orElse(null);
+        if (null != valueOrEmpty) {
+            final BoxEdge edge = valueOrEmpty.edge();
+
+            switch (edge) {
+                case TOP:
+                case RIGHT:
+                case BOTTOM:
+                case LEFT:
+                    final TextStylePropertyName<Length<?>> textStylePropertyName = edge.marginPropertyName();
+
+                    final Margin before = this.all.value()
+                        .orElse(EMPTY_MARGIN);
+
+                    after = before.setOrRemoveProperty(
+                        textStylePropertyName,
+                        before.getProperty(
+                            textStylePropertyName
+                        )
+                    );
+                    break;
+                case ALL:
+                    after = valueOrEmpty;
+                    break;
+                default:
+                    after = NeverError.unhandledEnum(
+                        edge,
+                        BoxEdge.values()
+                    );
+                    break;
+            }
+        } else {
+            after = null;
         }
 
         this.all.setValue(
