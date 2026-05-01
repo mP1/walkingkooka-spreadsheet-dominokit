@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.dom.Doms;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A {@link Component} that adds a few helpers relating to {@link HTMLElement} and {@link Node}.
@@ -106,6 +107,22 @@ public interface HtmlComponent<E extends HTMLElement, C extends HtmlComponent<E,
             name.value(),
             value.toString()
         );
+    }
+
+    default <T> C setOrRemoveStyleProperty(final TextStylePropertyName<T> name,
+                                           final Optional<T> value) {
+        Objects.requireNonNull(name, "name");
+        Objects.requireNonNull(value, "value");
+
+        final T valueOrNull = value.orElse(null);
+        return null == valueOrNull ?
+            this.removeStyleProperty(
+                name
+            ) :
+            this.setStyleProperty(
+                name,
+                valueOrNull
+            );
     }
 
     /**
