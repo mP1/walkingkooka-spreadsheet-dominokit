@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.NeverError;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
@@ -184,7 +185,7 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
 
         final BoxEdge edge = valueOrEmpty.edge();
 
-        Margin after = before;
+        final Margin after;
 
         switch (edge) {
             case TOP:
@@ -201,6 +202,12 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
                 break;
             case ALL:
                 after = valueOrEmpty;
+                break;
+            default:
+                after = NeverError.unhandledEnum(
+                    edge,
+                    BoxEdge.values()
+                );
                 break;
         }
 
