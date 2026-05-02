@@ -121,22 +121,20 @@ public final class BigMarginComponent implements TextStylePropertyComponent<HTML
     /**
      * Accepts a new {@link Length} ignoring it when errors are present patches the current {@link Margin} and updates the {@link MarginComponent}
      */
-    private ValueWatcher<Length<?>> lengthToMarginValueWatcher(final TextStylePropertyLengthComponentLike<?> length) {
+    private ValueWatcher<Length<?>> lengthToMarginValueWatcher(final TextStylePropertyLengthComponentLike<?> component) {
         return new ValueWatcher<>() {
             @Override
-            public void onValue(final Optional<Length<?>> value) {
-                // only copy value if no errors
-                final TextStylePropertyName<Length<?>> propertyName = length.name();
+            public void onValue(final Optional<Length<?>> length) {
 
                 final Margin margin = BigMarginComponent.this.value()
                     .orElse(EMPTY_MARGIN)
                     .setOrRemoveProperty(
-                        propertyName,
-                        value
+                        component.name(),
+                        length
                     );
 
                 BigMarginComponent.this.setValue(
-                    Optional.ofNullable(margin)
+                    Optional.of(margin)
                 );
             }
         };
