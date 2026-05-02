@@ -561,15 +561,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-Style-textCase-normal-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
                 "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lower-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-upper-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
                 "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
                 "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
@@ -2152,15 +2152,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/] id=test-Style-textCase-normal-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
                 "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lower-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/UPPERCASE] id=test-Style-textCase-upper-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
                 "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
                 "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
@@ -3838,15 +3838,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/] id=test-Style-textCase-normal-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
                 "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lower-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/UPPERCASE] id=test-Style-textCase-upper-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
                 "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/Label123/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
                 "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/Label123/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
@@ -5429,15 +5429,15 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/BOLD] id=test-Style-bold-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-Style-italics-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-strikeThru-MenuItem\n" +
+                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
                 "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"Normal\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-Style-textCase-normal-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
                 "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lower-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-Style-textCase-upper-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
                 "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
                 "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
