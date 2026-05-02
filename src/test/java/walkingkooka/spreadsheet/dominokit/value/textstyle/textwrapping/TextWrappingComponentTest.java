@@ -53,9 +53,9 @@ public final class TextWrappingComponentTest implements TextStylePropertyCompone
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
+                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
                 "          \"Overflow\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] id=Test123-textWrapping-OVERFLOW-Link\n" +
-                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=Test123-textWrapping-WRAP-Link\n" +
-                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n"
+                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=Test123-textWrapping-WRAP-Link\n"
         );
     }
 
@@ -84,9 +84,9 @@ public final class TextWrappingComponentTest implements TextStylePropertyCompone
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
                 "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
+                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
                 "          \"Overflow\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] CHECKED id=Test123-textWrapping-OVERFLOW-Link\n" +
-                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=Test123-textWrapping-WRAP-Link\n" +
-                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n"
+                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=Test123-textWrapping-WRAP-Link\n"
         );
     }
 

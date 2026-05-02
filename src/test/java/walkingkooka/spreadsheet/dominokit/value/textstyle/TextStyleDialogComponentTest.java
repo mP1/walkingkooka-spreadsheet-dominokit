@@ -850,9 +850,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FlexLayoutComponent\n" +
                 "                          ROW\n" +
                 "                            \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                            \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
                 "                            \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
-                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                VerticalAlignComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Vertical Align\n" +
@@ -1692,9 +1692,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FlexLayoutComponent\n" +
                 "                          ROW\n" +
                 "                            \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                            \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
                 "                            \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
-                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                VerticalAlignComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Vertical Align\n" +
@@ -2518,9 +2518,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FlexLayoutComponent\n" +
                 "                          ROW\n" +
                 "                            \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                            \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
                 "                            \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
-                "                            \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                VerticalAlignComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Vertical Align\n" +
@@ -3339,9 +3339,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FlexLayoutComponent\n" +
                 "                          ROW\n" +
                 "                            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                            \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                            \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
                 "                            \"Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
-                "                            \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                VerticalAlignComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Vertical Align\n" +
@@ -4173,9 +4173,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FlexLayoutComponent\n" +
                 "                          ROW\n" +
                 "                            \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                            \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                            \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
                 "                            \"Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
-                "                            \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
                 "                VerticalAlignComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Vertical Align\n" +

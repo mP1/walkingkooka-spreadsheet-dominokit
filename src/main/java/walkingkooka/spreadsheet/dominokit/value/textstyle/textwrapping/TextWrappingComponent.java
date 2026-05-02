@@ -41,9 +41,9 @@ public final class TextWrappingComponent implements TextStylePropertyEnumHistory
             TextStylePropertyName.TEXT_WRAPPING,
             Lists.of(
                 null,
+                TextWrapping.CLIP,
                 TextWrapping.OVERFLOW,
-                TextWrapping.WRAP,
-                TextWrapping.CLIP
+                TextWrapping.WRAP
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
