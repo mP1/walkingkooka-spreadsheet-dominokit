@@ -46,11 +46,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Empty \"text\"\n"
         );
@@ -68,11 +68,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox\n"
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox\n"
         );
     }
 
@@ -88,11 +88,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Empty \"text\"\n"
         );
@@ -114,11 +114,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] CHECKED id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] CHECKED id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [clip] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [clip] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
         );
     }
 
@@ -138,11 +138,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [ellipsis] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [ellipsis] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
         );
     }
 
@@ -162,11 +162,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [Hello] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [Hello] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [\"Hello\"] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [\"Hello\"] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
         );
     }
 
@@ -188,11 +188,11 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TestIdPrefix123-clip-Link\n" +
                 "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextBoxComponent\n" +
-                "          [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Invalid text\n"
         );
