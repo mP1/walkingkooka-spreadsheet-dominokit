@@ -34,13 +34,12 @@ import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.Length;
-import walkingkooka.tree.text.Overflow;
-import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
+import walkingkooka.tree.text.TextWrapping;
 import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Collection;
@@ -479,8 +478,8 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             Optional.of(
                 SpreadsheetIcons.textWrappingClip()
             ), // icons
-            TextStylePropertyName.OVERFLOW_WRAP,
-            OverflowWrap.NORMAL,
+            TextStylePropertyName.TEXT_WRAPPING,
+            TextWrapping.CLIP,
             context
         ).checkedItem(
             idPrefix + "-overflow" + SpreadsheetElementIds.MENU_ITEM,
@@ -488,8 +487,8 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             Optional.of(
                 SpreadsheetIcons.textWrappingOverflow()
             ), // icons
-            TextStylePropertyName.OVERFLOW_X,
-            Overflow.VISIBLE,
+            TextStylePropertyName.TEXT_WRAPPING,
+            TextWrapping.OVERFLOW,
             context
         ).checkedItem(
             idPrefix + "-wrap" + SpreadsheetElementIds.MENU_ITEM, // id
@@ -497,8 +496,8 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             Optional.of(
                 SpreadsheetIcons.textWrappingWrap()
             ), // icons
-            TextStylePropertyName.OVERFLOW_X,
-            Overflow.HIDDEN,
+            TextStylePropertyName.TEXT_WRAPPING,
+            TextWrapping.WRAP,
             context
         );
     }
