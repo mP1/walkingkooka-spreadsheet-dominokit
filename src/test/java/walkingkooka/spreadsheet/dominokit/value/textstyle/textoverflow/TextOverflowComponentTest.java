@@ -99,7 +99,7 @@ public final class TextOverflowComponentTest implements TextStylePropertyValueTe
             "TextOverflowComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [clip] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "      [CLIP] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
         );
     }
 
@@ -113,7 +113,7 @@ public final class TextOverflowComponentTest implements TextStylePropertyValueTe
             "TextOverflowComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [ellipsis] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "      [ELLIPSIS] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
         );
     }
 

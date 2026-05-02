@@ -838,8 +838,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Text Overflow\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TextStyle-clip-Link\n" +
-                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TextStyle-ellipsis-Link\n" +
+                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
+                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
                 "                        TextBoxComponent\n" +
                 "                          Text [Hello World] id=TextStyle-text-TextBox\n" +
                 "                        TextOverflowComponent\n" +
@@ -1694,8 +1694,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Text Overflow\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TextStyle-clip-Link\n" +
-                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TextStyle-ellipsis-Link\n" +
+                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
+                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
                 "                        TextBoxComponent\n" +
                 "                          Text [Hello World] id=TextStyle-text-TextBox\n" +
                 "                        TextOverflowComponent\n" +
@@ -2534,8 +2534,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Text Overflow\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/clip] id=TextStyle-clip-Link\n" +
-                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ellipsis] id=TextStyle-ellipsis-Link\n" +
+                "                        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
+                "                        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
                 "                        TextBoxComponent\n" +
                 "                          Text [Hello World] id=TextStyle-text-TextBox\n" +
                 "                        TextOverflowComponent\n" +
@@ -3369,8 +3369,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Text Overflow\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/clip] id=TextStyle-clip-Link\n" +
-                "                        \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ellipsis] id=TextStyle-ellipsis-Link\n" +
+                "                        \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
+                "                        \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
                 "                        TextBoxComponent\n" +
                 "                          Text [Hello World] id=TextStyle-text-TextBox\n" +
                 "                        TextOverflowComponent\n" +
@@ -4217,8 +4217,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Text Overflow\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/clip] id=TextStyle-clip-Link\n" +
-                "                        \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ellipsis] id=TextStyle-ellipsis-Link\n" +
+                "                        \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
+                "                        \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
                 "                        TextBoxComponent\n" +
                 "                          Text [Hello World] id=TextStyle-text-TextBox\n" +
                 "                        TextOverflowComponent\n" +
