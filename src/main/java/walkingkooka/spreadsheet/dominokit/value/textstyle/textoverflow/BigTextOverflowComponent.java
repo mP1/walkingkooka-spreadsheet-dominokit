@@ -60,14 +60,19 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
 
         this.clip = HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "clip" + SpreadsheetElementIds.LINK)
-            .setTextContent("Clip");
+            .setTextContent("Clip")
+            .setCssProperty("margin", "")
+            .setCssProperty("width", width);
 
         this.ellipsis = HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "ellipsis" + SpreadsheetElementIds.LINK)
-            .setTextContent("Ellipsis");
+            .setTextContent("Ellipsis")
+            .setCssProperty("margin", "")
+            .setCssProperty("width", width);
 
         this.text = TextBoxComponent.empty()
             .setId(idPrefix + "text" + SpreadsheetElementIds.TEXT_BOX)
+            .setCssProperty("width", width)
             .optional()
             .addValueWatcher2(
                 (final Optional<String> value) -> this.setValue(
@@ -77,13 +82,14 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
                 )
             );
 
-        this.textOverflow = TextOverflowComponent.with(idPrefix);
+        this.textOverflow = TextOverflowComponent.with(idPrefix)
+            .setLabel("Value");
 
         this.formElementComponent = FormElementComponent.with(
             FlexLayoutComponent.row()
-                .appendChild(this.clip.setCssProperty("width", width))
-                .appendChild(this.ellipsis.setCssProperty("width", width))
-                .appendChild(this.text.setCssProperty("width", width))
+                .appendChild(this.clip)
+                .appendChild(this.ellipsis)
+                .appendChild(this.text)
                 .appendChild(this.textOverflow)
                 .setCssProperty("justify-content", "space-between")
         );
@@ -178,7 +184,7 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
             ).flatMap(
                 (TextOverflow textOverflow) -> textOverflow.value()
             )
-        );
+        ).setLabel("Text");
 
         return this;
     }
