@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textoverflow;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyHistoryTokenAnchorComponentContext;
 
-public interface BigTextOverflowComponentContext extends HistoryContext {
+public interface BigTextOverflowComponentContext extends TextStylePropertyHistoryTokenAnchorComponentContext {
 }
