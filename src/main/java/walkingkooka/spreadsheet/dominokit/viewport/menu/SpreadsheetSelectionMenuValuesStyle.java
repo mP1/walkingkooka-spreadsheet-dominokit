@@ -150,7 +150,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
     //       2
 
     private void border() {
-        final String idPrefix = this.idPrefix + "border";
+        final String idPrefix = this.idPrefix + TextStylePropertyName.BORDER;
 
         final SpreadsheetContextMenu border = this.menu.subMenu(
             idPrefix + SpreadsheetElementIds.SUB_MENU,
