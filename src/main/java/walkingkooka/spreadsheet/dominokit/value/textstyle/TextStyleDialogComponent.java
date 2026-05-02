@@ -67,6 +67,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDec
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationThicknessComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textindent.TextIndentComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify.TextJustifyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.textoverflow.BigTextOverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform.TextTransformComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textwrapping.TextWrappingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.verticalalign.VerticalAlignComponent;
@@ -155,6 +156,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.textDecorationThicknessComponent(),
             this.textIndentComponent(),
             this.textJustifyComponent(),
+            this.textOverflowComponent(),
             this.textTransformComponent(),
             this.textWrappingComponent(),
             this.verticalAlignComponent(),
@@ -531,6 +533,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             ID_PREFIX,
             this.context
         );
+    }
+
+    // TextOverflowComponent.............................................................................................
+
+    private BigTextOverflowComponent textOverflowComponent() {
+        return BigTextOverflowComponent.with(
+            ID_PREFIX,
+            this.context
+        ).optional();
     }
 
     // TextTransformComponent...........................................................................................
