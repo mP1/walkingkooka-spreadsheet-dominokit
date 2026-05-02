@@ -60,6 +60,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.margin.BigMarginCompon
 import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.padding.BigPaddingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
@@ -147,6 +148,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.overflowXComponent(),
             this.overflowYComponent(),
             this.overflowWrapComponent(),
+            this.paddingComponent(),
             this.textAlignComponent(),
             this.textDecorationLineComponent(),
             this.textDecorationStyleComponent(),
@@ -471,6 +473,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
     }
 
+    // BigPaddingComponent..............................................................................................
+
+    private BigPaddingComponent paddingComponent() {
+        return BigPaddingComponent.with(ID_PREFIX)
+            .optional();
+    }
+    
     // TextAlignComponent...............................................................................................
 
     private TextAlignComponent textAlignComponent() {
