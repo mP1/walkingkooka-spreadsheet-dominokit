@@ -216,11 +216,13 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 ID + SpreadsheetElementIds.DIALOG,
                 DialogComponent.INCLUDE_CLOSE,
                 context
-            ).appendChild(this.selection)
-            .appendChild(this.sample)
-            .appendChild(
+            ).appendChild(
                 ThreeColumnComponent.empty()
-                    .appendChildren(this.components)
+                    .appendChild(
+                        this.selection
+                    ).appendChild(
+                        this.sample
+                    ).appendChildren(this.components)
             ).appendChild(this.textStyle)
             .appendChild(this.links);
     }
