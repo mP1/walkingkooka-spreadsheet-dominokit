@@ -88,7 +88,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             idPrefix + SpreadsheetElementIds.SUB_MENU,
             "Alignment"
         ).checkedItem(
-            idPrefix + "-left" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextAlign.LEFT), // id
             "Left", // text
             Optional.of(
                 SpreadsheetIcons.alignLeft()
@@ -97,7 +97,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextAlign.LEFT,
             context
         ).checkedItem(
-            idPrefix + "-center" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextAlign.CENTER), // id
             "Center", // text
             Optional.of(
                 SpreadsheetIcons.alignCenter()
@@ -106,7 +106,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextAlign.CENTER,
             context
         ).checkedItem(
-            idPrefix + "-right" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextAlign.RIGHT), // id
             "Right", // text
             Optional.of(
                 SpreadsheetIcons.alignRight()
@@ -115,7 +115,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextAlign.RIGHT,
             context
         ).checkedItem(
-            idPrefix + "-justify" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextAlign.JUSTIFY), // id
             "Justify", // text
             Optional.of(
                 SpreadsheetIcons.alignJustify()
@@ -229,15 +229,10 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         final SpreadsheetSelectionMenuContext context = this.context;
 
         for (final BorderStyle borderStyle : BORDER_STYLE) {
-            final String name = borderStyle.name();
-
             styleSubMenu.checkedItem(
-                idPrefix + '-' +CaseKind.SNAKE.change(
-                    name,
-                    CaseKind.KEBAB
-                ) + SpreadsheetElementIds.MENU_ITEM, // id
+                menuItem(idPrefix, borderStyle), // id
                 CaseKind.SNAKE.change(
-                    name,
+                    borderStyle.name(),
                     CaseKind.TITLE
                 ), // text
                 Optional.empty(), // no icons
@@ -366,7 +361,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         final SpreadsheetSelectionMenuContext context = this.context;
 
         this.menu.checkedItem(
-            this.idPrefix + "italics" + SpreadsheetElementIds.MENU_ITEM,
+            menuItem(idPrefix, FontStyle.ITALIC), // id
             "Italics", // text
             Optional.of(
                 SpreadsheetIcons.italics()
@@ -381,7 +376,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         final SpreadsheetSelectionMenuContext context = this.context;
 
         this.menu.checkedItem(
-            this.idPrefix + "bold" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, FontWeight.BOLD), // id
             "Bold", // text
             Optional.of(
                 SpreadsheetIcons.bold()
@@ -403,15 +398,15 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             this.historyToken.setStyleProperty(
                 TextStylePropertyName.TEXT_TRANSFORM.clearValue()
             ).contextMenuItem(
-                idPrefix + "-normal" + SpreadsheetElementIds.MENU_ITEM,
-                "Normal"
+                menuItem(idPrefix, TextTransform.NONE), // id
+                "None"
             ).icon(
                 Optional.of(
                     SpreadsheetIcons.textCaseUpper()
                 )
             )
         ).checkedItem(
-            idPrefix + "-capitalize" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextTransform.CAPITALIZE), // id
             "Capitalize", // text
             Optional.of(
                 SpreadsheetIcons.textCaseCapitalize()
@@ -420,7 +415,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextTransform.CAPITALIZE,
             context
         ).checkedItem(
-            idPrefix + "-lower" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextTransform.LOWERCASE), // id
             "Lower case", // text
             Optional.of(
                 SpreadsheetIcons.textCaseLower()
@@ -429,7 +424,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextTransform.LOWERCASE,
             context
         ).checkedItem(
-            idPrefix + "-upper" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextTransform.UPPERCASE), // id
             "Upper case", // text
             Optional.of(
                 SpreadsheetIcons.textCaseUpper()
@@ -445,7 +440,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
         final String idPrefix = context.idPrefix();
 
         this.menu.checkedItem(
-            idPrefix + "strikeThru" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextDecorationLine.LINE_THROUGH), // id
             "Strike-thru", // text
             Optional.of(
                 SpreadsheetIcons.strikethrough()
@@ -454,7 +449,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextDecorationLine.LINE_THROUGH,
             context
         ).checkedItem(
-            idPrefix + "underline" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextDecorationLine.UNDERLINE), // id
             "Underline", // text
             Optional.of(
                 SpreadsheetIcons.underline()
@@ -473,7 +468,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             idPrefix + SpreadsheetElementIds.SUB_MENU,
             "Wrapping"
         ).checkedItem(
-            idPrefix + "-clip" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextWrapping.CLIP), // id
             "Clip", // text
             Optional.of(
                 SpreadsheetIcons.textWrappingClip()
@@ -482,7 +477,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextWrapping.CLIP,
             context
         ).checkedItem(
-            idPrefix + "-overflow" + SpreadsheetElementIds.MENU_ITEM,
+            menuItem(idPrefix, TextWrapping.OVERFLOW), // id
             "Overflow", // text
             Optional.of(
                 SpreadsheetIcons.textWrappingOverflow()
@@ -491,7 +486,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             TextWrapping.OVERFLOW,
             context
         ).checkedItem(
-            idPrefix + "-wrap" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix, TextWrapping.WRAP), // id
             "Wrap", // text
             Optional.of(
                 SpreadsheetIcons.textWrappingWrap()
@@ -510,7 +505,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             idPrefix + SpreadsheetElementIds.SUB_MENU,
             "Vertical Alignment"
         ).checkedItem(
-            idPrefix + "-top" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix,  VerticalAlign.TOP),
             "Top", // text
             Optional.of(
                 SpreadsheetIcons.verticalAlignTop()
@@ -519,7 +514,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             VerticalAlign.TOP,
             context
         ).checkedItem(
-            idPrefix + "-middle" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix,  VerticalAlign.MIDDLE),
             "Middle", // text
             Optional.of(
                 SpreadsheetIcons.verticalAlignMiddle()
@@ -528,7 +523,7 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
             VerticalAlign.MIDDLE,
             context
         ).checkedItem(
-            idPrefix + "-bottom" + SpreadsheetElementIds.MENU_ITEM, // id
+            menuItem(idPrefix,  VerticalAlign.BOTTOM),
             "Bottom", // text
             Optional.of(
                 SpreadsheetIcons.verticalAlignBottom()
@@ -568,5 +563,27 @@ final class SpreadsheetSelectionMenuValuesStyle extends SpreadsheetSelectionMenu
     @Override //
     Class<TextStyleProperty<?>> type() {
         return Cast.to(TextStyleProperty.class);
+    }
+
+    private static String menuItem(final String idPrefix,
+                                   final Enum<?> value) {
+        return menuItem(
+            idPrefix,
+            CaseKind.SNAKE.change(
+                value.name(),
+                CaseKind.CAMEL
+            )
+        );
+    }
+
+    private static String menuItem(final String idPrefix,
+                                   final Object value) {
+        return (
+            idPrefix.endsWith("-") ?
+                idPrefix :
+                idPrefix.concat("-")
+        ) +
+            value +
+            SpreadsheetElementIds.MENU_ITEM;
     }
 }
