@@ -276,8 +276,8 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
             (final Optional<String> oldValue,
              final Optional<String> newValue) ->
                 listener.onValueChanged(
-                    tryParse(oldValue),
-                    tryParse(newValue)
+                    this.tryParse(oldValue),
+                    this.tryParse(newValue)
                 )
         );
 
@@ -352,7 +352,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
 
     @Override //
     public Optional<T> value() {
-        return tryParse(
+        return this.tryParse(
             this.textBox.value()
         );
     }
