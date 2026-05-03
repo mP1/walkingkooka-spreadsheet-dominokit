@@ -64,8 +64,14 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
             .setTextContent("Normal")
             .setCssProperty("margin", "");
 
+        // TestPrefix123-text-TextBox
         this.fontWeight = FontWeightComponent.with(idPrefix)
-            .setLabel("Text");
+            .setLabel("Text")
+            .setId(
+                idPrefix +
+                    "text" +
+                    SpreadsheetElementIds.TEXT_BOX
+            );
 
         this.formElementComponent = FormElementComponent.with(
             FlexLayoutComponent.row()
