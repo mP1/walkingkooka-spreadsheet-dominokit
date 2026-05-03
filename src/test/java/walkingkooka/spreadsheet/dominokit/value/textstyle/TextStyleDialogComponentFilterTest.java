@@ -28,7 +28,7 @@ import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -173,7 +173,9 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     public void testTestEnumsMatch() {
         this.testEnumsAndCheck(
             TextStyleDialogComponentFilter.with("LEft"),
-            TextAlign.values(),
+            Lists.of(
+                TextAlign.values()
+            ),
             true
         );
     }
@@ -182,18 +184,20 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     public void testTestEnumsMismatch() {
         this.testEnumsAndCheck(
             TextStyleDialogComponentFilter.with("NO"),
-            TextAlign.values(),
+            Lists.of(
+                TextAlign.values()
+            ),
             false
         );
     }
 
     private void testEnumsAndCheck(final TextStyleDialogComponentFilter filter,
-                                   final Enum<?>[] enumValues,
+                                   final Collection<Enum<?>> enumValues,
                                    final boolean expected) {
         this.checkEquals(
             expected,
             filter.testEnums(enumValues),
-            () -> filter + " " + Arrays.toString(enumValues)
+            () -> filter + " " + enumValues
         );
     }
 
