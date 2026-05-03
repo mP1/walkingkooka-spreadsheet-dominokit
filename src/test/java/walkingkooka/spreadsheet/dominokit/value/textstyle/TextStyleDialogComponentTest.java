@@ -588,6 +588,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                            \"Semi Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                            \"Semi Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
                 "                            \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                            \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                            \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -1466,6 +1467,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                            \"Semi Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                            \"Semi Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
                 "                            \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                            \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                            \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -2316,6 +2318,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                            \"Semi Condensed\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                            \"Semi Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
                 "                            \"Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                            \"Extra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                            \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -3161,6 +3164,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                            \"Semi Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                            \"Semi Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
                 "                            \"Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                            \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                            \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
@@ -4019,6 +4023,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
                 "                            \"Semi Condensed\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                            \"Semi Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
                 "                            \"Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
                 "                            \"Extra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
                 "                            \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
