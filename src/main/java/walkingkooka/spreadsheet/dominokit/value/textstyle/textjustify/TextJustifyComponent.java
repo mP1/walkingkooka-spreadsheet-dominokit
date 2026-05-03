@@ -43,7 +43,8 @@ public final class TextJustifyComponent implements TextStylePropertyEnumHistoryT
                 null,
                 TextJustify.AUTO,
                 TextJustify.INTER_WORD,
-                TextJustify.INTER_CHARACTER
+                TextJustify.INTER_CHARACTER,
+                TextJustify.NONE
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
