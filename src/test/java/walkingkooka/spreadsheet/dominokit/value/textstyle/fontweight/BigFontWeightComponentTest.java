@@ -43,8 +43,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -63,8 +63,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -81,8 +81,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -105,8 +105,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -127,8 +127,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -149,8 +149,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -173,8 +173,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-bold-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-normal-Link\n" +
+                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-BOLD-Link\n" +
+                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-NORMAL-Link\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
