@@ -274,6 +274,14 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
 
     TextStylePropertyValueTextBoxComponentLike<?, V> all();
 
+    TextStylePropertyLengthComponentLike<?> top();
+
+    TextStylePropertyLengthComponentLike<?> right();
+
+    TextStylePropertyLengthComponentLike<?> bottom();
+
+    TextStylePropertyLengthComponentLike<?> left();
+
     // FormElementComponentDelegator....................................................................................
 
     @Override
