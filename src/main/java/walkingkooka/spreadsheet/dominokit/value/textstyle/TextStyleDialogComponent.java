@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -39,6 +40,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
@@ -80,14 +82,17 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode.WritingMod
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
+import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * A model dialog that displays a {@link TextStyleComponent} allowing the user to pick a {@link TextStyle}.
@@ -124,6 +129,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         // TextStyle after save because TextStyle passes a method reference to #save
         this.selection = this.selection();
         this.sample = this.sample();
+        this.filter = this.filter();
         this.textStyle = this.textStyle();
 
         this.links.setComponentWithErrors(this.textStyle);
@@ -219,11 +225,12 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                 DialogComponent.INCLUDE_CLOSE,
                 context
             ).appendChild(
-                ThreeColumnComponent.empty()
-                    .appendChild(
+                this.componentsParent.appendChild(
                         this.selection
                     ).appendChild(
                         this.sample
+                    ).appendChild(
+                        this.filter
                     ).appendChildren(this.components)
             ).appendChild(this.textStyle)
             .appendChild(this.links);
@@ -237,6 +244,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     public DialogComponent dialog() {
         return this.dialog;
     }
+
+    private final ThreeColumnComponent componentsParent = ThreeColumnComponent.empty();
 
     // id...............................................................................................................
 
@@ -300,6 +309,52 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     private final TextStyleSampleComponent sample;
+
+    // filter...........................................................................................................
+
+    /**
+     * This filter uses the text entered to filter components by {@link TextStylePropertyComponent#name()}, only
+     * keeping matching components connected to the DOM.
+     */
+    private TextBoxComponent filter() {
+        return TextBoxComponent.empty()
+            .setId(ID_PREFIX + "filter" + SpreadsheetElementIds.TEXT_BOX)
+            .setLabel("Filter")
+            .clearIcon()
+            .optional()
+            .addValueWatcher2(
+                (Optional<String> filter) -> {
+                    final String filterOrEmpty = filter.orElse("")
+                        .trim();
+
+                    final Predicate<TextStylePropertyName<?>> filterPredicate;
+                    if(filterOrEmpty.isEmpty()) {
+                        filterPredicate = Predicates.always();
+                    } else {
+                        filterPredicate = (final TextStylePropertyName<?> name) ->
+                            CaseSensitivity.INSENSITIVE.contains(
+                                name.value(),
+                                filterOrEmpty
+                            );
+                    }
+
+                    // the first three children are selection, sample, filter never delete them
+                    final ThreeColumnComponent parent = this.componentsParent;
+                    while(parent.children().size() > 3) {
+                        parent.removeChild(3);
+                    }
+
+                    for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
+                        if(filterPredicate.test(component.name())) {
+                            parent.appendChild(component);
+                        }
+                    }
+                }
+            );
+    }
+
+    // @VisibleForTesting
+    final TextBoxComponent filter;
 
     // TextStylePropertyName components.................................................................................
 
@@ -665,6 +720,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                     .selection()
             )
         );
+
+        // clear filter - make all components "appear"
+        this.filter.setValue(Optional.empty());
     }
 
     /**
