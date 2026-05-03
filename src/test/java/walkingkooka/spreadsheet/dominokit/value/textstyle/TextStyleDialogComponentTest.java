@@ -609,12 +609,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                            \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
-                "                FontWeightComponent\n" +
-                "                  ValueTextBoxComponent\n" +
-                "                    TextBoxComponent\n" +
-                "                      Font Weight [!Invalid] icons=mdi-close-circle id=TextStyle-fontWeight-TextBox\n" +
-                "                      Errors\n" +
-                "                        Invalid character '!' at 0\n" +
+                "                BigFontWeightComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Font Weight\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                        FontWeightComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -1479,10 +1485,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                            \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
-                "                FontWeightComponent\n" +
-                "                  ValueTextBoxComponent\n" +
-                "                    TextBoxComponent\n" +
-                "                      Font Weight [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-TextBox\n" +
+                "                BigFontWeightComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Font Weight\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                        FontWeightComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -2319,10 +2333,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                            \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
-                "                FontWeightComponent\n" +
-                "                  ValueTextBoxComponent\n" +
-                "                    TextBoxComponent\n" +
-                "                      Font Weight [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-TextBox\n" +
+                "                BigFontWeightComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Font Weight\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                        FontWeightComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -3154,10 +3176,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Initial\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                            \"Small Caps\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
-                "                FontWeightComponent\n" +
-                "                  ValueTextBoxComponent\n" +
-                "                    TextBoxComponent\n" +
-                "                      Font Weight [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-TextBox\n" +
+                "                BigFontWeightComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Font Weight\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        \"Bold\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                        \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                        FontWeightComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -4002,10 +4032,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Initial\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
                 "                            \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
                 "                            \"Small Caps\" [#/1/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
-                "                FontWeightComponent\n" +
-                "                  ValueTextBoxComponent\n" +
-                "                    TextBoxComponent\n" +
-                "                      Font Weight [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-TextBox\n" +
+                "                BigFontWeightComponent\n" +
+                "                  FormElementComponent\n" +
+                "                    label\n" +
+                "                      Font Weight\n" +
+                "                    FlexLayoutComponent\n" +
+                "                      ROW\n" +
+                "                        \"Bold\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                        \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                        FontWeightComponent\n" +
+                "                          ValueTextBoxComponent\n" +
+                "                            TextBoxComponent\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
