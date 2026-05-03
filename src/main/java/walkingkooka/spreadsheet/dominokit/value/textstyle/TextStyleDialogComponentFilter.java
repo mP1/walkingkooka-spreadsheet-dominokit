@@ -21,7 +21,7 @@ import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -55,8 +55,8 @@ public final class TextStyleDialogComponentFilter {
         );
     }
 
-    public boolean testEnums(final Enum<?>[] enumValues) {
-        return Arrays.stream(enumValues)
+    public boolean testEnums(final Collection<Enum<?>> enumValues) {
+        return enumValues.stream()
             .anyMatch(this::testEnum);
     }
 
