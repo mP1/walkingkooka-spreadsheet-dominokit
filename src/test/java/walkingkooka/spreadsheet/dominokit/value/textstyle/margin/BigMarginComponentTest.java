@@ -17,16 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.BigMarginOrPaddingComponentTesting;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
 
 import java.util.Optional;
 
-public final class BigMarginComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Margin, BigMarginComponent> {
+public final class BigMarginComponentTest implements BigMarginOrPaddingComponentTesting<Margin, BigMarginComponent> {
 
     @Test
     public void testTreePrint() {
@@ -503,10 +501,5 @@ public final class BigMarginComponentTest implements TextStylePropertyComponentT
     @Override
     public Class<BigMarginComponent> type() {
         return BigMarginComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
