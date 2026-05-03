@@ -162,6 +162,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              DIV\n" +
                 "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1038,6 +1040,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              DIV\n" +
                 "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1886,6 +1890,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              DIV\n" +
                 "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2729,6 +2735,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              DIV\n" +
                 "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3585,6 +3593,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              DIV\n" +
                 "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4363,6 +4373,470 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
                 "                  \"Undo\" [#/1/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD;%20overflow-x:%20VISIBLE;%20overflow-y:%20HIDDEN;%20padding-bottom:%203px;%20padding-left:%204px;%20padding-right:%202px;%20padding-top:%201px;%20text-align:%20CENTER;%20text-decoration-line:%20OVERLINE;%20text-decoration-style:%20DOTTED;%20text-decoration-thickness:%20123px;%20text-indent:%20123px;%20text-justify:%20INTER_WORD;%20text-overflow:%20%22Hell id=TextStyle-undo-Link\n" +
                 "                  \"Close\" [#/1/SpreadsheetName1] id=TextStyle-close-Link\n"
+        );
+    }
+
+    // setStringValue...................................................................................................
+
+    @Test
+    public void testFilterSetValueNonEmptyText() {
+        final SpreadsheetCellReference cell = SpreadsheetSelection.A1;
+
+        final AppContext context = this.appContext(
+            HistoryToken.cellStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                cell.setDefaultAnchor(),
+                Optional.empty()
+            ),
+            Optional.empty() // no textStyle
+        );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetMetadata(
+                METADATA
+            );
+
+        context.spreadsheetViewportCache()
+            .onSpreadsheetDelta(
+                HttpMethod.GET,
+                Url.parseRelative("/api/spreadsheet/1/cell"),
+                SpreadsheetDelta.EMPTY.setCells(
+                    Sets.of(
+                        cell.setFormula(SpreadsheetFormula.EMPTY) // no textStyle
+                    )
+                )
+            );
+
+        final TextStyleDialogComponent component = TextStyleDialogComponent.with(
+            TextStyleDialogComponentContexts.appContextCellStyle(context)
+        );
+
+        component.onHistoryTokenChange(
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
+            ),
+            context
+        );
+
+        // hide everything but the Color properties
+        component.filter.setValue(
+            Optional.of("COL")
+        );
+
+        this.treePrintAndCheck(
+            component,
+            "TextStyleDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    A1: *\n" +
+                "    id=TextStyle-Dialog includeClose=true\n" +
+                "      ThreeColumnComponent\n" +
+                "        DIV\n" +
+                "          style=\"display: grid; gap: 5px; grid-template-columns: 33% 33% 33%;\"\n" +
+                "            SpreadsheetExpressionReferenceComponent\n" +
+                "              ValueTextBoxComponent\n" +
+                "                TextBoxComponent\n" +
+                "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
+                "            TextStyleSampleComponent\n" +
+                "              DIV\n" +
+                "                \"The quick brown fox jumps over the lazy dog\"\n" +
+                "            TextBoxComponent\n" +
+                "              Filter [COL] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BackgroundColorComponent\n" +
+                "              TextStylePropertyColorComponent\n" +
+                "                ColorComponent\n" +
+                "                  ValueTextBoxComponent\n" +
+                "                    TextBoxComponent\n" +
+                "                      Background Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                        innerRight\n" +
+                "                          ColorBoxComponent\n" +
+                "                    ColorPaletteComponent\n" +
+                "                      TABLE\n" +
+                "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
+                "                          TBODY\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  \"Black\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                              TD\n" +
+                "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  \"White\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-3-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-4-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-5-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-6-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-7-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-8-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-9-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-10-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-11-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-12-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-13-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-14-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-15-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-16-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-17-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-18-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-19-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-20-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-21-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-22-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-23-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-24-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-25-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-26-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-27-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-28-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-29-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-30-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-31-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-32-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-33-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-34-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-35-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-36-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-37-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-38-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-39-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-40-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-41-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-42-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-43-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-44-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-45-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-46-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-47-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-48-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-49-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-50-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-51-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-52-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-53-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-54-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-55-Link\n" +
+                "                              TD\n" +
+                "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                  DISABLED id=TextStyle-color-56-Link\n" +
+                "                            TR\n" +
+                "                              TD\n" +
+                "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+                "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "              TextStyleColorComponent\n" +
+                "                TextStylePropertyColorComponent\n" +
+                "                  ColorComponent\n" +
+                "                    ValueTextBoxComponent\n" +
+                "                      TextBoxComponent\n" +
+                "                        Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-color-TextBox\n" +
+                "                          innerRight\n" +
+                "                            ColorBoxComponent\n" +
+                "                      ColorPaletteComponent\n" +
+                "                        TABLE\n" +
+                "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
+                "                            TBODY\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    \"Black\" [#/1/SpreadsheetName1/cell/A1/style/color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    \"White\" [#/1/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-3-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-4-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-5-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-6-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-7-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-8-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-9-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-10-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-11-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-12-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-13-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-14-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-15-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-16-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-17-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-18-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-19-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-20-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-21-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-22-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-23-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-24-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-25-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-26-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-27-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-28-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-29-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-30-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-31-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-32-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-33-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-34-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-35-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-36-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-37-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-38-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-39-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-40-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-41-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-42-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-43-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-44-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-45-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-46-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-47-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-48-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-49-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-50-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-51-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-52-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-53-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-54-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-55-Link\n" +
+                "                                TD\n" +
+                "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
+                "                                    DISABLED id=TextStyle-color-56-Link\n" +
+                "                              TR\n" +
+                "                                TD\n" +
+                "                                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
+                "                                    \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "          TextStyleComponent\n" +
+                "            ValueTextBoxComponent\n" +
+                "              TextBoxComponent\n" +
+                "                Style [] icons=mdi-close-circle\n" +
+                "          DialogAnchorListComponent\n" +
+                "            AnchorListComponent\n" +
+                "              FlexLayoutComponent\n" +
+                "                ROW\n" +
+                "                  \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-save-Link\n" +
+                "                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "                  \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "                  \"Close\" [#/1/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 
