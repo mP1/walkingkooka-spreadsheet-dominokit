@@ -46,6 +46,7 @@ public final class FontStretchComponent implements TextStylePropertyEnumHistoryT
                 FontStretch.CONDENSED,
                 FontStretch.SEMI_CONDENSED,
                 FontStretch.NORMAL,
+                FontStretch.SEMI_EXPANDED,
                 FontStretch.EXPANDED,
                 FontStretch.EXTRA_EXPANDED,
                 FontStretch.ULTRA_EXPANDED
