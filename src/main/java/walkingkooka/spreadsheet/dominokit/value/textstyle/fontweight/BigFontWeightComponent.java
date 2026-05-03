@@ -55,12 +55,12 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
         super();
 
         this.bold = HistoryTokenAnchorComponent.empty()
-            .setId(idPrefix + "bold" + SpreadsheetElementIds.LINK)
+            .setId(idPrefix + FontWeight.BOLD + SpreadsheetElementIds.LINK)
             .setTextContent("Bold")
             .setCssProperty("margin", "");
 
         this.normal = HistoryTokenAnchorComponent.empty()
-            .setId(idPrefix + "normal" + SpreadsheetElementIds.LINK)
+            .setId(idPrefix + FontWeight.NORMAL + SpreadsheetElementIds.LINK)
             .setTextContent("Normal")
             .setCssProperty("margin", "");
 
