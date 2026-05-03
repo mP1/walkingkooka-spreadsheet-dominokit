@@ -272,7 +272,7 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
         return this.all().isEditing();
     }
 
-    FormValueComponent<?, V, ?> all();
+    TextStylePropertyValueTextBoxComponentLike<?, V> all();
 
     // FormElementComponentDelegator....................................................................................
 
