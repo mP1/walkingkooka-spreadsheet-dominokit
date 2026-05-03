@@ -34,7 +34,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
+abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     /**
      * A function that converts {@link Enum#name()} to Title Case.
@@ -58,12 +58,12 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T extend
         return (value) -> Optional.empty();
     }
 
-    TextStylePropertyEnumHistoryTokenAnchorListComponentLike(final String idPrefix,
-                                                             final TextStylePropertyName<T> propertyName,
-                                                             final List<T> values,
-                                                             final Function<Optional<T>, String> valueToText,
-                                                             final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                             final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
+    TextStylePropertyEnumHistoryTokenAnchorListComponentShared(final String idPrefix,
+                                                               final TextStylePropertyName<T> propertyName,
+                                                               final List<T> values,
+                                                               final Function<Optional<T>, String> valueToText,
+                                                               final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                               final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         super();
 
         CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix");
