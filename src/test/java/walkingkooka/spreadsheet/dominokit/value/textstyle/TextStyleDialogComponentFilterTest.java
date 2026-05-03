@@ -170,6 +170,18 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     // testEnums........................................................................................................
 
     @Test
+    public void testTestEnumsIncludesNull() {
+        this.testEnumsAndCheck(
+            TextStyleDialogComponentFilter.with("Cle"),
+            Lists.of(
+                null,
+                TextAlign.LEFT
+            ),
+            true
+        );
+    }
+
+    @Test
     public void testTestEnumsMatch() {
         this.testEnumsAndCheck(
             TextStyleDialogComponentFilter.with("LEft"),

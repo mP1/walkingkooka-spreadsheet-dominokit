@@ -57,7 +57,12 @@ public final class TextStyleDialogComponentFilter {
 
     public boolean testEnums(final Collection<? extends Enum<?>> enumValues) {
         return enumValues.stream()
-            .anyMatch(this::testEnum);
+            .anyMatch(
+                (Enum<?> enumValue) ->
+                    null != enumValue ?
+                        this.testEnum(enumValue) :
+                        this.test("Clear")
+            );
     }
 
     public boolean testEnum(final Enum<?> enumValue) {
