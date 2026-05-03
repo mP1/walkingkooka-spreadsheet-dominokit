@@ -54,7 +54,8 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                 "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
                 "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] CHECKED id=Test123-textJustify-AUTO-Link\n" +
                 "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n"
+                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
         );
     }
 
@@ -85,7 +86,8 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                 "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
                 "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] id=Test123-textJustify-AUTO-Link\n" +
                 "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n"
+                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
         );
     }
 

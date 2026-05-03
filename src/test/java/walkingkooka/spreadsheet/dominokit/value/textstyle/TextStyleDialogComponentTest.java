@@ -841,6 +841,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
                 "                            \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                            \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                            \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "                BigTextOverflowComponent\n" +
                 "                  FormElementComponent\n" +
                 "                    label\n" +
@@ -1708,6 +1709,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
                 "                            \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                            \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                            \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "                BigTextOverflowComponent\n" +
                 "                  FormElementComponent\n" +
                 "                    label\n" +
@@ -2559,6 +2561,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
                 "                            \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                            \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                            \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "                BigTextOverflowComponent\n" +
                 "                  FormElementComponent\n" +
                 "                    label\n" +
@@ -3405,6 +3408,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
                 "                            \"Inter Word\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                            \"Inter Character\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                            \"None\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "                BigTextOverflowComponent\n" +
                 "                  FormElementComponent\n" +
                 "                    label\n" +
@@ -4264,6 +4268,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
                 "                            \"Inter Word\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
                 "                            \"Inter Character\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                            \"None\" [#/1/SpreadsheetName1/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "                BigTextOverflowComponent\n" +
                 "                  FormElementComponent\n" +
                 "                    label\n" +
