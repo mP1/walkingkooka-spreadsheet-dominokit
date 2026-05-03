@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +32,7 @@ import walkingkooka.tree.text.WritingMode;
 
 import java.util.Optional;
 
-public final class WritingModeComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, WritingMode, WritingModeComponent> {
+public final class WritingModeComponentTest implements TextStylePropertyEnumComponentTesting<WritingMode, WritingModeComponent> {
 
     @Test
     public void testSetValue() {

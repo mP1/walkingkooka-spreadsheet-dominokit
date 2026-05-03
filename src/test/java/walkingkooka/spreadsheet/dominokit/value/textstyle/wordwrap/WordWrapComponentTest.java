@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.wordwrap;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +32,7 @@ import walkingkooka.tree.text.WordWrap;
 
 import java.util.Optional;
 
-public final class WordWrapComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, WordWrap, WordWrapComponent> {
+public final class WordWrapComponentTest implements TextStylePropertyEnumComponentTesting<WordWrap, WordWrapComponent> {
 
     @Test
     public void testSetValue() {
