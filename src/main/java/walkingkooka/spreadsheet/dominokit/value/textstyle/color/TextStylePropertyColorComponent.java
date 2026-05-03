@@ -22,7 +22,7 @@ import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -30,7 +30,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
  * A general purpose {@link walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent}, that accepts
  * a {@link TextStylePropertyName} for a {@link Color}.
  */
-public final class TextStylePropertyColorComponent implements TextStylePropertyComponent<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
+public final class TextStylePropertyColorComponent implements TextStylePropertyColorComponentLike<HTMLFieldSetElement, TextStylePropertyColorComponent>,
     FormValueComponentDelegator<HTMLFieldSetElement, Color, TextStylePropertyColorComponent> {
 
     public static TextStylePropertyColorComponent with(final String idPrefix,

@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -44,7 +44,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyColorComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Color, TextStylePropertyColorComponent>,
+public final class TextStylePropertyColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, TextStylePropertyColorComponent>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<TextStylePropertyColorComponent>,
     SpreadsheetMetadataTesting {

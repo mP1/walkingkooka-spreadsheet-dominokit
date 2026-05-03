@@ -23,13 +23,13 @@ import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 public interface TextStylePropertyColorComponentDelegator<C extends TextStylePropertyColorComponentDelegator<C>>
-    extends TextStylePropertyComponent<HTMLFieldSetElement, Color, C>,
+    extends TextStylePropertyColorComponentLike<HTMLFieldSetElement, C>,
     FormValueComponentDelegator<HTMLFieldSetElement, Color, C>,
     HasName<TextStylePropertyName<Color>> {
 
