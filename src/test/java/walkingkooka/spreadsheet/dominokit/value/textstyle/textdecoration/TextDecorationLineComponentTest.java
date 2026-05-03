@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class TextDecorationLineComponentTest implements TextStylePropertyEnumComponentTesting<TextDecorationLine, TextDecorationLineComponent> {
@@ -114,6 +116,13 @@ public final class TextDecorationLineComponentTest implements TextStylePropertyE
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<TextDecorationLine> enumValues() {
+        return Lists.of(
+            TextDecorationLine.values()
         );
     }
 

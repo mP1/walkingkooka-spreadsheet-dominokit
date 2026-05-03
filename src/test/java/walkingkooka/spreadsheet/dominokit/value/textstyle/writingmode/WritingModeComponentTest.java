@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.WritingMode;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class WritingModeComponentTest implements TextStylePropertyEnumComponentTesting<WritingMode, WritingModeComponent> {
@@ -112,6 +114,13 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<WritingMode> enumValues() {
+        return Lists.of(
+            WritingMode.values()
         );
     }
 

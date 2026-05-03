@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class OverflowWrapComponentTest implements TextStylePropertyEnumComponentTesting<OverflowWrap, OverflowWrapComponent> {
@@ -112,6 +114,13 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<OverflowWrap> enumValues() {
+        return Lists.of(
+            OverflowWrap.values()
         );
     }
 

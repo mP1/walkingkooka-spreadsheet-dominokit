@@ -21,7 +21,6 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -82,17 +81,14 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode.WritingMod
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
-import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 /**
  * A model dialog that displays a {@link TextStyleComponent} allowing the user to pick a {@link TextStyle}.
@@ -323,20 +319,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .clearIcon()
             .optional()
             .addValueWatcher2(
-                (Optional<String> filter) -> {
-                    final String filterOrEmpty = filter.orElse("")
-                        .trim();
-
-                    final Predicate<TextStylePropertyName<?>> filterPredicate;
-                    if(filterOrEmpty.isEmpty()) {
-                        filterPredicate = Predicates.always();
-                    } else {
-                        filterPredicate = (final TextStylePropertyName<?> name) ->
-                            CaseSensitivity.INSENSITIVE.contains(
-                                name.value(),
-                                filterOrEmpty
-                            );
-                    }
+                (Optional<String> filterText) -> {
+                    final TextStyleDialogComponentFilter filter = TextStyleDialogComponentFilter.with(
+                        filterText.orElse("")
+                    );
 
                     // the first three children are selection, sample, filter never delete them
                     final ThreeColumnComponent parent = this.componentsParent;
@@ -345,7 +331,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                     }
 
                     for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                        if(filterPredicate.test(component.name())) {
+                        if(component.filterTest(filter)) {
                             parent.appendChild(component);
                         }
                     }

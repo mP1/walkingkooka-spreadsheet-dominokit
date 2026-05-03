@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -32,6 +34,16 @@ public interface TextStylePropertyColorComponentDelegator<C extends TextStylePro
     extends TextStylePropertyColorComponentLike<HTMLFieldSetElement, C>,
     FormValueComponentDelegator<HTMLFieldSetElement, Color, C>,
     HasName<TextStylePropertyName<Color>> {
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        return this.textStylePropertyColorComponent()
+            .filterTest(filter);
+    }
+
+    // FormValueComponentDelegator......................................................................................
 
     default C setIdPrefix(final String idPrefix) {
         return this.setIdPrefix(

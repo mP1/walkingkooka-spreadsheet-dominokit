@@ -17,15 +17,29 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
 import walkingkooka.tree.text.BorderStyle;
+
+import java.util.List;
 
 public abstract class BorderStyleSharedComponentTestCase<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyEnumComponentTesting<BorderStyle, C> {
 
     public BorderStyleSharedComponentTestCase() {
         super();
     }
+
+    // filterTest.......................................................................................................
+
+    @Override
+    public List<BorderStyle> enumValues() {
+        return Lists.of(
+            BorderStyle.values()
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public final JavaVisibility typeVisibility() {

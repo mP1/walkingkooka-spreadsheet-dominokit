@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.visibility;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.Visibility;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class VisibilityComponentTest implements TextStylePropertyEnumComponentTesting<Visibility, VisibilityComponent> {
@@ -112,6 +114,13 @@ public final class VisibilityComponentTest implements TextStylePropertyEnumCompo
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<Visibility> enumValues() {
+        return Lists.of(
+            Visibility.values()
         );
     }
 

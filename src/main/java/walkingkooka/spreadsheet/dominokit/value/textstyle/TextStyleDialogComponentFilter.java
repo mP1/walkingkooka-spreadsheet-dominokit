@@ -66,7 +66,9 @@ public final class TextStyleDialogComponentFilter {
     }
 
     public boolean testEnum(final Enum<?> enumValue) {
-        return this.test(enumValue.name());
+        return null == enumValue ?
+            this.test("Clear") :
+            this.test(enumValue.name());
     }
 
     public boolean testFontFamilies(final List<FontFamily> fontFamilies) {

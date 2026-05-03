@@ -18,10 +18,51 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.tree.text.MarginOrPadding;
 
 public interface BigMarginOrPaddingComponentTesting<V extends MarginOrPadding, C extends BigMarginOrPaddingComponent<V, C>> extends TextStylePropertyComponentTesting<HTMLFieldSetElement, V, C> {
+
+    // filterTest.......................................................................................................
+
+    @Test
+    default void testFilterTestWithTop() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "TOp",
+            true
+        );
+    }
+
+    @Test
+    default void testFilterTestWithRight() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "RIGHt",
+            true
+        );
+    }
+
+    @Test
+    default void testFilterTestWithBottom() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "BOTTOm",
+            true
+        );
+    }
+
+    @Test
+    default void testFilterTestWithLeft() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "LEft",
+            true
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     default JavaVisibility typeVisibility() {

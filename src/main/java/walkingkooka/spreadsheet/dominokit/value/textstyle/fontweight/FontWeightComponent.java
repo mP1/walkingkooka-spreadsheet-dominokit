@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.FontWeight;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts a {@link FontWeight}.
@@ -46,6 +49,17 @@ public final class FontWeightComponent implements TextStylePropertyValueTextBoxC
     @Override
     public TextStylePropertyName<FontWeight> name() {
         return TextStylePropertyName.FONT_WEIGHT;
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.test(FontWeight.BOLD.toString()) ||
+            filter.test(FontWeight.NORMAL.toString());
     }
 
     // TextStylePropertyValueTextBoxComponentLike.......................................................................

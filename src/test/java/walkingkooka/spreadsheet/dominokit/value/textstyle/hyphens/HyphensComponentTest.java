@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hyphens;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class HyphensComponentTest implements TextStylePropertyEnumComponentTesting<Hyphens, HyphensComponent> {
@@ -112,6 +114,13 @@ public final class HyphensComponentTest implements TextStylePropertyEnumComponen
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<Hyphens> enumValues() {
+        return Lists.of(
+            Hyphens.values()
         );
     }
 

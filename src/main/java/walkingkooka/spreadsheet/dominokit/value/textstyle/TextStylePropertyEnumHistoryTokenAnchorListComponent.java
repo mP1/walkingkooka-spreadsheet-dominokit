@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
@@ -73,6 +74,16 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         this.setErrors(
             Lists.empty()
         );
+    }
+
+    // TextStylePropertyComponentDelegator..............................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        return filter.testComponent(this) ||
+            filter.testEnums(
+                Cast.to(this.values)
+            );
     }
 
     // FormElementComponentDelegator.............................................................................................

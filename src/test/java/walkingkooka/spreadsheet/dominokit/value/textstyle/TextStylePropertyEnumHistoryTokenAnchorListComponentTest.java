@@ -640,6 +640,13 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
         };
     }
 
+    @Override
+    public List<TextAlign> enumValues() {
+        return Lists.of(
+            TextAlign.values()
+        );
+    }
+
     // valueToText......................................................................................................
 
     @Test

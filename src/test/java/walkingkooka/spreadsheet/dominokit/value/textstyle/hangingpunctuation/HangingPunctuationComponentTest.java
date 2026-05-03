@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.hangingpunctuation;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.HangingPunctuation;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class HangingPunctuationComponentTest implements TextStylePropertyEnumComponentTesting<HangingPunctuation, HangingPunctuationComponent> {
@@ -116,6 +118,13 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyE
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<HangingPunctuation> enumValues() {
+        return Lists.of(
+            HangingPunctuation.values()
         );
     }
 

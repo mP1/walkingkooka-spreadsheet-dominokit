@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextWhitespace;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class WhitespaceComponentTest implements TextStylePropertyEnumComponentTesting<TextWhitespace, WhitespaceComponent> {
@@ -116,6 +118,13 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<TextWhitespace> enumValues() {
+        return Lists.of(
+            TextWhitespace.values()
         );
     }
 

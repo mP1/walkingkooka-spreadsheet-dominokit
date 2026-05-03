@@ -23,6 +23,8 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -63,12 +65,23 @@ public final class TextStylePropertyColorComponent implements TextStylePropertyC
         );
     }
 
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        return filter.testComponent(this);
+    }
+
+    // HasName..........................................................................................................
+
     @Override
     public TextStylePropertyName<Color> name() {
         return this.propertyName;
     }
 
     private final TextStylePropertyName<Color> propertyName;
+
+    // FormValueComponent...............................................................................................
 
     @Override
     public FormValueComponent<HTMLFieldSetElement, Color, ?> formValueComponent() {

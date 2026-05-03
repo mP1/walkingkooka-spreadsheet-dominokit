@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -54,6 +55,17 @@ public final class FontSizeComponent implements SuggestBoxComponentDelegator<Fon
         );
         this.context = context;
     }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this);
+    }
+
+    // FormValueComponent...............................................................................................
 
     @Override
     public FontSizeComponent focus() {

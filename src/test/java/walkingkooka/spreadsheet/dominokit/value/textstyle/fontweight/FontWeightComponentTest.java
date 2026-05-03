@@ -210,7 +210,27 @@ public final class FontWeightComponentTest implements TextStylePropertyValueText
     }
 
     private FontWeight fired;
-    
+
+    // filterTest.......................................................................................................
+
+    @Test
+    public void testFilterTestWithBold() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "BOld",
+            true
+        );
+    }
+
+    @Test
+    public void testFilterTestWithNormal() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "NOrmal",
+            true
+        );
+    }
+
     // ValueComponent...................................................................................................
 
     @Override

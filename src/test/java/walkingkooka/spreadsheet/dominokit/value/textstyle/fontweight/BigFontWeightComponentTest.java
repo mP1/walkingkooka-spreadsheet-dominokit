@@ -184,6 +184,24 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
         );
     }
 
+    @Test
+    public void testFilterTestWithBold() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "BO",
+            true
+        );
+    }
+
+    @Test
+    public void testFilterTestWithNormal() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "NORmal",
+            true
+        );
+    }
+
     @Override
     public BigFontWeightComponent createComponent() {
         return this.createComponent(

@@ -18,7 +18,41 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 public interface TextStylePropertyEnumComponentTesting<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
     extends TextStylePropertyComponentTesting<HTMLFieldSetElement, V, C> {
+
+    // filterTest.......................................................................................................
+
+    @Test
+    default void testFilterTestWithClear() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "CLear",
+            true
+        );
+    }
+
+    @Test
+    default void testFilterTestWithEachEnumValue() {
+        final C component = this.createComponent();
+
+        for(final V enumValue : this.enumValues()) {
+            final String name = enumValue.name();
+
+            this.filterTestAndCheck(
+                component,
+                name.substring(0, 2)
+                    .toUpperCase() +
+                    name.substring(2)
+                        .toLowerCase(),
+                true
+            );
+        }
+    }
+
+    List<V> enumValues();
 }

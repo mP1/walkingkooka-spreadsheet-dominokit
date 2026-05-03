@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextTransform;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class TextTransformComponentTest implements TextStylePropertyEnumComponentTesting<TextTransform, TextTransformComponent> {
@@ -114,6 +116,13 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<TextTransform> enumValues() {
+        return Lists.of(
+            TextTransform.values()
         );
     }
 
