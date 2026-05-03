@@ -159,11 +159,12 @@ public final class BigPaddingComponentTest implements BigMarginOrPaddingComponen
     @Test
     public void testTopSetStringValueFails() {
         final BigPaddingComponent component = this.createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue();
-        component.top.setStringValue(
-            Optional.of(
-                "!invalid"
-            )
-        );
+        component.top()
+            .setStringValue(
+                Optional.of(
+                    "!invalid"
+                )
+            );
 
         this.treePrintAndCheck(
             component,
@@ -214,11 +215,12 @@ public final class BigPaddingComponentTest implements BigMarginOrPaddingComponen
     @Test
     public void testRightSetStringValueFails() {
         final BigPaddingComponent component = this.createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue();
-        component.right.setStringValue(
-            Optional.of(
-                "!invalid"
-            )
-        );
+        component.right()
+            .setStringValue(
+                Optional.of(
+                    "!invalid"
+                )
+            );
 
         this.treePrintAndCheck(
             component,
@@ -269,11 +271,12 @@ public final class BigPaddingComponentTest implements BigMarginOrPaddingComponen
     @Test
     public void testBottomSetStringValueFails() {
         final BigPaddingComponent component = this.createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue();
-        component.bottom.setStringValue(
-            Optional.of(
-                "!invalid"
-            )
-        );
+        component.bottom()
+            .setStringValue(
+                Optional.of(
+                    "!invalid"
+                )
+            );
 
         this.treePrintAndCheck(
             component,
@@ -324,11 +327,12 @@ public final class BigPaddingComponentTest implements BigMarginOrPaddingComponen
     @Test
     public void testLeftSetStringValueFails() {
         final BigPaddingComponent component = this.createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue();
-        component.left.setStringValue(
-            Optional.of(
-                "!invalid"
-            )
-        );
+        component.left()
+            .setStringValue(
+                Optional.of(
+                    "!invalid"
+                )
+            );
 
         this.treePrintAndCheck(
             component,
@@ -431,26 +435,31 @@ public final class BigPaddingComponentTest implements BigMarginOrPaddingComponen
 
     private BigPaddingComponent createComponentAndTopSetValueRightSetValueBottomSetValueLeftSetValue() {
         final BigPaddingComponent component = this.createComponent();
-        component.top.setValue(
-            Optional.of(
-                Length.parse("1px")
-            )
-        );
-        component.right.setValue(
-            Optional.of(
-                Length.parse("2px")
-            )
-        );
-        component.bottom.setValue(
-            Optional.of(
-                Length.parse("3px")
-            )
-        );
-        component.left.setValue(
-            Optional.of(
-                Length.parse("4px")
-            )
-        );
+
+        component.top()
+            .setValue(
+                Optional.of(
+                    Length.parse("1px")
+                )
+            );
+        component.right()
+            .setValue(
+                Optional.of(
+                    Length.parse("2px")
+                )
+            );
+        component.bottom()
+            .setValue(
+                Optional.of(
+                    Length.parse("3px")
+                )
+            );
+        component.left()
+            .setValue(
+                Optional.of(
+                    Length.parse("4px")
+                )
+            );
 
         this.treePrintAndCheck(
             component,

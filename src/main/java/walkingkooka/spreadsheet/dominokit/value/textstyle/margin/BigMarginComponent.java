@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.BigMarginOrPaddingComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
 import walkingkooka.tree.text.MarginOrPaddingKind;
@@ -58,18 +59,6 @@ public final class BigMarginComponent implements BigMarginOrPaddingComponent<Mar
         this.setLabelFromPropertyName();
     }
 
-    // @VisibleForTesting
-    final MarginTopComponent top;
-
-    // @VisibleForTesting
-    final MarginRightComponent right;
-
-    // @VisibleForTesting
-    final MarginBottomComponent bottom;
-
-    // @VisibleForTesting
-    final MarginLeftComponent left;
-
     @Override
     public MarginComponent all() {
         return this.all;
@@ -77,6 +66,34 @@ public final class BigMarginComponent implements BigMarginOrPaddingComponent<Mar
 
     // @VisibleForTesting
     final MarginComponent all;
+
+    @Override
+    public TextStylePropertyLengthComponentLike<?> top() {
+        return this.top;        
+    }
+
+    private final MarginTopComponent top;
+
+    @Override
+    public TextStylePropertyLengthComponentLike<?> right() {
+        return this.right;
+    }
+
+    private final MarginRightComponent right;
+
+    @Override
+    public TextStylePropertyLengthComponentLike<?> bottom() {
+        return this.bottom;
+    }
+
+    private final MarginBottomComponent bottom;
+
+    @Override
+    public TextStylePropertyLengthComponentLike<?> left() {
+        return this.left;
+    }
+
+    private final MarginLeftComponent left;
 
     @Override
     public MarginOrPaddingKind marginOrPaddingKind() {
