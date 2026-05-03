@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentLike<T>
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T>
     implements TestHtmlElementComponent<HTMLFieldSetElement, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     public static <T extends Enum<T>> TextStylePropertyEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
