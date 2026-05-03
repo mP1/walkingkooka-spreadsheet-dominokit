@@ -17,16 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.BigMarginOrPaddingComponentTesting;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Padding;
 
 import java.util.Optional;
 
-public final class BigPaddingComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, Padding, BigPaddingComponent> {
+public final class BigPaddingComponentTest implements BigMarginOrPaddingComponentTesting<Padding, BigPaddingComponent> {
 
     @Test
     public void testTreePrint() {
@@ -503,10 +501,5 @@ public final class BigPaddingComponentTest implements TextStylePropertyComponent
     @Override
     public Class<BigPaddingComponent> type() {
         return BigPaddingComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
