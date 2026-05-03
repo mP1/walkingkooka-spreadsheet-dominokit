@@ -620,7 +620,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FontWeightComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-text-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -1496,7 +1496,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FontWeightComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-text-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -2344,7 +2344,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FontWeightComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-text-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -3187,7 +3187,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FontWeightComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-text-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
@@ -4043,7 +4043,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        FontWeightComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-fontWeight-TextBox\n" +
+                "                              Text [BOLD] icons=mdi-close-circle id=TextStyle-fontWeight-text-TextBox\n" +
                 "                HangingPunctuationComponent\n" +
                 "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
                 "                    Hanging Punctuation\n" +
