@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
@@ -34,7 +33,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T extends Enum<T>> implements TextStylePropertyComponent<HTMLFieldSetElement, T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
+abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T extends Enum<T>> implements TextStylePropertyEnumComponentLike<T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
 
     /**
      * A function that converts {@link Enum#name()} to Title Case.

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.naming.HasName;
@@ -30,7 +29,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyEnumComponentTesting<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
 
     @Test
     public void testPrintTree() {

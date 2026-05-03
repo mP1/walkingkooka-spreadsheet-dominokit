@@ -15,20 +15,10 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
+package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.tree.text.BorderStyle;
+import elemental2.dom.HTMLFieldSetElement;
 
-public abstract class BorderStyleSharedComponentTestCase<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyEnumComponentTesting<BorderStyle, C> {
-
-    public BorderStyleSharedComponentTestCase() {
-        super();
-    }
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+public interface TextStylePropertyEnumComponentTesting<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
+    extends TextStylePropertyComponentTesting<HTMLFieldSetElement, V, C> {
 }

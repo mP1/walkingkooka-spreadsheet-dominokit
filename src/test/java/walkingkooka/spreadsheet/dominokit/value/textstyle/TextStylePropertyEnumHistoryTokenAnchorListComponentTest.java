@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
@@ -47,7 +46,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextAlign, TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>>,
+public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest implements TextStylePropertyEnumComponentTesting<TextAlign, TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign>> {
 

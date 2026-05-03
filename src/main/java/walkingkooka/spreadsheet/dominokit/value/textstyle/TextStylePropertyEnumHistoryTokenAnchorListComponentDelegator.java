@@ -22,9 +22,9 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>>
-    extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>,
-    FormValueComponentDelegator<HTMLFieldSetElement, V, C> {
+public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
+    extends TextStylePropertyEnumComponentLike<V, C>,
+    FormValueComponentDelegator<HTMLFieldSetElement, V, C>{
 
     @Override
     default TextStylePropertyName<V> name() {

@@ -17,13 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.texttransform;
 
-import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -33,7 +32,7 @@ import walkingkooka.tree.text.TextTransform;
 
 import java.util.Optional;
 
-public final class TextTransformComponentTest implements TextStylePropertyComponentTesting<HTMLFieldSetElement, TextTransform, TextTransformComponent> {
+public final class TextTransformComponentTest implements TextStylePropertyEnumComponentTesting<TextTransform, TextTransformComponent> {
 
     @Test
     public void testSetValue() {
