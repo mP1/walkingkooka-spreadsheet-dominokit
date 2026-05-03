@@ -4835,6 +4835,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                    \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                VisibilityComponent\n" +
+                "                  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "                    Visibility\n" +
+                "                      AnchorListComponent\n" +
+                "                        FlexLayoutComponent\n" +
+                "                          ROW\n" +
+                "                            \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                            \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                            \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                            \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "          TextStyleComponent\n" +
                 "            ValueTextBoxComponent\n" +
                 "              TextBoxComponent\n" +

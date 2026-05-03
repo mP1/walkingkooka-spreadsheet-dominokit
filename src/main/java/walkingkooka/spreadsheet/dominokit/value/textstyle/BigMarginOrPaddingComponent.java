@@ -144,6 +144,27 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
                 .marginOrPadding();
     }
 
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            this.all()
+                .filterTest(filter) ||
+            this.top()
+                .filterTest(filter) ||
+            this.right()
+                .filterTest(filter) ||
+            this.bottom()
+                .filterTest(filter) ||
+            this.left()
+                .filterTest(filter);
+    }
+
+    // FormValueComponent...............................................................................................
+
     @Override
     default C alwaysShowHelperText() {
         throw new UnsupportedOperationException();

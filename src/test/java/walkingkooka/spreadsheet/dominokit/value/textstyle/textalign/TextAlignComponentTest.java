@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textalign;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class TextAlignComponentTest implements TextStylePropertyEnumComponentTesting<TextAlign, TextAlignComponent> {
@@ -114,6 +116,13 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<TextAlign> enumValues() {
+        return Lists.of(
+            TextAlign.values()
         );
     }
 

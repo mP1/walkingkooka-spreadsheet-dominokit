@@ -18,11 +18,73 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLElement;
+import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface TextStylePropertyComponentTesting<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponentTesting<E, V, C>,
     HasNameTesting<TextStylePropertyName<V>> {
+
+    // filterTest.......................................................................................................
+
+    @Test
+    default void testFilterTestWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .filterTest(null)
+        );
+    }
+
+    @Test
+    default void testFilterTestWithName() {
+        final C component = this.createComponent();
+
+        this.filterTestAndCheck(
+            component,
+            CharSequences.subSequence(
+                component.name()
+                    .value(),
+                0,
+                -1
+            ).toString(),
+            true
+        );
+    }
+
+    @Test
+    default void testFilterTestWithNoValue() {
+        final C component = this.createComponent();
+
+        this.filterTestAndCheck(
+            component,
+            "ZZZ",
+            false
+        );
+    }
+
+    default void filterTestAndCheck(final C component,
+                                    final String filter,
+                                    final boolean expected) {
+        this.filterTestAndCheck(
+            component,
+            TextStyleDialogComponentFilter.with(filter),
+            expected
+        );
+    }
+
+    default void filterTestAndCheck(final C component,
+                                    final TextStyleDialogComponentFilter filter,
+                                    final boolean expected) {
+        this.checkEquals(
+            expected,
+            component.filterTest(filter),
+            () -> filter + "\n" + component
+        );
+    }
 }

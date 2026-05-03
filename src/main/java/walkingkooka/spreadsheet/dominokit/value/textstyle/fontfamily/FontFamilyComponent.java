@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -28,6 +29,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -77,9 +79,23 @@ public final class FontFamilyComponent implements TextStylePropertyComponent<HTM
                 -1
             ) + SpreadsheetElementIds.SELECT
         );
+
+        this.context = context;
     }
 
     // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.testFontFamilies(context.fontFamilies());
+    }
+
+    private final FontFamilyComponentContext context;
+
+    // HasName..........................................................................................................
 
     @Override
     public TextStylePropertyName<FontFamily> name() {

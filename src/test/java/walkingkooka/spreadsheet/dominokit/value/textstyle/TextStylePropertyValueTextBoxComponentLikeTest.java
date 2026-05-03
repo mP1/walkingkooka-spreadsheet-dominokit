@@ -124,5 +124,10 @@ public final class TextStylePropertyValueTextBoxComponentLikeTest implements Tex
         public TextStylePropertyName<Color> name() {
             return TextStylePropertyName.COLOR;
         }
+
+        @Override
+        public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+            return filter.testComponent(this);
+        }
     }
 }

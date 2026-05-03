@@ -27,12 +27,24 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.tree.text.Length;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public interface TextStylePropertyLengthComponentLike<C extends TextStylePropertyLengthComponentLike<C>>
     extends TextStylePropertyComponent<HTMLFieldSetElement, Length<?>, C>,
     ValueTextBoxComponentLike<C, Length<?>>,
     LengthComponentDelegator<C> {
+
+    // TextStylePropertyLengthComponentLike.............................................................................
+
+    @Override
+    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this);
+    }
+
+    // LengthComponentDelegator.........................................................................................
 
     default C setIdPrefix(final String idPrefix) {
         return this.setIdPrefix(

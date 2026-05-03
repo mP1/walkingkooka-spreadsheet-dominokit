@@ -70,6 +70,18 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         );
     }
 
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.testEnums(this.values);
+    }
+
+    // FormValueComponent...............................................................................................
+
     @Override
     public String label() {
         return this.label;

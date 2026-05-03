@@ -107,6 +107,17 @@ public final class FontFamilyComponentTest implements TextStylePropertyComponent
         );
     }
 
+    // filterTest.......................................................................................................
+
+    @Test
+    public void testFilterTestWithHelvetica() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "HelVET",
+            true
+        );
+    }
+
     // class............................................................................................................
 
     @Override

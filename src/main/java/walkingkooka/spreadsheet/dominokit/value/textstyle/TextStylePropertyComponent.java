@@ -76,4 +76,12 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
                 )
             );
     }
+
+    /**
+     * Called by the filter text box in a {@link TextStyleDialogComponent} and is used to match components, which are
+     * displayed and those that return false are hidden.
+     * <br>
+     * The {@link #name()}, {@link #value()} and for Enums possible values should be searched.
+     */
+    boolean filterTest(final TextStyleDialogComponentFilter filter);
 }

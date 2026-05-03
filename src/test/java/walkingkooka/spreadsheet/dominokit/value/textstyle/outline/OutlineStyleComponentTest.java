@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.outline;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.OutlineStyle;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class OutlineStyleComponentTest implements TextStylePropertyEnumComponentTesting<OutlineStyle, OutlineStyleComponent> {
@@ -126,6 +128,13 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
                     );
                 }
             }
+        );
+    }
+
+    @Override
+    public List<OutlineStyle> enumValues() {
+        return Lists.of(
+            OutlineStyle.values()
         );
     }
 

@@ -69,7 +69,7 @@ public final class BigMarginComponent implements BigMarginOrPaddingComponent<Mar
 
     @Override
     public TextStylePropertyLengthComponentLike<?> top() {
-        return this.top;        
+        return this.top;
     }
 
     private final MarginTopComponent top;

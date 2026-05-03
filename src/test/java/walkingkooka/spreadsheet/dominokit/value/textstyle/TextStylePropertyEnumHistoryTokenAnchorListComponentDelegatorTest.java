@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumH
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyEnumComponentTesting<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
@@ -40,16 +41,23 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
+                "          \"Clear\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/] id=Test-textAlign-Link\n" +
                 "          \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
-                "          \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n" +
-                "          \"CENTER\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/CENTER] id=Test-textAlign-CENTER-Link\n" +
-                "          \"JUSTIFY\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/JUSTIFY] id=Test-textAlign-JUSTIFY-Link\n"
+                "          \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n"
         );
     }
 
     @Override
     public TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator createComponent() {
         return new TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator();
+    }
+
+    @Override
+    public List<TextAlign> enumValues() {
+        return Lists.of(
+            TextAlign.LEFT,
+            TextAlign.RIGHT
+        );
     }
 
     // class............................................................................................................
@@ -80,7 +88,11 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
         private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
             "Test-",
             TextStylePropertyName.TEXT_ALIGN,
-            Lists.of(TextAlign.values()),
+            Lists.of(
+                null,
+                TextAlign.LEFT,
+                TextAlign.RIGHT
+            ),
             (n) -> n.map(TextAlign::name).orElse("Clear"),
             (n) -> Optional.empty(),
             new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext() {

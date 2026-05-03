@@ -26,6 +26,8 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
     extends TextStylePropertyEnumComponentLike<V, C>,
     FormValueComponentDelegator<HTMLFieldSetElement, V, C>{
 
+    // HasName..........................................................................................................
+
     @Override
     default TextStylePropertyName<V> name() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
@@ -50,6 +52,14 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
     @Override
     default TextStylePropertyEnumHistoryTokenAnchorListComponent<V> formValueComponent() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
+    }
+
+    // TextStylePropertyComponentDelegator..............................................................................
+
+    @Override
+    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+            .filterTest(filter);
     }
 
     TextStylePropertyEnumHistoryTokenAnchorListComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();

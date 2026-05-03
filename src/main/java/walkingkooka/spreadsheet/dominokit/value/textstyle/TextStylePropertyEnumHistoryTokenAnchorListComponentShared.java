@@ -93,7 +93,11 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T exte
         }
 
         this.list = list;
+
+        this.values = values;
     }
+
+    final List<T> values;
 
     @Override
     public final boolean isEditing() {

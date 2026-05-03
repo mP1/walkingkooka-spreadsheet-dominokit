@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.opacity;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.Opacity;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Opacity}.
@@ -48,6 +51,17 @@ public final class OpacityComponent implements TextStylePropertyValueTextBoxComp
     @Override
     public TextStylePropertyName<Opacity> name() {
         return TextStylePropertyName.OPACITY;
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.test(Opacity.OPAQUE.text()) ||
+            filter.test(Opacity.TRANSPARENT.text());
     }
 
     // TextStylePropertyValueTextBoxComponentLikeDelegator..............................................................

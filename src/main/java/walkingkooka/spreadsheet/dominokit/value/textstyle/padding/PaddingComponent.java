@@ -19,10 +19,13 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
@@ -59,6 +62,15 @@ public final class PaddingComponent implements TextStylePropertyValueTextBoxComp
     @Override
     public TextStylePropertyName<Padding> name() {
         return TextStylePropertyName.PADDING;
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this);
     }
 
     // TextStylePropertyValueTextBoxComponentLikeDelegator..............................................................

@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -103,6 +104,17 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
         );
 
         this.setValue(Optional.empty());
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.test(TextOverflow.CLIP.text()) ||
+            filter.test(TextOverflow.ELLIPSIS.text());
     }
 
     // HasName..........................................................................................................

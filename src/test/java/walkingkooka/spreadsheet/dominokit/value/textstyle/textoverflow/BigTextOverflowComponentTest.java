@@ -198,6 +198,40 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
         );
     }
 
+    // filterTest.......................................................................................................
+
+    @Test
+    public void testFilterTestWithClip() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "CLip",
+            true
+        );
+    }
+
+    @Test
+    public void testFilterTestWithEllipsis() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "ELLIPSis",
+            true
+        );
+    }
+
+    @Test
+    public void testFilterTestWithText() {
+        final BigTextOverflowComponent component = this.createComponent();
+        component.text.setValue(
+            Optional.of("Hello")
+        );
+
+        this.filterTestAndCheck(
+            component,
+            "Hello",
+            true
+        );
+    }
+
     @Override
     public BigTextOverflowComponent createComponent() {
         return this.createComponent(

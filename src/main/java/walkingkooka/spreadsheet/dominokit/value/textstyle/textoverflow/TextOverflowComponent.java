@@ -19,9 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.textoverflow;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.tree.text.TextOverflow;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Objects;
 
 /**
  * A text box that accepts text entry and validates it as a {@link TextOverflow}.
@@ -41,6 +44,15 @@ public final class TextOverflowComponent implements TextStylePropertyValueTextBo
             idPrefix,
             SpreadsheetElementIds.TEXT_BOX
         );
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this);
     }
 
     // HasName..........................................................................................................

@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -90,6 +91,17 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
         );
 
         this.setValue(Optional.empty());
+    }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        return filter.testComponent(this) ||
+            filter.test(FontWeight.BOLD.toString()) ||
+            filter.test(FontWeight.NORMAL.toString());
     }
 
     // HasName..........................................................................................................
