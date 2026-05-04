@@ -133,6 +133,15 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     }
 
     @Test
+    public void testSetHistoryTokenPreProcessorWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setHistoryTokenPreProcessor(null)
+        );
+    }
+
+    @Test
     public void testSetHistoryTokenPreProcessorSetValue() {
         this.treePrintAndCheck(
             this.createComponent(
