@@ -39,11 +39,11 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryTok
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
-import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
@@ -313,16 +313,15 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      * This filter uses the text entered to filter components by {@link TextStylePropertyComponent#name()}, only
      * keeping matching components connected to the DOM.
      */
-    private TextBoxComponent filter() {
-        return TextBoxComponent.empty()
-            .setId(ID_PREFIX + "filter" + SpreadsheetElementIds.TEXT_BOX)
+    private TextStylePropertyFilterComponent filter() {
+        return TextStylePropertyFilterComponent.with(ID_PREFIX)
             .setLabel("Filter")
             .clearIcon()
             .optional()
             .addValueWatcher2(
-                (Optional<String> filterText) -> {
-                    final TextStylePropertyFilter filter = TextStylePropertyFilter.with(
-                        filterText.orElse("")
+                (Optional<TextStylePropertyFilter> filter) -> {
+                    final TextStylePropertyFilter filter2 = filter.orElse(
+                        TextStylePropertyFilter.with("")
                     );
 
                     // the first three children are selection, sample, filter never delete them
@@ -332,7 +331,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                     }
 
                     for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                        if(component.filterTest(filter)) {
+                        if(component.filterTest(filter2)) {
                             parent.appendChild(component);
                         }
                     }
@@ -341,7 +340,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     }
 
     // @VisibleForTesting
-    final TextBoxComponent filter;
+    final TextStylePropertyFilterComponent filter;
 
     // TextStylePropertyName components.................................................................................
 
