@@ -21,6 +21,7 @@ import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 

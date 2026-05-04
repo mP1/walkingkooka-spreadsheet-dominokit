@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.textoverflow;
 
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.tree.text.TextOverflow;
 import walkingkooka.tree.text.TextStylePropertyName;
 

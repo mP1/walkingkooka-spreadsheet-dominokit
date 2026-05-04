@@ -24,6 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;

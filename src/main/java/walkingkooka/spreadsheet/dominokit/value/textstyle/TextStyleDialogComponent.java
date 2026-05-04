@@ -43,6 +43,7 @@ import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;

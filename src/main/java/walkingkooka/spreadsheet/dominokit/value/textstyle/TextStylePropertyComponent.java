@@ -21,6 +21,7 @@ import elemental2.dom.HTMLElement;
 import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;

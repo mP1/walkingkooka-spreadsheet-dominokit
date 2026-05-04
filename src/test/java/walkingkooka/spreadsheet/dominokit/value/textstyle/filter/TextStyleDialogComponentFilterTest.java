@@ -15,13 +15,14 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.FontFamily;
