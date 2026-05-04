@@ -23,6 +23,8 @@ public enum TextStylePropertyFilterKind {
 
     BOX,
 
+    BREAK,
+
     COLOR,
 
     FONT,
