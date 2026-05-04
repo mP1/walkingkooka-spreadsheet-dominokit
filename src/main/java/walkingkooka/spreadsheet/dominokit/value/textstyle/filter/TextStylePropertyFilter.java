@@ -56,9 +56,11 @@ public final class TextStylePropertyFilter {
         super();
         this.text = text;
 
-        this.tokens = Lists.of(
-            text.split("\\s+")
-        );
+        this.tokens = text.isEmpty() ?
+            Lists.empty() :
+            Lists.of(
+                text.split("\\s+")
+            );
     }
 
     public boolean testComponent(final TextStylePropertyComponent<?, ?, ?> component) {
