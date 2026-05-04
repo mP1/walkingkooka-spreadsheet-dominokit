@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
 
@@ -128,6 +129,27 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                 )
             ).setValue(Optional.empty()),
             "\"Save\" DISABLED id=HistoryTokenSaveValueAnchorComponent-Link"
+        );
+    }
+
+    @Test
+    public void testSetHistoryTokenPreProcessorSetValue() {
+        this.treePrintAndCheck(
+            this.createComponent(
+                HistoryToken.cellStyle(
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
+                    SpreadsheetSelection.A1.setDefaultAnchor(),
+                    Optional.of(TextStylePropertyName.TEXT_ALIGN)
+                )
+            ).setHistoryTokenPreProcessor(
+                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+            ).setValue(
+                Optional.of(
+                    TextStyle.parse("color: black; font-weight: bold;")
+                )
+            ),
+            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 

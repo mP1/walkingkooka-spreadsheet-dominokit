@@ -21,9 +21,11 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleComponent;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Creates a {@link HistoryTokenSaveValueAnchorComponent}, that is a link that when clicked saves the current value.
@@ -70,8 +72,9 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
         HistoryToken historyToken;
 
         try {
-            historyToken = this.context.historyToken()
-                .setSaveValue(value);
+            historyToken = this.historyTokenPreProcessor.apply(
+                this.context.historyToken()
+            ).setSaveValue(value);
             if (false == (historyToken.isSave())) {
                 historyToken = null;
             }
@@ -101,6 +104,21 @@ public final class HistoryTokenSaveValueAnchorComponent<T> implements ValueHisto
     }
 
     private boolean autoDisableWhenMissingValue;
+
+    /**
+     * Sets a {@link Function} which may adjust the current {@link HistoryToken} before the save value is {@link HistoryToken#setSaveValue(Optional)}.
+     * <br>
+     * One usage is forcing the {@link walkingkooka.tree.text.TextStylePropertyName} with {@link walkingkooka.tree.text.TextStylePropertyName#ALL},
+     * will be correct for the {@link TextStyleComponent#value()}
+     */
+    public HistoryTokenSaveValueAnchorComponent<T> setHistoryTokenPreProcessor(final Function<HistoryToken, HistoryToken> historyTokenPreProcessor) {
+        Objects.requireNonNull(historyTokenPreProcessor, "historyTokenPreProcessor");
+
+        this.historyTokenPreProcessor = historyTokenPreProcessor;
+        return this;
+    }
+
+    private Function<HistoryToken, HistoryToken> historyTokenPreProcessor = Function.identity();
 
     // AnchorComponentDelegator.........................................................................................
 
