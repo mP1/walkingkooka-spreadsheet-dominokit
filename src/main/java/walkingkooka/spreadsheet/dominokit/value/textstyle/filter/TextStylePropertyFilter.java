@@ -34,11 +34,22 @@ import java.util.Optional;
  */
 public final class TextStylePropertyFilter {
 
+    /**
+     * A {@link TextStylePropertyFilter} that matches everything.
+     */
+    public final static TextStylePropertyFilter ALL = new TextStylePropertyFilter("");
+
+    /**
+     * Creates a {@link TextStylePropertyFilter} with the given text.
+     */
     public static TextStylePropertyFilter with(final String text) {
-        return new TextStylePropertyFilter(
-            Objects.requireNonNull(text, "text")
-                .trim()
-        );
+        Objects.requireNonNull(text, "text");
+
+        final String textTrimmed = text.trim();
+
+        return textTrimmed.isEmpty() ?
+            ALL :
+            new TextStylePropertyFilter(text);
     }
 
     private TextStylePropertyFilter(final String text) {

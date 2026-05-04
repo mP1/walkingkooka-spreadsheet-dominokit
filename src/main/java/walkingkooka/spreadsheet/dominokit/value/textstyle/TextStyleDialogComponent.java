@@ -322,7 +322,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .addValueWatcher2(
                 (Optional<TextStylePropertyFilter> filter) -> {
                     final TextStylePropertyFilter filter2 = filter.orElse(
-                        TextStylePropertyFilter.with("")
+                        TextStylePropertyFilter.ALL
                     );
 
                     // the first three children are selection, sample, filter never delete them
