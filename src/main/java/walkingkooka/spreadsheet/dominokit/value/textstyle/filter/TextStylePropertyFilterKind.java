@@ -19,7 +19,9 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 public enum TextStylePropertyFilterKind {
 
-    BORDER_BOX,
+    BORDER,
+
+    BOX,
 
     COLOR,
 
