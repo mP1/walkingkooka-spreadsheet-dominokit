@@ -103,7 +103,7 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
                     TextStylePropertyName.TEXT_ALIGN
                 )
             ),
-            false
+            true
         );
     }
 

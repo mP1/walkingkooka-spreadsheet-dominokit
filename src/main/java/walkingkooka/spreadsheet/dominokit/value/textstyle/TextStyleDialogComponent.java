@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherDelegator;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -37,6 +38,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertyStyleHistoryToken;
+import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
@@ -85,6 +87,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Objects;
@@ -119,7 +122,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
 
         this.links = this.dialogAnchorListComponent(context)
-            .save()
+            .setHistoryTokenPreProcessor(
+                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+            ).save()
             .undo()
             .clearLink()
             .close();
@@ -205,6 +210,10 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.dialog = this.dialogCreate();
 
         context.addHistoryTokenWatcher(this);
+        context.addHistoryTokenWatcher(
+            (final HistoryToken previous,
+             final AppContext appContext) -> this.giveFocusTextStylePropertyOrTextStyle()
+        );
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
     }
@@ -697,10 +706,6 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      */
     @Override
     public void openGiveFocus(final RefreshContext context) {
-        context.giveFocus(
-            this.textStyle::focus
-        );
-
         this.selection.setValue(
             Cast.to(
                 context.historyToken()
@@ -710,6 +715,39 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         // clear filter - make all components "appear"
         this.filter.setValue(Optional.empty());
+    }
+
+    /**
+     * Gives focus to the {@link TextStylePropertyComponent} mentioned in the {@link HistoryToken#stylePropertyName()}.
+     */
+    private void giveFocusTextStylePropertyOrTextStyle() {
+        // dont run logic if this dialog is closed - there are two dialogs matching different history tokens
+        if (this.isOpen()) {
+            FormValueComponent<?, ?, ?> giveFocus = this.textStyle;
+
+            final TextStyleDialogComponentContext context = this.context;
+            final TextStylePropertyName<?> propertyNameOrNull = context.historyToken()
+                .stylePropertyName()
+                .orElse(null);
+
+            if (null != propertyNameOrNull) {
+                final TextStylePropertyFilter filter = this.filter.value()
+                    .orElse(TextStylePropertyFilter.ALL);
+
+                for (final TextStylePropertyComponent<?, ?, ?> component : this.components) {
+                    if (false == component.name().equals(propertyNameOrNull)) {
+                        continue;
+                    }
+
+                    if (filter.testComponent(component)) {
+                        giveFocus = component;
+                    }
+                    break;
+                }
+            }
+
+            context.giveFocus(giveFocus::focus);
+        }
     }
 
     /**

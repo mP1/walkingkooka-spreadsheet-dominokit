@@ -36,6 +36,8 @@ import java.util.Optional;
  * // without {@link TextStylePropertyName}
  *
  * /1/SpreadsheetName1/cell/A1/style
+ * /1/SpreadsheetName1/cell/A1/style/*
+ * /1/SpreadsheetName1/cell/A1/style/{@link TextStylePropertyName}.
  * </pre>
  */
 final class AppContextTextStyleDialogComponentContextCellStyle extends AppContextTextStyleDialogComponentContext
@@ -56,7 +58,7 @@ final class AppContextTextStyleDialogComponentContextCellStyle extends AppContex
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellStyleHistoryToken && token.stylePropertyName().isEmpty();
+        return token instanceof SpreadsheetCellStyleHistoryToken;
     }
 
     @Override
