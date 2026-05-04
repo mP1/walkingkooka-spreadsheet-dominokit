@@ -64,6 +64,17 @@ public final class TextStylePropertyFilterTest implements ClassTesting<TextStyle
     }
 
     @Test
+    public void testTestComponentWithName2ndToken() {
+        this.testComponentAndCheck(
+            TextStylePropertyFilter.with("FIRST CITY"),
+            OpacityComponent.with(
+                ID_PREFIX
+            ),
+            true
+        );
+    }
+
+    @Test
     public void testTestComponentWithValue() {
         this.testComponentAndCheck(
             TextStylePropertyFilter.with("50"),
@@ -317,6 +328,24 @@ public final class TextStylePropertyFilterTest implements ClassTesting<TextStyle
         this.testAndCheck(
             TextStylePropertyFilter.with("Apple"),
             "APPle",
+            true
+        );
+    }
+
+    @Test
+    public void testTestMatchSecondToken() {
+        this.testAndCheck(
+            TextStylePropertyFilter.with("Apple Bana"),
+            "Banana",
+            true
+        );
+    }
+
+    @Test
+    public void testTestMatchSecondTokenExtraWhitespace() {
+        this.testAndCheck(
+            TextStylePropertyFilter.with(" Apple  nana "),
+            "Banana",
             true
         );
     }
