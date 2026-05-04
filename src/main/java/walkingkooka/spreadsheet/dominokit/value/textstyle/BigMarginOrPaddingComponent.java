@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;

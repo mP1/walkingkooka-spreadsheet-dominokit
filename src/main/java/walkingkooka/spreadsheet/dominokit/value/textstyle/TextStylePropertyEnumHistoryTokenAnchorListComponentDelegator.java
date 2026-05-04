@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 

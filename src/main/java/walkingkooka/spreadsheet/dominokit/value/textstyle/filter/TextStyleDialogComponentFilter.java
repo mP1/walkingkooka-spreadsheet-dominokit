@@ -15,8 +15,9 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.text.FontFamily;
 import walkingkooka.tree.text.TextStylePropertyName;
