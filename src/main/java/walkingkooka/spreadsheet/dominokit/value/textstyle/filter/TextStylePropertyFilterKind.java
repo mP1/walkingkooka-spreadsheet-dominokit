@@ -25,6 +25,10 @@ public enum TextStylePropertyFilterKind {
 
     FONT,
 
+    MEASURE,
+
+    OVERFLOW,
+
     TEXT,
 
     WHITESPACE
