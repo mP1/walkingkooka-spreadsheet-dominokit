@@ -54,6 +54,7 @@ public final class OutlineStyleComponent implements TextStylePropertyEnumHistory
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

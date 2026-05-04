@@ -25,9 +25,12 @@ import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTest.TestTextStylePropertyValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.Optional;
+import java.util.Set;
 
 public final class TextStylePropertyValueTextBoxComponentLikeTest implements TextStylePropertyValueTextBoxComponentLikeTesting<TestTextStylePropertyValueTextBoxComponentLike, Color> {
 
@@ -129,6 +132,13 @@ public final class TextStylePropertyValueTextBoxComponentLikeTest implements Tex
         @Override
         public boolean filterTest(final TextStylePropertyFilter filter) {
             return filter.testComponent(this);
+        }
+
+        @Override
+        public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+            return EnumSet.of(
+                TextStylePropertyFilterKind.COLOR
+            );
         }
     }
 }

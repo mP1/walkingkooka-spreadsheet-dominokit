@@ -88,4 +88,28 @@ public interface TextStylePropertyComponentTesting<E extends HTMLElement, V, C e
             () -> filter + "\n" + component
         );
     }
+
+    // textStylePropertyFilterKinds.....................................................................................
+
+    @Test
+    default void testTextStylePropertyFilterKindNotNull() {
+        final C component = this.createComponent();
+
+        this.checkNotEquals(
+            null,
+            component.textStylePropertyFilterKinds(),
+            component::toString
+        );
+    }
+
+    @Test
+    default void testTextStylePropertyFilterKindConstant() {
+        final C component = this.createComponent();
+
+        this.checkEquals(
+            component.textStylePropertyFilterKinds(),
+            component.textStylePropertyFilterKinds(),
+            component::toString
+        );
+    }
 }

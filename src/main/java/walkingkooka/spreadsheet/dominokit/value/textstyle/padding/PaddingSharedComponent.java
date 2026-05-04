@@ -18,8 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Padding;
+
+import java.util.Set;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Padding}.
@@ -34,6 +37,11 @@ abstract class PaddingSharedComponent<C extends PaddingSharedComponent<C>> imple
         );
 
         this.setIdPrefix(idPrefix);
+    }
+
+    @Override
+    public final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX;
     }
 
     // LengthComponentDelegator.........................................................................................

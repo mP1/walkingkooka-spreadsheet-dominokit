@@ -19,7 +19,18 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
+
+import java.util.EnumSet;
+import java.util.Set;
 
 public interface TextStylePropertyColorComponentLike<E extends HTMLElement, C extends TextStylePropertyColorComponentLike<E, C>>
     extends TextStylePropertyComponent<E, Color, C> {
+
+    @Override
+    default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return EnumSet.of(
+            TextStylePropertyFilterKind.COLOR
+        );
+    }
 }

@@ -50,6 +50,7 @@ public final class TextDecorationStyleComponent implements TextStylePropertyEnum
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

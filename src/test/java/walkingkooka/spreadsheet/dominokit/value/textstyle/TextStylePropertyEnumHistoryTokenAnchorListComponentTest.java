@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.text.CaseKind;
 import walkingkooka.tree.text.BorderStyle;
@@ -40,6 +41,7 @@ import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -75,6 +77,8 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
             null
     );
 
+    private final static EnumSet<TextStylePropertyFilterKind> FILTER_KINDS = EnumSet.of(TextStylePropertyFilterKind.TEXT);
+
     private final static TextStylePropertyEnumHistoryTokenAnchorListComponentContext CONTEXT = new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext();
 
     // with.............................................................................................................
@@ -89,6 +93,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 VALUES,
                 VALUE_TO_TEXT,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 CONTEXT
             )
         );
@@ -104,6 +109,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 VALUES,
                 VALUE_TO_TEXT,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 CONTEXT
             )
         );
@@ -119,6 +125,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 VALUES,
                 VALUE_TO_TEXT,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 CONTEXT
             )
         );
@@ -134,6 +141,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 null,
                 VALUE_TO_TEXT,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 CONTEXT
             )
         );
@@ -149,6 +157,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 VALUES,
                 null,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 CONTEXT
             )
         );
@@ -163,6 +172,23 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 PROPERTY_NAME,
                 VALUES,
                 VALUE_TO_TEXT,
+                null,
+                FILTER_KINDS,
+                CONTEXT
+            )
+        );
+    }
+
+    @Test
+    public void testWithNullTextStylePropertyFilterKindsFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+                ID_PREFIX,
+                PROPERTY_NAME,
+                VALUES,
+                VALUE_TO_TEXT,
+                VALUE_TO_ICON,
                 null,
                 CONTEXT
             )
@@ -179,6 +205,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
                 VALUES,
                 VALUE_TO_TEXT,
                 VALUE_TO_ICON,
+                FILTER_KINDS,
                 null
             )
         );
@@ -607,6 +634,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentTest impl
             VALUES,
             VALUE_TO_TEXT,
             VALUE_TO_ICON,
+            FILTER_KINDS,
             context
         );
     }

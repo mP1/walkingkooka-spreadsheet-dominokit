@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -31,6 +32,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A drop down that supports picking an optional {@link FontFamily}.
@@ -94,6 +96,11 @@ public final class FontFamilyComponent implements TextStylePropertyComponent<HTM
     }
 
     private final FontFamilyComponentContext context;
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT;
+    }
 
     // HasName..........................................................................................................
 

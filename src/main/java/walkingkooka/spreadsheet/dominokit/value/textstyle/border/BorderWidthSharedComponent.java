@@ -19,9 +19,11 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 
 import java.util.Objects;
+import java.util.Set;
 
 abstract class BorderWidthSharedComponent<C extends BorderWidthSharedComponent<C>> implements TextStylePropertyLengthComponentLike<C> {
 
@@ -37,6 +39,11 @@ abstract class BorderWidthSharedComponent<C extends BorderWidthSharedComponent<C
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this);
+    }
+
+    @Override
+    public final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX;
     }
 
     // LengthComponentDelegator.........................................................................................

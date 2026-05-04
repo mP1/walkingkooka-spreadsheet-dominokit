@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.FontVariant;
@@ -47,6 +48,7 @@ public final class FontVariantComponent implements TextStylePropertyEnumHistoryT
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyComponent.TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

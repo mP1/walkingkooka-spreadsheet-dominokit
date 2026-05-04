@@ -25,10 +25,12 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 
 public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T>
@@ -39,6 +41,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
                                                                                                    final List<T> values,
                                                                                                    final Function<Optional<T>, String> valueToText,
                                                                                                    final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                                                   final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
                                                                                                    final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         return new TextStylePropertyEnumHistoryTokenAnchorListComponent<>(
             idPrefix,
@@ -46,6 +49,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
             values,
             valueToText,
             valueToIcon,
+            textStylePropertyFilterKinds,
             context
         );
     }
@@ -55,6 +59,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
                                                                  final List<T> values,
                                                                  final Function<Optional<T>, String> valueToText,
                                                                  final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                 final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
                                                                  final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         super(
             idPrefix,
@@ -62,6 +67,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
             values,
             valueToText,
             valueToIcon,
+            textStylePropertyFilterKinds,
             context
         );
 

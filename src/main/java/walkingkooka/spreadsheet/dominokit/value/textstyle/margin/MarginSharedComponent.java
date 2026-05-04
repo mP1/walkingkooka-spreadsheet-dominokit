@@ -18,8 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Margin;
+
+import java.util.Set;
 
 /**
  * A text box that accepts text entry and validates it as a {@link Margin}.
@@ -34,6 +37,11 @@ abstract class MarginSharedComponent<C extends MarginSharedComponent<C>> impleme
         );
 
         this.setIdPrefix(idPrefix);
+    }
+
+    @Override
+    public final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX;
     }
 
     // LengthComponentDelegator.........................................................................................

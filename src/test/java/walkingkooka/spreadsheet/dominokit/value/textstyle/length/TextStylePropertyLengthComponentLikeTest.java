@@ -23,11 +23,14 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTest.TestTextStylePropertyLengthComponentLike;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.Optional;
+import java.util.Set;
 
 public final class TextStylePropertyLengthComponentLikeTest implements FormValueComponentTesting<HTMLFieldSetElement, Length<?>, TestTextStylePropertyLengthComponentLike> {
 
@@ -125,6 +128,13 @@ public final class TextStylePropertyLengthComponentLikeTest implements FormValue
         @Override
         public TextStylePropertyName<Length<?>> name() {
             return TextStylePropertyName.TEXT_DECORATION_THICKNESS;
+        }
+
+        @Override
+        public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+            return EnumSet.of(
+                TextStylePropertyFilterKind.TEXT
+            );
         }
     }
 }

@@ -20,8 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.visibility;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.Visibility;
+
+import java.util.EnumSet;
 
 public final class VisibilityComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Visibility, VisibilityComponent> {
 
@@ -47,6 +50,7 @@ public final class VisibilityComponent implements TextStylePropertyEnumHistoryTo
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            EnumSet.noneOf(TextStylePropertyFilterKind.class),
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

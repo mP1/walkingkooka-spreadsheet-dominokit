@@ -21,9 +21,11 @@ import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.Direction;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.Optional;
 
 public final class DirectionComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Direction, DirectionComponent> {
@@ -69,6 +71,7 @@ public final class DirectionComponent implements TextStylePropertyEnumHistoryTok
                 }
             ).orElse("Clear"),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            EnumSet.noneOf(TextStylePropertyFilterKind.class),
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

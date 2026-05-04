@@ -20,8 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Set;
 
 public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
     extends TextStylePropertyEnumComponentLike<V, C>,
@@ -61,6 +64,12 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
     default boolean filterTest(final TextStylePropertyFilter filter) {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .filterTest(filter);
+    }
+
+    @Override
+    default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+            .textStylePropertyFilterKinds();
     }
 
     TextStylePropertyEnumHistoryTokenAnchorListComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();

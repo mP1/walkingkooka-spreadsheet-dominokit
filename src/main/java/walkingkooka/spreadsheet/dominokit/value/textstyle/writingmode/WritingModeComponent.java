@@ -20,8 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.WritingMode;
+
+import java.util.EnumSet;
 
 public final class WritingModeComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<WritingMode, WritingModeComponent> {
 
@@ -47,6 +50,9 @@ public final class WritingModeComponent implements TextStylePropertyEnumHistoryT
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            EnumSet.noneOf(
+                TextStylePropertyFilterKind.class
+            ),
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

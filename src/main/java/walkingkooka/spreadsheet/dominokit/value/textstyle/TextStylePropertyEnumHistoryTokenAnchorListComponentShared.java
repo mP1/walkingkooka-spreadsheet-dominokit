@@ -23,6 +23,7 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -31,6 +32,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 
 abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T extends Enum<T>> implements TextStylePropertyEnumComponentLike<T, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
@@ -62,6 +64,7 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T exte
                                                                final List<T> values,
                                                                final Function<Optional<T>, String> valueToText,
                                                                final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                               final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
                                                                final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
         super();
 
@@ -70,6 +73,7 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T exte
         Objects.requireNonNull(values, "values");
         Objects.requireNonNull(valueToText, "valueToText");
         Objects.requireNonNull(valueToIcon, "valueToIcon");
+        Objects.requireNonNull(textStylePropertyFilterKinds, "textStylePropertyFilterKinds");
         Objects.requireNonNull(context, "context");
 
         this.name = propertyName;
@@ -95,6 +99,8 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T exte
         this.list = list;
 
         this.values = values;
+
+        this.textStylePropertyFilterKinds = textStylePropertyFilterKinds;
     }
 
     final List<T> values;
@@ -234,6 +240,15 @@ abstract class TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T exte
             .value(this.list)
             .build();
     }
+
+    // TextStylePropertyComponent.......................................................................................
+
+    @Override
+    public final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return this.textStylePropertyFilterKinds;
+    }
+
+    private final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds;
 
     // HasName..........................................................................................................
 

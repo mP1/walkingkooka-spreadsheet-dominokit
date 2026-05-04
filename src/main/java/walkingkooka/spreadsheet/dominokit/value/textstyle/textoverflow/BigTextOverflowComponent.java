@@ -30,6 +30,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextOverflow;
@@ -37,6 +38,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A {@link walkingkooka.spreadsheet.dominokit.HtmlComponent} that includes 2 links for CLIP, ECLIPSE and a {@link org.dominokit.domino.ui.forms.TextBox}
@@ -115,6 +117,11 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
         return filter.testComponent(this) ||
             filter.test(TextOverflow.CLIP.text()) ||
             filter.test(TextOverflow.ELLIPSIS.text());
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_OVERFLOW;
     }
 
     // HasName..........................................................................................................

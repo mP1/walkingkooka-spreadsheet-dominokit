@@ -18,9 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.letterspacing;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Set;
 
 public final class LetterSpacingComponent implements TextStylePropertyLengthComponentLike<LetterSpacingComponent> {
 
@@ -39,6 +42,11 @@ public final class LetterSpacingComponent implements TextStylePropertyLengthComp
     @Override
     public TextStylePropertyName<Length<?>> name() {
         return TextStylePropertyName.LETTER_SPACING;
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_WHITESPACE;
     }
 
     // LengthComponentDelegator.........................................................................................

@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.OverflowWrap;
@@ -47,6 +48,7 @@ public final class OverflowWrapComponent implements TextStylePropertyEnumHistory
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyComponent.TEXT_STYLE_PROPERTY_FILTER_KINDS_OVERFLOW,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
