@@ -41,6 +41,7 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * A collection of common links for CRUD like {@link walkingkooka.spreadsheet.dominokit.dialog.DialogComponent},
@@ -94,6 +95,21 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
     private ComponentWithErrors<?> hasErrors;
 
+    /**
+     * Sets the {@link HistoryToken} for all current and future {@link HistoryTokenSaveValueAnchorComponent}.
+     */
+    public DialogAnchorListComponent<T> setHistoryTokenPreProcessor(final Function<HistoryToken, HistoryToken> historyTokenPreProcessor) {
+        Objects.requireNonNull(historyTokenPreProcessor, "historyTokenPreProcessor");
+
+        if(false == historyTokenPreProcessor.equals(this.historyTokenPreProcessor)) {
+            this.historyTokenPreProcessor = historyTokenPreProcessor;
+            this.refreshList();
+        }
+        return this;
+    }
+
+    private Function<HistoryToken, HistoryToken> historyTokenPreProcessor = Function.identity();
+
     // list.............................................................................................................
 
     /**
@@ -118,6 +134,12 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
     private void appendChildIfNotNull(final AnchorComponent<?> child) {
         if (null != child) {
             this.list.appendChild(child);
+
+            if(child instanceof HistoryTokenSaveValueAnchorComponent) {
+                ((HistoryTokenSaveValueAnchorComponent) child).setHistoryTokenPreProcessor(this.historyTokenPreProcessor);
+
+                System.out.println(this.historyTokenPreProcessor);
+            }
         }
     }
 
