@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.FakeComponentWithErrors;
 import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
@@ -32,6 +33,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.tree.text.TextStyle;
+import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
 import java.util.Locale;
@@ -41,7 +45,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class DialogAnchorListComponentTest implements HtmlComponentTesting<DialogAnchorListComponent<Locale>, HTMLDivElement>,
     ValueComponentTesting<HTMLDivElement, Locale, DialogAnchorListComponent<Locale>>,
-    SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting,
+    ComponentLifecycleMatcherTesting {
 
     private final static String ID_PREFIX = "Test123-";
 
@@ -432,6 +437,100 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
+    // SetHistoryTokenPreProcessor......................................................................................
+
+    @Test
+    public void testSetHistoryTokenPreProcessorWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createComponent()
+                .setHistoryTokenPreProcessor(null)
+        );
+    }
+
+    @Test
+    public void testSetHistoryTokenPreProcessorSetValue() {
+        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.<TextStyle>empty(
+                ID_PREFIX,
+                this.createContext(
+                    HistoryToken.cellStyle(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.COLOR
+                        )
+                    ), // current HistoryToken
+                    Optional.of(
+                        TextStyle.parse("color: white; text-align: LEFT")
+                    )// undo value
+                )
+            ).save()
+            .clearLink()
+            .undo()
+            .close()
+            .setHistoryTokenPreProcessor(
+                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+            );
+
+        this.treePrintAndCheck(
+            component.setValue(
+                Optional.of(
+                    TextStyle.parse("color: black; font-weight: bold;")
+                )
+            ),
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testSetHistoryTokenPreProcessorSetValue2() {
+        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.<TextStyle>empty(
+                ID_PREFIX,
+                this.createContext(
+                    HistoryToken.cellStyle(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
+                        SpreadsheetSelection.A1.setDefaultAnchor(),
+                        Optional.of(
+                            TextStylePropertyName.COLOR
+                        )
+                    ), // current HistoryToken
+                    Optional.of(
+                        TextStyle.parse("color: white; text-align: LEFT")
+                    )// undo value
+                )
+            ).save()
+            .clearLink()
+            .setHistoryTokenPreProcessor(
+                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+            ).undo()
+            .close();
+
+        this.treePrintAndCheck(
+            component.setValue(
+                Optional.of(
+                    TextStyle.parse("color: black; font-weight: bold;")
+                )
+            ),
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
     // onHistoryToken...................................................................................................
 
     @Test
@@ -789,8 +888,8 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
-    private DialogAnchorListComponentContext<Locale> createContext(final HistoryToken historyToken,
-                                                                   final Optional<Locale> undo) {
+    private <T> DialogAnchorListComponentContext<T> createContext(final HistoryToken historyToken,
+                                                                   final Optional<T> undo) {
         return new FakeDialogAnchorListComponentContext<>() {
             @Override
             public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
@@ -805,7 +904,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
             private HistoryToken currentHistoryToken = historyToken;
 
             @Override
-            public Optional<Locale> undo() {
+            public Optional<T> undo() {
                 return undo;
             }
 
