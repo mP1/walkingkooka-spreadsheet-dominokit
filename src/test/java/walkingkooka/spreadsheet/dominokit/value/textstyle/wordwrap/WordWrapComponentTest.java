@@ -49,7 +49,7 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
         this.treePrintAndCheck(
             component,
             "WordWrapComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -79,7 +79,7 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
         this.treePrintAndCheck(
             component,
             "WordWrapComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

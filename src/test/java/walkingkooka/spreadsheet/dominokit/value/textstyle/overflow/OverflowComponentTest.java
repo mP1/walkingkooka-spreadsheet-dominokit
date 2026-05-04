@@ -49,7 +49,7 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
         this.treePrintAndCheck(
             component,
             "OverflowComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -84,7 +84,7 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
         this.treePrintAndCheck(
             component,
             "OverflowComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

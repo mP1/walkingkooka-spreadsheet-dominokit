@@ -45,7 +45,7 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
         this.treePrintAndCheck(
             component,
             "BorderBottomStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -83,7 +83,7 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
         this.treePrintAndCheck(
             component,
             "BorderBottomStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

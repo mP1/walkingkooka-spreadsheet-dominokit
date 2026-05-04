@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.whitespace;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.TextWhitespace;
 
-public final class WhitespaceComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextWhitespace, WhitespaceComponent> {
+public final class WhitespaceComponent implements TextStylePropertyEnumComponentDelegator<TextWhitespace, WhitespaceComponent> {
 
     public static WhitespaceComponent with(final String idPrefix,
                                            final WhitespaceComponentContext context) {
@@ -36,7 +36,7 @@ public final class WhitespaceComponent implements TextStylePropertyEnumHistoryTo
     private WhitespaceComponent(final String idPrefix,
                                 final WhitespaceComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.WHITE_SPACE,
             Lists.of(
@@ -47,19 +47,19 @@ public final class WhitespaceComponent implements TextStylePropertyEnumHistoryTo
                 TextWhitespace.PRE_LINE,
                 TextWhitespace.PRE_WRAP
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_WHITESPACE,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextWhitespace> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextWhitespace> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextWhitespace> component;
+    private final TextStylePropertyEnumComponent<TextWhitespace> component;
 
     // Object...........................................................................................................
 

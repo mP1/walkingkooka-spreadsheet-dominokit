@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface TextJustifyComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface TextJustifyComponentContext extends TextStylePropertyEnumComponentContext {
 }

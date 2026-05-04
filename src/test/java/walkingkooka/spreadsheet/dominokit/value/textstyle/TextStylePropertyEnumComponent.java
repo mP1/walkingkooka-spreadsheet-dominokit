@@ -31,17 +31,17 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extends Enum<T>> extends TextStylePropertyEnumHistoryTokenAnchorListComponentShared<T>
-    implements TestHtmlElementComponent<HTMLFieldSetElement, TextStylePropertyEnumHistoryTokenAnchorListComponent<T>> {
+public final class TextStylePropertyEnumComponent<T extends Enum<T>> extends TextStylePropertyEnumComponentShared<T>
+    implements TestHtmlElementComponent<HTMLFieldSetElement, TextStylePropertyEnumComponent<T>> {
 
-    public static <T extends Enum<T>> TextStylePropertyEnumHistoryTokenAnchorListComponent<T> with(final String idPrefix,
-                                                                                                   final TextStylePropertyName<T> propertyName,
-                                                                                                   final List<T> values,
-                                                                                                   final Function<Optional<T>, String> valueToText,
-                                                                                                   final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                                                   final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
-                                                                                                   final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
-        return new TextStylePropertyEnumHistoryTokenAnchorListComponent<>(
+    public static <T extends Enum<T>> TextStylePropertyEnumComponent<T> with(final String idPrefix,
+                                                                             final TextStylePropertyName<T> propertyName,
+                                                                             final List<T> values,
+                                                                             final Function<Optional<T>, String> valueToText,
+                                                                             final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                                                             final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
+                                                                             final TextStylePropertyEnumComponentContext context) {
+        return new TextStylePropertyEnumComponent<>(
             idPrefix,
             propertyName,
             values,
@@ -52,13 +52,13 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
         );
     }
 
-    private TextStylePropertyEnumHistoryTokenAnchorListComponent(final String idPrefix,
-                                                                 final TextStylePropertyName<T> propertyName,
-                                                                 final List<T> values,
-                                                                 final Function<Optional<T>, String> valueToText,
-                                                                 final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
-                                                                 final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
-                                                                 final TextStylePropertyEnumHistoryTokenAnchorListComponentContext context) {
+    private TextStylePropertyEnumComponent(final String idPrefix,
+                                           final TextStylePropertyName<T> propertyName,
+                                           final List<T> values,
+                                           final Function<Optional<T>, String> valueToText,
+                                           final Function<Optional<T>, Optional<Icon<?>>> valueToIcon,
+                                           final Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds,
+                                           final TextStylePropertyEnumComponentContext context) {
         super(
             idPrefix,
             propertyName,
@@ -95,7 +95,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setLabel(final String label) {
+    public TextStylePropertyEnumComponent<T> setLabel(final String label) {
         this.label = Objects.requireNonNull(label, "label");
         return this;
     }
@@ -108,7 +108,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setHelperText(final Optional<String> helperText) {
+    public TextStylePropertyEnumComponent<T> setHelperText(final Optional<String> helperText) {
         Objects.requireNonNull(helperText, "helperText");
 
         this.helperText = helperText;
@@ -123,7 +123,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<T> setErrors(final List<String> errors) {
+    public TextStylePropertyEnumComponent<T> setErrors(final List<String> errors) {
         this.errors = Lists.immutable(
             Objects.requireNonNull(errors, "errors")
         );

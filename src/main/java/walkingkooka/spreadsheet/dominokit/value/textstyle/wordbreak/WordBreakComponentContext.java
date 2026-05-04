@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.wordbreak;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface WordBreakComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface WordBreakComponentContext extends TextStylePropertyEnumComponentContext {
 }

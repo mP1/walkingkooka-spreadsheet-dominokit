@@ -22,14 +22,14 @@ import walkingkooka.Cast;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class TextAlignComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TextAlignComponent> {
+public final class TextAlignComponent implements TextStylePropertyEnumComponentDelegator<TextAlign, TextAlignComponent> {
 
     public static TextAlignComponent with(final String idPrefix,
                                           final TextAlignComponentContext context) {
@@ -42,7 +42,7 @@ public final class TextAlignComponent implements TextStylePropertyEnumHistoryTok
     private TextAlignComponent(final String idPrefix,
                                final TextAlignComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.TEXT_ALIGN,
             Lists.of(
@@ -52,7 +52,7 @@ public final class TextAlignComponent implements TextStylePropertyEnumHistoryTok
                 TextAlign.RIGHT,
                 TextAlign.JUSTIFY
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumComponent.valueToText(),
             (Optional<TextAlign> valueToIcon) -> Optional.of(
                 valueToIcon.map(
                     (TextAlign textAlign) -> {
@@ -87,16 +87,16 @@ public final class TextAlignComponent implements TextStylePropertyEnumHistoryTok
                 )
             ),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> component;
+    private final TextStylePropertyEnumComponent<TextAlign> component;
 
     // Object...........................................................................................................
 

@@ -49,7 +49,7 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "FontStretchComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -86,7 +86,7 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "FontStretchComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

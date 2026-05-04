@@ -69,7 +69,7 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "DirectionComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -119,7 +119,7 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "DirectionComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

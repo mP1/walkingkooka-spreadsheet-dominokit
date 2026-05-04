@@ -21,7 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentSharedTest implements ClassTesting<TextStylePropertyEnumHistoryTokenAnchorListComponentShared<?>> {
+public final class TextStylePropertyEnumComponentSharedTest implements ClassTesting<TextStylePropertyEnumComponentShared<?>> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -29,8 +29,8 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentSharedTes
     }
 
     @Override
-    public Class<TextStylePropertyEnumHistoryTokenAnchorListComponentShared<?>> type() {
-        return Cast.to(TextStylePropertyEnumHistoryTokenAnchorListComponentShared.class);
+    public Class<TextStylePropertyEnumComponentShared<?>> type() {
+        return Cast.to(TextStylePropertyEnumComponentShared.class);
     }
 
     @Override

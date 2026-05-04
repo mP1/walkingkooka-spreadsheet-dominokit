@@ -18,16 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.BorderStyle;
 
-abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<BorderStyle, C> {
+abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C>> implements TextStylePropertyEnumComponentDelegator<BorderStyle, C> {
 
     BorderStyleSharedComponent(final String idPrefix,
                                final BorderStyleSharedComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             this.name(),
             Lists.of(
@@ -43,19 +43,19 @@ abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C
                 BorderStyle.INSET,
                 BorderStyle.OUTSET
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public final TextStylePropertyEnumHistoryTokenAnchorListComponent<BorderStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public final TextStylePropertyEnumComponent<BorderStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<BorderStyle> component;
+    private final TextStylePropertyEnumComponent<BorderStyle> component;
 
     // Object...........................................................................................................
 

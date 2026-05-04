@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.wordbreak;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.WordBreak;
 
-public final class WordBreakComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<WordBreak, WordBreakComponent> {
+public final class WordBreakComponent implements TextStylePropertyEnumComponentDelegator<WordBreak, WordBreakComponent> {
 
     public static WordBreakComponent with(final String idPrefix,
                                           final WordBreakComponentContext context) {
@@ -36,7 +36,7 @@ public final class WordBreakComponent implements TextStylePropertyEnumHistoryTok
     private WordBreakComponent(final String idPrefix,
                                final WordBreakComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.WORD_BREAK,
             Lists.of(
@@ -46,19 +46,19 @@ public final class WordBreakComponent implements TextStylePropertyEnumHistoryTok
                 WordBreak.KEEP_ALL,
                 WordBreak.BREAK_WORD
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_BREAK,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<WordBreak> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<WordBreak> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<WordBreak> component;
+    private final TextStylePropertyEnumComponent<WordBreak> component;
 
     // Object...........................................................................................................
 

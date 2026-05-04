@@ -17,5 +17,5 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-public interface TextStylePropertyEnumHistoryTokenAnchorListComponentContext extends TextStylePropertyHistoryTokenAnchorComponentContext {
+public interface TextStylePropertyEnumComponentContext extends TextStylePropertyHistoryTokenAnchorComponentContext {
 }

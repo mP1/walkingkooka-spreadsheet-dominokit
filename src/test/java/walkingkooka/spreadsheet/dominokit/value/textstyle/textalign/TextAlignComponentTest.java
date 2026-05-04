@@ -49,7 +49,7 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "TextAlignComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -81,7 +81,7 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "TextAlignComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

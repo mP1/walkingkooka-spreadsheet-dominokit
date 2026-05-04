@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface FontKerningComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface FontKerningComponentContext extends TextStylePropertyEnumComponentContext {
 }

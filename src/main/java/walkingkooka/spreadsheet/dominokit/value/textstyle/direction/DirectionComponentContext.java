@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.direction;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface DirectionComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface DirectionComponentContext extends TextStylePropertyEnumComponentContext {
 }
