@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.FontKerning;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class FontKerningComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<FontKerning, FontKerningComponent> {
+public final class FontKerningComponent implements TextStylePropertyEnumComponentDelegator<FontKerning, FontKerningComponent> {
 
     public static FontKerningComponent with(final String idPrefix,
                                             final FontKerningComponentContext context) {
@@ -36,7 +36,7 @@ public final class FontKerningComponent implements TextStylePropertyEnumHistoryT
     private FontKerningComponent(final String idPrefix,
                                  final FontKerningComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.FONT_KERNING,
             Lists.of(
@@ -45,19 +45,19 @@ public final class FontKerningComponent implements TextStylePropertyEnumHistoryT
                 FontKerning.NONE,
                 FontKerning.NORMAL
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<FontKerning> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontKerning> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<FontKerning> component;
+    private final TextStylePropertyEnumComponent<FontKerning> component;
 
     // Object...........................................................................................................
 

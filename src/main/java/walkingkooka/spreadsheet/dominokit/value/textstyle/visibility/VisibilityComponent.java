@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.visibility;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.Visibility;
 
 import java.util.EnumSet;
 
-public final class VisibilityComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<Visibility, VisibilityComponent> {
+public final class VisibilityComponent implements TextStylePropertyEnumComponentDelegator<Visibility, VisibilityComponent> {
 
     public static VisibilityComponent with(final String idPrefix,
                                            final VisibilityComponentContext context) {
@@ -39,7 +39,7 @@ public final class VisibilityComponent implements TextStylePropertyEnumHistoryTo
     private VisibilityComponent(final String idPrefix,
                                 final VisibilityComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.VISIBILITY,
             Lists.of(
@@ -48,19 +48,19 @@ public final class VisibilityComponent implements TextStylePropertyEnumHistoryTo
                 Visibility.HIDDEN,
                 Visibility.COLLAPSE
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             EnumSet.noneOf(TextStylePropertyFilterKind.class),
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<Visibility> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<Visibility> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<Visibility> component;
+    private final TextStylePropertyEnumComponent<Visibility> component;
 
     // Object...........................................................................................................
 

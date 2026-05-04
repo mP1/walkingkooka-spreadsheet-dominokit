@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textjustify;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.TextJustify;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class TextJustifyComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextJustify, TextJustifyComponent> {
+public final class TextJustifyComponent implements TextStylePropertyEnumComponentDelegator<TextJustify, TextJustifyComponent> {
 
     public static TextJustifyComponent with(final String idPrefix,
                                             final TextJustifyComponentContext context) {
@@ -36,7 +36,7 @@ public final class TextJustifyComponent implements TextStylePropertyEnumHistoryT
     private TextJustifyComponent(final String idPrefix,
                                  final TextJustifyComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.TEXT_JUSTIFY,
             Lists.of(
@@ -46,19 +46,19 @@ public final class TextJustifyComponent implements TextStylePropertyEnumHistoryT
                 TextJustify.INTER_CHARACTER,
                 TextJustify.NONE
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextJustify> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextJustify> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextJustify> component;
+    private final TextStylePropertyEnumComponent<TextJustify> component;
 
     // Object...........................................................................................................
 

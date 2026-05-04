@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontvariant;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.FontVariant;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class FontVariantComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<FontVariant, FontVariantComponent> {
+public final class FontVariantComponent implements TextStylePropertyEnumComponentDelegator<FontVariant, FontVariantComponent> {
 
     public static FontVariantComponent with(final String idPrefix,
                                             final FontVariantComponentContext context) {
@@ -37,7 +37,7 @@ public final class FontVariantComponent implements TextStylePropertyEnumHistoryT
     private FontVariantComponent(final String idPrefix,
                                  final FontVariantComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.FONT_VARIANT,
             Lists.of(
@@ -46,19 +46,19 @@ public final class FontVariantComponent implements TextStylePropertyEnumHistoryT
                 FontVariant.NORMAL,
                 FontVariant.SMALL_CAPS
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TextStylePropertyComponent.TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<FontVariant> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontVariant> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<FontVariant> component;
+    private final TextStylePropertyEnumComponent<FontVariant> component;
 
     // Object...........................................................................................................
 

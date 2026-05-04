@@ -49,7 +49,7 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
         this.treePrintAndCheck(
             component,
             "OutlineStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -87,7 +87,7 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
         this.treePrintAndCheck(
             component,
             "OutlineStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

@@ -21,14 +21,14 @@ import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class FontStyleComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<FontStyle, FontStyleComponent> {
+public final class FontStyleComponent implements TextStylePropertyEnumComponentDelegator<FontStyle, FontStyleComponent> {
 
     public static FontStyleComponent with(final String idPrefix,
                                           final FontStyleComponentContext context) {
@@ -41,7 +41,7 @@ public final class FontStyleComponent implements TextStylePropertyEnumHistoryTok
     private FontStyleComponent(final String idPrefix,
                                final FontStyleComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.FONT_STYLE,
             Lists.of(
@@ -50,7 +50,7 @@ public final class FontStyleComponent implements TextStylePropertyEnumHistoryTok
                 FontStyle.ITALIC,
                 FontStyle.OBLIQUE
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
+            TextStylePropertyEnumComponent.valueToText(),
             (Optional<FontStyle> valueToIcon) -> Optional.ofNullable(
                 valueToIcon.map(
                     (FontStyle fontStyle) -> {
@@ -78,16 +78,16 @@ public final class FontStyleComponent implements TextStylePropertyEnumHistoryTok
                 ).orElse(null)
             ),
             TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<FontStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<FontStyle> component;
+    private final TextStylePropertyEnumComponent<FontStyle> component;
 
     // Object...........................................................................................................
 

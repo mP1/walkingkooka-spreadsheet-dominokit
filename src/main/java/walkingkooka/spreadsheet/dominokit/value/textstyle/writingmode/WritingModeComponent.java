@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.writingmode;
 
 import walkingkooka.collect.list.Lists;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.tree.text.WritingMode;
 
 import java.util.EnumSet;
 
-public final class WritingModeComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<WritingMode, WritingModeComponent> {
+public final class WritingModeComponent implements TextStylePropertyEnumComponentDelegator<WritingMode, WritingModeComponent> {
 
     public static WritingModeComponent with(final String idPrefix,
                                             final WritingModeComponentContext context) {
@@ -39,7 +39,7 @@ public final class WritingModeComponent implements TextStylePropertyEnumHistoryT
     private WritingModeComponent(final String idPrefix,
                                  final WritingModeComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.WRITING_MODE,
             Lists.of(
@@ -48,21 +48,21 @@ public final class WritingModeComponent implements TextStylePropertyEnumHistoryT
                 WritingMode.VERTICAL_LR,
                 WritingMode.VERTICAL_RL
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             EnumSet.noneOf(
                 TextStylePropertyFilterKind.class
             ),
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<WritingMode> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<WritingMode> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<WritingMode> component;
+    private final TextStylePropertyEnumComponent<WritingMode> component;
 
     // Object...........................................................................................................
 

@@ -49,7 +49,7 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "TextJustifyComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -81,7 +81,7 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "TextJustifyComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

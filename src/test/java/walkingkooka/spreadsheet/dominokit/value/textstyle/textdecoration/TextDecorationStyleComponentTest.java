@@ -49,7 +49,7 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
         this.treePrintAndCheck(
             component,
             "TextDecorationStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -82,7 +82,7 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
         this.treePrintAndCheck(
             component,
             "TextDecorationStyleComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

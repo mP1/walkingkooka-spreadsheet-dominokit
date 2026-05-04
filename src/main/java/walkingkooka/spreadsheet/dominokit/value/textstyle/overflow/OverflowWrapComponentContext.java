@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface OverflowWrapComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface OverflowWrapComponentContext extends TextStylePropertyEnumComponentContext {
 }

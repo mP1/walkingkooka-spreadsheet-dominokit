@@ -49,7 +49,7 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "WordBreakComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -81,7 +81,7 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
         this.treePrintAndCheck(
             component,
             "WordBreakComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

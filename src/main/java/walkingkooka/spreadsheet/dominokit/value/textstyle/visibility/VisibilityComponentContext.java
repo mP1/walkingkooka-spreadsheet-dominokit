@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.visibility;
 
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentContext;
 
-public interface VisibilityComponentContext extends TextStylePropertyEnumHistoryTokenAnchorListComponentContext {
+public interface VisibilityComponentContext extends TextStylePropertyEnumComponentContext {
 }

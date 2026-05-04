@@ -26,7 +26,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Set;
 
-public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
+public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
     extends TextStylePropertyEnumComponentLike<V, C>,
     FormValueComponentDelegator<HTMLFieldSetElement, V, C>{
 
@@ -54,7 +54,7 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
     // HtmlComponentDelegator...........................................................................................
 
     @Override
-    default TextStylePropertyEnumHistoryTokenAnchorListComponent<V> formValueComponent() {
+    default TextStylePropertyEnumComponent<V> formValueComponent() {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
     }
 
@@ -72,5 +72,5 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
             .textStylePropertyFilterKinds();
     }
 
-    TextStylePropertyEnumHistoryTokenAnchorListComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();
+    TextStylePropertyEnumComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();
 }

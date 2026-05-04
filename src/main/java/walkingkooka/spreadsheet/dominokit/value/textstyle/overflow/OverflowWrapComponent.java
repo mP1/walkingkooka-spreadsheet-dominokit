@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegator;
 import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextStylePropertyName;
 
-public final class OverflowWrapComponent implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<OverflowWrap, OverflowWrapComponent> {
+public final class OverflowWrapComponent implements TextStylePropertyEnumComponentDelegator<OverflowWrap, OverflowWrapComponent> {
 
     public static OverflowWrapComponent with(final String idPrefix,
                                              final OverflowWrapComponentContext context) {
@@ -37,7 +37,7 @@ public final class OverflowWrapComponent implements TextStylePropertyEnumHistory
     private OverflowWrapComponent(final String idPrefix,
                                   final OverflowWrapComponentContext context) {
         super();
-        this.component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        this.component = TextStylePropertyEnumComponent.with(
             idPrefix,
             TextStylePropertyName.OVERFLOW_WRAP,
             Lists.of(
@@ -46,19 +46,19 @@ public final class OverflowWrapComponent implements TextStylePropertyEnumHistory
                 OverflowWrap.ANYWHERE,
                 OverflowWrap.BREAK_WORD
             ),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
-            TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TextStylePropertyEnumComponent.valueToText(),
+            TextStylePropertyEnumComponent.noIcons(),
             TextStylePropertyComponent.TEXT_STYLE_PROPERTY_FILTER_KINDS_OVERFLOW,
-            context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
+            context // TextStylePropertyEnumComponentContext
         );
     }
 
     @Override
-    public TextStylePropertyEnumHistoryTokenAnchorListComponent<OverflowWrap> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<OverflowWrap> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
         return this.component;
     }
 
-    private final TextStylePropertyEnumHistoryTokenAnchorListComponent<OverflowWrap> component;
+    private final TextStylePropertyEnumComponent<OverflowWrap> component;
 
     // Object...........................................................................................................
 

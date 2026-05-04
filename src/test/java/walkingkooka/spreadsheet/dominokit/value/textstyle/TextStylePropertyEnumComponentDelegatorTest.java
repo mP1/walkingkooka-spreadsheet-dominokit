@@ -23,7 +23,7 @@ import walkingkooka.naming.HasName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest.TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegatorTest.TestTextStylePropertyEnumComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -33,14 +33,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyEnumComponentTesting<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
+public final class TextStylePropertyEnumComponentDelegatorTest implements TextStylePropertyEnumComponentTesting<TextAlign, TestTextStylePropertyEnumComponentDelegator> {
 
     @Test
     public void testPrintTree() {
         this.treePrintAndCheck(
-            new TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator(),
-            "TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+            new TestTextStylePropertyEnumComponentDelegator(),
+            "TestTextStylePropertyEnumComponentDelegator\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -51,8 +51,8 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
     }
 
     @Override
-    public TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator createComponent() {
-        return new TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator();
+    public TestTextStylePropertyEnumComponentDelegator createComponent() {
+        return new TestTextStylePropertyEnumComponentDelegator();
     }
 
     @Override
@@ -71,8 +71,8 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
     }
 
     @Override
-    public Class<TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> type() {
-        return TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator.class;
+    public Class<TestTextStylePropertyEnumComponentDelegator> type() {
+        return TestTextStylePropertyEnumComponentDelegator.class;
     }
 
     @Override
@@ -80,7 +80,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
         return JavaVisibility.PACKAGE_PRIVATE;
     }
 
-    final static class TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator implements TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator>,
+    final static class TestTextStylePropertyEnumComponentDelegator implements TextStylePropertyEnumComponentDelegator<TextAlign, TestTextStylePropertyEnumComponentDelegator>,
         HasName<TextStylePropertyName<TextAlign>> {
 
         @Override
@@ -91,11 +91,11 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
         }
 
         @Override
-        public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+        public TextStylePropertyEnumComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
             return this.component;
         }
 
-        private final TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> component = TextStylePropertyEnumHistoryTokenAnchorListComponent.with(
+        private final TextStylePropertyEnumComponent<TextAlign> component = TextStylePropertyEnumComponent.with(
             "Test-",
             TextStylePropertyName.TEXT_ALIGN,
             Lists.of(
@@ -108,7 +108,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
             EnumSet.of(
                 TextStylePropertyFilterKind.TEXT
             ),
-            new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext() {
+            new FakeTextStylePropertyEnumComponentContext() {
                 @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
                     return () -> {

@@ -49,7 +49,7 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "WritingModeComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
@@ -80,7 +80,7 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
         this.treePrintAndCheck(
             component,
             "WritingModeComponent\n" +
-                "  TextStylePropertyEnumHistoryTokenAnchorListComponent\n" +
+                "  TextStylePropertyEnumComponent\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
