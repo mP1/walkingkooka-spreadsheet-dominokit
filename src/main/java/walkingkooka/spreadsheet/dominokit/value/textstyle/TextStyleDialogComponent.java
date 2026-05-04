@@ -63,6 +63,7 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityCompone
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.overflow.OverflowWrapComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.padding.BigPaddingComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.sample.TextStyleSampleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationLineComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textdecoration.TextDecorationStyleComponent;
