@@ -194,7 +194,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "            TextBoxComponent\n" +
                 "              Value [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
                 "              Errors\n" +
-                "                Invalid text\n"
+                "                Invalid textOverflow: expected \"CLIP\", \"ELLIPSIS\" or quoted text got \"!Invalid\"\n"
         );
     }
 
