@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTest.TestTextStylePropertyValueTextBoxComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
@@ -127,7 +127,7 @@ public final class TextStylePropertyValueTextBoxComponentLikeTest implements Tex
         }
 
         @Override
-        public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+        public boolean filterTest(final TextStylePropertyFilter filter) {
             return filter.testComponent(this);
         }
     }

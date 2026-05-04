@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponentDelegator;
 import walkingkooka.tree.text.Length;
 
@@ -39,7 +39,7 @@ public interface TextStylePropertyLengthComponentLike<C extends TextStylePropert
     // TextStylePropertyLengthComponentLike.............................................................................
 
     @Override
-    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    default boolean filterTest(final TextStylePropertyFilter filter) {
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this);

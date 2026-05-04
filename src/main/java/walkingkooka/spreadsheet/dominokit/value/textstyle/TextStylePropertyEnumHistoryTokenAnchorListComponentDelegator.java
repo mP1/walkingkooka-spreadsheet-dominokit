@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -58,7 +58,7 @@ public interface TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator<V
     // TextStylePropertyComponentDelegator..............................................................................
 
     @Override
-    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    default boolean filterTest(final TextStylePropertyFilter filter) {
         return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
             .filterTest(filter);
     }

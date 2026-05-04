@@ -31,16 +31,16 @@ import java.util.Optional;
  * A filter that accepts user query and matches {@link TextStylePropertyComponent}. This is used by {@link walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent
  * to support filtering all available {@link TextStylePropertyComponent}.
  */
-public final class TextStyleDialogComponentFilter {
+public final class TextStylePropertyFilter {
 
-    public static TextStyleDialogComponentFilter with(final String text) {
-        return new TextStyleDialogComponentFilter(
+    public static TextStylePropertyFilter with(final String text) {
+        return new TextStylePropertyFilter(
             Objects.requireNonNull(text, "text")
                 .trim()
         );
     }
 
-    private TextStyleDialogComponentFilter(final String text) {
+    private TextStylePropertyFilter(final String text) {
         super();
         this.text = text;
     }

@@ -21,7 +21,7 @@ import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.naming.HasNameTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -74,13 +74,13 @@ public interface TextStylePropertyComponentTesting<E extends HTMLElement, V, C e
                                     final boolean expected) {
         this.filterTestAndCheck(
             component,
-            TextStyleDialogComponentFilter.with(filter),
+            TextStylePropertyFilter.with(filter),
             expected
         );
     }
 
     default void filterTestAndCheck(final C component,
-                                    final TextStyleDialogComponentFilter filter,
+                                    final TextStylePropertyFilter filter,
                                     final boolean expected) {
         this.checkEquals(
             expected,

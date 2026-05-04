@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -37,7 +37,7 @@ public interface TextStylePropertyColorComponentDelegator<C extends TextStylePro
     // TextStylePropertyComponent.......................................................................................
 
     @Override
-    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    default boolean filterTest(final TextStylePropertyFilter filter) {
         return this.textStylePropertyColorComponent()
             .filterTest(filter);
     }

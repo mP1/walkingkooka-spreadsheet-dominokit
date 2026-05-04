@@ -35,8 +35,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStyleDialogComponentFilterTest implements ClassTesting<TextStyleDialogComponentFilter>,
-    ToStringTesting<TextStyleDialogComponentFilter> {
+public final class TextStylePropertyFilterTest implements ClassTesting<TextStylePropertyFilter>,
+    ToStringTesting<TextStylePropertyFilter> {
 
     // with.............................................................................................................
 
@@ -44,7 +44,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     public void testWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> TextStyleDialogComponentFilter.with(null)
+            () -> TextStylePropertyFilter.with(null)
         );
     }
 
@@ -55,7 +55,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestComponentWithName() {
         this.testComponentAndCheck(
-            TextStyleDialogComponentFilter.with("CITY"),
+            TextStylePropertyFilter.with("CITY"),
             OpacityComponent.with(
                 ID_PREFIX
             ),
@@ -66,7 +66,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestComponentWithValue() {
         this.testComponentAndCheck(
-            TextStyleDialogComponentFilter.with("50"),
+            TextStylePropertyFilter.with("50"),
             OpacityComponent.with(
                 ID_PREFIX
             ).setStringValue(
@@ -79,7 +79,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestComponentFalse() {
         this.testComponentAndCheck(
-            TextStyleDialogComponentFilter.with("Bad"),
+            TextStylePropertyFilter.with("Bad"),
             OpacityComponent.with(
                 ID_PREFIX
             ).setStringValue(
@@ -89,7 +89,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
         );
     }
 
-    private void testComponentAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testComponentAndCheck(final TextStylePropertyFilter filter,
                                        final TextStylePropertyComponent<?, ?, ?> component,
                                        final boolean expected) {
         this.checkEquals(
@@ -104,7 +104,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestNameMatch() {
         this.testNameAndCheck(
-            TextStyleDialogComponentFilter.with("COL"),
+            TextStylePropertyFilter.with("COL"),
             TextStylePropertyName.BACKGROUND_COLOR,
             true
         );
@@ -113,13 +113,13 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestNameMismatch() {
         this.testNameAndCheck(
-            TextStyleDialogComponentFilter.with("MIS"),
+            TextStylePropertyFilter.with("MIS"),
             TextStylePropertyName.BACKGROUND_COLOR,
             false
         );
     }
 
-    private void testNameAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testNameAndCheck(final TextStylePropertyFilter filter,
                                   final TextStylePropertyName<?> name,
                                   final boolean expected) {
         this.checkEquals(
@@ -134,7 +134,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestValueMatch() {
         this.testValueAndCheck(
-            TextStyleDialogComponentFilter.with("Lo"),
+            TextStylePropertyFilter.with("Lo"),
             Optional.of("Hello"),
             true
         );
@@ -143,7 +143,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestValueMismatch() {
         this.testValueAndCheck(
-            TextStyleDialogComponentFilter.with("NO"),
+            TextStylePropertyFilter.with("NO"),
             Optional.of("Hello"),
             false
         );
@@ -152,13 +152,13 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestValueWithNoValue() {
         this.testValueAndCheck(
-            TextStyleDialogComponentFilter.with("NO"),
+            TextStylePropertyFilter.with("NO"),
             Optional.empty(),
             false
         );
     }
 
-    private void testValueAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testValueAndCheck(final TextStylePropertyFilter filter,
                                    final Optional<?> value,
                                    final boolean expected) {
         this.checkEquals(
@@ -173,7 +173,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestEnumsIncludesNull() {
         this.testEnumsAndCheck(
-            TextStyleDialogComponentFilter.with("Cle"),
+            TextStylePropertyFilter.with("Cle"),
             Lists.of(
                 null,
                 TextAlign.LEFT
@@ -185,7 +185,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestEnumsMatch() {
         this.testEnumsAndCheck(
-            TextStyleDialogComponentFilter.with("LEft"),
+            TextStylePropertyFilter.with("LEft"),
             Lists.of(
                 TextAlign.values()
             ),
@@ -196,7 +196,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestEnumsMismatch() {
         this.testEnumsAndCheck(
-            TextStyleDialogComponentFilter.with("NO"),
+            TextStylePropertyFilter.with("NO"),
             Lists.of(
                 TextAlign.values()
             ),
@@ -204,7 +204,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
         );
     }
 
-    private void testEnumsAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testEnumsAndCheck(final TextStylePropertyFilter filter,
                                    final Collection<Enum<?>> enumValues,
                                    final boolean expected) {
         this.checkEquals(
@@ -219,7 +219,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestEnumMatch() {
         this.testEnumAndCheck(
-            TextStyleDialogComponentFilter.with("LEft"),
+            TextStylePropertyFilter.with("LEft"),
             TextAlign.LEFT,
             true
         );
@@ -228,13 +228,13 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestEnumMismatch() {
         this.testEnumAndCheck(
-            TextStyleDialogComponentFilter.with("NO"),
+            TextStylePropertyFilter.with("NO"),
             TextAlign.RIGHT,
             false
         );
     }
 
-    private void testEnumAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testEnumAndCheck(final TextStylePropertyFilter filter,
                                   final Enum<?> enumValue,
                                   final boolean expected) {
         this.checkEquals(
@@ -249,7 +249,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestFontFamiliesMatch() {
         this.testFontFamiliesAndCheck(
-            TextStyleDialogComponentFilter.with("Times New Roman"),
+            TextStylePropertyFilter.with("Times New Roman"),
             Lists.of(
                 FontFamily.with("Courier"),
                 FontFamily.with("Times New Roman")
@@ -261,7 +261,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestFontFamiliesMismatch() {
         this.testFontFamiliesAndCheck(
-            TextStyleDialogComponentFilter.with("Not"),
+            TextStylePropertyFilter.with("Not"),
             Lists.of(
                 FontFamily.with("Courier"),
                 FontFamily.with("Times New Roman")
@@ -270,7 +270,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
         );
     }
 
-    private void testFontFamiliesAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testFontFamiliesAndCheck(final TextStylePropertyFilter filter,
                                           final List<FontFamily> fontFamilies,
                                           final boolean expected) {
         this.checkEquals(
@@ -285,7 +285,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestFontFamilyMatch() {
         this.testFontFamilyAndCheck(
-            TextStyleDialogComponentFilter.with("Times New Roman"),
+            TextStylePropertyFilter.with("Times New Roman"),
             FontFamily.with("Times New Roman"),
             true
         );
@@ -294,13 +294,13 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestFontFamilyMismatch() {
         this.testFontFamilyAndCheck(
-            TextStyleDialogComponentFilter.with("Not"),
+            TextStylePropertyFilter.with("Not"),
             FontFamily.with("Courier"),
             false
         );
     }
 
-    private void testFontFamilyAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testFontFamilyAndCheck(final TextStylePropertyFilter filter,
                                         final FontFamily fontFamily,
                                         final boolean expected) {
         this.checkEquals(
@@ -315,7 +315,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestMatch() {
         this.testAndCheck(
-            TextStyleDialogComponentFilter.with("Apple"),
+            TextStylePropertyFilter.with("Apple"),
             "APPle",
             true
         );
@@ -324,13 +324,13 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testTestMismatch() {
         this.testAndCheck(
-            TextStyleDialogComponentFilter.with("Not"),
+            TextStylePropertyFilter.with("Not"),
             "Banana",
             false
         );
     }
 
-    private void testAndCheck(final TextStyleDialogComponentFilter filter,
+    private void testAndCheck(final TextStylePropertyFilter filter,
                               final String text,
                               final boolean expected) {
         this.checkEquals(
@@ -345,7 +345,7 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     @Test
     public void testToString() {
         this.toStringAndCheck(
-            TextStyleDialogComponentFilter.with("Filter123"),
+            TextStylePropertyFilter.with("Filter123"),
             "Filter123"
         );
     }
@@ -353,8 +353,8 @@ public final class TextStyleDialogComponentFilterTest implements ClassTesting<Te
     // class............................................................................................................
 
     @Override
-    public Class<TextStyleDialogComponentFilter> type() {
-        return TextStyleDialogComponentFilter.class;
+    public Class<TextStylePropertyFilter> type() {
+        return TextStylePropertyFilter.class;
     }
 
     @Override
