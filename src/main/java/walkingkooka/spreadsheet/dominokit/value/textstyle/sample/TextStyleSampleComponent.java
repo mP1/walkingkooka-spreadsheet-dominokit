@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.sample;
 
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -24,6 +24,7 @@ import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStyle;
 

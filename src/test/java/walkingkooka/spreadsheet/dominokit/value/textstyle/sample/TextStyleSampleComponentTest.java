@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.sample;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
