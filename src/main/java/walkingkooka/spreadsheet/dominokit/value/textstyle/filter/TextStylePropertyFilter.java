@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.text.FontFamily;
@@ -43,6 +44,10 @@ public final class TextStylePropertyFilter {
     private TextStylePropertyFilter(final String text) {
         super();
         this.text = text;
+
+        this.tokens = Lists.of(
+            text.split("\\s+")
+        );
     }
 
     public boolean testComponent(final TextStylePropertyComponent<?, ?, ?> component) {
@@ -98,14 +103,24 @@ public final class TextStylePropertyFilter {
      * Tests if the given text matches the filter text.
      */
     public boolean test(final String value) {
-        final String text = this.text;
-        return text.isEmpty() || CASE_SENSITIVITY.contains(
-            value,
-            text
-        );
+        final List<String> tokens = this.tokens;
+        boolean test = tokens.isEmpty();
+
+        for(final String token : tokens) {
+            test = CASE_SENSITIVITY.contains(
+                value,
+                token
+            );
+
+            if(test) {
+                break;
+            }
+        }
+
+        return test;
     }
 
-    private final String text;
+    private final List<String> tokens;
 
     private final static CaseSensitivity CASE_SENSITIVITY = CaseSensitivity.INSENSITIVE;
 
@@ -115,4 +130,6 @@ public final class TextStylePropertyFilter {
     public String toString() {
         return this.text;
     }
+
+    private final String text;
 }
