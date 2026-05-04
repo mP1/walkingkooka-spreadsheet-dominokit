@@ -33,6 +33,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyFilterTest implements ClassTesting<TextStylePropertyFilter>,
@@ -45,6 +46,22 @@ public final class TextStylePropertyFilterTest implements ClassTesting<TextStyle
         assertThrows(
             NullPointerException.class,
             () -> TextStylePropertyFilter.with(null)
+        );
+    }
+
+    @Test
+    public void testWithEmpty() {
+        assertSame(
+            TextStylePropertyFilter.ALL,
+            TextStylePropertyFilter.with("")
+        );
+    }
+
+    @Test
+    public void testWithWhitespaceOnly() {
+        assertSame(
+            TextStylePropertyFilter.ALL,
+            TextStylePropertyFilter.with("   ")
         );
     }
 
