@@ -117,6 +117,17 @@ public final class TextStylePropertyFilterTest implements ClassTesting<TextStyle
         );
     }
 
+    @Test
+    public void testTestAll() {
+        this.testComponentAndCheck(
+            TextStylePropertyFilter.with("   "),
+            OpacityComponent.with(
+                ID_PREFIX
+            ),
+            true
+        );
+    }
+
     private void testComponentAndCheck(final TextStylePropertyFilter filter,
                                        final TextStylePropertyComponent<?, ?, ?> component,
                                        final boolean expected) {
