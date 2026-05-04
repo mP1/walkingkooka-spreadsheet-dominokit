@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegato
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.FontSize;
@@ -30,6 +31,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A component that supports displaying or editing as text or picking from a list of {@link FontSize}.
@@ -63,6 +65,11 @@ public final class FontSizeComponent implements SuggestBoxComponentDelegator<Fon
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this);
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT;
     }
 
     // FormValueComponent...............................................................................................

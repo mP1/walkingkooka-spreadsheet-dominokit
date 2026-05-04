@@ -86,6 +86,7 @@ public final class TextAlignComponent implements TextStylePropertyEnumHistoryTok
                     )
                 )
             ),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

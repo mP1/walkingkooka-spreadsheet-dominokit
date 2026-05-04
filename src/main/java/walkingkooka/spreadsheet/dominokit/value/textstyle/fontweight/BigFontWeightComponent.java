@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.FontWeight;
@@ -36,6 +37,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A {@link walkingkooka.spreadsheet.dominokit.HtmlComponent} that includes links for BOLD, NORMAL and a text box.
@@ -102,6 +104,11 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
         return filter.testComponent(this) ||
             filter.test(FontWeight.BOLD.toString()) ||
             filter.test(FontWeight.NORMAL.toString());
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT;
     }
 
     // HasName..........................................................................................................

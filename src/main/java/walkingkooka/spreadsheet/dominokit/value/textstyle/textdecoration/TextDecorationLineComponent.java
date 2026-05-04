@@ -23,9 +23,11 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -88,6 +90,9 @@ public final class TextDecorationLineComponent implements TextStylePropertyEnumH
 
                 return Optional.ofNullable(icon);
             },
+            EnumSet.of(
+                TextStylePropertyFilterKind.TEXT
+            ),
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

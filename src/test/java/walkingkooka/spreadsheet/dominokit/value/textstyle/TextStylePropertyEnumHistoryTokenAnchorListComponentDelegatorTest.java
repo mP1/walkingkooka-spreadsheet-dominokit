@@ -24,11 +24,14 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest.TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegatorTest implements TextStylePropertyEnumComponentTesting<TextAlign, TestTextStylePropertyEnumHistoryTokenAnchorListComponentDelegator> {
 
@@ -81,6 +84,13 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
         HasName<TextStylePropertyName<TextAlign>> {
 
         @Override
+        public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+            return EnumSet.of(
+                TextStylePropertyFilterKind.TEXT
+            );
+        }
+
+        @Override
         public TextStylePropertyEnumHistoryTokenAnchorListComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
             return this.component;
         }
@@ -95,6 +105,9 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator
             ),
             (n) -> n.map(TextAlign::name).orElse("Clear"),
             (n) -> Optional.empty(),
+            EnumSet.of(
+                TextStylePropertyFilterKind.TEXT
+            ),
             new FakeTextStylePropertyEnumHistoryTokenAnchorListComponentContext() {
                 @Override
                 public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {

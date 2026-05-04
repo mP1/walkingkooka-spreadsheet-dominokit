@@ -22,12 +22,15 @@ import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.EnumSet;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Common interface for any {@link walkingkooka.spreadsheet.dominokit.value.ValueComponent} that can appear within a {@link TextStyleDialogComponent},
@@ -85,4 +88,26 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
      * The {@link #name()}, {@link #value()} and for Enums possible values should be searched.
      */
     boolean filterTest(final TextStylePropertyFilter filter);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER = EnumSet.of(TextStylePropertyFilterKind.BORDER);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX = EnumSet.of(
+        TextStylePropertyFilterKind.BORDER,
+        TextStylePropertyFilterKind.BOX
+    );
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_BREAK = EnumSet.of(TextStylePropertyFilterKind.BREAK);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT = EnumSet.of(TextStylePropertyFilterKind.FONT);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_OVERFLOW = EnumSet.of(TextStylePropertyFilterKind.OVERFLOW);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT = EnumSet.of(TextStylePropertyFilterKind.TEXT);
+
+    Set<TextStylePropertyFilterKind> TEXT_STYLE_PROPERTY_FILTER_KINDS_WHITESPACE = EnumSet.of(TextStylePropertyFilterKind.WHITESPACE);
+
+    /**
+     * Tags this property as belonging to the given {@link TextStylePropertyFilterKind}.
+     */
+    Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds();
 }

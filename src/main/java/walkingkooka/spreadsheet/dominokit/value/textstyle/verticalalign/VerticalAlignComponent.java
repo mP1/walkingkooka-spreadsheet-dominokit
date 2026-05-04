@@ -22,6 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.NeverError;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumHistoryTokenAnchorListComponentDelegator;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -82,6 +83,7 @@ public final class VerticalAlignComponent implements TextStylePropertyEnumHistor
                     )
                 )
             ),
+            TextStylePropertyComponent.TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

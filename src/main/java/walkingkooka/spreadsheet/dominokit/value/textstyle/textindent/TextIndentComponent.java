@@ -18,9 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textindent;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.EnumSet;
+import java.util.Set;
 
 public final class TextIndentComponent implements TextStylePropertyLengthComponentLike<TextIndentComponent> {
 
@@ -39,6 +43,14 @@ public final class TextIndentComponent implements TextStylePropertyLengthCompone
     @Override
     public TextStylePropertyName<Length<?>> name() {
         return TextStylePropertyName.TEXT_INDENT;
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return EnumSet.of(
+            TextStylePropertyFilterKind.TEXT,
+            TextStylePropertyFilterKind.WHITESPACE
+        );
     }
 
     // LengthComponentDelegator.........................................................................................

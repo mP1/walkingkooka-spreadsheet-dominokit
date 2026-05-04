@@ -18,9 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.lineheight;
 
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyLengthComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.LengthComponent;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
+
+import java.util.Set;
 
 public final class LineHeightComponent implements TextStylePropertyLengthComponentLike<LineHeightComponent> {
 
@@ -39,6 +42,11 @@ public final class LineHeightComponent implements TextStylePropertyLengthCompone
     @Override
     public TextStylePropertyName<Length<?>> name() {
         return TextStylePropertyName.LINE_HEIGHT;
+    }
+
+    @Override
+    public Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX;
     }
 
     // LengthComponentDelegator.........................................................................................

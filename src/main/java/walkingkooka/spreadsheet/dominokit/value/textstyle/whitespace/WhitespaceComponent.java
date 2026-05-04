@@ -49,6 +49,7 @@ public final class WhitespaceComponent implements TextStylePropertyEnumHistoryTo
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_WHITESPACE,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

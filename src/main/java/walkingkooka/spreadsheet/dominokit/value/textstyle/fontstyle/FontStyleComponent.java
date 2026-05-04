@@ -77,6 +77,7 @@ public final class FontStyleComponent implements TextStylePropertyEnumHistoryTok
                     }
                 ).orElse(null)
             ),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_FONT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

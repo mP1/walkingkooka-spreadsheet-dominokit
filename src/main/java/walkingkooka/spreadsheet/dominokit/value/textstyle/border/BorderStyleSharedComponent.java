@@ -45,6 +45,7 @@ abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

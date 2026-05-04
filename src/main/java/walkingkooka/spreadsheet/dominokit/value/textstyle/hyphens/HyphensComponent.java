@@ -47,6 +47,7 @@ public final class HyphensComponent implements TextStylePropertyEnumHistoryToken
             ),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.valueToText(),
             TextStylePropertyEnumHistoryTokenAnchorListComponent.noIcons(),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_BREAK,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }

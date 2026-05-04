@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
@@ -35,6 +36,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extends BigMarginOrPaddingComponent<V, C>> extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>,
     FormElementComponentDelegator<V, C> {
@@ -162,6 +164,11 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
                 .filterTest(filter) ||
             this.left()
                 .filterTest(filter);
+    }
+
+    @Override
+    default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TEXT_STYLE_PROPERTY_FILTER_KINDS_BORDER_BOX;
     }
 
     // FormValueComponent...............................................................................................

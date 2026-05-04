@@ -81,6 +81,7 @@ public final class TextTransformComponent implements TextStylePropertyEnumHistor
                     }
                 ).orElse(null)
             ),
+            TEXT_STYLE_PROPERTY_FILTER_KINDS_TEXT,
             context // TextStylePropertyEnumHistoryTokenAnchorListComponentContext
         );
     }
