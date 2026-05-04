@@ -24,7 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -80,7 +80,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
     // TextStylePropertyComponentDelegator..............................................................................
 
     @Override
-    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    public boolean filterTest(final TextStylePropertyFilter filter) {
         return filter.testComponent(this) ||
             filter.testEnums(
                 Cast.to(this.values)

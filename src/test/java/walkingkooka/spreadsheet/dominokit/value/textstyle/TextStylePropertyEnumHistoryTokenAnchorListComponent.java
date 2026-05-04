@@ -21,7 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.TestHtmlElementComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.List;
@@ -74,7 +74,7 @@ public final class TextStylePropertyEnumHistoryTokenAnchorListComponent<T extend
     // TextStylePropertyComponent.......................................................................................
 
     @Override
-    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    public boolean filterTest(final TextStylePropertyFilter filter) {
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this) ||

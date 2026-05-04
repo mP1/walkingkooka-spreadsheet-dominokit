@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.textoverflow;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.tree.text.TextOverflow;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -49,7 +49,7 @@ public final class TextOverflowComponent implements TextStylePropertyValueTextBo
     // TextStylePropertyComponent.......................................................................................
 
     @Override
-    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    public boolean filterTest(final TextStylePropertyFilter filter) {
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this);

@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormElementComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Length;
@@ -148,7 +148,7 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
     // TextStylePropertyComponent.......................................................................................
 
     @Override
-    default boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    default boolean filterTest(final TextStylePropertyFilter filter) {
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this) ||

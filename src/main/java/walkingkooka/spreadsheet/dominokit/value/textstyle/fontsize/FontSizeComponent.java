@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleDialogComponentFilter;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.FontSize;
@@ -59,7 +59,7 @@ public final class FontSizeComponent implements SuggestBoxComponentDelegator<Fon
     // TextStylePropertyComponent.......................................................................................
 
     @Override
-    public boolean filterTest(final TextStyleDialogComponentFilter filter) {
+    public boolean filterTest(final TextStylePropertyFilter filter) {
         Objects.requireNonNull(filter, "filter");
 
         return filter.testComponent(this);
