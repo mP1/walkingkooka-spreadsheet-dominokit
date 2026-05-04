@@ -73,7 +73,7 @@ public final class AppContextTextStyleDialogComponentContextMetadataStyleTest ex
                     TextStylePropertyName.TEXT_ALIGN
                 )
             ),
-            false
+            true
         );
     }
 

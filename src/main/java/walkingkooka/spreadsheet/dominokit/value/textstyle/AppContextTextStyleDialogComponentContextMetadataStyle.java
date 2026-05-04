@@ -36,6 +36,8 @@ import java.util.Optional;
  * // without {@link TextStylePropertyName}
  *
  * /1/SpreadsheetName1/metadata/style
+ * /1/SpreadsheetName1/metadata/style/*
+ * /1/SpreadsheetName1/metadata/style/{@link TextStylePropertyName}
  * </pre>
  */
 final class AppContextTextStyleDialogComponentContextMetadataStyle extends AppContextTextStyleDialogComponentContext
@@ -56,7 +58,7 @@ final class AppContextTextStyleDialogComponentContextMetadataStyle extends AppCo
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken && token.stylePropertyName().isEmpty();
+        return token instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken;
     }
 
     @Override
