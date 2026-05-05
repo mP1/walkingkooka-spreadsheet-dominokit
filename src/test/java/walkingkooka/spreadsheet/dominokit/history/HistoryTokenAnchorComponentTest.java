@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -40,7 +41,8 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesting<HistoryTokenAnchorComponent, HTMLAnchorElement>,
-    HashCodeEqualsDefinedTesting2<HistoryTokenAnchorComponent> {
+    HashCodeEqualsDefinedTesting2<HistoryTokenAnchorComponent>,
+    HasEventListenerTesting<HistoryToken, HistoryTokenAnchorComponent> {
 
     // setCount.........................................................................................................
 
@@ -411,6 +413,13 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
             .setHref(
                 Url.parseAbsoluteOrRelative("#/1/SpreadsheetName234/cell/A1")
             );
+    }
+
+    // HasEventListener.................................................................................................
+
+    @Override
+    public HistoryTokenAnchorComponent createHasEventListeners() {
+        return this.createObject();
     }
 
     // ClassTesting.....................................................................................................
