@@ -722,32 +722,38 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      * Gives focus to the {@link TextStylePropertyComponent} mentioned in the {@link HistoryToken#stylePropertyName()}.
      */
     private void giveFocusTextStylePropertyOrTextStyle() {
+
         // dont run logic if this dialog is closed - there are two dialogs matching different history tokens
         if (this.isOpen()) {
-            FormValueComponent<?, ?, ?> giveFocus = this.textStyle;
-
             final TextStyleDialogComponentContext context = this.context;
-            final TextStylePropertyName<?> propertyNameOrNull = context.historyToken()
-                .stylePropertyName()
-                .orElse(null);
+            final HistoryToken historyToken = context.historyToken();
 
-            if (null != propertyNameOrNull) {
-                final TextStylePropertyFilter filter = this.filter.value()
-                    .orElse(TextStylePropertyFilter.ALL);
+            // save history tokens probably include TextStylePropertyName.* which is prolly different if any property
+            // is selected
+            if (false == historyToken.isSave()) {
+                FormValueComponent<?, ?, ?> giveFocus = this.textStyle;
 
-                for (final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                    if (false == component.name().equals(propertyNameOrNull)) {
-                        continue;
+                final TextStylePropertyName<?> propertyNameOrNull = historyToken.stylePropertyName()
+                    .orElse(null);
+
+                if (null != propertyNameOrNull) {
+                    final TextStylePropertyFilter filter = this.filter.value()
+                        .orElse(TextStylePropertyFilter.ALL);
+
+                    for (final TextStylePropertyComponent<?, ?, ?> component : this.components) {
+                        if (false == component.name().equals(propertyNameOrNull)) {
+                            continue;
+                        }
+
+                        if (filter.testComponent(component)) {
+                            giveFocus = component;
+                        }
+                        break;
                     }
-
-                    if (filter.testComponent(component)) {
-                        giveFocus = component;
-                    }
-                    break;
                 }
-            }
 
-            context.giveFocus(giveFocus::focus);
+                context.giveFocus(giveFocus::focus);
+            }
         }
     }
 
