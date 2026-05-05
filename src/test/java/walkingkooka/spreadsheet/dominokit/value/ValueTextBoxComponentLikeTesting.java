@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListenerTesting;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponentLike<C, V>, V> extends FormValueComponentTesting<HTMLFieldSetElement, V, C> {
+public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponentLike<C, V>, V> extends FormValueComponentTesting<HTMLFieldSetElement, V, C>,
+    HasEventListenerTesting<V, C> {
 
     // value............................................................................................................
 
@@ -125,5 +127,12 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
         if(expected.isEmpty()) {
             this.valueAndCheck(component);
         }
+    }
+
+    // HasEventListener.................................................................................................
+
+    @Override
+    default C createHasEventListeners() {
+        return this.createComponent();
     }
 }
