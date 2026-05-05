@@ -72,7 +72,7 @@ HasFocusBlurEventListenerDelegator<C> {
     // HasFocusBlurEventListenerDelegator...............................................................................
 
     @Override
-    default HasFocusBlurEventListener<?> hasFocusBlurListeners() {
+    default HasFocusBlurEventListener<?> hasFocusBlurEventListener() {
         return this.hasEventListeners();
     }
 }
