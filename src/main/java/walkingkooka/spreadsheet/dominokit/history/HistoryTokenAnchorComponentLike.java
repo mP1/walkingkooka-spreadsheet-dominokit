@@ -108,6 +108,22 @@ abstract class HistoryTokenAnchorComponentLike implements AnchorComponent<Histor
     }
 
     @Override
+    public final HistoryTokenAnchorComponent addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+    }
+
+    @Override
+    public final HistoryTokenAnchorComponent addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+    }
+
+    @Override
     public final HistoryTokenAnchorComponent addInputListener(final EventListener listener) {
         return this.addEventListener(
             EventType.input,

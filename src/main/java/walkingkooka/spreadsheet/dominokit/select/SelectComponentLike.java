@@ -99,6 +99,22 @@ abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSet
     }
 
     @Override
+    public final SelectComponent<T> addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+    }
+
+    @Override
+    public final SelectComponent<T> addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+    }
+
+    @Override
     public final SelectComponent<T> addInputListener(final EventListener listener) {
         return this.addEventListener(
             EventType.input,

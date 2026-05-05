@@ -18,20 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.dom;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.text.printer.TreePrintableTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> extends TreePrintableTesting {
-
-    @Test
-    default void testAddBlurListenerWithNullFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createHasEventListener()
-                .addBlurListener(null)
-        );
-    }
+public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> extends HasFocusBlurEventListenerTesting<C> {
 
     @Test
     default void testAddClickListenerWithNullFails() {
@@ -48,15 +38,6 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
             NullPointerException.class,
             () -> this.createHasEventListener()
                 .addBlurListener(null)
-        );
-    }
-
-    @Test
-    default void testAddFocusListenerWithNullFails() {
-        assertThrows(
-            NullPointerException.class,
-            () -> this.createHasEventListener()
-                .addFocusListener(null)
         );
     }
 
@@ -88,4 +69,11 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     }
 
     C createHasEventListener();
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    default C createHasFocusBlurEventListener() {
+        return this.createHasEventListener();
+    }
 }

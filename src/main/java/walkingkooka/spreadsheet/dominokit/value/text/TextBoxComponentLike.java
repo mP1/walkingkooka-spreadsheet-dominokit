@@ -128,6 +128,22 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
     }
 
     @Override
+    public final TextBoxComponent addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+    }
+
+    @Override
+    public final TextBoxComponent addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+    }
+
+    @Override
     public final TextBoxComponent addInputListener(final EventListener listener) {
         return this.addEventListener(
             EventType.input,

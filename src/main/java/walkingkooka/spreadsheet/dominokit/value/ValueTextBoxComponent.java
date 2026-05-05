@@ -303,6 +303,18 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
     }
 
     @Override
+    public ValueTextBoxComponent<T> addFocusInListener(final EventListener listener) {
+        this.textBox.addFocusInListener(listener);
+        return this;
+    }
+
+    @Override
+    public ValueTextBoxComponent<T> addFocusOutListener(final EventListener listener) {
+        this.textBox.addFocusOutListener(listener);
+        return this;
+    }
+
+    @Override
     public ValueTextBoxComponent<T> addInputListener(final EventListener listener) {
         this.textBox.addInputListener(listener);
         return this;

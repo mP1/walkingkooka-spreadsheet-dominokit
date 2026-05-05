@@ -22,17 +22,13 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 
 import java.util.Optional;
 
-public interface HasEventListener<V, C extends HasEventListener<V, C>> {
-
-    C addBlurListener(final EventListener listener);
+public interface HasEventListener<V, C extends HasEventListener<V, C>> extends HasFocusBlurEventListener<C> {
 
     C addClickListener(final EventListener listener);
 
     C addChangeListener(final ChangeListener<Optional<V>> listener);
 
     C addContextMenuListener(final EventListener listener);
-
-    C addFocusListener(final EventListener listener);
 
     C addInputListener(final EventListener listener);
 

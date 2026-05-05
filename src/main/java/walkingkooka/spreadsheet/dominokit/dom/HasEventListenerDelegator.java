@@ -22,14 +22,8 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 
 import java.util.Optional;
 
-public interface HasEventListenerDelegator<V, C extends HasEventListener<V, C>> extends HasEventListener<V, C> {
-
-    @Override
-    default C addBlurListener(final EventListener listener) {
-        this.hasEventListeners()
-            .addBlurListener(listener);
-        return (C) this;
-    }
+public interface HasEventListenerDelegator<V, C extends HasEventListener<V, C>> extends HasEventListener<V, C>,
+HasFocusBlurEventListenerDelegator<C> {
 
     @Override
     default C addChangeListener(final ChangeListener<Optional<V>> listener) {
@@ -49,13 +43,6 @@ public interface HasEventListenerDelegator<V, C extends HasEventListener<V, C>> 
     default C addContextMenuListener(final EventListener listener) {
         this.hasEventListeners()
             .addContextMenuListener(listener);
-        return (C) this;
-    }
-
-    @Override
-    default C addFocusListener(final EventListener listener) {
-        this.hasEventListeners()
-            .addFocusListener(listener);
         return (C) this;
     }
 
@@ -81,4 +68,11 @@ public interface HasEventListenerDelegator<V, C extends HasEventListener<V, C>> 
     }
 
     HasEventListener<V, ?> hasEventListeners();
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    default HasFocusBlurEventListener<?> hasFocusBlurListeners() {
+        return this.hasEventListeners();
+    }
 }
