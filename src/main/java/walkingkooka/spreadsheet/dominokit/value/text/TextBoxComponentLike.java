@@ -24,7 +24,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -34,7 +34,7 @@ import java.util.Optional;
 
 abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetElement, String, TextBoxComponent>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, TextBoxComponent, String>,
-    HasEventListeners<String, TextBoxComponent> {
+    HasEventListener<String, TextBoxComponent> {
 
     TextBoxComponentLike() {
         super();
@@ -93,7 +93,7 @@ abstract class TextBoxComponentLike implements FormValueComponent<HTMLFieldSetEl
 
     public abstract TextBoxComponent setValidator(final Optional<Validator<Optional<String>>> validator);
 
-    // HasEventListeners................................................................................................
+    // HasEventListener................................................................................................
 
     @Override
     public final TextBoxComponent addBlurListener(final EventListener listener) {

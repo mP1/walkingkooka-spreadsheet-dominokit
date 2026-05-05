@@ -21,13 +21,13 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListener;
 
 import java.util.Optional;
 
 public interface ValueTextBoxComponentLike<C extends ValueTextBoxComponentLike<C, V>, V> extends FormValueComponent<HTMLFieldSetElement, V, C>,
     HtmlComponentDelegator<HTMLFieldSetElement, C>,
-    HasEventListeners<V, C> {
+    HasEventListener<V, C> {
 
     Optional<String> stringValue();
 

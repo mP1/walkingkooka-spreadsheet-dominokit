@@ -22,7 +22,7 @@ import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 
 import java.util.Optional;
 
-public interface HasEventListenersDelegator<V, C extends HasEventListeners<V, C>> extends HasEventListeners<V, C> {
+public interface HasEventListenerDelegator<V, C extends HasEventListener<V, C>> extends HasEventListener<V, C> {
 
     @Override
     default C addBlurListener(final EventListener listener) {
@@ -80,5 +80,5 @@ public interface HasEventListenersDelegator<V, C extends HasEventListeners<V, C>
         return (C) this;
     }
 
-    HasEventListeners<V, ?> hasEventListeners();
+    HasEventListener<V, ?> hasEventListeners();
 }
