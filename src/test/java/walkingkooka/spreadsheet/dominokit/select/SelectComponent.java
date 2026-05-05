@@ -196,6 +196,7 @@ public final class SelectComponent<T> extends SelectComponentLike<T>
     @Override
     SelectComponent<T> addEventListener(final EventType type,
                                         final EventListener listener) {
+        Objects.requireNonNull(listener, "listener");
         return this;
     }
 

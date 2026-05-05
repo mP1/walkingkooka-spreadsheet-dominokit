@@ -21,6 +21,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
@@ -31,7 +32,8 @@ import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueType, SelectComponent<ValueType>> {
+public final class SelectComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, ValueType, SelectComponent<ValueType>>,
+    HasEventListenerTesting<ValueType, SelectComponent<ValueType>> {
 
     @Test
     public void testSetLabelSetValue() {
@@ -106,6 +108,13 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
                     )
                 )
         );
+    }
+
+    // HasEventListener.................................................................................................
+
+    @Override
+    public SelectComponent<ValueType> createHasEventListeners() {
+        return this.createComponent();
     }
 
     // ClassTesting.....................................................................................................
