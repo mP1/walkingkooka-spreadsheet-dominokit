@@ -315,7 +315,7 @@ public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extend
 
     @Override
     default C focus() {
-        this.all()
+        this.top()
             .focus();
         return (C) this;
     }
