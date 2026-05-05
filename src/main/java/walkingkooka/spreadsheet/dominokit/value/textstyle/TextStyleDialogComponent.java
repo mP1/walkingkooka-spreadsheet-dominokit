@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import elemental2.dom.Event;
+import elemental2.dom.EventListener;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -188,27 +190,37 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                     component.textStyleValueWatcher()
                 );
 
+                final TextStylePropertyName<?> propertyName = component.name();
+
                 component.addValueWatcherSkipIfErrors2(
                     new ValueWatcher() {
                         @Override
                         public void onValue(final Optional value) {
                             TextStyleDialogComponent.this.textStyle.pushHistoryTokenIfNecessary(
                                 Cast.to(
-                                    component.name()
-                                        .setOrRemoveValue(
-                                            value
-                                        )
+                                    propertyName.setOrRemoveValue(
+                                        value
+                                    )
                                 ),
                                 TextStyleDialogComponent.this.context
                             );
                         }
                     }
                 );
+
+                component.addFocusInListener(
+                    this.pushHistoryTokenWithTextStylePropertyNameEventListener(propertyName)
+                );
             }
         );
 
         this.textStyle.addValueWatcher2(this.links)
-            .addValueWatcher2(this.sample);
+            .addValueWatcher2(this.sample)
+            .addFocusInListener(
+                this.pushHistoryTokenWithTextStylePropertyNameEventListener(
+                    TextStylePropertyName.ALL
+                )
+            );
 
         this.dialog = this.dialogCreate();
 
@@ -219,6 +231,18 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         );
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
+    }
+
+    private EventListener pushHistoryTokenWithTextStylePropertyNameEventListener(final TextStylePropertyName<?> propertyName) {
+        return (Event event) ->
+            this.context.pushHistoryToken(
+                this.context.historyToken()
+                    .setStylePropertyName(
+                        Optional.of(
+                            propertyName
+                        )
+                    )
+            );
     }
 
     // dialog...........................................................................................................
