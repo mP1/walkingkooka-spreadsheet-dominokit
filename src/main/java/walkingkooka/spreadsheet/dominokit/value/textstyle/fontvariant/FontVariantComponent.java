@@ -54,7 +54,7 @@ public final class FontVariantComponent implements TextStylePropertyEnumComponen
     }
 
     @Override
-    public TextStylePropertyEnumComponent<FontVariant> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontVariant> textStylePropertyEnumComponent() {
         return this.component;
     }
 

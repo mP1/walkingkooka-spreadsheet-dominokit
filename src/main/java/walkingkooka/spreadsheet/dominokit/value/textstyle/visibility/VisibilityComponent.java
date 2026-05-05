@@ -56,7 +56,7 @@ public final class VisibilityComponent implements TextStylePropertyEnumComponent
     }
 
     @Override
-    public TextStylePropertyEnumComponent<Visibility> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<Visibility> textStylePropertyEnumComponent() {
         return this.component;
     }
 

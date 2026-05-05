@@ -59,7 +59,7 @@ public final class FontStretchComponent implements TextStylePropertyEnumComponen
     }
 
     @Override
-    public TextStylePropertyEnumComponent<FontStretch> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontStretch> textStylePropertyEnumComponent() {
         return this.component;
     }
 

@@ -55,7 +55,7 @@ public final class WhitespaceComponent implements TextStylePropertyEnumComponent
     }
 
     @Override
-    public TextStylePropertyEnumComponent<TextWhitespace> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextWhitespace> textStylePropertyEnumComponent() {
         return this.component;
     }
 

@@ -54,7 +54,7 @@ public final class TextJustifyComponent implements TextStylePropertyEnumComponen
     }
 
     @Override
-    public TextStylePropertyEnumComponent<TextJustify> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextJustify> textStylePropertyEnumComponent() {
         return this.component;
     }
 

@@ -83,7 +83,7 @@ public final class FontStyleComponent implements TextStylePropertyEnumComponentD
     }
 
     @Override
-    public TextStylePropertyEnumComponent<FontStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontStyle> textStylePropertyEnumComponent() {
         return this.component;
     }
 

@@ -58,7 +58,7 @@ public final class WritingModeComponent implements TextStylePropertyEnumComponen
     }
 
     @Override
-    public TextStylePropertyEnumComponent<WritingMode> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<WritingMode> textStylePropertyEnumComponent() {
         return this.component;
     }
 

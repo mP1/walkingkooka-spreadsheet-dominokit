@@ -53,7 +53,7 @@ public final class HyphensComponent implements TextStylePropertyEnumComponentDel
     }
 
     @Override
-    public TextStylePropertyEnumComponent<Hyphens> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<Hyphens> textStylePropertyEnumComponent() {
         return this.component;
     }
 

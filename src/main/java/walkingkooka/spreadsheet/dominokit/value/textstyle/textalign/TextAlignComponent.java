@@ -92,7 +92,7 @@ public final class TextAlignComponent implements TextStylePropertyEnumComponentD
     }
 
     @Override
-    public TextStylePropertyEnumComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextAlign> textStylePropertyEnumComponent() {
         return this.component;
     }
 

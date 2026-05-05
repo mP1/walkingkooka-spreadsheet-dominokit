@@ -51,7 +51,7 @@ abstract class BorderStyleSharedComponent<C extends BorderStyleSharedComponent<C
     }
 
     @Override
-    public final TextStylePropertyEnumComponent<BorderStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public final TextStylePropertyEnumComponent<BorderStyle> textStylePropertyEnumComponent() {
         return this.component;
     }
 

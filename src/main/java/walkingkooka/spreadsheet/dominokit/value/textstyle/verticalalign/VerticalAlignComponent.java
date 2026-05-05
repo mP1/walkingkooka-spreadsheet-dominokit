@@ -89,7 +89,7 @@ public final class VerticalAlignComponent implements TextStylePropertyEnumCompon
     }
 
     @Override
-    public TextStylePropertyEnumComponent<VerticalAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<VerticalAlign> textStylePropertyEnumComponent() {
         return this.component;
     }
 

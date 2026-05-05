@@ -34,7 +34,7 @@ public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C ex
 
     @Override
     default TextStylePropertyName<V> name() {
-        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+        return this.textStylePropertyEnumComponent()
             .name();
     }
 
@@ -55,22 +55,22 @@ public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C ex
 
     @Override
     default TextStylePropertyEnumComponent<V> formValueComponent() {
-        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent();
+        return this.textStylePropertyEnumComponent();
     }
 
     // TextStylePropertyComponentDelegator..............................................................................
 
     @Override
     default boolean filterTest(final TextStylePropertyFilter filter) {
-        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+        return this.textStylePropertyEnumComponent()
             .filterTest(filter);
     }
 
     @Override
     default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
-        return this.textStylePropertyNameEnumHistoryTokenAnchorListComponent()
+        return this.textStylePropertyEnumComponent()
             .textStylePropertyFilterKinds();
     }
 
-    TextStylePropertyEnumComponent<V> textStylePropertyNameEnumHistoryTokenAnchorListComponent();
+    TextStylePropertyEnumComponent<V> textStylePropertyEnumComponent();
 }
