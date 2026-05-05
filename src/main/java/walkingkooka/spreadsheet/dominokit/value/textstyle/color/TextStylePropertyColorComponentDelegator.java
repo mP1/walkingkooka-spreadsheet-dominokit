@@ -19,30 +19,15 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
-import walkingkooka.naming.HasName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.TextStyle;
-import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
+
+import java.util.Set;
 
 public interface TextStylePropertyColorComponentDelegator<C extends TextStylePropertyColorComponentDelegator<C>>
     extends TextStylePropertyColorComponentLike<HTMLFieldSetElement, C>,
-    FormValueComponentDelegator<HTMLFieldSetElement, Color, C>,
-    HasName<TextStylePropertyName<Color>> {
-
-    // TextStylePropertyComponent.......................................................................................
-
-    @Override
-    default boolean filterTest(final TextStylePropertyFilter filter) {
-        return this.textStylePropertyColorComponent()
-            .filterTest(filter);
-    }
-
-    // FormValueComponentDelegator......................................................................................
+    TextStylePropertyComponentDelegator<Color, C> {
 
     default C setIdPrefix(final String idPrefix) {
         return this.setIdPrefix(
@@ -51,35 +36,15 @@ public interface TextStylePropertyColorComponentDelegator<C extends TextStylePro
         );
     }
 
+    // TextStylePropertyComponentDelegator..............................................................................
+
     @Override
-    default TextStylePropertyName<Color> name() {
-        return this.textStylePropertyColorComponent()
-            .name();
+    default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
+        return TextStylePropertyColorComponentLike.super.textStylePropertyFilterKinds();
     }
 
     @Override
-    default ValueWatcher<TextStyle> textStyleValueWatcher() {
-        return this.textStylePropertyColorComponent()
-            .textStyleValueWatcher();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    default void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.textStylePropertyColorComponent()
-                .printTree(printer);
-        }
-        printer.outdent();
-    }
-
-    // HtmlComponentDelegator...........................................................................................
-
-    @Override
-    default TextStylePropertyColorComponent formValueComponent() {
+    default TextStylePropertyColorComponent textStylePropertyComponent() {
         return this.textStylePropertyColorComponent();
     }
 

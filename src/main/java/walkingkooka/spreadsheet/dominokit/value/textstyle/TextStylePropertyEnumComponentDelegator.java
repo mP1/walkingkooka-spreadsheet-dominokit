@@ -18,58 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
-import walkingkooka.spreadsheet.dominokit.value.FormValueComponentDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.TextStylePropertyName;
-
-import java.util.Set;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyComponentDelegator;
 
 public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
     extends TextStylePropertyEnumComponentLike<V, C>,
-    FormValueComponentDelegator<HTMLFieldSetElement, V, C>{
-
-    // HasName..........................................................................................................
+    TextStylePropertyComponentDelegator<V, C> {
 
     @Override
-    default TextStylePropertyName<V> name() {
-        return this.textStylePropertyEnumComponent()
-            .name();
-    }
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    default void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            this.htmlComponent()
-                .printTree(printer);
-        }
-        printer.outdent();
-    }
-
-    // HtmlComponentDelegator...........................................................................................
-
-    @Override
-    default TextStylePropertyEnumComponent<V> formValueComponent() {
+    default TextStylePropertyComponent<HTMLFieldSetElement, V, ?> textStylePropertyComponent() {
         return this.textStylePropertyEnumComponent();
-    }
-
-    // TextStylePropertyComponentDelegator..............................................................................
-
-    @Override
-    default boolean filterTest(final TextStylePropertyFilter filter) {
-        return this.textStylePropertyEnumComponent()
-            .filterTest(filter);
-    }
-
-    @Override
-    default Set<TextStylePropertyFilterKind> textStylePropertyFilterKinds() {
-        return this.textStylePropertyEnumComponent()
-            .textStylePropertyFilterKinds();
     }
 
     TextStylePropertyEnumComponent<V> textStylePropertyEnumComponent();
