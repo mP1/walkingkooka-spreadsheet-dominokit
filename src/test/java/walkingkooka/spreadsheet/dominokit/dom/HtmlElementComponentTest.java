@@ -42,9 +42,10 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HtmlElementComponentTest implements ClassTesting<HtmlElementComponent<?, ?>>,
+public final class HtmlElementComponentTest implements ClassTesting<DivComponent>,
+    HasFocusBlurEventListenerTesting<DivComponent>,
     TreePrintableTesting,
-    ToStringTesting<HtmlElementComponent<?, ?>> {
+    ToStringTesting<DivComponent> {
 
     // setId............................................................................................................
 
@@ -560,6 +561,13 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
         );
     }
 
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public DivComponent createHasFocusBlurEventListener() {
+        return HtmlElementComponent.div();
+    }
+
     // toString.........................................................................................................
 
     @Test
@@ -580,7 +588,7 @@ public final class HtmlElementComponentTest implements ClassTesting<HtmlElementC
     // class............................................................................................................
 
     @Override
-    public Class<HtmlElementComponent<?, ?>> type() {
+    public Class<DivComponent> type() {
         return Cast.to(HtmlElementComponent.class);
     }
 

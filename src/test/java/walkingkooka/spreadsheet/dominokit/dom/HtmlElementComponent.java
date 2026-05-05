@@ -308,6 +308,8 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
     @Override
     public C addEventListener(final String type,
                               final EventListener listener) {
+        Objects.requireNonNull(type, "type");
+        Objects.requireNonNull(listener, "listener");
         return (C) this;
     }
 
