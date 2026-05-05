@@ -23,7 +23,7 @@ public interface HasFocusBlurEventListenerDelegator<T extends HasFocusBlurEventL
 
     @Override
     default T addBlurListener(final EventListener listener) {
-        this.hasFocusBlurListeners()
+        this.hasFocusBlurEventListener()
             .addBlurListener(listener);
 
         return (T) this;
@@ -31,7 +31,7 @@ public interface HasFocusBlurEventListenerDelegator<T extends HasFocusBlurEventL
 
     @Override
     default T addFocusListener(final EventListener listener) {
-        this.hasFocusBlurListeners()
+        this.hasFocusBlurEventListener()
             .addFocusListener(listener);
 
         return (T) this;
@@ -39,7 +39,7 @@ public interface HasFocusBlurEventListenerDelegator<T extends HasFocusBlurEventL
 
     @Override
     default T addFocusInListener(final EventListener listener) {
-        this.hasFocusBlurListeners()
+        this.hasFocusBlurEventListener()
             .addFocusInListener(listener);
 
         return (T) this;
@@ -47,11 +47,11 @@ public interface HasFocusBlurEventListenerDelegator<T extends HasFocusBlurEventL
 
     @Override
     default T addFocusOutListener(final EventListener listener) {
-        this.hasFocusBlurListeners()
+        this.hasFocusBlurEventListener()
             .addFocusOutListener(listener);
 
         return (T) this;
     }
 
-    HasFocusBlurEventListener<?> hasFocusBlurListeners();
+    HasFocusBlurEventListener<?> hasFocusBlurEventListener();
 }
