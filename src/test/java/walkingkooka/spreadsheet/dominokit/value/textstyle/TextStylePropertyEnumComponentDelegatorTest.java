@@ -91,7 +91,7 @@ public final class TextStylePropertyEnumComponentDelegatorTest implements TextSt
         }
 
         @Override
-        public TextStylePropertyEnumComponent<TextAlign> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+        public TextStylePropertyEnumComponent<TextAlign> textStylePropertyEnumComponent() {
             return this.component;
         }
 

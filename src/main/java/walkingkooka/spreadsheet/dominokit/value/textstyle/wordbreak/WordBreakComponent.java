@@ -54,7 +54,7 @@ public final class WordBreakComponent implements TextStylePropertyEnumComponentD
     }
 
     @Override
-    public TextStylePropertyEnumComponent<WordBreak> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<WordBreak> textStylePropertyEnumComponent() {
         return this.component;
     }
 

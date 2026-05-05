@@ -56,7 +56,7 @@ public final class TextDecorationStyleComponent implements TextStylePropertyEnum
     }
 
     @Override
-    public TextStylePropertyEnumComponent<TextDecorationStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextDecorationStyle> textStylePropertyEnumComponent() {
         return this.component;
     }
 

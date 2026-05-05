@@ -87,7 +87,7 @@ public final class TextTransformComponent implements TextStylePropertyEnumCompon
     }
 
     @Override
-    public TextStylePropertyEnumComponent<TextTransform> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<TextTransform> textStylePropertyEnumComponent() {
         return this.component;
     }
 

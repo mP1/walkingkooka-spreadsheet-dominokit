@@ -76,7 +76,7 @@ public final class OverflowComponent implements TextStylePropertyEnumComponentDe
     }
 
     @Override
-    public TextStylePropertyEnumComponent<Overflow> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<Overflow> textStylePropertyEnumComponent() {
         return this.component;
     }
 

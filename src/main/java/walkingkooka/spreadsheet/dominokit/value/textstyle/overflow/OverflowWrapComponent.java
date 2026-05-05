@@ -54,7 +54,7 @@ public final class OverflowWrapComponent implements TextStylePropertyEnumCompone
     }
 
     @Override
-    public TextStylePropertyEnumComponent<OverflowWrap> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<OverflowWrap> textStylePropertyEnumComponent() {
         return this.component;
     }
 

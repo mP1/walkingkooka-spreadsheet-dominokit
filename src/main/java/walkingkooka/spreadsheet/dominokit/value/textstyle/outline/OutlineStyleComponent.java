@@ -60,7 +60,7 @@ public final class OutlineStyleComponent implements TextStylePropertyEnumCompone
     }
 
     @Override
-    public TextStylePropertyEnumComponent<OutlineStyle> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<OutlineStyle> textStylePropertyEnumComponent() {
         return this.component;
     }
 

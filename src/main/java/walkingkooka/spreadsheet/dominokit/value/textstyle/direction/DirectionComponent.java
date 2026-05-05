@@ -77,7 +77,7 @@ public final class DirectionComponent implements TextStylePropertyEnumComponentD
     }
 
     @Override
-    public TextStylePropertyEnumComponent<Direction> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<Direction> textStylePropertyEnumComponent() {
         return this.component;
     }
 

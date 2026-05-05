@@ -55,7 +55,7 @@ public final class HangingPunctuationComponent implements TextStylePropertyEnumC
     }
 
     @Override
-    public TextStylePropertyEnumComponent<HangingPunctuation> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<HangingPunctuation> textStylePropertyEnumComponent() {
         return this.component;
     }
 

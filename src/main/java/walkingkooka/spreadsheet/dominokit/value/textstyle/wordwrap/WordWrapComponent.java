@@ -52,7 +52,7 @@ public final class WordWrapComponent implements TextStylePropertyEnumComponentDe
     }
 
     @Override
-    public TextStylePropertyEnumComponent<WordWrap> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<WordWrap> textStylePropertyEnumComponent() {
         return this.component;
     }
 

@@ -53,7 +53,7 @@ public final class FontKerningComponent implements TextStylePropertyEnumComponen
     }
 
     @Override
-    public TextStylePropertyEnumComponent<FontKerning> textStylePropertyNameEnumHistoryTokenAnchorListComponent() {
+    public TextStylePropertyEnumComponent<FontKerning> textStylePropertyEnumComponent() {
         return this.component;
     }
 
