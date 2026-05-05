@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -43,7 +44,8 @@ import java.util.Set;
  * A {@link walkingkooka.spreadsheet.dominokit.HtmlComponent} that includes links for BOLD, NORMAL and a text box.
  */
 public final class BigFontWeightComponent implements TextStylePropertyComponent<HTMLFieldSetElement, FontWeight, BigFontWeightComponent>,
-    FormElementComponentDelegator<FontWeight, BigFontWeightComponent> {
+    FormElementComponentDelegator<FontWeight, BigFontWeightComponent>,
+    HasFocusBlurEventListenerDelegator<BigFontWeightComponent> {
 
     public static BigFontWeightComponent with(final String idPrefix,
                                               final BigFontWeightComponentContext context) {
@@ -262,6 +264,13 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
     }
 
     private final FormElementComponent<FontWeight, HTMLDivElement, ?> formElementComponent;
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    public FontWeightComponent hasFocusBlurEventListener() {
+        return this.fontWeight;
+    }
 
     // @VisibleForTesting
     final HistoryTokenAnchorComponent bold;

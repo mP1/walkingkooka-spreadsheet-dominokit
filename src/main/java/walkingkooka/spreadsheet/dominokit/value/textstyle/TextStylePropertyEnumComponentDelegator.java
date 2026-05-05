@@ -18,11 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyComponentDelegator;
 
 public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C extends TextStylePropertyEnumComponentLike<V, C>>
     extends TextStylePropertyEnumComponentLike<V, C>,
-    TextStylePropertyComponentDelegator<V, C> {
+    TextStylePropertyComponentDelegator<V, C>,
+    HasFocusBlurEventListenerDelegator<C> {
 
     @Override
     default TextStylePropertyComponent<HTMLFieldSetElement, V, ?> textStylePropertyComponent() {
@@ -30,4 +33,11 @@ public interface TextStylePropertyEnumComponentDelegator<V extends Enum<V>, C ex
     }
 
     TextStylePropertyEnumComponent<V> textStylePropertyEnumComponent();
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    default HasFocusBlurEventListener<?> hasFocusBlurEventListener() {
+        return this.textStylePropertyEnumComponent();
+    }
 }
