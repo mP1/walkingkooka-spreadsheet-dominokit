@@ -120,6 +120,20 @@ public interface TextStylePropertyLengthComponentLike<C extends TextStylePropert
     }
 
     @Override
+    default C addFocusInListener(final EventListener listener) {
+        this.lengthComponent()
+            .addFocusInListener(listener);
+        return (C) this;
+    }
+
+    @Override
+    default C addFocusOutListener(final EventListener listener) {
+        this.lengthComponent()
+            .addFocusOutListener(listener);
+        return (C) this;
+    }
+
+    @Override
     default C addInputListener(final EventListener listener) {
         this.lengthComponent()
             .addInputListener(listener);

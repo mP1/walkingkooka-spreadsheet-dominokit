@@ -108,6 +108,22 @@ abstract class IntegerBoxComponentLike implements FormValueComponent<HTMLFieldSe
     }
 
     @Override
+    public final IntegerBoxComponent addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+    }
+
+    @Override
+    public final IntegerBoxComponent addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+    }
+
+    @Override
     public final IntegerBoxComponent addInputListener(final EventListener listener) {
         return this.addEventListener(
             EventType.input,
