@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -36,7 +37,8 @@ import java.util.List;
  * A very basic attempt at re-creating the old DominoUI 1.x FlexLayout.
  */
 public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDivElement, FlexLayoutComponent>,
-    ComponentWithChildren<FlexLayoutComponent, HTMLDivElement> {
+    ComponentWithChildren<FlexLayoutComponent, HTMLDivElement>,
+    HasFocusBlurEventListener<FlexLayoutComponent> {
 
     private final static CssClass GAP = SpacingCss.dui_gap_1;
 
@@ -145,6 +147,32 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
     @Override
     public boolean isEditing() {
         return false;
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public FlexLayoutComponent addBlurListener(final EventListener listener) {
+        this.div.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
+    public FlexLayoutComponent addFocusListener(final EventListener listener) {
+        this.div.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public FlexLayoutComponent addFocusInListener(final EventListener listener) {
+        this.div.addFocusInListener(listener);
+        return this;
+    }
+
+    @Override
+    public FlexLayoutComponent addFocusOutListener(final EventListener listener) {
+        this.div.addFocusOutListener(listener);
+        return this;
     }
 
     // HtmlElementDelegator.............................................................................................
