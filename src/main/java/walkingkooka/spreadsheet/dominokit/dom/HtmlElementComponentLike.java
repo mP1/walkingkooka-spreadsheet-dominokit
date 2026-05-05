@@ -38,6 +38,7 @@ import java.util.Optional;
  */
 abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlElementComponent<E, C>> implements HtmlComponent<E, C>,
     HtmlStyledComponent<C>,
+    HasFocusBlurEventListener<C>,
     HasText,
     TooltipComponentTarget<E, C> {
 
