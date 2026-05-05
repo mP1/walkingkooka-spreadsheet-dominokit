@@ -17,7 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
@@ -284,6 +286,16 @@ public final class SuggestBoxComponent<T extends HasText> extends SuggestBoxComp
 
     @Override
     public SuggestBoxComponent<T> removePadding() {
+        return this;
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    SuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                            final EventListener listener) {
+        Objects.requireNonNull(eventType, "eventType");
+        Objects.requireNonNull(listener, "listener");
         return this;
     }
 }

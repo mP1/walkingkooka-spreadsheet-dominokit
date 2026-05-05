@@ -18,8 +18,10 @@
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
 import elemental2.dom.Element;
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.elements.SpanElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.suggest.SuggestBox;
 import org.dominokit.domino.ui.forms.suggest.SuggestOption;
 import org.dominokit.domino.ui.forms.suggest.SuggestionsStore;
@@ -453,6 +455,19 @@ public final class SuggestBoxComponent<T> extends SuggestBoxComponentLike<T> {
     @Override
     public SuggestBoxComponent<T> removeCssProperty(final String name) {
         this.suggestBox.removeCssProperty(name);
+        return this;
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    SuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                            final EventListener listener) {
+        this.suggestBox.addEventListener(
+            eventType,
+            listener
+        );
+
         return this;
     }
 
