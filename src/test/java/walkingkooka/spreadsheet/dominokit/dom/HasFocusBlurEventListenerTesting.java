@@ -28,7 +28,7 @@ public interface HasFocusBlurEventListenerTesting<T extends HasFocusBlurEventLis
     default void testAddBlurListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasFocusBlurListeners()
+            () -> this.createHasFocusBlurEventListener()
                 .addBlurListener(null)
         );
     }
@@ -37,7 +37,7 @@ public interface HasFocusBlurEventListenerTesting<T extends HasFocusBlurEventLis
     default void testAddFocusListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasFocusBlurListeners()
+            () -> this.createHasFocusBlurEventListener()
                 .addFocusListener(null)
         );
     }
@@ -46,7 +46,7 @@ public interface HasFocusBlurEventListenerTesting<T extends HasFocusBlurEventLis
     default void testAddFocusInListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasFocusBlurListeners()
+            () -> this.createHasFocusBlurEventListener()
                 .addFocusInListener(null)
         );
     }
@@ -55,10 +55,10 @@ public interface HasFocusBlurEventListenerTesting<T extends HasFocusBlurEventLis
     default void testAddFocusOutListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasFocusBlurListeners()
+            () -> this.createHasFocusBlurEventListener()
                 .addFocusOutListener(null)
         );
     }
 
-    T createHasFocusBlurListeners();
+    T createHasFocusBlurEventListener();
 }
