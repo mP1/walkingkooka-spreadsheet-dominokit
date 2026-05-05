@@ -418,7 +418,7 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
     // HasEventListener.................................................................................................
 
     @Override
-    public HistoryTokenAnchorComponent createHasEventListeners() {
+    public HistoryTokenAnchorComponent createHasEventListener() {
         return this.createObject();
     }
 
