@@ -18,13 +18,16 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLFieldSetElement;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.text.CharSequences;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public interface FormElementComponentDelegator<V, C extends FormElementComponentDelegator<V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C> {
+public interface FormElementComponentDelegator<V, C extends FormElementComponentDelegator<V, C>> extends FormValueComponent<HTMLFieldSetElement, V, C>,
+    HasFocusBlurEventListenerDelegator<C> {
 
     @Override
     default String label() {
@@ -139,6 +142,13 @@ public interface FormElementComponentDelegator<V, C extends FormElementComponent
     }
 
     FormElementComponent<V, ?, ?> formElementComponent();
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    default HasFocusBlurEventListener<?> hasFocusBlurEventListener() {
+        return this.formElementComponent();
+    }
 
     // Component........................................................................................................
 
