@@ -22,11 +22,13 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 
 import java.util.Optional;
 
 public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexLayoutComponent, HTMLDivElement>,
+    HasFocusBlurEventListenerTesting<FlexLayoutComponent>,
     ToStringTesting<FlexLayoutComponent> {
 
     @Test
@@ -77,6 +79,13 @@ public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexL
                 "      TextBoxComponent\n" +
                 "        [Value222] REQUIRED\n"
         );
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public FlexLayoutComponent createHasFocusBlurEventListener() {
+        return FlexLayoutComponent.row();
     }
 
     // toString.........................................................................................................
