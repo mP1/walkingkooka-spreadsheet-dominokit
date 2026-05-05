@@ -24,6 +24,7 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -35,6 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement>,
     CanBeEmptyTesting,
+    HasFocusBlurEventListenerTesting<AnchorListComponent>,
     ToStringTesting<AnchorListComponent> {
 
     private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
@@ -150,6 +152,13 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
             ),
             anchorListComponent.children()
         );
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public AnchorListComponent createHasFocusBlurEventListener() {
+        return AnchorListComponent.empty();
     }
 
     // CanBeEmpty.......................................................................................................
