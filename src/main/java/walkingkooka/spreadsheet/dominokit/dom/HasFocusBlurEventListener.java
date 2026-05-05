@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 
 import elemental2.dom.EventListener;
 
-public interface HasFocusBlurListeners<T extends HasFocusBlurListeners<T>> {
+public interface HasFocusBlurEventListener<T extends HasFocusBlurEventListener<T>> {
 
     T addBlurListener(final EventListener listener);
 

@@ -22,7 +22,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface HasFocusBlurListenersTesting<T extends HasFocusBlurListeners<T>> extends TreePrintableTesting {
+public interface HasFocusBlurEventListenerTesting<T extends HasFocusBlurEventListener<T>> extends TreePrintableTesting {
 
     @Test
     default void testAddBlurListenerWithNullFails() {
