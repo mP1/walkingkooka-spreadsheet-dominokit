@@ -17,13 +17,16 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.forms.AbstractFormElement;
 import org.dominokit.domino.ui.forms.AutoValidator;
 import org.dominokit.domino.ui.utils.ApplyFunction;
 import org.gwtproject.core.shared.GWT;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
@@ -40,6 +43,7 @@ import java.util.Optional;
  */
 public final class FormElementComponent<V, E extends HTMLElement, C extends HtmlComponent<E, C>> extends AbstractFormElement<FormElementComponent<V, E, C>, V>
     implements HtmlComponent<HTMLFieldSetElement, FormElementComponent<V, E, C>>,
+    HasFocusBlurEventListener<FormElementComponent<V, E, C>>,
     TreePrintable {
 
     public static <V, E extends HTMLElement, C extends HtmlComponent<E, C>> FormElementComponent<V, E, C> with(final C component) {
@@ -154,6 +158,48 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
     @Override
     public boolean isEmptyIgnoreSpaces() {
         return this.isEmpty();
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public FormElementComponent<V, E, C> addBlurListener(final EventListener listener) {
+        this.addEventListener(
+            EventType.blur,
+            listener
+        );
+
+        return this;
+    }
+
+    @Override
+    public FormElementComponent<V, E, C> addFocusListener(final EventListener listener) {
+        this.addEventListener(
+            EventType.focus,
+            listener
+        );
+
+        return this;
+    }
+
+    @Override
+    public FormElementComponent<V, E, C> addFocusInListener(EventListener listener) {
+        this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+
+        return this;
+    }
+
+    @Override
+    public FormElementComponent<V, E, C> addFocusOutListener(final EventListener listener) {
+        this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+
+        return this;
     }
 
     // HtmlComponent....................................................................................................
