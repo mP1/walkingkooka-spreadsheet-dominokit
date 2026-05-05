@@ -207,12 +207,14 @@ abstract class TextStylePropertyEnumComponentShared<T extends Enum<T>> implement
 
     @Override
     public final TextStylePropertyEnumComponent<T> focus() {
-        throw new UnsupportedOperationException();
+        this.list.focus();
+        return (TextStylePropertyEnumComponent<T>) this;
     }
 
     @Override
     public final TextStylePropertyEnumComponent<T> blur() {
-        throw new UnsupportedOperationException();
+        this.list.blur();
+        return (TextStylePropertyEnumComponent<T>) this;
     }
 
     final AnchorListComponent list;
