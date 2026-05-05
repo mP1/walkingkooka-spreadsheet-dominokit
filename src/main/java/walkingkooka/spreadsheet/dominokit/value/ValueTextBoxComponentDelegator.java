@@ -22,7 +22,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
-import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListener;
 import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
@@ -33,7 +33,7 @@ import java.util.Optional;
 public interface ValueTextBoxComponentDelegator<C extends ValueTextBoxComponentDelegator<C, V>, V>
     extends ValueTextBoxComponentLike<C, V>,
     FormValueComponentDelegator<HTMLFieldSetElement, V, C>,
-    HasEventListeners<V, C> {
+    HasEventListener<V, C> {
 
     @Override
     default Optional<String> stringValue() {

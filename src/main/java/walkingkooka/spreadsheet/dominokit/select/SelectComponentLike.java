@@ -21,7 +21,7 @@ import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.events.EventType;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.spreadsheet.dominokit.dom.HasEventListeners;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -34,7 +34,7 @@ import java.util.Optional;
  */
 abstract class SelectComponentLike<T> implements FormValueComponent<HTMLFieldSetElement, T, SelectComponent<T>>,
     FormValueComponentTreePrintable<HTMLFieldSetElement, SelectComponent<T>, T>,
-    HasEventListeners<T, SelectComponent<T>> {
+    HasEventListener<T, SelectComponent<T>> {
 
     SelectComponentLike() {
         super();
