@@ -17,12 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.anchor;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -36,7 +38,8 @@ import java.util.Objects;
  * This is useful for inserting links with commands such as SAVE, CLOSE at the bottom of a {@link DialogComponent}.
  */
 public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, AnchorListComponent>,
-    CanBeEmpty {
+    CanBeEmpty,
+    HasFocusBlurEventListener<AnchorListComponent> {
 
     public static AnchorListComponent empty() {
         return new AnchorListComponent();
@@ -87,6 +90,32 @@ public final class AnchorListComponent implements HtmlComponentDelegator<HTMLDiv
     @Override
     public boolean isEditing() {
         return this.root.isEditing();
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public AnchorListComponent addBlurListener(final EventListener listener) {
+        this.root.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
+    public AnchorListComponent addFocusListener(final EventListener listener) {
+        this.root.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public AnchorListComponent addFocusInListener(final EventListener listener) {
+        this.root.addFocusInListener(listener);
+        return this;
+    }
+
+    @Override
+    public AnchorListComponent addFocusOutListener(final EventListener listener) {
+        this.root.addFocusOutListener(listener);
+        return this;
     }
 
     // HtmlComponentDelegator...........................................................................................
