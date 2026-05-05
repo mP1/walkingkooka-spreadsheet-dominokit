@@ -18,7 +18,10 @@
 package org.dominokit.domino.ui.utils;
 
 import elemental2.dom.Element;
+import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.events.EventType;
+import org.gwtproject.editor.client.Editor;
 
 public abstract class BaseDominoElement<E extends Element, T extends IsElement<E>>
     implements IsElement<E> {
@@ -46,4 +49,11 @@ public abstract class BaseDominoElement<E extends Element, T extends IsElement<E
     }
 
     private String id;
+
+    @Editor.Ignore
+    public T addEventListener(final EventType type,
+                              final EventListener listener) {
+        // nop
+        return null;
+    }
 }
