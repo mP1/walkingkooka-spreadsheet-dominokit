@@ -113,7 +113,7 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
     // HasEventListener.................................................................................................
 
     @Override
-    public SelectComponent<ValueType> createHasEventListeners() {
+    public SelectComponent<ValueType> createHasEventListener() {
         return this.createComponent();
     }
 

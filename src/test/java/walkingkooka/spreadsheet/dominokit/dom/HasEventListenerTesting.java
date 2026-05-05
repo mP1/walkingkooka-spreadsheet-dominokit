@@ -28,7 +28,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddBlurListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addBlurListener(null)
         );
     }
@@ -37,7 +37,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddClickListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addClickListener(null)
         );
     }
@@ -46,7 +46,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddChangeListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addBlurListener(null)
         );
     }
@@ -55,7 +55,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddFocusListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addFocusListener(null)
         );
     }
@@ -64,7 +64,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddInputListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addInputListener(null)
         );
     }
@@ -73,7 +73,7 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddKeyDownListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addKeyDownListener(null)
         );
     }
@@ -82,10 +82,10 @@ public interface HasEventListenerTesting<V, C extends HasEventListener<V, C>> ex
     default void testAddKeyUpListenerWithNullFails() {
         assertThrows(
             NullPointerException.class,
-            () -> this.createHasEventListeners()
+            () -> this.createHasEventListener()
                 .addKeyUpListener(null)
         );
     }
 
-    C createHasEventListeners();
+    C createHasEventListener();
 }

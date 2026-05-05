@@ -132,7 +132,7 @@ public interface ValueTextBoxComponentLikeTesting<C extends ValueTextBoxComponen
     // HasEventListener.................................................................................................
 
     @Override
-    default C createHasEventListeners() {
+    default C createHasEventListener() {
         return this.createComponent();
     }
 }

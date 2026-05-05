@@ -483,7 +483,7 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
     // HasEventListener.................................................................................................
 
     @Override
-    public TextBoxComponent createHasEventListeners() {
+    public TextBoxComponent createHasEventListener() {
         return this.createComponent();
     }
 
