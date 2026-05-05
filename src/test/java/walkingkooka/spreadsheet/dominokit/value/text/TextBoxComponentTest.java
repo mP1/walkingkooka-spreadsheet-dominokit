@@ -27,6 +27,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeHtmlComponent;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
+import walkingkooka.spreadsheet.dominokit.dom.HasEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -36,6 +37,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TextBoxComponent>,
+    HasEventListenerTesting<String, TextBoxComponent>,
     ToStringTesting<TextBoxComponent> {
 
     // setId............................................................................................................
@@ -476,6 +478,13 @@ public final class TextBoxComponentTest implements FormValueComponentTesting<HTM
     @Override
     public TextBoxComponent createComponent() {
         return TextBoxComponent.empty();
+    }
+
+    // HasEventListener.................................................................................................
+
+    @Override
+    public TextBoxComponent createHasEventListeners() {
+        return this.createComponent();
     }
 
     // toString.........................................................................................................
