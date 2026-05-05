@@ -181,6 +181,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             (final TextStylePropertyComponent<?, ?, ?> component) -> {
                 component.setLabelFromPropertyName();
 
+                // skip syncing textStyle and components or vice versa if the value change has an error
+                // any incomplete edit of a property will be an error until the edit is complete and correct.
+                // without the skip the style is cleared and all children are cleared because of this value change
                 this.textStyle.addValueWatcherSkipIfErrors2(
                     component.textStyleValueWatcher()
                 );
