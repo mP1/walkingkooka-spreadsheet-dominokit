@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 
@@ -27,7 +29,8 @@ import java.util.Set;
 
 public interface TextStylePropertyColorComponentDelegator<C extends TextStylePropertyColorComponentDelegator<C>>
     extends TextStylePropertyColorComponentLike<HTMLFieldSetElement, C>,
-    TextStylePropertyComponentDelegator<Color, C> {
+    TextStylePropertyComponentDelegator<Color, C>,
+    HasFocusBlurEventListenerDelegator<C> {
 
     default C setIdPrefix(final String idPrefix) {
         return this.setIdPrefix(
@@ -49,4 +52,11 @@ public interface TextStylePropertyColorComponentDelegator<C extends TextStylePro
     }
 
     TextStylePropertyColorComponent textStylePropertyColorComponent();
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    default HasFocusBlurEventListener<?> hasFocusBlurEventListener() {
+        return this.textStylePropertyColorComponent();
+    }
 }

@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.naming.HasName;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
@@ -39,7 +40,8 @@ import java.util.Set;
  */
 public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponent<E, V, C>,
-    HasName<TextStylePropertyName<V>> {
+    HasName<TextStylePropertyName<V>>,
+    HasFocusBlurEventListener<C> {
 
     default C setIdPrefix(final String idPrefix,
                           final String suffix) {

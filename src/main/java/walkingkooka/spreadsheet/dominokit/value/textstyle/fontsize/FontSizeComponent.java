@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentDelegator;
@@ -36,7 +37,8 @@ import java.util.Set;
 /**
  * A component that supports displaying or editing as text or picking from a list of {@link FontSize}.
  */
-public final class FontSizeComponent implements SuggestBoxComponentDelegator<FontSize, FontSizeComponent>,
+public final
+class FontSizeComponent implements SuggestBoxComponentDelegator<FontSize, FontSizeComponent>,
     TextStylePropertyComponent<HTMLFieldSetElement, FontSize, FontSizeComponent>,
     TreePrintable {
 
@@ -129,6 +131,32 @@ public final class FontSizeComponent implements SuggestBoxComponentDelegator<Fon
     @Override
     public TextStylePropertyName<FontSize> name() {
         return TextStylePropertyName.FONT_SIZE;
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public FontSizeComponent addBlurListener(final EventListener listener) {
+        this.suggestBox.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
+    public FontSizeComponent addFocusListener(final EventListener listener) {
+        this.suggestBox.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public FontSizeComponent addFocusInListener(final EventListener listener) {
+        this.suggestBox.addFocusInListener(listener);
+        return this;
+    }
+
+    @Override
+    public FontSizeComponent addFocusOutListener(final EventListener listener) {
+        this.suggestBox.addFocusOutListener(listener);
+        return this;
     }
 
     // Object...........................................................................................................

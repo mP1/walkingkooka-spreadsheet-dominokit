@@ -19,6 +19,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily;
 
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponent;
 import walkingkooka.spreadsheet.dominokit.select.SelectComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
@@ -38,7 +40,8 @@ import java.util.Set;
  * A drop down that supports picking an optional {@link FontFamily}.
  */
 public final class FontFamilyComponent implements TextStylePropertyComponent<HTMLFieldSetElement, FontFamily, FontFamilyComponent>,
-    SelectComponentDelegator<FontFamily, FontFamilyComponent> {
+    SelectComponentDelegator<FontFamily, FontFamilyComponent>,
+    HasFocusBlurEventListenerDelegator<FontFamilyComponent> {
 
     public static FontFamilyComponent empty(final String idPrefix,
                                             final FontFamilyComponentContext context) {
@@ -117,6 +120,13 @@ public final class FontFamilyComponent implements TextStylePropertyComponent<HTM
     }
 
     private final SelectComponent<FontFamily> select;
+
+    // HasFocusBlurEventListenerDelegator...............................................................................
+
+    @Override
+    public HasFocusBlurEventListener<?> hasFocusBlurEventListener() {
+        return this.select;
+    }
 
     // Object...........................................................................................................
 

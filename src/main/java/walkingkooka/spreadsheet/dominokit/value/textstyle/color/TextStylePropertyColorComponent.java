@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
@@ -88,6 +89,32 @@ public final class TextStylePropertyColorComponent implements TextStylePropertyC
     }
 
     private final ColorComponent component;
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public TextStylePropertyColorComponent addBlurListener(final EventListener listener) {
+        this.component.addBlurListener(listener);
+        return this;
+    }
+
+    @Override
+    public TextStylePropertyColorComponent addFocusListener(final EventListener listener) {
+        this.component.addFocusListener(listener);
+        return this;
+    }
+
+    @Override
+    public TextStylePropertyColorComponent addFocusInListener(final EventListener listener) {
+        this.component.addFocusInListener(listener);
+        return this;
+    }
+
+    @Override
+    public TextStylePropertyColorComponent addFocusOutListener(final EventListener listener) {
+        this.component.addFocusOutListener(listener);
+        return this;
+    }
 
     // Object...........................................................................................................
 

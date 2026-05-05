@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import elemental2.dom.EventListener;
 import org.dominokit.domino.ui.icons.Icon;
 import walkingkooka.Cast;
 import walkingkooka.ToStringBuilder;
@@ -215,6 +216,32 @@ abstract class TextStylePropertyEnumComponentShared<T extends Enum<T>> implement
     }
 
     final AnchorListComponent list;
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public final TextStylePropertyEnumComponent<T> addBlurListener(final EventListener listener) {
+        this.list.addBlurListener(listener);
+        return (TextStylePropertyEnumComponent<T>) this;
+    }
+
+    @Override
+    public final TextStylePropertyEnumComponent<T> addFocusListener(final EventListener listener) {
+        this.list.addFocusListener(listener);
+        return (TextStylePropertyEnumComponent<T>) this;
+    }
+
+    @Override
+    public final TextStylePropertyEnumComponent<T> addFocusInListener(final EventListener listener) {
+        this.list.addFocusInListener(listener);
+        return (TextStylePropertyEnumComponent<T>) this;
+    }
+
+    @Override
+    public final TextStylePropertyEnumComponent<T> addFocusOutListener(final EventListener listener) {
+        this.list.addFocusOutListener(listener);
+        return (TextStylePropertyEnumComponent<T>) this;
+    }
 
     // Object...........................................................................................................
 
