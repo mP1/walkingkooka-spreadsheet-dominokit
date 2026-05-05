@@ -312,7 +312,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
     // sample...........................................................................................................
 
     private TextStyleSampleComponent sample() {
-        return TextStyleSampleComponent.empty();
+        return TextStyleSampleComponent.empty()
+            .setLabel("Sample");
     }
 
     private final TextStyleSampleComponent sample;

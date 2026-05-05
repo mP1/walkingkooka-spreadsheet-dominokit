@@ -159,9 +159,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                TextBoxComponent\n" +
                 "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1041,9 +1046,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                TextBoxComponent\n" +
                 "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1895,9 +1905,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                TextBoxComponent\n" +
                 "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2747,9 +2762,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                TextBoxComponent\n" +
                 "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -3596,9 +3616,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Errors\n" +
                 "                    Empty \"text\"\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -4458,9 +4483,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Errors\n" +
                 "                    Empty \"text\"\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
-                "                  \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
+                "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -5311,8 +5341,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                TextBoxComponent\n" +
                 "                  Selection [A1] icons=mdi-close-circle id=TextStyle-selection-TextBox REQUIRED\n" +
                 "            TextStyleSampleComponent\n" +
-                "              DIV\n" +
-                "                \"The quick brown fox jumps over the lazy dog\"\n" +
+                "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Sample\n" +
+                "                DIV\n" +
+                "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "                    DIV\n" +
+                "                      \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            TextStylePropertyFilterComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +

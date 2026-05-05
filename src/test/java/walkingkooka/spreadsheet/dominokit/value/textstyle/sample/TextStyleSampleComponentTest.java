@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.sample;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -25,15 +25,18 @@ import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
 
-public final class TextStyleSampleComponentTest implements ValueComponentTesting<HTMLDivElement, TextStyle, TextStyleSampleComponent> {
+public final class TextStyleSampleComponentTest implements ValueComponentTesting<HTMLFieldSetElement, TextStyle, TextStyleSampleComponent> {
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
             this.createComponent(),
             "TextStyleSampleComponent\n" +
-                "  DIV\n" +
-                "    \"The quick brown fox jumps over the lazy dog\"\n"
+                "  FormElementComponent\n" +
+                "    DIV\n" +
+                "      style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "        DIV\n" +
+                "          \"The quick brown fox jumps over the lazy dog\"\n"
         );
     }
 
@@ -47,12 +50,30 @@ public final class TextStyleSampleComponentTest implements ValueComponentTesting
                     )
                 ),
             "TextStyleSampleComponent\n" +
-                "  DIV\n" +
-                "    style=\"background-color: #111111; color: #222222; margin-left: 1px; padding-left: 2px;\"\n" +
-                "      \"The quick brown fox jumps over the lazy dog\"\n"
+                "  FormElementComponent\n" +
+                "    DIV\n" +
+                "      style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "        DIV\n" +
+                "          style=\"background-color: #111111; color: #222222; margin-left: 1px; padding-left: 2px;\"\n" +
+                "            \"The quick brown fox jumps over the lazy dog\"\n"
         );
     }
 
+    @Test
+    public void testSetLabel() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setLabel("Label123"),
+            "TextStyleSampleComponent\n" +
+                "  FormElementComponent\n" +
+                "    label\n" +
+                "      Label123\n" +
+                "    DIV\n" +
+                "      style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
+                "        DIV\n" +
+                "          \"The quick brown fox jumps over the lazy dog\"\n"
+        );
+    }
 
     @Override
     public TextStyleSampleComponent createComponent() {
