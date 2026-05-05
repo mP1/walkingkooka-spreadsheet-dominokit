@@ -21,13 +21,15 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SuggestBoxComponent<SpreadsheetCellReference>> {
+public final class SuggestBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, SpreadsheetCellReference, SuggestBoxComponent<SpreadsheetCellReference>>,
+    HasFocusBlurEventListenerTesting<SuggestBoxComponent<SpreadsheetCellReference>> {
 
     private final static SuggestBoxComponentSuggestionsProvider<SpreadsheetCellReference> SUGGESTIONS_PROVIDER = new SuggestBoxComponentSuggestionsProvider<>() {
 
@@ -148,6 +150,13 @@ public final class SuggestBoxComponentTest implements FormValueComponentTesting<
                 throw new UnsupportedOperationException();
             }
         );
+    }
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public SuggestBoxComponent<SpreadsheetCellReference> createHasFocusBlurEventListener() {
+        return this.createComponent();
     }
 
     // ClassTesting.....................................................................................................

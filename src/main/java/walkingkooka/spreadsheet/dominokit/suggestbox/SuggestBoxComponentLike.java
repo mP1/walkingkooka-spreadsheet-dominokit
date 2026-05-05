@@ -17,7 +17,10 @@
 
 package walkingkooka.spreadsheet.dominokit.suggestbox;
 
+import elemental2.dom.EventListener;
 import elemental2.dom.HTMLFieldSetElement;
+import org.dominokit.domino.ui.events.EventType;
+import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTreePrintable;
 import walkingkooka.text.printer.IndentingPrinter;
@@ -31,7 +34,8 @@ import java.util.Optional;
  * A text box component that includes support for finding values that match the entered search text.
  */
 abstract class SuggestBoxComponentLike<T> implements FormValueComponent<HTMLFieldSetElement, T, SuggestBoxComponent<T>>,
-    FormValueComponentTreePrintable<HTMLFieldSetElement, SuggestBoxComponent<T>, T> {
+    FormValueComponentTreePrintable<HTMLFieldSetElement, SuggestBoxComponent<T>, T>,
+    HasFocusBlurEventListener<SuggestBoxComponent<T>> {
 
     abstract public SuggestBoxComponent<T> setStringValue(final Optional<String> value);
 
@@ -42,6 +46,43 @@ abstract class SuggestBoxComponentLike<T> implements FormValueComponent<HTMLFiel
     abstract public SuggestBoxComponent<T> setOptions(final List<T> options);
 
     abstract public SuggestBoxComponent<T> setVerifiedOption(final T option);
+
+    // HasFocusBlurEventListener........................................................................................
+
+    @Override
+    public final SuggestBoxComponent<T> addBlurListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.blur,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addFocusListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focus,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addFocusInListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusin,
+            listener
+        );
+    }
+
+    @Override
+    public final SuggestBoxComponent<T> addFocusOutListener(final EventListener listener) {
+        return this.addEventListener(
+            EventType.focusout,
+            listener
+        );
+    }
+
+    abstract SuggestBoxComponent<T> addEventListener(final EventType eventType,
+                                                     final EventListener listener);
 
     // FormValueComponentTreePrintable..................................................................................
 
