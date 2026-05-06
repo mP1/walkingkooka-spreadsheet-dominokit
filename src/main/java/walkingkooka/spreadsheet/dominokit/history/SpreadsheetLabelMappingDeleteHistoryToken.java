@@ -36,21 +36,21 @@ import java.util.Objects;
 public final class SpreadsheetLabelMappingDeleteHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingDeleteHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
+                                                          final SpreadsheetName spreadsheetName,
                                                           final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingDeleteHistoryToken(
             id,
-            name,
+            spreadsheetName,
             labelName
         );
     }
 
     private SpreadsheetLabelMappingDeleteHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final SpreadsheetLabelName labelName) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
@@ -84,10 +84,10 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     // new id/name same labelName
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.labelName
         );
     }

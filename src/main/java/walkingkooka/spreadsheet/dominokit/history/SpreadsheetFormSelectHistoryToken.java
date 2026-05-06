@@ -36,24 +36,24 @@ import java.util.Optional;
 public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHistoryToken {
 
     static SpreadsheetFormSelectHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final FormName formName,
                                                   final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             formName,
             field
         );
     }
 
     private SpreadsheetFormSelectHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
+                                              final SpreadsheetName spreadsheetName,
                                               final FormName formName,
                                               final Optional<SpreadsheetValidationReference> field) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.formName = Objects.requireNonNull(formName, "formName");
         this.field = Objects.requireNonNull(field, "field");
@@ -78,10 +78,10 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.formName,
             this.field
         );

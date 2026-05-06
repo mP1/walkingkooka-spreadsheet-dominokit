@@ -42,18 +42,18 @@ import java.util.function.Function;
 public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryToken {
 
     static SpreadsheetSelectHistoryToken with(final SpreadsheetId id,
-                                              final SpreadsheetName name) {
+                                              final SpreadsheetName spreadsheetName) {
         return new SpreadsheetSelectHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 
     private SpreadsheetSelectHistoryToken(final SpreadsheetId id,
-                                          final SpreadsheetName name) {
+                                          final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 
@@ -309,10 +309,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         );
     }
 

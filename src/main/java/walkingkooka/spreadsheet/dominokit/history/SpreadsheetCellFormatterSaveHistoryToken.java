@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetCellFormatterHistoryToken implements Value<Optional<SpreadsheetFormatterSelector>> {
 
     static SpreadsheetCellFormatterSaveHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             spreadsheetFormatterSelector
         );
     }
 
     private SpreadsheetCellFormatterSaveHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             spreadsheetFormatterSelector
         );
@@ -69,11 +69,11 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.spreadsheetFormatterSelector
         );

@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> implements Value<Optional<T>> {
 
     static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId id,
-                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetName spreadsheetName,
                                                                    final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                    final Optional<T> propertyValue) {
         return new SpreadsheetMetadataPropertySaveHistoryToken<>(
             id,
-            name,
+            spreadsheetName,
             propertyName,
             propertyValue
         );
     }
 
     private SpreadsheetMetadataPropertySaveHistoryToken(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final SpreadsheetMetadataPropertyName<T> propertyName,
                                                         final Optional<T> propertyValue) {
         super(
             id,
-            name,
+            spreadsheetName,
             propertyName
         );
 
@@ -81,10 +81,10 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     // new id/name but still metadata+property+value select
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.propertyName,
             this.value()
         );

@@ -38,13 +38,13 @@ import java.util.Optional;
 public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellValueHistoryToken implements Value<Optional<?>> {
 
     static SpreadsheetCellValueSaveHistoryToken with(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final ValueType valueType,
                                                      final Optional<?> value) {
         return new SpreadsheetCellValueSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             valueType,
             value
@@ -52,13 +52,13 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
     }
 
     private SpreadsheetCellValueSaveHistoryToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final ValueType valueType,
                                                  final Optional<?> value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.of(valueType)
         );
@@ -85,11 +85,11 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.valueType.get(),
             this.value

@@ -39,24 +39,24 @@ import java.util.OptionalInt;
 public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
     static SpreadsheetRowInsertBeforeHistoryToken with(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final OptionalInt count) {
         return new SpreadsheetRowInsertBeforeHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
     }
 
     private SpreadsheetRowInsertBeforeHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final OptionalInt count) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
@@ -71,11 +71,11 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).insertBefore(
             this.count()

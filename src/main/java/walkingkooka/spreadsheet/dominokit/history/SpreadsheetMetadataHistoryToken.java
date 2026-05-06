@@ -31,10 +31,10 @@ import java.util.Optional;
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
-                                    final SpreadsheetName name) {
+                                    final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 

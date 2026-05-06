@@ -45,24 +45,24 @@ import java.util.Optional;
 public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<SpreadsheetParserSelector>> {
 
     static SpreadsheetCellSaveParserHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         return new SpreadsheetCellSaveParserHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveParserHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final SpreadsheetCellReferenceToSpreadsheetParserSelectorMap value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             value
         );
@@ -78,12 +78,12 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
 
     @Override //
     SpreadsheetCellSaveParserHistoryToken replace(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         return new SpreadsheetCellSaveParserHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToSpreadsheetParserSelectorMap.with(value)
         );

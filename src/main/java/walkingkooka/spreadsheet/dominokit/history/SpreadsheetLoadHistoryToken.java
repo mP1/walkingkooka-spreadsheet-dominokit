@@ -66,10 +66,10 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         );
     }
 

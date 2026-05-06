@@ -29,10 +29,10 @@ import java.util.Optional;
 public abstract class SpreadsheetCellDateTimeSymbolsHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellDateTimeSymbolsHistoryToken(final SpreadsheetId id,
-                                               final SpreadsheetName name,
+                                               final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                final Optional<DateTimeSymbols> dateTimeSymbols) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.dateTimeSymbols = Objects.requireNonNull(dateTimeSymbols, "dateTimeSymbols");
     }
 

@@ -29,10 +29,10 @@ import java.util.Optional;
 public abstract class SpreadsheetCellValidatorHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellValidatorHistoryToken(final SpreadsheetId id,
-                                         final SpreadsheetName name,
+                                         final SpreadsheetName spreadsheetName,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final Optional<ValidatorSelector> validator) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.validator = Objects.requireNonNull(validator, "validator");
     }
 

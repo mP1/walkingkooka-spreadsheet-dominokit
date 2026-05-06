@@ -35,24 +35,24 @@ import java.util.Objects;
 public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellLabelListHistoryToken with(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetCellLabelListHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             offsetAndCount
         );
     }
 
     private SpreadsheetCellLabelListHistoryToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.offsetAndCount = Objects.requireNonNull(
@@ -78,11 +78,11 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).setLabels(this.offsetAndCount);
     }

@@ -28,21 +28,21 @@ import java.util.Optional;
 public final class SpreadsheetCellValidatorSelectHistoryToken extends SpreadsheetCellValidatorHistoryToken {
 
     static SpreadsheetCellValidatorSelectHistoryToken with(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
+                                                           final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellValidatorSelectHistoryToken(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // Validator
         );
@@ -55,11 +55,11 @@ public final class SpreadsheetCellValidatorSelectHistoryToken extends Spreadshee
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

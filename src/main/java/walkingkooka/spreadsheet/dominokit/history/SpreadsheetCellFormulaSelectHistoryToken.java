@@ -33,21 +33,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
     static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormulaSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellFormulaSelectHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -64,11 +64,11 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return cellSelect(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).formula();
     }

@@ -60,10 +60,10 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         );
     }
 

@@ -39,24 +39,24 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
     implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
     static SpreadsheetCellSortSaveHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetCellSortSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
     private SpreadsheetCellSortSaveHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -83,11 +83,11 @@ public final class SpreadsheetCellSortSaveHistoryToken extends SpreadsheetCellSo
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSortSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.comparatorNames
         );

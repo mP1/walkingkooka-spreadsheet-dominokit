@@ -39,13 +39,13 @@ import java.util.Optional;
 public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFormHistoryToken implements Value<Map<SpreadsheetCellReference, Optional<Object>>> {
 
     static SpreadsheetCellFormSaveHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final FormName formName,
                                                     final Map<SpreadsheetCellReference, Optional<Object>> value) {
         return new SpreadsheetCellFormSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             formName,
             value
@@ -53,13 +53,13 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     }
 
     private SpreadsheetCellFormSaveHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final FormName formName,
                                                 final Map<SpreadsheetCellReference, Optional<Object>> values) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             formName
         );
@@ -81,11 +81,11 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return with(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.formName,
             this.values

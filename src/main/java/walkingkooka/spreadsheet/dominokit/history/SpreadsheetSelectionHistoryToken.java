@@ -24,10 +24,10 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 abstract public class SpreadsheetSelectionHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetSelectionHistoryToken(final SpreadsheetId id,
-                                     final SpreadsheetName name) {
+                                     final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 

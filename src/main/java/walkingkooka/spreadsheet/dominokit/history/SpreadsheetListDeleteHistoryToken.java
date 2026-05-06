@@ -69,7 +69,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         throw new UnsupportedOperationException();
     }
 

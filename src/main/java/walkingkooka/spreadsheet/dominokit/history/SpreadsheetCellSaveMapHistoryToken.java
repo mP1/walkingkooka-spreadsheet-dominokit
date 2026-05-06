@@ -35,12 +35,12 @@ import java.util.stream.Collectors;
 public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetCellSaveHistoryToken<Map<SpreadsheetCellReference, V>> {
 
     SpreadsheetCellSaveMapHistoryToken(final SpreadsheetId id,
-                                       final SpreadsheetName name,
+                                       final SpreadsheetName spreadsheetName,
                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                        final Map<SpreadsheetCellReference, V> values) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -78,7 +78,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
      */
     @Override //
     abstract SpreadsheetCellSaveMapHistoryToken<V> replace(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
+                                                           final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final Map<SpreadsheetCellReference, V> values);
 

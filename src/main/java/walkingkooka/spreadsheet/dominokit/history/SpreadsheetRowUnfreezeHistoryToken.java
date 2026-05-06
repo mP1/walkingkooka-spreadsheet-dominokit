@@ -36,21 +36,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowUnfreezeHistoryToken with(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowUnfreezeHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetRowUnfreezeHistoryToken(final SpreadsheetId id,
-                                               final SpreadsheetName name,
+                                               final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -69,11 +69,11 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).unfreeze();
     }

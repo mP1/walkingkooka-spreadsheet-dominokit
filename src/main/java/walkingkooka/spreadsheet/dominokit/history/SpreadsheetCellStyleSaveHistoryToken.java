@@ -41,13 +41,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     implements Value<Optional<T>> {
 
     static <T> SpreadsheetCellStyleSaveHistoryToken<T> with(final SpreadsheetId id,
-                                                            final SpreadsheetName name,
+                                                            final SpreadsheetName spreadsheetName,
                                                             final AnchoredSpreadsheetSelection anchoredSelection,
                                                             final TextStylePropertyName<T> stylePropertyName,
                                                             final Optional<T> stylePropertyValue) {
         return new SpreadsheetCellStyleSaveHistoryToken<>(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             stylePropertyName,
             stylePropertyValue
@@ -55,13 +55,13 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     }
 
     private SpreadsheetCellStyleSaveHistoryToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final TextStylePropertyName<T> stylePropertyName,
                                                  final Optional<T> stylePropertyValue) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.of(stylePropertyName)
         );
@@ -86,11 +86,11 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).setStyleProperty(
             this.textStyleProperty()

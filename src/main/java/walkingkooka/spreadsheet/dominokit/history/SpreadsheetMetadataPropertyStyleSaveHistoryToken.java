@@ -34,24 +34,24 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     implements Value<Optional<T>> {
 
     static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId id,
-                                                                        final SpreadsheetName name,
+                                                                        final SpreadsheetName spreadsheetName,
                                                                         final TextStylePropertyName<T> stylePropertyName,
                                                                         final Optional<T> stylePropertyValue) {
         return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
             id,
-            name,
+            spreadsheetName,
             stylePropertyName,
             stylePropertyValue
         );
     }
 
     private SpreadsheetMetadataPropertyStyleSaveHistoryToken(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
+                                                             final SpreadsheetName spreadsheetName,
                                                              final TextStylePropertyName<T> stylePropertyName,
                                                              final Optional<T> stylePropertyValue) {
         super(
             id,
-            name,
+            spreadsheetName,
             Optional.of(stylePropertyName)
         );
 
@@ -86,10 +86,10 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     // new id/name but still metadata+style+property+value
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.stylePropertyName.get(),
             this.value()
         );

@@ -32,11 +32,11 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCellHistoryToken implements Value<V> {
 
     SpreadsheetCellSaveHistoryToken(final SpreadsheetId id,
-                                    final SpreadsheetName name,
+                                    final SpreadsheetName spreadsheetName,
                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -52,11 +52,11 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
 
     @Override //
     final HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                            final SpreadsheetName name,
+                                                                            final SpreadsheetName spreadsheetName,
                                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.replace(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.value()
         );
@@ -67,7 +67,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * to be created.
      */
     abstract SpreadsheetCellSaveHistoryToken<V> replace(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final V value);
 

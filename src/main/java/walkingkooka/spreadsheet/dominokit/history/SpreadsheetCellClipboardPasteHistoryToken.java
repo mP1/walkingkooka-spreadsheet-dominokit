@@ -42,24 +42,24 @@ import java.util.List;
 public final class SpreadsheetCellClipboardPasteHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
     static SpreadsheetCellClipboardPasteHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
+                                                          final SpreadsheetName spreadsheetName,
                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                           final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
     private SpreadsheetCellClipboardPasteHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final SpreadsheetCellClipboardKind kind) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
@@ -67,11 +67,11 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.kind()
         );

@@ -38,24 +38,24 @@ import java.util.Objects;
 public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColumnSortHistoryToken {
 
     static SpreadsheetColumnSortEditHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final String comparatorNames) {
         return new SpreadsheetColumnSortEditHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
     private SpreadsheetColumnSortEditHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final String comparatorNames) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -83,11 +83,11 @@ public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColu
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnSortEditHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.comparatorNames
         );

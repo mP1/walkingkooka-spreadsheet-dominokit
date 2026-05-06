@@ -37,24 +37,24 @@ import java.util.Objects;
 public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellQueryHistoryToken with(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetCellQueryRequest query) {
         return new SpreadsheetCellQueryHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             query
         );
     }
 
     private SpreadsheetCellQueryHistoryToken(final SpreadsheetId id,
-                                             final SpreadsheetName name,
+                                             final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                              final SpreadsheetCellQueryRequest query) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.query = query;
@@ -91,11 +91,11 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).setQuery(this.query);
     }

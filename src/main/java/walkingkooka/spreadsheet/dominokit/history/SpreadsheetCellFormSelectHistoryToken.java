@@ -39,24 +39,24 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
     }
 
     static SpreadsheetCellFormSelectHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final FormName formName) {
         return new SpreadsheetCellFormSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             formName
         );
     }
 
     private SpreadsheetCellFormSelectHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final FormName formName) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             formName
         );
@@ -70,11 +70,11 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return with(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.formName
         );

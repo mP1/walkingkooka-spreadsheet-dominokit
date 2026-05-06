@@ -28,21 +28,21 @@ import java.util.Optional;
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> with(final SpreadsheetId id,
-                                                                          final SpreadsheetName name,
+                                                                          final SpreadsheetName spreadsheetName,
                                                                           final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
             id,
-            name,
+            spreadsheetName,
             stylePropertyName
         );
     }
 
     private SpreadsheetMetadataPropertyStyleSelectHistoryToken(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
+                                                               final SpreadsheetName spreadsheetName,
                                                                final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
             id,
-            name,
+            spreadsheetName,
             stylePropertyName
         );
     }
@@ -60,10 +60,10 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     // new id/name but still metadata+style+property select
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.stylePropertyName
         );
     }

@@ -34,11 +34,11 @@ import java.util.Optional;
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
     SpreadsheetColumnHistoryToken(final SpreadsheetId id,
-                                  final SpreadsheetName name,
+                                  final SpreadsheetName spreadsheetName,
                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 

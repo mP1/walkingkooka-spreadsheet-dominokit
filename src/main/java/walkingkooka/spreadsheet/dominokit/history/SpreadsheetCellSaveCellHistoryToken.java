@@ -40,24 +40,24 @@ import java.util.stream.Collectors;
 public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSaveHistoryToken<Set<SpreadsheetCell>> {
 
     static SpreadsheetCellSaveCellHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellSet.EMPTY.setElements(value)
         );
     }
 
     private SpreadsheetCellSaveCellHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final SpreadsheetCellSet value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -86,12 +86,12 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
 
     @Override
     SpreadsheetCellSaveCellHistoryToken replace(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellSet.EMPTY.setElements(value)
         );

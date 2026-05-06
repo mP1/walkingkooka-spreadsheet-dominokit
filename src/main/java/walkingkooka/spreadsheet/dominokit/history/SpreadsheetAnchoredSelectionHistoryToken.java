@@ -31,11 +31,11 @@ import java.util.Objects;
 public abstract class SpreadsheetAnchoredSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
     SpreadsheetAnchoredSelectionHistoryToken(final SpreadsheetId id,
-                                             final SpreadsheetName name,
+                                             final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.anchoredSelection = Objects.requireNonNull(anchoredSelection, "anchoredSelection");
     }
@@ -48,16 +48,16 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
 
     @Override //
     final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                              final SpreadsheetName name) {
+                                                              final SpreadsheetName spreadsheetName) {
         return this.replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(
             id,
-            name,
+            spreadsheetName,
             this.anchoredSelection
         );
     }
 
     abstract HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                               final SpreadsheetName name,
+                                                                               final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection);
 
     // parse............................................................................................................

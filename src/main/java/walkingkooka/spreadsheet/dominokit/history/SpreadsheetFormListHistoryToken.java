@@ -34,21 +34,21 @@ import java.util.Objects;
 public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistoryToken {
 
     static SpreadsheetFormListHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetFormListHistoryToken(
             id,
-            name,
+            spreadsheetName,
             offsetAndCount
         );
     }
 
     private SpreadsheetFormListHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
+                                            final SpreadsheetName spreadsheetName,
                                             final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
     }
@@ -67,10 +67,10 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.offsetAndCount
         );
     }

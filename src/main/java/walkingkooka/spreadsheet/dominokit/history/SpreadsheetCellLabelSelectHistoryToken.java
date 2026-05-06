@@ -32,19 +32,19 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCellLabelHistoryToken {
 
     static SpreadsheetCellLabelSelectHistoryToken with(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLabelSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellLabelSelectHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
     }
 
     // /1/SpreadsheetName/cell/A1/label
@@ -55,11 +55,11 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).labelMapping();
     }

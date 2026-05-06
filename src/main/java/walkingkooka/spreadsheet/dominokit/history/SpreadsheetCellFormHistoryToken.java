@@ -35,12 +35,12 @@ import java.util.Objects;
 public abstract class SpreadsheetCellFormHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellFormHistoryToken(final SpreadsheetId id,
-                                    final SpreadsheetName name,
+                                    final SpreadsheetName spreadsheetName,
                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                     final FormName formName) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.formName = Objects.requireNonNull(formName, "formName");

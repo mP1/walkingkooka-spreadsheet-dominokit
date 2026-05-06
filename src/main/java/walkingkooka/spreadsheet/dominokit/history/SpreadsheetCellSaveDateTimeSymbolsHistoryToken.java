@@ -41,24 +41,24 @@ import java.util.Optional;
 public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<DateTimeSymbols>> {
 
     static SpreadsheetCellSaveDateTimeSymbolsHistoryToken with(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
+                                                               final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                                final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> value) {
         return new SpreadsheetCellSaveDateTimeSymbolsHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToDateTimeSymbolsMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveDateTimeSymbolsHistoryToken(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
+                                                           final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final SpreadsheetCellReferenceToDateTimeSymbolsMap value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             value
         );
@@ -66,12 +66,12 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
 
     @Override //
     SpreadsheetCellSaveDateTimeSymbolsHistoryToken replace(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
+                                                           final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> value) {
         return new SpreadsheetCellSaveDateTimeSymbolsHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToDateTimeSymbolsMap.with(value)
         );

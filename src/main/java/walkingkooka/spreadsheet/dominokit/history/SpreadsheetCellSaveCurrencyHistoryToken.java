@@ -41,24 +41,24 @@ import java.util.Optional;
 public final class SpreadsheetCellSaveCurrencyHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<Currency>> {
 
     static SpreadsheetCellSaveCurrencyHistoryToken with(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final Map<SpreadsheetCellReference, Optional<Currency>> value) {
         return new SpreadsheetCellSaveCurrencyHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToCurrencyMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveCurrencyHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final SpreadsheetCellReferenceToCurrencyMap value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             value
         );
@@ -66,12 +66,12 @@ public final class SpreadsheetCellSaveCurrencyHistoryToken extends SpreadsheetCe
 
     @Override //
     SpreadsheetCellSaveCurrencyHistoryToken replace(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Map<SpreadsheetCellReference, Optional<Currency>> value) {
         return new SpreadsheetCellSaveCurrencyHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToCurrencyMap.with(value)
         );

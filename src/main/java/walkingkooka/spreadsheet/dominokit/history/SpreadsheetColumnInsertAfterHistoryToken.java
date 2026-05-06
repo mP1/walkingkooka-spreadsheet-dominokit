@@ -39,24 +39,24 @@ import java.util.OptionalInt;
 public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnInsertHistoryToken {
 
     static SpreadsheetColumnInsertAfterHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final OptionalInt count) {
         return new SpreadsheetColumnInsertAfterHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
     }
 
     private SpreadsheetColumnInsertAfterHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final OptionalInt count) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
@@ -71,11 +71,11 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).insertAfter(
             this.count()

@@ -43,24 +43,24 @@ import java.util.Optional;
 public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
     static SpreadsheetCellClipboardCutHistoryToken with(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCutHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
     private SpreadsheetCellClipboardCutHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final SpreadsheetCellClipboardKind kind) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
@@ -68,11 +68,11 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCutHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.kind()
         );

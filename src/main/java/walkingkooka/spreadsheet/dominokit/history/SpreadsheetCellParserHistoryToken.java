@@ -28,10 +28,10 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellParserHistoryToken extends SpreadsheetCellHistoryToken {
     SpreadsheetCellParserHistoryToken(final SpreadsheetId id,
-                                      final SpreadsheetName name,
+                                      final SpreadsheetName spreadsheetName,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                       final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.spreadsheetParserSelector = Objects.requireNonNull(spreadsheetParserSelector, "spreadsheetParserSelector");
     }
 

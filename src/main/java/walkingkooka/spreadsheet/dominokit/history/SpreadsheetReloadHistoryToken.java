@@ -36,18 +36,18 @@ import java.util.Optional;
 public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryToken {
 
     static SpreadsheetReloadHistoryToken with(final SpreadsheetId id,
-                                              final SpreadsheetName name) {
+                                              final SpreadsheetName spreadsheetName) {
         return new SpreadsheetReloadHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 
     private SpreadsheetReloadHistoryToken(final SpreadsheetId id,
-                                          final SpreadsheetName name) {
+                                          final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 
@@ -68,10 +68,10 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return new SpreadsheetReloadHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 

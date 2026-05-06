@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetCellValidatorHistoryToken implements Value<Optional<ValidatorSelector>> {
 
     static SpreadsheetCellValidatorSaveHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Optional<ValidatorSelector> validator) {
         return new SpreadsheetCellValidatorSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             validator
         );
     }
 
     private SpreadsheetCellValidatorSaveHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Optional<ValidatorSelector> validator) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             validator
         );
@@ -69,11 +69,11 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.validator
         );

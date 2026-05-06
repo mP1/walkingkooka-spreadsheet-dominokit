@@ -36,10 +36,10 @@ public abstract class PluginHistoryToken extends HistoryToken {
 
     @Override //
     final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                              final SpreadsheetName name) {
+                                                              final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         );
     }
 

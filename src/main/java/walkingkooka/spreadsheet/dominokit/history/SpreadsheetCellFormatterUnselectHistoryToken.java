@@ -31,21 +31,21 @@ import java.util.Optional;
 public final class SpreadsheetCellFormatterUnselectHistoryToken extends SpreadsheetCellFormatterHistoryToken {
 
     static SpreadsheetCellFormatterUnselectHistoryToken with(final SpreadsheetId id,
-                                                             final SpreadsheetName name,
+                                                             final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellFormatterUnselectHistoryToken(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetFormatterSelector
         );
@@ -58,11 +58,11 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

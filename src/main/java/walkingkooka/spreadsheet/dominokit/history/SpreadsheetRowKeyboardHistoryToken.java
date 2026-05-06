@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowKeyboardHistoryToken with(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowKeyboardHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetRowKeyboardHistoryToken(final SpreadsheetId id,
-                                               final SpreadsheetName name,
+                                               final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -61,11 +61,11 @@ public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHist
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).keyboard();
     }

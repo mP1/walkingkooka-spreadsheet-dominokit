@@ -31,21 +31,21 @@ import java.util.Optional;
 public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends SpreadsheetCellDateTimeSymbolsHistoryToken {
 
     static SpreadsheetCellDateTimeSymbolsUnselectHistoryToken with(final SpreadsheetId id,
-                                                                   final SpreadsheetName name,
+                                                                   final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(final SpreadsheetId id,
-                                                               final SpreadsheetName name,
+                                                               final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetDateTimeSymbols
         );
@@ -58,11 +58,11 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends Sp
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

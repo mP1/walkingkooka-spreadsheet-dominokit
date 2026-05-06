@@ -29,18 +29,18 @@ import walkingkooka.text.cursor.TextCursor;
 public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRenameHistoryToken {
 
     static SpreadsheetRenameSelectHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name) {
+                                                    final SpreadsheetName spreadsheetName) {
         return new SpreadsheetRenameSelectHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 
     private SpreadsheetRenameSelectHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name) {
+                                                final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 
@@ -51,10 +51,10 @@ public final class SpreadsheetRenameSelectHistoryToken extends SpreadsheetRename
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return new SpreadsheetRenameSelectHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 

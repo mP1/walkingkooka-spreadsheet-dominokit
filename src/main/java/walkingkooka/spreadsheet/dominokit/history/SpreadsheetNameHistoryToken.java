@@ -36,7 +36,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                                 final SpreadsheetName spreadsheetName) {
         super(id);
 
-        this.spreadsheetName = Objects.requireNonNull(spreadsheetName, "name");
+        this.spreadsheetName = Objects.requireNonNull(spreadsheetName, "spreadsheetName");
     }
 
     final HistoryToken replaceName(final SpreadsheetName spreadsheetName) {

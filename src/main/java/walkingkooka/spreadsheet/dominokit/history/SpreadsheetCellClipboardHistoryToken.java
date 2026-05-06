@@ -32,12 +32,12 @@ import java.util.Objects;
  */
 public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken {
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
-                                         final SpreadsheetName name,
+                                         final SpreadsheetName spreadsheetName,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final SpreadsheetCellClipboardKind kind) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.kind = Objects.requireNonNull(kind, "kind");

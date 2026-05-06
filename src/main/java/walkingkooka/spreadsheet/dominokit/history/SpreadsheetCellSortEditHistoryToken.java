@@ -37,24 +37,24 @@ import java.util.Objects;
 public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSortHistoryToken {
 
     static SpreadsheetCellSortEditHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final String comparatorNames) {
         return new SpreadsheetCellSortEditHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
     private SpreadsheetCellSortEditHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final String comparatorNames) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -82,11 +82,11 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSortEditHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.comparatorNames
         );

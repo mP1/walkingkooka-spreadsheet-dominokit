@@ -25,11 +25,11 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 abstract public class SpreadsheetCellFormulaHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellFormulaHistoryToken(final SpreadsheetId id,
-                                       final SpreadsheetName name,
+                                       final SpreadsheetName spreadsheetName,
                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
