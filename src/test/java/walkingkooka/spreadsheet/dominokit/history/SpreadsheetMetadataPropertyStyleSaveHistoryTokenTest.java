@@ -204,6 +204,36 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
         );
     }
 
+    // setStylePropertyName.............................................................................................
+
+    @Test
+    public void testSetStylePropertyName() {
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            STYLE_PROPERTY_NAME,
+            HistoryToken.metadataPropertyStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(STYLE_PROPERTY_NAME)
+            )
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyNameDifferent() {
+        final TextStylePropertyName<Color> textStylePropertyName = TextStylePropertyName.BACKGROUND_COLOR;
+
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            textStylePropertyName,
+            HistoryToken.metadataPropertyStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(textStylePropertyName)
+            )
+        );
+    }
+
     @Override
     SpreadsheetMetadataPropertyStyleSaveHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                                final SpreadsheetName name,

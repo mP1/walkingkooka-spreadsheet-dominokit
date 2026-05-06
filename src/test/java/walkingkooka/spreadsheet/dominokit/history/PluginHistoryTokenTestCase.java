@@ -93,6 +93,16 @@ public abstract class PluginHistoryTokenTestCase<T extends PluginHistoryToken> e
 
     @Test
     public final void testSetStylePropertyName() {
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            TextStylePropertyName.COLOR
+        );
+    }
+
+    // setStyleProperty.................................................................................................
+
+    @Test
+    public final void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
             TextStylePropertyName.COLOR.setValue(Color.BLACK)
