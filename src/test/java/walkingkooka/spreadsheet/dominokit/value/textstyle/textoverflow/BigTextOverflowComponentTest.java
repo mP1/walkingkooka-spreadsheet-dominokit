@@ -42,11 +42,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -64,11 +67,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -84,11 +90,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -110,11 +119,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] CHECKED id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] CHECKED id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] CHECKED id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] CHECKED id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -134,11 +146,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -158,11 +173,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [Hello] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [Hello] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -184,11 +202,14 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
             "BigTextOverflowComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "        \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "      COLUMN\n" +
                 "        TextBoxComponent\n" +
-                "          Text [] id=TestIdPrefix123-text-TextBox\n" +
+                "          Text [] icons=mdi-close-circle id=TestIdPrefix123-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
