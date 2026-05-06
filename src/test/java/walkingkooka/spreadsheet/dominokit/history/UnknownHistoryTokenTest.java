@@ -49,8 +49,10 @@ public final class UnknownHistoryTokenTest extends HistoryTokenTestCase<UnknownH
         );
     }
 
+    // setStyleProperty.................................................................................................
+
     @Test
-    public void testSetStylePropertyName() {
+    public void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
             TextStylePropertyName.COLOR.setValue(Color.BLACK)

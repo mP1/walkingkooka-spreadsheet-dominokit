@@ -107,8 +107,10 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
         );
     }
 
+    // setStyleProperty.................................................................................................
+
     @Test
-    public void testSetStylePropertyName() {
+    public void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
             TextStylePropertyName.COLOR.setValue(Color.BLACK)
