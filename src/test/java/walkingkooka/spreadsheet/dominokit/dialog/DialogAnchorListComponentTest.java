@@ -470,7 +470,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
             .undo()
             .close()
             .setHistoryTokenPreProcessor(
-                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+                (HistoryToken historyToken) -> historyToken.clearStylePropertyName()
             );
 
         this.treePrintAndCheck(
@@ -510,7 +510,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
             ).save()
             .clearLink()
             .setHistoryTokenPreProcessor(
-                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+                (HistoryToken historyToken) -> historyToken.clearStylePropertyName()
             ).undo()
             .close();
 

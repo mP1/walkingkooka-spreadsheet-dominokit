@@ -888,6 +888,18 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // clearStylePropertyName...........................................................................................
+
+    @Test
+    public final void testClearStylePropertyName() {
+        final HistoryToken historyToken = this.createHistoryToken();
+        final HistoryToken cleared = historyToken.clearStylePropertyName();
+
+        this.stylePropertyNameAndCheck(
+            cleared
+        );
+    }
+
     // setStyleProperty.................................................................................................
 
     @Test
