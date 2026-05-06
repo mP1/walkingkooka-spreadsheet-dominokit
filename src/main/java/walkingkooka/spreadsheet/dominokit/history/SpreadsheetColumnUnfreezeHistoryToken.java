@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHistoryToken {
 
-    static SpreadsheetColumnUnfreezeHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnUnfreezeHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnUnfreezeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetColumnUnfreezeHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnUnfreezeHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -68,11 +68,11 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).unfreeze();
@@ -92,7 +92,7 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnUnfreeze(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

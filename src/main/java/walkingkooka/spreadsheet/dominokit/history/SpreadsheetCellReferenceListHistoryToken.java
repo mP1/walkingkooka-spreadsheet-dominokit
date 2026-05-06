@@ -34,24 +34,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellReferenceListHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellReferenceListHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetCellReferenceListHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             offsetAndCount
         );
     }
 
-    private SpreadsheetCellReferenceListHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellReferenceListHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -77,11 +77,11 @@ public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetC
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).references(this.offsetAndCount);
@@ -98,7 +98,7 @@ public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetC
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellReference(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

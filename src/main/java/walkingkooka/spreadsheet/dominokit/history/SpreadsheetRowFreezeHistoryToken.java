@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken {
 
-    static SpreadsheetRowFreezeHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowFreezeHistoryToken with(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowFreezeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetRowFreezeHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowFreezeHistoryToken(final SpreadsheetId spreadsheetId,
                                              final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -68,11 +68,11 @@ public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).freeze();
@@ -95,7 +95,7 @@ public class SpreadsheetRowFreezeHistoryToken extends SpreadsheetRowHistoryToken
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowFreeze(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

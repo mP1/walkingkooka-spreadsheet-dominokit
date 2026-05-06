@@ -39,21 +39,21 @@ import java.util.Objects;
  */
 public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
-    static SpreadsheetLabelMappingListHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingListHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetLabelMappingListHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             offsetAndCount
         );
     }
 
-    private SpreadsheetLabelMappingListHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingListHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
@@ -80,17 +80,17 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     @Override
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.offsetAndCount
         );
@@ -107,7 +107,7 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingList(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.offsetAndCount
         );

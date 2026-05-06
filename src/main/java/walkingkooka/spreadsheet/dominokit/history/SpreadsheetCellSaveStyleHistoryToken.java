@@ -39,24 +39,24 @@ import java.util.Map;
  */
 public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellSaveMapHistoryToken<TextStyle> {
 
-    static SpreadsheetCellSaveStyleHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellSaveStyleHistoryToken with(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToTextStyleMap.with(value)
         );
     }
 
-    private SpreadsheetCellSaveStyleHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellSaveStyleHistoryToken(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetCellReferenceToTextStyleMap value) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -72,12 +72,12 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
     }
 
     @Override
-    SpreadsheetCellSaveStyleHistoryToken replace(final SpreadsheetId id,
+    SpreadsheetCellSaveStyleHistoryToken replace(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToTextStyleMap.with(value)
@@ -98,7 +98,7 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsStyle(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.value()
             );

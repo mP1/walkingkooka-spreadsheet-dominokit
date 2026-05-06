@@ -33,11 +33,11 @@ import java.util.Optional;
 
 abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
-    SpreadsheetRowHistoryToken(final SpreadsheetId id,
+    SpreadsheetRowHistoryToken(final SpreadsheetId spreadsheetId,
                                final SpreadsheetName spreadsheetName,
                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -80,7 +80,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
                 }
 
                 historyToken = HistoryToken.rowSortSave(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection,
                     Cast.to(valueOrNull)

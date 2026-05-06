@@ -33,21 +33,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistoryToken {
 
-    static SpreadsheetColumnDeleteHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnDeleteHistoryToken with(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnDeleteHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetColumnDeleteHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnDeleteHistoryToken(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -59,11 +59,11 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).delete();
@@ -78,7 +78,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
         );
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection()
                     .selection()
             );
@@ -89,7 +89,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnDelete(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

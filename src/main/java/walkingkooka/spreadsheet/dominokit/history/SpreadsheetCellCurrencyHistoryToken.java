@@ -28,11 +28,11 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellCurrencyHistoryToken extends SpreadsheetCellHistoryToken {
 
-    SpreadsheetCellCurrencyHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellCurrencyHistoryToken(final SpreadsheetId spreadsheetId,
                                         final SpreadsheetName spreadsheetName,
                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                         final Optional<Currency> currency) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
         this.currency = Objects.requireNonNull(currency, "currency");
     }
 

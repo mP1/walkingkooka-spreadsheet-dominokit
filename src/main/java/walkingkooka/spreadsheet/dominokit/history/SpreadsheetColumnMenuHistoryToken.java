@@ -34,21 +34,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryToken {
 
-    static SpreadsheetColumnMenuHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnMenuHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnMenuHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetColumnMenuHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnMenuHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -60,11 +60,11 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).menu();
@@ -81,7 +81,7 @@ public class SpreadsheetColumnMenuHistoryToken extends SpreadsheetColumnHistoryT
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnMenu(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

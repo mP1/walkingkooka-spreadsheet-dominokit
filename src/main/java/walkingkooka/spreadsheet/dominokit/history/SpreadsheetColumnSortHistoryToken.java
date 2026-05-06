@@ -26,11 +26,11 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  * Base class for both column sort history tokens.
  */
 public abstract class SpreadsheetColumnSortHistoryToken extends SpreadsheetColumnHistoryToken {
-    SpreadsheetColumnSortHistoryToken(final SpreadsheetId id,
+    SpreadsheetColumnSortHistoryToken(final SpreadsheetId spreadsheetId,
                                       final SpreadsheetName spreadsheetName,
                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );

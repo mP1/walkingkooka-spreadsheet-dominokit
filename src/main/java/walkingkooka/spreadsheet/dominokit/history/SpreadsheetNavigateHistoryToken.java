@@ -36,21 +36,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistoryToken {
 
-    static SpreadsheetNavigateHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetNavigateHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetNavigateHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             navigation
         );
     }
 
-    private SpreadsheetNavigateHistoryToken(final SpreadsheetId id,
+    private SpreadsheetNavigateHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName,
                                             final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.navigation = Objects.requireNonNull(navigation, "navigation");
@@ -76,16 +76,16 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     @Override
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         ).setNavigation(this.navigation);
     }
@@ -106,7 +106,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
             // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
             context.spreadsheetDeltaFetcher()
                 .getCells(
-                    this.id,
+                    this.spreadsheetId,
                     context.viewport(
                         navigation,
                         Optional.empty() // selection
@@ -124,7 +124,7 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitNavigate(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.navigation
         );

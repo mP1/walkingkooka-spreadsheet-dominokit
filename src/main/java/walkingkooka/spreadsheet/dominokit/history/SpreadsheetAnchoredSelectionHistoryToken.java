@@ -30,11 +30,11 @@ import java.util.Objects;
 
 public abstract class SpreadsheetAnchoredSelectionHistoryToken extends SpreadsheetSelectionHistoryToken {
 
-    SpreadsheetAnchoredSelectionHistoryToken(final SpreadsheetId id,
+    SpreadsheetAnchoredSelectionHistoryToken(final SpreadsheetId spreadsheetId,
                                              final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.anchoredSelection = Objects.requireNonNull(anchoredSelection, "anchoredSelection");
@@ -47,16 +47,16 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final AnchoredSpreadsheetSelection anchoredSelection;
 
     @Override //
-    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                               final SpreadsheetName spreadsheetName) {
         return this.replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.anchoredSelection
         );
     }
 
-    abstract HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    abstract HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection);
 
@@ -92,7 +92,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final HistoryToken selectionSelect() {
         return this.elseIfDifferent(
             HistoryToken.selection(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection()
             )
@@ -110,7 +110,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
     final void deltaClearSelection(final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .postClear(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection()
             );
 
@@ -140,7 +140,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
                                       final AppContext context) {
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id,
+                this.spreadsheetId,
                 SpreadsheetMetadata.EMPTY
                     .set(
                         propertyName1,
@@ -170,7 +170,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         // POST metadata with frozen row=row range = null
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id,
+                this.spreadsheetId,
                 propertyName,
                 propertyValue
             );

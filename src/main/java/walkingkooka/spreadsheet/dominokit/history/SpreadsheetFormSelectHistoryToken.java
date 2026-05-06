@@ -35,24 +35,24 @@ import java.util.Optional;
  */
 public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHistoryToken {
 
-    static SpreadsheetFormSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetFormSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final FormName formName,
                                                   final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             formName,
             field
         );
     }
 
-    private SpreadsheetFormSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetFormSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final FormName formName,
                                               final Optional<SpreadsheetValidationReference> field) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.formName = Objects.requireNonNull(formName, "formName");
@@ -77,10 +77,10 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.formName,
             this.field
@@ -104,7 +104,7 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.formName,
             this.field

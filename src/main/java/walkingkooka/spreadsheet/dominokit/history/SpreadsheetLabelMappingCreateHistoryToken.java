@@ -31,18 +31,18 @@ import walkingkooka.text.cursor.TextCursor;
  */
 public final class SpreadsheetLabelMappingCreateHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
-    static SpreadsheetLabelMappingCreateHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingCreateHistoryToken with(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName) {
         return new SpreadsheetLabelMappingCreateHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
 
-    private SpreadsheetLabelMappingCreateHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingCreateHistoryToken(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -67,10 +67,10 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -86,7 +86,7 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingCreate(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }

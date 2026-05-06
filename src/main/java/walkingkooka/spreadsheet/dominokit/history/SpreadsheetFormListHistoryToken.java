@@ -33,21 +33,21 @@ import java.util.Objects;
  */
 public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistoryToken {
 
-    static SpreadsheetFormListHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetFormListHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetFormListHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             offsetAndCount
         );
     }
 
-    private SpreadsheetFormListHistoryToken(final SpreadsheetId id,
+    private SpreadsheetFormListHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName,
                                             final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
@@ -66,10 +66,10 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.offsetAndCount
         );
@@ -92,7 +92,7 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormList(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.offsetAndCount
         );

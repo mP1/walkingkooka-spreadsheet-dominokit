@@ -34,21 +34,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellMenuHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellMenuHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName,
                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -65,11 +65,11 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).menu();
@@ -86,7 +86,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellMenu(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

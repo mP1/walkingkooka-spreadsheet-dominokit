@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetCellValueHistoryToken {
 
-    static SpreadsheetCellValueUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellValueUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellValueUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellValueUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // no valueType
@@ -57,11 +57,11 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
         // patch value with nothing and clear which should hide the menu.
         context.spreadsheetDeltaFetcher()
             .patchValue(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 null,
                 Optional.empty()
@@ -96,7 +96,7 @@ public final class SpreadsheetCellValueUnselectHistoryToken extends SpreadsheetC
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValueUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

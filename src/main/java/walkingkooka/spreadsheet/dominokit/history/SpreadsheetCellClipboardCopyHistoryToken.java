@@ -36,24 +36,24 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
-    static SpreadsheetCellClipboardCopyHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellClipboardCopyHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
-    private SpreadsheetCellClipboardCopyHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellClipboardCopyHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetCellClipboardKind kind) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -61,11 +61,11 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.kind()
@@ -107,7 +107,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardCopy(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.kind()

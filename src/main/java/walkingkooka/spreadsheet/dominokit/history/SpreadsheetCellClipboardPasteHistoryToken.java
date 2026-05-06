@@ -41,24 +41,24 @@ import java.util.List;
  */
 public final class SpreadsheetCellClipboardPasteHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
-    static SpreadsheetCellClipboardPasteHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellClipboardPasteHistoryToken with(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName,
                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                           final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
-    private SpreadsheetCellClipboardPasteHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellClipboardPasteHistoryToken(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final SpreadsheetCellClipboardKind kind) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -66,11 +66,11 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardPasteHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.kind()
@@ -97,13 +97,13 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
                 public void onSuccess(final List<ClipboardTextItem> items) {
                     final SpreadsheetCellClipboardPasteHistoryToken that = SpreadsheetCellClipboardPasteHistoryToken.this;
                     final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                    final SpreadsheetId id = that.spreadsheetId();
+                    final SpreadsheetId spreadsheetId1 = that.spreadsheetId();
                     final SpreadsheetCellClipboardKind kind = that.kind();
 
                     for (final ClipboardTextItem item : items) {
                         kind.saveOrUpdateCells(
                             fetcher,
-                            id,
+                            spreadsheetId1,
                             item.toSpreadsheetCellRange(context)
                                 .move(cellRange)
                         );
@@ -123,7 +123,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardPaste(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.kind()

@@ -33,21 +33,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistoryToken {
 
-    static SpreadsheetColumnClearHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnClearHistoryToken with(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnClearHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetColumnClearHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnClearHistoryToken(final SpreadsheetId spreadsheetId,
                                                final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -59,11 +59,11 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).clear();
@@ -80,7 +80,7 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnClear(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

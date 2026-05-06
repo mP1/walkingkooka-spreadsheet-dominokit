@@ -34,21 +34,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken {
 
-    static SpreadsheetRowSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetRowSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                              final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -60,11 +60,11 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -81,7 +81,7 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

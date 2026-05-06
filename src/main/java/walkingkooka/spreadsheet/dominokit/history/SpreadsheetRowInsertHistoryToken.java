@@ -26,12 +26,12 @@ import java.util.OptionalInt;
 
 abstract public class SpreadsheetRowInsertHistoryToken extends SpreadsheetRowHistoryToken {
 
-    SpreadsheetRowInsertHistoryToken(final SpreadsheetId id,
+    SpreadsheetRowInsertHistoryToken(final SpreadsheetId spreadsheetId,
                                      final SpreadsheetName spreadsheetName,
                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                      final OptionalInt count) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );

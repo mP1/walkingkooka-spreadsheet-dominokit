@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCellLocaleHistoryToken implements Value<Optional<Locale>> {
 
-    static SpreadsheetCellLocaleSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLocaleSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Optional<Locale> locale) {
         return new SpreadsheetCellLocaleSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             locale
         );
     }
 
-    private SpreadsheetCellLocaleSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLocaleSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Optional<Locale> locale) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             locale
@@ -61,18 +61,18 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellLocaleSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.locale
@@ -92,7 +92,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
 
         context.spreadsheetDeltaFetcher()
             .patchLocale(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.locale
             );
@@ -103,7 +103,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.locale

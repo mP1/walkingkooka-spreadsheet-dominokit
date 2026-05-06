@@ -31,11 +31,11 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCellHistoryToken implements Value<V> {
 
-    SpreadsheetCellSaveHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                     final SpreadsheetName spreadsheetName,
                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -44,18 +44,18 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
     @Override
     public final HistoryToken clearAction() {
         return HistoryToken.cellSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override //
-    final HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    final HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                             final SpreadsheetName spreadsheetName,
                                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         return this.replace(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.value()
@@ -66,7 +66,7 @@ public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCell
      * Factory method used by various would be setters when one or more components have changed and a new instance needs
      * to be created.
      */
-    abstract SpreadsheetCellSaveHistoryToken<V> replace(final SpreadsheetId id,
+    abstract SpreadsheetCellSaveHistoryToken<V> replace(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final V value);

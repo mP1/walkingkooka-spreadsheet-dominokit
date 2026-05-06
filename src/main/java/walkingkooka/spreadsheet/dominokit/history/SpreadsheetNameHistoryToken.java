@@ -32,16 +32,16 @@ import java.util.Optional;
 
 public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
-    SpreadsheetNameHistoryToken(final SpreadsheetId id,
+    SpreadsheetNameHistoryToken(final SpreadsheetId spreadsheetId,
                                 final SpreadsheetName spreadsheetName) {
-        super(id);
+        super(spreadsheetId);
 
         this.spreadsheetName = Objects.requireNonNull(spreadsheetName, "spreadsheetName");
     }
 
     final HistoryToken replaceName(final SpreadsheetName spreadsheetName) {
         return this.replaceSpreadsheetIdAndSpreadsheetName(
-            this.id,
+            this.spreadsheetId,
             spreadsheetName
         );
     }
@@ -81,7 +81,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
 
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
-        return this.id
+        return this.spreadsheetId
             .urlFragment()
             .appendSlashThen(
                 this.spreadsheetName.urlFragment()
@@ -102,22 +102,22 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                                            final AppContext context) {
         // if the metadata.spreadsheetId and current historyToken.spreadsheetId DONT match wait for the metadata to
         // be loaded then fire history token again.
-        final SpreadsheetId id = this.id;
+        final SpreadsheetId spreadsheetId = this.spreadsheetId;
 
         final SpreadsheetId previousId = context.spreadsheetMetadata()
             .id()
             .orElse(null);
-        if (false == id.equals(previousId)) {
+        if (false == spreadsheetId.equals(previousId)) {
             context.debug(
                 this.getClass().getSimpleName() +
                     ".onHistoryTokenChange token " +
-                    id +
+                    spreadsheetId +
                     " and context metadata " +
                     previousId +
                     " have different ids, load SpreadsheetId and then fire current history token"
             );
             context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-                id,
+                spreadsheetId,
                 previous
             );
         } else {

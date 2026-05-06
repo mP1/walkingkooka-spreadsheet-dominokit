@@ -27,11 +27,11 @@ import java.util.Objects;
 import java.util.Optional;
 
 public abstract class SpreadsheetCellFormatterHistoryToken extends SpreadsheetCellHistoryToken {
-    SpreadsheetCellFormatterHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellFormatterHistoryToken(final SpreadsheetId spreadsheetId,
                                          final SpreadsheetName spreadsheetName,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final Optional<SpreadsheetFormatterSelector> spreadsheetFormatterSelector) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
         this.spreadsheetFormatterSelector = Objects.requireNonNull(spreadsheetFormatterSelector, "spreadsheetFormatterSelector");
     }
 

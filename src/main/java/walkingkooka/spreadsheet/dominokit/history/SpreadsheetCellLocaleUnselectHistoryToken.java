@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellLocaleUnselectHistoryToken extends SpreadsheetCellLocaleHistoryToken {
 
-    static SpreadsheetCellLocaleUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLocaleUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName,
                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellLocaleUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLocaleUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetLocale
@@ -57,11 +57,11 @@ public final class SpreadsheetCellLocaleUnselectHistoryToken extends Spreadsheet
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellLocaleUnselectHistoryToken extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

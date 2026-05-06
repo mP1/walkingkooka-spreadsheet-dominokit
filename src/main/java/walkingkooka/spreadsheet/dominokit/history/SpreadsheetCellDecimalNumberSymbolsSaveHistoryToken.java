@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends SpreadsheetCellDecimalNumberSymbolsHistoryToken implements Value<Optional<DecimalNumberSymbols>> {
 
-    static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                                     final SpreadsheetName spreadsheetName,
                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                                     final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
         return new SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             decimalNumberSymbols
         );
     }
 
-    private SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                                 final SpreadsheetName spreadsheetName,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                                 final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             decimalNumberSymbols
@@ -61,18 +61,18 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends S
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellDecimalNumberSymbolsSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.decimalNumberSymbols
@@ -92,7 +92,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends S
 
         context.spreadsheetDeltaFetcher()
             .patchDecimalNumberSymbols(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.decimalNumberSymbols
             );
@@ -103,7 +103,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends S
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDecimalNumberSymbolsSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.decimalNumberSymbols

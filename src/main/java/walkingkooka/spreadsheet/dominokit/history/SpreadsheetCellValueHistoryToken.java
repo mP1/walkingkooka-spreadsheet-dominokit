@@ -28,11 +28,11 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellValueHistoryToken extends SpreadsheetCellHistoryToken {
 
-    SpreadsheetCellValueHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellValueHistoryToken(final SpreadsheetId spreadsheetId,
                                      final SpreadsheetName spreadsheetName,
                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                      final Optional<ValueType> valueType) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
         this.valueType = Objects.requireNonNull(valueType, "valueType");
     }
 

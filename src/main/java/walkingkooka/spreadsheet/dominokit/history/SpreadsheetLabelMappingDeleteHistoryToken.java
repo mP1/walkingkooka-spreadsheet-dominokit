@@ -35,21 +35,21 @@ import java.util.Objects;
  */
 public final class SpreadsheetLabelMappingDeleteHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
-    static SpreadsheetLabelMappingDeleteHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingDeleteHistoryToken with(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName,
                                                           final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingDeleteHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             labelName
         );
     }
 
-    private SpreadsheetLabelMappingDeleteHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingDeleteHistoryToken(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final SpreadsheetLabelName labelName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
@@ -75,7 +75,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.labelName
         );
@@ -83,10 +83,10 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.labelName
         );
@@ -99,7 +99,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
 
         context.spreadsheetDeltaFetcher()
             .deleteLabelMapping(
-                this.id,
+                this.spreadsheetId,
                 this.labelName // getter returns Optional label
             );
     }
@@ -109,7 +109,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingDelete(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.labelName
         );

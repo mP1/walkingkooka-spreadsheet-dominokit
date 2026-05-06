@@ -36,24 +36,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellQueryHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellQueryHistoryToken with(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetCellQueryRequest query) {
         return new SpreadsheetCellQueryHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             query
         );
     }
 
-    private SpreadsheetCellQueryHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellQueryHistoryToken(final SpreadsheetId spreadsheetId,
                                              final SpreadsheetName spreadsheetName,
                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                              final SpreadsheetCellQueryRequest query) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -70,7 +70,7 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
         return this.query.equals(query) ?
             this :
             new SpreadsheetCellQueryHistoryToken(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection(),
                 query
@@ -90,11 +90,11 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).setQuery(this.query);
@@ -112,7 +112,7 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFind(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

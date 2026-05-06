@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellValidatorUnselectHistoryToken extends SpreadsheetCellValidatorHistoryToken {
 
-    static SpreadsheetCellValidatorUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellValidatorUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellValidatorUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellValidatorUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // validator
@@ -57,11 +57,11 @@ public final class SpreadsheetCellValidatorUnselectHistoryToken extends Spreadsh
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellValidatorUnselectHistoryToken extends Spreadsh
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValidatorUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

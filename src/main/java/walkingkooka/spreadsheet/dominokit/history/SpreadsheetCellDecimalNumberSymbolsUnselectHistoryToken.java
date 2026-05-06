@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken extends SpreadsheetCellDecimalNumberSymbolsHistoryToken {
 
-    static SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                                         final SpreadsheetName name,
                                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken(
-            id,
+            spreadsheetId,
             name,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                                     final SpreadsheetName name,
                                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             name,
             anchoredSelection,
             Optional.empty() // DecimalTimeSymbols
@@ -57,11 +57,11 @@ public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken exten
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken exten
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDecimalNumberSymbolsUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

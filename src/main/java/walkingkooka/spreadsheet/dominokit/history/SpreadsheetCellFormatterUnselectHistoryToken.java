@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellFormatterUnselectHistoryToken extends SpreadsheetCellFormatterHistoryToken {
 
-    static SpreadsheetCellFormatterUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFormatterUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellFormatterUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFormatterUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetFormatterSelector
@@ -57,11 +57,11 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormatterUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellFormatterUnselectHistoryToken extends Spreadsh
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormatterUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

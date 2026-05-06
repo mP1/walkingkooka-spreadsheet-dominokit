@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellCurrencyUnselectHistoryToken extends SpreadsheetCellCurrencyHistoryToken {
 
-    static SpreadsheetCellCurrencyUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellCurrencyUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                             final SpreadsheetName spreadsheetName,
                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencyUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellCurrencyUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellCurrencyUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // Currency
@@ -57,11 +57,11 @@ public final class SpreadsheetCellCurrencyUnselectHistoryToken extends Spreadshe
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencyUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellCurrencyUnselectHistoryToken extends Spreadshe
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellCurrencyUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

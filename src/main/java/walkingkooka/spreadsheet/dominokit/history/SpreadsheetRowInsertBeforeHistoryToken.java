@@ -38,24 +38,24 @@ import java.util.OptionalInt;
  */
 public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
-    static SpreadsheetRowInsertBeforeHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowInsertBeforeHistoryToken with(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final OptionalInt count) {
         return new SpreadsheetRowInsertBeforeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
         );
     }
 
-    private SpreadsheetRowInsertBeforeHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowInsertBeforeHistoryToken(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final OptionalInt count) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
@@ -70,11 +70,11 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).insertBefore(
@@ -103,7 +103,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
 
         context.spreadsheetDeltaFetcher()
             .postInsertBeforeRow(
-                this.id,
+                this.spreadsheetId,
                 selection,
                 count
             );
@@ -125,7 +125,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowInsertBefore(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.count

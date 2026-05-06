@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> implements Value<Optional<T>> {
 
-    static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId id,
+    static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                    final Optional<T> propertyValue) {
         return new SpreadsheetMetadataPropertySaveHistoryToken<>(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName,
             propertyValue
         );
     }
 
-    private SpreadsheetMetadataPropertySaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetMetadataPropertySaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final SpreadsheetMetadataPropertyName<T> propertyName,
                                                         final Optional<T> propertyValue) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName
         );
@@ -72,7 +72,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertySelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.propertyName
         );
@@ -80,10 +80,10 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
 
     // new id/name but still metadata+property+value select
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.propertyName,
             this.value()
@@ -93,7 +93,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,
                                final AppContext context) {
-        final SpreadsheetId id = this.id;
+        final SpreadsheetId id = this.spreadsheetId;
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
 
         context.pushHistoryToken(previous);
@@ -114,7 +114,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataPropertySave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.propertyName,
             this.propertyValue

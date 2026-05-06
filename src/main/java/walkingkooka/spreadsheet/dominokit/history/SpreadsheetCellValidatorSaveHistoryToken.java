@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetCellValidatorHistoryToken implements Value<Optional<ValidatorSelector>> {
 
-    static SpreadsheetCellValidatorSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellValidatorSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Optional<ValidatorSelector> validator) {
         return new SpreadsheetCellValidatorSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             validator
         );
     }
 
-    private SpreadsheetCellValidatorSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellValidatorSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Optional<ValidatorSelector> validator) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             validator
@@ -61,18 +61,18 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellValidatorSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValidatorSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.validator
@@ -92,7 +92,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
 
         context.spreadsheetDeltaFetcher()
             .patchValidator(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.validator
             );
@@ -103,7 +103,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValidatorSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.validator

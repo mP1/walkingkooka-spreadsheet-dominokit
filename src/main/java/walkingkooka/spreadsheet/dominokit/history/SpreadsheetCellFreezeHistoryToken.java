@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFreezeHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFreezeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellFreezeHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFreezeHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -78,11 +78,11 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return cellFreeze(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -108,7 +108,7 @@ public final class SpreadsheetCellFreezeHistoryToken extends SpreadsheetCellHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFreeze(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

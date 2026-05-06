@@ -34,21 +34,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
 
-    static SpreadsheetRowMenuHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowMenuHistoryToken with(final SpreadsheetId spreadsheetId,
                                                final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowMenuHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetRowMenuHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowMenuHistoryToken(final SpreadsheetId spreadsheetId,
                                            final SpreadsheetName spreadsheetName,
                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -60,11 +60,11 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).menu();
@@ -81,7 +81,7 @@ public class SpreadsheetRowMenuHistoryToken extends SpreadsheetRowHistoryToken {
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowMenu(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

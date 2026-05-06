@@ -29,15 +29,15 @@ import walkingkooka.text.cursor.TextCursor;
  */
 public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetListRenameHistoryToken {
 
-    static SpreadsheetListRenameSelectHistoryToken with(final SpreadsheetId id) {
+    static SpreadsheetListRenameSelectHistoryToken with(final SpreadsheetId spreadsheetId) {
         return new SpreadsheetListRenameSelectHistoryToken(
-            id
+            spreadsheetId
         );
     }
 
-    private SpreadsheetListRenameSelectHistoryToken(final SpreadsheetId id) {
+    private SpreadsheetListRenameSelectHistoryToken(final SpreadsheetId spreadsheetId) {
         super(
-            id
+            spreadsheetId
         );
     }
 
@@ -73,6 +73,6 @@ public final class SpreadsheetListRenameSelectHistoryToken extends SpreadsheetLi
 
     @Override
     void accept(final HistoryTokenVisitor visitor) {
-        visitor.visitSpreadsheetListRenameSelect(this.id);
+        visitor.visitSpreadsheetListRenameSelect(this.spreadsheetId);
     }
 }

@@ -24,18 +24,18 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMetadataHistoryToken {
 
-    static SpreadsheetMetadataSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetMetadataSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName) {
         return new SpreadsheetMetadataSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
 
-    private SpreadsheetMetadataSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetMetadataSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -52,10 +52,10 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
 
     // new id/name but still metadata select
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -71,7 +71,7 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }

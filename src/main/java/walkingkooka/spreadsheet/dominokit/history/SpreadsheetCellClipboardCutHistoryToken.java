@@ -42,24 +42,24 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
-    static SpreadsheetCellClipboardCutHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellClipboardCutHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCutHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
-    private SpreadsheetCellClipboardCutHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellClipboardCutHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final SpreadsheetCellClipboardKind kind) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -67,11 +67,11 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCutHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.kind()
@@ -106,14 +106,14 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                 public void onSuccess() {
                     final SpreadsheetCellClipboardCutHistoryToken that = SpreadsheetCellClipboardCutHistoryToken.this;
                     final SpreadsheetDeltaFetcher fetcher = context.spreadsheetDeltaFetcher();
-                    final SpreadsheetId id = that.spreadsheetId();
+                    final SpreadsheetId spreadsheetId1 = that.spreadsheetId();
                     final AnchoredSpreadsheetSelection anchoredSelection = that.anchoredSelection();
                     final SpreadsheetSelection selection = anchoredSelection.selection();
 
                     switch (kind) {
                         case CELL:
                             fetcher.deleteCells(
-                                id,
+                                spreadsheetId1,
                                 context.viewport(
                                     Optional.of(
                                         anchoredSelection
@@ -123,28 +123,28 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                             break;
                         case FORMULA:
                             fetcher.patchFormula(
-                                id,
+                                spreadsheetId1,
                                 selection,
                                 JsonNode.nullNode() // delete formulas
                             );
                             break;
                         case FORMATTER:
                             fetcher.patchFormatter(
-                                id,
+                                spreadsheetId1,
                                 selection,
                                 SpreadsheetCell.NO_FORMATTER
                             );
                             break;
                         case PARSER:
                             fetcher.patchParser(
-                                id,
+                                spreadsheetId1,
                                 selection,
                                 SpreadsheetCell.NO_PARSER
                             );
                             break;
                         case STYLE:
                             fetcher.patchStyle(
-                                id,
+                                spreadsheetId1,
                                 selection,
                                 JsonNode.nullNode()
                             );
@@ -167,7 +167,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardCut(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.kind()
