@@ -35,10 +35,10 @@ import java.util.Optional;
  */
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
-    SpreadsheetLabelMappingHistoryToken(final SpreadsheetId id,
+    SpreadsheetLabelMappingHistoryToken(final SpreadsheetId spreadsheetId,
                                         final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -61,7 +61,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
 
             if (null != valueOrNull) {
                 historyToken = HistoryToken.labelMappingSave(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     this.cast(SpreadsheetLabelMappingHistoryToken.class)
                         .labelName()

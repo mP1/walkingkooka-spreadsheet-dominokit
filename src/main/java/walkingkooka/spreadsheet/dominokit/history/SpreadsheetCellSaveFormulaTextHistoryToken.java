@@ -38,24 +38,24 @@ import java.util.Map;
  */
 public final class SpreadsheetCellSaveFormulaTextHistoryToken extends SpreadsheetCellSaveMapHistoryToken<String> {
 
-    static SpreadsheetCellSaveFormulaTextHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellSaveFormulaTextHistoryToken with(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaTextHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToFormulaTextMap.with(value)
         );
     }
 
-    private SpreadsheetCellSaveFormulaTextHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellSaveFormulaTextHistoryToken(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final SpreadsheetCellReferenceToFormulaTextMap value) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -71,12 +71,12 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
     }
 
     @Override
-    SpreadsheetCellSaveFormulaTextHistoryToken replace(final SpreadsheetId id,
+    SpreadsheetCellSaveFormulaTextHistoryToken replace(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final Map<SpreadsheetCellReference, String> value) {
         return new SpreadsheetCellSaveFormulaTextHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToFormulaTextMap.with(value)
@@ -97,7 +97,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryToken extends Spreadshee
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsFormulaText(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.value()
             );

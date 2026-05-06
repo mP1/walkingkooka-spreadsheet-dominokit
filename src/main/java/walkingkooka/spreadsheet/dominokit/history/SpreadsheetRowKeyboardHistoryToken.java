@@ -34,21 +34,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHistoryToken {
 
-    static SpreadsheetRowKeyboardHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowKeyboardHistoryToken with(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowKeyboardHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetRowKeyboardHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowKeyboardHistoryToken(final SpreadsheetId spreadsheetId,
                                                final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -60,11 +60,11 @@ public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).keyboard();
@@ -81,7 +81,7 @@ public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowKeyboard(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

@@ -41,18 +41,18 @@ import java.util.function.Function;
  */
 public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryToken {
 
-    static SpreadsheetSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName) {
         return new SpreadsheetSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
 
-    private SpreadsheetSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                           final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -192,7 +192,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     private HistoryToken parseForm(final TextCursor cursor) {
         final HistoryToken token;
 
-        final SpreadsheetId id = this.id;
+        final SpreadsheetId id = this.spreadsheetId;
         final SpreadsheetName name = this.spreadsheetName;
 
         final String component = parseComponentOrEmpty(cursor);
@@ -227,7 +227,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
     private HistoryToken parseLabelCreate(final TextCursor cursor) {
         return HistoryToken.labelMappingCreate(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         ).parse(cursor);
     }
@@ -235,7 +235,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     private HistoryToken parseLabel(final TextCursor cursor) {
         final HistoryToken token;
 
-        final SpreadsheetId id = this.id;
+        final SpreadsheetId id = this.spreadsheetId;
         final SpreadsheetName name = this.spreadsheetName;
 
         final String component = parseComponentOrEmpty(cursor);
@@ -281,7 +281,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
                         break;
                     default:
                         result = metadataPropertySelect(
-                            this.id,
+                            this.spreadsheetId,
                             this.spreadsheetName,
                             SpreadsheetMetadataPropertyName.with(next)
                         );
@@ -294,7 +294,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
 
         if (null == result) {
             result = metadataSelect(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName
             );
         }
@@ -308,10 +308,10 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -327,7 +327,7 @@ public final class SpreadsheetSelectHistoryToken extends SpreadsheetNameHistoryT
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }

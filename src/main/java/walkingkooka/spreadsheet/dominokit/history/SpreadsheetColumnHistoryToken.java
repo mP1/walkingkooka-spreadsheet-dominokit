@@ -33,11 +33,11 @@ import java.util.Optional;
 
 abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
-    SpreadsheetColumnHistoryToken(final SpreadsheetId id,
+    SpreadsheetColumnHistoryToken(final SpreadsheetId spreadsheetId,
                                   final SpreadsheetName spreadsheetName,
                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -80,7 +80,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
                 }
 
                 historyToken = HistoryToken.columnSortSave(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection,
                     Cast.to(valueOrNull)

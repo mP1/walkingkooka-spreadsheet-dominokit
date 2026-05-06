@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellClearAndFormulaHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellClearAndFormulaHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellClearAndFormulaHistoryToken with(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClearAndFormulaHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellClearAndFormulaHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellClearAndFormulaHistoryToken(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -66,11 +66,11 @@ public final class SpreadsheetCellClearAndFormulaHistoryToken extends Spreadshee
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).clearAndFormula();
@@ -81,7 +81,7 @@ public final class SpreadsheetCellClearAndFormulaHistoryToken extends Spreadshee
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .deleteDelta(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection()
                     .selection()
             );
@@ -97,7 +97,7 @@ public final class SpreadsheetCellClearAndFormulaHistoryToken extends Spreadshee
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClearAndFormula(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

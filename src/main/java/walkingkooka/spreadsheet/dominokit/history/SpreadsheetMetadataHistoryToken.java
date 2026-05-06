@@ -30,10 +30,10 @@ import java.util.Optional;
 
 public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHistoryToken {
 
-    SpreadsheetMetadataHistoryToken(final SpreadsheetId id,
+    SpreadsheetMetadataHistoryToken(final SpreadsheetId spreadsheetId,
                                     final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -46,7 +46,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
         if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
             historyToken = HistoryToken.metadataPropertySave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                     .propertyName,
@@ -59,7 +59,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
                     .orElse(TextStylePropertyName.ALL);
 
                 historyToken = HistoryToken.metadataPropertyStyleSave(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     stylePropertyName,
                     Cast.to(value)

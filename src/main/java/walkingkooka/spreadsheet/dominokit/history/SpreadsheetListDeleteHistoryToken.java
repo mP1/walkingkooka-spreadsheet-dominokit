@@ -43,22 +43,22 @@ import java.util.Set;
  */
 public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
-    static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId id) {
+    static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId spreadsheetId) {
         return new SpreadsheetListDeleteHistoryToken(
-            id
+            spreadsheetId
         );
     }
 
-    private SpreadsheetListDeleteHistoryToken(final SpreadsheetId id) {
+    private SpreadsheetListDeleteHistoryToken(final SpreadsheetId spreadsheetId) {
         super(
-            id
+            spreadsheetId
         );
     }
 
     @Override
     UrlFragment spreadsheetUrlFragment() {
         return DELETE.appendSlashThen(
-            this.id.urlFragment()
+            this.spreadsheetId.urlFragment()
         );
     }
 
@@ -68,7 +68,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         throw new UnsupportedOperationException();
     }
@@ -139,13 +139,13 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
             }
         );
         context.spreadsheetMetadataFetcher()
-            .deleteSpreadsheetMetadata(this.id);
+            .deleteSpreadsheetMetadata(this.spreadsheetId);
     }
 
     // HistoryTokenVisitor..............................................................................................
 
     @Override
     void accept(final HistoryTokenVisitor visitor) {
-        visitor.visitSpreadsheetListDelete(this.id);
+        visitor.visitSpreadsheetListDelete(this.spreadsheetId);
     }
 }

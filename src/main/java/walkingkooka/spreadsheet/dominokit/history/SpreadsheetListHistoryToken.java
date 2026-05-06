@@ -57,10 +57,10 @@ public abstract class SpreadsheetListHistoryToken extends SpreadsheetHistoryToke
     }
 
     @Override //
-    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                               final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }

@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends SpreadsheetCellDateTimeSymbolsHistoryToken {
 
-    static SpreadsheetCellDateTimeSymbolsUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellDateTimeSymbolsUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetDateTimeSymbols
@@ -57,11 +57,11 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends Sp
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -84,7 +84,7 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends Sp
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDateTimeSymbolsUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

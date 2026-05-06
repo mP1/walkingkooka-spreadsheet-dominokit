@@ -39,24 +39,24 @@ import java.util.Optional;
 public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistoryToken
     implements Value<Form<SpreadsheetValidationReference>> {
 
-    static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final Form<SpreadsheetValidationReference> form,
                                                 final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             form,
             field
         );
     }
 
-    private SpreadsheetFormSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetFormSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName,
                                             final Form<SpreadsheetValidationReference> form,
                                             final Optional<SpreadsheetValidationReference> field) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.form = Objects.requireNonNull(form, "form");
@@ -93,10 +93,10 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.form,
             this.field
@@ -107,7 +107,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     @Override
     public HistoryToken clearAction() {
         return formSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.form.name(),
             NO_FIELD
@@ -125,7 +125,7 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.form,
             this.field

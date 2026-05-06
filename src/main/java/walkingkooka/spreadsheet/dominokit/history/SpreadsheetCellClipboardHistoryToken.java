@@ -31,12 +31,12 @@ import java.util.Objects;
  * held in the token.
  */
 public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken {
-    SpreadsheetCellClipboardHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellClipboardHistoryToken(final SpreadsheetId spreadsheetId,
                                          final SpreadsheetName spreadsheetName,
                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                          final SpreadsheetCellClipboardKind kind) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -52,7 +52,7 @@ public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCe
     @Override
     public final HistoryToken clearAction() {
         return cellSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );

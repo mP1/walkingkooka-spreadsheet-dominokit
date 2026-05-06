@@ -31,20 +31,20 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCellLabelHistoryToken {
 
-    static SpreadsheetCellLabelSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLabelSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLabelSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellLabelSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLabelSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
     }
 
     // /1/SpreadsheetName/cell/A1/label
@@ -54,11 +54,11 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).labelMapping();
@@ -81,7 +81,7 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

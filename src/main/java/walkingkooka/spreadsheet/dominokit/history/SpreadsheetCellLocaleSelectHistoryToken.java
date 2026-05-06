@@ -27,21 +27,21 @@ import java.util.Optional;
 
 public final class SpreadsheetCellLocaleSelectHistoryToken extends SpreadsheetCellLocaleHistoryToken {
 
-    static SpreadsheetCellLocaleSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLocaleSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellLocaleSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLocaleSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // Locale
@@ -54,11 +54,11 @@ public final class SpreadsheetCellLocaleSelectHistoryToken extends SpreadsheetCe
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetCellLocaleSelectHistoryToken extends SpreadsheetCe
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

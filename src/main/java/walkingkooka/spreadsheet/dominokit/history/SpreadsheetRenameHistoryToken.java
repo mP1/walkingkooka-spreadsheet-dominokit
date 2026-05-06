@@ -26,10 +26,10 @@ import java.util.Optional;
 
 public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHistoryToken {
 
-    SpreadsheetRenameHistoryToken(final SpreadsheetId id,
+    SpreadsheetRenameHistoryToken(final SpreadsheetId spreadsheetId,
                                   final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -42,13 +42,13 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
 
         if (value.isPresent()) {
             historyToken = HistoryToken.spreadsheetRenameSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 (SpreadsheetName) value.get()
             );
         } else {
             historyToken = HistoryToken.spreadsheetRenameSelect(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName
             );
         }

@@ -36,24 +36,24 @@ import java.util.Optional;
  */
 public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColumnHistoryToken {
 
-    static SpreadsheetColumnNavigateHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnNavigateHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetColumnNavigateHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             navigation
         );
     }
 
-    private SpreadsheetColumnNavigateHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnNavigateHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -72,11 +72,11 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).setNavigation(this.navigation);
@@ -91,7 +91,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
             // http://localhost:12345/api/spreadsheet/1/cell/*/force-recompute?home=A1&width=1568&height=463&includeFrozenColumnsRows=true&selection=F1&selectionType=cell&navigation=right+1567px
             context.spreadsheetDeltaFetcher()
                 .getCells(
-                    this.id,
+                    this.spreadsheetId,
                     context.viewport(
                         navigation,
                         Optional.of(
@@ -111,7 +111,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnNavigate(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

@@ -29,11 +29,11 @@ import java.util.Optional;
 
 public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<TextStyle> {
 
-    SpreadsheetMetadataPropertyStyleHistoryToken(final SpreadsheetId id,
+    SpreadsheetMetadataPropertyStyleHistoryToken(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             SpreadsheetMetadataPropertyName.STYLE
         );

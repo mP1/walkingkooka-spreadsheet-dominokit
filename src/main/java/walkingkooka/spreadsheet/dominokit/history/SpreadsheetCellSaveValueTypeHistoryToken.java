@@ -40,24 +40,24 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<ValueType>> {
 
-    static SpreadsheetCellSaveValueTypeHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellSaveValueTypeHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final Map<SpreadsheetCellReference, Optional<ValueType>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToValueTypeMap.with(value)
         );
     }
 
-    private SpreadsheetCellSaveValueTypeHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellSaveValueTypeHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetCellReferenceToValueTypeMap value) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -65,12 +65,12 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
     }
 
     @Override //
-    SpreadsheetCellSaveValueTypeHistoryToken replace(final SpreadsheetId id,
+    SpreadsheetCellSaveValueTypeHistoryToken replace(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, Optional<ValueType>> value) {
         return new SpreadsheetCellSaveValueTypeHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToValueTypeMap.with(value)
@@ -99,7 +99,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .patchCellsValueType(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.value()
             );

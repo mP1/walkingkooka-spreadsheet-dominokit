@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCellCurrencyHistoryToken implements Value<Optional<Currency>> {
 
-    static SpreadsheetCellCurrencySaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellCurrencySaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final Optional<Currency> currency) {
         return new SpreadsheetCellCurrencySaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             currency
         );
     }
 
-    private SpreadsheetCellCurrencySaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellCurrencySaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Optional<Currency> currency) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             currency
@@ -61,18 +61,18 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellCurrencySelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencySaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.currency
@@ -92,7 +92,7 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
 
         context.spreadsheetDeltaFetcher()
             .patchCurrency(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.currency
             );
@@ -103,7 +103,7 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellCurrencySave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.currency

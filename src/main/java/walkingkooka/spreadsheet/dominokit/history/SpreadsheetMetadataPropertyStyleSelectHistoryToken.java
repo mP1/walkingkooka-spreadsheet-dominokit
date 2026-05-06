@@ -27,21 +27,21 @@ import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
 
-    static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> with(final SpreadsheetId id,
+    static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
                                                                           final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
-            id,
+            spreadsheetId,
             spreadsheetName,
             stylePropertyName
         );
     }
 
-    private SpreadsheetMetadataPropertyStyleSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetMetadataPropertyStyleSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             stylePropertyName
         );
@@ -59,10 +59,10 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
 
     // new id/name but still metadata+style+property select
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.stylePropertyName
         );
@@ -79,7 +79,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataStyleSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.stylePropertyName
         );

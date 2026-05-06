@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCellParserHistoryToken
     implements Value<Optional<SpreadsheetParserSelector>> {
 
-    static SpreadsheetCellParserSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellParserSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         return new SpreadsheetCellParserSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             spreadsheetParserSelector
         );
     }
 
-    private SpreadsheetCellParserSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellParserSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Optional<SpreadsheetParserSelector> spreadsheetParserSelector) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             spreadsheetParserSelector
@@ -62,18 +62,18 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellParserSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.spreadsheetParserSelector
@@ -93,7 +93,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
 
         context.spreadsheetDeltaFetcher()
             .patchParser(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.spreadsheetParserSelector
             );
@@ -104,7 +104,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellParserSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.spreadsheetParserSelector

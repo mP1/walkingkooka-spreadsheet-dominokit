@@ -26,11 +26,11 @@ import java.util.Objects;
 
 public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken {
 
-    SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId id,
+    SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName,
                                             final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
 

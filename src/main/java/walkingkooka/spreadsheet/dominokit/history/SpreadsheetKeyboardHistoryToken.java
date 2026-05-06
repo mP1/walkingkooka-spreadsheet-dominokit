@@ -36,18 +36,18 @@ import java.util.Optional;
  */
 public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistoryToken {
 
-    static SpreadsheetKeyboardHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetKeyboardHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName) {
         return new SpreadsheetKeyboardHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
 
-    private SpreadsheetKeyboardHistoryToken(final SpreadsheetId id,
+    private SpreadsheetKeyboardHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -67,16 +67,16 @@ public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistor
     @Override
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         ).keyboard();
     }
@@ -99,7 +99,7 @@ public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistor
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitKeyboard(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }

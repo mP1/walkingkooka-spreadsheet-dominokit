@@ -32,21 +32,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetCellFormulaHistoryToken {
 
-    static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFormulaSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellFormulaSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellFormulaSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFormulaSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -63,11 +63,11 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return cellSelect(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).formula();
@@ -84,7 +84,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormulaSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

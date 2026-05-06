@@ -34,24 +34,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellLabelListHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLabelListHistoryToken with(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetCellLabelListHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             offsetAndCount
         );
     }
 
-    private SpreadsheetCellLabelListHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLabelListHistoryToken(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -77,11 +77,11 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).setLabels(this.offsetAndCount);
@@ -98,7 +98,7 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelList(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.offsetAndCount

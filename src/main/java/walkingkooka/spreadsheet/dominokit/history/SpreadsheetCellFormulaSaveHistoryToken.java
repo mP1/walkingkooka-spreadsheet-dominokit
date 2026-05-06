@@ -36,24 +36,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken implements Value<String> {
 
-    static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                        final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final String formula) {
         return new SpreadsheetCellFormulaSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formula
         );
     }
 
-    private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final String text) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -76,18 +76,18 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     @Override
     public HistoryToken clearAction() {
         return cellFormula(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).formula()
@@ -101,7 +101,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
         context.spreadsheetDeltaFetcher()
             .patchFormula(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 SpreadsheetFormula.textPatch(text)
             );
@@ -112,7 +112,7 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormulaSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.text

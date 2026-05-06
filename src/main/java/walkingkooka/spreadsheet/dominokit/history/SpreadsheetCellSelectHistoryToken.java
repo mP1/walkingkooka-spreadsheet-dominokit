@@ -47,21 +47,21 @@ import walkingkooka.text.cursor.TextCursor;
  */
 public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -78,11 +78,11 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -106,7 +106,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
         switch (component) {
             case CELL_STRING:
                 result = cellSaveCell(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     parseJson(
@@ -117,7 +117,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case CURRENCY_STRING:
                 result = cellSaveCurrency(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -128,7 +128,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case DATE_TIME_SYMBOLS_STRING:
                 result = cellSaveDateTimeSymbols(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -139,7 +139,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case DECIMAL_NUMBER_SYMBOLS_STRING:
                 result = cellSaveDecimalNumberSymbols(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -150,7 +150,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case FORMATTER_STRING:
                 result = cellSaveFormatter(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -161,7 +161,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case FORMULA_STRING:
                 result = cellSaveFormulaText(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -172,7 +172,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case LOCALE_STRING:
                 result = cellSaveLocale(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -183,7 +183,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case PARSER_STRING:
                 result = cellSaveParser(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -194,7 +194,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case STYLE_STRING:
                 result = cellSaveStyle(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -205,7 +205,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case VALIDATOR_STRING:
                 result = cellSaveValidator(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -216,7 +216,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                 break;
             case VALUE_TYPE_STRING:
                 result = cellSaveValueType(
-                    this.id,
+                    this.spreadsheetId,
                     this.spreadsheetName,
                     this.anchoredSelection(),
                     SpreadsheetCellSaveHistoryToken.parseJson(
@@ -239,7 +239,7 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

@@ -37,24 +37,24 @@ import java.util.Objects;
  */
 public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColumnSortHistoryToken {
 
-    static SpreadsheetColumnSortEditHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnSortEditHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final String comparatorNames) {
         return new SpreadsheetColumnSortEditHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
-    private SpreadsheetColumnSortEditHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnSortEditHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final String comparatorNames) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -82,11 +82,11 @@ public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColu
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnSortEditHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.comparatorNames
@@ -104,7 +104,7 @@ public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColu
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnSortEdit(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames

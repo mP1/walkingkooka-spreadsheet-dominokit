@@ -38,13 +38,13 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFormHistoryToken implements Value<Map<SpreadsheetCellReference, Optional<Object>>> {
 
-    static SpreadsheetCellFormSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFormSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final FormName formName,
                                                     final Map<SpreadsheetCellReference, Optional<Object>> value) {
         return new SpreadsheetCellFormSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName,
@@ -52,13 +52,13 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
         );
     }
 
-    private SpreadsheetCellFormSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFormSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final FormName formName,
                                                 final Map<SpreadsheetCellReference, Optional<Object>> values) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName
@@ -80,11 +80,11 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.formName,
@@ -96,7 +96,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     @Override
     public HistoryToken clearAction() {
         return cellFormSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection(),
             this.formName
@@ -114,7 +114,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.formName,

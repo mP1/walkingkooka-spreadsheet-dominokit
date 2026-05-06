@@ -30,21 +30,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetCellValueTypeUnselectHistoryToken extends SpreadsheetCellValueTypeHistoryToken {
 
-    static SpreadsheetCellValueTypeUnselectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellValueTypeUnselectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueTypeUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellValueTypeUnselectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellValueTypeUnselectHistoryToken(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // valueType
@@ -57,11 +57,11 @@ public final class SpreadsheetCellValueTypeUnselectHistoryToken extends Spreadsh
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueTypeUnselectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -85,7 +85,7 @@ public final class SpreadsheetCellValueTypeUnselectHistoryToken extends Spreadsh
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValueTypeUnselect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

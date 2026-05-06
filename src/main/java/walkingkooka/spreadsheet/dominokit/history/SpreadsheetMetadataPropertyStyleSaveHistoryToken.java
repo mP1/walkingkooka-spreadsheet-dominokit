@@ -33,24 +33,24 @@ import java.util.Optional;
 public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T>
     implements Value<Optional<T>> {
 
-    static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId id,
+    static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                                         final SpreadsheetName spreadsheetName,
                                                                         final TextStylePropertyName<T> stylePropertyName,
                                                                         final Optional<T> stylePropertyValue) {
         return new SpreadsheetMetadataPropertyStyleSaveHistoryToken<>(
-            id,
+            spreadsheetId,
             spreadsheetName,
             stylePropertyName,
             stylePropertyValue
         );
     }
 
-    private SpreadsheetMetadataPropertyStyleSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetMetadataPropertyStyleSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final TextStylePropertyName<T> stylePropertyName,
                                                              final Optional<T> stylePropertyValue) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             Optional.of(stylePropertyName)
         );
@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertyStyle(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.stylePropertyName
         );
@@ -85,10 +85,10 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
 
     // new id/name but still metadata+style+property+value
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.stylePropertyName.get(),
             this.value()
@@ -103,7 +103,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         // PATCH metadata with style property+value
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id,
+                this.spreadsheetId,
                 SpreadsheetMetadata.EMPTY.set(
                     SpreadsheetMetadataPropertyName.STYLE,
                     TextStyle.EMPTY.setOrRemove(
@@ -120,7 +120,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataStyleSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.stylePropertyName.get(),
             this.stylePropertyValue

@@ -35,24 +35,24 @@ import java.util.Optional;
  */
 final public class SpreadsheetCellStyleSelectHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
-    static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
+    static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                               final SpreadsheetName spreadsheetName,
                                                               final AnchoredSpreadsheetSelection anchoredSelection,
                                                               final Optional<TextStylePropertyName<T>> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             propertyName
         );
     }
 
-    private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final Optional<TextStylePropertyName<T>> propertyName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             propertyName
@@ -65,11 +65,11 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).setStylePropertyName(
@@ -88,7 +88,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellStyleSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             Cast.to(this.stylePropertyName)

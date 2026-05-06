@@ -35,26 +35,26 @@ import java.util.Optional;
  */
 public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
-    static SpreadsheetLoadHistoryToken with(final SpreadsheetId id) {
+    static SpreadsheetLoadHistoryToken with(final SpreadsheetId spreadsheetId) {
         return new SpreadsheetLoadHistoryToken(
-            id
+            spreadsheetId
         );
     }
 
-    private SpreadsheetLoadHistoryToken(final SpreadsheetId id) {
-        super(id);
+    private SpreadsheetLoadHistoryToken(final SpreadsheetId spreadsheetId) {
+        super(spreadsheetId);
     }
 
     @Override
     UrlFragment spreadsheetUrlFragment() {
-        return this.id.urlFragment();
+        return this.spreadsheetId.urlFragment();
     }
 
     @Override
     HistoryToken parseNext(final String component,
                            final TextCursor cursor) {
         return spreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             SpreadsheetName.with(component)
         ).parse(cursor);
     }
@@ -65,10 +65,10 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -86,7 +86,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         context.loadSpreadsheetMetadataAndPushPreviousIfFails(
-            this.id,
+            this.spreadsheetId,
             previous
         );
     }

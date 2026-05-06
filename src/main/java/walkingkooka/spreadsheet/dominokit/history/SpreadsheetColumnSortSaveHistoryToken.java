@@ -36,24 +36,24 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColumnSortHistoryToken implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
-    static SpreadsheetColumnSortSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetColumnSortSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetColumnSortSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
-    private SpreadsheetColumnSortSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetColumnSortSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -80,11 +80,11 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetColumnSortSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.comparatorNames
@@ -98,7 +98,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
 
         context.spreadsheetDeltaFetcher()
             .getSortCells(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection()
                     .selection()
                     .toCellRange(),
@@ -111,7 +111,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnSortSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames

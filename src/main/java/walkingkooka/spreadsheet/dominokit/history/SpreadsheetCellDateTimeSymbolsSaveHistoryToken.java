@@ -29,24 +29,24 @@ import java.util.Optional;
 
 public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends SpreadsheetCellDateTimeSymbolsHistoryToken implements Value<Optional<DateTimeSymbols>> {
 
-    static SpreadsheetCellDateTimeSymbolsSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellDateTimeSymbolsSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                                final Optional<DateTimeSymbols> dateTimeSymbols) {
         return new SpreadsheetCellDateTimeSymbolsSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             dateTimeSymbols
         );
     }
 
-    private SpreadsheetCellDateTimeSymbolsSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellDateTimeSymbolsSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                            final Optional<DateTimeSymbols> dateTimeSymbols) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             dateTimeSymbols
@@ -61,18 +61,18 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellDateTimeSymbolsSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellDateTimeSymbolsSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.dateTimeSymbols
@@ -92,7 +92,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
 
         context.spreadsheetDeltaFetcher()
             .patchDateTimeSymbols(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.dateTimeSymbols
             );
@@ -103,7 +103,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDateTimeSymbolsSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.dateTimeSymbols

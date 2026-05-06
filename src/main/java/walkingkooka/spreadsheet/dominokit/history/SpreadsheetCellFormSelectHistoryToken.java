@@ -38,24 +38,24 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
         SpreadsheetCellReferenceToValueMap.with(Maps.empty());
     }
 
-    static SpreadsheetCellFormSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellFormSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final FormName formName) {
         return new SpreadsheetCellFormSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName
         );
     }
 
-    private SpreadsheetCellFormSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellFormSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final FormName formName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName
@@ -69,11 +69,11 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             this.formName
@@ -97,7 +97,7 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.formName

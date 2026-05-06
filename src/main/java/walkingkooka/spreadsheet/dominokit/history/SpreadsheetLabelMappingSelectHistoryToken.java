@@ -37,21 +37,21 @@ import java.util.Optional;
  */
 public final class SpreadsheetLabelMappingSelectHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
-    static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName,
                                                           final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             labelName
         );
     }
 
-    private SpreadsheetLabelMappingSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
                                                       final SpreadsheetLabelName labelName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
@@ -108,10 +108,10 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.labelName
         );
@@ -128,7 +128,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.labelName
         );

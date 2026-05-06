@@ -26,15 +26,15 @@ import java.util.Objects;
  */
 public abstract class SpreadsheetIdHistoryToken extends SpreadsheetHistoryToken {
 
-    SpreadsheetIdHistoryToken(final SpreadsheetId id) {
+    SpreadsheetIdHistoryToken(final SpreadsheetId spreadsheetId) {
         super();
 
-        this.id = Objects.requireNonNull(id, "id");
+        this.spreadsheetId = Objects.requireNonNull(spreadsheetId, "spreadsheetId");
     }
 
     public final SpreadsheetId spreadsheetId() {
-        return this.id;
+        return this.spreadsheetId;
     }
 
-    final SpreadsheetId id;
+    final SpreadsheetId spreadsheetId;
 }

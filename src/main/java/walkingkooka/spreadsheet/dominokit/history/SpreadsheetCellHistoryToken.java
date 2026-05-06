@@ -52,11 +52,11 @@ import java.util.Set;
 
 abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSelectionHistoryToken {
 
-    SpreadsheetCellHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellHistoryToken(final SpreadsheetId spreadsheetId,
                                 final SpreadsheetName spreadsheetName,
                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -88,7 +88,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellCurrencySave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -104,7 +104,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellDateTimeSymbolsSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -120,7 +120,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellDecimalNumberSymbolsSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -136,7 +136,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellFormatterSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -152,7 +152,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellFormulaSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 CharSequences.nullToEmpty((String) valueOrNull)
@@ -169,7 +169,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellLabelSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 (SpreadsheetLabelName) valueOrNull
@@ -185,7 +185,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellLocaleSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -201,7 +201,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellParserSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -217,7 +217,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellSortSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 (SpreadsheetColumnOrRowSpreadsheetComparatorNamesList) valueOrNull
@@ -229,7 +229,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 .orElse(TextStylePropertyName.ALL);
 
             historyToken = HistoryToken.cellStyleSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(stylePropertyName),
@@ -246,7 +246,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellValidatorSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -255,7 +255,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         if (this instanceof SpreadsheetCellValueHistoryToken) {
             historyToken = HistoryToken.cellValueSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 ((SpreadsheetCellValueHistoryToken) this).valueType.orElse(SpreadsheetValueType.TEXT),
@@ -272,7 +272,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellValueTypeSave(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(value)
@@ -289,7 +289,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
         final Object valueOrNull = value.orElse(null);
         if (valueOrNull instanceof Set) {
             historyToken = HistoryToken.cellSaveCell(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 Cast.to(valueOrNull) // Set<SpreadsheetCell>
@@ -371,7 +371,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                     switch (mode) {
                         case MODE_CURRENCY:
                             historyToken = HistoryToken.cellSaveCurrency(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -379,7 +379,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_DATE_TIME_SYMBOLS:
                             historyToken = HistoryToken.cellSaveDateTimeSymbols(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -387,7 +387,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_DECIMAL_NUMBER_SYMBOLS:
                             historyToken = HistoryToken.cellSaveDecimalNumberSymbols(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -395,7 +395,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_FORMATTER:
                             historyToken = HistoryToken.cellSaveFormatter(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -403,7 +403,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_FORMULA:
                             historyToken = HistoryToken.cellSaveFormulaText(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -411,7 +411,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_LOCALE:
                             historyToken = HistoryToken.cellSaveLocale(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -419,7 +419,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_PARSER:
                             historyToken = HistoryToken.cellSaveParser(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -427,7 +427,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_STYLE:
                             historyToken = HistoryToken.cellSaveStyle(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -435,7 +435,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_VALIDATOR:
                             historyToken = HistoryToken.cellSaveValidator(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -443,7 +443,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                             break;
                         case MODE_VALUE_TYPE:
                             historyToken = HistoryToken.cellSaveValueType(
-                                this.id,
+                                this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
                                 Cast.to(valueOrNull)
@@ -458,7 +458,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                     historyToken = this.clearAction();
                 } else {
                     historyToken = HistoryToken.cellValueSave(
-                        this.id,
+                        this.spreadsheetId,
                         this.spreadsheetName,
                         this.anchoredSelection,
                         null != valueOrNull ?
@@ -633,7 +633,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
 
         return null != formName ?
             HistoryToken.cellFormSelect(
-                this.id,
+                this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
                 FormName.with(formName)

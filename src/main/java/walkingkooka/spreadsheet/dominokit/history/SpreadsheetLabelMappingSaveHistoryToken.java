@@ -38,21 +38,21 @@ import java.util.Objects;
 public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken
     implements Value<SpreadsheetLabelName> {
 
-    static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final SpreadsheetLabelMapping mapping) {
         return new SpreadsheetLabelMappingSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             mapping
         );
     }
 
-    private SpreadsheetLabelMappingSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetLabelMappingSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final SpreadsheetLabelMapping mapping) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.mapping = Objects.requireNonNull(mapping, "mapping");
@@ -90,7 +90,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.mapping.label()
         );
@@ -98,10 +98,10 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
 
     // new id/name same labelName
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.mapping
         );
@@ -114,7 +114,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
 
         context.spreadsheetDeltaFetcher()
             .postLabelMapping(
-                this.id,
+                this.spreadsheetId,
                 this.mapping
             );
     }
@@ -124,7 +124,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.mapping
         );

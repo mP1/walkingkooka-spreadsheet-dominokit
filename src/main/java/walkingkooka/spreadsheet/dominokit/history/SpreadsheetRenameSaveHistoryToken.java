@@ -32,21 +32,21 @@ import java.util.Objects;
  */
 public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHistoryToken implements Value<SpreadsheetName> {
 
-    static SpreadsheetRenameSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRenameSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final SpreadsheetName value) {
         return new SpreadsheetRenameSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             value
         );
     }
 
-    private SpreadsheetRenameSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRenameSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final SpreadsheetName value) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.value = Objects.requireNonNull(value, "value");
@@ -62,16 +62,16 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetRenameSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return new SpreadsheetRenameSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.value
         );
@@ -94,7 +94,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
         context.pushHistoryToken(previous);
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                this.id,
+                this.spreadsheetId,
                 SpreadsheetMetadataPropertyName.SPREADSHEET_NAME.patch(
                     this.value()
                 )
@@ -106,7 +106,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetRenameSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.value
         );

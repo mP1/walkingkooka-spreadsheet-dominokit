@@ -25,21 +25,21 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends SpreadsheetMetadataPropertyHistoryToken<T> {
 
-    static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> with(final SpreadsheetId id,
+    static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                                      final SpreadsheetName spreadsheetName,
                                                                      final SpreadsheetMetadataPropertyName<T> propertyName) {
         return new SpreadsheetMetadataPropertySelectHistoryToken<>(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName
         );
     }
 
-    private SpreadsheetMetadataPropertySelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetMetadataPropertySelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                           final SpreadsheetName spreadsheetName,
                                                           final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName
         );
@@ -57,10 +57,10 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
 
     // new id/name but still metadata+property select
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.propertyName
         );
@@ -77,7 +77,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataPropertySelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.propertyName
         );

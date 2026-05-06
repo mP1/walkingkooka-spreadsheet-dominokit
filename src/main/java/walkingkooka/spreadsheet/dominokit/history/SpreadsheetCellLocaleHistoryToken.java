@@ -28,11 +28,11 @@ import java.util.Optional;
 
 public abstract class SpreadsheetCellLocaleHistoryToken extends SpreadsheetCellHistoryToken {
 
-    SpreadsheetCellLocaleHistoryToken(final SpreadsheetId id,
+    SpreadsheetCellLocaleHistoryToken(final SpreadsheetId spreadsheetId,
                                       final SpreadsheetName spreadsheetName,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                       final Optional<Locale> locale) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
         this.locale = Objects.requireNonNull(locale, "locale");
     }
 

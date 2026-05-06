@@ -35,18 +35,18 @@ import java.util.Optional;
  */
 public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryToken {
 
-    static SpreadsheetReloadHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetReloadHistoryToken with(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName) {
         return new SpreadsheetReloadHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
 
-    private SpreadsheetReloadHistoryToken(final SpreadsheetId id,
+    private SpreadsheetReloadHistoryToken(final SpreadsheetId spreadsheetId,
                                           final SpreadsheetName spreadsheetName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -60,17 +60,17 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override //
     public HistoryToken clearAction() {
         return spreadsheetSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }
 
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return new SpreadsheetReloadHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -101,7 +101,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetReload(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName
         );
     }

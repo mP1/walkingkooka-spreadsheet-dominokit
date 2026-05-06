@@ -33,21 +33,21 @@ import java.util.Objects;
  */
 public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHistoryToken {
 
-    static SpreadsheetFormDeleteHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetFormDeleteHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final FormName formName) {
         return new SpreadsheetFormDeleteHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             formName
         );
     }
 
-    private SpreadsheetFormDeleteHistoryToken(final SpreadsheetId id,
+    private SpreadsheetFormDeleteHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final FormName formName) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
         this.formName = Objects.requireNonNull(formName, "formName");
@@ -63,10 +63,10 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName) {
         return with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             this.formName
         );
@@ -89,7 +89,7 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormDelete(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.formName
         );

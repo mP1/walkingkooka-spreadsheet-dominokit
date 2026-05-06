@@ -365,11 +365,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellClearAndFormulaHistoryToken}
      */
-    public static SpreadsheetCellClearAndFormulaHistoryToken cellClearAndFormula(final SpreadsheetId id,
+    public static SpreadsheetCellClearAndFormulaHistoryToken cellClearAndFormula(final SpreadsheetId spreadsheetId,
                                                                                  final SpreadsheetName spreadsheetName,
                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellClearAndFormulaHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -378,11 +378,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSelectHistoryToken}
      */
-    public static SpreadsheetCellSelectHistoryToken cellSelect(final SpreadsheetId id,
+    public static SpreadsheetCellSelectHistoryToken cellSelect(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -391,12 +391,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellClipboardCopyHistoryToken}
      */
-    public static SpreadsheetCellClipboardCopyHistoryToken cellClipboardCopy(final SpreadsheetId id,
+    public static SpreadsheetCellClipboardCopyHistoryToken cellClipboardCopy(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardCopyHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -406,12 +406,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellClipboardCutHistoryToken}
      */
-    public static SpreadsheetCellClipboardCutHistoryToken cellClipboardCut(final SpreadsheetId id,
+    public static SpreadsheetCellClipboardCutHistoryToken cellClipboardCut(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                                            final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardCutHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -421,12 +421,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellClipboardPasteHistoryToken}
      */
-    public static SpreadsheetCellClipboardPasteHistoryToken cellClipboardPaste(final SpreadsheetId id,
+    public static SpreadsheetCellClipboardPasteHistoryToken cellClipboardPaste(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                final SpreadsheetCellClipboardKind kind) {
         return SpreadsheetCellClipboardPasteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             kind
@@ -436,12 +436,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellCurrencySaveHistoryToken}
      */
-    public static SpreadsheetCellCurrencySaveHistoryToken cellCurrencySave(final SpreadsheetId id,
+    public static SpreadsheetCellCurrencySaveHistoryToken cellCurrencySave(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                                            final Optional<Currency> currency) {
         return SpreadsheetCellCurrencySaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             currency
@@ -451,11 +451,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellCurrencySelectHistoryToken}
      */
-    public static SpreadsheetCellCurrencySelectHistoryToken cellCurrencySelect(final SpreadsheetId id,
+    public static SpreadsheetCellCurrencySelectHistoryToken cellCurrencySelect(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellCurrencySelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -464,11 +464,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellCurrencyUnselectHistoryToken}
      */
-    public static SpreadsheetCellCurrencyUnselectHistoryToken cellCurrencyUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellCurrencyUnselectHistoryToken cellCurrencyUnselect(final SpreadsheetId spreadsheetId,
                                                                                    final SpreadsheetName spreadsheetName,
                                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellCurrencyUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -477,12 +477,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDateTimeSymbolsSaveHistoryToken}
      */
-    public static SpreadsheetCellDateTimeSymbolsSaveHistoryToken cellDateTimeSymbolsSave(final SpreadsheetId id,
+    public static SpreadsheetCellDateTimeSymbolsSaveHistoryToken cellDateTimeSymbolsSave(final SpreadsheetId spreadsheetId,
                                                                                          final SpreadsheetName spreadsheetName,
                                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                          final Optional<DateTimeSymbols> dateTimeSymbols) {
         return SpreadsheetCellDateTimeSymbolsSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             dateTimeSymbols
@@ -492,11 +492,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDateTimeSymbolsSelectHistoryToken}
      */
-    public static SpreadsheetCellDateTimeSymbolsSelectHistoryToken cellDateTimeSymbolsSelect(final SpreadsheetId id,
+    public static SpreadsheetCellDateTimeSymbolsSelectHistoryToken cellDateTimeSymbolsSelect(final SpreadsheetId spreadsheetId,
                                                                                              final SpreadsheetName spreadsheetName,
                                                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDateTimeSymbolsSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -505,11 +505,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDateTimeSymbolsUnselectHistoryToken}
      */
-    public static SpreadsheetCellDateTimeSymbolsUnselectHistoryToken cellDateTimeSymbolsUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellDateTimeSymbolsUnselectHistoryToken cellDateTimeSymbolsUnselect(final SpreadsheetId spreadsheetId,
                                                                                                  final SpreadsheetName spreadsheetName,
                                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDateTimeSymbolsUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -518,12 +518,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken}
      */
-    public static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken cellDecimalNumberSymbolsSave(final SpreadsheetId id,
+    public static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken cellDecimalNumberSymbolsSave(final SpreadsheetId spreadsheetId,
                                                                                                    final SpreadsheetName spreadsheetName,
                                                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                                    final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
         return SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             decimalNumberSymbols
@@ -533,11 +533,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken}
      */
-    public static SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken cellDecimalNumberSymbolsSelect(final SpreadsheetId id,
+    public static SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken cellDecimalNumberSymbolsSelect(final SpreadsheetId spreadsheetId,
                                                                                                        final SpreadsheetName spreadsheetName,
                                                                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -546,11 +546,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken}
      */
-    public static SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken cellDecimalNumberSymbolsUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken cellDecimalNumberSymbolsUnselect(final SpreadsheetId spreadsheetId,
                                                                                                            final SpreadsheetName spreadsheetName,
                                                                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -559,11 +559,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellDeleteHistoryToken}
      */
-    public static SpreadsheetCellDeleteHistoryToken cellDelete(final SpreadsheetId id,
+    public static SpreadsheetCellDeleteHistoryToken cellDelete(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellDeleteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -572,13 +572,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormSaveHistoryToken}
      */
-    public static SpreadsheetCellFormSaveHistoryToken cellFormSave(final SpreadsheetId id,
+    public static SpreadsheetCellFormSaveHistoryToken cellFormSave(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final FormName formName,
                                                                    final Map<SpreadsheetCellReference, Optional<Object>> value) {
         return SpreadsheetCellFormSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName,
@@ -589,12 +589,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormSelectHistoryToken}
      */
-    public static SpreadsheetCellFormSelectHistoryToken cellFormSelect(final SpreadsheetId id,
+    public static SpreadsheetCellFormSelectHistoryToken cellFormSelect(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final FormName formName) {
         return SpreadsheetCellFormSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formName
@@ -604,12 +604,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormatterSaveHistoryToken}
      */
-    public static SpreadsheetCellFormatterSaveHistoryToken cellFormatterSave(final SpreadsheetId id,
+    public static SpreadsheetCellFormatterSaveHistoryToken cellFormatterSave(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Optional<SpreadsheetFormatterSelector> selector) {
         return SpreadsheetCellFormatterSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             selector
@@ -619,11 +619,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormatterSelectHistoryToken}
      */
-    public static SpreadsheetCellFormatterSelectHistoryToken cellFormatterSelect(final SpreadsheetId id,
+    public static SpreadsheetCellFormatterSelectHistoryToken cellFormatterSelect(final SpreadsheetId spreadsheetId,
                                                                                  final SpreadsheetName spreadsheetName,
                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFormatterSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -632,11 +632,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormatterUnselectHistoryToken}
      */
-    public static SpreadsheetCellFormatterUnselectHistoryToken cellFormatterUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellFormatterUnselectHistoryToken cellFormatterUnselect(final SpreadsheetId spreadsheetId,
                                                                                      final SpreadsheetName spreadsheetName,
                                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFormatterUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -645,11 +645,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormulaSelectHistoryToken}
      */
-    public static SpreadsheetCellFormulaSelectHistoryToken cellFormula(final SpreadsheetId id,
+    public static SpreadsheetCellFormulaSelectHistoryToken cellFormula(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFormulaSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -658,11 +658,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormulaMenuHistoryToken}
      */
-    public static SpreadsheetCellFormulaMenuHistoryToken cellFormulaMenu(final SpreadsheetId id,
+    public static SpreadsheetCellFormulaMenuHistoryToken cellFormulaMenu(final SpreadsheetId spreadsheetId,
                                                                          final SpreadsheetName spreadsheetName,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFormulaMenuHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -671,12 +671,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFormulaSaveHistoryToken}
      */
-    public static SpreadsheetCellFormulaSaveHistoryToken cellFormulaSave(final SpreadsheetId id,
+    public static SpreadsheetCellFormulaSaveHistoryToken cellFormulaSave(final SpreadsheetId spreadsheetId,
                                                                          final SpreadsheetName spreadsheetName,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                                          final String formula) {
         return SpreadsheetCellFormulaSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formula
@@ -686,11 +686,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellFreezeHistoryToken}
      */
-    public static SpreadsheetCellFreezeHistoryToken cellFreeze(final SpreadsheetId id,
+    public static SpreadsheetCellFreezeHistoryToken cellFreeze(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellFreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -699,11 +699,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellKeyboardHistoryToken}
      */
-    public static SpreadsheetCellKeyboardHistoryToken cellKeyboard(final SpreadsheetId id,
+    public static SpreadsheetCellKeyboardHistoryToken cellKeyboard(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellKeyboardHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -712,12 +712,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLabelListHistoryToken}
      */
-    public static SpreadsheetCellLabelListHistoryToken cellLabels(final SpreadsheetId id,
+    public static SpreadsheetCellLabelListHistoryToken cellLabels(final SpreadsheetId spreadsheetId,
                                                                   final SpreadsheetName spreadsheetName,
                                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                                   final HistoryTokenOffsetAndCount offsetAndCount) {
         return SpreadsheetCellLabelListHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             offsetAndCount
@@ -727,12 +727,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLabelSaveHistoryToken}
      */
-    public static SpreadsheetCellLabelSaveHistoryToken cellLabelSave(final SpreadsheetId id,
+    public static SpreadsheetCellLabelSaveHistoryToken cellLabelSave(final SpreadsheetId spreadsheetId,
                                                                      final SpreadsheetName spreadsheetName,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final SpreadsheetLabelName label) {
         return SpreadsheetCellLabelSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             label
@@ -742,11 +742,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLabelSelectHistoryToken}
      */
-    public static SpreadsheetCellLabelSelectHistoryToken cellLabelSelect(final SpreadsheetId id,
+    public static SpreadsheetCellLabelSelectHistoryToken cellLabelSelect(final SpreadsheetId spreadsheetId,
                                                                          final SpreadsheetName spreadsheetName,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellLabelSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -755,12 +755,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLocaleSaveHistoryToken}
      */
-    public static SpreadsheetCellLocaleSaveHistoryToken cellLocaleSave(final SpreadsheetId id,
+    public static SpreadsheetCellLocaleSaveHistoryToken cellLocaleSave(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final Optional<Locale> locale) {
         return SpreadsheetCellLocaleSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             locale
@@ -770,11 +770,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLocaleSelectHistoryToken}
      */
-    public static SpreadsheetCellLocaleSelectHistoryToken cellLocaleSelect(final SpreadsheetId id,
+    public static SpreadsheetCellLocaleSelectHistoryToken cellLocaleSelect(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellLocaleSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -783,11 +783,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellLocaleUnselectHistoryToken}
      */
-    public static SpreadsheetCellLocaleUnselectHistoryToken cellLocaleUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellLocaleUnselectHistoryToken cellLocaleUnselect(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellLocaleUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -796,11 +796,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellMenuHistoryToken}
      */
-    public static SpreadsheetCellMenuHistoryToken cellMenu(final SpreadsheetId id,
+    public static SpreadsheetCellMenuHistoryToken cellMenu(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellMenuHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -809,12 +809,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellNavigateHistoryToken}
      */
-    public static SpreadsheetCellNavigateHistoryToken cellNavigate(final SpreadsheetId id,
+    public static SpreadsheetCellNavigateHistoryToken cellNavigate(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetCellNavigateHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             navigation
@@ -824,12 +824,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellParserSaveHistoryToken}
      */
-    public static SpreadsheetCellParserSaveHistoryToken cellParserSave(final SpreadsheetId id,
+    public static SpreadsheetCellParserSaveHistoryToken cellParserSave(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final Optional<SpreadsheetParserSelector> selector) {
         return SpreadsheetCellParserSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             selector
@@ -839,11 +839,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellParserSelectHistoryToken}
      */
-    public static SpreadsheetCellParserSelectHistoryToken cellParserSelect(final SpreadsheetId id,
+    public static SpreadsheetCellParserSelectHistoryToken cellParserSelect(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellParserSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -852,11 +852,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellParserUnselectHistoryToken}
      */
-    public static SpreadsheetCellParserUnselectHistoryToken cellParserUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellParserUnselectHistoryToken cellParserUnselect(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellParserUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -865,12 +865,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellQueryHistoryToken}
      */
-    public static SpreadsheetCellQueryHistoryToken cellQuery(final SpreadsheetId id,
+    public static SpreadsheetCellQueryHistoryToken cellQuery(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                              final SpreadsheetCellQueryRequest query) {
         return SpreadsheetCellQueryHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             query
@@ -880,12 +880,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellReferenceListHistoryToken}
      */
-    public static SpreadsheetCellReferenceListHistoryToken cellReferences(final SpreadsheetId id,
+    public static SpreadsheetCellReferenceListHistoryToken cellReferences(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                                           final HistoryTokenOffsetAndCount offsetAndCount) {
         return SpreadsheetCellReferenceListHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             offsetAndCount
@@ -895,11 +895,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellReloadHistoryToken}
      */
-    public static SpreadsheetCellReloadHistoryToken cellReload(final SpreadsheetId id,
+    public static SpreadsheetCellReloadHistoryToken cellReload(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellReloadHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -908,12 +908,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveCellHistoryToken}
      */
-    public static SpreadsheetCellSaveCellHistoryToken cellSaveCell(final SpreadsheetId id,
+    public static SpreadsheetCellSaveCellHistoryToken cellSaveCell(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final Set<SpreadsheetCell> value) {
         return SpreadsheetCellSaveCellHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -923,12 +923,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveCurrencyHistoryToken}
      */
-    public static SpreadsheetCellSaveCurrencyHistoryToken cellSaveCurrency(final SpreadsheetId id,
+    public static SpreadsheetCellSaveCurrencyHistoryToken cellSaveCurrency(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                                            final Map<SpreadsheetCellReference, Optional<Currency>> value) {
         return SpreadsheetCellSaveCurrencyHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -938,12 +938,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveDateTimeSymbolsHistoryToken}
      */
-    public static SpreadsheetCellSaveDateTimeSymbolsHistoryToken cellSaveDateTimeSymbols(final SpreadsheetId id,
+    public static SpreadsheetCellSaveDateTimeSymbolsHistoryToken cellSaveDateTimeSymbols(final SpreadsheetId spreadsheetId,
                                                                                          final SpreadsheetName spreadsheetName,
                                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                          final Map<SpreadsheetCellReference, Optional<DateTimeSymbols>> value) {
         return SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -953,12 +953,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken}
      */
-    public static SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken cellSaveDecimalNumberSymbols(final SpreadsheetId id,
+    public static SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken cellSaveDecimalNumberSymbols(final SpreadsheetId spreadsheetId,
                                                                                                    final SpreadsheetName spreadsheetName,
                                                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                                    final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> value) {
         return SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -968,12 +968,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveFormatterHistoryToken}
      */
-    public static SpreadsheetCellSaveFormatterHistoryToken cellSaveFormatter(final SpreadsheetId id,
+    public static SpreadsheetCellSaveFormatterHistoryToken cellSaveFormatter(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Map<SpreadsheetCellReference, Optional<SpreadsheetFormatterSelector>> value) {
         return SpreadsheetCellSaveFormatterHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -984,12 +984,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveFormulaTextHistoryToken}
      */
-    public static SpreadsheetCellSaveFormulaTextHistoryToken cellSaveFormulaText(final SpreadsheetId id,
+    public static SpreadsheetCellSaveFormulaTextHistoryToken cellSaveFormulaText(final SpreadsheetId spreadsheetId,
                                                                                  final SpreadsheetName spreadsheetName,
                                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                  final Map<SpreadsheetCellReference, String> formulas) {
         return SpreadsheetCellSaveFormulaTextHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             formulas
@@ -999,12 +999,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveLocaleHistoryToken}
      */
-    public static SpreadsheetCellSaveLocaleHistoryToken cellSaveLocale(final SpreadsheetId id,
+    public static SpreadsheetCellSaveLocaleHistoryToken cellSaveLocale(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final Map<SpreadsheetCellReference, Optional<Locale>> value) {
         return SpreadsheetCellSaveLocaleHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -1014,12 +1014,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveParserHistoryToken}
      */
-    public static SpreadsheetCellSaveParserHistoryToken cellSaveParser(final SpreadsheetId id,
+    public static SpreadsheetCellSaveParserHistoryToken cellSaveParser(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final Map<SpreadsheetCellReference, Optional<SpreadsheetParserSelector>> value) {
         return SpreadsheetCellSaveParserHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             value
@@ -1029,12 +1029,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveStyleHistoryToken}
      */
-    public static SpreadsheetCellSaveStyleHistoryToken cellSaveStyle(final SpreadsheetId id,
+    public static SpreadsheetCellSaveStyleHistoryToken cellSaveStyle(final SpreadsheetId spreadsheetId,
                                                                      final SpreadsheetName spreadsheetName,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final Map<SpreadsheetCellReference, TextStyle> styles) {
         return SpreadsheetCellSaveStyleHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             styles
@@ -1044,12 +1044,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveValidatorHistoryToken}
      */
-    public static SpreadsheetCellSaveValidatorHistoryToken cellSaveValidator(final SpreadsheetId id,
+    public static SpreadsheetCellSaveValidatorHistoryToken cellSaveValidator(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Map<SpreadsheetCellReference, Optional<ValidatorSelector>> cellToValidator) {
         return SpreadsheetCellSaveValidatorHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             cellToValidator
@@ -1059,12 +1059,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSaveValueTypeHistoryToken}
      */
-    public static SpreadsheetCellSaveValueTypeHistoryToken cellSaveValueType(final SpreadsheetId id,
+    public static SpreadsheetCellSaveValueTypeHistoryToken cellSaveValueType(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Map<SpreadsheetCellReference, Optional<ValueType>> cellToValueType) {
         return SpreadsheetCellSaveValueTypeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             cellToValueType
@@ -1076,12 +1076,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSortEditHistoryToken}
      */
-    public static SpreadsheetCellSortEditHistoryToken cellSortEdit(final SpreadsheetId id,
+    public static SpreadsheetCellSortEditHistoryToken cellSortEdit(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final String comparatorNames) {
         return SpreadsheetCellSortEditHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1091,12 +1091,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellSortSaveHistoryToken}
      */
-    public static SpreadsheetCellSortSaveHistoryToken cellSortSave(final SpreadsheetId id,
+    public static SpreadsheetCellSortSaveHistoryToken cellSortSave(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                                    final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetCellSortSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1108,12 +1108,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellStyleSelectHistoryToken}
      */
-    public static <T> SpreadsheetCellStyleSelectHistoryToken<T> cellStyle(final SpreadsheetId id,
+    public static <T> SpreadsheetCellStyleSelectHistoryToken<T> cellStyle(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
                                                                           final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             stylePropertyName
@@ -1123,13 +1123,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellStyleSaveHistoryToken}
      */
-    public static <T> SpreadsheetCellStyleSaveHistoryToken<T> cellStyleSave(final SpreadsheetId id,
+    public static <T> SpreadsheetCellStyleSaveHistoryToken<T> cellStyleSave(final SpreadsheetId spreadsheetId,
                                                                             final SpreadsheetName spreadsheetName,
                                                                             final AnchoredSpreadsheetSelection anchoredSelection,
                                                                             final TextStylePropertyName<T> stylePropertyName,
                                                                             final Optional<T> stylePropertyValue) {
         return SpreadsheetCellStyleSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             stylePropertyName,
@@ -1140,11 +1140,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellUnfreezeHistoryToken}
      */
-    public static SpreadsheetCellUnfreezeHistoryToken cellUnfreeze(final SpreadsheetId id,
+    public static SpreadsheetCellUnfreezeHistoryToken cellUnfreeze(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellUnfreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1155,13 +1155,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueSaveHistoryToken}
      */
-    public static SpreadsheetCellValueSaveHistoryToken cellValueSave(final SpreadsheetId id,
+    public static SpreadsheetCellValueSaveHistoryToken cellValueSave(final SpreadsheetId spreadsheetId,
                                                                      final SpreadsheetName spreadsheetName,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                                      final ValueType valueType,
                                                                      final Optional<?> value) {
         return SpreadsheetCellValueSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             valueType,
@@ -1172,12 +1172,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueSelectHistoryToken}
      */
-    public static SpreadsheetCellValueSelectHistoryToken cellValueSelect(final SpreadsheetId id,
+    public static SpreadsheetCellValueSelectHistoryToken cellValueSelect(final SpreadsheetId spreadsheetId,
                                                                          final SpreadsheetName spreadsheetName,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                                          final ValueType valueType) {
         return SpreadsheetCellValueSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             valueType
@@ -1187,11 +1187,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueUnselectHistoryToken}
      */
-    public static SpreadsheetCellValueUnselectHistoryToken cellValueUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellValueUnselectHistoryToken cellValueUnselect(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellValueUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1202,12 +1202,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueTypeSaveHistoryToken}
      */
-    public static SpreadsheetCellValueTypeSaveHistoryToken cellValueTypeSave(final SpreadsheetId id,
+    public static SpreadsheetCellValueTypeSaveHistoryToken cellValueTypeSave(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Optional<ValueType> valueType) {
         return SpreadsheetCellValueTypeSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             valueType
@@ -1217,11 +1217,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueTypeSelectHistoryToken}
      */
-    public static SpreadsheetCellValueTypeSelectHistoryToken cellValueTypeSelect(final SpreadsheetId id,
+    public static SpreadsheetCellValueTypeSelectHistoryToken cellValueTypeSelect(final SpreadsheetId spreadsheetId,
                                                                                  final SpreadsheetName spreadsheetName,
                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellValueTypeSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1230,11 +1230,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValueTypeUnselectHistoryToken}
      */
-    public static SpreadsheetCellValueTypeUnselectHistoryToken cellValueTypeUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellValueTypeUnselectHistoryToken cellValueTypeUnselect(final SpreadsheetId spreadsheetId,
                                                                                      final SpreadsheetName spreadsheetName,
                                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellValueTypeUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1245,12 +1245,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValidatorSaveHistoryToken}
      */
-    public static SpreadsheetCellValidatorSaveHistoryToken cellValidatorSave(final SpreadsheetId id,
+    public static SpreadsheetCellValidatorSaveHistoryToken cellValidatorSave(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final Optional<ValidatorSelector> validatorSelector) {
         return SpreadsheetCellValidatorSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             validatorSelector
@@ -1260,11 +1260,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValidatorSelectHistoryToken}
      */
-    public static SpreadsheetCellValidatorSelectHistoryToken cellValidatorSelect(final SpreadsheetId id,
+    public static SpreadsheetCellValidatorSelectHistoryToken cellValidatorSelect(final SpreadsheetId spreadsheetId,
                                                                                  final SpreadsheetName spreadsheetName,
                                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellValidatorSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1273,11 +1273,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetCellValidatorUnselectHistoryToken}
      */
-    public static SpreadsheetCellValidatorUnselectHistoryToken cellValidatorUnselect(final SpreadsheetId id,
+    public static SpreadsheetCellValidatorUnselectHistoryToken cellValidatorUnselect(final SpreadsheetId spreadsheetId,
                                                                                      final SpreadsheetName spreadsheetName,
                                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellValidatorUnselectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1288,11 +1288,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnSelectHistoryToken}
      */
-    public static SpreadsheetColumnSelectHistoryToken columnSelect(final SpreadsheetId id,
+    public static SpreadsheetColumnSelectHistoryToken columnSelect(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1301,11 +1301,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnClearHistoryToken}
      */
-    public static SpreadsheetColumnClearHistoryToken columnClear(final SpreadsheetId id,
+    public static SpreadsheetColumnClearHistoryToken columnClear(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnClearHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1314,11 +1314,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnDeleteHistoryToken}
      */
-    public static SpreadsheetColumnDeleteHistoryToken columnDelete(final SpreadsheetId id,
+    public static SpreadsheetColumnDeleteHistoryToken columnDelete(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnDeleteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1327,11 +1327,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnFreezeHistoryToken}
      */
-    public static SpreadsheetColumnFreezeHistoryToken columnFreeze(final SpreadsheetId id,
+    public static SpreadsheetColumnFreezeHistoryToken columnFreeze(final SpreadsheetId spreadsheetId,
                                                                    final SpreadsheetName spreadsheetName,
                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnFreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1340,12 +1340,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnInsertAfterHistoryToken}
      */
-    public static SpreadsheetColumnInsertAfterHistoryToken columnInsertAfter(final SpreadsheetId id,
+    public static SpreadsheetColumnInsertAfterHistoryToken columnInsertAfter(final SpreadsheetId spreadsheetId,
                                                                              final SpreadsheetName spreadsheetName,
                                                                              final AnchoredSpreadsheetSelection anchoredSelection,
                                                                              final OptionalInt count) {
         return SpreadsheetColumnInsertAfterHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
@@ -1355,12 +1355,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnInsertBeforeHistoryToken}
      */
-    public static SpreadsheetColumnInsertBeforeHistoryToken columnInsertBefore(final SpreadsheetId id,
+    public static SpreadsheetColumnInsertBeforeHistoryToken columnInsertBefore(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                                                final OptionalInt count) {
         return SpreadsheetColumnInsertBeforeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
@@ -1370,11 +1370,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnKeyboardHistoryToken}
      */
-    public static SpreadsheetColumnKeyboardHistoryToken columnKeyboard(final SpreadsheetId id,
+    public static SpreadsheetColumnKeyboardHistoryToken columnKeyboard(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnKeyboardHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1383,11 +1383,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnMenuHistoryToken}
      */
-    public static SpreadsheetColumnMenuHistoryToken columnMenu(final SpreadsheetId id,
+    public static SpreadsheetColumnMenuHistoryToken columnMenu(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnMenuHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1396,12 +1396,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnNavigateHistoryToken}
      */
-    public static SpreadsheetColumnNavigateHistoryToken columnNavigate(final SpreadsheetId id,
+    public static SpreadsheetColumnNavigateHistoryToken columnNavigate(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetColumnNavigateHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             navigation
@@ -1413,12 +1413,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnSortEditHistoryToken}
      */
-    public static SpreadsheetColumnSortEditHistoryToken columnSortEdit(final SpreadsheetId id,
+    public static SpreadsheetColumnSortEditHistoryToken columnSortEdit(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final String comparatorNames) {
         return SpreadsheetColumnSortEditHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1428,12 +1428,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnSortSaveHistoryToken}
      */
-    public static SpreadsheetColumnSortSaveHistoryToken columnSortSave(final SpreadsheetId id,
+    public static SpreadsheetColumnSortSaveHistoryToken columnSortSave(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetColumnSortSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1445,11 +1445,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetColumnUnfreezeHistoryToken}
      */
-    public static SpreadsheetColumnUnfreezeHistoryToken columnUnfreeze(final SpreadsheetId id,
+    public static SpreadsheetColumnUnfreezeHistoryToken columnUnfreeze(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetColumnUnfreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1460,11 +1460,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetFormDeleteHistoryToken}
      */
-    public static SpreadsheetFormDeleteHistoryToken formDelete(final SpreadsheetId id,
+    public static SpreadsheetFormDeleteHistoryToken formDelete(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final FormName formName) {
         return SpreadsheetFormDeleteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             formName
         );
@@ -1473,11 +1473,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetFormListHistoryToken}
      */
-    public static SpreadsheetFormListHistoryToken formList(final SpreadsheetId id,
+    public static SpreadsheetFormListHistoryToken formList(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final HistoryTokenOffsetAndCount offsetAndCount) {
         return SpreadsheetFormListHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             offsetAndCount
         );
@@ -1486,12 +1486,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetFormSelectHistoryToken}
      */
-    public static SpreadsheetFormSelectHistoryToken formSelect(final SpreadsheetId id,
+    public static SpreadsheetFormSelectHistoryToken formSelect(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
                                                                final FormName formName,
                                                                final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             formName,
             field
@@ -1501,12 +1501,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetFormSaveHistoryToken}
      */
-    public static SpreadsheetFormSaveHistoryToken formSave(final SpreadsheetId id,
+    public static SpreadsheetFormSaveHistoryToken formSave(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final Form<SpreadsheetValidationReference> form,
                                                            final Optional<SpreadsheetValidationReference> field) {
         return SpreadsheetFormSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             form,
             field
@@ -1518,10 +1518,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLabelMappingCreateHistoryToken}
      */
-    public static SpreadsheetLabelMappingCreateHistoryToken labelMappingCreate(final SpreadsheetId id,
+    public static SpreadsheetLabelMappingCreateHistoryToken labelMappingCreate(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName) {
         return SpreadsheetLabelMappingCreateHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -1529,11 +1529,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLabelMappingSelectHistoryToken}
      */
-    public static SpreadsheetLabelMappingSelectHistoryToken labelMappingSelect(final SpreadsheetId id,
+    public static SpreadsheetLabelMappingSelectHistoryToken labelMappingSelect(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final SpreadsheetLabelName label) {
         return SpreadsheetLabelMappingSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             label
         );
@@ -1542,11 +1542,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLabelMappingDeleteHistoryToken}
      */
-    public static SpreadsheetLabelMappingDeleteHistoryToken labelMappingDelete(final SpreadsheetId id,
+    public static SpreadsheetLabelMappingDeleteHistoryToken labelMappingDelete(final SpreadsheetId spreadsheetId,
                                                                                final SpreadsheetName spreadsheetName,
                                                                                final SpreadsheetLabelName labelName) {
         return SpreadsheetLabelMappingDeleteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             labelName
         );
@@ -1555,11 +1555,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLabelMappingListHistoryToken}
      */
-    public static SpreadsheetLabelMappingListHistoryToken labelMappingList(final SpreadsheetId id,
+    public static SpreadsheetLabelMappingListHistoryToken labelMappingList(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final HistoryTokenOffsetAndCount offsetAndCount) {
         return SpreadsheetLabelMappingListHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             offsetAndCount
         );
@@ -1568,11 +1568,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLabelMappingSaveHistoryToken}
      */
-    public static SpreadsheetLabelMappingSaveHistoryToken labelMappingSave(final SpreadsheetId id,
+    public static SpreadsheetLabelMappingSaveHistoryToken labelMappingSave(final SpreadsheetId spreadsheetId,
                                                                            final SpreadsheetName spreadsheetName,
                                                                            final SpreadsheetLabelMapping mapping) {
         return SpreadsheetLabelMappingSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             mapping
         );
@@ -1583,11 +1583,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetMetadataPropertySelectHistoryToken}
      */
-    public static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> metadataPropertySelect(final SpreadsheetId id,
+    public static <T> SpreadsheetMetadataPropertySelectHistoryToken<T> metadataPropertySelect(final SpreadsheetId spreadsheetId,
                                                                                               final SpreadsheetName spreadsheetName,
                                                                                               final SpreadsheetMetadataPropertyName<T> propertyName) {
         return SpreadsheetMetadataPropertySelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName
         );
@@ -1596,12 +1596,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetMetadataPropertySaveHistoryToken}
      */
-    public static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> metadataPropertySave(final SpreadsheetId id,
+    public static <T> SpreadsheetMetadataPropertySaveHistoryToken<T> metadataPropertySave(final SpreadsheetId spreadsheetId,
                                                                                           final SpreadsheetName spreadsheetName,
                                                                                           final SpreadsheetMetadataPropertyName<T> propertyName,
                                                                                           final Optional<T> propertyValue) {
         return SpreadsheetMetadataPropertySaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             propertyName,
             propertyValue
@@ -1611,11 +1611,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetMetadataPropertyStyleSelectHistoryToken}
      */
-    public static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> metadataPropertyStyle(final SpreadsheetId id,
+    public static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> metadataPropertyStyle(final SpreadsheetId spreadsheetId,
                                                                                                   final SpreadsheetName spreadsheetName,
                                                                                                   final Optional<TextStylePropertyName<T>> stylePropertyName) {
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             stylePropertyName
         );
@@ -1624,12 +1624,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetMetadataPropertyStyleSaveHistoryToken}
      */
-    public static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> metadataPropertyStyleSave(final SpreadsheetId id,
+    public static <T> SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> metadataPropertyStyleSave(final SpreadsheetId spreadsheetId,
                                                                                                     final SpreadsheetName spreadsheetName,
                                                                                                     final TextStylePropertyName<T> stylePropertyName,
                                                                                                     final Optional<T> stylePropertyValue) {
         return SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             stylePropertyName,
             stylePropertyValue
@@ -1639,10 +1639,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetMetadataSelectHistoryToken}
      */
-    public static SpreadsheetMetadataSelectHistoryToken metadataSelect(final SpreadsheetId id,
+    public static SpreadsheetMetadataSelectHistoryToken metadataSelect(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName) {
         return SpreadsheetMetadataSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -1652,11 +1652,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetNavigateHistoryToken}
      */
-    public static SpreadsheetNavigateHistoryToken navigate(final SpreadsheetId id,
+    public static SpreadsheetNavigateHistoryToken navigate(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetNavigateHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             navigation
         );
@@ -1737,11 +1737,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowSelectHistoryToken}
      */
-    public static SpreadsheetRowSelectHistoryToken rowSelect(final SpreadsheetId id,
+    public static SpreadsheetRowSelectHistoryToken rowSelect(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1750,11 +1750,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowClearHistoryToken}
      */
-    public static SpreadsheetRowClearHistoryToken rowClear(final SpreadsheetId id,
+    public static SpreadsheetRowClearHistoryToken rowClear(final SpreadsheetId spreadsheetId,
                                                            final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowClearHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1763,11 +1763,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowDeleteHistoryToken}
      */
-    public static SpreadsheetRowDeleteHistoryToken rowDelete(final SpreadsheetId id,
+    public static SpreadsheetRowDeleteHistoryToken rowDelete(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowDeleteHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1776,11 +1776,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowFreezeHistoryToken}
      */
-    public static SpreadsheetRowFreezeHistoryToken rowFreeze(final SpreadsheetId id,
+    public static SpreadsheetRowFreezeHistoryToken rowFreeze(final SpreadsheetId spreadsheetId,
                                                              final SpreadsheetName spreadsheetName,
                                                              final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowFreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1789,12 +1789,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowInsertAfterHistoryToken}
      */
-    public static SpreadsheetRowInsertAfterHistoryToken rowInsertAfter(final SpreadsheetId id,
+    public static SpreadsheetRowInsertAfterHistoryToken rowInsertAfter(final SpreadsheetId spreadsheetId,
                                                                        final SpreadsheetName spreadsheetName,
                                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                                        final OptionalInt count) {
         return SpreadsheetRowInsertAfterHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
@@ -1804,12 +1804,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowInsertBeforeHistoryToken}
      */
-    public static SpreadsheetRowInsertBeforeHistoryToken rowInsertBefore(final SpreadsheetId id,
+    public static SpreadsheetRowInsertBeforeHistoryToken rowInsertBefore(final SpreadsheetId spreadsheetId,
                                                                          final SpreadsheetName spreadsheetName,
                                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                                          final OptionalInt count) {
         return SpreadsheetRowInsertBeforeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             count
@@ -1819,11 +1819,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowKeyboardHistoryToken}
      */
-    public static SpreadsheetRowKeyboardHistoryToken rowKeyboard(final SpreadsheetId id,
+    public static SpreadsheetRowKeyboardHistoryToken rowKeyboard(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowKeyboardHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1832,11 +1832,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowMenuHistoryToken}
      */
-    public static SpreadsheetRowMenuHistoryToken rowMenu(final SpreadsheetId id,
+    public static SpreadsheetRowMenuHistoryToken rowMenu(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowMenuHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1845,12 +1845,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowNavigateHistoryToken}
      */
-    public static SpreadsheetRowNavigateHistoryToken rowNavigate(final SpreadsheetId id,
+    public static SpreadsheetRowNavigateHistoryToken rowNavigate(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                                  final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return SpreadsheetRowNavigateHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             navigation
@@ -1862,12 +1862,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowSortEditHistoryToken}
      */
-    public static SpreadsheetRowSortEditHistoryToken rowSortEdit(final SpreadsheetId id,
+    public static SpreadsheetRowSortEditHistoryToken rowSortEdit(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                                  final String comparatorNames) {
         return SpreadsheetRowSortEditHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1877,12 +1877,12 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowSortSaveHistoryToken}
      */
-    public static SpreadsheetRowSortSaveHistoryToken rowSortSave(final SpreadsheetId id,
+    public static SpreadsheetRowSortSaveHistoryToken rowSortSave(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                                  final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return SpreadsheetRowSortSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             comparatorNames
@@ -1894,11 +1894,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRowUnfreezeHistoryToken}
      */
-    public static SpreadsheetRowUnfreezeHistoryToken rowUnfreeze(final SpreadsheetId id,
+    public static SpreadsheetRowUnfreezeHistoryToken rowUnfreeze(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName,
                                                                  final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetRowUnfreezeHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -1906,10 +1906,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     // selection........................................................................................................
 
-    public static SpreadsheetAnchoredSelectionHistoryToken selection(final SpreadsheetId id,
+    public static SpreadsheetAnchoredSelectionHistoryToken selection(final SpreadsheetId spreadsheetId,
                                                                      final SpreadsheetName spreadsheetName,
                                                                      final AnchoredSpreadsheetSelection anchoredSelection) {
-        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(spreadsheetId, "spreadsheetId");
         Objects.requireNonNull(spreadsheetName, "spreadsheetName");
         Objects.requireNonNull(anchoredSelection, "anchoredSelection");
 
@@ -1920,7 +1920,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         for (; ; ) {
             if (selection.isCellOrCellRange() || selection.isLabelName()) {
                 historyToken = cellSelect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSelection
                 );
@@ -1928,7 +1928,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
             if (selection.isColumnOrColumnRange()) {
                 historyToken = columnSelect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSelection
                 );
@@ -1936,7 +1936,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
             if (selection.isRowOrRowRange()) {
                 historyToken = rowSelect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSelection
                 );
@@ -1963,10 +1963,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetKeyboardHistoryToken}
      */
-    public static SpreadsheetKeyboardHistoryToken spreadsheetKeyboard(final SpreadsheetId id,
+    public static SpreadsheetKeyboardHistoryToken spreadsheetKeyboard(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName) {
         return SpreadsheetKeyboardHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -1990,24 +1990,24 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetListDeleteHistoryToken}
      */
-    public static SpreadsheetListDeleteHistoryToken spreadsheetListDelete(final SpreadsheetId id) {
-        return SpreadsheetListDeleteHistoryToken.with(id);
+    public static SpreadsheetListDeleteHistoryToken spreadsheetListDelete(final SpreadsheetId spreadsheetId) {
+        return SpreadsheetListDeleteHistoryToken.with(spreadsheetId);
     }
 
     /**
      * {@see SpreadsheetListRenameSelectHistoryToken}
      */
-    public static SpreadsheetListRenameSelectHistoryToken spreadsheetListRenameSelect(final SpreadsheetId id) {
-        return SpreadsheetListRenameSelectHistoryToken.with(id);
+    public static SpreadsheetListRenameSelectHistoryToken spreadsheetListRenameSelect(final SpreadsheetId spreadsheetId) {
+        return SpreadsheetListRenameSelectHistoryToken.with(spreadsheetId);
     }
 
     /**
      * {@see SpreadsheetListRenameSaveHistoryToken}
      */
-    public static SpreadsheetListRenameSaveHistoryToken spreadsheetListRenameSave(final SpreadsheetId id,
+    public static SpreadsheetListRenameSaveHistoryToken spreadsheetListRenameSave(final SpreadsheetId spreadsheetId,
                                                                                   final SpreadsheetName value) {
         return SpreadsheetListRenameSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             value
         );
     }
@@ -2015,19 +2015,19 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetLoadHistoryToken}
      */
-    public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId id) {
+    public static SpreadsheetLoadHistoryToken spreadsheetLoad(final SpreadsheetId spreadsheetId) {
         return SpreadsheetLoadHistoryToken.with(
-            id
+            spreadsheetId
         );
     }
 
     /**
      * {@see SpreadsheetReloadHistoryToken}
      */
-    public static SpreadsheetReloadHistoryToken spreadsheetReload(final SpreadsheetId id,
+    public static SpreadsheetReloadHistoryToken spreadsheetReload(final SpreadsheetId spreadsheetId,
                                                                   final SpreadsheetName spreadsheetName) {
         return SpreadsheetReloadHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -2035,10 +2035,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRenameSelectHistoryToken}
      */
-    public static SpreadsheetRenameSelectHistoryToken spreadsheetRenameSelect(final SpreadsheetId id,
+    public static SpreadsheetRenameSelectHistoryToken spreadsheetRenameSelect(final SpreadsheetId spreadsheetId,
                                                                               final SpreadsheetName spreadsheetName) {
         return SpreadsheetRenameSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -2046,11 +2046,11 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetRenameSaveHistoryToken}
      */
-    public static SpreadsheetRenameSaveHistoryToken spreadsheetRenameSave(final SpreadsheetId id,
+    public static SpreadsheetRenameSaveHistoryToken spreadsheetRenameSave(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
                                                                           final SpreadsheetName value) {
         return SpreadsheetRenameSaveHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName,
             value
         );
@@ -2059,10 +2059,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     /**
      * {@see SpreadsheetSelectHistoryToken}
      */
-    public static SpreadsheetSelectHistoryToken spreadsheetSelect(final SpreadsheetId id,
+    public static SpreadsheetSelectHistoryToken spreadsheetSelect(final SpreadsheetId spreadsheetId,
                                                                   final SpreadsheetName spreadsheetName) {
         return SpreadsheetSelectHistoryToken.with(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -2319,7 +2319,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 } else {
                     final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
                     historyToken = spreadsheetSelect(
-                        spreadsheetNameHistoryToken.id,
+                        spreadsheetNameHistoryToken.spreadsheetId,
                         spreadsheetNameHistoryToken.spreadsheetName
                     );
                 }
@@ -2339,7 +2339,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             final SpreadsheetAnchoredSelectionHistoryToken SpreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
             result = HistoryToken.selection(
-                SpreadsheetAnchoredSelectionHistoryToken.id,
+                SpreadsheetAnchoredSelectionHistoryToken.spreadsheetId,
                 SpreadsheetAnchoredSelectionHistoryToken.spreadsheetName,
                 SpreadsheetAnchoredSelectionHistoryToken.anchoredSelection()
             );
@@ -2493,7 +2493,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         } else {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (this instanceof SpreadsheetColumnInsertHistoryToken || this instanceof SpreadsheetRowInsertHistoryToken) {
@@ -2502,28 +2502,28 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                 if (this instanceof SpreadsheetFormHistoryToken) {
                     closed = spreadsheetSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
                 }
 
                 if (this instanceof SpreadsheetKeyboardHistoryToken) {
                     closed = spreadsheetSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
                 }
 
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
                     closed = spreadsheetSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
                 }
 
                 if (this instanceof SpreadsheetNavigateHistoryToken) {
                     closed = spreadsheetSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
                 }
@@ -2560,20 +2560,20 @@ public abstract class HistoryToken implements HasUrlFragment {
                 } else {
                     if (this instanceof SpreadsheetMetadataPropertyStyleHistoryToken) {
                         closed = spreadsheetSelect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName
                         );
                     } else {
                         if (this instanceof SpreadsheetMetadataPropertyHistoryToken) {
                             closed = metadataSelect(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName
                             );
                         }
 
                         if (this instanceof SpreadsheetRenameHistoryToken) {
                             closed = spreadsheetSelect(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName
                             );
                         }
@@ -2657,14 +2657,14 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (this instanceof SpreadsheetFormListHistoryToken) {
                     final HistoryTokenOffsetAndCount offsetAndCount = this.offsetAndCount();
 
                     historyToken = formList(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         offsetAndCount.setCount(count)
                     );
@@ -2676,7 +2676,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetCellLabelListHistoryToken) {
                         historyToken = cellLabels(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             this.offsetAndCount()
@@ -2686,7 +2686,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
                         historyToken = cellReferences(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             this.offsetAndCount()
@@ -2696,7 +2696,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetColumnInsertAfterHistoryToken) {
                         historyToken = columnInsertAfter(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             count
@@ -2705,7 +2705,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetColumnInsertBeforeHistoryToken) {
                         historyToken = columnInsertBefore(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             count
@@ -2714,7 +2714,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetRowInsertAfterHistoryToken) {
                         historyToken = rowInsertAfter(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             count
@@ -2723,7 +2723,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetRowInsertBeforeHistoryToken) {
                         historyToken = rowInsertBefore(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             count
@@ -2734,7 +2734,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
                     if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
                         historyToken = labelMappingList(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             this.offsetAndCount()
                                 .setCount(count)
@@ -2800,13 +2800,13 @@ public abstract class HistoryToken implements HasUrlFragment {
         } else {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (this instanceof SpreadsheetFormHistoryToken) {
                     if (this instanceof SpreadsheetFormSelectHistoryToken) {
                         historyToken = formDelete(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             this.cast(SpreadsheetFormSelectHistoryToken.class)
                                 .formName
@@ -2833,21 +2833,21 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                             if (this instanceof SpreadsheetCellHistoryToken && false == this instanceof SpreadsheetCellLabelHistoryToken) {
                                 historyToken = cellDelete(
-                                    id,
+                                    spreadsheetId,
                                     spreadsheetName,
                                     anchoredSpreadsheetSelection
                                 );
                             } else {
                                 if (this instanceof SpreadsheetColumnHistoryToken) {
                                     historyToken = columnDelete(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection
                                     );
                                 } else {
                                     if (this instanceof SpreadsheetRowHistoryToken) {
                                         historyToken = rowDelete(
-                                            id,
+                                            spreadsheetId,
                                             spreadsheetName,
                                             anchoredSpreadsheetSelection
                                         );
@@ -2862,7 +2862,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                             if (labelName.isPresent()) {
                                 historyToken = labelMappingDelete(
-                                    id,
+                                    spreadsheetId,
                                     spreadsheetName,
                                     labelName.get()
                                 );
@@ -2959,7 +2959,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetFormHistoryToken) {
             final SpreadsheetFormSelectHistoryToken spreadsheetFormSelectHistoryToken = this.cast(SpreadsheetFormSelectHistoryToken.class);
-            final SpreadsheetId spreadsheetId = spreadsheetFormSelectHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetFormSelectHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetFormSelectHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetFormSelectHistoryToken) {
@@ -2973,7 +2973,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (this instanceof SpreadsheetFormSaveHistoryToken) {
                     historyToken = formSelect(
-                        spreadsheetFormSelectHistoryToken.id,
+                        spreadsheetFormSelectHistoryToken.spreadsheetId,
                         spreadsheetFormSelectHistoryToken.spreadsheetName,
                         this.cast(SpreadsheetFormSaveHistoryToken.class)
                             .form
@@ -3067,27 +3067,27 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetId id = anchored.spreadsheetId();
+            final SpreadsheetId spreadsheetId = anchored.spreadsheetId();
             final SpreadsheetName spreadsheetName = anchored.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchored.anchoredSelection();
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 historyToken = cellFreeze(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
             } else {
                 if (this instanceof SpreadsheetColumnHistoryToken) {
                     historyToken = columnFreeze(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection
                     );
                 } else {
                     if (this instanceof SpreadsheetRowHistoryToken) {
                         historyToken = rowFreeze(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredSpreadsheetSelection
                         );
@@ -3126,13 +3126,13 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (historyToken instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetAnchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetAnchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
             if (historyToken instanceof SpreadsheetColumnHistoryToken) {
                 historyToken = columnInsertAfter(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     count
@@ -3140,7 +3140,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (historyToken instanceof SpreadsheetRowHistoryToken) {
                     historyToken = rowInsertAfter(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection,
                         count
@@ -3163,13 +3163,13 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (historyToken instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetAnchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetAnchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
             if (historyToken instanceof SpreadsheetColumnHistoryToken) {
                 historyToken = columnInsertBefore(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     count
@@ -3177,7 +3177,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (historyToken instanceof SpreadsheetRowHistoryToken) {
                     historyToken = rowInsertBefore(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection,
                         count
@@ -3197,7 +3197,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
@@ -3205,27 +3205,27 @@ public abstract class HistoryToken implements HasUrlFragment {
                     .anchoredSelection();
                 if (this instanceof SpreadsheetCellHistoryToken) {
                     historyToken = cellKeyboard(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         selection
                     );
                 } else {
                     if (this instanceof SpreadsheetColumnHistoryToken) {
                         historyToken = columnKeyboard(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             selection
                         );
                     } else {
                         if (this instanceof SpreadsheetRowHistoryToken) {
                             historyToken = rowKeyboard(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 selection
                             );
                         } else {
                             historyToken = spreadsheetKeyboard(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName
                             );
                         }
@@ -3233,7 +3233,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
             } else {
                 historyToken = spreadsheetKeyboard(
-                    id,
+                    spreadsheetId,
                     spreadsheetName
                 );
             }
@@ -3249,13 +3249,13 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 if (false == this instanceof SpreadsheetCellLabelSelectHistoryToken) {
                     historyToken = cellLabelSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         this.cast(SpreadsheetCellHistoryToken.class)
                             .anchoredSelection()
@@ -3263,7 +3263,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
             } else {
                 historyToken = labelMappingCreate(
-                    id,
+                    spreadsheetId,
                     spreadsheetName
                 );
             }
@@ -3326,21 +3326,21 @@ public abstract class HistoryToken implements HasUrlFragment {
                 final SpreadsheetExpressionReference reference = labelMappingReference.get();
 
                 final SpreadsheetCellLabelHistoryToken cellLabelHistoryToken = this.cast(SpreadsheetCellLabelHistoryToken.class);
-                final SpreadsheetId id = cellLabelHistoryToken.id;
+                final SpreadsheetId spreadsheetId = cellLabelHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = cellLabelHistoryToken.spreadsheetName;
 
                 final AnchoredSpreadsheetSelection anchoredSelection = cellLabelHistoryToken.anchoredSelection();
                 if (false == reference.equals(anchoredSelection.selection())) {
                     if (this instanceof SpreadsheetCellLabelSelectHistoryToken) {
                         afterSet = HistoryToken.cellLabelSelect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             reference.setDefaultAnchor()
                         );
                     } else {
                         if (this instanceof SpreadsheetCellLabelSaveHistoryToken) {
                             afterSet = HistoryToken.cellLabelSave(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 reference.setDefaultAnchor(),
                                 this.cast(SpreadsheetCellLabelSaveHistoryToken.class).labelName
@@ -3395,7 +3395,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetCellHistoryToken) {
@@ -3413,25 +3413,25 @@ public abstract class HistoryToken implements HasUrlFragment {
                         this :
                         label.isPresent() ?
                             HistoryToken.cellLabelSave(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 selection,
                                 label.get()
                             ) :
                             HistoryToken.cellLabelSelect(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 selection
                             );
                 } else {
                     historyToken = label.isPresent() ?
                         HistoryToken.labelMappingSelect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             label.get()
                         ) :
                         HistoryToken.cellLabelSelect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             selection
                         );
@@ -3440,12 +3440,12 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 historyToken = label.isPresent() ?
                     HistoryToken.labelMappingSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         label.get()
                     ) :
                     HistoryToken.labelMappingCreate(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
             }
@@ -3463,12 +3463,12 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 historyToken = cellLabels(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     this.cast(SpreadsheetCellHistoryToken.class)
                         .anchoredSelection(),
@@ -3476,7 +3476,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 );
             } else {
                 historyToken = labelMappingList(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     offsetAndCount
                 );
@@ -3498,12 +3498,12 @@ public abstract class HistoryToken implements HasUrlFragment {
         } else {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
                     historyToken = labelMappingList(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         offsetAndCount
                     );
@@ -3557,20 +3557,20 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetAnchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetAnchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 if (this instanceof SpreadsheetCellFormulaHistoryToken) {
                     historyToken = cellFormulaMenu(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection
                     );
                 } else {
                     historyToken = cellMenu(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection
                     );
@@ -3578,14 +3578,14 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (this instanceof SpreadsheetColumnHistoryToken) {
                     historyToken = columnMenu(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection
                     );
                 } else {
                     if (this instanceof SpreadsheetRowHistoryToken) {
                         historyToken = rowMenu(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredSpreadsheetSelection
                         );
@@ -3695,21 +3695,21 @@ public abstract class HistoryToken implements HasUrlFragment {
             }
 
             final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = nameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = nameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = nameHistoryToken.spreadsheetName;
 
             final SpreadsheetSelection menuSelection = anchoredMenuSelection.selection();
 
             if (menuSelection.isCellOrCellRange()) {
                 historyToken = cellMenu(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredMenuSelection
                 );
             } else {
                 if (menuSelection.isColumnOrColumnRange()) {
                     historyToken = columnMenu(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredMenuSelection
                     );
@@ -3717,7 +3717,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 } else {
                     if (menuSelection.isRowOrRowRange()) {
                         historyToken = rowMenu(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredMenuSelection
                         );
@@ -3740,7 +3740,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = historyToken.cast(SpreadsheetNameHistoryToken.class);
             historyToken = HistoryToken.metadataSelect(
-                spreadsheetNameHistoryToken.id,
+                spreadsheetNameHistoryToken.spreadsheetId,
                 spreadsheetNameHistoryToken.spreadsheetName
             );
         }
@@ -3757,7 +3757,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetMetadataHistoryToken) {
             final SpreadsheetMetadataHistoryToken spreadsheetMetadataHistoryToken = historyToken.cast(SpreadsheetMetadataHistoryToken.class);
             historyToken = HistoryToken.spreadsheetSelect(
-                spreadsheetMetadataHistoryToken.id,
+                spreadsheetMetadataHistoryToken.spreadsheetId,
                 spreadsheetMetadataHistoryToken.spreadsheetName
             );
         }
@@ -3788,7 +3788,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             final SpreadsheetMetadataPropertyHistoryToken<?> metadataHistoryToken = this.cast(SpreadsheetMetadataPropertyHistoryToken.class);
 
             historyToken = HistoryToken.metadataPropertySelect(
-                metadataHistoryToken.id,
+                metadataHistoryToken.spreadsheetId,
                 metadataHistoryToken.spreadsheetName,
                 propertyName
             );
@@ -3798,7 +3798,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
 
                 historyToken = HistoryToken.metadataPropertySelect(
-                    nameHistoryToken.id,
+                    nameHistoryToken.spreadsheetId,
                     nameHistoryToken.spreadsheetName,
                     propertyName
                 );
@@ -3848,7 +3848,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
@@ -3857,7 +3857,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                 if (this instanceof SpreadsheetCellHistoryToken) {
                     historyToken = HistoryToken.cellNavigate(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection,
                         navigation
@@ -3865,7 +3865,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
                 if (this instanceof SpreadsheetColumnHistoryToken) {
                     historyToken = HistoryToken.columnNavigate(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection,
                         navigation
@@ -3873,7 +3873,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
                 if (this instanceof SpreadsheetRowHistoryToken) {
                     historyToken = HistoryToken.rowNavigate(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection,
                         navigation
@@ -3881,7 +3881,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 }
             } else {
                 historyToken = HistoryToken.navigate(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     navigation
                 );
@@ -3942,12 +3942,12 @@ public abstract class HistoryToken implements HasUrlFragment {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
 
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (this instanceof SpreadsheetFormListHistoryToken) {
                     historyToken = formList(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         offsetAndCount.setOffset(offset)
                     );
@@ -3959,7 +3959,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                     if (this instanceof SpreadsheetCellLabelListHistoryToken) {
                         historyToken = cellLabels(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             offsetAndCount.setOffset(offset)
@@ -3967,7 +3967,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                     }
                     if (this instanceof SpreadsheetCellReferenceListHistoryToken) {
                         historyToken = cellReferences(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchored,
                             offsetAndCount.setOffset(offset)
@@ -3978,7 +3978,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                 if (this instanceof SpreadsheetLabelMappingHistoryToken) {
                     if (this instanceof SpreadsheetLabelMappingListHistoryToken) {
                         historyToken = labelMappingList(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             offsetAndCount.setOffset(offset)
                         );
@@ -4168,14 +4168,14 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken nameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
 
-            final SpreadsheetId id = nameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = nameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = nameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
 
                 historyToken = cellReferences(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     cell.anchoredSelection(),
                     offsetAndCount
@@ -4204,19 +4204,19 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (this instanceof SpreadsheetNameHistoryToken) {
                     final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-                    final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                    final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                     final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                     if (this instanceof SpreadsheetCellHistoryToken) {
                         historyToken = cellReload(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             this.cast(SpreadsheetCellHistoryToken.class)
                                 .anchoredSelection()
                         );
                     } else {
                         historyToken = spreadsheetReload(
-                            id,
+                            spreadsheetId,
                             spreadsheetName
                         );
                     }
@@ -4257,17 +4257,17 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (false == this instanceof SpreadsheetListRenameHistoryToken && false == this instanceof SpreadsheetRenameHistoryToken) {
             if (this instanceof SpreadsheetIdHistoryToken) {
-                final SpreadsheetId id = this.cast(SpreadsheetIdHistoryToken.class)
+                final SpreadsheetId spreadsheetId = this.cast(SpreadsheetIdHistoryToken.class)
                     .spreadsheetId();
 
                 if (this instanceof SpreadsheetNameHistoryToken) {
                     historyToken = spreadsheetRenameSelect(
-                        id,
+                        spreadsheetId,
                         this.cast(SpreadsheetNameHistoryToken.class)
                             .spreadsheetName
                     );
                 } else {
-                    historyToken = spreadsheetListRenameSelect(id);
+                    historyToken = spreadsheetListRenameSelect(spreadsheetId);
                 }
             }
         }
@@ -4346,15 +4346,15 @@ public abstract class HistoryToken implements HasUrlFragment {
             );
         } else {
             if (this instanceof SpreadsheetIdHistoryToken) {
-                final SpreadsheetIdHistoryToken spreadsheetId = this.cast(SpreadsheetIdHistoryToken.class);
-                final SpreadsheetId id = spreadsheetId.spreadsheetId();
+                final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = this.cast(SpreadsheetIdHistoryToken.class);
+                final SpreadsheetId spreadsheetId = spreadsheetIdHistoryToken.spreadsheetId();
 
                 if (this instanceof SpreadsheetNameHistoryToken) {
                     final SpreadsheetName spreadsheetName = this.cast(SpreadsheetNameHistoryToken.class).spreadsheetName;
 
                     if (this instanceof SpreadsheetFormHistoryToken) {
                         saved = HistoryToken.formSave(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             HistoryToken.parseJson(
                                 JsonNode.parse(value),
@@ -4373,7 +4373,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                             final SpreadsheetMetadataPropertyName<?> propertyName = spreadsheetMetadataPropertySelectHistoryToken.propertyName;
 
                             saved = HistoryToken.metadataPropertySave(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 propertyName,
                                 Cast.to(
@@ -4393,7 +4393,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 .orElse(TextStylePropertyName.ALL);
 
                             saved = HistoryToken.metadataPropertyStyleSave(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 stylePropertyName,
                                 Cast.to(
@@ -4414,7 +4414,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                             if (this instanceof SpreadsheetCellHistoryToken) {
                                 if (this instanceof SpreadsheetCellCurrencyHistoryToken && false == this instanceof SpreadsheetCellCurrencyUnselectHistoryToken) {
                                     saved = HistoryToken.cellCurrencySave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4428,7 +4428,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken && false == this instanceof SpreadsheetCellDateTimeSymbolsUnselectHistoryToken) {
                                     saved = HistoryToken.cellDateTimeSymbolsSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4440,7 +4440,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken && false == this instanceof SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken) {
                                     saved = HistoryToken.cellDecimalNumberSymbolsSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4452,7 +4452,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellFormatterHistoryToken && false == this instanceof SpreadsheetCellFormatterUnselectHistoryToken) {
                                     saved = HistoryToken.cellFormatterSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4464,7 +4464,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellFormHistoryToken) {
                                     saved = HistoryToken.cellFormSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         this.formName()
@@ -4480,7 +4480,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellFormulaHistoryToken) {
                                     saved = HistoryToken.cellFormulaSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         value
@@ -4499,7 +4499,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellLocaleHistoryToken) {
                                     saved = HistoryToken.cellLocaleSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4513,7 +4513,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellParserHistoryToken && false == this instanceof SpreadsheetCellParserUnselectHistoryToken) {
                                     saved = HistoryToken.cellParserSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4525,7 +4525,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellQueryHistoryToken) {
                                     saved = HistoryToken.cellQuery(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         SpreadsheetCellQueryRequest.parse(value)
@@ -4535,7 +4535,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 if (this instanceof SpreadsheetCellSaveCellHistoryToken) {
                                     final SpreadsheetCellSaveCellHistoryToken spreadsheetCellSaveCellHistoryToken = this.cast(SpreadsheetCellSaveCellHistoryToken.class);
                                     saved = spreadsheetCellSaveCellHistoryToken.replace(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseJson(
@@ -4548,7 +4548,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 if (this instanceof SpreadsheetCellSaveMapHistoryToken) {
                                     final SpreadsheetCellSaveMapHistoryToken<Map<?, ?>> spreadsheetCellSaveMapHistoryToken = this.cast(SpreadsheetCellSaveMapHistoryToken.class);
                                     saved = spreadsheetCellSaveMapHistoryToken.replace(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         spreadsheetCellSaveMapHistoryToken.parseSaveValue(
@@ -4559,7 +4559,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellSortHistoryToken) {
                                     saved = HistoryToken.cellSortSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
@@ -4571,7 +4571,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         .orElse(TextStylePropertyName.ALL);
 
                                     saved = cellStyleSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         stylePropertyName,
@@ -4586,7 +4586,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellValidatorHistoryToken && false == this instanceof SpreadsheetCellValidatorUnselectHistoryToken) {
                                     saved = HistoryToken.cellValidatorSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4621,7 +4621,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                     }
 
                                     saved = HistoryToken.cellValueSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         valueType,
@@ -4631,7 +4631,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetCellValueTypeHistoryToken && false == this instanceof SpreadsheetCellValueTypeUnselectHistoryToken) {
                                     saved = HistoryToken.cellValueTypeSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         parseOptional(
@@ -4643,7 +4643,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                             } else {
                                 if (this instanceof SpreadsheetColumnSortHistoryToken) {
                                     saved = HistoryToken.columnSortSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
@@ -4652,7 +4652,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                                 if (this instanceof SpreadsheetRowSortHistoryToken) {
                                     saved = HistoryToken.rowSortSave(
-                                        id,
+                                        spreadsheetId,
                                         spreadsheetName,
                                         anchoredSpreadsheetSelection,
                                         SpreadsheetColumnOrRowSpreadsheetComparatorNamesList.parse(value)
@@ -4662,7 +4662,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                         }
                         if (this instanceof SpreadsheetLabelMappingSelectHistoryToken) {
                             saved = labelMappingSave(
-                                id,
+                                spreadsheetId,
                                 spreadsheetName,
                                 this.cast(SpreadsheetLabelMappingSelectHistoryToken.class)
                                     .labelName
@@ -4675,12 +4675,12 @@ public abstract class HistoryToken implements HasUrlFragment {
                         if (this instanceof SpreadsheetRenameHistoryToken) {
                             if (value.isEmpty()) {
                                 saved = HistoryToken.spreadsheetRenameSelect(
-                                    id,
+                                    spreadsheetId,
                                     spreadsheetName
                                 );
                             } else {
                                 saved = HistoryToken.spreadsheetRenameSave(
-                                    id,
+                                    spreadsheetId,
                                     spreadsheetName,
                                     SpreadsheetName.with(value)
                                 );
@@ -4691,11 +4691,11 @@ public abstract class HistoryToken implements HasUrlFragment {
                     if (this instanceof SpreadsheetListRenameHistoryToken) {
                         if (value.isEmpty()) {
                             saved = HistoryToken.spreadsheetListRenameSelect(
-                                id
+                                spreadsheetId
                             );
                         } else {
                             saved = HistoryToken.spreadsheetListRenameSave(
-                                id,
+                                spreadsheetId,
                                 SpreadsheetName.with(value)
                             );
                         }
@@ -4783,7 +4783,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             if (this instanceof SpreadsheetNameHistoryToken) {
                 final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
 
-                final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
                 final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
                 if (selection.isPresent()) {
@@ -4802,7 +4802,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                     );
                 } else {
                     historyToken = spreadsheetSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName
                     );
                 }
@@ -4825,13 +4825,13 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-            final SpreadsheetId id = anchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = anchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = anchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchoredSelectionHistoryToken.anchoredSelection();
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 historyToken = HistoryToken.cellSortEdit(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4840,7 +4840,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetColumnHistoryToken) {
                 historyToken = HistoryToken.columnSortEdit(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4849,7 +4849,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetRowHistoryToken) {
                 historyToken = HistoryToken.rowSortEdit(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4871,13 +4871,13 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-            final SpreadsheetId id = anchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = anchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = anchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchoredSelectionHistoryToken.anchoredSelection();
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 historyToken = HistoryToken.cellSortSave(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4886,7 +4886,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetColumnHistoryToken) {
                 historyToken = HistoryToken.columnSortSave(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4895,7 +4895,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetRowHistoryToken) {
                 historyToken = HistoryToken.rowSortSave(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection,
                     comparatorNames
@@ -4931,23 +4931,23 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Would be setter, returning a {@link HistoryToken} with the given {@link SpreadsheetId} and {@link SpreadsheetName},
      * creating a new instance if necessary.
      */
-    public final HistoryToken setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    public final HistoryToken setSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName) {
-        Objects.requireNonNull(id, "id");
+        Objects.requireNonNull(spreadsheetId, "spreadsheetId");
         Objects.requireNonNull(spreadsheetName, "spreadsheetName");
 
         HistoryToken historyToken = null;
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            if (id.equals(spreadsheetNameHistoryToken.id) && spreadsheetName.equals(spreadsheetNameHistoryToken.spreadsheetName)) {
+            if (spreadsheetId.equals(spreadsheetNameHistoryToken.spreadsheetId) && spreadsheetName.equals(spreadsheetNameHistoryToken.spreadsheetName)) {
                 historyToken = this;
             }
         }
 
         if (null == historyToken) {
             historyToken = this.replaceSpreadsheetIdAndSpreadsheetName(
-                id,
+                spreadsheetId,
                 spreadsheetName
             );
         }
@@ -4959,7 +4959,7 @@ public abstract class HistoryToken implements HasUrlFragment {
      * Accepts a id and name, attempting to replace the name if the id is unchanged or when different replaces the
      * entire history token.
      */
-    abstract HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    abstract HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                                  final SpreadsheetName spreadsheetName);
 
     // spreadsheetName..................................................................................................
@@ -5042,19 +5042,19 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetNameHistoryToken) {
             final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
-            final SpreadsheetId id = spreadsheetNameHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
 
             if (this instanceof SpreadsheetSelectHistoryToken || this instanceof SpreadsheetMetadataHistoryToken) {
                 historyToken = metadataPropertyStyle(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     Cast.to(propertyName)
                 );
             } else {
                 if (this instanceof SpreadsheetCellHistoryToken) {
                     historyToken = cellStyle(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         this.cast(SpreadsheetCellHistoryToken.class)
                             .anchoredSelection(),
@@ -5102,13 +5102,13 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken spreadsheetAnchoredSelectionHistoryToken = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
 
-            final SpreadsheetId id = spreadsheetAnchoredSelectionHistoryToken.id;
+            final SpreadsheetId spreadsheetId = spreadsheetAnchoredSelectionHistoryToken.spreadsheetId;
             final SpreadsheetName spreadsheetName = spreadsheetAnchoredSelectionHistoryToken.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = spreadsheetAnchoredSelectionHistoryToken.anchoredSelection();
 
             if (this instanceof SpreadsheetCellCurrencySelectHistoryToken) {
                 historyToken = cellCurrencyUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5116,7 +5116,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellDateTimeSymbolsSelectHistoryToken) {
                 historyToken = cellDateTimeSymbolsUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5124,7 +5124,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken) {
                 historyToken = cellDecimalNumberSymbolsUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5132,7 +5132,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellFormatterSelectHistoryToken) {
                 historyToken = cellFormatterUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5140,7 +5140,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellLocaleSelectHistoryToken) {
                 historyToken = cellLocaleUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5148,7 +5148,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellParserSelectHistoryToken) {
                 historyToken = cellParserUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5156,7 +5156,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellValidatorSelectHistoryToken) {
                 historyToken = cellValidatorUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5164,7 +5164,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellValueTypeSelectHistoryToken) {
                 historyToken = cellValueTypeUnselect(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
@@ -5184,27 +5184,27 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
             final SpreadsheetAnchoredSelectionHistoryToken anchored = this.cast(SpreadsheetAnchoredSelectionHistoryToken.class);
-            final SpreadsheetId id = anchored.spreadsheetId();
+            final SpreadsheetId spreadsheetId = anchored.spreadsheetId();
             final SpreadsheetName spreadsheetName = anchored.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSpreadsheetSelection = anchored.anchoredSelection();
 
             if (this instanceof SpreadsheetCellHistoryToken) {
                 historyToken = cellUnfreeze(
-                    id,
+                    spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
                 );
             } else {
                 if (this instanceof SpreadsheetColumnHistoryToken) {
                     historyToken = columnUnfreeze(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSpreadsheetSelection
                     );
                 } else {
                     if (this instanceof SpreadsheetRowHistoryToken) {
                         historyToken = rowUnfreeze(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredSpreadsheetSelection
                         );
@@ -5260,7 +5260,7 @@ public abstract class HistoryToken implements HasUrlFragment {
         if (this instanceof SpreadsheetCellHistoryToken) {
             final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
 
-            final SpreadsheetId id = cell.spreadsheetId();
+            final SpreadsheetId spreadsheetId = cell.spreadsheetId();
             final SpreadsheetName spreadsheetName = cell.spreadsheetName;
             final AnchoredSpreadsheetSelection anchoredSelection = cell.anchoredSelection();
 
@@ -5268,14 +5268,14 @@ public abstract class HistoryToken implements HasUrlFragment {
                 if (false == this.valueType().equals(valueType)) {
                     if (valueType.isPresent()) {
                         historyToken = HistoryToken.cellValueSelect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredSelection,
                             valueType.get()
                         );
                     } else {
                         historyToken = HistoryToken.cellValueUnselect(
-                            id,
+                            spreadsheetId,
                             spreadsheetName,
                             anchoredSelection
                         );
@@ -5284,14 +5284,14 @@ public abstract class HistoryToken implements HasUrlFragment {
             } else {
                 if (valueType.isPresent()) {
                     historyToken = HistoryToken.cellValueSelect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSelection,
                         valueType.get()
                     );
                 } else {
                     historyToken = HistoryToken.cellValueUnselect(
-                        id,
+                        spreadsheetId,
                         spreadsheetName,
                         anchoredSelection
                     );

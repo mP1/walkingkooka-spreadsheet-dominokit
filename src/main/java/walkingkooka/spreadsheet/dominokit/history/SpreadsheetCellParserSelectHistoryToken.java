@@ -27,21 +27,21 @@ import java.util.Optional;
 
 public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCellParserHistoryToken {
 
-    static SpreadsheetCellParserSelectHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellParserSelectHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellParserSelectHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellParserSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetParserSelector
@@ -54,11 +54,11 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
     }
 
     @Override
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellParserSelectHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellParserSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

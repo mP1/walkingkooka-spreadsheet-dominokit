@@ -33,21 +33,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken {
 
-    static SpreadsheetRowClearHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetRowClearHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowClearHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetRowClearHistoryToken(final SpreadsheetId id,
+    private SpreadsheetRowClearHistoryToken(final SpreadsheetId spreadsheetId,
                                             final SpreadsheetName name,
                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             name,
             anchoredSelection
         );
@@ -59,11 +59,11 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).clear();
@@ -80,7 +80,7 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowClear(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

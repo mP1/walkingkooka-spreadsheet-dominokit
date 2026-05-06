@@ -26,26 +26,26 @@ import java.util.Optional;
 
 public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHistoryToken {
 
-    SpreadsheetListRenameHistoryToken(final SpreadsheetId id) {
+    SpreadsheetListRenameHistoryToken(final SpreadsheetId spreadsheetId) {
         super(
-            id
+            spreadsheetId
         );
     }
 
     @Override //
     final UrlFragment spreadsheetUrlFragment() {
         return RENAME.appendSlashThen(
-            this.id.urlFragment()
+            this.spreadsheetId.urlFragment()
         ).appendSlashThen(this.renameUrlFragment());
     }
 
     abstract UrlFragment renameUrlFragment();
 
     @Override //
-    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
+    final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId spreadsheetId,
                                                               final SpreadsheetName spreadsheetName) {
         return HistoryToken.spreadsheetSelect(
-            id,
+            spreadsheetId,
             spreadsheetName
         );
     }
@@ -58,11 +58,11 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
 
         if (value.isPresent()) {
             historyToken = HistoryToken.spreadsheetListRenameSave(
-                this.id,
+                this.spreadsheetId,
                 (SpreadsheetName) value.get()
             );
         } else {
-            historyToken = HistoryToken.spreadsheetListRenameSelect(this.id);
+            historyToken = HistoryToken.spreadsheetListRenameSelect(this.spreadsheetId);
         }
 
         return this.elseIfDifferent(historyToken);

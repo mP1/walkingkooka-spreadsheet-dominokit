@@ -37,23 +37,23 @@ import java.util.Optional;
 public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellLabelHistoryToken
     implements Value<SpreadsheetLabelName> {
 
-    static SpreadsheetCellLabelSaveHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellLabelSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetLabelName labelName) {
         return new SpreadsheetCellLabelSaveHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             labelName
         );
     }
 
-    private SpreadsheetCellLabelSaveHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellLabelSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                                  final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetLabelName labelName) {
-        super(id, spreadsheetName, anchoredSelection);
+        super(spreadsheetId, spreadsheetName, anchoredSelection);
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
 
@@ -76,11 +76,11 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).labelMapping()
@@ -93,7 +93,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     @Override
     public HistoryToken clearAction() {
         return HistoryToken.cellLabelSelect(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection()
         );
@@ -106,7 +106,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
 
         context.spreadsheetDeltaFetcher()
             .postLabelMapping(
-                this.id,
+                this.spreadsheetId,
                 this.labelName.setLabelMappingReference(
                     this.anchoredSelection()
                         .selection()
@@ -120,7 +120,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelSave(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.labelName

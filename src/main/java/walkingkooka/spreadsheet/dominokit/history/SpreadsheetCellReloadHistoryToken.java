@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  */
 public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHistoryToken {
 
-    static SpreadsheetCellReloadHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellReloadHistoryToken with(final SpreadsheetId spreadsheetId,
                                                   final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellReloadHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
     }
 
-    private SpreadsheetCellReloadHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellReloadHistoryToken(final SpreadsheetId spreadsheetId,
                                               final SpreadsheetName spreadsheetName,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -66,11 +66,11 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
     }
 
     @Override //
-    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
+    HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,
                                                                       final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         ).reload();
@@ -81,7 +81,7 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .getCells(
-                this.id,
+                this.spreadsheetId,
                 context.viewport(
                     context.historyToken().anchoredSelectionOrEmpty()
                 )
@@ -93,7 +93,7 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellReload(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection
         );

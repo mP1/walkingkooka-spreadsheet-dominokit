@@ -39,24 +39,24 @@ import java.util.stream.Collectors;
  */
 public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSaveHistoryToken<Set<SpreadsheetCell>> {
 
-    static SpreadsheetCellSaveCellHistoryToken with(final SpreadsheetId id,
+    static SpreadsheetCellSaveCellHistoryToken with(final SpreadsheetId spreadsheetId,
                                                     final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellSet.EMPTY.setElements(value)
         );
     }
 
-    private SpreadsheetCellSaveCellHistoryToken(final SpreadsheetId id,
+    private SpreadsheetCellSaveCellHistoryToken(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final SpreadsheetCellSet value) {
         super(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection
         );
@@ -85,12 +85,12 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     final SpreadsheetCellSet value;
 
     @Override
-    SpreadsheetCellSaveCellHistoryToken replace(final SpreadsheetId id,
+    SpreadsheetCellSaveCellHistoryToken replace(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final Set<SpreadsheetCell> value) {
         return new SpreadsheetCellSaveCellHistoryToken(
-            id,
+            spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             SpreadsheetCellSet.EMPTY.setElements(value)
@@ -110,7 +110,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
                                final AppContext context) {
         context.spreadsheetDeltaFetcher()
             .postCells(
-                this.id,
+                this.spreadsheetId,
                 this.anchoredSelection().selection(),
                 this.value()
             );
@@ -122,7 +122,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     @Override
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellSaveCell(
-            this.id,
+            this.spreadsheetId,
             this.spreadsheetName,
             this.anchoredSelection,
             this.value
