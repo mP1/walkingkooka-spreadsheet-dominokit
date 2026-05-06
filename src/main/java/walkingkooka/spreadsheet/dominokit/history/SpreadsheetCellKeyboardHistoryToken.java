@@ -88,7 +88,7 @@ public final class SpreadsheetCellKeyboardHistoryToken extends SpreadsheetCellHi
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellKeyboard(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

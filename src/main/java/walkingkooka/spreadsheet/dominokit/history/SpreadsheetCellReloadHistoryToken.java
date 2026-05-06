@@ -94,7 +94,7 @@ public final class SpreadsheetCellReloadHistoryToken extends SpreadsheetCellHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellReload(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

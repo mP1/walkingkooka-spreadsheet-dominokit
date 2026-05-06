@@ -126,7 +126,7 @@ public class SpreadsheetColumnInsertBeforeHistoryToken extends SpreadsheetColumn
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnInsertBefore(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.count
         );

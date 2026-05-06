@@ -82,7 +82,7 @@ public final class SpreadsheetCellDateTimeSymbolsSelectHistoryToken extends Spre
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDateTimeSymbolsSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

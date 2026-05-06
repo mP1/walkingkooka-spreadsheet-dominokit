@@ -93,7 +93,7 @@ public abstract class SpreadsheetAnchoredSelectionHistoryToken extends Spreadshe
         return this.elseIfDifferent(
             HistoryToken.selection(
                 this.id,
-                this.name,
+                this.spreadsheetName,
                 this.anchoredSelection()
             )
         );

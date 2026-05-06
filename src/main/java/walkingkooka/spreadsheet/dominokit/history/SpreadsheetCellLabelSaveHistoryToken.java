@@ -94,7 +94,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     public HistoryToken clearAction() {
         return HistoryToken.cellLabelSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -121,7 +121,7 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.labelName
         );

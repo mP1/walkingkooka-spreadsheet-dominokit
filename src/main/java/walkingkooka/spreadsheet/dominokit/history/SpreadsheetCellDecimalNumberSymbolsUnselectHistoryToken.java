@@ -85,7 +85,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsUnselectHistoryToken exten
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDecimalNumberSymbolsUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

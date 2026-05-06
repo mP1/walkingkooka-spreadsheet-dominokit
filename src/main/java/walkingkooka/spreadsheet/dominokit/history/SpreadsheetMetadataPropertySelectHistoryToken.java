@@ -78,7 +78,7 @@ public final class SpreadsheetMetadataPropertySelectHistoryToken<T> extends Spre
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataPropertySelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.propertyName
         );
     }

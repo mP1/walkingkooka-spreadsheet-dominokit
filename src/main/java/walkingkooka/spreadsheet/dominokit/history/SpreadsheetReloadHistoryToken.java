@@ -61,7 +61,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     public HistoryToken clearAction() {
         return spreadsheetSelect(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetReloadHistoryToken extends SpreadsheetNameHistoryT
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetReload(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 }

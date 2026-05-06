@@ -82,7 +82,7 @@ public final class SpreadsheetCellLocaleSelectHistoryToken extends SpreadsheetCe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

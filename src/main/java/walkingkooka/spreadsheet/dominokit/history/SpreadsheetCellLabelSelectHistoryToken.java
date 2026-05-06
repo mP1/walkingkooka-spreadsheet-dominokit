@@ -82,7 +82,7 @@ public final class SpreadsheetCellLabelSelectHistoryToken extends SpreadsheetCel
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

@@ -82,7 +82,7 @@ public final class SpreadsheetCellParserSelectHistoryToken extends SpreadsheetCe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellParserSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

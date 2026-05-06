@@ -68,7 +68,7 @@ public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistor
     public HistoryToken clearAction() {
         return spreadsheetSelect(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 
@@ -100,7 +100,7 @@ public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitKeyboard(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 }

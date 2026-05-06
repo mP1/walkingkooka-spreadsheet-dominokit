@@ -112,7 +112,7 @@ public final class SpreadsheetColumnSortSaveHistoryToken extends SpreadsheetColu
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnSortSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames
         );

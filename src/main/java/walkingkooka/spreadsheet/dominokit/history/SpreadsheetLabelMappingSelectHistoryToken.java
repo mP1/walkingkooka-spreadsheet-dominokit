@@ -129,7 +129,7 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.labelName
         );
     }

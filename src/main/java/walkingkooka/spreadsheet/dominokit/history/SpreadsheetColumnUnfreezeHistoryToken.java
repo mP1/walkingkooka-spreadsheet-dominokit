@@ -93,7 +93,7 @@ public class SpreadsheetColumnUnfreezeHistoryToken extends SpreadsheetColumnHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnUnfreeze(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

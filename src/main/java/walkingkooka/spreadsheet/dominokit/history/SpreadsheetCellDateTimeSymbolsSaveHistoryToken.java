@@ -62,7 +62,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     public HistoryToken clearAction() {
         return HistoryToken.cellDateTimeSymbolsSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryToken extends Spread
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDateTimeSymbolsSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.dateTimeSymbols
         );

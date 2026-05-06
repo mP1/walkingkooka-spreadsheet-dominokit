@@ -99,7 +99,7 @@ public final class SpreadsheetCellLabelListHistoryToken extends SpreadsheetCellH
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLabelList(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.offsetAndCount
         );

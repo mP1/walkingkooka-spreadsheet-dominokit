@@ -98,7 +98,7 @@ public final class SpreadsheetCellClearAndFormulaHistoryToken extends Spreadshee
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClearAndFormula(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

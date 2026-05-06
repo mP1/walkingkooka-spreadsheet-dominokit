@@ -90,7 +90,7 @@ public class SpreadsheetColumnDeleteHistoryToken extends SpreadsheetColumnHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnDelete(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

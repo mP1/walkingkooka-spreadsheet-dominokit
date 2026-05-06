@@ -80,7 +80,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataStyleSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.stylePropertyName
         );
     }

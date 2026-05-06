@@ -73,7 +73,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertySelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.propertyName
         );
     }
@@ -115,7 +115,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryToken<T> extends Spread
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataPropertySave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.propertyName,
             this.propertyValue
         );

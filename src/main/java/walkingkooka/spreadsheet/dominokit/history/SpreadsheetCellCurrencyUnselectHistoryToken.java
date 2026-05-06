@@ -85,7 +85,7 @@ public final class SpreadsheetCellCurrencyUnselectHistoryToken extends Spreadshe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellCurrencyUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

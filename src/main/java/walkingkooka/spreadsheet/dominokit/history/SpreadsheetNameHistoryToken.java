@@ -33,20 +33,20 @@ import java.util.Optional;
 public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
 
     SpreadsheetNameHistoryToken(final SpreadsheetId id,
-                                final SpreadsheetName name) {
+                                final SpreadsheetName spreadsheetName) {
         super(id);
 
-        this.name = Objects.requireNonNull(name, "name");
+        this.spreadsheetName = Objects.requireNonNull(spreadsheetName, "name");
     }
 
-    final HistoryToken replaceName(final SpreadsheetName name) {
+    final HistoryToken replaceName(final SpreadsheetName spreadsheetName) {
         return this.replaceSpreadsheetIdAndSpreadsheetName(
             this.id,
-            name
+            spreadsheetName
         );
     }
 
-    final SpreadsheetName name;
+    final SpreadsheetName spreadsheetName;
 
     // parse............................................................................................................
 
@@ -84,7 +84,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         return this.id
             .urlFragment()
             .appendSlashThen(
-                this.name.urlFragment()
+                this.spreadsheetName.urlFragment()
             ).appendSlashThen(
                 this.spreadsheetNameUrlFragment()
             );

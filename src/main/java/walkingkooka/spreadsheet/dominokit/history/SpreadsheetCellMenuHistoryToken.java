@@ -87,7 +87,7 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellMenu(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

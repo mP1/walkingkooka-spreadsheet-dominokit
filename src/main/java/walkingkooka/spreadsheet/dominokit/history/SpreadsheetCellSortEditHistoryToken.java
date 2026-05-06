@@ -104,7 +104,7 @@ public final class SpreadsheetCellSortEditHistoryToken extends SpreadsheetCellSo
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellSortEdit(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames
         );

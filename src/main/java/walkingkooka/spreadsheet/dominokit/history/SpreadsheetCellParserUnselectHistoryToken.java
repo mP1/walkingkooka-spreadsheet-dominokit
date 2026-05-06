@@ -85,7 +85,7 @@ public final class SpreadsheetCellParserUnselectHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellParserUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

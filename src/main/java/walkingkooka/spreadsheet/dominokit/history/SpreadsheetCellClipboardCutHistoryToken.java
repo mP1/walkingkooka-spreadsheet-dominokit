@@ -168,7 +168,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardCut(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.kind()
         );

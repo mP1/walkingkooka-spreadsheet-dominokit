@@ -98,7 +98,7 @@ public final class SpreadsheetCellFormSelectHistoryToken extends SpreadsheetCell
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.formName
         );

@@ -129,7 +129,7 @@ public final class SpreadsheetRowNavigateHistoryToken extends SpreadsheetRowHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowNavigate(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

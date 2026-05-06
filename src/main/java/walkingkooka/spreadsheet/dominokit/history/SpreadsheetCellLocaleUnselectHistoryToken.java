@@ -85,7 +85,7 @@ public final class SpreadsheetCellLocaleUnselectHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

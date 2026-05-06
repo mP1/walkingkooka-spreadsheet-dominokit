@@ -126,7 +126,7 @@ public class SpreadsheetRowInsertBeforeHistoryToken extends SpreadsheetRowInsert
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowInsertBefore(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.count
         );

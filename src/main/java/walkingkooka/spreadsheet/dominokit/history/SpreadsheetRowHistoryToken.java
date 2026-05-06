@@ -81,7 +81,7 @@ abstract public class SpreadsheetRowHistoryToken extends SpreadsheetAnchoredSele
 
                 historyToken = HistoryToken.rowSortSave(
                     this.id,
-                    this.name,
+                    this.spreadsheetName,
                     this.anchoredSelection,
                     Cast.to(valueOrNull)
                 );

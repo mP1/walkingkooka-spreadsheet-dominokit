@@ -124,7 +124,7 @@ public final class SpreadsheetCellClipboardPasteHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardPaste(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.kind()
         );

@@ -81,7 +81,7 @@ abstract public class SpreadsheetColumnHistoryToken extends SpreadsheetAnchoredS
 
                 historyToken = HistoryToken.columnSortSave(
                     this.id,
-                    this.name,
+                    this.spreadsheetName,
                     this.anchoredSelection,
                     Cast.to(valueOrNull)
                 );

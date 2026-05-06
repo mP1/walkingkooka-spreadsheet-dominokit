@@ -94,7 +94,7 @@ public class SpreadsheetRowUnfreezeHistoryToken extends SpreadsheetRowHistoryTok
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowUnfreeze(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

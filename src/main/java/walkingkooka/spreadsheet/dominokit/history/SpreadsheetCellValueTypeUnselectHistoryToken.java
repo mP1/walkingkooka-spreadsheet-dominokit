@@ -86,7 +86,7 @@ public final class SpreadsheetCellValueTypeUnselectHistoryToken extends Spreadsh
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValueTypeUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

@@ -97,7 +97,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     public HistoryToken clearAction() {
         return cellFormSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection(),
             this.formName
         );
@@ -115,7 +115,7 @@ public final class SpreadsheetCellFormSaveHistoryToken extends SpreadsheetCellFo
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.formName,
             this.values

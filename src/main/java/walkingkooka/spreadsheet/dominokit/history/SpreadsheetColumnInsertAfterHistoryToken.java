@@ -107,7 +107,7 @@ public class SpreadsheetColumnInsertAfterHistoryToken extends SpreadsheetColumnI
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnInsertAfter(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.count
         );

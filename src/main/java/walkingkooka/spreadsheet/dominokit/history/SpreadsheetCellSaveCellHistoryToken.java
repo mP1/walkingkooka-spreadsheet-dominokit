@@ -123,7 +123,7 @@ public final class SpreadsheetCellSaveCellHistoryToken extends SpreadsheetCellSa
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellSaveCell(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.value
         );

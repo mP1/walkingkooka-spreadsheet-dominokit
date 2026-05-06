@@ -107,7 +107,7 @@ public final class SpreadsheetCellUnfreezeHistoryToken extends SpreadsheetCellHi
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellUnfreeze(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

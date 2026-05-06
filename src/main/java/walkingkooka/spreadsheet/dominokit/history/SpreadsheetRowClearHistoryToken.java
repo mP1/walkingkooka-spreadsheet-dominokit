@@ -81,7 +81,7 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowClear(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

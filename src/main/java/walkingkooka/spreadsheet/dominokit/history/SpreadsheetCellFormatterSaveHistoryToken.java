@@ -62,7 +62,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     public HistoryToken clearAction() {
         return HistoryToken.cellFormatterSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellFormatterSaveHistoryToken extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormatterSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.spreadsheetFormatterSelector
         );

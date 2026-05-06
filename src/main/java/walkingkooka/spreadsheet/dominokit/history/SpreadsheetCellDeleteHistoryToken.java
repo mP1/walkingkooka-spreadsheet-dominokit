@@ -92,7 +92,7 @@ public final class SpreadsheetCellDeleteHistoryToken extends SpreadsheetCellHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDelete(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

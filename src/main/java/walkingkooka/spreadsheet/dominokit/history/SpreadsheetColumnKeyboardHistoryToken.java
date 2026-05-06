@@ -82,7 +82,7 @@ public final class SpreadsheetColumnKeyboardHistoryToken extends SpreadsheetColu
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnKeyboard(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

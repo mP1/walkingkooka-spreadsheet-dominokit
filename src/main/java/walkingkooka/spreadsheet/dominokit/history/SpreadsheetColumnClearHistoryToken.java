@@ -81,7 +81,7 @@ public class SpreadsheetColumnClearHistoryToken extends SpreadsheetColumnHistory
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnClear(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

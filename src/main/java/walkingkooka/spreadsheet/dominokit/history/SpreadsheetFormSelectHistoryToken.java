@@ -105,7 +105,7 @@ public final class SpreadsheetFormSelectHistoryToken extends SpreadsheetFormHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.formName,
             this.field
         );

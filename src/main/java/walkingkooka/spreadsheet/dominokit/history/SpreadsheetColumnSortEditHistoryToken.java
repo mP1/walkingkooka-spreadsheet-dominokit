@@ -105,7 +105,7 @@ public final class SpreadsheetColumnSortEditHistoryToken extends SpreadsheetColu
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnSortEdit(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames
         );
