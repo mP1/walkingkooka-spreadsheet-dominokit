@@ -82,7 +82,7 @@ public final class SpreadsheetCellValidatorSelectHistoryToken extends Spreadshee
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValidatorSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

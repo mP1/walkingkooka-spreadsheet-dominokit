@@ -62,7 +62,7 @@ public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSel
             if (null != valueOrNull) {
                 historyToken = HistoryToken.labelMappingSave(
                     id,
-                    name,
+                    spreadsheetName,
                     this.cast(SpreadsheetLabelMappingHistoryToken.class)
                         .labelName()
                         .get()

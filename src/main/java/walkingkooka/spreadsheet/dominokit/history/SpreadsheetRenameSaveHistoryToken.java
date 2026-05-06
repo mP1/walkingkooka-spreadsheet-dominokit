@@ -63,7 +63,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
     public HistoryToken clearAction() {
         return HistoryToken.spreadsheetRenameSelect(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 
@@ -107,7 +107,7 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetRenameSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.value
         );
     }

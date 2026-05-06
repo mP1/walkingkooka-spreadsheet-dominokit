@@ -88,7 +88,7 @@ public abstract class SpreadsheetCellSaveMapHistoryToken<V> extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellSaveMap(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.value
         );

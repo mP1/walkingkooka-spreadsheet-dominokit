@@ -91,7 +91,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.mapping.label()
         );
     }
@@ -125,7 +125,7 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.mapping
         );
     }

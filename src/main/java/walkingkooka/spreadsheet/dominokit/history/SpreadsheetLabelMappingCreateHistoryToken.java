@@ -87,7 +87,7 @@ public final class SpreadsheetLabelMappingCreateHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingCreate(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 }

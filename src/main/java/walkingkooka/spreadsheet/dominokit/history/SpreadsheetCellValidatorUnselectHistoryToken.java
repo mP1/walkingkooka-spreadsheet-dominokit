@@ -85,7 +85,7 @@ public final class SpreadsheetCellValidatorUnselectHistoryToken extends Spreadsh
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValidatorUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

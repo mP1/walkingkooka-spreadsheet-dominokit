@@ -62,7 +62,7 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
     public HistoryToken clearAction() {
         return HistoryToken.cellCurrencySelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellCurrencySave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.currency
         );

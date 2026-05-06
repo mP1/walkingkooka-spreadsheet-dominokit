@@ -85,7 +85,7 @@ public final class SpreadsheetCellFormulaSelectHistoryToken extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFormulaSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

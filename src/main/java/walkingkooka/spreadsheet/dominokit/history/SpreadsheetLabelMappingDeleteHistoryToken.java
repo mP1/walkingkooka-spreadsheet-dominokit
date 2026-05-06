@@ -76,7 +76,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     public HistoryToken clearAction() {
         return HistoryToken.labelMappingSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.labelName
         );
     }
@@ -110,7 +110,7 @@ public final class SpreadsheetLabelMappingDeleteHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingDelete(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.labelName
         );
     }

@@ -127,7 +127,7 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellStyleSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.stylePropertyName.get(),
             this.value()

@@ -63,7 +63,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     public HistoryToken clearAction() {
         return HistoryToken.cellParserSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -105,7 +105,7 @@ public final class SpreadsheetCellParserSaveHistoryToken extends SpreadsheetCell
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellParserSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.spreadsheetParserSelector
         );

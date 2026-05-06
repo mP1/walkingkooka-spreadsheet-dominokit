@@ -62,7 +62,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
     public HistoryToken clearAction() {
         return HistoryToken.cellValidatorSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValidatorSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.validator
         );

@@ -93,7 +93,7 @@ public final class SpreadsheetFormListHistoryToken extends SpreadsheetFormHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormList(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.offsetAndCount
         );
     }

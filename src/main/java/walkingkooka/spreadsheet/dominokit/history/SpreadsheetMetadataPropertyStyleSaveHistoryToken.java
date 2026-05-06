@@ -78,7 +78,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     public HistoryToken clearAction() {
         return HistoryToken.metadataPropertyStyle(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.stylePropertyName
         );
     }
@@ -121,7 +121,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataStyleSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.stylePropertyName.get(),
             this.stylePropertyValue
         );

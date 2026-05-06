@@ -82,7 +82,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSelectHistoryToken extends
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDecimalNumberSymbolsSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

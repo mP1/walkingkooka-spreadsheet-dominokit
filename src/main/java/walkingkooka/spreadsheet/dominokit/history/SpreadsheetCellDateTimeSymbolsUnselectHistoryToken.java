@@ -85,7 +85,7 @@ public final class SpreadsheetCellDateTimeSymbolsUnselectHistoryToken extends Sp
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellDateTimeSymbolsUnselect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

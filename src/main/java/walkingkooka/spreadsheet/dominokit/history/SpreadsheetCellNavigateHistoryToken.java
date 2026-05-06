@@ -117,7 +117,7 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellNavigate(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

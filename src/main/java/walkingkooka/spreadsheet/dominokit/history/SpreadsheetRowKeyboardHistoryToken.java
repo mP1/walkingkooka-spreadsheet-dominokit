@@ -82,7 +82,7 @@ public final class SpreadsheetRowKeyboardHistoryToken extends SpreadsheetRowHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowKeyboard(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

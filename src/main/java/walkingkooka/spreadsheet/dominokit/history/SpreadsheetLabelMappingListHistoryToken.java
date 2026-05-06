@@ -81,7 +81,7 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     public HistoryToken clearAction() {
         return spreadsheetSelect(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 
@@ -108,7 +108,7 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitSpreadsheetLabelMappingList(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.offsetAndCount
         );
     }

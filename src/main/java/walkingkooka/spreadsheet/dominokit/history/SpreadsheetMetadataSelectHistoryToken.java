@@ -72,7 +72,7 @@ public final class SpreadsheetMetadataSelectHistoryToken extends SpreadsheetMeta
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitMetadataSelect(
             this.id,
-            this.name
+            this.spreadsheetName
         );
     }
 }

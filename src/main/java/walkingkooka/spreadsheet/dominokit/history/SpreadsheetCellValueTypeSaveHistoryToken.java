@@ -62,7 +62,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     public HistoryToken clearAction() {
         return HistoryToken.cellValueTypeSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellValueTypeSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.valueType
         );

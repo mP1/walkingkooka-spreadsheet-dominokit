@@ -82,7 +82,7 @@ public final class SpreadsheetCellCurrencySelectHistoryToken extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellCurrencySelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

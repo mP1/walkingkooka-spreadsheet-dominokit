@@ -71,7 +71,7 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
             this :
             new SpreadsheetCellQueryHistoryToken(
                 this.id,
-                this.name,
+                this.spreadsheetName,
                 this.anchoredSelection(),
                 query
             );
@@ -113,7 +113,7 @@ public final class SpreadsheetCellQueryHistoryToken extends SpreadsheetCellHisto
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellFind(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

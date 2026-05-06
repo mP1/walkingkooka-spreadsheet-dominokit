@@ -89,7 +89,7 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellStyleSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             Cast.to(this.stylePropertyName)
         );

@@ -89,7 +89,7 @@ public class SpreadsheetRowDeleteHistoryToken extends SpreadsheetRowHistoryToken
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowDelete(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

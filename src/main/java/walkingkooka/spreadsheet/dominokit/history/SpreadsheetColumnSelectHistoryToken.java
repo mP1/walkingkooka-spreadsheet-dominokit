@@ -82,7 +82,7 @@ public class SpreadsheetColumnSelectHistoryToken extends SpreadsheetColumnHistor
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnNavigate(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

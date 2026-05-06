@@ -112,7 +112,7 @@ public final class SpreadsheetColumnNavigateHistoryToken extends SpreadsheetColu
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitColumnNavigate(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

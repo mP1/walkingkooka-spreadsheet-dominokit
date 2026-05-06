@@ -105,7 +105,7 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowInsertAfter(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.count
         );

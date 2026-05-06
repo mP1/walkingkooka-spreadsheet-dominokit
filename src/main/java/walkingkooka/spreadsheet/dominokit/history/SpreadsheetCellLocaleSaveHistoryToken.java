@@ -62,7 +62,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
     public HistoryToken clearAction() {
         return HistoryToken.cellLocaleSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection()
         );
     }
@@ -104,7 +104,7 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellLocaleSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.locale
         );

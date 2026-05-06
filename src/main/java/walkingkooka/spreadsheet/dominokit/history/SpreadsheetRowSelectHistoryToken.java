@@ -82,7 +82,7 @@ public class SpreadsheetRowSelectHistoryToken extends SpreadsheetRowHistoryToken
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowSelect(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection
         );
     }

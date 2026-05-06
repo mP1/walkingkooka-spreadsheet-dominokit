@@ -108,7 +108,7 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitCellClipboardCopy(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.kind()
         );

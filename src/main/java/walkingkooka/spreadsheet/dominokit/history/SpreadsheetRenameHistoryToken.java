@@ -43,13 +43,13 @@ public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHisto
         if (value.isPresent()) {
             historyToken = HistoryToken.spreadsheetRenameSave(
                 this.id,
-                this.name,
+                this.spreadsheetName,
                 (SpreadsheetName) value.get()
             );
         } else {
             historyToken = HistoryToken.spreadsheetRenameSelect(
                 this.id,
-                this.name
+                this.spreadsheetName
             );
         }
 

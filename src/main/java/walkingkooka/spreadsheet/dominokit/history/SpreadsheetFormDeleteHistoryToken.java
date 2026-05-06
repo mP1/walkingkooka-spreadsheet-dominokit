@@ -90,7 +90,7 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitFormDelete(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.formName
         );
     }

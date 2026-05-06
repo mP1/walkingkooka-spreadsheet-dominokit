@@ -114,7 +114,7 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
     void accept(final HistoryTokenVisitor visitor) {
         visitor.visitRowSortSave(
             this.id,
-            this.name,
+            this.spreadsheetName,
             this.anchoredSelection,
             this.comparatorNames
         );

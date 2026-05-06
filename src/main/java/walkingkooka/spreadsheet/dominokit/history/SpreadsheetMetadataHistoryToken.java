@@ -47,7 +47,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
         if (this instanceof SpreadsheetMetadataPropertySelectHistoryToken || this instanceof SpreadsheetMetadataPropertySaveHistoryToken) {
             historyToken = HistoryToken.metadataPropertySave(
                 this.id,
-                this.name,
+                this.spreadsheetName,
                 this.cast(SpreadsheetMetadataPropertyHistoryToken.class)
                     .propertyName,
                 value
@@ -60,7 +60,7 @@ public abstract class SpreadsheetMetadataHistoryToken extends SpreadsheetNameHis
 
                 historyToken = HistoryToken.metadataPropertyStyleSave(
                     this.id,
-                    this.name,
+                    this.spreadsheetName,
                     stylePropertyName,
                     Cast.to(value)
                 );
