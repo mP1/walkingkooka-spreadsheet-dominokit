@@ -29,10 +29,10 @@ import java.util.Optional;
 public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellDecimalNumberSymbolsHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Optional<DecimalNumberSymbols> decimalNumberSymbols) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.decimalNumberSymbols = Objects.requireNonNull(decimalNumberSymbols, "decimalNumberSymbols");
     }
 

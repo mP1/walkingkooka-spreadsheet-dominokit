@@ -35,21 +35,21 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellMenuHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellMenuHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellMenuHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
+                                            final SpreadsheetName spreadsheetName,
                                             final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -66,11 +66,11 @@ public final class SpreadsheetCellMenuHistoryToken extends SpreadsheetCellHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).menu();
     }

@@ -37,24 +37,24 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetCellClipboardHistoryToken {
 
     static SpreadsheetCellClipboardCopyHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final SpreadsheetCellClipboardKind kind) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
     }
 
     private SpreadsheetCellClipboardCopyHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetCellClipboardKind kind) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             kind
         );
@@ -62,11 +62,11 @@ public final class SpreadsheetCellClipboardCopyHistoryToken extends SpreadsheetC
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellClipboardCopyHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.kind()
         );

@@ -40,24 +40,24 @@ import java.util.Map;
 public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellSaveMapHistoryToken<TextStyle> {
 
     static SpreadsheetCellSaveStyleHistoryToken with(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToTextStyleMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveStyleHistoryToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetCellReferenceToTextStyleMap value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             value
         );
@@ -73,12 +73,12 @@ public final class SpreadsheetCellSaveStyleHistoryToken extends SpreadsheetCellS
 
     @Override
     SpreadsheetCellSaveStyleHistoryToken replace(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final Map<SpreadsheetCellReference, TextStyle> value) {
         return new SpreadsheetCellSaveStyleHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToTextStyleMap.with(value)
         );

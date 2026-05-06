@@ -38,21 +38,21 @@ import java.util.Optional;
 public final class SpreadsheetLabelMappingSelectHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingSelectHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
+                                                          final SpreadsheetName spreadsheetName,
                                                           final SpreadsheetLabelName labelName) {
         return new SpreadsheetLabelMappingSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             labelName
         );
     }
 
     private SpreadsheetLabelMappingSelectHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final SpreadsheetLabelName labelName) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
@@ -109,10 +109,10 @@ public final class SpreadsheetLabelMappingSelectHistoryToken extends Spreadsheet
     // new id/name same labelName
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.labelName
         );
     }

@@ -30,12 +30,12 @@ import java.util.Optional;
 abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellStyleHistoryToken(final SpreadsheetId id,
-                                     final SpreadsheetName name,
+                                     final SpreadsheetName spreadsheetName,
                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                      final Optional<TextStylePropertyName<T>> stylePropertyName) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 

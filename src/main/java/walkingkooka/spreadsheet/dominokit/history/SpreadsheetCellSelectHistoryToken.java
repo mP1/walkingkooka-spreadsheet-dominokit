@@ -48,21 +48,21 @@ import walkingkooka.text.cursor.TextCursor;
 public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellSelectHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellSelectHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
+                                              final SpreadsheetName spreadsheetName,
                                               final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -79,11 +79,11 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

@@ -33,21 +33,21 @@ import java.util.Objects;
 public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHistoryToken implements Value<SpreadsheetName> {
 
     static SpreadsheetRenameSaveHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final SpreadsheetName value) {
         return new SpreadsheetRenameSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             value
         );
     }
 
     private SpreadsheetRenameSaveHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
+                                              final SpreadsheetName spreadsheetName,
                                               final SpreadsheetName value) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.value = Objects.requireNonNull(value, "value");
     }
@@ -69,10 +69,10 @@ public final class SpreadsheetRenameSaveHistoryToken extends SpreadsheetRenameHi
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return new SpreadsheetRenameSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             this.value
         );
     }

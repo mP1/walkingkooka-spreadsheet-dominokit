@@ -37,10 +37,10 @@ import java.util.Optional;
 public abstract class SpreadsheetFormHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetFormHistoryToken(final SpreadsheetId id,
-                                final SpreadsheetName name) {
+                                final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 

@@ -31,21 +31,21 @@ import java.util.Optional;
 public final class SpreadsheetCellLocaleUnselectHistoryToken extends SpreadsheetCellLocaleHistoryToken {
 
     static SpreadsheetCellLocaleUnselectHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
+                                                          final SpreadsheetName spreadsheetName,
                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellLocaleUnselectHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // SpreadsheetLocale
         );
@@ -58,11 +58,11 @@ public final class SpreadsheetCellLocaleUnselectHistoryToken extends Spreadsheet
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleUnselectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

@@ -38,22 +38,22 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
     implements Value<SpreadsheetLabelName> {
 
     static SpreadsheetCellLabelSaveHistoryToken with(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final SpreadsheetLabelName labelName) {
         return new SpreadsheetCellLabelSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             labelName
         );
     }
 
     private SpreadsheetCellLabelSaveHistoryToken(final SpreadsheetId id,
-                                                 final SpreadsheetName name,
+                                                 final SpreadsheetName spreadsheetName,
                                                  final AnchoredSpreadsheetSelection anchoredSelection,
                                                  final SpreadsheetLabelName labelName) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.labelName = Objects.requireNonNull(labelName, "labelName");
     }
 
@@ -77,11 +77,11 @@ public final class SpreadsheetCellLabelSaveHistoryToken extends SpreadsheetCellL
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).labelMapping()
             .setSaveValue(

@@ -34,21 +34,21 @@ import java.util.Objects;
 public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHistoryToken {
 
     static SpreadsheetFormDeleteHistoryToken with(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final FormName formName) {
         return new SpreadsheetFormDeleteHistoryToken(
             id,
-            name,
+            spreadsheetName,
             formName
         );
     }
 
     private SpreadsheetFormDeleteHistoryToken(final SpreadsheetId id,
-                                              final SpreadsheetName name,
+                                              final SpreadsheetName spreadsheetName,
                                               final FormName formName) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.formName = Objects.requireNonNull(formName, "formName");
     }
@@ -64,10 +64,10 @@ public final class SpreadsheetFormDeleteHistoryToken extends SpreadsheetFormHist
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.formName
         );
     }

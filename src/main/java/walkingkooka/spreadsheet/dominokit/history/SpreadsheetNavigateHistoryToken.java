@@ -37,21 +37,21 @@ import java.util.Optional;
 public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistoryToken {
 
     static SpreadsheetNavigateHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetNavigateHistoryToken(
             id,
-            name,
+            spreadsheetName,
             navigation
         );
     }
 
     private SpreadsheetNavigateHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
+                                            final SpreadsheetName spreadsheetName,
                                             final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.navigation = Objects.requireNonNull(navigation, "navigation");
     }
@@ -83,10 +83,10 @@ public final class SpreadsheetNavigateHistoryToken extends SpreadsheetNameHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         ).setNavigation(this.navigation);
     }
 

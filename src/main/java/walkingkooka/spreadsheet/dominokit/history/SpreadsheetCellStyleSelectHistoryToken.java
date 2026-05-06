@@ -36,24 +36,24 @@ import java.util.Optional;
 final public class SpreadsheetCellStyleSelectHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
 
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId id,
-                                                              final SpreadsheetName name,
+                                                              final SpreadsheetName spreadsheetName,
                                                               final AnchoredSpreadsheetSelection anchoredSelection,
                                                               final Optional<TextStylePropertyName<T>> propertyName) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             propertyName
         );
     }
 
     private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final Optional<TextStylePropertyName<T>> propertyName) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             propertyName
         );
@@ -66,11 +66,11 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).setStylePropertyName(
             Cast.to(this.stylePropertyName)

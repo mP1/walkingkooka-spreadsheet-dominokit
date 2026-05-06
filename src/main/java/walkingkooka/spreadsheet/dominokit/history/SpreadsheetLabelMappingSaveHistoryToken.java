@@ -39,21 +39,21 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     implements Value<SpreadsheetLabelName> {
 
     static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final SpreadsheetLabelMapping mapping) {
         return new SpreadsheetLabelMappingSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             mapping
         );
     }
 
     private SpreadsheetLabelMappingSaveHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final SpreadsheetLabelMapping mapping) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.mapping = Objects.requireNonNull(mapping, "mapping");
     }
@@ -99,10 +99,10 @@ public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLa
     // new id/name same labelName
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.mapping
         );
     }

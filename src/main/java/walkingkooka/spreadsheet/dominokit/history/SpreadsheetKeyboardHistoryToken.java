@@ -37,18 +37,18 @@ import java.util.Optional;
 public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistoryToken {
 
     static SpreadsheetKeyboardHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name) {
+                                                final SpreadsheetName spreadsheetName) {
         return new SpreadsheetKeyboardHistoryToken(
             id,
-            name
+            spreadsheetName
         );
     }
 
     private SpreadsheetKeyboardHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name) {
+                                            final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
     
@@ -74,10 +74,10 @@ public final class SpreadsheetKeyboardHistoryToken extends SpreadsheetNameHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         ).keyboard();
     }
 

@@ -36,10 +36,10 @@ import java.util.Optional;
 public abstract class SpreadsheetLabelMappingHistoryToken extends SpreadsheetSelectionHistoryToken {
 
     SpreadsheetLabelMappingHistoryToken(final SpreadsheetId id,
-                                        final SpreadsheetName name) {
+                                        final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 

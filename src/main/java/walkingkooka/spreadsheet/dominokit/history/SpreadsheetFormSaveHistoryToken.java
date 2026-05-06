@@ -40,24 +40,24 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
     implements Value<Form<SpreadsheetValidationReference>> {
 
     static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final Form<SpreadsheetValidationReference> form,
                                                 final Optional<SpreadsheetValidationReference> field) {
         return new SpreadsheetFormSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             form,
             field
         );
     }
 
     private SpreadsheetFormSaveHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
+                                            final SpreadsheetName spreadsheetName,
                                             final Form<SpreadsheetValidationReference> form,
                                             final Optional<SpreadsheetValidationReference> field) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.form = Objects.requireNonNull(form, "form");
         this.field = Objects.requireNonNull(field, "field");
@@ -94,10 +94,10 @@ public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistor
 
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.form,
             this.field
         );

@@ -29,24 +29,24 @@ import java.util.Optional;
 public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCellValueHistoryToken {
 
     static SpreadsheetCellValueSelectHistoryToken with(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final ValueType valueType) {
         return new SpreadsheetCellValueSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             valueType
         );
     }
 
     private SpreadsheetCellValueSelectHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final ValueType valueType) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.of(valueType) // ValueTypeName
         );
@@ -59,11 +59,11 @@ public final class SpreadsheetCellValueSelectHistoryToken extends SpreadsheetCel
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.valueType.get()
         );

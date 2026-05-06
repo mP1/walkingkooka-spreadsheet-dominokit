@@ -29,10 +29,10 @@ import java.util.Optional;
 public abstract class SpreadsheetCellLocaleHistoryToken extends SpreadsheetCellHistoryToken {
 
     SpreadsheetCellLocaleHistoryToken(final SpreadsheetId id,
-                                      final SpreadsheetName name,
+                                      final SpreadsheetName spreadsheetName,
                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                       final Optional<Locale> locale) {
-        super(id, name, anchoredSelection);
+        super(id, spreadsheetName, anchoredSelection);
         this.locale = Objects.requireNonNull(locale, "locale");
     }
 

@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCellCurrencyHistoryToken implements Value<Optional<Currency>> {
 
     static SpreadsheetCellCurrencySaveHistoryToken with(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final AnchoredSpreadsheetSelection anchoredSelection,
                                                         final Optional<Currency> currency) {
         return new SpreadsheetCellCurrencySaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             currency
         );
     }
 
     private SpreadsheetCellCurrencySaveHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Optional<Currency> currency) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             currency
         );
@@ -69,11 +69,11 @@ public final class SpreadsheetCellCurrencySaveHistoryToken extends SpreadsheetCe
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencySaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.currency
         );

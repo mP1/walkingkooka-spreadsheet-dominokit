@@ -34,11 +34,11 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken {
 
     static SpreadsheetRowClearHistoryToken with(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowClearHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
@@ -60,11 +60,11 @@ public class SpreadsheetRowClearHistoryToken extends SpreadsheetRowHistoryToken 
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).clear();
     }

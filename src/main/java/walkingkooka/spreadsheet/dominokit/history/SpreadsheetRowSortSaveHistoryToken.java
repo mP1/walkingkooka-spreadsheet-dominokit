@@ -38,24 +38,24 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
     implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
     static SpreadsheetRowSortSaveHistoryToken with(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         return new SpreadsheetRowSortSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             comparatorNames
         );
     }
 
     private SpreadsheetRowSortSaveHistoryToken(final SpreadsheetId id,
-                                               final SpreadsheetName name,
+                                               final SpreadsheetName spreadsheetName,
                                                final AnchoredSpreadsheetSelection anchoredSelection,
                                                final SpreadsheetColumnOrRowSpreadsheetComparatorNamesList comparatorNames) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -83,11 +83,11 @@ public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSort
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetRowSortSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.comparatorNames
         );

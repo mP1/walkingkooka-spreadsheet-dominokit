@@ -37,24 +37,24 @@ import java.util.Objects;
 public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCellFormulaHistoryToken implements Value<String> {
 
     static SpreadsheetCellFormulaSaveHistoryToken with(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection,
                                                        final String formula) {
         return new SpreadsheetCellFormulaSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             formula
         );
     }
 
     private SpreadsheetCellFormulaSaveHistoryToken(final SpreadsheetId id,
-                                                   final SpreadsheetName name,
+                                                   final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
                                                    final String text) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
 
@@ -84,11 +84,11 @@ public final class SpreadsheetCellFormulaSaveHistoryToken extends SpreadsheetCel
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).formula()
             .setSaveStringValue(this.text);

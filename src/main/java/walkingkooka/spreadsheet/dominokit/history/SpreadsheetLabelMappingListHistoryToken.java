@@ -40,21 +40,21 @@ import java.util.Objects;
 public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLabelMappingHistoryToken {
 
     static SpreadsheetLabelMappingListHistoryToken with(final SpreadsheetId id,
-                                                        final SpreadsheetName name,
+                                                        final SpreadsheetName spreadsheetName,
                                                         final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetLabelMappingListHistoryToken(
             id,
-            name,
+            spreadsheetName,
             offsetAndCount
         );
     }
 
     private SpreadsheetLabelMappingListHistoryToken(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
-            name
+            spreadsheetName
         );
         this.offsetAndCount = Objects.requireNonNull(offsetAndCount, "offsetAndCount");
     }
@@ -88,10 +88,10 @@ public final class SpreadsheetLabelMappingListHistoryToken extends SpreadsheetLa
     // new id/name same labelName
     @Override //
     HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                        final SpreadsheetName name) {
+                                                        final SpreadsheetName spreadsheetName) {
         return with(
             id,
-            name,
+            spreadsheetName,
             this.offsetAndCount
         );
     }

@@ -39,24 +39,24 @@ import java.util.OptionalInt;
 public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertHistoryToken {
 
     static SpreadsheetRowInsertAfterHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final OptionalInt count) {
         return new SpreadsheetRowInsertAfterHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
     }
 
     private SpreadsheetRowInsertAfterHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final OptionalInt count) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             count
         );
@@ -71,11 +71,11 @@ public class SpreadsheetRowInsertAfterHistoryToken extends SpreadsheetRowInsertH
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).insertAfter(this.count());
     }

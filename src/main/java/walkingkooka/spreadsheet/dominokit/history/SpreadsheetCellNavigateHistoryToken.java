@@ -37,24 +37,24 @@ import java.util.Optional;
 public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellNavigateHistoryToken with(final SpreadsheetId id,
-                                                    final SpreadsheetName name,
+                                                    final SpreadsheetName spreadsheetName,
                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                     final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         return new SpreadsheetCellNavigateHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             navigation
         );
     }
 
     private SpreadsheetCellNavigateHistoryToken(final SpreadsheetId id,
-                                                final SpreadsheetName name,
+                                                final SpreadsheetName spreadsheetName,
                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                 final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.navigation = Objects.requireNonNull(navigation, "navigation");
@@ -78,11 +78,11 @@ public final class SpreadsheetCellNavigateHistoryToken extends SpreadsheetCellHi
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).setNavigation(this.navigation);
     }

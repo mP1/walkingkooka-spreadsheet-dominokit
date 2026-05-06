@@ -35,24 +35,24 @@ import java.util.Objects;
 public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetCellHistoryToken {
 
     static SpreadsheetCellReferenceListHistoryToken with(final SpreadsheetId id,
-                                                         final SpreadsheetName name,
+                                                         final SpreadsheetName spreadsheetName,
                                                          final AnchoredSpreadsheetSelection anchoredSelection,
                                                          final HistoryTokenOffsetAndCount offsetAndCount) {
         return new SpreadsheetCellReferenceListHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             offsetAndCount
         );
     }
 
     private SpreadsheetCellReferenceListHistoryToken(final SpreadsheetId id,
-                                                     final SpreadsheetName name,
+                                                     final SpreadsheetName spreadsheetName,
                                                      final AnchoredSpreadsheetSelection anchoredSelection,
                                                      final HistoryTokenOffsetAndCount offsetAndCount) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
         this.offsetAndCount = Objects.requireNonNull(
@@ -78,11 +78,11 @@ public final class SpreadsheetCellReferenceListHistoryToken extends SpreadsheetC
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return selection(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         ).references(this.offsetAndCount);
     }

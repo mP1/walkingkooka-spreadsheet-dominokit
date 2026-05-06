@@ -28,21 +28,21 @@ import java.util.Optional;
 public final class SpreadsheetCellCurrencySelectHistoryToken extends SpreadsheetCellCurrencyHistoryToken {
 
     static SpreadsheetCellCurrencySelectHistoryToken with(final SpreadsheetId id,
-                                                          final SpreadsheetName name,
+                                                          final SpreadsheetName spreadsheetName,
                                                           final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencySelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellCurrencySelectHistoryToken(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // Currency
         );
@@ -55,11 +55,11 @@ public final class SpreadsheetCellCurrencySelectHistoryToken extends Spreadsheet
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellCurrencySelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

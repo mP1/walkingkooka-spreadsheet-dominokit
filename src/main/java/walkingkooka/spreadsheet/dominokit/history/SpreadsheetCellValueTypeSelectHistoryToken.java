@@ -28,21 +28,21 @@ import java.util.Optional;
 public final class SpreadsheetCellValueTypeSelectHistoryToken extends SpreadsheetCellValueTypeHistoryToken {
 
     static SpreadsheetCellValueTypeSelectHistoryToken with(final SpreadsheetId id,
-                                                           final SpreadsheetName name,
+                                                           final SpreadsheetName spreadsheetName,
                                                            final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueTypeSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }
 
     private SpreadsheetCellValueTypeSelectHistoryToken(final SpreadsheetId id,
-                                                       final SpreadsheetName name,
+                                                       final SpreadsheetName spreadsheetName,
                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             Optional.empty() // ValueType
         );
@@ -55,11 +55,11 @@ public final class SpreadsheetCellValueTypeSelectHistoryToken extends Spreadshee
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellValueTypeSelectHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection
         );
     }

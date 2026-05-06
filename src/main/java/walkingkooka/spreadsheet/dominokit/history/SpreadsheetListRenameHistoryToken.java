@@ -43,10 +43,10 @@ public abstract class SpreadsheetListRenameHistoryToken extends SpreadsheetIdHis
 
     @Override //
     final HistoryToken replaceSpreadsheetIdAndSpreadsheetName(final SpreadsheetId id,
-                                                              final SpreadsheetName name) {
+                                                              final SpreadsheetName spreadsheetName) {
         return HistoryToken.spreadsheetSelect(
             id,
-            name
+            spreadsheetName
         );
     }
 

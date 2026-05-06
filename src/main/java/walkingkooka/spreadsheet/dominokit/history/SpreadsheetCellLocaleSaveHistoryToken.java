@@ -30,24 +30,24 @@ import java.util.Optional;
 public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCellLocaleHistoryToken implements Value<Optional<Locale>> {
 
     static SpreadsheetCellLocaleSaveHistoryToken with(final SpreadsheetId id,
-                                                      final SpreadsheetName name,
+                                                      final SpreadsheetName spreadsheetName,
                                                       final AnchoredSpreadsheetSelection anchoredSelection,
                                                       final Optional<Locale> locale) {
         return new SpreadsheetCellLocaleSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             locale
         );
     }
 
     private SpreadsheetCellLocaleSaveHistoryToken(final SpreadsheetId id,
-                                                  final SpreadsheetName name,
+                                                  final SpreadsheetName spreadsheetName,
                                                   final AnchoredSpreadsheetSelection anchoredSelection,
                                                   final Optional<Locale> locale) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             locale
         );
@@ -69,11 +69,11 @@ public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCell
 
     @Override
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId id,
-                                                                      final SpreadsheetName name,
+                                                                      final SpreadsheetName spreadsheetName,
                                                                       final AnchoredSpreadsheetSelection anchoredSelection) {
         return new SpreadsheetCellLocaleSaveHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             this.locale
         );

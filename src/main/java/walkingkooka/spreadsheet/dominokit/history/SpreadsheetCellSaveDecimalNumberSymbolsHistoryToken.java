@@ -41,24 +41,24 @@ import java.util.Optional;
 public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends SpreadsheetCellSaveMapHistoryToken<Optional<DecimalNumberSymbols>> {
 
     static SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken with(final SpreadsheetId id,
-                                                                    final SpreadsheetName name,
+                                                                    final SpreadsheetName spreadsheetName,
                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
                                                                     final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> value) {
         return new SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToDecimalNumberSymbolsMap.with(value)
         );
     }
 
     private SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
+                                                                final SpreadsheetName spreadsheetName,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                                 final SpreadsheetCellReferenceToDecimalNumberSymbolsMap value) {
         super(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             value
         );
@@ -66,12 +66,12 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
 
     @Override //
     SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken replace(final SpreadsheetId id,
-                                                                final SpreadsheetName name,
+                                                                final SpreadsheetName spreadsheetName,
                                                                 final AnchoredSpreadsheetSelection anchoredSelection,
                                                                 final Map<SpreadsheetCellReference, Optional<DecimalNumberSymbols>> value) {
         return new SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken(
             id,
-            name,
+            spreadsheetName,
             anchoredSelection,
             SpreadsheetCellReferenceToDecimalNumberSymbolsMap.with(value)
         );

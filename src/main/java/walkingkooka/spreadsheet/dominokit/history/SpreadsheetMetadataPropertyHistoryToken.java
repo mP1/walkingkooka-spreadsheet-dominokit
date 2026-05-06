@@ -27,11 +27,11 @@ import java.util.Objects;
 public abstract class SpreadsheetMetadataPropertyHistoryToken<T> extends SpreadsheetMetadataHistoryToken {
 
     SpreadsheetMetadataPropertyHistoryToken(final SpreadsheetId id,
-                                            final SpreadsheetName name,
+                                            final SpreadsheetName spreadsheetName,
                                             final SpreadsheetMetadataPropertyName<T> propertyName) {
         super(
             id,
-            name
+            spreadsheetName
         );
 
         this.propertyName = Objects.requireNonNull(propertyName, "stylePropertyName");

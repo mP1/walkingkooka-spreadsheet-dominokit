@@ -27,10 +27,10 @@ import java.util.Optional;
 public abstract class SpreadsheetRenameHistoryToken extends SpreadsheetNameHistoryToken {
 
     SpreadsheetRenameHistoryToken(final SpreadsheetId id,
-                                  final SpreadsheetName name) {
+                                  final SpreadsheetName spreadsheetName) {
         super(
             id,
-            name
+            spreadsheetName
         );
     }
 
