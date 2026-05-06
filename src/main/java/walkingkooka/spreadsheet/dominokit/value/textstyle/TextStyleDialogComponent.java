@@ -125,7 +125,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.links = this.dialogAnchorListComponent(context)
             .setHistoryTokenPreProcessor(
-                (HistoryToken historyToken) -> historyToken.setStylePropertyName(Optional.empty())
+                (HistoryToken historyToken) -> historyToken.clearStylePropertyName()
             ).save()
             .undo()
             .clearLink()

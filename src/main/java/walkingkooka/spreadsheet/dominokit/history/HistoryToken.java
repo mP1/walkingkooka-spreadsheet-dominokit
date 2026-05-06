@@ -5067,6 +5067,12 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.elseIfDifferent(historyToken);
     }
 
+    public final HistoryToken clearStylePropertyName() {
+        return this.setStylePropertyName(
+            Optional.empty()
+        );
+    }
+
     public final HistoryToken setStyleProperty(final TextStyleProperty<?> styleProperty) {
         Objects.requireNonNull(styleProperty, "styleProperty");
 
