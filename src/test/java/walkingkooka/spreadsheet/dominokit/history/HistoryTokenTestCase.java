@@ -911,6 +911,50 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    final void setStylePropertyNameAndCheck(final HistoryToken historyToken) {
+        this.setStylePropertyNameAndCheck(
+            historyToken,
+            Optional.empty()
+        );
+    }
+
+    final void setStylePropertyNameAndCheck(final HistoryToken historyToken,
+                                            final TextStylePropertyName<?> textStylePropertyName) {
+        this.setStylePropertyNameAndCheck(
+            historyToken,
+            Optional.of(textStylePropertyName)
+        );
+    }
+
+    final void setStylePropertyNameAndCheck(final HistoryToken historyToken,
+                                            final Optional<TextStylePropertyName<?>> textStylePropertyName) {
+        this.setStylePropertyNameAndCheck(
+            historyToken,
+            textStylePropertyName,
+            historyToken
+        );
+    }
+
+    final void setStylePropertyNameAndCheck(final HistoryToken historyToken,
+                                            final TextStylePropertyName<?> textStylePropertyName,
+                                            final HistoryToken expected) {
+        this.setStylePropertyNameAndCheck(
+            historyToken,
+            Optional.of(textStylePropertyName),
+            expected
+        );
+    }
+
+    final void setStylePropertyNameAndCheck(final HistoryToken historyToken,
+                                            final Optional<TextStylePropertyName<?>> textStylePropertyName,
+                                            final HistoryToken expected) {
+        this.checkEquals(
+            expected,
+            historyToken.setStylePropertyName(textStylePropertyName),
+            () -> historyToken + " setStylePropertyName " + textStylePropertyName
+        );
+    }
+
     // setStyleProperty.................................................................................................
 
     @Test
