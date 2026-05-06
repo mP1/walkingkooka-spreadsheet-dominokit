@@ -900,6 +900,17 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
         );
     }
 
+    // setStylePropertyName.............................................................................................
+
+    @Test
+    public final void testSetStylePropertyNameWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setStylePropertyName(null)
+        );
+    }
+
     // setStyleProperty.................................................................................................
 
     @Test
