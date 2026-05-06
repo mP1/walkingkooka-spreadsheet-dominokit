@@ -154,6 +154,31 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         );
     }
 
+    // setStylePropertyName................................................................................................
+
+    @Test
+    public void testSetStylePropertyName() {
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            STYLE_PROPERTY_NAME
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyNameDifferent() {
+        final TextStylePropertyName<Color> textStylePropertyName = TextStylePropertyName.BACKGROUND_COLOR;
+
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            textStylePropertyName,
+            HistoryToken.metadataPropertyStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(textStylePropertyName)
+            )
+        );
+    }
+
     // urlFragment......................................................................................................
 
     @Test

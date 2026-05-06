@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
+import walkingkooka.tree.text.VerticalAlign;
 
 import java.util.Optional;
 
@@ -100,6 +101,24 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
                 SELECTION,
                 STYLE_PROPERTY_NAME,
                 value
+            )
+        );
+    }
+
+    // setStylePropertyName.............................................................................................
+
+    @Test
+    public final void testSetStylePropertyNameWithDifferent() {
+        final TextStylePropertyName<VerticalAlign> textStylePropertyName = TextStylePropertyName.VERTICAL_ALIGN;
+
+        this.setStylePropertyNameAndCheck(
+            this.createHistoryToken(),
+            textStylePropertyName,
+            HistoryToken.cellStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SELECTION,
+                Optional.of(textStylePropertyName)
             )
         );
     }
