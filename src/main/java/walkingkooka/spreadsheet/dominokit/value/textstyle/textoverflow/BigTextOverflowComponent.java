@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -59,23 +60,17 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
                                      final BigTextOverflowComponentContext context) {
         super();
 
-        final String width = "calc(33% - 5px)";
-
         this.clip = HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "clip" + SpreadsheetElementIds.LINK)
-            .setTextContent("Clip")
-            .setCssProperty("margin", "")
-            .setCssProperty("width", width);
+            .setTextContent("Clip");
 
         this.ellipsis = HistoryTokenAnchorComponent.empty()
             .setId(idPrefix + "ellipsis" + SpreadsheetElementIds.LINK)
-            .setTextContent("Ellipsis")
-            .setCssProperty("margin", "")
-            .setCssProperty("width", width);
+            .setTextContent("Ellipsis");
 
         this.text = TextBoxComponent.empty()
             .setId(idPrefix + "text" + SpreadsheetElementIds.TEXT_BOX)
-            .setCssProperty("width", width)
+            .clearIcon()
             .optional()
             .addValueWatcher2(
                 (final Optional<String> value) -> this.setValue(
@@ -89,11 +84,13 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
             .setLabel("Value");
 
         this.formElementComponent = FormElementComponent.with(
-            FlexLayoutComponent.row()
-                .appendChild(this.clip)
-                .appendChild(this.ellipsis)
+            FlexLayoutComponent.column()
                 .appendChild(this.text)
-                .appendChild(this.textOverflow)
+                .appendChild(
+                    AnchorListComponent.empty()
+                        .appendChild(this.clip)
+                        .appendChild(this.ellipsis)
+                ).appendChild(this.textOverflow)
                 .setCssProperty("justify-content", "space-between")
         );
 
