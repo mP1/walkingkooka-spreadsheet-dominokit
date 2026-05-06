@@ -25,12 +25,17 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Selects one of the available style toolbar links.
+ * Selects a {@link walkingkooka.tree.text.TextStyleProperty} for editing within a {@link walkingkooka.spreadsheet.dominokit.value.textstyle.TextStyleDialogComponent}.
  * <pre>
+ * /123/SpreadsheetName456/cell/A1/style/
+ * /123/SpreadsheetName456/cell/A1/style/STAR
+ * /123/SpreadsheetName456/cell/A1/style/STAR/filter/FILTER
  * /123/SpreadsheetName456/cell/A1/style/color
+ * /123/SpreadsheetName456/cell/A1/style/color/filter/FILTER
  * </pre>
  */
 final public class SpreadsheetCellStyleSelectHistoryToken<T> extends SpreadsheetCellStyleHistoryToken<T> {
@@ -38,31 +43,66 @@ final public class SpreadsheetCellStyleSelectHistoryToken<T> extends Spreadsheet
     static <T> SpreadsheetCellStyleSelectHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                               final SpreadsheetName spreadsheetName,
                                                               final AnchoredSpreadsheetSelection anchoredSelection,
-                                                              final Optional<TextStylePropertyName<T>> propertyName) {
+                                                              final Optional<TextStylePropertyName<T>> propertyName,
+                                                              final Optional<String> filter) {
         return new SpreadsheetCellStyleSelectHistoryToken<>(
             spreadsheetId,
             spreadsheetName,
             anchoredSelection,
-            propertyName
+            propertyName,
+            filter
         );
     }
 
     private SpreadsheetCellStyleSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,
                                                    final AnchoredSpreadsheetSelection anchoredSelection,
-                                                   final Optional<TextStylePropertyName<T>> propertyName) {
+                                                   final Optional<TextStylePropertyName<T>> propertyName,
+                                                   final Optional<String> filter) {
         super(
             spreadsheetId,
             spreadsheetName,
             anchoredSelection,
             propertyName
         );
+
+        this.filter = Objects.requireNonNull(filter, "filter");
     }
 
+    final Optional<String> filter;
+
+    // /1/SpreadsheetName/cell/A1/style/
+    // /1/SpreadsheetName/cell/A1/style/*/
+    // /1/SpreadsheetName/cell/A1/style/*/filter/FILTER
+    // /1/SpreadsheetName/cell/A1/style/color/
+    // /1/SpreadsheetName/cell/A1/style/color/filter/FILTER
     @Override
     UrlFragment styleUrlFragment() {
-        return SELECT;
+        final UrlFragment urlFragment;
+
+        final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName.orElse(null);
+
+        final String filter = this.filter.orElse("")
+            .trim();
+        if (filter.isEmpty()) {
+            urlFragment = null != stylePropertyNameOrNull ?
+                stylePropertyNameOrNull.urlFragment() :
+                UrlFragment.EMPTY;
+        } else {
+            urlFragment = (
+                null != stylePropertyNameOrNull ?
+                    stylePropertyNameOrNull.urlFragment() :
+                    TextStylePropertyName.ALL.urlFragment()
+            )
+                .appendSlashThen(FILTER)
+                .appendSlashThen(
+                    UrlFragment.with(filter)
+                );
+        }
+
+        return urlFragment;
     }
+
 
     @Override //
     HistoryToken replaceSpreadsheetIdSpreadsheetNameAnchoredSelection(final SpreadsheetId spreadsheetId,

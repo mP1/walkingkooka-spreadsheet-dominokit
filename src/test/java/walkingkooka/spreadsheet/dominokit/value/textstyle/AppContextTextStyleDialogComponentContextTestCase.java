@@ -17,8 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import java.util.Optional;
+
 abstract class AppContextTextStyleDialogComponentContextTestCase<C extends AppContextTextStyleDialogComponentContext>
     implements TextStyleDialogComponentContextTesting<C> {
+
+    final static Optional<String> NO_FILTER = Optional.empty();
 
     AppContextTextStyleDialogComponentContextTestCase() {
         super();

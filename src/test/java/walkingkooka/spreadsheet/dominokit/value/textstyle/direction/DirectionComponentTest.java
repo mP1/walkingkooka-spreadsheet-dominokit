@@ -54,7 +54,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }
@@ -97,7 +98,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }
@@ -149,7 +151,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

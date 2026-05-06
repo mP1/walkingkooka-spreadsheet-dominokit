@@ -30,7 +30,63 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetCellStyleSelectHistoryTokenTest extends SpreadsheetCellStyleHistoryTokenTestCase<SpreadsheetCellStyleSelectHistoryToken<Color>> {
+
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
+    private final static Optional<String> FILTER = Optional.of(
+        "Filter 123"
+    );
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullFilter() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetCellStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                SELECTION,
+                Optional.of(STYLE_PROPERTY_NAME),
+                null
+            )
+        );
+    }
+
+    // filter...........................................................................................................
+
+    @Test
+    public void testFilter() {
+        this.filterAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    // setFilter........................................................................................................
+
+    @Test
+    public void testSetFilterWithSameNonEmptyFilter() {
+        final String filter = "Filter 123";
+
+        this.setFilterAndCheck(
+            this.createHistoryToken(filter),
+            filter
+        );
+    }
+
+    @Test
+    public void testSetFilterWithDifferentFilter() {
+        final String filter = "Different Filter 222";
+
+        this.setFilterAndCheck(
+            this.createHistoryToken("Filter 111"),
+            filter,
+            this.createHistoryToken(filter)
+        );
+    }
 
     // setSaveStringValue...............................................................................................
 
@@ -43,7 +99,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.of(propertyName)
+            Optional.of(propertyName),
+            NO_FILTER
         );
 
         this.setSaveStringValueAndCheck(
@@ -68,7 +125,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.of(propertyName)
+            Optional.of(propertyName),
+            NO_FILTER
         );
 
         this.setSaveStringValueAndCheck(
@@ -94,7 +152,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.empty()
+            Optional.empty(),
+            NO_FILTER
         );
 
         this.setSaveStringValueAndCheck(
@@ -122,7 +181,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.of(propertyName)
+            Optional.of(propertyName),
+            NO_FILTER
         );
 
         this.setSaveValueAndCheck(
@@ -149,7 +209,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.of(propertyName)
+            Optional.of(propertyName),
+            NO_FILTER
         );
 
         this.setSaveValueAndCheck(
@@ -175,7 +236,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             selection,
-            Optional.empty()
+            Optional.empty(),
+            NO_FILTER
         );
 
         this.setSaveValueAndCheck(
@@ -200,9 +262,24 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             "/123/SpreadsheetName456/cell/A1/style"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentCellWithoutTextStylePropertyNameAndFilter() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.empty(),
+                FILTER
+            ),
+            "/123/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
         );
     }
 
@@ -213,7 +290,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(TextStylePropertyName.ALL)
+                Optional.of(TextStylePropertyName.ALL),
+                NO_FILTER
             ),
             "/123/SpreadsheetName456/cell/A1/style/*"
         );
@@ -222,6 +300,13 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color");
+    }
+
+    @Test
+    public void testUrlFragmentCellAndFilter() {
+        this.urlFragmentAndCheck(
+            this.createHistoryToken(FILTER),
+            "/123/SpreadsheetName456/cell/A1/style/color/filter/Filter%20123");
     }
 
     @Test
@@ -241,6 +326,20 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     }
 
     @Test
+    public void testUrlFragmentCellRangeAndFilter() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
+                Optional.of(STYLE_PROPERTY_NAME),
+                FILTER
+            ),
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/filter/Filter%20123"
+        );
+    }
+
+    @Test
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
@@ -255,7 +354,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(propertyName)
+                Optional.of(propertyName),
+                NO_FILTER
             );
             this.urlFragmentAndCheck(
                 token,
@@ -270,11 +370,27 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            Optional.of(TextStylePropertyName.ALL)
+            Optional.of(TextStylePropertyName.ALL),
+            NO_FILTER
         );
         this.urlFragmentAndCheck(
             token,
-            "/123/SpreadsheetName456/cell/A1/style/*"
+            token.urlFragment()
+        );
+    }
+
+    @Test
+    public void testUrlFragmentAllAndFilter() {
+        final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            CELL.setDefaultAnchor(),
+            Optional.of(TextStylePropertyName.ALL),
+            FILTER
+        );
+        this.urlFragmentAndCheck(
+            token,
+            "/123/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
         );
     }
 
@@ -285,7 +401,25 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(propertyName)
+                Optional.of(propertyName),
+                NO_FILTER
+            );
+            this.parseAndCheck(
+                token.urlFragment(),
+                token
+            );
+        }
+    }
+
+    @Test
+    public void testParseUntilEmptyTextStylePropertyNamesWithFilter() {
+        for (final TextStylePropertyName<?> propertyName : TextStylePropertyName.VALUES) {
+            final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                CELL.setDefaultAnchor(),
+                Optional.of(propertyName),
+                FILTER
             );
             this.parseAndCheck(
                 token.urlFragment(),
@@ -300,7 +434,23 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             SPREADSHEET_ID,
             SPREADSHEET_NAME,
             CELL.setDefaultAnchor(),
-            Optional.of(TextStylePropertyName.ALL)
+            Optional.of(TextStylePropertyName.ALL),
+            NO_FILTER
+        );
+        this.parseAndCheck(
+            token.urlFragment(),
+            token
+        );
+    }
+
+    @Test
+    public void testParseAllWildcardAndFilter() {
+        final SpreadsheetCellStyleSelectHistoryToken<?> token = SpreadsheetCellStyleSelectHistoryToken.with(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            CELL.setDefaultAnchor(),
+            Optional.of(TextStylePropertyName.ALL),
+            FILTER
         );
         this.parseAndCheck(
             token.urlFragment(),
@@ -315,6 +465,22 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         this.clearActionAndCheck();
     }
 
+    private SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final String filter) {
+        return this.createHistoryToken(
+            Optional.of(filter)
+        );
+    }
+
+    private SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final Optional<String> filter) {
+        return SpreadsheetCellStyleSelectHistoryToken.with(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            SELECTION,
+            Optional.of(STYLE_PROPERTY_NAME),
+            filter
+        );
+    }
+
     @Override
     SpreadsheetCellStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                      final SpreadsheetName name,
@@ -324,7 +490,8 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             id,
             name,
             selection,
-            Optional.of(STYLE_PROPERTY_NAME)
+            Optional.of(STYLE_PROPERTY_NAME),
+            NO_FILTER
         );
     }
 

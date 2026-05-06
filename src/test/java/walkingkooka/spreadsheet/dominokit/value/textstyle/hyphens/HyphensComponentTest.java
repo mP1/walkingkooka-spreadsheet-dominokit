@@ -110,7 +110,8 @@ public final class HyphensComponentTest implements TextStylePropertyEnumComponen
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.HYPHENS
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

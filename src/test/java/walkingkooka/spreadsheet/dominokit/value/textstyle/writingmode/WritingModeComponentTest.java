@@ -110,7 +110,8 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WRITING_MODE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

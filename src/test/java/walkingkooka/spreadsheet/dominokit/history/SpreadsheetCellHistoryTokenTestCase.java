@@ -497,7 +497,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(stylePropertyName)
+                Optional.of(stylePropertyName),
+                NO_FILTER
             )
         );
     }
@@ -513,7 +514,8 @@ public abstract class SpreadsheetCellHistoryTokenTestCase<T extends SpreadsheetC
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(stylePropertyName)
+                Optional.of(stylePropertyName),
+                NO_FILTER
             )
         );
     }

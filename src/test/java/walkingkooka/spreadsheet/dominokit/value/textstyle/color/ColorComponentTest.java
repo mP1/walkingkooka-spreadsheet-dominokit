@@ -482,7 +482,8 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
                             SpreadsheetId.with(1),
                             SpreadsheetName.with("SpreadsheetName1"),
                             SpreadsheetSelection.A1.setDefaultAnchor(),
-                            Optional.of(TextStylePropertyName.COLOR)
+                            Optional.of(TextStylePropertyName.COLOR),
+                            Optional.empty() // filter
                         );
                     }
 

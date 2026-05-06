@@ -119,7 +119,8 @@ public final class BorderBottomStyleComponentTest extends BorderStyleSharedCompo
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.BORDER_BOTTOM_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -56,7 +56,8 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             false
         );
@@ -71,7 +72,8 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
                 SPREADSHEET_NAME,
                 Optional.of(
                     TextStylePropertyName.TEXT_ALIGN
-                )
+                ),
+                NO_FILTER
             ),
             false
         );
@@ -85,7 +87,8 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             true
         );
@@ -101,7 +104,8 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(
                     TextStylePropertyName.TEXT_ALIGN
-                )
+                ),
+                NO_FILTER
             ),
             true
         );
@@ -116,7 +120,8 @@ public final class AppContextTextStyleDialogComponentContextCellStyleTest extend
                     return HistoryToken.metadataPropertyStyle(
                         AppContextTextStyleDialogComponentContextCellStyleTest.SPREADSHEET_ID,
                         SPREADSHEET_NAME,
-                        Optional.empty()
+                        Optional.empty(),
+                        NO_FILTER
                     );
                 }
             }

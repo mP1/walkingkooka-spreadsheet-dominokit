@@ -114,7 +114,8 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WHITE_SPACE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

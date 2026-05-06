@@ -28,7 +28,62 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extends SpreadsheetMetadataPropertyStyleHistoryTokenTestCase<SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color>, Color> {
+
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
+    private final static Optional<String> FILTER = Optional.of(
+        "Filter 123"
+    );
+
+    // with.............................................................................................................
+
+    @Test
+    public void testWithNullFilter() {
+        assertThrows(
+            NullPointerException.class,
+            () -> SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(STYLE_PROPERTY_NAME),
+                null
+            )
+        );
+    }
+
+    // filter...........................................................................................................
+
+    @Test
+    public void testFilter() {
+        this.filterAndCheck(
+            this.createHistoryToken()
+        );
+    }
+
+    // setFilter........................................................................................................
+
+    @Test
+    public void testSetFilterWithSameNonEmptyFilter() {
+        final String filter = "Filter 123";
+
+        this.setFilterAndCheck(
+            this.createHistoryToken(filter),
+            filter
+        );
+    }
+
+    @Test
+    public void testSetFilterWithDifferentFilter() {
+        final String filter = "Different Filter 222";
+
+        this.setFilterAndCheck(
+            this.createHistoryToken("Filter 111"),
+            filter,
+            this.createHistoryToken(filter)
+        );
+    }
 
     // setSaveStringValue...............................................................................................
 
@@ -74,7 +129,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                FILTER
             ),
             value.text(),
             HistoryToken.metadataPropertyStyleSave(
@@ -98,7 +154,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                FILTER
             ),
             value,
             HistoryToken.metadataPropertyStyleSave(
@@ -174,7 +231,29 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(textStylePropertyName)
+                Optional.of(textStylePropertyName),
+                NO_FILTER
+            )
+        );
+    }
+
+    @Test
+    public void testSetStylePropertyNameDifferentWithFilter() {
+        final TextStylePropertyName<Color> textStylePropertyName = TextStylePropertyName.BACKGROUND_COLOR;
+
+        this.setStylePropertyNameAndCheck(
+            HistoryToken.metadataPropertyStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(STYLE_PROPERTY_NAME),
+                FILTER
+            ),
+            textStylePropertyName,
+            HistoryToken.metadataPropertyStyle(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(textStylePropertyName),
+                FILTER
             )
         );
     }
@@ -187,9 +266,23 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             "/123/SpreadsheetName456/spreadsheet/style"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithoutTextStylePropertyNameAndFilter() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.empty(),
+                FILTER
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/*/filter/Filter%20123"
         );
     }
 
@@ -204,9 +297,23 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TextStylePropertyName.FONT_FAMILY)
+                Optional.of(TextStylePropertyName.FONT_FAMILY),
+                NO_FILTER
             ),
             "/123/SpreadsheetName456/spreadsheet/style/font-family"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentFontFamilyAndFilter() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(TextStylePropertyName.FONT_FAMILY),
+                FILTER
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123"
         );
     }
 
@@ -216,9 +323,23 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TextStylePropertyName.FONT_STYLE)
+                Optional.of(TextStylePropertyName.FONT_STYLE),
+                NO_FILTER
             ),
             "/123/SpreadsheetName456/spreadsheet/style/font-style"
+        );
+    }
+
+    @Test
+    public void testUrlFragmentFontStyleAndFilter() {
+        this.urlFragmentAndCheck(
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(TextStylePropertyName.FONT_STYLE),
+                FILTER
+            ),
+            "/123/SpreadsheetName456/spreadsheet/style/font-style/filter/Filter%20123"
         );
     }
 
@@ -229,7 +350,34 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TextStylePropertyName.BACKGROUND_COLOR)
+                Optional.of(TextStylePropertyName.BACKGROUND_COLOR),
+                NO_FILTER
+            )
+        );
+    }
+
+    @Test
+    public void testParseBackgroundColorFilterEmptyText() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/style/background-color/filter",
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(TextStylePropertyName.BACKGROUND_COLOR),
+                NO_FILTER
+            )
+        );
+    }
+
+    @Test
+    public void testParseBackgroundColorFilter() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/style/background-color/filter/Filter%20123",
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(TextStylePropertyName.BACKGROUND_COLOR),
+                FILTER
             )
         );
     }
@@ -241,7 +389,21 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TextStylePropertyName.FONT_FAMILY)
+                Optional.of(TextStylePropertyName.FONT_FAMILY),
+                NO_FILTER
+            )
+        );
+    }
+
+    @Test
+    public void testParseFontFamilyWithFilter() {
+        this.parseAndCheck(
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123",
+            SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
+                Optional.of(TextStylePropertyName.FONT_FAMILY),
+                FILTER
             )
         );
     }
@@ -264,6 +426,21 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         this.clearActionAndCheck();
     }
 
+    private SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryToken(final String filter) {
+        return this.createHistoryToken(
+            Optional.of(filter)
+        );
+    }
+
+    private SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryToken(final Optional<String> filter) {
+        return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
+            SPREADSHEET_ID,
+            SPREADSHEET_NAME,
+            Optional.of(STYLE_PROPERTY_NAME),
+            filter
+        );
+    }
+
     @Override
     SpreadsheetMetadataPropertyStyleSelectHistoryToken<Color> createHistoryToken(final SpreadsheetId id,
                                                                                  final SpreadsheetName name,
@@ -271,7 +448,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
             id,
             name,
-            Optional.of(STYLE_PROPERTY_NAME)
+            Optional.of(STYLE_PROPERTY_NAME),
+            NO_FILTER
         );
     }
 

@@ -280,7 +280,8 @@ public final class BackgroundColorComponentTest implements TextStylePropertyColo
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     Optional.of(
                         TextStylePropertyName.BACKGROUND_COLOR
-                    )
+                    ),
+                    NO_FILTER
                 )
             )
         );

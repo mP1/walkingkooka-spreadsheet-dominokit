@@ -115,7 +115,8 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.OUTLINE_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

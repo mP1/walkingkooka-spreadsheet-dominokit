@@ -108,7 +108,8 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WORD_WRAP
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

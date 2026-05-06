@@ -110,7 +110,8 @@ public final class FontKerningComponentTest implements TextStylePropertyEnumComp
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_KERNING
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -63,6 +63,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
     private final static TextStyle VALUE_TEXT_STYLE = TextStyle.parse("background-color: BLACK; color: BLACK; direction: LTR; font-family: Courier; font-kerning: AUTO; font-stretch: NORMAL; font-size: 99; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-top: 1px; margin-right: 2px; margin-bottom: 3px; margin-left: 4px; opacity: 50%; overflow-x: VISIBLE; overflow-y: HIDDEN; overflow-wrap: BREAK_WORD; padding-top: 1px; padding-right: 2px; padding-bottom: 3px; padding-left: 4px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;");
 
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
     // setStringValue...................................................................................................
 
     @Test
@@ -74,7 +76,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 cell.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.empty() // no textStyle
         );
@@ -983,7 +986,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 cell.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.empty() // no textStyle
         );
@@ -1866,7 +1870,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 cell.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.empty() // no textStyle
         );
@@ -2729,7 +2734,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 cell.setDefaultAnchor(),
                 Optional.of(
                     TextStylePropertyName.COLOR
-                )
+                ),
+                NO_FILTER
             ),
             Optional.empty() // no textStyle
         );
@@ -3589,7 +3595,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.of(UNDO_TEXT_STYLE)
         );
@@ -4450,7 +4457,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.of(UNDO_TEXT_STYLE)
         );
@@ -4487,7 +4495,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             )
         );
 
@@ -5325,7 +5334,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 cell.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             Optional.empty() // no textStyle
         );

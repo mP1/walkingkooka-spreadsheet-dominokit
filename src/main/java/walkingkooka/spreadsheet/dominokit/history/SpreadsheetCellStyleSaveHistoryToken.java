@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -77,11 +78,25 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     private final Optional<T> stylePropertyValue;
 
+//    @Override
+//    UrlFragment styleUrlFragment() {
+//        return saveUrlFragment(
+//            this.value()
+//        );
+//    }
+
+    // /1/SpreadsheetName/cell/A1/style/*/save/
+    // /1/SpreadsheetName/cell/A1/style/*/save/VALUE
     @Override
     UrlFragment styleUrlFragment() {
-        return saveUrlFragment(
-            this.value()
-        );
+        return this.stylePropertyName.orElse(
+                Cast.to(TextStylePropertyName.ALL)
+            ).urlFragment()
+            .appendSlashThen(
+                saveUrlFragment(
+                    this.value()
+                )
+            );
     }
 
     @Override //

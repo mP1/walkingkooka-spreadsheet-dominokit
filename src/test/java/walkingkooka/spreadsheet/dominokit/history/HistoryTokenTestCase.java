@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
+import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.form.FormName;
@@ -64,6 +65,8 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(0x123);
 
     final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName456");
+
+    final static Optional<String> NO_FILTER = Optional.empty();
 
     HistoryTokenTestCase() {
         super();
@@ -302,6 +305,116 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             token.field(),
             () -> token + " field"
         );
+    }
+
+    // filter...........................................................................................................
+
+    final void filterAndCheck(final HistoryToken token) {
+        this.filterAndCheck(
+            token,
+            Optional.empty()
+        );
+    }
+
+    final void filterAndCheck(final HistoryToken token,
+                              final String expected) {
+        this.filterAndCheck(
+            token,
+            Optional.of(expected)
+        );
+    }
+
+    final void filterAndCheck(final HistoryToken token,
+                              final Optional<String> expected) {
+        this.checkEquals(
+            expected,
+            token.filter(),
+            token.urlFragment()::toString
+        );
+    }
+
+    // setFilter........................................................................................................
+
+    @Test
+    public final void testSetFilterWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> this.createHistoryToken()
+                .setFilter(null)
+        );
+    }
+
+    @Test
+    public final void testSetFilterWithSame() {
+        final HistoryToken token = this.createHistoryToken();
+
+        this.setFilterAndCheck(
+            token,
+            token.filter(),
+            token
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token) {
+        this.setFilterAndCheck(
+            token,
+            token
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final HistoryToken expected) {
+        this.setFilterAndCheck(
+            token,
+            Optional.empty(),
+            expected
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final String filter) {
+        this.setFilterAndCheck(
+            token,
+            Optional.of(filter),
+            token
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final String filter,
+                                 final HistoryToken expected) {
+        this.setFilterAndCheck(
+            token,
+            Optional.of(filter),
+            expected
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final Optional<String> filter) {
+        this.setFilterAndCheck(
+            token,
+            filter,
+            token
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final Optional<String> filter,
+                                 final HistoryToken expected) {
+        if (expected.equals(token)) {
+            assertSame(
+                token.setFilter(filter),
+                token
+            );
+        } else {
+            this.checkEquals(
+                expected,
+                token.setFilter(filter),
+                () -> token + " setFilter " + filter.map(CharSequences::quoteAndEscape)
+                    .orElse("")
+            );
+        }
     }
 
     // formName.........................................................................................................

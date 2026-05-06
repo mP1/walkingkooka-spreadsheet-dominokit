@@ -112,7 +112,8 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WORD_BREAK
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -110,7 +110,8 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.OVERFLOW_WRAP
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

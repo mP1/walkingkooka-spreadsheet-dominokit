@@ -81,7 +81,8 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.BORDER_TOP_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }
@@ -139,7 +140,8 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.BORDER_TOP_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

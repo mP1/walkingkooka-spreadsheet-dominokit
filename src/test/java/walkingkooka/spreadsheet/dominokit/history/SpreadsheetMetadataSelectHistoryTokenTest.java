@@ -49,7 +49,8 @@ public final class SpreadsheetMetadataSelectHistoryTokenTest extends Spreadsheet
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             )
         );
     }
