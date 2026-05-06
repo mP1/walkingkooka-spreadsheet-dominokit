@@ -111,8 +111,10 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
         );
     }
 
+    // setStyleProperty.................................................................................................
+
     @Test
-    public void testSetStylePropertyName() {
+    public void testSetStyleProperty() {
         this.setStylePropertyAndCheck(
             this.createHistoryToken(),
             TextStylePropertyName.COLOR.setValue(Color.BLACK)
