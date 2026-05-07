@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import elemental2.dom.HTMLElement;
 import org.dominokit.domino.ui.utils.HasChangeListeners.ChangeListener;
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -30,7 +30,7 @@ import java.util.function.Consumer;
  */
 public interface ValueComponent<E extends HTMLElement, V, C extends ValueComponent<E, V, C>>
     extends ValueComponentLike<E, C>,
-    Value<Optional<V>> {
+    HasValue<Optional<V>> {
 
     C setValue(final Optional<V> value);
 

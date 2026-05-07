@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -33,7 +33,7 @@ import java.util.Objects;
  * /rename/123/save/new-spreadsheet-name-here
  * </pre>
  */
-public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements Value<SpreadsheetName>,
+public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements HasValue<SpreadsheetName>,
     HistoryTokenWatcher {
 
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId spreadsheetId,

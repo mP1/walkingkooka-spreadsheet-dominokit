@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -27,7 +27,7 @@ import walkingkooka.validation.ValueType;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements Value<Optional<ValueType>> {
+public final class SpreadsheetCellValueTypeSaveHistoryToken extends SpreadsheetCellValueTypeHistoryToken implements HasValue<Optional<ValueType>> {
 
     static SpreadsheetCellValueTypeSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,

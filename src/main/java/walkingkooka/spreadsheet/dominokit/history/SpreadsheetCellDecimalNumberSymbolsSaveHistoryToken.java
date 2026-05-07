@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends SpreadsheetCellDecimalNumberSymbolsHistoryToken implements Value<Optional<DecimalNumberSymbols>> {
+public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken extends SpreadsheetCellDecimalNumberSymbolsHistoryToken implements HasValue<Optional<DecimalNumberSymbols>> {
 
     static SpreadsheetCellDecimalNumberSymbolsSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                                     final SpreadsheetName spreadsheetName,

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -35,7 +35,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  * </pre>
  */
 public final class SpreadsheetRowSortSaveHistoryToken extends SpreadsheetRowSortHistoryToken
-    implements Value<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
+    implements HasValue<SpreadsheetColumnOrRowSpreadsheetComparatorNamesList> {
 
     static SpreadsheetRowSortSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                    final SpreadsheetName spreadsheetName,

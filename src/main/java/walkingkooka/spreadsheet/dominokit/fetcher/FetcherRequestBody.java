@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 
 /**
  * Holds a fetcher request body, such as a {@link String} or {@link elemental2.dom.Blob}.
  */
-public abstract class FetcherRequestBody<T> implements Value<T> {
+public abstract class FetcherRequestBody<T> implements HasValue<T> {
 
     /**
      * {@see FetcherRequestBodyFile}

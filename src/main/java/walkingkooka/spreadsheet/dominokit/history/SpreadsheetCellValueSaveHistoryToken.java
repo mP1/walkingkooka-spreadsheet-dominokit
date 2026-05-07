@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueDialogComponent;
@@ -35,7 +35,7 @@ import java.util.Optional;
  * A {@link HistoryToken} that contains a {@link SpreadsheetFormula#value()} encoded as JSON.
  * The {@link ValueType} will contain the value type.
  */
-public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellValueHistoryToken implements Value<Optional<?>> {
+public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellValueHistoryToken implements HasValue<Optional<?>> {
 
     static SpreadsheetCellValueSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                      final SpreadsheetName spreadsheetName,

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -37,7 +37,7 @@ import java.util.Optional;
  * </pre>
  */
 public final class SpreadsheetFormSaveHistoryToken extends SpreadsheetFormHistoryToken
-    implements Value<Form<SpreadsheetValidationReference>> {
+    implements HasValue<Form<SpreadsheetValidationReference>> {
 
     static SpreadsheetFormSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                 final SpreadsheetName spreadsheetName,

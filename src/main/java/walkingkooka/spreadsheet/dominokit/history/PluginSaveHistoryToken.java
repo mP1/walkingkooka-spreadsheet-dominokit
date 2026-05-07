@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.plugin.PluginName;
 
@@ -26,7 +26,7 @@ import java.util.Objects;
 /**
  * Represents an action to prompt the user to upload a plugin.
  */
-public final class PluginSaveHistoryToken extends PluginNameHistoryToken implements Value<String> {
+public final class PluginSaveHistoryToken extends PluginNameHistoryToken implements HasValue<String> {
 
     static PluginSaveHistoryToken with(final PluginName name,
                                        final String value) {

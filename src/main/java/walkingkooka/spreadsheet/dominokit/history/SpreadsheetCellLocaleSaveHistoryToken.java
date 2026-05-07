@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import java.util.Locale;
 import java.util.Optional;
 
-public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCellLocaleHistoryToken implements Value<Optional<Locale>> {
+public final class SpreadsheetCellLocaleSaveHistoryToken extends SpreadsheetCellLocaleHistoryToken implements HasValue<Optional<Locale>> {
 
     static SpreadsheetCellLocaleSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName spreadsheetName,
