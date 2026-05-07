@@ -52,15 +52,21 @@ public class MissingConverterSetComponentTest implements ValueComponentTesting<H
                 "    MissingConverter\n" +
                 "      alpha\n" +
                 "        MissingConverterValue\n" +
-                "          123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
+                "          value\n" +
+                "            123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
+                "          type\n" +
                 "            number\n" +
                 "        MissingConverterValue\n" +
-                "          \"HelloWorldText\"\n" +
+                "          value\n" +
+                "            \"HelloWorldText\"\n" +
+                "          type\n" +
                 "            number\n" +
                 "    MissingConverter\n" +
                 "      beta\n" +
                 "        MissingConverterValue\n" +
-                "          1999-12-31 (java.time.LocalDate)\n" +
+                "          value\n" +
+                "            1999-12-31 (java.time.LocalDate)\n" +
+                "          type\n" +
                 "            date\n"
         );
     }
