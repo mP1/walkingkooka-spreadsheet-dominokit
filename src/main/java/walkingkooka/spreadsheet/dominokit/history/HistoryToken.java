@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyCodeLanguageTagContext;
 import walkingkooka.currency.CurrencyLocaleContext;
@@ -4296,8 +4296,8 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final <T> Optional<T> saveValue() {
         T value = null;
 
-        if (this instanceof Value) {
-            final Value<T> hasValue = Cast.to(this);
+        if (this instanceof HasValue) {
+            final HasValue<T> hasValue = Cast.to(this);
             value = hasValue.value();
         }
 

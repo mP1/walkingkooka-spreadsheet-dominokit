@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -27,7 +27,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
 
-public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetCellValidatorHistoryToken implements Value<Optional<ValidatorSelector>> {
+public final class SpreadsheetCellValidatorSaveHistoryToken extends SpreadsheetCellValidatorHistoryToken implements HasValue<Optional<ValidatorSelector>> {
 
     static SpreadsheetCellValidatorSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                          final SpreadsheetName spreadsheetName,

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.currency;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.HasCurrency;
 import walkingkooka.text.CharSequences;
@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 public final class CurrencyComponentSuggestionsValue<T> implements HasCurrency,
     HasText,
-    Value<T>,
+    HasValue<T>,
     Comparable<CurrencyComponentSuggestionsValue<T>> {
 
     static <T> CurrencyComponentSuggestionsValue<T> with(final Currency currency,

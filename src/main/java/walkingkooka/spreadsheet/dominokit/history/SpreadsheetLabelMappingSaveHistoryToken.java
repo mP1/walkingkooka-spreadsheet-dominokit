@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -36,7 +36,7 @@ import java.util.Objects;
  * </pre>
  */
 public final class SpreadsheetLabelMappingSaveHistoryToken extends SpreadsheetLabelMappingHistoryToken
-    implements Value<SpreadsheetLabelName> {
+    implements HasValue<SpreadsheetLabelName> {
 
     static SpreadsheetLabelMappingSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                         final SpreadsheetName spreadsheetName,

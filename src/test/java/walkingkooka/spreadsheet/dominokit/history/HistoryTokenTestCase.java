@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.HasValue;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
-import walkingkooka.Value;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.collect.set.SortedSets;
@@ -1014,21 +1014,21 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     // value............................................................................................................
 
     @Test
-    public final void testClassXXXSaveHistoryTokenImplementsValue() {
+    public final void testClassXXXSaveHistoryTokenImplementsHasValue() {
         final Class<T> type = this.type();
         if (type.getSimpleName().contains("Save")) {
             this.checkEquals(
                 true,
-                Value.class.isAssignableFrom(type),
-                () -> type.getName() + " should implement " + Value.class.getName()
+                HasValue.class.isAssignableFrom(type),
+                () -> type.getName() + " should implement " + HasValue.class.getName()
             );
         }
     }
 
     @Test
-    public final void testClassImplementValueShouldIncludeSaveInClassName() {
+    public final void testClassImplementHasValueShouldIncludeSaveInClassName() {
         final Class<T> type = this.type();
-        if (type.isAssignableFrom(Value.class)) {
+        if (type.isAssignableFrom(HasValue.class)) {
             this.checkEquals(
                 true,
                 type.getSimpleName().contains("Save"),
@@ -1064,7 +1064,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     public final void testSaveValueEmptyWhenNotImplementingValue() {
         final T token = this.createHistoryToken();
 
-        if (false == (token instanceof Value)) {
+        if (false == (token instanceof HasValue)) {
             this.checkEquals(
                 Optional.empty(),
                 token.saveValue()

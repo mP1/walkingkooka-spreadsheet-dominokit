@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.locale;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -35,7 +35,7 @@ import java.util.Objects;
  */
 public final class LocaleComponentSuggestionsValue<T> implements HasLocale,
     HasText,
-    Value<T>,
+    HasValue<T>,
     Comparable<LocaleComponentSuggestionsValue<T>> {
 
     public static LocaleComponentSuggestionsValue<DateTimeSymbols> fromDateTimeSymbolsHateosResource(final DateTimeSymbolsHateosResource resource) {

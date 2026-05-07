@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.Value;
+import walkingkooka.HasValue;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
  * including formulas, style and more. This will be useful when PASTE functionality is added to the UI, so the user
  * can PASTE formulas, or style over a range of selected cells.
  */
-public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCellHistoryToken implements Value<V> {
+public abstract class SpreadsheetCellSaveHistoryToken<V> extends SpreadsheetCellHistoryToken implements HasValue<V> {
 
     SpreadsheetCellSaveHistoryToken(final SpreadsheetId spreadsheetId,
                                     final SpreadsheetName spreadsheetName,
