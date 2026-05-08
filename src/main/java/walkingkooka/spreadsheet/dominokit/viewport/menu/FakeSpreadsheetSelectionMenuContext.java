@@ -181,9 +181,9 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
     }
 
     @Override
-    public Number exchangeRate(final CurrencyCode from,
-                               final CurrencyCode to,
-                               final Optional<LocalDateTime> dateTime) {
+    public Optional<Number> exchangeRate(final CurrencyCode from,
+                                         final CurrencyCode to,
+                                         final Optional<LocalDateTime> dateTime) {
         throw new UnsupportedOperationException();
     }
 
