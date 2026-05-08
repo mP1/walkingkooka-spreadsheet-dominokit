@@ -15,11 +15,11 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.textstyle;
+package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.color.Color;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 
 public interface TextStylePropertyColorComponentTesting<E extends HTMLElement, C extends TextStylePropertyColorComponentLike<E, C>>
     extends TextStylePropertyComponentTesting<E, Color, C> {
