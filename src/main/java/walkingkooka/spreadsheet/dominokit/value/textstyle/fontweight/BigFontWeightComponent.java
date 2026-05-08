@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -69,7 +70,7 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
             .setTextContent("Normal")
             .setCssProperty("margin", "");
 
-        // TestPrefix123-text-TextBox
+        // TestPrefix123-fontWeight-TextBox
         this.fontWeight = FontWeightComponent.with(idPrefix)
             .setLabel("Text")
             .setId(
@@ -79,11 +80,13 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
             );
 
         this.formElementComponent = FormElementComponent.with(
-            FlexLayoutComponent.row()
-                .setCssText("display: flex; flex-direction: row; gap: 5px;")
-                .appendChild(this.bold)
-                .appendChild(this.normal)
+            FlexLayoutComponent.column()
                 .appendChild(this.fontWeight)
+                .appendChild(
+                    AnchorListComponent.empty()
+                        .appendChild(this.bold)
+                        .appendChild(this.normal)
+                ).setCssProperty("justify-content", "space-between")
         );
 
         this.context = context;

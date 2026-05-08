@@ -42,15 +42,18 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Text [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
                 "              Errors\n" +
-                "                Empty \"text\"\n"
+                "                Empty \"text\"\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -62,13 +65,16 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Text [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox\n"
+                "              Text [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -80,15 +86,18 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Text [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
                 "              Errors\n" +
-                "                Empty \"text\"\n"
+                "                Empty \"text\"\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -104,13 +113,16 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Text [BOLD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n"
+                "              Text [BOLD] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -126,13 +138,16 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Text [NORMAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n"
+                "              Text [NORMAL] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -148,13 +163,16 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Text [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n"
+                "              Text [123] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -172,15 +190,18 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
             "BigFontWeightComponent\n" +
                 "  FormElementComponent\n" +
                 "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n" +
+                "      COLUMN\n" +
                 "        FontWeightComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
                 "              Text [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-text-TextBox REQUIRED\n" +
                 "              Errors\n" +
-                "                Invalid character '!' at 0\n"
+                "                Invalid character '!' at 0\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
