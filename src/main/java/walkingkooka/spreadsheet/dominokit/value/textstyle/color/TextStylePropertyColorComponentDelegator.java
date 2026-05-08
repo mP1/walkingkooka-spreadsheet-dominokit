@@ -22,7 +22,6 @@ import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListener;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyColorComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 
 import java.util.Set;
