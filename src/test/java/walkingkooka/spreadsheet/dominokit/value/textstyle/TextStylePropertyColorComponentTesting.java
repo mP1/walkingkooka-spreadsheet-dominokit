@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.color.Color;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponentLike;
 
 public interface TextStylePropertyColorComponentTesting<E extends HTMLElement, C extends TextStylePropertyColorComponentLike<E, C>>
     extends TextStylePropertyComponentTesting<E, Color, C> {
