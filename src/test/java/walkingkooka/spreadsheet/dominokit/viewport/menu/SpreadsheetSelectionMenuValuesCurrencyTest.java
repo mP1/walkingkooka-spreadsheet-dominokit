@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.viewport.menu;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -169,9 +170,10 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             }
 
             @Override
-            public Optional<String> currencyText(final Currency currency) {
+            public Optional<String> currencyText(final CurrencyCode currencyCode) {
                 return Optional.of(
-                    currency.getDisplayName()
+                    Currency.getInstance(currencyCode.value())
+                        .getDisplayName()
                 );
             }
 

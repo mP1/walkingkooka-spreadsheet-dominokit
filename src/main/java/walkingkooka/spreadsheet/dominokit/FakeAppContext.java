@@ -522,7 +522,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public Optional<String> currencyText(final Currency currency) {
+    public Optional<String> currencyText(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 

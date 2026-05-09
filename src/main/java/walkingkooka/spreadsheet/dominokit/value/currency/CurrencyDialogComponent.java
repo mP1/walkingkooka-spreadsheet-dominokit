@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import org.dominokit.domino.ui.menu.MenuItem;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
@@ -129,8 +130,9 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
 
                     @Override
                     public Optional<CurrencyComponentSuggestionsValue<Currency>> toValue(final Currency currency) {
-                        return CurrencyDialogComponent.this.context.currencyText(currency)
-                            .map(t -> CurrencyComponentSuggestionsValue.with(
+                        return CurrencyDialogComponent.this.context.currencyText(
+                                CurrencyCode.fromCurrency(currency)
+                            ).map(t -> CurrencyComponentSuggestionsValue.with(
                                     currency,
                                     t,
                                     currency
@@ -166,8 +168,9 @@ public final class CurrencyDialogComponent implements DialogComponentLifecycle,
 
                         if (null != value) {
                             final Currency currency = value.currency();
-                            final String currencyText = CurrencyDialogComponent.this.context.currencyText(currency)
-                                .orElse(null);
+                            final String currencyText = CurrencyDialogComponent.this.context.currencyText(
+                                CurrencyCode.fromCurrency(currency)
+                            ).orElse(null);
                             verified = CurrencyComponentSuggestionsValue.with(
                                 currency,
                                 currencyText,
