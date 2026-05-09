@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
@@ -295,11 +296,11 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
             }
 
             @Override
-            public Set<Currency> availableCurrencies() {
+            public Set<CurrencyCode> availableCurrencies() {
                 return Sets.of(
-                    AUD,
-                    NZD,
-                    EURO
+                    CurrencyCode.fromCurrency(AUD),
+                    CurrencyCode.fromCurrency(NZD),
+                    CurrencyCode.fromCurrency(EURO)
                 );
             }
 
