@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.currency;
 
 import walkingkooka.currency.CurrencyCode;
+import walkingkooka.currency.CurrencyExchange;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
@@ -114,8 +115,7 @@ public class FakeCurrencyDialogComponentContext extends FakeDialogComponentConte
     }
 
     @Override
-    public Optional<Number> exchangeRate(final CurrencyCode from,
-                                         final CurrencyCode to,
+    public Optional<Number> exchangeRate(final CurrencyExchange currencyExchange,
                                          final Optional<LocalDateTime> dateTime) {
         throw new UnsupportedOperationException();
     }

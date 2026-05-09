@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import walkingkooka.currency.CurrencyCode;
+import walkingkooka.currency.CurrencyExchange;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -181,8 +182,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
     }
 
     @Override
-    public Optional<Number> exchangeRate(final CurrencyCode from,
-                                         final CurrencyCode to,
+    public Optional<Number> exchangeRate(final CurrencyExchange currencyExchange,
                                          final Optional<LocalDateTime> dateTime) {
         throw new UnsupportedOperationException();
     }
