@@ -118,7 +118,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
                 )
             ),
             Maps.of(
-                CURRENCY,
+                CurrencyCode.fromCurrency(CURRENCY),
                 text
             )
         );
@@ -147,9 +147,9 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
                 )
             ),
             Maps.of(
-                CURRENCY,
+                CurrencyCode.fromCurrency(CURRENCY),
                 text,
-                currency2,
+                CurrencyCode.fromCurrency(currency2),
                 text2
             )
         );
@@ -157,11 +157,11 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
 
     private void onCurrencyHateosResourceSetAndCheck(final AppCurrencyContext context,
                                                      final CurrencyHateosResourceSet resourceSet,
-                                                     final Map<Currency, String> expected) {
+                                                     final Map<CurrencyCode, String> expected) {
         context.onCurrencyHateosResourceSet(resourceSet);
         this.checkEquals(
             expected,
-            context.currencyToText
+            context.currencyCodeToText
         );
     }
 
@@ -169,7 +169,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
     public void testCurrencyTextBeforeOnCurrencyHateosResourceSet() {
         this.currencyTextAndCheck(
             this.createContext(),
-            CURRENCY
+            CURRENCY.getCurrencyCode()
         );
     }
 
@@ -189,7 +189,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
 
         this.currencyTextAndCheck(
             context,
-            CURRENCY,
+            CURRENCY.getCurrencyCode(),
             text
         );
     }

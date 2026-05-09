@@ -252,7 +252,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
     }
 
     private AppContext appContext(final HistoryToken historyToken,
-                                  final Optional<Currency> currency) {
+                                  final Optional<Currency> currencyCode) {
         return new FakeAppContext() {
 
             @Override
@@ -286,7 +286,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
             public SpreadsheetMetadata spreadsheetMetadata() {
                 return METADATA.setOrRemove(
                     SpreadsheetMetadataPropertyName.CURRENCY,
-                    currency.orElse(EURO)
+                    currencyCode.orElse(EURO)
                 );
             }
 
@@ -305,17 +305,23 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
             }
 
             @Override
-            public Optional<String> currencyText(final Currency currency) {
-                if (currency.equals(AUD)) {
+            public Optional<String> currencyText(final CurrencyCode currencyCode) {
+                if (equals(currencyCode, AUD)) {
                     return Optional.of("Australian Dollar");
                 }
-                if (currency.equals(NZD)) {
+                if (equals(currencyCode, NZD)) {
                     return Optional.of("New Zealand Dollar");
                 }
-                if (currency.equals(EURO)) {
+                if (equals(currencyCode, EURO)) {
                     return Optional.of("Euro");
                 }
                 return Optional.empty();
+            }
+
+            private boolean equals(final CurrencyCode left,
+                                   final Currency right) {
+                return left.value()
+                    .equals(right.getCurrencyCode());
             }
 
             @Override

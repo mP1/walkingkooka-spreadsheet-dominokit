@@ -22,6 +22,7 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.FakeCurrencyContext;
@@ -71,16 +72,22 @@ public final class CurrencyComponentTest implements FormValueComponentTesting<HT
         }
 
         @Override
-        public Optional<String> currencyText(final Currency currency) {
+        public Optional<String> currencyText(final CurrencyCode currencyCode) {
             return Optional.ofNullable(
-                AUD.equals(currency) ?
+                equals(AUD, currencyCode) ?
                     ENGLISH_AUSTRALIA_TEXT :
-                    NZD.equals(currency) ?
+                    equals(NZD, currencyCode) ?
                         ENGLISH_NEW_ZEALAND_TEXT :
-                        EUR.equals(currency) ?
+                        equals(EUR, currencyCode) ?
                             FRENCH_TEXT :
                             null
             );
+        }
+
+        private boolean equals(final Currency left,
+                               final CurrencyCode right) {
+            return left.getCurrencyCode()
+                .equals(right.value());
         }
     };
 
@@ -127,12 +134,13 @@ public final class CurrencyComponentTest implements FormValueComponentTesting<HT
 
                 @Override
                 public Optional<CurrencyComponentSuggestionsValue<Currency>> toValue(final Currency currency) {
-                    return CONTEXT.currencyText(currency)
-                        .map(t -> CurrencyComponentSuggestionsValue.with(
-                            currency,
-                            t,
-                            currency
-                        ));
+                    return CONTEXT.currencyText(
+                        CurrencyCode.fromCurrency(currency)
+                    ).map(t -> CurrencyComponentSuggestionsValue.with(
+                        currency,
+                        t,
+                        currency
+                    ));
                 }
 
                 @Override

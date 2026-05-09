@@ -159,7 +159,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
     }
 
     @Override
-    public Optional<String> currencyText(final Currency currency) {
+    public Optional<String> currencyText(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 

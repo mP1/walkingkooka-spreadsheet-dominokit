@@ -74,26 +74,29 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
             throw new IllegalArgumentException("Invalid count < 0");
         }
 
-        return this.currencyToText.entrySet()
+        return this.currencyCodeToText.entrySet()
             .stream()
-            .filter(currencyAndText -> {
-                final String currencyText = currencyAndText.getValue();
+            .filter(currencyCodeAndText -> {
+                final String currencyText = currencyCodeAndText.getValue();
                 return false == currencyText.isEmpty() &&
                     (CurrencyContexts.CASE_SENSITIVITY.equals(text, currencyText) || CurrencyContexts.CASE_SENSITIVITY.startsWith(currencyText, text));
             }).skip(offset)
             .limit(count)
-            .map(Entry::getKey)
-            .collect(
+            .map((Entry<CurrencyCode, String> currencyCodeAndText) -> Currency.getInstance(
+                    currencyCodeAndText.getKey()
+                        .value()
+                )
+            ).collect(
                 ImmutableSortedSet.collector(CurrencyContexts.CURRENCY_CODE_COMPARATOR)
             );
     }
 
     @Override
-    public Optional<String> currencyText(final Currency currency) {
-        Objects.requireNonNull(currency, "currency");
+    public Optional<String> currencyText(final CurrencyCode currencyCode) {
+        Objects.requireNonNull(currencyCode, "currencyCode");
 
         return Optional.ofNullable(
-            this.currencyToText.get(currency)
+            this.currencyCodeToText.get(currencyCode)
         );
     }
 
@@ -101,7 +104,7 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
      * This may be updated externally.
      */
     // @VisibleForTesting
-    Map<Currency, String> currencyToText = Maps.empty();
+    Map<CurrencyCode, String> currencyCodeToText = Maps.empty();
 
     // CurrencyContext....................................................................................................
 
@@ -126,24 +129,25 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
     @Override
     public void onCurrencyHateosResourceSet(final CurrencyHateosResourceSet currencys) {
         final Set<Currency> availableCurrencys = Sets.hash();
-        final Map<Currency, String> currencyToText = Maps.sorted(CurrencyContexts.CURRENCY_CODE_COMPARATOR);
+        final Map<CurrencyCode, String> currencyCodeToText = Maps.sorted();
 
         for (final CurrencyHateosResource currencyHateosResource : currencys) {
-            final Currency currency = this.currencyForCurrencyCode(
-                currencyHateosResource.value() // currencyCode
-            ).orElse(null);
+            final CurrencyCode currencyCode = currencyHateosResource.value();
+
+            final Currency currency = this.currencyForCurrencyCode(currencyCode)
+                .orElse(null);
 
             if (null != currency) {
                 availableCurrencys.add(currency);
 
-                currencyToText.put(
-                    currency,
+                currencyCodeToText.put(
+                    currencyCode,
                     currencyHateosResource.text()
                 );
             }
         }
 
-        this.currencyToText = currencyToText;
+        this.currencyCodeToText = currencyCodeToText;
     }
 
     // Object...........................................................................................................

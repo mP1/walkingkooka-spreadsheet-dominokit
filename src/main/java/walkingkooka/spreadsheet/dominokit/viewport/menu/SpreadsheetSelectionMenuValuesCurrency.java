@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import org.dominokit.domino.ui.icons.Icon;
+import walkingkooka.currency.CurrencyCode;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
@@ -64,8 +65,11 @@ final class SpreadsheetSelectionMenuValuesCurrency extends SpreadsheetSelectionM
 
     @Override //
     String recentText(final Currency currency) {
-        return this.context.currencyText(currency)
-            .orElse(currency.getCurrencyCode());
+        final String currencyCode = currency.getCurrencyCode();
+
+        return this.context.currencyText(
+                CurrencyCode.parse(currencyCode)
+        ).orElse(currencyCode);
     }
 
     @Override

@@ -92,7 +92,7 @@ public class FakeCurrencyDialogComponentContext extends FakeDialogComponentConte
     }
 
     @Override
-    public Optional<String> currencyText(final Currency currency) {
+    public Optional<String> currencyText(final CurrencyCode currencyCode) {
         throw new UnsupportedOperationException();
     }
 
