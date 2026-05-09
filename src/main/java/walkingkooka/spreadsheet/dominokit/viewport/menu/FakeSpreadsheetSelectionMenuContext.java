@@ -174,9 +174,9 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
     }
 
     @Override
-    public Set<Currency> findByCurrencyText(final String text,
-                                            final int offset,
-                                            final int count) {
+    public Set<CurrencyCode> findByCurrencyText(final String text,
+                                                final int offset,
+                                                final int count) {
         throw new UnsupportedOperationException();
     }
 

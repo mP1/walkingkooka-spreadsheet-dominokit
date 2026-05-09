@@ -241,7 +241,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
             "Custom",
             1,
             1,
-            currency
+            currency.getCurrencyCode()
         );
     }
 

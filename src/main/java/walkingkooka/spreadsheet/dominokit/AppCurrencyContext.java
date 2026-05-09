@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 
+import java.util.Comparator;
 import java.util.Currency;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -63,9 +64,9 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
     // CurrencyContext....................................................................................................
 
     @Override
-    public Set<Currency> findByCurrencyText(final String text,
-                                            final int offset,
-                                            final int count) {
+    public Set<CurrencyCode> findByCurrencyText(final String text,
+                                                final int offset,
+                                                final int count) {
         Objects.requireNonNull(text, "text");
         if (offset < 0) {
             throw new IllegalArgumentException("Invalid offset < 0");
@@ -82,12 +83,9 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
                     (CurrencyContexts.CASE_SENSITIVITY.equals(text, currencyText) || CurrencyContexts.CASE_SENSITIVITY.startsWith(currencyText, text));
             }).skip(offset)
             .limit(count)
-            .map((Entry<CurrencyCode, String> currencyCodeAndText) -> Currency.getInstance(
-                    currencyCodeAndText.getKey()
-                        .value()
-                )
-            ).collect(
-                ImmutableSortedSet.collector(CurrencyContexts.CURRENCY_CODE_COMPARATOR)
+            .map(Entry::getKey)
+            .collect(
+                ImmutableSortedSet.collector(Comparator.naturalOrder())
             );
     }
 
