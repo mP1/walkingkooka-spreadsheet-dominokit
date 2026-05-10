@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -36,6 +36,7 @@ import java.util.Optional;
 import static walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting.METADATA_EN_AU;
 
 public final class ColorComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Color, ColorComponent>,
+    ComponentLifecycleMatcherTesting,
     ClassTesting<ColorComponent> {
 
     @Test
@@ -479,7 +480,7 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
                     @Override
                     public HistoryToken historyToken() {
                         return HistoryToken.cellStyle(
-                            SpreadsheetId.with(1),
+                            SPREADSHEET_ID,
                             SpreadsheetName.with("SpreadsheetName1"),
                             SpreadsheetSelection.A1.setDefaultAnchor(),
                             Optional.of(TextStylePropertyName.COLOR),
