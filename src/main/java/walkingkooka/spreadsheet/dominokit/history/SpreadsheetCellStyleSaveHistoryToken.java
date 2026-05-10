@@ -78,13 +78,6 @@ final public class SpreadsheetCellStyleSaveHistoryToken<T> extends SpreadsheetCe
 
     private final Optional<T> stylePropertyValue;
 
-//    @Override
-//    UrlFragment styleUrlFragment() {
-//        return saveUrlFragment(
-//            this.value()
-//        );
-//    }
-
     // /1/SpreadsheetName/cell/A1/style/*/save/
     // /1/SpreadsheetName/cell/A1/style/*/save/VALUE
     @Override
