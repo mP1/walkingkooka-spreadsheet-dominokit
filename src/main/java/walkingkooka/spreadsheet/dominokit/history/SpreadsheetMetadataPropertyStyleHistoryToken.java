@@ -41,20 +41,4 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     }
 
     final Optional<TextStylePropertyName<T>> stylePropertyName;
-
-    // /1/SpreadsheetName111/metadata/style
-    // /1/SpreadsheetName111/metadata/style/color
-    // /1/SpreadsheetName111/metadata/style/color/save/BLACK
-//    @Override//
-//    final UrlFragment metadataPropertyUrlFragment() {
-//        return this.stylePropertyName.map(
-//            (TextStylePropertyName<T> s) -> s.urlFragment()
-//                .appendSlashThen(this.styleUrlFragment())
-//        ).orElse(UrlFragment.EMPTY);
-////        return STYLE.append(
-////            this.styleUrlFragment()
-////        );
-//    }
-
-    //abstract UrlFragment styleUrlFragment();
 }
