@@ -52,7 +52,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL,
-                Optional.empty()
+                Optional.empty(), // TextStylePropertyName
+                Optional.empty() // filter
             ),
             Optional.empty(), // summary
             Lists.empty(),
@@ -1483,7 +1484,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL,
-                Optional.empty()
+                Optional.empty(), // TextStylePropertyName
+                Optional.empty() // filter
             ),
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
@@ -2922,7 +2924,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 CELL,
-                Optional.empty()
+                Optional.empty(), // TextStylePropertyName
+                Optional.empty() // filter
             ),
             Optional.empty(), // summary
             Lists.of(

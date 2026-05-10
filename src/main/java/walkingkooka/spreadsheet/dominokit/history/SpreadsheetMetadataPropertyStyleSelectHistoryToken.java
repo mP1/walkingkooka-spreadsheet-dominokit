@@ -23,33 +23,68 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends SpreadsheetMetadataPropertyStyleHistoryToken<T> {
 
     static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> with(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
-                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName) {
+                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName,
+                                                                          final Optional<String> filter) {
         return new SpreadsheetMetadataPropertyStyleSelectHistoryToken<>(
             spreadsheetId,
             spreadsheetName,
-            stylePropertyName
+            stylePropertyName,
+            filter
         );
     }
 
     private SpreadsheetMetadataPropertyStyleSelectHistoryToken(final SpreadsheetId spreadsheetId,
                                                                final SpreadsheetName spreadsheetName,
-                                                               final Optional<TextStylePropertyName<T>> stylePropertyName) {
+                                                               final Optional<TextStylePropertyName<T>> stylePropertyName,
+                                                               final Optional<String> filter) {
         super(
             spreadsheetId,
             spreadsheetName,
             stylePropertyName
         );
+
+        this.filter = Objects.requireNonNull(filter, "filter");
     }
 
+    final Optional<String> filter;
+
+    // style/
+    // style/*
+    // style/*/filter/FILTER
+    // style/color
+    // style/color/filter/FILTER
     @Override
-    UrlFragment styleUrlFragment() {
-        return SELECT;
+    UrlFragment metadataPropertyUrlFragment() {
+        final UrlFragment urlFragment;
+
+        final TextStylePropertyName<?> stylePropertyNameOrNull = this.stylePropertyName.orElse(null);
+
+        final String filter = this.filter.orElse("")
+            .trim();
+        if (filter.isEmpty()) {
+            urlFragment = null != stylePropertyNameOrNull ?
+                stylePropertyNameOrNull.urlFragment() :
+                UrlFragment.EMPTY;
+        } else {
+            urlFragment = (
+                null != stylePropertyNameOrNull ?
+                    stylePropertyNameOrNull.urlFragment() :
+                    TextStylePropertyName.ALL.urlFragment()
+            )
+                .appendSlashThen(FILTER)
+                .appendSlashThen(
+                    UrlFragment.with(filter)
+                );
+        }
+
+        return urlFragment;
     }
 
     @Override
@@ -64,7 +99,8 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> extends
         return with(
             spreadsheetId,
             spreadsheetName,
-            this.stylePropertyName
+            this.stylePropertyName,
+            this.filter
         );
     }
 

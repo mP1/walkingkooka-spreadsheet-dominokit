@@ -262,7 +262,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(
                     TextStylePropertyName.TEXT_OVERFLOW
-                )
+                ),
+                Optional.empty()
             )
         );
     }

@@ -114,7 +114,8 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyE
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.HANGING_PUNCTUATION
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

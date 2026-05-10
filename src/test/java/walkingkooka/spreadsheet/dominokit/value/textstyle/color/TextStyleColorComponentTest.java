@@ -280,7 +280,8 @@ public final class TextStyleColorComponentTest implements TextStylePropertyColor
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     Optional.of(
                         TextStylePropertyName.COLOR
-                    )
+                    ),
+                    NO_FILTER
                 )
             )
         );

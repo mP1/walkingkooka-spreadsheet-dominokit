@@ -49,16 +49,9 @@ abstract public class SpreadsheetCellStyleHistoryToken<T> extends SpreadsheetCel
     // /1/SpreadsheetName/cell/A1/style/color/save/#123
     @Override //
     final UrlFragment cellUrlFragment() {
-        UrlFragment urlFragment = STYLE;
-
-        final TextStylePropertyName<T> stylePropertyNameOrNull = this.stylePropertyName.orElse(null);
-        if (null != stylePropertyNameOrNull) {
-            urlFragment = urlFragment.appendSlashThen(
-                stylePropertyNameOrNull.urlFragment()
-            ).appendSlashThen(this.styleUrlFragment());
-        }
-
-        return urlFragment;
+        return STYLE.appendSlashThen(
+            this.styleUrlFragment()
+        );
     }
 
     abstract UrlFragment styleUrlFragment();

@@ -247,7 +247,8 @@ public final class BorderRightColorComponentTest extends BorderColorSharedCompon
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     Optional.of(
                         TextStylePropertyName.BORDER_RIGHT_COLOR
-                    )
+                    ),
+                    NO_FILTER
                 )
             )
         );

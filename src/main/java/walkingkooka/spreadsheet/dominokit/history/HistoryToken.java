@@ -194,6 +194,10 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     final static UrlFragment FILE = UrlFragment.parse(FILE_STRING);
 
+    final static String FILTER_STRING = "filter";
+
+    final static UrlFragment FILTER = UrlFragment.parse(FILTER_STRING);
+
     final static String FORM_STRING = "form";
 
     final static UrlFragment FORM = UrlFragment.parse(FORM_STRING);
@@ -1111,12 +1115,14 @@ public abstract class HistoryToken implements HasUrlFragment {
     public static <T> SpreadsheetCellStyleSelectHistoryToken<T> cellStyle(final SpreadsheetId spreadsheetId,
                                                                           final SpreadsheetName spreadsheetName,
                                                                           final AnchoredSpreadsheetSelection anchoredSelection,
-                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName) {
+                                                                          final Optional<TextStylePropertyName<T>> stylePropertyName,
+                                                                          final Optional<String> filter) {
         return SpreadsheetCellStyleSelectHistoryToken.with(
             spreadsheetId,
             spreadsheetName,
             anchoredSelection,
-            stylePropertyName
+            stylePropertyName,
+            filter
         );
     }
 
@@ -1613,11 +1619,13 @@ public abstract class HistoryToken implements HasUrlFragment {
      */
     public static <T> SpreadsheetMetadataPropertyStyleSelectHistoryToken<T> metadataPropertyStyle(final SpreadsheetId spreadsheetId,
                                                                                                   final SpreadsheetName spreadsheetName,
-                                                                                                  final Optional<TextStylePropertyName<T>> stylePropertyName) {
+                                                                                                  final Optional<TextStylePropertyName<T>> stylePropertyName,
+                                                                                                  final Optional<String> filter) {
         return SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
             spreadsheetId,
             spreadsheetName,
-            stylePropertyName
+            stylePropertyName,
+            filter
         );
     }
 
@@ -2985,6 +2993,83 @@ public abstract class HistoryToken implements HasUrlFragment {
         }
 
         return this.elseIfDifferent(historyToken);
+    }
+
+    // FILTER...........................................................................................................
+
+    /**
+     * Getter that returns any filter component
+     */
+    public final Optional<String> filter() {
+        Optional<String> filter = Optional.empty();
+
+        if (this instanceof SpreadsheetMetadataHistoryToken) {
+            if (this instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken) {
+                filter = this.cast(SpreadsheetMetadataPropertyStyleSelectHistoryToken.class)
+                    .filter;
+            } else {
+                if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
+                    filter = this.cast(SpreadsheetCellStyleSelectHistoryToken.class)
+                        .filter();
+                }
+            }
+        }
+
+        return filter;
+    }
+
+    public final HistoryToken clearFilter() {
+        return this.setFilter(Optional.empty());
+    }
+
+    /**
+     * Sets the filter component of a {@link SpreadsheetMetadataPropertyStyleSelectHistoryToken} or
+     * {@link SpreadsheetCellStyleSelectHistoryToken}.
+     */
+    public final HistoryToken setFilter(final Optional<String> filter) {
+        Objects.requireNonNull(filter, "filter");
+
+        HistoryToken historyToken = this;
+
+        if (false == this.filter().equals(filter)) {
+
+            if (this instanceof SpreadsheetNameHistoryToken) {
+                final SpreadsheetNameHistoryToken spreadsheetNameHistoryToken = this.cast(SpreadsheetNameHistoryToken.class);
+                final SpreadsheetId spreadsheetId = spreadsheetNameHistoryToken.spreadsheetId();
+                final SpreadsheetName spreadsheetName = spreadsheetNameHistoryToken.spreadsheetName;
+
+                if (this instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken) {
+                    final SpreadsheetMetadataPropertyStyleSelectHistoryToken<?> spreadsheetMetadataPropertyStyleSelectHistoryToken = this.cast(SpreadsheetMetadataPropertyStyleSelectHistoryToken.class);
+
+                    historyToken = metadataPropertyStyle(
+                        spreadsheetId,
+                        spreadsheetName,
+                        Cast.to(
+                            spreadsheetMetadataPropertyStyleSelectHistoryToken.stylePropertyName()
+                        ),
+                        filter
+                    );
+                } else {
+                    if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
+                        final SpreadsheetCellStyleSelectHistoryToken<?> spreadsheetCellStyleSelectHistoryToken = this.cast(SpreadsheetCellStyleSelectHistoryToken.class);
+
+                        historyToken = cellStyle(
+                            spreadsheetId,
+                            spreadsheetName,
+                            spreadsheetCellStyleSelectHistoryToken.anchoredSelection,
+                            Cast.to(
+                                spreadsheetCellStyleSelectHistoryToken.stylePropertyName()
+                            ),
+                            filter
+                        );
+                    }
+                }
+            }
+
+            historyToken = this.elseIfDifferent(historyToken);
+        }
+
+        return historyToken;
     }
     
     // FORMATTER........................................................................................................
@@ -5049,7 +5134,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                 historyToken = metadataPropertyStyle(
                     spreadsheetId,
                     spreadsheetName,
-                    Cast.to(propertyName)
+                    Cast.to(propertyName),
+                    this.filter()
                 );
             } else {
                 if (this instanceof SpreadsheetCellHistoryToken) {
@@ -5058,7 +5144,8 @@ public abstract class HistoryToken implements HasUrlFragment {
                         spreadsheetName,
                         this.cast(SpreadsheetCellHistoryToken.class)
                             .anchoredSelection(),
-                        Cast.to(propertyName)
+                        Cast.to(propertyName),
+                        this.filter()
                     );
                 }
             }

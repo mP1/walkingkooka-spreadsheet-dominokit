@@ -110,7 +110,8 @@ public final class TextWrappingComponentTest implements TextStylePropertyEnumCom
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_WRAPPING
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

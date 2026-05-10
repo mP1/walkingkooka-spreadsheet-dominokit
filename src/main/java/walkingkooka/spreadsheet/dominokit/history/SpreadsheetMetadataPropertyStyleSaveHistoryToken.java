@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.Cast;
 import walkingkooka.HasValue;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -67,11 +68,20 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
 
     private final Optional<T> stylePropertyValue;
 
+    // /1/SpreadsheetName111/metadata/style/*/save/
+    // /1/SpreadsheetName111/metadata/style/*/save/BLACK
+    // /1/SpreadsheetName111/metadata/style/color/save/
+    // /1/SpreadsheetName111/metadata/style/color/save/BLACK
     @Override
-    UrlFragment styleUrlFragment() {
-        return saveUrlFragment(
-            this.value()
-        );
+    UrlFragment metadataPropertyUrlFragment() {
+        return this.stylePropertyName.orElse(
+                Cast.to(TextStylePropertyName.ALL)
+            ).urlFragment()
+            .appendSlashThen(
+                saveUrlFragment(
+                    this.value()
+                )
+            );
     }
 
     @Override
@@ -79,7 +89,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryToken<T> extends S
         return HistoryToken.metadataPropertyStyle(
             this.spreadsheetId,
             this.spreadsheetName,
-            this.stylePropertyName
+            this.stylePropertyName,
+            Optional.empty() // no filter
         );
     }
 

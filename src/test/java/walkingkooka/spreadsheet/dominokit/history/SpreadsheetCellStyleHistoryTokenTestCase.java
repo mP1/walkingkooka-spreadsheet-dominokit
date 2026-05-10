@@ -118,7 +118,8 @@ public abstract class SpreadsheetCellStyleHistoryTokenTestCase<T extends Spreads
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SELECTION,
-                Optional.of(textStylePropertyName)
+                Optional.of(textStylePropertyName),
+                NO_FILTER
             )
         );
     }

@@ -149,7 +149,8 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor(),
-                    Optional.of(TextStylePropertyName.TEXT_ALIGN)
+                    Optional.of(TextStylePropertyName.TEXT_ALIGN),
+                    Optional.empty() // NO_FILTER
                 )
             ).setHistoryTokenPreProcessor(
                 (HistoryToken historyToken) -> historyToken.clearStylePropertyName()

@@ -110,7 +110,8 @@ public final class VisibilityComponentTest implements TextStylePropertyEnumCompo
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.VISIBILITY
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -119,7 +119,8 @@ public final class BorderLeftStyleComponentTest extends BorderStyleSharedCompone
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.BORDER_LEFT_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

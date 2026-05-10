@@ -52,6 +52,8 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
 
     private final static Optional<Locale> VALUE = Optional.of(LOCALE);
 
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
     // with.............................................................................................................
 
     @Test
@@ -459,7 +461,8 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.COLOR
-                        )
+                        ),
+                        NO_FILTER
                     ), // current HistoryToken
                     Optional.of(
                         TextStyle.parse("color: white; text-align: LEFT")
@@ -501,7 +504,8 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.COLOR
-                        )
+                        ),
+                        NO_FILTER
                     ), // current HistoryToken
                     Optional.of(
                         TextStyle.parse("color: white; text-align: LEFT")

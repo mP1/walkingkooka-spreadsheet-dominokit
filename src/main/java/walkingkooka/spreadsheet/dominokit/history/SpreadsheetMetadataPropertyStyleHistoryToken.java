@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -46,14 +45,16 @@ public abstract class SpreadsheetMetadataPropertyStyleHistoryToken<T> extends Sp
     // /1/SpreadsheetName111/metadata/style
     // /1/SpreadsheetName111/metadata/style/color
     // /1/SpreadsheetName111/metadata/style/color/save/BLACK
-    @Override//
-    final UrlFragment metadataPropertyUrlFragment() {
-        return this.stylePropertyName.map(
-            (TextStylePropertyName<T> s) -> s.urlFragment()
-                .appendSlashThen(this.styleUrlFragment())
-        ).orElse(UrlFragment.EMPTY);
-    }
+//    @Override//
+//    final UrlFragment metadataPropertyUrlFragment() {
+//        return this.stylePropertyName.map(
+//            (TextStylePropertyName<T> s) -> s.urlFragment()
+//                .appendSlashThen(this.styleUrlFragment())
+//        ).orElse(UrlFragment.EMPTY);
+////        return STYLE.append(
+////            this.styleUrlFragment()
+////        );
+//    }
 
-    abstract UrlFragment styleUrlFragment();
-
+    //abstract UrlFragment styleUrlFragment();
 }

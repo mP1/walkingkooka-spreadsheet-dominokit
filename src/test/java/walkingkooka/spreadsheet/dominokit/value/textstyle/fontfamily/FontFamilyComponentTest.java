@@ -81,7 +81,8 @@ public final class FontFamilyComponentTest implements TextStylePropertyComponent
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_FAMILY
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
 

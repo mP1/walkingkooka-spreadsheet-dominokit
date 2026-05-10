@@ -68,13 +68,54 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         );
     }
 
+    // /style/
+    // /style/*/
+    // /style/*/filter/FILTER
+    // /style/*/save/SAVE
+    // /style/color/
+    // /style/color/filter/FILTER
+    // /style/color/save/SAVE
+    //
     final HistoryToken parseStyle(final TextCursor cursor) {
-        return this.setStylePropertyName(
+        HistoryToken historyToken = this.setStylePropertyName(
             parseComponent(cursor)
                 .map(
                     TextStylePropertyName::with
                 )
         );
+
+        // HistoryToken.stylePropertyName() might return empty even if
+        // SpreadsheetMetadataPropertyStyleSelectHistoryToken | SpreadsheetMetadataPropertySelectHistoryToken
+        if (historyToken instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken || historyToken instanceof SpreadsheetCellStyleSelectHistoryToken) {
+
+            String component = parseComponentOrEmpty(cursor);
+            switch (component) {
+                case FILTER_STRING:
+                    final TextCursorSavePoint save = cursor.save();
+                    cursor.end();
+
+                    final String filterText = save.textBetween()
+                        .toString();
+                    ; // skip leading SLASH
+
+                    historyToken = historyToken.setFilter(
+                        Optional.ofNullable(
+                            filterText.length() <= 1 ? // ignore empty AND slash
+                                null :
+                                filterText.substring(1)
+                        )
+                    );
+                    break;
+                case SAVE_STRING:
+                    historyToken = historyToken.parseSave(cursor);
+                    break;
+                default:
+                    cursor.end();
+                    break;
+            }
+        }
+
+        return historyToken;
     }
 
     // HasUrlFragment...................................................................................................

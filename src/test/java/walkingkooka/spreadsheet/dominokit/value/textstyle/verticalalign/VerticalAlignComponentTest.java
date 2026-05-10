@@ -110,7 +110,8 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.VERTICAL_ALIGN
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -45,6 +45,8 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
 
     private final static Function<HistoryToken, Optional<HistoryToken>> HISTORY_TOKEN_PREPARER = ColorPaletteComponent.historyTokenPreparer(TEXT_STYLE_PROPERTY_NAME);
 
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
     // historyTokenPreparer.............................................................................................
 
     @Test
@@ -64,12 +66,14 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -82,12 +86,14 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SPREADSHEET_NAME,
                 Optional.of(
                     TEXT_STYLE_PROPERTY_NAME
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -100,12 +106,14 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SPREADSHEET_NAME,
                 Optional.of(
                     TextStylePropertyName.BACKGROUND_COLOR
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -118,12 +126,14 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SPREADSHEET_NAME,
                 Optional.of(
                     TextStylePropertyName.TEXT_ALIGN
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -135,13 +145,15 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -155,13 +167,15 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(
                     TEXT_STYLE_PROPERTY_NAME
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -175,13 +189,15 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(
                     TextStylePropertyName.BACKGROUND_COLOR
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -195,13 +211,15 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(
                     TextStylePropertyName.TEXT_ALIGN
-                )
+                ),
+                NO_FILTER
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.of(TEXT_STYLE_PROPERTY_NAME)
+                Optional.of(TEXT_STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -1061,7 +1079,8 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 SpreadsheetId.with(1),
                 SpreadsheetName.with("SpreadsheetName1"),
                 SpreadsheetSelection.A1.setDefaultAnchor(),
-                Optional.of(TextStylePropertyName.COLOR)
+                Optional.of(TextStylePropertyName.COLOR),
+                NO_FILTER
             )
         );
     }

@@ -112,7 +112,8 @@ public final class TextDecorationLineComponentTest implements TextStylePropertyE
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_DECORATION_LINE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

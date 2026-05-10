@@ -122,7 +122,8 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_STRETCH
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

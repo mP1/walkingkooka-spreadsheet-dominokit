@@ -112,7 +112,8 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_JUSTIFY
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

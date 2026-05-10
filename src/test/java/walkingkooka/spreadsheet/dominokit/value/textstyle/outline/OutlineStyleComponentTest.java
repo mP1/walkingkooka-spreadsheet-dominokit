@@ -124,7 +124,8 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.OUTLINE_STYLE
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

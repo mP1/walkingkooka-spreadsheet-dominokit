@@ -110,7 +110,8 @@ public final class FontVariantComponentTest implements TextStylePropertyEnumComp
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_VARIANT
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

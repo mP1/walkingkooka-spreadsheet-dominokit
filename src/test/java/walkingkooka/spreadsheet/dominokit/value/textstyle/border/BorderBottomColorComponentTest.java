@@ -247,7 +247,8 @@ public final class BorderBottomColorComponentTest extends BorderColorSharedCompo
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     Optional.of(
                         TextStylePropertyName.BORDER_BOTTOM_COLOR
-                    )
+                    ),
+                    NO_FILTER
                 )
             )
         );

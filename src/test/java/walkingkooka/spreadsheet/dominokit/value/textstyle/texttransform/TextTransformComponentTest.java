@@ -112,7 +112,8 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_TRANSFORM
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

@@ -25,11 +25,15 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleProper
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextStylePropertyName;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface TextStylePropertyComponentTesting<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponentTesting<E, V, C>,
     HasNameTesting<TextStylePropertyName<V>> {
+
+    Optional<String> NO_FILTER = Optional.empty();
 
     // filterTest.......................................................................................................
 

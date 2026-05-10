@@ -153,7 +153,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(STYLE_PROPERTY_NAME)
+                Optional.of(STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -214,7 +215,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(STYLE_PROPERTY_NAME)
+                Optional.of(STYLE_PROPERTY_NAME),
+                NO_FILTER
             )
         );
     }
@@ -229,7 +231,8 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                Optional.of(textStylePropertyName)
+                Optional.of(textStylePropertyName),
+                NO_FILTER
             )
         );
     }

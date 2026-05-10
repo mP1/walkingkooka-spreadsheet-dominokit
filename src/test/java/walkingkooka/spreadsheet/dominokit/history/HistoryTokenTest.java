@@ -107,6 +107,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     private final static SpreadsheetRowRangeReference ROW_RANGE = SpreadsheetSelection.parseRowRange("22:33");
 
+    private final static Optional<String> NO_FILTER = Optional.empty();
+
     // AnchoredSelection................................................................................................
 
     @Test
@@ -1979,7 +1981,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 viewport,
-                Optional.of(property)
+                Optional.of(property),
+                NO_FILTER
             )
         );
     }
@@ -1998,7 +2001,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 viewport,
-                Optional.of(property)
+                Optional.of(property),
+                NO_FILTER
             )
         );
     }
@@ -3419,7 +3423,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                Optional.empty()
+                Optional.empty(),
+                NO_FILTER
             )
         );
     }
@@ -3432,7 +3437,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
                 ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(TextStylePropertyName.COLOR)
+                Optional.of(TextStylePropertyName.COLOR),
+                NO_FILTER
             )
         );
     }
@@ -4614,7 +4620,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             HistoryToken.metadataPropertyStyle(
                 ID,
                 NAME,
-                Optional.empty() // stylePropertyName
+                Optional.empty(), // stylePropertyName
+                NO_FILTER
             )
         );
     }
@@ -4626,7 +4633,8 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             HistoryToken.metadataPropertyStyle(
                 ID,
                 NAME,
-                Optional.of(TextStylePropertyName.COLOR)
+                Optional.of(TextStylePropertyName.COLOR),
+                NO_FILTER
             )
         );
     }

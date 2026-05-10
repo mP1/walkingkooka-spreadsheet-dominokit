@@ -112,7 +112,8 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_ALIGN
-                        )
+                        ),
+                        NO_FILTER
                     );
                 }
             }

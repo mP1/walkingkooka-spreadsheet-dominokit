@@ -281,7 +281,8 @@ public final class OutlineColorComponentTest implements TextStylePropertyColorCo
                     SpreadsheetSelection.A1.setDefaultAnchor(),
                     Optional.of(
                         TextStylePropertyName.OUTLINE_COLOR
-                    )
+                    ),
+                    NO_FILTER
                 )
             )
         );

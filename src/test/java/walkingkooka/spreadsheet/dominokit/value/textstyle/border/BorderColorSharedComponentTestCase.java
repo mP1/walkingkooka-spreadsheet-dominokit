@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
+import java.util.Optional;
+
 public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSharedComponent<C>> implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, C>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<C>,
@@ -54,6 +56,8 @@ public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSh
     final static Color COLOR;
 
     final static SpreadsheetMetadata SPREADSHEET_METADATA;
+
+    final static Optional<String> NO_FILTER = Optional.empty();
 
     public BorderColorSharedComponentTestCase() {
         super();
