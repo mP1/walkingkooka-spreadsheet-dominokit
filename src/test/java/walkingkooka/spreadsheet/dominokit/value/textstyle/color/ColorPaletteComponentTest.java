@@ -21,10 +21,10 @@ import elemental2.dom.HTMLTableElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -37,7 +37,8 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ColorPaletteComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorPaletteComponent>,
-    SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting,
+    ComponentLifecycleMatcherTesting {
 
     private final static String ID_PREFIX = "TestColorPicker-";
 
@@ -55,10 +56,6 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
             HistoryToken.spreadsheetCreate()
         );
     }
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
 
     @Test
     public void testHistoryTokenPreparerApplyWithSpreadsheetMetadataStyleWithoutTextStylePropertyName() {
@@ -1076,7 +1073,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
     public ColorPaletteComponent createComponent() {
         return this.createComponent(
             HistoryToken.cellStyle(
-                SpreadsheetId.with(1),
+                SPREADSHEET_ID,
                 SpreadsheetName.with("SpreadsheetName1"),
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(TextStylePropertyName.COLOR),
