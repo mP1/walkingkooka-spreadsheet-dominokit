@@ -358,7 +358,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .optional()
             .addValueWatcher2(
                 (Optional<TextStylePropertyFilter> filter) -> {
-                    final TextStylePropertyFilter filter2 = filter.orElse(
+                    final TextStylePropertyFilter filterOrAll = filter.orElse(
                         TextStylePropertyFilter.ALL
                     );
 
@@ -369,7 +369,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                     }
 
                     for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                        if(component.filterTest(filter2)) {
+                        if(component.filterTest(filterOrAll)) {
                             parent.appendChild(component);
                         }
                     }
