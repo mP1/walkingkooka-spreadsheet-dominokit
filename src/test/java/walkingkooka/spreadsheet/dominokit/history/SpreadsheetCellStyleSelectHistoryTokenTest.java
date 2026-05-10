@@ -259,7 +259,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             );
             this.urlFragmentAndCheck(
                 token,
-                token.urlFragment()
+                "/123/SpreadsheetName456/cell/A1/style/" + propertyName.value()
             );
         }
     }
@@ -274,7 +274,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         );
         this.urlFragmentAndCheck(
             token,
-            token.urlFragment()
+            "/123/SpreadsheetName456/cell/A1/style/*"
         );
     }
 
