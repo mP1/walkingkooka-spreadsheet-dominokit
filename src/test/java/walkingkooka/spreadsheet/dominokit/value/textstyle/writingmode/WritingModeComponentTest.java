@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,10 +51,10 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
-                "          \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
-                "          \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] id=Test123-writingMode-VERTICAL_LR-Link\n" +
-                "          \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
+                "          \"Horizontal Tb\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
+                "          \"Vertical Lr\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=Test123-writingMode-VERTICAL_LR-Link\n" +
+                "          \"Vertical Rl\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
-                "          \"Horizontal Tb\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/HORIZONTAL_TB] id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
-                "          \"Vertical Lr\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_LR] CHECKED id=Test123-writingMode-VERTICAL_LR-Link\n" +
-                "          \"Vertical Rl\" [#/1/SpreadsheetName111/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=Test123-writingMode-Link\n" +
+                "          \"Horizontal Tb\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] id=Test123-writingMode-HORIZONTAL_TB-Link\n" +
+                "          \"Vertical Lr\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] CHECKED id=Test123-writingMode-VERTICAL_LR-Link\n" +
+                "          \"Vertical Rl\" [#/1/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=Test123-writingMode-VERTICAL_RL-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class WritingModeComponentTest implements TextStylePropertyEnumComp
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WRITING_MODE

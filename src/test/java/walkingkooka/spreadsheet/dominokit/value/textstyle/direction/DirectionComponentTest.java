@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Direction;
 import walkingkooka.tree.text.TextStyle;
@@ -49,8 +47,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION
@@ -74,9 +72,9 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "          \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "          \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 
@@ -93,8 +91,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION
@@ -125,9 +123,9 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "          \"Left to Right\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "          \"Right to Left\" [#/1/SpreadsheetName111/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 
@@ -146,8 +144,8 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.DIRECTION

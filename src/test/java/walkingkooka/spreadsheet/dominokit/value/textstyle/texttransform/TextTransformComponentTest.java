@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,11 +51,11 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
-                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
-                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=Test123-textTransform-UPPERCASE-Link\n" +
-                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] id=Test123-textTransform-LOWERCASE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
+                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
+                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=Test123-textTransform-UPPERCASE-Link\n" +
+                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=Test123-textTransform-LOWERCASE-Link\n"
         );
     }
 
@@ -85,11 +83,11 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
-                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
-                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] id=Test123-textTransform-UPPERCASE-Link\n" +
-                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] CHECKED id=Test123-textTransform-LOWERCASE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
+                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
+                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] id=Test123-textTransform-UPPERCASE-Link\n" +
+                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] CHECKED id=Test123-textTransform-LOWERCASE-Link\n"
         );
     }
 
@@ -107,8 +105,8 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_TRANSFORM

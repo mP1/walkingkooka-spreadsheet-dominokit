@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,12 +51,12 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/NORMAL] id=Test123-whiteSpace-NORMAL-Link\n" +
-                "          \"Nowrap\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
-                "          \"Pre\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
-                "          \"Pre Line\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_LINE] CHECKED id=Test123-whiteSpace-PRE_LINE-Link\n" +
-                "          \"Pre Wrap\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=Test123-whiteSpace-NORMAL-Link\n" +
+                "          \"Nowrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
+                "          \"Pre\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
+                "          \"Pre Line\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] CHECKED id=Test123-whiteSpace-PRE_LINE-Link\n" +
+                "          \"Pre Wrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
         );
     }
 
@@ -86,12 +84,12 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/NORMAL] CHECKED id=Test123-whiteSpace-NORMAL-Link\n" +
-                "          \"Nowrap\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
-                "          \"Pre\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
-                "          \"Pre Line\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_LINE] id=Test123-whiteSpace-PRE_LINE-Link\n" +
-                "          \"Pre Wrap\" [#/1/SpreadsheetName111/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] CHECKED id=Test123-whiteSpace-NORMAL-Link\n" +
+                "          \"Nowrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
+                "          \"Pre\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
+                "          \"Pre Line\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=Test123-whiteSpace-PRE_LINE-Link\n" +
+                "          \"Pre Wrap\" [#/1/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
         );
     }
 
@@ -109,8 +107,8 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WHITE_SPACE

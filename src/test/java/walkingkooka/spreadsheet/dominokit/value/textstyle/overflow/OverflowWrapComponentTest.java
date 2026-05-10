@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.OverflowWrap;
 import walkingkooka.tree.text.TextStyle;
@@ -53,10 +51,10 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
-                "          \"Anywhere\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/ANYWHERE] CHECKED id=Test123-overflowWrap-ANYWHERE-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/BREAK_WORD] id=Test123-overflowWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
+                "          \"Anywhere\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] CHECKED id=Test123-overflowWrap-ANYWHERE-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] id=Test123-overflowWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
-                "          \"Anywhere\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/ANYWHERE] id=Test123-overflowWrap-ANYWHERE-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=Test123-overflowWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
+                "          \"Anywhere\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=Test123-overflowWrap-ANYWHERE-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=Test123-overflowWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.OVERFLOW_WRAP

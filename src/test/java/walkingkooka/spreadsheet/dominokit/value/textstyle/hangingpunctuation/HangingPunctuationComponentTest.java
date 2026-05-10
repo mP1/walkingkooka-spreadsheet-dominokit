@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.HangingPunctuation;
 import walkingkooka.tree.text.TextStyle;
@@ -53,12 +51,12 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyE
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
-                "          \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] id=Test123-hangingPunctuation-FIRST-Link\n" +
-                "          \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
-                "          \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] CHECKED id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
-                "          \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
+                "          \"First\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] id=Test123-hangingPunctuation-FIRST-Link\n" +
+                "          \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
+                "          \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] CHECKED id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
+                "          \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
         );
     }
 
@@ -86,12 +84,12 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyE
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
-                "          \"First\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=Test123-hangingPunctuation-FIRST-Link\n" +
-                "          \"Last\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
-                "          \"Allow End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
-                "          \"Force End\" [#/1/SpreadsheetName111/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=Test123-hangingPunctuation-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=Test123-hangingPunctuation-NONE-Link\n" +
+                "          \"First\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=Test123-hangingPunctuation-FIRST-Link\n" +
+                "          \"Last\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=Test123-hangingPunctuation-LAST-Link\n" +
+                "          \"Allow End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=Test123-hangingPunctuation-ALLOW_END-Link\n" +
+                "          \"Force End\" [#/1/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=Test123-hangingPunctuation-FORCE_END-Link\n"
         );
     }
 
@@ -109,8 +107,8 @@ public final class HangingPunctuationComponentTest implements TextStylePropertyE
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.HANGING_PUNCTUATION

@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,9 +51,9 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -83,9 +81,9 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -103,8 +101,8 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WORD_WRAP

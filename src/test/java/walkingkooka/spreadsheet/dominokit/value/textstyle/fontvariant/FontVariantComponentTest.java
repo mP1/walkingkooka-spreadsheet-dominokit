@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontVariant;
 import walkingkooka.tree.text.TextStyle;
@@ -53,10 +51,10 @@ public final class FontVariantComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
-                "          \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] id=Test123-fontVariant-NORMAL-Link\n" +
-                "          \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=Test123-fontVariant-SMALL_CAPS-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
+                "          \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=Test123-fontVariant-NORMAL-Link\n" +
+                "          \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=Test123-fontVariant-SMALL_CAPS-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class FontVariantComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
-                "          \"Initial\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/NORMAL] CHECKED id=Test123-fontVariant-NORMAL-Link\n" +
-                "          \"Small Caps\" [#/1/SpreadsheetName111/cell/A1/style/font-variant/save/SMALL_CAPS] id=Test123-fontVariant-SMALL_CAPS-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/] id=Test123-fontVariant-Link\n" +
+                "          \"Initial\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=Test123-fontVariant-INITIAL-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] CHECKED id=Test123-fontVariant-NORMAL-Link\n" +
+                "          \"Small Caps\" [#/1/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] id=Test123-fontVariant-SMALL_CAPS-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class FontVariantComponentTest implements TextStylePropertyEnumComp
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_VARIANT

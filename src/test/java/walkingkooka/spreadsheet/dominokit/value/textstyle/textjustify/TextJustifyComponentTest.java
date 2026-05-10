@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextJustify;
 import walkingkooka.tree.text.TextStyle;
@@ -53,11 +51,11 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] CHECKED id=Test123-textJustify-AUTO-Link\n" +
-                "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] CHECKED id=Test123-textJustify-AUTO-Link\n" +
+                "          \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
+                "          \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=Test123-textJustify-INTER_CHARACTER-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
         );
     }
 
@@ -85,11 +83,11 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/AUTO] id=Test123-textJustify-AUTO-Link\n" +
-                "          \"Inter Word\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
-                "          \"Inter Character\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/] id=Test123-textJustify-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=Test123-textJustify-AUTO-Link\n" +
+                "          \"Inter Word\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] id=Test123-textJustify-INTER_WORD-Link\n" +
+                "          \"Inter Character\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] CHECKED id=Test123-textJustify-INTER_CHARACTER-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=Test123-textJustify-NONE-Link\n"
         );
     }
 
@@ -107,8 +105,8 @@ public final class TextJustifyComponentTest implements TextStylePropertyEnumComp
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_JUSTIFY
