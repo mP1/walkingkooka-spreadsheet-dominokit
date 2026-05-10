@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextDecorationStyle;
 import walkingkooka.tree.text.TextStyle;
@@ -53,12 +51,12 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] CHECKED id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "          \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 
@@ -86,12 +84,12 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
-                "          \"Wavy\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=Test123-textDecorationStyle-Link\n" +
+                "          \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=Test123-textDecorationStyle-SOLID-Link\n" +
+                "          \"Double\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=Test123-textDecorationStyle-DOUBLE-Link\n" +
+                "          \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] CHECKED id=Test123-textDecorationStyle-DASHED-Link\n" +
+                "          \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] id=Test123-textDecorationStyle-DOTTED-Link\n" +
+                "          \"Wavy\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=Test123-textDecorationStyle-WAVY-Link\n"
         );
     }
 
@@ -109,8 +107,8 @@ public final class TextDecorationStyleComponentTest implements TextStyleProperty
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_DECORATION_STYLE

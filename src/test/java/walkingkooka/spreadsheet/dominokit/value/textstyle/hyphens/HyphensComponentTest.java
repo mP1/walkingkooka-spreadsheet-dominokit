@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Hyphens;
 import walkingkooka.tree.text.TextStyle;
@@ -53,10 +51,10 @@ public final class HyphensComponentTest implements TextStylePropertyEnumComponen
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/] id=Test123-hyphens-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/NONE] id=Test123-hyphens-NONE-Link\n" +
-                "          \"Manual\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/MANUAL] id=Test123-hyphens-MANUAL-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/AUTO] CHECKED id=Test123-hyphens-AUTO-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/] id=Test123-hyphens-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=Test123-hyphens-NONE-Link\n" +
+                "          \"Manual\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=Test123-hyphens-MANUAL-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=Test123-hyphens-AUTO-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class HyphensComponentTest implements TextStylePropertyEnumComponen
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/] id=Test123-hyphens-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/NONE] id=Test123-hyphens-NONE-Link\n" +
-                "          \"Manual\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/MANUAL] CHECKED id=Test123-hyphens-MANUAL-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/hyphens/save/AUTO] id=Test123-hyphens-AUTO-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/] id=Test123-hyphens-Link\n" +
+                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=Test123-hyphens-NONE-Link\n" +
+                "          \"Manual\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] CHECKED id=Test123-hyphens-MANUAL-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] id=Test123-hyphens-AUTO-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class HyphensComponentTest implements TextStylePropertyEnumComponen
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.HYPHENS

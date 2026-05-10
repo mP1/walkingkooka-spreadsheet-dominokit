@@ -44,9 +44,9 @@ public final class TextStylePropertyEnumComponentDelegatorTest implements TextSt
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/] id=Test-textAlign-Link\n" +
-                "          \"LEFT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
-                "          \"RIGHT\" [#/1/SpreadsheetName111/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=Test-textAlign-Link\n" +
+                "          \"LEFT\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
+                "          \"RIGHT\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n"
         );
     }
 
@@ -117,7 +117,10 @@ public final class TextStylePropertyEnumComponentDelegatorTest implements TextSt
 
                 @Override
                 public HistoryToken historyToken() {
-                    return HistoryToken.parseString("/1/SpreadsheetName111");
+                    return HistoryToken.spreadsheetSelect(
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME
+                    );
                 }
             }
         );

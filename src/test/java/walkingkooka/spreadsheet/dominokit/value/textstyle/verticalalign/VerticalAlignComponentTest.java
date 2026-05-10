@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,10 +51,10 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.VERTICAL_ALIGN

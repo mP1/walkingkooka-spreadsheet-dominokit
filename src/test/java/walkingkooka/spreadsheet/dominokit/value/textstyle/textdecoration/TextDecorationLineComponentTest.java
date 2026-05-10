@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextDecorationLine;
 import walkingkooka.tree.text.TextStyle;
@@ -53,11 +51,11 @@ public final class TextDecorationLineComponentTest implements TextStylePropertyE
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
-                "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
-                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
-                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "          mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
+                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
+                "          \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
 
@@ -85,11 +83,11 @@ public final class TextDecorationLineComponentTest implements TextStylePropertyE
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
-                "          mdi-format-clear \"None\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
-                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
-                "          \"Overline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
-                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=Test123-textDecorationLine-Link\n" +
+                "          mdi-format-clear \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=Test123-textDecorationLine-NONE-Link\n" +
+                "          mdi-format-strikethrough \"Strikethrough\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] CHECKED id=Test123-textDecorationLine-LINE_THROUGH-Link\n" +
+                "          \"Overline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] id=Test123-textDecorationLine-OVERLINE-Link\n" +
+                "          mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=Test123-textDecorationLine-UNDERLINE-Link\n"
         );
     }
 
@@ -107,8 +105,8 @@ public final class TextDecorationLineComponentTest implements TextStylePropertyE
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_DECORATION_LINE

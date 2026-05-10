@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,10 +51,10 @@ public final class VisibilityComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
-                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] CHECKED id=Test123-visibility-VISIBLE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
-                "          \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] id=Test123-visibility-COLLAPSE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] CHECKED id=Test123-visibility-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
+                "          \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=Test123-visibility-COLLAPSE-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class VisibilityComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
-                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/VISIBLE] id=Test123-visibility-VISIBLE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
-                "          \"Collapse\" [#/1/SpreadsheetName111/cell/A1/style/visibility/save/COLLAPSE] CHECKED id=Test123-visibility-COLLAPSE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/] id=Test123-visibility-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] id=Test123-visibility-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=Test123-visibility-HIDDEN-Link\n" +
+                "          \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] CHECKED id=Test123-visibility-COLLAPSE-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class VisibilityComponentTest implements TextStylePropertyEnumCompo
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.VISIBILITY

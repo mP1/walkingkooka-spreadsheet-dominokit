@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,10 +51,10 @@ public final class TextWrappingComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
-                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
-                "          \"Overflow\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] id=Test123-textWrapping-OVERFLOW-Link\n" +
-                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=Test123-textWrapping-WRAP-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
+                "          \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
+                "          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=Test123-textWrapping-OVERFLOW-Link\n" +
+                "          \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=Test123-textWrapping-WRAP-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class TextWrappingComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
-                "          \"Clip\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
-                "          \"Overflow\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] CHECKED id=Test123-textWrapping-OVERFLOW-Link\n" +
-                "          \"Wrap\" [#/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=Test123-textWrapping-WRAP-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=Test123-textWrapping-Link\n" +
+                "          \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=Test123-textWrapping-CLIP-Link\n" +
+                "          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] CHECKED id=Test123-textWrapping-OVERFLOW-Link\n" +
+                "          \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] id=Test123-textWrapping-WRAP-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class TextWrappingComponentTest implements TextStylePropertyEnumCom
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_WRAPPING

@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -53,11 +51,11 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] id=Test123-wordBreak-NORMAL-Link\n" +
-                "          \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
-                "          \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=Test123-wordBreak-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] id=Test123-wordBreak-NORMAL-Link\n" +
+                "          \"Break All\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
+                "          \"Keep All\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=Test123-wordBreak-BREAK_WORD-Link\n"
         );
     }
 
@@ -85,11 +83,11 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/NORMAL] CHECKED id=Test123-wordBreak-NORMAL-Link\n" +
-                "          \"Break All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
-                "          \"Keep All\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName111/cell/A1/style/word-break/save/BREAK_WORD] id=Test123-wordBreak-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/] id=Test123-wordBreak-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] CHECKED id=Test123-wordBreak-NORMAL-Link\n" +
+                "          \"Break All\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=Test123-wordBreak-BREAK_ALL-Link\n" +
+                "          \"Keep All\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=Test123-wordBreak-KEEP_ALL-Link\n" +
+                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] id=Test123-wordBreak-BREAK_WORD-Link\n"
         );
     }
 
@@ -107,8 +105,8 @@ public final class WordBreakComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.WORD_BREAK

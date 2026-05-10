@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Overflow;
 import walkingkooka.tree.text.TextStyle;
@@ -53,11 +51,11 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/] id=Test123-overflowY-Link\n" +
-                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/VISIBLE] id=Test123-overflowY-VISIBLE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
-                "          \"Scroll\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=Test123-overflowY-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=Test123-overflowY-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
+                "          \"Scroll\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
         );
     }
 
@@ -88,11 +86,11 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/] id=Test123-overflowY-Link\n" +
-                "          \"Visible\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/VISIBLE] id=Test123-overflowY-VISIBLE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
-                "          \"Scroll\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName111/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=Test123-overflowY-Link\n" +
+                "          \"Visible\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=Test123-overflowY-VISIBLE-Link\n" +
+                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=Test123-overflowY-HIDDEN-Link\n" +
+                "          \"Scroll\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=Test123-overflowY-SCROLL-Link\n" +
+                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=Test123-overflowY-AUTO-Link\n"
         );
     }
 
@@ -110,8 +108,8 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.OUTLINE_STYLE

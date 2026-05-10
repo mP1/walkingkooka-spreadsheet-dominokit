@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
@@ -53,11 +51,11 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -85,11 +83,11 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
-                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
-                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
-                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
-                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
+                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=Test123-textAlign-Link\n" +
+                "          mdi-format-align-left \"Left\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=Test123-textAlign-LEFT-Link\n" +
+                "          mdi-format-align-center \"Center\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=Test123-textAlign-CENTER-Link\n" +
+                "          mdi-format-align-right \"Right\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=Test123-textAlign-RIGHT-Link\n" +
+                "          mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=Test123-textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -107,8 +105,8 @@ public final class TextAlignComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.TEXT_ALIGN

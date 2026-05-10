@@ -24,8 +24,6 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.FontStyle;
 import walkingkooka.tree.text.TextStyle;
@@ -53,10 +51,10 @@ public final class FontStyleComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
-                "          mdi-format-italic \"Italic\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] CHECKED id=Test123-fontStyle-ITALIC-Link\n" +
-                "          \"Oblique\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/OBLIQUE] id=Test123-fontStyle-OBLIQUE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
+                "          mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=Test123-fontStyle-ITALIC-Link\n" +
+                "          \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=Test123-fontStyle-OBLIQUE-Link\n"
         );
     }
 
@@ -84,10 +82,10 @@ public final class FontStyleComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
-                "          mdi-format-italic \"Italic\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] id=Test123-fontStyle-ITALIC-Link\n" +
-                "          \"Oblique\" [#/1/SpreadsheetName111/cell/A1/style/font-style/save/OBLIQUE] CHECKED id=Test123-fontStyle-OBLIQUE-Link\n"
+                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
+                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
+                "          mdi-format-italic \"Italic\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] id=Test123-fontStyle-ITALIC-Link\n" +
+                "          \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] CHECKED id=Test123-fontStyle-OBLIQUE-Link\n"
         );
     }
 
@@ -105,8 +103,8 @@ public final class FontStyleComponentTest implements TextStylePropertyEnumCompon
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        SpreadsheetId.with(1),
-                        SpreadsheetName.with("SpreadsheetName111"),
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         SpreadsheetSelection.A1.setDefaultAnchor(),
                         Optional.of(
                             TextStylePropertyName.FONT_STYLE
