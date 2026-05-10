@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public final class DialogOpenAwareTextStyleDialogComponentContextTest implements TextStyleDialogComponentContextTesting<DialogOpenAwareTextStyleDialogComponentContext> {
 
@@ -120,8 +118,8 @@ public final class DialogOpenAwareTextStyleDialogComponentContextTest implements
                 public void fireCurrentHistoryToken() {
                     this.watcher.onHistoryTokenChange(
                         HistoryToken.spreadsheetSelect(
-                            SpreadsheetId.with(1),
-                            SpreadsheetName.with("SpreadsheetName1")
+                            SPREADSHEET_ID,
+                            SPREADSHEET_NAME
                         ),
                         AppContexts.fake()
                     );
