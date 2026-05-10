@@ -21,23 +21,19 @@ import org.dominokit.domino.ui.menu.MenuItem;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenMenuItem;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.tree.text.FontSize;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
-public final class FontSizeComponentContextTest implements ClassTesting<FontSizeComponentContext> {
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
+public final class FontSizeComponentContextTest implements ComponentLifecycleMatcherTesting,
+    ClassTesting<FontSizeComponentContext> {
 
     @Test
     public void testHistoryTokenMenuItem() {
