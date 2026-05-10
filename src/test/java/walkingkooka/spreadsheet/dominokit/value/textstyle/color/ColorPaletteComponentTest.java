@@ -27,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -1074,7 +1073,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
         return this.createComponent(
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
-                SpreadsheetName.with("SpreadsheetName1"),
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 Optional.of(TextStylePropertyName.COLOR),
                 NO_FILTER
