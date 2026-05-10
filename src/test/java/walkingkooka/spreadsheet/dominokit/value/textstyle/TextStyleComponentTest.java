@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
@@ -35,7 +36,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTesting<TextStyleComponent, TextStyle> {
+public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTesting<TextStyleComponent, TextStyle>,
+    ComponentLifecycleMatcherTesting {
 
     @Test
     public void testSetValue() {
@@ -212,8 +214,8 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
     public void testPushHistoryTokenIfNecessaryWithDifferent() {
         final TextStyle textStyle = TextStyle.parse("color: #111;");
 
-        final SpreadsheetId spreadsheetId = SpreadsheetId.with(1);
-        final SpreadsheetName spreadsheetName = SpreadsheetName.with("SpreadsheetName111");
+        final SpreadsheetId spreadsheetId = SPREADSHEET_ID;
+        final SpreadsheetName spreadsheetName = SPREADSHEET_NAME;
 
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override
