@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyCompo
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -35,24 +34,19 @@ import java.util.Optional;
  */
 public final class TextStylePropertyFilterComponent implements ValueTextBoxComponentDelegator<TextStylePropertyFilterComponent, TextStylePropertyFilter> {
 
-    public static TextStylePropertyFilterComponent with(final String idPrefix,
-                                                        final TextStylePropertyFilterComponentContext context) {
+    public static TextStylePropertyFilterComponent with(final String idPrefix) {
         return new TextStylePropertyFilterComponent(
-            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
-            Objects.requireNonNull(context, "context")
+            CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix")
         );
     }
 
-    private TextStylePropertyFilterComponent(final String idPrefix,
-                                             final TextStylePropertyFilterComponentContext context) {
+    private TextStylePropertyFilterComponent(final String idPrefix) {
         super();
 
         this.filter = ValueTextBoxComponent.with(
                 TextStylePropertyFilter::with,
                 TextStylePropertyFilter::toString
             ).setId(idPrefix + "filter" + SpreadsheetElementIds.TEXT_BOX);
-
-        this.context = context;
     }
 
     // FormValueComponent...............................................................................................
@@ -160,8 +154,6 @@ public final class TextStylePropertyFilterComponent implements ValueTextBoxCompo
 
     // @VisibleForTesting
     final ValueTextBoxComponent<TextStylePropertyFilter> filter;
-
-    private final TextStylePropertyFilterComponentContext context;
 
     // Object...........................................................................................................
 
