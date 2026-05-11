@@ -46,8 +46,8 @@ import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.S
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.BigTextStylePropertyFilterComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily.FontFamilyComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning.FontKerningComponent;
@@ -242,7 +242,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                             propertyName
                         )
                     ).setFilter(
-                        this.filter.stringValue()
+                        this.filter.value()
+                            .map(TextStylePropertyFilter::toString)
                     )
             );
     }
@@ -353,22 +354,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      * This filter uses the text entered to filter components by {@link TextStylePropertyComponent#name()}, only
      * keeping matching components connected to the DOM.
      */
-    private TextStylePropertyFilterComponent filter() {
-        return TextStylePropertyFilterComponent.with(ID_PREFIX)
-            .setLabel("Filter")
-            .clearIcon()
-            .optional()
-            .addValueWatcher2(
+    private BigTextStylePropertyFilterComponent filter() {
+//        return TextStylePropertyFilterComponent.with(ID_PREFIX)
+//            .setLabel("Filter")
+//            .clearIcon()
+//            .optional()
+//            .addValueWatcher2(
+//                (Optional<TextStylePropertyFilter> filter) ->
+//                    this.context.pushHistoryToken(
+//                        this.context.historyToken()
+//                            .setFilter(filter.map(TextStylePropertyFilter::toString))
+//                    )
+//            );
+        return BigTextStylePropertyFilterComponent.with(
+            ID_PREFIX,
+            this.context
+        ).addValueWatcher2(
                 (Optional<TextStylePropertyFilter> filter) ->
                     this.context.pushHistoryToken(
                         this.context.historyToken()
                             .setFilter(filter.map(TextStylePropertyFilter::toString))
                     )
-            );
+        );
     }
 
     // @VisibleForTesting
-    final TextStylePropertyFilterComponent filter;
+    final BigTextStylePropertyFilterComponent filter;
 
     // TextStylePropertyName components.................................................................................
 

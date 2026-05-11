@@ -34,6 +34,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -42,6 +43,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.text.printer.TreePrintable;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -170,10 +172,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1064,10 +1082,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1930,10 +1964,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2794,10 +2844,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3655,10 +3721,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4506,7 +4588,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 .orElse(null)
         );
 
-        this.treePrintAndCheck(
+        this.treePrintAndCheck2(
             dialogComponent,
             "TextStyleDialogComponent\n" +
                 "  DialogComponent\n" +
@@ -4530,10 +4612,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    DIV\n" +
                 "                      style=\"background-color: black; color: black; direction: LTR; font-family: Courier; font-kerning: AUTO; font-size: 99; font-stretch: NORMAL; font-style: ITALIC; font-variant: SMALL_CAPS; font-weight: BOLD; hanging-punctuation: FIRST; height: 55px; hyphens: AUTO; letter-spacing: 33px; line-height: 44px; margin-bottom: 3px; margin-left: 4px; margin-right: 2px; margin-top: 1px; opacity: 50%; overflow-wrap: BREAK_WORD; overflow-x: VISIBLE; overflow-y: HIDDEN; padding-bottom: 3px; padding-left: 4px; padding-right: 2px; padding-top: 1px; text-align: CENTER; text-decoration-line: OVERLINE; text-decoration-style: DOTTED; text-decoration-thickness: 123px; text-indent: 123px; text-justify: INTER_WORD; text-overflow: \"Hello World\"; text-transform: UPPERCASE; text-wrapping: WRAP; vertical-align: MIDDLE; visibility: VISIBLE; white-space: NOWRAP; width: 44px; word-break: BREAK_WORD; word-wrap: BREAK_WORD; writing-mode: HORIZONTAL_TB;\"\n" +
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4547,7 +4645,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      TABLE\n" +
                 "                        id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                          TBODY\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
@@ -4572,7 +4670,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-8-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-9-Link\n" +
@@ -4597,7 +4695,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-16-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-17-Link\n" +
@@ -4622,7 +4720,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-24-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-25-Link\n" +
@@ -4647,7 +4745,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-32-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-33-Link\n" +
@@ -4672,7 +4770,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-40-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-41-Link\n" +
@@ -4697,7 +4795,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-48-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-49-Link\n" +
@@ -4722,7 +4820,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-56-Link\n" +
-                "                            TR\n" +
+                "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
@@ -4739,7 +4837,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TABLE\n" +
                 "                          id=\"TextStyle-Table\" className=dui dui-menu-item\n" +
                 "                            TBODY\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
@@ -4764,7 +4862,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-8-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-9-Link\n" +
@@ -4789,7 +4887,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-16-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-17-Link\n" +
@@ -4814,7 +4912,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-24-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-25-Link\n" +
@@ -4839,7 +4937,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-32-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-33-Link\n" +
@@ -4864,7 +4962,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-40-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-41-Link\n" +
@@ -4889,7 +4987,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-48-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-49-Link\n" +
@@ -4914,7 +5012,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                TD\n" +
                 "                                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                    DISABLED id=TextStyle-color-56-Link\n" +
-                "                              TR\n" +
+                "                              TR\n",
                 "                                TD\n" +
                 "                                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                    \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/color/save/] id=TextStyle-color-clear-Link\n" +
@@ -5369,8 +5467,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
         );
 
         // hide everything but the Color properties
-        component.filter.setStringValue(
-            Optional.of("COL")
+        component.filter.setValue(
+            Optional.of(
+                TextStylePropertyFilter.with("COL")
+            )
         );
 
         this.treePrintAndCheck(
@@ -5394,10 +5494,26 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  style=\"margin-bottom: 4px; margin-left: auto; margin-right: auto; margin-top: 4px; width: 100%;\"\n" +
                 "                    DIV\n" +
                 "                      \"The quick brown fox jumps over the lazy dog\"\n" +
-                "            TextStylePropertyFilterComponent\n" +
-                "              ValueTextBoxComponent\n" +
-                "                TextBoxComponent\n" +
-                "                  Filter [COL] icons=mdi-close-circle id=TextStyle-filter-TextBox\n" +
+                "            BigTextStylePropertyFilterComponent\n" +
+                "              FormElementComponent\n" +
+                "                FlexLayoutComponent\n" +
+                "                  COLUMN\n" +
+                "                    TextStylePropertyFilterComponent\n" +
+                "                      ValueTextBoxComponent\n" +
+                "                        TextBoxComponent\n" +
+                "                          [COL] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                    AnchorListComponent\n" +
+                "                      FlexLayoutComponent\n" +
+                "                        ROW\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BORDER] id=TextStyle-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BOX] id=TextStyle-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BREAK] id=TextStyle-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20COLOR] id=TextStyle-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20FONT] id=TextStyle-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20MEASURE] id=TextStyle-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20TEXT] id=TextStyle-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5924,5 +6040,18 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
     @Override
     public JavaVisibility typeVisibility() {
         return JavaVisibility.PUBLIC;
+    }
+
+    // TreePrintable....................................................................................................
+
+    private void treePrintAndCheck2(final TreePrintable printable,
+                                    final String...expected) {
+        this.treePrintAndCheck(
+            printable,
+            String.join(
+                "",
+                expected
+            )
+        );
     }
 }
