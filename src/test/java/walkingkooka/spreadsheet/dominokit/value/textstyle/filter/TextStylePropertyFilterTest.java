@@ -67,6 +67,97 @@ public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedT
         );
     }
 
+    // add..............................................................................................................
+
+    @Test
+    public void testAddWithNullFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyFilter.ALL.add(null)
+        );
+    }
+
+    @Test
+    public void testAddWithNew() {
+        this.addAndCheck(
+            "",
+            TextStylePropertyFilterKind.TEXT,
+            "TEXT"
+        );
+    }
+
+    @Test
+    public void testAddWithNewNotEmpty() {
+        this.addAndCheck(
+            "hello",
+            TextStylePropertyFilterKind.TEXT,
+            "hello TEXT"
+        );
+    }
+
+    @Test
+    public void testAddWithNewNotEmptyEndsWithSpace() {
+        this.addAndCheck(
+            "hello ",
+            TextStylePropertyFilterKind.TEXT,
+            "hello TEXT"
+        );
+    }
+
+    @Test
+    public void testAddWithOldDifferentCase() {
+        this.addAndCheck(
+            "text",
+            TextStylePropertyFilterKind.TEXT,
+            "text"
+        );
+    }
+
+    @Test
+    public void testAddWithOld() {
+        this.addAndCheck(
+            "TEXT",
+            TextStylePropertyFilterKind.TEXT,
+            "TEXT"
+        );
+    }
+
+    @Test
+    public void testAddWithOld2() {
+        this.addAndCheck(
+            "TEXT hello",
+            TextStylePropertyFilterKind.TEXT,
+            "TEXT hello"
+        );
+    }
+
+    private void addAndCheck(final String filter,
+                             final TextStylePropertyFilterKind kind,
+                             final String expected) {
+        this.addAndCheck(
+            TextStylePropertyFilter.with(filter),
+            kind,
+            TextStylePropertyFilter.with(expected)
+        );
+    }
+
+    private void addAndCheck(final TextStylePropertyFilter filter,
+                             final TextStylePropertyFilterKind kind,
+                             final TextStylePropertyFilter expected) {
+        if(filter.equals(expected)) {
+            assertSame(
+                expected,
+                expected.add(kind)
+            );
+        } else {
+            this.checkEquals(
+                expected,
+                filter.add(kind)
+            );
+        }
+    }
+
+
     // testTextStylePropertyComponent...................................................................................
 
     private final static String ID_PREFIX = "TestIdPrefix123-";

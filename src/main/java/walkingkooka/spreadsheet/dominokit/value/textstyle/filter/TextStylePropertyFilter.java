@@ -63,6 +63,37 @@ public final class TextStylePropertyFilter {
             );
     }
 
+    /**
+     * Adds the given {@link TextStylePropertyFilterKind} returning an instance with it present, creating a new instance
+     * with updated text if necessary.
+     */
+    public TextStylePropertyFilter add(final TextStylePropertyFilterKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        boolean add = true;
+
+        final String kindText = kind.name();
+        for (String token : this.tokens) {
+            if (CASE_SENSITIVITY.equals(token, kindText)) {
+                add = false;
+                break;
+            }
+        }
+
+        return add ?
+            new TextStylePropertyFilter(
+                text.isEmpty() ?
+                    kindText :
+                    text.endsWith(" ")
+                        ? text.concat(kindText) :
+                        text.concat(" ")
+                            .concat(kindText)
+            ) :
+            this;
+    }
+
+    // testXXX..........................................................................................................
+
     public boolean testComponent(final TextStylePropertyComponent<?, ?, ?> component) {
         return this.testName(component.name()) ||
             this.testValue(component.value());
