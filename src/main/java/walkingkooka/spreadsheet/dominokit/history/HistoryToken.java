@@ -3003,15 +3003,13 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final Optional<String> filter() {
         Optional<String> filter = Optional.empty();
 
-        if (this instanceof SpreadsheetMetadataHistoryToken) {
-            if (this instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken) {
-                filter = this.cast(SpreadsheetMetadataPropertyStyleSelectHistoryToken.class)
+        if (this instanceof SpreadsheetMetadataPropertyStyleSelectHistoryToken) {
+            filter = this.cast(SpreadsheetMetadataPropertyStyleSelectHistoryToken.class)
+                .filter;
+        } else {
+            if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
+                filter = this.cast(SpreadsheetCellStyleSelectHistoryToken.class)
                     .filter;
-            } else {
-                if (this instanceof SpreadsheetCellStyleSelectHistoryToken) {
-                    filter = this.cast(SpreadsheetCellStyleSelectHistoryToken.class)
-                        .filter();
-                }
             }
         }
 

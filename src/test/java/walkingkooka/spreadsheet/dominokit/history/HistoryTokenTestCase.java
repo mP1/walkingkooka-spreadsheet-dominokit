@@ -415,6 +415,11 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
                     .orElse("")
             );
         }
+
+        this.filterAndCheck(
+            expected,
+            filter
+        );
     }
 
     // formName.........................................................................................................
