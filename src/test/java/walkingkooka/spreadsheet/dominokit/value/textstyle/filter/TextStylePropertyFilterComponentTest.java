@@ -25,8 +25,22 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class TextStylePropertyFilterComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, TextStylePropertyFilter, TextStylePropertyFilterComponent>,
     ComponentLifecycleMatcherTesting {
+
+    @Test
+    public void testWithNullContextFails() {
+        assertThrows(
+            NullPointerException.class,
+            () -> TextStylePropertyFilterComponent.with(
+                "TestIdPrefix123",
+                null
+            )
+        );
+    }
+
 
     @Test
     public void testTreePrintable() {
@@ -101,7 +115,8 @@ public final class TextStylePropertyFilterComponentTest implements FormValueComp
     @Override
     public TextStylePropertyFilterComponent createComponent() {
         return TextStylePropertyFilterComponent.with(
-            "TestIdPrefix123-"
+            "TestIdPrefix123-",
+            new FakeTextStylePropertyFilterComponentContext()
         );
     }
 
