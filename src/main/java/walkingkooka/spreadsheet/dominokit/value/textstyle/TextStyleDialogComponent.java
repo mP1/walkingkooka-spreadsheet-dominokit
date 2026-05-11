@@ -241,6 +241,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
                         Optional.of(
                             propertyName
                         )
+                    ).setFilter(
+                        this.filter.stringValue()
                     )
             );
     }
@@ -357,23 +359,11 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             .clearIcon()
             .optional()
             .addValueWatcher2(
-                (Optional<TextStylePropertyFilter> filter) -> {
-                    final TextStylePropertyFilter filterOrAll = filter.orElse(
-                        TextStylePropertyFilter.ALL
-                    );
-
-                    // the first three children are selection, sample, filter never delete them
-                    final ThreeColumnComponent parent = this.componentsParent;
-                    while(parent.children().size() > 3) {
-                        parent.removeChild(3);
-                    }
-
-                    for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                        if(component.filterTest(filterOrAll)) {
-                            parent.appendChild(component);
-                        }
-                    }
-                }
+                (Optional<TextStylePropertyFilter> filter) ->
+                    this.context.pushHistoryToken(
+                        this.context.historyToken()
+                            .setFilter(filter.map(TextStylePropertyFilter::toString))
+                    )
             );
     }
 
@@ -758,28 +748,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             // save history tokens probably include TextStylePropertyName.* which is prolly different if any property
             // is selected
             if (false == historyToken.isSave()) {
-                FormValueComponent<?, ?, ?> giveFocus = this.textStyle;
+                if(false == this.filter.isEditing()) {
 
-                final TextStylePropertyName<?> propertyNameOrNull = historyToken.stylePropertyName()
-                    .orElse(null);
+                    // not filter, try and match TextStyleProperty with filter matched TextStylePropertyComponent
+                    FormValueComponent<?, ?, ?> giveFocus = this.textStyle;
 
-                if (null != propertyNameOrNull) {
-                    final TextStylePropertyFilter filter = this.filter.value()
-                        .orElse(TextStylePropertyFilter.ALL);
+                    final TextStylePropertyName<?> propertyNameOrNull = historyToken.stylePropertyName()
+                        .orElse(null);
 
-                    for (final TextStylePropertyComponent<?, ?, ?> component : this.components) {
-                        if (false == component.name().equals(propertyNameOrNull)) {
-                            continue;
+                    if (null != propertyNameOrNull) {
+                        final TextStylePropertyFilter filter = this.filter.value()
+                            .orElse(TextStylePropertyFilter.ALL);
+
+                        for (final TextStylePropertyComponent<?, ?, ?> component : this.components) {
+                            if (false == component.name().equals(propertyNameOrNull)) {
+                                continue;
+                            }
+
+                            if (filter.testComponent(component)) {
+                                giveFocus = component;
+                            }
+                            break;
                         }
-
-                        if (filter.testComponent(component)) {
-                            giveFocus = component;
-                        }
-                        break;
                     }
-                }
 
-                context.giveFocus(giveFocus::focus);
+                    context.giveFocus(giveFocus::focus);
+                }
             }
         }
     }
@@ -801,6 +795,26 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         final Optional<TextStyle> undoTextStyle = this.context.undo();
 
         this.textStyle.setValue(undoTextStyle);
+
+        final Optional<TextStylePropertyFilter> filterOrEmpty = context.historyToken()
+                .filter()
+                .map(TextStylePropertyFilter::with);
+
+        this.filter.setValue(filterOrEmpty);
+
+        // the first three children are selection, sample, filter never delete them
+        final ThreeColumnComponent parent = this.componentsParent;
+        while(parent.children().size() > 3) {
+            parent.removeChild(3);
+        }
+
+        final TextStylePropertyFilter filter = filterOrEmpty.orElse(TextStylePropertyFilter.ALL);
+
+        for(final TextStylePropertyComponent<?, ?, ?> component : this.components) {
+            if(component.filterTest(filter)) {
+                parent.appendChild(component);
+            }
+        }
     }
 
     @Override
