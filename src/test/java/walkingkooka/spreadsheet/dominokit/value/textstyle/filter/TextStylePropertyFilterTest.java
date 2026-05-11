@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting;
@@ -36,8 +37,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class TextStylePropertyFilterTest implements ClassTesting<TextStylePropertyFilter>,
-    ToStringTesting<TextStylePropertyFilter> {
+public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedTesting2<TextStylePropertyFilter>,
+    ToStringTesting<TextStylePropertyFilter>,
+    ClassTesting<TextStylePropertyFilter> {
 
     // with.............................................................................................................
 
@@ -395,6 +397,36 @@ public final class TextStylePropertyFilterTest implements ClassTesting<TextStyle
             filter.test(text),
             () -> filter + " " + CharSequences.quoteAndEscape(text)
         );
+    }
+
+    // hashCode/equals..................................................................................................
+
+    @Test
+    public void testEqualsDifferent() {
+        this.checkNotEquals(
+            TextStylePropertyFilter.with("DifferentFilter")
+        );
+    }
+
+    @Test
+    public void testEqualsDifferentCase() {
+        this.checkEquals(
+            TextStylePropertyFilter.with(FILTER_TEXT.toUpperCase())
+        );
+    }
+
+    @Test
+    public void testEqualsExtraWhitespace() {
+        this.checkNotEquals(
+            TextStylePropertyFilter.with(FILTER_TEXT + " ")
+        );
+    }
+
+    private final static String FILTER_TEXT = "Filter123";
+
+    @Override
+    public TextStylePropertyFilter createObject() {
+        return TextStylePropertyFilter.with(FILTER_TEXT);
     }
 
     // toString.........................................................................................................
