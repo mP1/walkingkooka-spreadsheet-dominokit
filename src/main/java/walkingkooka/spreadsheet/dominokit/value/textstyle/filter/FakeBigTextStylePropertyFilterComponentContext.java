@@ -19,10 +19,10 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
-public class FakeTextStylePropertyFilterComponentContext extends FakeHistoryContext
-    implements TextStylePropertyFilterComponentContext {
+public class FakeBigTextStylePropertyFilterComponentContext extends FakeHistoryContext
+    implements BigTextStylePropertyFilterComponentContext {
 
-    public FakeTextStylePropertyFilterComponentContext() {
+    public FakeBigTextStylePropertyFilterComponentContext() {
         super();
     }
 }
