@@ -158,7 +158,7 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
 
     @Override
     public BigFontWeightComponent setValue(final Optional<FontWeight> value) {
-        HistoryToken historyToken = context.historyToken()
+        HistoryToken historyToken = this.context.historyToken()
             .setStylePropertyName(
                 Optional.of(PROPERTY_NAME)
             );
