@@ -140,6 +140,27 @@ public final class TextStylePropertyFilter {
     // Object...........................................................................................................
 
     @Override
+    public int hashCode() {
+        return CASE_SENSITIVITY.hash(
+            this.text
+        );
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        return this == other ||
+            (other instanceof TextStylePropertyFilter &&
+                this.equals0((TextStylePropertyFilter) other));
+    }
+
+    private boolean equals0(final TextStylePropertyFilter other) {
+        return CASE_SENSITIVITY.equals(
+            this.text,
+            other.text
+        );
+    }
+
+    @Override
     public String toString() {
         return this.text;
     }
