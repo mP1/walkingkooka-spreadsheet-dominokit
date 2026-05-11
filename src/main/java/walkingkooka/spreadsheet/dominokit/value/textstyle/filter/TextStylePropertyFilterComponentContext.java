@@ -19,5 +19,5 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 
-public interface TextStylePropertyFilterContext extends HistoryContext {
+public interface TextStylePropertyFilterComponentContext extends HistoryContext {
 }
