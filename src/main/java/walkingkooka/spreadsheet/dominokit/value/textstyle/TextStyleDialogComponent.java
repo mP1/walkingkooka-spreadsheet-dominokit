@@ -354,10 +354,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      * keeping matching components connected to the DOM.
      */
     private TextStylePropertyFilterComponent filter() {
-        return TextStylePropertyFilterComponent.with(
-                ID_PREFIX,
-                this.context
-            ).setLabel("Filter")
+        return TextStylePropertyFilterComponent.with(ID_PREFIX)
+            .setLabel("Filter")
             .clearIcon()
             .optional()
             .addValueWatcher2(
