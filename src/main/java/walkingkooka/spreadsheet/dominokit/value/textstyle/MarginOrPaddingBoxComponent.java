@@ -41,7 +41,6 @@ public interface MarginOrPaddingBoxComponent<V extends MarginOrPadding, C extend
     default DivComponent component() {
         return HtmlElementComponent.div()
             .setCssText(BoxComponent.DEFAULT_BOX_COMPONENT_CSS_TEXT + "background-color: #ddd;");
-            //.setCssText("width: 20px; height: 20px; background-color: #ddd;");
     }
 
     // ValueComponent...................................................................................................
