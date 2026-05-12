@@ -355,21 +355,11 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      * keeping matching components connected to the DOM.
      */
     private BigTextStylePropertyFilterComponent filter() {
-//        return TextStylePropertyFilterComponent.with(ID_PREFIX)
-//            .setLabel("Filter")
-//            .clearIcon()
-//            .optional()
-//            .addValueWatcher2(
-//                (Optional<TextStylePropertyFilter> filter) ->
-//                    this.context.pushHistoryToken(
-//                        this.context.historyToken()
-//                            .setFilter(filter.map(TextStylePropertyFilter::toString))
-//                    )
-//            );
         return BigTextStylePropertyFilterComponent.with(
             ID_PREFIX,
             this.context
-        ).addValueWatcher2(
+        ).setLabel("Filter")
+            .addValueWatcher2(
                 (Optional<TextStylePropertyFilter> filter) ->
                     this.context.pushHistoryToken(
                         this.context.historyToken()

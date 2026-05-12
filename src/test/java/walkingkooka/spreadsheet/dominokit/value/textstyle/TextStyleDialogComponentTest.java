@@ -174,6 +174,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -1084,6 +1086,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -1966,6 +1970,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -2846,6 +2852,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -3723,6 +3731,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -4614,6 +4624,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
@@ -5496,6 +5508,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      \"The quick brown fox jumps over the lazy dog\"\n" +
                 "            BigTextStylePropertyFilterComponent\n" +
                 "              FormElementComponent\n" +
+                "                label\n" +
+                "                  Filter\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextStylePropertyFilterComponent\n" +
