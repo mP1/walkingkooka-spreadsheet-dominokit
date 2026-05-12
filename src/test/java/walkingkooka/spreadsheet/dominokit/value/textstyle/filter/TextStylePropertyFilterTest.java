@@ -157,6 +157,65 @@ public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedT
         }
     }
 
+    // contains.........................................................................................................
+
+    @Test
+    public void testContainsAll() {
+        for (final TextStylePropertyFilterKind kind : TextStylePropertyFilterKind.values()) {
+            this.containsAndCheck(
+                TextStylePropertyFilter.ALL,
+                kind,
+                false
+            );
+        }
+    }
+
+    @Test
+    public void testContainsOnlyLowerCase() {
+        this.containsAndCheck(
+            "text",
+            TextStylePropertyFilterKind.TEXT,
+            true
+        );
+    }
+
+    @Test
+    public void testContainsOnlyUpperCase() {
+        this.containsAndCheck(
+            "TEXT",
+            TextStylePropertyFilterKind.TEXT,
+            true
+        );
+    }
+
+    @Test
+    public void testContainsMultipleTokens() {
+        this.containsAndCheck(
+            "1 TEXT",
+            TextStylePropertyFilterKind.TEXT,
+            true
+        );
+    }
+
+    private void containsAndCheck(final String filter,
+                                  final TextStylePropertyFilterKind kind,
+                                  final boolean expected) {
+        this.containsAndCheck(
+            TextStylePropertyFilter.with(filter),
+            kind,
+            expected
+        );
+    }
+
+    private void containsAndCheck(final TextStylePropertyFilter filter,
+                                  final TextStylePropertyFilterKind kind,
+                                  final boolean expected) {
+        this.checkEquals(
+            expected,
+            filter.contains(kind),
+            () -> kind + " contains " + kind
+        );
+    }
 
     // testTextStylePropertyComponent...................................................................................
 

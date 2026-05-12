@@ -70,26 +70,40 @@ public final class TextStylePropertyFilter {
     public TextStylePropertyFilter add(final TextStylePropertyFilterKind kind) {
         Objects.requireNonNull(kind, "kind");
 
-        boolean add = true;
+        TextStylePropertyFilter added = this;
+        if (false == this.contains(kind)) {
+            final String kindText = kind.name();
 
-        final String kindText = kind.name();
-        for (String token : this.tokens) {
-            if (CASE_SENSITIVITY.equals(token, kindText)) {
-                add = false;
-                break;
-            }
-        }
-
-        return add ?
-            new TextStylePropertyFilter(
+            added = new TextStylePropertyFilter(
                 text.isEmpty() ?
                     kindText :
                     text.endsWith(" ")
                         ? text.concat(kindText) :
                         text.concat(" ")
                             .concat(kindText)
-            ) :
-            this;
+            );
+        }
+
+        return added;
+    }
+
+    /**
+     * Tests if the given {@link TextStylePropertyFilterKind} is already added to this filter.
+     */
+    public boolean contains(final TextStylePropertyFilterKind kind) {
+        Objects.requireNonNull(kind, "kind");
+
+        boolean contains = false;
+
+        final String kindText = kind.name();
+        for (String token : this.tokens) {
+            if (CASE_SENSITIVITY.equals(token, kindText)) {
+                contains = true;
+                break;
+            }
+        }
+
+        return contains;
     }
 
     // testXXX..........................................................................................................
