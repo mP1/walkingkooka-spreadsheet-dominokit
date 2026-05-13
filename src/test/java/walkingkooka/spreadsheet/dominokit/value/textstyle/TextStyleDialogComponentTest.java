@@ -893,16 +893,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -1804,16 +1804,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -2699,16 +2699,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -3592,16 +3592,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -4482,16 +4482,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -5386,16 +5386,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    FlexLayoutComponent\n" +
                 "                      COLUMN\n" +
                 "                        TextBoxComponent\n" +
-                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-text-TextBox\n" +
+                "                          Text [Hello World] icons=mdi-close-circle id=TextStyle-textOverflow-text-TextBox\n" +
                 "                        AnchorListComponent\n" +
                 "                          FlexLayoutComponent\n" +
                 "                            ROW\n" +
-                "                              \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-clip-Link\n" +
-                "                              \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-ellipsis-Link\n" +
+                "                              \"Clip\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                              \"Ellipsis\" [#/1/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
