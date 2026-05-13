@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.validator;
 
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.dominokit.domino.ui.utils.HasValidation.Validator;
+import walkingkooka.HasShortMessage;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -55,7 +56,9 @@ final class TryCatchConsumerStringValidator implements Validator<Optional<String
         } catch (final UnsupportedOperationException rethrow) {
             throw rethrow;
         } catch (final RuntimeException fail) {
-            result = ValidationResult.invalid(fail.getMessage());
+            result = ValidationResult.invalid(
+                HasShortMessage.getShortMessageOrMessage(fail)
+            );
         }
         return result;
     }
