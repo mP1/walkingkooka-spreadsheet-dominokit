@@ -81,6 +81,7 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
             );
 
         this.textOverflow = TextOverflowComponent.with(idPrefix)
+            .setId(idPrefix + "value" + SpreadsheetElementIds.TEXT_BOX)
             .setLabel("Value");
 
         this.formElementComponent = FormElementComponent.with(

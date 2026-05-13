@@ -902,7 +902,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -1813,7 +1813,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -2708,7 +2708,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -3601,7 +3601,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -4491,7 +4491,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
@@ -5395,7 +5395,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        TextOverflowComponent\n" +
                 "                          ValueTextBoxComponent\n" +
                 "                            TextBoxComponent\n" +
-                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-TextBox\n" +
+                "                              Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-value-TextBox\n" +
                 "                TextTransformComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Text Transform\n" +
