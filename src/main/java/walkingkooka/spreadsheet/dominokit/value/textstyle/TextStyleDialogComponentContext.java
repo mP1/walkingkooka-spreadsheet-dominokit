@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContex
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BigBorderComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponentContext;
@@ -57,6 +58,7 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     DialogAnchorListComponentContext<TextStyle>,
     BigTextStylePropertyFilterComponentContext,
     BackgroundColorComponentContext,
+    BigBorderComponentContext,
     TextStyleColorComponentContext,
     DirectionComponentContext,
     FontKerningComponentContext,
