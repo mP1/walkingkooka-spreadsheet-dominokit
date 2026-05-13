@@ -49,8 +49,10 @@ final class ConditionRightSpreadsheetFormulaParserTokenComponentValidator implem
             );
 
             message = null;
-        } catch (final Exception fail) {
-            message = fail.getMessage();
+        } catch (final UnsupportedOperationException rethrow) {
+            throw rethrow;
+        } catch (final RuntimeException cause) {
+            message = cause.getMessage();
         }
         return CharSequences.isNullOrEmpty(message) ?
             ValidationResult.valid() :
