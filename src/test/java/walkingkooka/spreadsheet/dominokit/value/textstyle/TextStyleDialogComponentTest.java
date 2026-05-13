@@ -600,10 +600,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
@@ -1523,10 +1523,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
@@ -2418,10 +2418,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
@@ -3311,10 +3311,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
@@ -4201,10 +4201,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
@@ -5105,10 +5105,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "                FontFamilyComponent\n" +
                 "                  SelectComponent\n" +
-                "                    Font Family [Courier] id=TextStyle-Select\n" +
-                "                      \"Courier\" DISABLED id=TextStyle-courier-Option\n" +
-                "                      \"Sans Serif\" DISABLED id=TextStyle-sansSerif-Option\n" +
-                "                      \"Times New Roman\" DISABLED id=TextStyle-timesNewRoman-Option\n" +
+                "                    Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                      \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
+                "                      \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
+                "                      \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "                FontKerningComponent\n" +
                 "                  TextStylePropertyEnumComponent\n" +
                 "                    Font Kerning\n" +
