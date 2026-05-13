@@ -38,6 +38,10 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Template that captures the common functionality of both {@link walkingkooka.spreadsheet.dominokit.value.textstyle.margin.BigMarginComponent}
+ * and {@link walkingkooka.spreadsheet.dominokit.value.textstyle.padding.BigPaddingComponent}.
+ */
 public interface BigMarginOrPaddingComponent<V extends MarginOrPadding, C extends BigMarginOrPaddingComponent<V, C>> extends TextStylePropertyComponent<HTMLFieldSetElement, V, C>,
     FormElementComponentDelegator<V, C> {
 
