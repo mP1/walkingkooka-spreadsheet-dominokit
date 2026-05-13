@@ -415,7 +415,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private FontFamilyComponent fontFamilyComponent() {
         return FontFamilyComponent.empty(
-            ID_PREFIX,
+            ID_PREFIX + "fontFamily-",
             FontFamilyComponentContexts.historyContext(
                 Lists.of(
                     FontFamily.with("Courier"),
