@@ -127,7 +127,7 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "              TextBoxComponent\n" +
                 "                Text [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox REQUIRED\n" +
                 "                Errors\n" +
-                "                  Invalid rgb \"!Invalid\"\n"
+                "                  Invalid rgb color \"!Invalid\"\n"
         );
     }
 
