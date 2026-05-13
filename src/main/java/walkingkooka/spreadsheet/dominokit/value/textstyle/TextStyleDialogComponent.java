@@ -358,7 +358,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
      */
     private BigTextStylePropertyFilterComponent filter() {
         return BigTextStylePropertyFilterComponent.with(
-            ID_PREFIX,
+            ID_PREFIX + "filter-",
             this.context
         ).setLabel("Filter")
             .addValueWatcher2(

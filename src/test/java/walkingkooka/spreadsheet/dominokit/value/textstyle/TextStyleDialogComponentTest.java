@@ -181,19 +181,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1104,19 +1104,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -1999,19 +1999,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2892,19 +2892,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/color/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3782,19 +3782,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4686,19 +4686,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5581,19 +5581,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    TextStylePropertyFilterComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
-                "                          [COL] icons=mdi-close-circle id=TextStyle-text-TextBox REQUIRED\n" +
+                "                          [COL] icons=mdi-close-circle id=TextStyle-filter-text-TextBox REQUIRED\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BORDER] id=TextStyle-BORDER-Link\n" +
-                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BOX] id=TextStyle-BOX-Link\n" +
-                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BREAK] id=TextStyle-BREAK-Link\n" +
-                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20COLOR] id=TextStyle-COLOR-Link\n" +
-                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20FONT] id=TextStyle-FONT-Link\n" +
-                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20MEASURE] id=TextStyle-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20OVERFLOW] id=TextStyle-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20TEXT] id=TextStyle-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20WHITESPACE] id=TextStyle-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/1/SpreadsheetName1/cell/A1/style/*/filter/COL%20WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
