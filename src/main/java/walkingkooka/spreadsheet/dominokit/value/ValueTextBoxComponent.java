@@ -377,7 +377,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
             );
         } catch (final UnsupportedOperationException rethrow) {
             throw rethrow;
-        } catch (final Exception ignore) {
+        } catch (final RuntimeException ignore) {
             parsed = null;
         }
         return Optional.ofNullable(
