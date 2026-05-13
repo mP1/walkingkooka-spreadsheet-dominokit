@@ -53,7 +53,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Empty \"text\"\n"
         );
@@ -78,7 +78,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox\n"
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox\n"
         );
     }
 
@@ -101,7 +101,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Empty \"text\"\n"
         );
@@ -130,7 +130,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [CLIP] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [CLIP] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n"
         );
     }
 
@@ -157,7 +157,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [ELLIPSIS] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [ELLIPSIS] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n"
         );
     }
 
@@ -184,7 +184,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [\"Hello\"] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n"
+                "              Value [\"Hello\"] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n"
         );
     }
 
@@ -213,7 +213,7 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
-                "              Value [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-textOverflow-TextBox REQUIRED\n" +
+                "              Value [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-value-TextBox REQUIRED\n" +
                 "              Errors\n" +
                 "                Invalid textOverflow: expected \"CLIP\", \"ELLIPSIS\" or quoted text got \"!Invalid\"\n"
         );
