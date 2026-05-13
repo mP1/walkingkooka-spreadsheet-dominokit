@@ -622,7 +622,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private BigTextOverflowComponent textOverflowComponent() {
         return BigTextOverflowComponent.with(
-            ID_PREFIX,
+            ID_PREFIX + "textOverflow-",
             this.context
         ).optional();
     }
