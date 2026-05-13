@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -95,6 +96,23 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
                 "    [A!] icons=mdi-close-circle REQUIRED\n" +
                 "    Errors\n" +
                 "      Invalid character '!' at 1\n"
+        );
+    }
+
+    @Test
+    public void testSetStringValueWithInvalidThrowsHasShortMessageFails() {
+        this.treePrintAndCheck(
+            ValueTextBoxComponent.with(
+                Color::parseRgb,
+                HasText::text
+            ).setStringValue(
+                Optional.of("Invalid")
+            ),
+            "ValueTextBoxComponent\n" +
+                "  TextBoxComponent\n" +
+                "    [Invalid] icons=mdi-close-circle REQUIRED\n" +
+                "    Errors\n" +
+                "      Unknown color name\n"
         );
     }
 

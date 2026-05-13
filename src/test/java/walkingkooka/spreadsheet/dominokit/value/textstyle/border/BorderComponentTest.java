@@ -190,7 +190,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
                 "      TextBoxComponent\n" +
                 "        [Invalid123!] icons=mdi-close-circle REQUIRED\n" +
                 "        Errors\n" +
-                "          Unknown color name \"Invalid123!\"\n"
+                "          Unknown color name\n"
         );
     }
 
