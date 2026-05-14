@@ -393,10 +393,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -1322,10 +1321,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -2221,10 +2219,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -3118,10 +3115,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4012,10 +4008,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4920,10 +4915,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  FlexLayoutComponent\n" +
                 "                    COLUMN\n" +
                 "                      BorderComponent\n" +
-                "                        ALL\n" +
-                "                          ValueTextBoxComponent\n" +
-                "                            TextBoxComponent\n" +
-                "                              Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-text-TextBox\n" +
+                "                        ValueTextBoxComponent\n" +
+                "                          TextBoxComponent\n" +
+                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +

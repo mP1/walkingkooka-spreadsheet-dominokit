@@ -17,69 +17,20 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponent;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentDelegator;
-import walkingkooka.text.printer.IndentingPrinter;
-import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.BoxEdge;
 
-import java.util.Objects;
+public final class BorderComponent extends BorderSharedComponent<BorderComponent> {
 
-/**
- * A text box that accepts text entry and validates it as a {@link Border}.
- */
-public final class BorderComponent implements ValueTextBoxComponentDelegator<BorderComponent, Border> {
-
-    public static BorderComponent empty(final BoxEdge boxEdge) {
-        return new BorderComponent(
-            Objects.requireNonNull(boxEdge, "boxEdge")
-        );
+    public static BorderComponent with(final String idPrefix) {
+        return new BorderComponent(idPrefix);
     }
 
-    private BorderComponent(final BoxEdge boxEdge) {
-        this.textBox = ValueTextBoxComponent.with(
-            boxEdge::parseBorder,
-            (Border border) -> border.setEdge(boxEdge)
-                .text()
-        );
-
-        this.boxEdge = boxEdge;
+    private BorderComponent(final String idPrefix) {
+        super(idPrefix);
     }
-
-    // ValueTextBoxComponentDelegator...................................................................................
 
     @Override
-    public ValueTextBoxComponent<Border> valueTextBoxComponent() {
-        return this.textBox;
-    }
-
-    private final ValueTextBoxComponent<Border> textBox;
-
-    // TreePrintable....................................................................................................
-
-    @Override
-    public void printTree(final IndentingPrinter printer) {
-        printer.println(this.getClass().getSimpleName());
-        printer.indent();
-        {
-            printer.println(this.boxEdge.name());
-
-            printer.indent();
-            {
-                this.valueTextBoxComponent()
-                    .printTree(printer);
-            }
-            printer.outdent();
-        }
-        printer.outdent();
-    }
-
-    private final BoxEdge boxEdge;
-
-    // Object...........................................................................................................
-
-    @Override
-    public String toString() {
-        return this.textBox.toString();
+    public BoxEdge boxEdge() {
+        return BoxEdge.ALL;
     }
 }
