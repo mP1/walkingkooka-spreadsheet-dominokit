@@ -97,18 +97,18 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              id=ValidatorSelector-links\n" +
-                "        ValidatorSelectorComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              [new-validator-222] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
-                "        DialogAnchorListComponent\n" +
-                "          AnchorListComponent\n" +
-                "            FlexLayoutComponent\n" +
-                "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/new-validator-222] id=ValidatorSelector-save-Link\n" +
-                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
-                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [new-validator-222] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/new-validator-222] id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -157,20 +157,20 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              id=ValidatorSelector-links\n" +
-                "        ValidatorSelectorComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              [new-validator-222!] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
-                "              Errors\n" +
-                "                Invalid character '!' at 17\n" +
-                "        DialogAnchorListComponent\n" +
-                "          AnchorListComponent\n" +
-                "            FlexLayoutComponent\n" +
-                "              ROW\n" +
-                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
-                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
-                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [new-validator-222!] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "            Errors\n" +
+                "              Invalid character '!' at 17\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator-111] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -228,18 +228,18 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
                 "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
                 "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
-                "        ValidatorSelectorComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
-                "        DialogAnchorListComponent\n" +
-                "          AnchorListComponent\n" +
-                "            FlexLayoutComponent\n" +
-                "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
-                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
-                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -320,18 +320,18 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
                 "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
                 "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
-                "        ValidatorSelectorComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
-                "        DialogAnchorListComponent\n" +
-                "          AnchorListComponent\n" +
-                "            FlexLayoutComponent\n" +
-                "              ROW\n" +
-                "                \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
-                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
-                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
@@ -409,20 +409,20 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "                \"Validator 1\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
                 "                \"Validator 2\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
                 "                \"Validator 3\" [#/1/SpreadsheetName1/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
-                "        ValidatorSelectorComponent\n" +
-                "          ValueTextBoxComponent\n" +
-                "            TextBoxComponent\n" +
-                "              [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
-                "              Errors\n" +
-                "                Bad Validator\n" +
-                "        DialogAnchorListComponent\n" +
-                "          AnchorListComponent\n" +
-                "            FlexLayoutComponent\n" +
-                "              ROW\n" +
-                "                \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
-                "                \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
-                "                \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
-                "                \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
+                "      ValidatorSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [hello-validator] icons=mdi-close-circle id=ValidatorSelector-selector-TextBox REQUIRED\n" +
+                "            Errors\n" +
+                "              Bad Validator\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=ValidatorSelector-save-Link\n" +
+                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/validator/save/] id=ValidatorSelector-clear-Link\n" +
+                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/validator/save/hello-validator] id=ValidatorSelector-undo-Link\n" +
+                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=ValidatorSelector-close-Link\n"
         );
     }
 
