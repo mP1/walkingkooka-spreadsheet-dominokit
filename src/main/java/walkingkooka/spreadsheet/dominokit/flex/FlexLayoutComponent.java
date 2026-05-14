@@ -208,7 +208,9 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
             printer.println(this.isColumn() ? "COLUMN" : "ROW");
             {
                 final String id = this.id();
-                if (false == CharSequences.isNullOrEmpty(id)) {
+                final boolean extraIndent = false == CharSequences.isNullOrEmpty(id);
+
+                if (extraIndent) {
                     printer.indent();
                     printer.println("id=" + id);
                 }
@@ -217,6 +219,10 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
                     this.div.printTreeChildren(printer);
                 }
                 printer.outdent();
+
+                if (extraIndent) {
+                    printer.outdent();
+                }
             }
         }
         printer.outdent();
