@@ -43,7 +43,10 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomStyleComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomWidthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightComponent;
@@ -148,6 +151,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.backgroundColorComponent(),
             this.borderComponent(),
             this.borderBottomComponent(),
+            this.borderBottomColorComponent(),
+            this.borderBottomStyleComponent(),
+            this.borderBottomWidthComponent(),
             this.borderLeftComponent(),
             this.borderRightComponent(),
             this.borderTopComponent(),
@@ -404,6 +410,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private BorderBottomComponent borderBottomComponent() {
         return BorderBottomComponent.with(
+            ID_PREFIX
+        ).optional();
+    }
+
+    // BorderBottomColorComponent.......................................................................................
+    
+    private BorderBottomColorComponent borderBottomColorComponent() {
+        return BorderBottomColorComponent.with(
+            ID_PREFIX,
+            this.context
+        ).optional();
+    }
+
+    // BorderBottomStyleComponent.......................................................................................
+
+    private BorderBottomStyleComponent borderBottomStyleComponent() {
+        return BorderBottomStyleComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // BorderBottomWidthComponent.......................................................................................
+
+    private BorderBottomWidthComponent borderBottomWidthComponent() {
+        return BorderBottomWidthComponent.empty(
             ID_PREFIX
         ).optional();
     }
