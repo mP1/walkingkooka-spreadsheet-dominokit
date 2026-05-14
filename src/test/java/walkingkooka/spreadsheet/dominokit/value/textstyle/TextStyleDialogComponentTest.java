@@ -386,16 +386,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [!Invalid] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    Errors\n" +
+                "                      Invalid rgb color \"!Invalid\"\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -1314,16 +1310,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -2212,16 +2202,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -3108,16 +3092,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4001,16 +3979,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4908,16 +4880,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
-                "              BigBorderComponent\n" +
-                "                FormElementComponent\n" +
-                "                  label\n" +
-                "                    Border\n" +
-                "                  FlexLayoutComponent\n" +
-                "                    COLUMN\n" +
-                "                      BorderComponent\n" +
-                "                        ValueTextBoxComponent\n" +
-                "                          TextBoxComponent\n" +
-                "                            Text [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-border-TextBox\n" +
+                "              BorderComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border [left-color: black; top-color: black; top-style: SOLID; top-width: 1px;] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
                 "              BorderTopComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +

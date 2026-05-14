@@ -43,7 +43,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySty
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceComponent;
-import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BigBorderComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
@@ -388,10 +388,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // BorderComponent..................................................................................................
 
-    private BigBorderComponent borderComponent() {
-        return BigBorderComponent.with(
-            ID_PREFIX + "border-",
-            this.context
+    private BorderComponent borderComponent() {
+        return BorderComponent.with(
+            ID_PREFIX
         ).optional();
     }
 
