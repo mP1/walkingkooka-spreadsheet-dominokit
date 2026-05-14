@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomStyleComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftColorComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftStyleComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponentContext;
@@ -61,6 +63,8 @@ public interface TextStyleDialogComponentContext extends DialogComponentContext,
     BackgroundColorComponentContext,
     BorderBottomColorComponentContext,
     BorderBottomStyleComponentContext,
+    BorderLeftColorComponentContext,
+    BorderLeftStyleComponentContext,
     TextStyleColorComponentContext,
     DirectionComponentContext,
     FontKerningComponentContext,

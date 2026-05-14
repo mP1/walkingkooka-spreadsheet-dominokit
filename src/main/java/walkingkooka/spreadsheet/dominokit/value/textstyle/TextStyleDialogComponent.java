@@ -48,7 +48,10 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomCom
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderBottomWidthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftStyleComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftWidthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
@@ -155,6 +158,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.borderBottomStyleComponent(),
             this.borderBottomWidthComponent(),
             this.borderLeftComponent(),
+            this.borderLeftColorComponent(),
+            this.borderLeftStyleComponent(),
+            this.borderLeftWidthComponent(),
             this.borderRightComponent(),
             this.borderTopComponent(),
             this.colorComponent(),
@@ -444,6 +450,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     private BorderLeftComponent borderLeftComponent() {
         return BorderLeftComponent.with(
+            ID_PREFIX
+        ).optional();
+    }
+
+    // BorderLeftColorComponent.........................................................................................
+
+    private BorderLeftColorComponent borderLeftColorComponent() {
+        return BorderLeftColorComponent.with(
+            ID_PREFIX,
+            this.context
+        ).optional();
+    }
+
+    // BorderLeftStyleComponent.........................................................................................
+
+    private BorderLeftStyleComponent borderLeftStyleComponent() {
+        return BorderLeftStyleComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // BorderLeftWidthComponent.........................................................................................
+
+    private BorderLeftWidthComponent borderLeftWidthComponent() {
+        return BorderLeftWidthComponent.empty(
             ID_PREFIX
         ).optional();
     }
