@@ -384,20 +384,20 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).optional();
     }
 
-    // TextStyleColorComponent.........................................................................................
-
-    private TextStyleColorComponent colorComponent() {
-        return TextStyleColorComponent.with(
-            ID_PREFIX,
-            this.context
-        ).optional();
-    }
-
     // BorderComponent..................................................................................................
 
     private BigBorderComponent borderComponent() {
         return BigBorderComponent.with(
             ID_PREFIX + "border-",
+            this.context
+        ).optional();
+    }
+
+    // TextStyleColorComponent.........................................................................................
+
+    private TextStyleColorComponent colorComponent() {
+        return TextStyleColorComponent.with(
+            ID_PREFIX,
             this.context
         ).optional();
     }
