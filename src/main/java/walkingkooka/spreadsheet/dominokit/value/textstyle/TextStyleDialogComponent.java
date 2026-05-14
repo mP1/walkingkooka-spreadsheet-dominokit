@@ -52,7 +52,10 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftColor
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderLeftWidthComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightStyleComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightWidthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
@@ -162,6 +165,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.borderLeftStyleComponent(),
             this.borderLeftWidthComponent(),
             this.borderRightComponent(),
+            this.borderRightColorComponent(),
+            this.borderRightStyleComponent(),
+            this.borderRightWidthComponent(),
             this.borderTopComponent(),
             this.colorComponent(),
             this.directionComponent(),
@@ -479,8 +485,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             ID_PREFIX
         ).optional();
     }
-    
-    // BorderRightComponent...............................................................................................
+
+    // BorderRightComponent.............................................................................................
 
     private BorderRightComponent borderRightComponent() {
         return BorderRightComponent.with(
@@ -488,6 +494,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).optional();
     }
 
+    // BorderRightColorComponent........................................................................................
+
+    private BorderRightColorComponent borderRightColorComponent() {
+        return BorderRightColorComponent.with(
+            ID_PREFIX,
+            this.context
+        ).optional();
+    }
+
+    // BorderRightStyleComponent........................................................................................
+
+    private BorderRightStyleComponent borderRightStyleComponent() {
+        return BorderRightStyleComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // BorderRightWidthComponent.........................................................................................
+
+    private BorderRightWidthComponent borderRightWidthComponent() {
+        return BorderRightWidthComponent.empty(
+            ID_PREFIX
+        ).optional();
+    }
+    
     // BorderTopComponent...............................................................................................
 
     private BorderTopComponent borderTopComponent() {
