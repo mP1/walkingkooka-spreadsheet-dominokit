@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLFieldSetElement;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerDelegator;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -33,7 +32,6 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStyleProper
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.Border;
-import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -60,13 +58,8 @@ public final class BigBorderComponent implements TextStylePropertyComponent<HTML
         super();
 
         // TestPrefix123-border-TextBox
-        this.border = BorderComponent.empty(BoxEdge.ALL)
-            .setLabel("Text")
-            .setId(
-                idPrefix +
-                    "text" +
-                    SpreadsheetElementIds.TEXT_BOX
-            );
+        this.border = BorderComponent.with(idPrefix)
+            .setLabel("Text");
 
         this.formElementComponent = FormElementComponent.with(
             FlexLayoutComponent.column()

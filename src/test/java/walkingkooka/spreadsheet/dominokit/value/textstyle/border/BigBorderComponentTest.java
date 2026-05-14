@@ -44,10 +44,9 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        BorderComponent\n" +
-                "          ALL\n" +
-                "            ValueTextBoxComponent\n" +
-                "              TextBoxComponent\n" +
-                "                Text [] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox REQUIRED\n"
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Text [] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
@@ -61,10 +60,9 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        BorderComponent\n" +
-                "          ALL\n" +
-                "            ValueTextBoxComponent\n" +
-                "              TextBoxComponent\n" +
-                "                Text [] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox\n"
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Text [] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox\n"
         );
     }
 
@@ -78,10 +76,9 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        BorderComponent\n" +
-                "          ALL\n" +
-                "            ValueTextBoxComponent\n" +
-                "              TextBoxComponent\n" +
-                "                Text [] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox REQUIRED\n"
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Text [] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
@@ -99,10 +96,9 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        BorderComponent\n" +
-                "          ALL\n" +
-                "            ValueTextBoxComponent\n" +
-                "              TextBoxComponent\n" +
-                "                Text [123] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox REQUIRED\n"
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Text [123] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
@@ -122,12 +118,11 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
                 "    FlexLayoutComponent\n" +
                 "      COLUMN\n" +
                 "        BorderComponent\n" +
-                "          ALL\n" +
-                "            ValueTextBoxComponent\n" +
-                "              TextBoxComponent\n" +
-                "                Text [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-border-text-TextBox REQUIRED\n" +
-                "                Errors\n" +
-                "                  Invalid rgb color \"!Invalid\"\n"
+                "          ValueTextBoxComponent\n" +
+                "            TextBoxComponent\n" +
+                "              Text [!Invalid] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n" +
+                "              Errors\n" +
+                "                Invalid rgb color \"!Invalid\"\n"
         );
     }
 
@@ -148,7 +143,7 @@ public final class BigBorderComponentTest implements TextStylePropertyComponentT
 
     private BigBorderComponent createComponent(final HistoryToken historyToken) {
         return BigBorderComponent.with(
-            "TestIdPrefix123-border-",
+            "TestIdPrefix123-",
             new FakeBigBorderComponentContext() {
 
                 @Override

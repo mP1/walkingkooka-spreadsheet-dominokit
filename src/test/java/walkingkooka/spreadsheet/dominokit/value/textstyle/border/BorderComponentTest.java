@@ -18,179 +18,131 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
+import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.tree.text.Border;
-import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.BoxEdge;
-import walkingkooka.tree.text.Length;
 
 import java.util.Optional;
 
-public final class BorderComponentTest implements ValueTextBoxComponentLikeTesting<BorderComponent, Border> {
+public final class BorderComponentTest extends BorderSharedComponentTestCase<BorderComponent> {
 
-    private final static BoxEdge BOX_EDGE = BoxEdge.TOP;
-
-    private final static Border BORDER = BOX_EDGE.setBorder(
-        Optional.of(Color.BLACK),
-        Optional.of(BorderStyle.DASHED),
-        Optional.of(
-            Length.pixel(1.0)
-        )
-    );
+    @Test
+    public void testSetLabelFromPropertyName() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setLabelFromPropertyName(),
+            "BorderComponent\n" +
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      Border [] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
+        );
+    }
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            BorderComponent.empty(BOX_EDGE)
+            this.createComponent()
                 .clearValue(),
             "BorderComponent\n" +
-                "  TOP\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [] icons=mdi-close-circle REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetValueTop() {
+    public void testSetValue() {
         this.treePrintAndCheck(
-            BorderComponent.empty(BOX_EDGE)
-                .setValue(
-                    Optional.of(BORDER)
-                ),
-            "BorderComponent\n" +
-                "  TOP\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [black DASHED 1px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetValueDifferentEdge() {
-        this.treePrintAndCheck(
-            BorderComponent.empty(BoxEdge.TOP)
+            this.createComponent()
                 .setValue(
                     Optional.of(
-                        BoxEdge.RIGHT.setBorder(
-                            Optional.of(Color.BLACK),
-                            Optional.of(BorderStyle.SOLID),
-                            Optional.of(Length.pixel(12.5))
-                        )
+                        Border.parse("black solid 1px")
                     )
                 ),
             "BorderComponent\n" +
-                "  TOP\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [] icons=mdi-close-circle REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
     @Test
-    public void testSetValueAll() {
-        final BoxEdge boxEdge = BoxEdge.ALL;
-
+    public void testSetValueWithBorderTop() {
         this.treePrintAndCheck(
-            BorderComponent.empty(boxEdge)
+            this.createComponent()
                 .setValue(
                     Optional.of(
-                        boxEdge.setBorder(
-                            Optional.of(Color.WHITE),
-                            Optional.of(BorderStyle.SOLID),
-                            Optional.of(
-                                Length.pixel(123.0)
-                            )
-                        )
+                        BoxEdge.RIGHT.parseBorder("BLACK SOLID 1px")
                     )
-                ),
-            "BorderComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [white SOLID 123px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetValueAllWithRight() {
-        this.treePrintAndCheck(
-            BorderComponent.empty(BoxEdge.ALL)
-                .setValue(
+                ).setValue(
                     Optional.of(
-                        BoxEdge.RIGHT.setBorder(
-                            Optional.of(Color.WHITE),
-                            Optional.of(BorderStyle.SOLID),
-                            Optional.of(
-                                Length.pixel(123.0)
-                            )
-                        )
+                        BoxEdge.TOP.parseBorder("WHITE DASHED 2px")
                     )
                 ),
             "BorderComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [right-color: white; right-style: SOLID; right-width: 123px;] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValueTop() {
-        this.treePrintAndCheck(
-            BorderComponent.empty(BOX_EDGE)
-                .setStringValue(
-                    Optional.of(
-                        BORDER.text()
-                    )
-                ),
-            "BorderComponent\n" +
-                "  TOP\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [black DASHED 1px] icons=mdi-close-circle REQUIRED\n"
-        );
-    }
-
-    @Test
-    public void testSetStringValueAll() {
-        this.treePrintAndCheck(
-            BorderComponent.empty(BoxEdge.ALL)
-                .setStringValue(
-                    Optional.of(
-                        BoxEdge.ALL.setBorder(
-                            Optional.of(Color.WHITE),
-                            Optional.of(BorderStyle.SOLID),
-                            Optional.of(Length.pixel(123.0))
-                        ).text()
-                    )
-                ),
-            "BorderComponent\n" +
-                "  ALL\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [white SOLID 123px] icons=mdi-close-circle REQUIRED\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [top-color: white; top-style: DASHED; top-width: 2px;] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n"
         );
     }
 
     @Test
     public void testSetStringValueWithInvalid() {
         this.treePrintAndCheck(
-            BorderComponent.empty(BOX_EDGE)
+            this.createComponent()
                 .setStringValue(
                     Optional.of(
-                        "Invalid123!"
+                        "Invalid"
                     )
                 ),
             "BorderComponent\n" +
-                "  TOP\n" +
-                "    ValueTextBoxComponent\n" +
-                "      TextBoxComponent\n" +
-                "        [Invalid123!] icons=mdi-close-circle REQUIRED\n" +
-                "        Errors\n" +
-                "          Unknown color name\n"
+                "  ValueTextBoxComponent\n" +
+                "    TextBoxComponent\n" +
+                "      [Invalid] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n" +
+                "      Errors\n" +
+                "        Unknown color name\n"
+        );
+    }
+
+    // addValueWatcher..................................................................................................
+
+    @Test
+    public void testAddValueWatcher() {
+        this.fired = null;
+
+        final BorderComponent component = this.createComponent();
+        component.addValueWatcher(
+            new ValueWatcher<>() {
+                @Override
+                public void onValue(final Optional<Border> value) {
+                    BorderComponentTest.this.fired = value.orElse(null);
+                }
+            }
+        );
+
+        final Border value = BoxEdge.ALL.parseBorder("black solid 1px");
+
+        component.setValue(
+            Optional.of(value)
+        );
+
+        this.checkEquals(
+            value,
+            this.fired,
+            "fired value"
+        );
+    }
+
+    private Border fired;
+
+    // filterTest.......................................................................................................
+
+    @Test
+    public void testFilterTestWithBorder() {
+        this.filterTestAndCheck(
+            this.createComponent(),
+            "BORDER",
+            true
         );
     }
 
@@ -198,7 +150,7 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
 
     @Override
     public BorderComponent createComponent() {
-        return BorderComponent.empty(BOX_EDGE);
+        return BorderComponent.with("TestIdPrefix123-");
     }
 
     // class............................................................................................................
@@ -206,10 +158,5 @@ public final class BorderComponentTest implements ValueTextBoxComponentLikeTesti
     @Override
     public Class<BorderComponent> type() {
         return BorderComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
