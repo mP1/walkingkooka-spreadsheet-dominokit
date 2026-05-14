@@ -56,7 +56,10 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightColo
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightStyleComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderRightWidthComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopStyleComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderTopWidthComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.BackgroundColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.direction.DirectionComponent;
@@ -169,6 +172,9 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
             this.borderRightStyleComponent(),
             this.borderRightWidthComponent(),
             this.borderTopComponent(),
+            this.borderTopColorComponent(),
+            this.borderTopStyleComponent(),
+            this.borderTopWidthComponent(),
             this.colorComponent(),
             this.directionComponent(),
             this.fontFamilyComponent(),
@@ -528,6 +534,32 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         ).optional();
     }
 
+    // BorderTopColorComponent..........................................................................................
+
+    private BorderTopColorComponent borderTopColorComponent() {
+        return BorderTopColorComponent.with(
+            ID_PREFIX,
+            this.context
+        ).optional();
+    }
+
+    // BorderTopStyleComponent..........................................................................................
+
+    private BorderTopStyleComponent borderTopStyleComponent() {
+        return BorderTopStyleComponent.with(
+            ID_PREFIX,
+            this.context
+        );
+    }
+
+    // BorderTopWidthComponent..........................................................................................
+
+    private BorderTopWidthComponent borderTopWidthComponent() {
+        return BorderTopWidthComponent.empty(
+            ID_PREFIX
+        ).optional();
+    }
+    
     // TextStyleColorComponent.........................................................................................
 
     private TextStyleColorComponent colorComponent() {
