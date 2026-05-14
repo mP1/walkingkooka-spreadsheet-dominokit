@@ -398,6 +398,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Border Bottom [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid rgb color \"!Invalid\"\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    Errors\n" +
+                "                      Invalid rgb color \"!Invalid\"\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -1330,6 +1336,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
                 "                    Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [black] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -2230,6 +2240,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
                 "                    Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [black] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -3128,6 +3142,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
                 "                    Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [black] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4023,6 +4041,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
                 "                    Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [black] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
@@ -4932,6 +4954,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
                 "                    Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "              BorderLeftComponent\n" +
+                "                ValueTextBoxComponent\n" +
+                "                  TextBoxComponent\n" +
+                "                    Border Left [black] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "              BorderRightComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
