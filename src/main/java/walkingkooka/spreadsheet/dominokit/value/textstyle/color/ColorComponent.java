@@ -120,6 +120,7 @@ public final class ColorComponent implements ValueTextBoxComponentDelegator<Colo
             {
                 this.colorPaletteComponent.printTree(printer);
             }
+            printer.outdent();
         }
         printer.outdent();
     }
