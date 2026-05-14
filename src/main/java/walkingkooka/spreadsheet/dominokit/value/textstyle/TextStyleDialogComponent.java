@@ -143,7 +143,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
         this.components = Lists.of(
             this.backgroundColorComponent(),
             this.borderComponent(),
-            this.textStyleColorComponent(),
+            this.colorComponent(),
             this.directionComponent(),
             this.fontFamilyComponent(),
             this.fontKerningComponent(),
@@ -386,7 +386,7 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
     // TextStyleColorComponent.........................................................................................
 
-    private TextStyleColorComponent textStyleColorComponent() {
+    private TextStyleColorComponent colorComponent() {
         return TextStyleColorComponent.with(
             ID_PREFIX,
             this.context
