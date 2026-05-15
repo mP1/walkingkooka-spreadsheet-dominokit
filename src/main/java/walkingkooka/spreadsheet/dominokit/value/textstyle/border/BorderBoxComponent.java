@@ -24,13 +24,17 @@ import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.BoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.tree.text.Border;
+import walkingkooka.tree.text.BoxEdge;
+import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * General purpose {@link BoxComponent} that displays a {@link walkingkooka.tree.text.Border}
+ * General purpose {@link BoxComponent} that displays a {@link walkingkooka.tree.text.Border}.
+ *
+ * Attempts to set any border widths greater than 5px will be clamped to 5px
  */
 public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxComponent> {
 
@@ -54,7 +58,13 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
 
     @Override
     public BorderBoxComponent setValue(final Optional<Border> value) {
-        this.border = Objects.requireNonNull(value, "value");
+        Objects.requireNonNull(value, "value");
+
+        final Optional<Border> clamped = value.map(
+            BorderBoxComponent::clampBorder
+        );
+
+        this.border = clamped;
 
         final DivComponent component = this.component;
 
@@ -64,13 +74,63 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
                 ""
         ).setOrRemoveStyleProperty(
             TextStylePropertyName.BORDER,
-            value
+            clamped
         );
 
         return this;
     }
 
     private Optional<Border> border;
+
+    private static Border clampBorder(final Border border) {
+        Border temp = border;
+
+        final BoxEdge boxEdge = border.edge();
+        switch (boxEdge) {
+            case TOP:
+            case RIGHT:
+            case BOTTOM:
+            case LEFT:
+                temp = clampBorderLength(
+                    temp,
+                    boxEdge.borderWidthPropertyName()
+                );
+                break;
+            default:
+                for (BoxEdge b : BoxEdge.topRightBottomLeft()) {
+                    temp = clampBorderLength(
+                        temp,
+                        b.borderWidthPropertyName()
+                    );
+                }
+                break;
+        }
+
+        return temp;
+    }
+
+    private static Border clampBorderLength(final Border border,
+                                            final TextStylePropertyName<Length<?>> property) {
+        Border temp = border;
+
+        final Length<?> valueOrNull = temp.getProperty(property)
+            .orElse(null);
+        if (null != valueOrNull) {
+            temp = border.setProperty(
+                property,
+                clampLength(valueOrNull)
+            );
+        }
+
+        return temp;
+    }
+
+    private static Length<?> clampLength(final Length<?> length) {
+        return length.clamp(
+            Length.none(),
+            Length.number(5.0)
+        );
+    }
 
     // HtmlComponentDelegator...........................................................................................
 
