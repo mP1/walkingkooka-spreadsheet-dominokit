@@ -41,7 +41,7 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
         super();
         this.component = HtmlElementComponent.div()
             .setCssText(DEFAULT_BOX_COMPONENT_CSS_TEXT);
-        this.setValue(Optional.empty());
+        this.clearValue();
     }
 
     // ValueComponent...................................................................................................
