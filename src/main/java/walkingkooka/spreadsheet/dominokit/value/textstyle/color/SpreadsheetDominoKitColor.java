@@ -43,6 +43,11 @@ public final class SpreadsheetDominoKitColor implements PublicStaticHelper {
     public final static CssClass BADGE_NON_ZERO_COLOR = dui_bg_orange;
 
     /**
+     * The background color for the box that displays a border within a {@link walkingkooka.spreadsheet.dominokit.value.textstyle.border.BorderComponent}.
+     */
+    public final static Color BORDER_BOX_BACKGROUND_COLOR = Color.parse("#ccc");
+
+    /**
      * This {@link Color} is mixed with cells that are selected for highlighting because of a {@link SpreadsheetCellQueryRequest} query.
      */
     public final static Color HIGHLIGHT_COLOR = WebColorName.YELLOW.color();
