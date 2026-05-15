@@ -390,12 +390,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [!Invalid] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
                 "                    Invalid rgb color \"!Invalid\"\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
                 "                    Invalid rgb color \"!Invalid\"\n" +
                 "            BorderBottomColorComponent\n" +
@@ -618,6 +622,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
                 "                    Invalid rgb color \"!Invalid\"\n" +
                 "            BorderLeftColorComponent\n" +
@@ -840,6 +846,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [!Invalid] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
                 "                    Invalid rgb color \"!Invalid\"\n" +
                 "            BorderRightColorComponent\n" +
@@ -1062,6 +1070,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [!Invalid] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
                 "                    Invalid rgb color \"!Invalid\"\n" +
                 "            BorderTopColorComponent\n" +
@@ -2196,10 +2206,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [white DASHED 2px, black SOLID 1px, green DOTTED 3px, blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          ALL\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          BOTTOM\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2418,6 +2453,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          LEFT\n" +
+                "                            TextStyle\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2636,6 +2679,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          RIGHT\n" +
+                "                            TextStyle\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2854,6 +2905,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          TOP\n" +
+                "                            TextStyle\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3956,10 +4015,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [white DASHED 2px, black SOLID 1px, green DOTTED 3px, blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          ALL\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          BOTTOM\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4178,6 +4262,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          LEFT\n" +
+                "                            TextStyle\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4396,6 +4488,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          RIGHT\n" +
+                "                            TextStyle\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -4614,6 +4714,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          TOP\n" +
+                "                            TextStyle\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5714,10 +5822,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [white DASHED 2px, black SOLID 1px, green DOTTED 3px, blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          ALL\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          BOTTOM\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5936,6 +6069,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          LEFT\n" +
+                "                            TextStyle\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -6154,6 +6295,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          RIGHT\n" +
+                "                            TextStyle\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -6372,6 +6521,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          TOP\n" +
+                "                            TextStyle\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -7469,10 +7626,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [white DASHED 2px, black SOLID 1px, green DOTTED 3px, blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          ALL\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          BOTTOM\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -7691,6 +7873,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          LEFT\n" +
+                "                            TextStyle\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -7909,6 +8099,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          RIGHT\n" +
+                "                            TextStyle\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -8127,6 +8325,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          TOP\n" +
+                "                            TextStyle\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -9238,10 +9444,35 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border [white DASHED 2px, black SOLID 1px, green DOTTED 3px, blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-border-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          ALL\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          BOTTOM\n" +
+                "                            TextStyle\n" +
+                "                              border-bottom-color=green\n" +
+                "                              border-bottom-style=DOTTED\n" +
+                "                              border-bottom-width=3px\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -9460,6 +9691,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          LEFT\n" +
+                "                            TextStyle\n" +
+                "                              border-left-color=blue\n" +
+                "                              border-left-style=DOTTED\n" +
+                "                              border-left-width=4px\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -9678,6 +9917,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          RIGHT\n" +
+                "                            TextStyle\n" +
+                "                              border-right-color=black\n" +
+                "                              border-right-style=SOLID\n" +
+                "                              border-right-width=1px\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -9896,6 +10143,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
                 "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                    innerRight\n" +
+                "                      BorderBoxComponent\n" +
+                "                        Border\n" +
+                "                          TOP\n" +
+                "                            TextStyle\n" +
+                "                              border-top-color=white\n" +
+                "                              border-top-style=DASHED\n" +
+                "                              border-top-width=2px\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +

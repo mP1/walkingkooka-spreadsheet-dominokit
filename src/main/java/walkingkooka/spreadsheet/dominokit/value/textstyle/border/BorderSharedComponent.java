@@ -33,10 +33,23 @@ import java.util.Set;
 public abstract class BorderSharedComponent<C extends BorderSharedComponent<C>> implements TextStylePropertyValueTextBoxComponentLike<C, Border> {
 
     BorderSharedComponent(final String idPrefix) {
+        super();
+
+        this.box = BorderBoxComponent.empty();
+
         this.textBox = ValueTextBoxComponent.with(
-            this.boxEdge()::parseBorder,
-            Border::text
-        );
+                this.boxEdge()::parseBorder,
+                Border::text
+            );
+        this.textBox.setInnerRight(this.box)
+            .addValueWatcher2(
+                (Optional<Border> border) -> this.box.setValue(
+                    border.map(
+                        (Border b) -> b.setEdge(this.boxEdge())
+                    )
+                )
+            );
+
         this.setIdPrefix(
             idPrefix,
             SpreadsheetElementIds.TEXT_BOX
@@ -79,6 +92,7 @@ public abstract class BorderSharedComponent<C extends BorderSharedComponent<C>> 
         return (C) this;
     }
 
+    private final BorderBoxComponent box;
 
     @Override
     public final ValueTextBoxComponent<Border> textStylePropertyValueTextBoxComponentLike() {

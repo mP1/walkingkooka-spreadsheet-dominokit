@@ -34,7 +34,9 @@ public final class BorderLeftComponentTest extends BorderSharedComponentTestCase
             "BorderLeftComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Border Left [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n"
+                "      Border Left [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -46,7 +48,9 @@ public final class BorderLeftComponentTest extends BorderSharedComponentTestCase
             "BorderLeftComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -62,7 +66,15 @@ public final class BorderLeftComponentTest extends BorderSharedComponentTestCase
             "BorderLeftComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n"
+                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
+                "            Border\n" +
+                "              LEFT\n" +
+                "                TextStyle\n" +
+                "                  border-left-color=black\n" +
+                "                  border-left-style=SOLID\n" +
+                "                  border-left-width=1px\n"
         );
     }
 
@@ -82,7 +94,9 @@ public final class BorderLeftComponentTest extends BorderSharedComponentTestCase
             "BorderLeftComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -99,6 +113,8 @@ public final class BorderLeftComponentTest extends BorderSharedComponentTestCase
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid] icons=mdi-close-circle id=TestIdPrefix123-borderLeft-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
                 "      Errors\n" +
                 "        Unknown color name\n"
         );
