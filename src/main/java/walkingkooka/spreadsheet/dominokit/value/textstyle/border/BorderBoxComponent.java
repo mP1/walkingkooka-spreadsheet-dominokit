@@ -22,6 +22,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.dom.DivComponent;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.BoxComponent;
+import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -40,7 +41,7 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
     private BorderBoxComponent() {
         super();
         this.component = HtmlElementComponent.div()
-            .setCssText(DEFAULT_WIDTH_CSS + "; " + DEFAULT_HEIGHT_CSS);
+            .setCssText(DEFAULT_WIDTH_CSS + "; " + DEFAULT_HEIGHT_CSS + "; background-color: " + SpreadsheetDominoKitColor.BORDER_BOX_BACKGROUND_COLOR);
         this.clearValue();
     }
 
