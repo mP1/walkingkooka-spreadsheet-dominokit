@@ -127,8 +127,8 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
 
     private static Length<?> clampLength(final Length<?> length) {
         return length.clamp(
-            Length.none(),
-            Length.number(5.0)
+            BORDER_MIN,
+            BORDER_MAX
         );
     }
 

@@ -23,6 +23,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.text.printer.TreePrintable;
+import walkingkooka.tree.text.Length;
 
 /**
  * A simple component that displays a box and supports coloring or other styles from any value set upon it.
@@ -36,6 +37,10 @@ public interface BoxComponent<V, C extends BoxComponent<V, C>> extends ValueComp
     String DEFAULT_HEIGHT_CSS = "height: 20px";
 
     String DEFAULT_BOX_COMPONENT_CSS_TEXT = DEFAULT_WIDTH_CSS + "; " + DEFAULT_HEIGHT_CSS + "; border-color: black; border-style: solid; border-width: 1px;";
+
+    Length<?> BORDER_MIN = Length.none();
+
+    Length<?> BORDER_MAX = Length.pixel(5.0);
 
     @Override
     default Runnable addValueWatcher(final ValueWatcher<V> watcher) {
