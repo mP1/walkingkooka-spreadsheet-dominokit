@@ -29,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.dom.HasEventListener;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.validator.SpreadsheetValidators;
 import walkingkooka.text.printer.IndentingPrinter;
+import walkingkooka.tree.text.Length;
 
 import java.util.List;
 import java.util.Objects;
@@ -383,7 +384,7 @@ public final class ValueTextBoxComponent<T> implements ValueTextBoxComponentLike
         return Optional.ofNullable(
             null == parsed ||
                 "".equals(parsed) ||
-                isEmpty(parsed) ?
+                false == parsed instanceof Length && isEmpty(parsed) ?
                 null :
                 parsed
         );

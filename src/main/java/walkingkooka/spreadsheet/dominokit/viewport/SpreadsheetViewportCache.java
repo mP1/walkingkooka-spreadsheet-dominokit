@@ -591,7 +591,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             for (final SpreadsheetColumnReference column : this.windows.last()
                 .orElseThrow(() -> new IllegalStateException("Missing window")).columnRange()) {
                 width = width + this.columnWidth(column)
-                    .pixelValue();
+                    .value();
             }
 
             this.lastWindowWidth = (int) Math.round(width);
@@ -611,7 +611,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             for (final SpreadsheetRowReference row : this.windows.last()
                 .orElseThrow(() -> new IllegalStateException("Missing window")).rowRange()) {
                 height = height + this.rowHeight(row)
-                    .pixelValue();
+                    .value();
             }
 
             this.lastWindowHeight = (int) Math.round(height);

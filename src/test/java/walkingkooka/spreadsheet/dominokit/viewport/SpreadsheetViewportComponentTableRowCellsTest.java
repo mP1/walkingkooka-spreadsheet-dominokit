@@ -84,12 +84,13 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
             @Override
             public int viewportGridWidth() {
-                return (int)WIDTH.pixelValue();
+                return WIDTH.value().intValue();
             }
 
             @Override
             public int viewportGridHeight() {
-                return (int)HEIGHT.pixelValue();
+                return HEIGHT.value()
+                    .intValue();
             }
 
             @Override
@@ -246,12 +247,14 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
             @Override
             public int viewportGridWidth() {
-                return (int)WIDTH.pixelValue();
+                return WIDTH.value()
+                    .intValue();
             }
 
             @Override
             public int viewportGridHeight() {
-                return (int)HEIGHT.pixelValue();
+                return HEIGHT.value()
+                    .intValue();
             }
 
             @Override

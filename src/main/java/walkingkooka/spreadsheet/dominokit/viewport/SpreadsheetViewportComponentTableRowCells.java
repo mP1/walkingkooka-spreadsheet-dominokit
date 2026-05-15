@@ -98,7 +98,7 @@ final class SpreadsheetViewportComponentTableRowCells extends SpreadsheetViewpor
                 tr.appendChild(td);
 
                 rowWidth = rowWidth - td.width(context)
-                    .pixelValue();
+                    .value();
                 if (rowWidth <= 0) {
                     break;
                 }

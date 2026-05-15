@@ -37,7 +37,9 @@ public abstract class BorderWidthSharedComponentTestCase<C extends BorderWidthSh
     public final void testSetValueWithNoneLength() {
         this.setValueAndCheck(
             this.createComponent(),
-            Length.none()
+            Optional.of(
+                Length.none()
+            )
         );
     }
 

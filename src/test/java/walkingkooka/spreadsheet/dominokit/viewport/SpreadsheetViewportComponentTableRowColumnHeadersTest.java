@@ -172,12 +172,14 @@ public final class SpreadsheetViewportComponentTableRowColumnHeadersTest extends
 
             @Override
             public int viewportGridWidth() {
-                return (int)WIDTH.pixelValue();
+                return WIDTH.value()
+                    .intValue();
             }
 
             @Override
             public int viewportGridHeight() {
-                return (int)HEIGHT.pixelValue();
+                return HEIGHT.value()
+                    .intValue();
             }
 
             @Override
