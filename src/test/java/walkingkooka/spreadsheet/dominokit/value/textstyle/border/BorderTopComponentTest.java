@@ -34,7 +34,9 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
             "BorderTopComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Border Top [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n"
+                "      Border Top [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -46,7 +48,9 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
             "BorderTopComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -62,7 +66,15 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
             "BorderTopComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n"
+                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
+                "            Border\n" +
+                "              TOP\n" +
+                "                TextStyle\n" +
+                "                  border-top-color=black\n" +
+                "                  border-top-style=SOLID\n" +
+                "                  border-top-width=1px\n"
         );
     }
 
@@ -82,7 +94,9 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
             "BorderTopComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -99,6 +113,8 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
                 "      Errors\n" +
                 "        Unknown color name\n"
         );

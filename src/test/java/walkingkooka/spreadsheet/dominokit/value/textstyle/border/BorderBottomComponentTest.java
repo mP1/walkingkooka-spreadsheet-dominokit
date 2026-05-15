@@ -34,7 +34,9 @@ public final class BorderBottomComponentTest extends BorderSharedComponentTestCa
             "BorderBottomComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Border Bottom [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n"
+                "      Border Bottom [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -46,7 +48,9 @@ public final class BorderBottomComponentTest extends BorderSharedComponentTestCa
             "BorderBottomComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -62,7 +66,15 @@ public final class BorderBottomComponentTest extends BorderSharedComponentTestCa
             "BorderBottomComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n"
+                "      [black SOLID 1px] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
+                "            Border\n" +
+                "              BOTTOM\n" +
+                "                TextStyle\n" +
+                "                  border-bottom-color=black\n" +
+                "                  border-bottom-style=SOLID\n" +
+                "                  border-bottom-width=1px\n"
         );
     }
 
@@ -82,7 +94,9 @@ public final class BorderBottomComponentTest extends BorderSharedComponentTestCa
             "BorderBottomComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n"
+                "      [] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n"
         );
     }
 
@@ -99,6 +113,8 @@ public final class BorderBottomComponentTest extends BorderSharedComponentTestCa
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
                 "      [Invalid] icons=mdi-close-circle id=TestIdPrefix123-borderBottom-TextBox REQUIRED\n" +
+                "        innerRight\n" +
+                "          BorderBoxComponent\n" +
                 "      Errors\n" +
                 "        Unknown color name\n"
         );
