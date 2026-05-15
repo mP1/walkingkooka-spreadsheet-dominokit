@@ -59,8 +59,8 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
 
         component.setDisplay(
             value.isEmpty() ?
-                "" :
-                "none"
+                "none" :
+                ""
         ).setOrRemoveStyleProperty(
             TextStylePropertyName.BORDER,
             value
