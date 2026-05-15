@@ -545,7 +545,7 @@ final class SpreadsheetViewportComponentTable implements HtmlComponentDelegator<
 
                 height = height - context.spreadsheetViewportCache()
                     .rowHeight(row)
-                    .pixelValue();
+                    .value();
                 if (height <= 0) {
                     break;
                 }

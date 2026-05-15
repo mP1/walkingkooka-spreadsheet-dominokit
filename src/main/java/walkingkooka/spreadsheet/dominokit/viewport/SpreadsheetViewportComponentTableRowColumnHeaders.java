@@ -87,7 +87,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                     element.appendChild(columnTableCell);
 
                     width = width - columnTableCell.width(context)
-                        .pixelValue();
+                        .value();
 
                     if (width <= 0) {
                         break; // stop rendering invisible columns
@@ -112,7 +112,7 @@ final class SpreadsheetViewportComponentTableRowColumnHeaders extends Spreadshee
                     );
 
                     width = width - columnTableCell.width(context)
-                        .pixelValue();
+                        .value();
 
                     if (width <= 0) {
                         break; // stop rendering invisible columns
