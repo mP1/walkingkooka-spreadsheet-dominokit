@@ -68,7 +68,7 @@ public final class BorderBoxComponentTest implements ValueComponentTesting<HTMLD
         this.treePrintAndCheck(
             component.component,
             "DIV\n" +
-                "  style=\"border-bottom-color: white; border-bottom-style: DOTTED; border-bottom-width: 2px; border-color: black; border-left-color: white; border-left-style: DOTTED; border-left-width: 2px; border-right-color: white; border-right-style: DOTTED; border-right-width: 2px; border-style: solid; border-top-color: white; border-top-style: DOTTED; border-top-width: 2px; border-width: 1px; display: ; height: 20px; width: 20px;\"\n"
+                "  style=\"border-bottom-color: white; border-bottom-style: DOTTED; border-bottom-width: 2px; border-left-color: white; border-left-style: DOTTED; border-left-width: 2px; border-right-color: white; border-right-style: DOTTED; border-right-width: 2px; border-top-color: white; border-top-style: DOTTED; border-top-width: 2px; display: ; height: 20px; width: 20px;\"\n"
         );
     }
 
@@ -84,7 +84,7 @@ public final class BorderBoxComponentTest implements ValueComponentTesting<HTMLD
         this.treePrintAndCheck(
             component.component,
             "DIV\n" +
-                "  style=\"border-color: black; border-style: solid; border-width: 1px; display: none; height: 20px; width: 20px;\"\n"
+                "  style=\"display: none; height: 20px; width: 20px;\"\n"
         );
     }
 
