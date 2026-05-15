@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.dominokit.dom.HtmlElementComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.BoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.tree.text.Border;
-import walkingkooka.tree.text.BoxEdge;
-import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Objects;
@@ -61,7 +59,10 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
         Objects.requireNonNull(value, "value");
 
         final Optional<Border> clamped = value.map(
-            BorderBoxComponent::clampBorder
+            (Border border) -> border.clamp(
+                BORDER_MIN,
+                BORDER_MAX
+            )
         );
 
         this.border = clamped;
@@ -81,56 +82,6 @@ public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxC
     }
 
     private Optional<Border> border;
-
-    private static Border clampBorder(final Border border) {
-        Border temp = border;
-
-        final BoxEdge boxEdge = border.edge();
-        switch (boxEdge) {
-            case TOP:
-            case RIGHT:
-            case BOTTOM:
-            case LEFT:
-                temp = clampBorderLength(
-                    temp,
-                    boxEdge.borderWidthPropertyName()
-                );
-                break;
-            default:
-                for (BoxEdge b : BoxEdge.topRightBottomLeft()) {
-                    temp = clampBorderLength(
-                        temp,
-                        b.borderWidthPropertyName()
-                    );
-                }
-                break;
-        }
-
-        return temp;
-    }
-
-    private static Border clampBorderLength(final Border border,
-                                            final TextStylePropertyName<Length<?>> property) {
-        Border temp = border;
-
-        final Length<?> valueOrNull = temp.getProperty(property)
-            .orElse(null);
-        if (null != valueOrNull) {
-            temp = border.setProperty(
-                property,
-                clampLength(valueOrNull)
-            );
-        }
-
-        return temp;
-    }
-
-    private static Length<?> clampLength(final Length<?> length) {
-        return length.clamp(
-            BORDER_MIN,
-            BORDER_MAX
-        );
-    }
 
     // HtmlComponentDelegator...........................................................................................
 
