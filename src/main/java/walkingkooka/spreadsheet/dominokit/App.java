@@ -21,6 +21,7 @@ import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.convert.BinaryNumberConverterFunction;
 import walkingkooka.convert.ConverterLike;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterProvider;
@@ -62,6 +63,7 @@ import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviders;
+import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
@@ -199,6 +201,7 @@ import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.convert.ExpressionNumberBinaryNumberConverterFunctions;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionInfoSet;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
@@ -283,6 +286,8 @@ public class App implements EntryPoint,
     );
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
+
+    private final static BinaryNumberConverterFunction<SpreadsheetConverterContext> MULTIPLIER = ExpressionNumberBinaryNumberConverterFunctions.multiply();
 
     private final static HasNow NOW = LocalDateTime::now;
 
@@ -487,6 +492,7 @@ public class App implements EntryPoint,
         );
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            MULTIPLIER,
             PluginStores.fake(),
             this,
             this.spreadsheetEnvironmentContext(),
@@ -1360,6 +1366,7 @@ public class App implements EntryPoint,
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+                MULTIPLIER,
                 PluginStores.fake(),
                 this, // CurrencyLocaleContext
                 spreadsheetEnvironmentContext,
@@ -1581,6 +1588,7 @@ public class App implements EntryPoint,
 
     private void refreshSpreadsheetProviderAndSystemSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            MULTIPLIER,
             PluginStores.fake(),
             this, // CurrencyLocaleContext
             this.environmentContext(),
@@ -1693,6 +1701,7 @@ public class App implements EntryPoint,
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
+                MULTIPLIER,
                 this, // CurrencyLocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext

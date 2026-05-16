@@ -152,6 +152,12 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     }
 
     @Override
+    public <N extends Number> N multiply(final Number left,
+                                         final Number right,
+                                         final Class<N> type) {
+        throw new UnsupportedOperationException();
+    }
+    @Override
     public long dateOffset() {
         throw new UnsupportedOperationException();
     }

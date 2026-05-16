@@ -60,6 +60,21 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
     }
 
     @Override
+    public void testMultiplyWithNullLeftFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMultiplyWithNullRightFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMultiplyWithNullTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void testSpreadsheetExpressionEvaluationContextWithNullValueFails() {
         throw new UnsupportedOperationException();
     }
