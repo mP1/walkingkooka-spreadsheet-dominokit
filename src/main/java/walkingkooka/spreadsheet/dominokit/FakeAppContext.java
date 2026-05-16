@@ -677,7 +677,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
         throw new UnsupportedOperationException();
     }
 
-    // SpreadsheetFormatterContext......................................................................................
+    // SpreadsheetConverterContext......................................................................................
 
     @Override
     public boolean canConvert(final Object value,
@@ -695,6 +695,15 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     public Converter<SpreadsheetConverterContext> converter() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public <N extends Number> N multiply(final Number left,
+                                         final Number right,
+                                         final Class<N> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    // SpreadsheetFormatterContext......................................................................................
 
     @Override
     public Optional<TextNode> formatValue(final Optional<Object> value) {

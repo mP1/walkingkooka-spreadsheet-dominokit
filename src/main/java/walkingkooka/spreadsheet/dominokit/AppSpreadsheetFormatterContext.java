@@ -118,6 +118,13 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     }
 
     @Override
+    public <N extends Number> N multiply(final Number left,
+                                         final Number right,
+                                         final Class<N> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public int cellCharacterWidth() {
         throw new UnsupportedOperationException();
     }
