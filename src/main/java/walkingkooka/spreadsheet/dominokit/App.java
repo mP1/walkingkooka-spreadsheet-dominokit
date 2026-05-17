@@ -31,6 +31,7 @@ import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
+import walkingkooka.currency.CurrencyExchangeRater;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyExchangeRater;
 import walkingkooka.datetime.DateTimeContexts;
@@ -767,6 +768,11 @@ public class App implements EntryPoint,
     public Optional<Currency> currencyForLocale(final Locale locale) {
         return this.currencyContext()
             .currencyForLocale(locale);
+    }
+
+    @Override
+    public CurrencyExchangeRater currencyExchangeRater() {
+        return this.currencyContext;
     }
 
     @Override

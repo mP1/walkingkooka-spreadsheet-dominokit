@@ -21,6 +21,7 @@ import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.currency.CurrencyCode;
+import walkingkooka.currency.CurrencyExchange;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.datetime.DateTimeContexts;
@@ -53,9 +54,11 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * A {@link SpreadsheetFormatterContext} used to formatter a {@link walkingkooka.tree.expression.ExpressionNumber} into a {@link String}.
@@ -141,6 +144,19 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
         throw new UnsupportedOperationException();
     }
 
+    // CurrencyExchangeRater............................................................................................
+
+    @Override
+    public Set<CurrencyExchange> currencyExchanges() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Number> currencyExchangeRate(final CurrencyExchange currencyExchange,
+                                                 final Optional<LocalDateTime> dateTime) {
+        throw new UnsupportedOperationException();
+    }
+    
     // SpreadsheetFormatterContext.......................................................................................
 
     @Override
