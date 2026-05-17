@@ -195,12 +195,12 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
     }
 
     @Override
-    public void testExchangeRateWithNullCurrencyExchangeFails() {
+    public void testCurrencyExchangeRateWithNullCurrencyExchangeFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void testExchangeRateWithNullDateTimeFails() {
+    public void testCurrencyExchangeRateWithNullDateTimeFails() {
         throw new UnsupportedOperationException();
     }
 
