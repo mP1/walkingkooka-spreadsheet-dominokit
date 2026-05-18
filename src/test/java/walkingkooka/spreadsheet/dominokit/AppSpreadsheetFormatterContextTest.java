@@ -50,6 +50,16 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
     }
 
     @Override
+    public void testCurrencyExchangeRateWithNullCurrencyExchangeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testCurrencyExchangeRateWithNullDateTimeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void testDateTimeSymbolsForLocaleWithNullFails() {
         throw new UnsupportedOperationException();
     }
