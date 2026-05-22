@@ -95,8 +95,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
                     cursor.end();
 
                     final String filterText = save.textBetween()
-                        .toString();
-                    ; // skip leading SLASH
+                        .toString(); // skip leading SLASH
 
                     historyToken = historyToken.setFilter(
                         Optional.ofNullable(
