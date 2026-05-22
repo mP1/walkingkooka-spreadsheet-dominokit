@@ -31,7 +31,7 @@ import java.util.Optional;
 
 /**
  * General purpose {@link BoxComponent} that displays a {@link walkingkooka.tree.text.Border}.
- *
+ * <br>
  * Attempts to set any border widths greater than 5px will be clamped to 5px
  */
 public final class BorderBoxComponent implements BoxComponent<Border, BorderBoxComponent> {
