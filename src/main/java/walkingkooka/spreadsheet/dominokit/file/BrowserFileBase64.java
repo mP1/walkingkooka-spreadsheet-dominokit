@@ -72,7 +72,7 @@ final class BrowserFileBase64 extends BrowserFile {
                         this.name
                     )
                 ).toNotEncodedIfPossible()
-            ).toHeaderText()
+            ).text()
         );
 
         requestInit.setBody(this.content);
