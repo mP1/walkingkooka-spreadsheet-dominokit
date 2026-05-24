@@ -54,6 +54,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.Locale;
@@ -84,6 +85,11 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
                               final Class<?> type) {
         return value instanceof ExpressionNumber &&
             ExpressionNumber.isClass(type);
+    }
+
+    @Override
+    public Charset charset() {
+        throw new UnsupportedOperationException();
     }
 
     @Override

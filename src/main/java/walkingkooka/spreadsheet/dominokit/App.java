@@ -223,6 +223,8 @@ import walkingkooka.validation.provider.ValidatorProvider;
 import walkingkooka.validation.provider.ValidatorProviders;
 
 import java.math.MathContext;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.Locale;
@@ -266,6 +268,8 @@ public class App implements EntryPoint,
     SpreadsheetProviderDelegator,
     ValidatorFetcherWatcher,
     WindowResizeWatcher {
+
+    private final static Charset CHARSET = StandardCharsets.UTF_8;
 
     /**
      * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
@@ -493,6 +497,7 @@ public class App implements EntryPoint,
         );
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            CHARSET,
             MULTIPLIER,
             PluginStores.fake(),
             this,
@@ -1372,6 +1377,7 @@ public class App implements EntryPoint,
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+                CHARSET,
                 MULTIPLIER,
                 PluginStores.fake(),
                 this, // CurrencyLocaleContext
@@ -1594,6 +1600,7 @@ public class App implements EntryPoint,
 
     private void refreshSpreadsheetProviderAndSystemSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            CHARSET,
             MULTIPLIER,
             PluginStores.fake(),
             this, // CurrencyLocaleContext
@@ -1700,6 +1707,7 @@ public class App implements EntryPoint,
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
                 SpreadsheetMetadata.NO_CELL,
+                CHARSET,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
