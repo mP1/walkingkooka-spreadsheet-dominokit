@@ -53,6 +53,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.nio.charset.Charset;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
@@ -87,6 +88,11 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
 
     @Override
     public boolean canNumbersHaveGroupSeparator() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Charset charset() {
         throw new UnsupportedOperationException();
     }
 

@@ -99,6 +99,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Currency;
@@ -682,6 +683,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     @Override
     public boolean canConvert(final Object value,
                               final Class<?> type) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Charset charset() {
         throw new UnsupportedOperationException();
     }
 

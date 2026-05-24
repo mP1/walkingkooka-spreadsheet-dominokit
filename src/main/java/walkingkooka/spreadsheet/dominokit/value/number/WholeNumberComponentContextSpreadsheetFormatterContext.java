@@ -53,6 +53,7 @@ import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContextPreProcessor;
 import walkingkooka.tree.text.TextNode;
 
 import java.math.MathContext;
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.Locale;
@@ -142,6 +143,11 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     @Override
     public boolean canNumbersHaveGroupSeparator() {
         return false;
+    }
+
+    @Override
+    public Charset charset() {
+        throw new UnsupportedOperationException();
     }
 
     @Override
