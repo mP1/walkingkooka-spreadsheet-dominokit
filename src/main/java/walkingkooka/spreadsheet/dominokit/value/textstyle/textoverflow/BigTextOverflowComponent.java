@@ -172,7 +172,7 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
             historyToken = null;
         }
 
-        final Optional<HistoryToken> optionalHistoryToken = Optional.of(historyToken);
+        final Optional<HistoryToken> optionalHistoryToken = Optional.ofNullable(historyToken);
 
         this.textOverflow.setValue(value);
 
