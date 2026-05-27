@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.text.Indentation;
 
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Currency;
@@ -126,6 +127,16 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public Set<EnvironmentValueName<?>> environmentValueNames() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Charset charset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCharset(final Charset charset) {
         throw new UnsupportedOperationException();
     }
 

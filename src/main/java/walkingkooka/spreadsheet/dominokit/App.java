@@ -487,6 +487,7 @@ public class App implements EntryPoint,
         this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
             Storages.fake(),
             EnvironmentContexts.empty(
+                CHARSET,
                 CURRENCY,
                 Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                 LINE_ENDING,
@@ -497,7 +498,6 @@ public class App implements EntryPoint,
         );
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
-            CHARSET,
             MULTIPLIER,
             PluginStores.fake(),
             this,
@@ -923,6 +923,11 @@ public class App implements EntryPoint,
     public void removeEnvironmentValue(final EnvironmentValueName<?> name) {
         this.spreadsheetEnvironmentContext()
             .removeEnvironmentValue(name);
+    }
+
+    @Override
+    public Charset charset() {
+        return CHARSET;
     }
 
     @Override
@@ -1377,7 +1382,6 @@ public class App implements EntryPoint,
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
-                CHARSET,
                 MULTIPLIER,
                 PluginStores.fake(),
                 this, // CurrencyLocaleContext
@@ -1600,7 +1604,6 @@ public class App implements EntryPoint,
 
     private void refreshSpreadsheetProviderAndSystemSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
-            CHARSET,
             MULTIPLIER,
             PluginStores.fake(),
             this, // CurrencyLocaleContext

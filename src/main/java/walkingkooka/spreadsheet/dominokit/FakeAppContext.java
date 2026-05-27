@@ -431,6 +431,16 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Charset charset() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setCharset(final Charset charset) {
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
     public Currency currency() {
         throw new UnsupportedOperationException();
     }
@@ -683,11 +693,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     @Override
     public boolean canConvert(final Object value,
                               final Class<?> type) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Charset charset() {
         throw new UnsupportedOperationException();
     }
 
