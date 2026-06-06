@@ -66,7 +66,7 @@ public final class ValueWatchers<T> implements ValueWatcher<T> {
         this.watchers.accept(event);
     }
 
-    private final Watchers<ValueWatcherEvent<T>> watchers = Watchers.create();
+    private final Watchers<ValueWatcherEvent<T>> watchers = Watchers.empty();
 
     // Object...........................................................................................................
 
