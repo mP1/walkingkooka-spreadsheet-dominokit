@@ -122,9 +122,9 @@ abstract class FetcherWatchers<W extends FetcherWatcher> implements FetcherWatch
         }
     }
 
-    private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.create();
+    private final Watchers<FetcherWatchersEvent<W>> watchers = Watchers.empty();
 
-    private final Watchers<FetcherWatchersEvent<W>> onceWatchers = Watchers.create();
+    private final Watchers<FetcherWatchersEvent<W>> onceWatchers = Watchers.empty();
 
     /**
      * Cant use Watchers#addOnce because that will remove the watcher during #onBegin

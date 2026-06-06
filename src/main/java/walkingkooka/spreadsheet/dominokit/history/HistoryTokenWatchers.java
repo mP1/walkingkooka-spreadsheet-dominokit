@@ -49,7 +49,7 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
         );
     }
 
-    private final Watchers<HistoryTokenWatchersEvent> watchers = Watchers.create();
+    private final Watchers<HistoryTokenWatchersEvent> watchers = Watchers.empty();
 
     @Override
     public String toString() {
