@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.query;
 
 import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
-import walkingkooka.environment.EnvironmentValueWatcher;
+import walkingkooka.environment.EnvironmentWatcher;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
@@ -181,12 +181,12 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
     }
 
     @Override
-    public Runnable addEnvironmentValueWatcher(final EnvironmentValueWatcher watcher) {
+    public Runnable addEnvironmentWatcher(final EnvironmentWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addEnvironmentValueWatcherOnce(final EnvironmentValueWatcher watcher) {
+    public Runnable addEnvironmentWatcherOnce(final EnvironmentWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
