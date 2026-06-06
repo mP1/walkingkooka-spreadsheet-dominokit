@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.text.CharSequences;
-import walkingkooka.tree.text.TextStylePropertyName;
 
 import java.util.Optional;
 
@@ -32,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface TextStylePropertyComponentTesting<E extends HTMLElement, V, C extends TextStylePropertyComponent<E, V, C>>
     extends FormValueComponentTesting<E, V, C>,
-    HasNameTesting<TextStylePropertyName<V>>,
+    HasNameTesting,
     ComponentLifecycleMatcherTesting {
 
     Optional<String> NO_FILTER = Optional.empty();
