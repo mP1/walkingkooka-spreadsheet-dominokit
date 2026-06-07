@@ -22,10 +22,11 @@ import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
+import walkingkooka.watch.Watcher;
 
 import java.util.Optional;
 
-public interface FetcherWatcher {
+public interface FetcherWatcher extends Watcher {
 
     void onBegin(final HttpMethod method,
                  final Url url,
