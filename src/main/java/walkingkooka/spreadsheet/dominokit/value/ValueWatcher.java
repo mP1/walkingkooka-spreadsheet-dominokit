@@ -17,9 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value;
 
+import walkingkooka.watch.Watcher;
+
 import java.util.Optional;
 
-public interface ValueWatcher<T> {
+public interface ValueWatcher<T> extends Watcher {
 
     void onValue(final Optional<T> value);
 }
