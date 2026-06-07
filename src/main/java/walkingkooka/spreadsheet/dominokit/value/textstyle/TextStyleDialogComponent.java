@@ -258,8 +258,8 @@ public final class TextStyleDialogComponent implements DialogComponentLifecycle,
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(this);
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> this.giveFocusTextStylePropertyOrTextStyle()
         );

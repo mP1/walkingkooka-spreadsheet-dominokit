@@ -56,7 +56,7 @@ public final class FormHandlerSelectorDialogComponent implements DialogComponent
 
     private FormHandlerSelectorDialogComponent(final FormHandlerSelectorDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
 

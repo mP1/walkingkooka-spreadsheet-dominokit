@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.PluginListSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -313,7 +313,7 @@ public final class PluginSetDialogComponentTest implements DialogComponentLifecy
         private final PluginFetcherWatchers pluginFetcherWatchers = PluginFetcherWatchers.empty();
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return null;
         }
 

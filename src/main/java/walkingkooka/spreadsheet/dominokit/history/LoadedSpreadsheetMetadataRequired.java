@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 /**
- * Tag interface that indicates the {@link HistoryToken} or {@link HistoryTokenWatcher} should not be fired,
+ * Tag interface that indicates the {@link HistoryToken} or {@link HistoryWatcher} should not be fired,
  * if the {@link walkingkooka.spreadsheet.meta.SpreadsheetMetadata} loaded does not match the {@link HistoryToken}.
  */
 public interface LoadedSpreadsheetMetadataRequired {

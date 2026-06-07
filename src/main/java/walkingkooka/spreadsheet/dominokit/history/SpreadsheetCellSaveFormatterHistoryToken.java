@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveFormatterHistoryToken extends SpreadsheetC
         return FORMATTER;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

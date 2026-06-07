@@ -22,7 +22,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellFormatterSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellParserSaveHistoryToken;
@@ -44,7 +44,7 @@ import java.util.function.Function;
  * A {@link RecentValueSavesContext} that watches {@link HistoryToken} events and updates numerous recorders.
  */
 final class HistoryContextRecentValueSavesContext implements RecentValueSavesContext,
-    HistoryTokenWatcher {
+    HistoryWatcher {
 
     static HistoryContextRecentValueSavesContext with(final HistoryContext context) {
         return new HistoryContextRecentValueSavesContext(
@@ -53,7 +53,7 @@ final class HistoryContextRecentValueSavesContext implements RecentValueSavesCon
     }
 
     private HistoryContextRecentValueSavesContext(final HistoryContext historyContext) {
-        historyContext.addHistoryTokenWatcher(this);
+        historyContext.addHistoryWatcher(this);
 
         this.recorders = Lists.array();
         this.typeToRecorder = Maps.hash();
@@ -145,7 +145,7 @@ final class HistoryContextRecentValueSavesContext implements RecentValueSavesCon
 
     private final Map<Class<?>, HistoryTokenRecorder<?>> typeToRecorder;
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

@@ -58,7 +58,7 @@ abstract class ToolbarComponentItemAnchor<C extends ToolbarComponentItemAnchor<C
             DropDirection.BOTTOM_MIDDLE
         );
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         this.context = context;
 

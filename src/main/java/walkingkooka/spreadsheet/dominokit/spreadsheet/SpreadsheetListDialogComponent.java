@@ -58,7 +58,7 @@ public final class SpreadsheetListDialogComponent implements DialogComponentLife
     private SpreadsheetListDialogComponent(final SpreadsheetListDialogComponentContext context) {
         this.context = context;
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.reload = this.reload();

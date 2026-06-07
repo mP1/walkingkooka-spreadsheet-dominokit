@@ -65,7 +65,7 @@ public final class PluginFileViewDialogComponent implements DialogComponentLifec
 
         this.dialog = this.dialogCreate(context);
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addPluginFetcherWatcher(this);
     }
 

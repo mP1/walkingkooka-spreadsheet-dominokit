@@ -32,7 +32,7 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.anchor.HistoryTokenSaveValueAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.text.CharSequences;
@@ -50,7 +50,7 @@ import java.util.function.Function;
 public final class DialogAnchorListComponent<T> implements HtmlComponentDelegator<HTMLDivElement, DialogAnchorListComponent<T>>,
     ValueComponent<HTMLDivElement, T, DialogAnchorListComponent<T>>,
     DialogComponentAnchors,
-    HistoryTokenWatcher,
+    HistoryWatcher,
     ComponentRefreshable,
     ValueWatcher<T> {
 
@@ -70,7 +70,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
         this.list = AnchorListComponent.empty();
         this.value = Optional.empty();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         this.context = context;
     }
 
@@ -240,7 +240,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
 
     private final List<AnchorComponent<?>> children = Lists.array();
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

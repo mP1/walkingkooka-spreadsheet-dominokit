@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.FakeSpreadsheetViewportCacheContext;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.validation.ValueType;
@@ -79,12 +79,12 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
     }
 
     @Override
-    public void testAddHistoryTokenWatcherOnceWithNullFails() {
+    public void testAddHistoryWatcherOnceWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void testAddHistoryTokenWatcherWithNullFails() {
+    public void testAddHistoryWatcherWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
@@ -107,7 +107,7 @@ public final class BasicSpreadsheetCellValueDialogComponentContextTest implement
         return SpreadsheetViewportCache.empty(
             new FakeSpreadsheetViewportCacheContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
 

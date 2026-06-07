@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
 
@@ -65,13 +65,13 @@ public abstract class AppContextSpreadsheetNavigateDialogComponentContextTestCas
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     Objects.requireNonNull(watcher, "watcher");
                     throw new UnsupportedOperationException();
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
                     Objects.requireNonNull(watcher, "watcher");
                     throw new UnsupportedOperationException();
                 }

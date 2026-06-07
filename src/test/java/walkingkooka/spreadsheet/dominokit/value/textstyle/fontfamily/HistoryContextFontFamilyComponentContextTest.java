@@ -61,12 +61,12 @@ public final class HistoryContextFontFamilyComponentContextTest implements Histo
     }
 
     @Override
-    public void testAddHistoryTokenWatcherWithNullFails() {
+    public void testAddHistoryWatcherWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void testAddHistoryTokenWatcherOnceWithNullFails() {
+    public void testAddHistoryWatcherOnceWithNullFails() {
         throw new UnsupportedOperationException();
     }
 

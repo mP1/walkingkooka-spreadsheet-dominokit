@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
@@ -80,7 +80,7 @@ import java.util.stream.Collectors;
  */
 public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
-    HistoryTokenWatcher,
+    HistoryWatcher,
     SpreadsheetDeltaFetcherWatcher,
     SpreadsheetMetadataFetcherWatcher,
     SpreadsheetLabelNameResolver,
@@ -101,7 +101,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
     private SpreadsheetViewportCache(final SpreadsheetViewportCacheContext context) {
         super();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
@@ -621,7 +621,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
 
     private int lastWindowHeight;
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher..............................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

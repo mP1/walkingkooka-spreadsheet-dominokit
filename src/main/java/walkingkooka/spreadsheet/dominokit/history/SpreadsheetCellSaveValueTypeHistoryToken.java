@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryToken extends SpreadsheetC
         return VALUE_TYPE;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

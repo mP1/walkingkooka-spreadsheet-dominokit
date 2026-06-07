@@ -97,7 +97,7 @@ public final class BigTextOverflowComponent implements TextStylePropertyComponen
 
         this.context = context;
 
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             // force refresh of links
             (final HistoryToken previous,
              final AppContext appContext) -> BigTextOverflowComponent.this.setValue(this.value())

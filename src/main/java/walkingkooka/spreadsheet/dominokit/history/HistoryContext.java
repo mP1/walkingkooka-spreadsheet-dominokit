@@ -38,15 +38,15 @@ import static org.dominokit.domino.ui.utils.Domino.div;
 public interface HistoryContext extends Context {
 
     /**
-     * Adds a new {@link HistoryTokenWatcher}, the returned {@link Runnable} may be invoked to remove the watcher.
+     * Adds a new {@link HistoryWatcher}, the returned {@link Runnable} may be invoked to remove the watcher.
      */
-    Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher);
+    Runnable addHistoryWatcher(final HistoryWatcher watcher);
 
     /**
-     * Adds a new {@link HistoryTokenWatcher} the returned {@link Runnable} may be invoked to remove the watcher,
+     * Adds a new {@link HistoryWatcher} the returned {@link Runnable} may be invoked to remove the watcher,
      * and will also be removed on the next {@link HistoryToken} event.
      */
-    Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher);
+    Runnable addHistoryWatcherOnce(final HistoryWatcher watcher);
 
     /**
      * Returns the current history token.
@@ -59,7 +59,7 @@ public interface HistoryContext extends Context {
     void pushHistoryToken(final HistoryToken token);
 
     /**
-     * Fires the current {@link HistoryToken} to all {@link HistoryTokenWatcher watchers}.
+     * Fires the current {@link HistoryToken} to all {@link HistoryWatcher watchers}.
      */
     void fireCurrentHistoryToken();
 

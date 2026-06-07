@@ -104,7 +104,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
     }
 
     // dialog...........................................................................................................

@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentTest;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingses;
@@ -1068,7 +1068,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -1108,7 +1108,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
 
@@ -1138,7 +1138,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 new FakeAppContext() {
 
                     @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                         return null;
                     }
 

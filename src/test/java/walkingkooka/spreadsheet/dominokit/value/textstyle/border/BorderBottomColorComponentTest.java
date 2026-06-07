@@ -20,8 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
@@ -495,11 +495,11 @@ public final class BorderBottomColorComponentTest extends BorderColorSharedCompo
             }
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return this.watchers.add(watcher);
             }
 
-            private final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+            private final HistoryWatchers watchers = HistoryWatchers.empty();
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {

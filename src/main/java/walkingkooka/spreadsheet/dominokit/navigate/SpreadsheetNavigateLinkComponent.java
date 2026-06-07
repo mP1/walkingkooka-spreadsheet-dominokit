@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.text.printer.IndentingPrinter;
 
@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDelegator<HTMLAnchorElement, SpreadsheetNavigateLinkComponent>,
-    HistoryTokenWatcher {
+    HistoryWatcher {
 
     public static SpreadsheetNavigateLinkComponent with(final HistoryContext context) {
         return new SpreadsheetNavigateLinkComponent(
@@ -41,7 +41,7 @@ public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDele
     }
 
     private SpreadsheetNavigateLinkComponent(final HistoryContext context) {
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         this.anchor = HistoryTokenAnchorComponent.empty()
             .setTextContent("Navigate");
@@ -87,7 +87,7 @@ public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDele
         printer.outdent();
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

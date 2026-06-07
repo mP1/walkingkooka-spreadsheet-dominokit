@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycleTes
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -83,7 +83,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             ToolbarComponent.with(
                 ToolbarComponentContexts.appContext(
                     this.appContext(
-                        HistoryTokenWatchers.empty(),
+                        walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty(),
                         historyToken
                             .toString()
                     )
@@ -139,7 +139,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
     @Test
     public void testSpreadsheetList() {
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         final AppContext context = this.appContext(
             watchers,
@@ -159,7 +159,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
     @Test
     public void testSpreadsheetNameHistoryToken() {
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         final AppContext context = appContext(
             watchers,
@@ -220,7 +220,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
     @Test
     public void testCell() {
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         final AppContext context = appContext(
             watchers,
@@ -353,7 +353,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
     @Test
     public void testColumn() {
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         final AppContext context = appContext(
             watchers,
@@ -417,7 +417,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
     @Test
     public void testRow() {
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         final AppContext context = appContext(
             watchers,
@@ -485,12 +485,12 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
         );
     }
 
-    private AppContext appContext(final HistoryTokenWatchers watchers,
+    private AppContext appContext(final HistoryWatchers watchers,
                                   final String historyToken) {
         return new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return watchers.add(watcher);
             }
 

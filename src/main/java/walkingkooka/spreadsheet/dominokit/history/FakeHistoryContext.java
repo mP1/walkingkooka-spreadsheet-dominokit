@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 public class FakeHistoryContext implements HistoryContext {
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

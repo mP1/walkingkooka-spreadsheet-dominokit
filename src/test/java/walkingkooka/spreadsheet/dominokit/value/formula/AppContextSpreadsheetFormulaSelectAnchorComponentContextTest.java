@@ -22,7 +22,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 
 import java.util.Objects;
@@ -34,8 +34,8 @@ public final class AppContextSpreadsheetFormulaSelectAnchorComponentContextTest 
     private final static AppContext APP_CONTEXT = new FakeAppContext() {
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher historyTokenWatcher) {
-            Objects.requireNonNull(historyTokenWatcher, "historyTokenWatcher");
+        public Runnable addHistoryWatcher(final HistoryWatcher historyWatcher) {
+            Objects.requireNonNull(historyWatcher, "historyWatcher");
             return null;
         }
 

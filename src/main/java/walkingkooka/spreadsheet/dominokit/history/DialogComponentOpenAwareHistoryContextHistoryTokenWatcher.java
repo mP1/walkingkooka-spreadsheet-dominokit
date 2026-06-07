@@ -23,21 +23,21 @@ import java.util.Objects;
 import java.util.function.BooleanSupplier;
 
 /**
- * A {@link HistoryTokenWatcher} that only relays {@link #onHistoryTokenChange(HistoryToken, AppContext)} if the
+ * A {@link HistoryWatcher} that only relays {@link #onHistoryTokenChange(HistoryToken, AppContext)} if the
  * dialog component is open
  */
-final class DialogComponentOpenAwareHistoryContextHistoryTokenWatcher implements HistoryTokenWatcher {
+final class DialogComponentOpenAwareHistoryContextHistoryWatcher implements HistoryWatcher {
 
-    static DialogComponentOpenAwareHistoryContextHistoryTokenWatcher with(final BooleanSupplier isDialogOpen,
-                                                                          final HistoryTokenWatcher watcher) {
-        return new DialogComponentOpenAwareHistoryContextHistoryTokenWatcher(
+    static DialogComponentOpenAwareHistoryContextHistoryWatcher with(final BooleanSupplier isDialogOpen,
+                                                                          final HistoryWatcher watcher) {
+        return new DialogComponentOpenAwareHistoryContextHistoryWatcher(
             isDialogOpen,
             Objects.requireNonNull(watcher, "watcher")
         );
     }
 
-    private DialogComponentOpenAwareHistoryContextHistoryTokenWatcher(final BooleanSupplier isDialogOpen,
-                                                                      final HistoryTokenWatcher watcher) {
+    private DialogComponentOpenAwareHistoryContextHistoryWatcher(final BooleanSupplier isDialogOpen,
+                                                                 final HistoryWatcher watcher) {
         super();
 
         this.isDialogOpen = isDialogOpen;
@@ -57,7 +57,7 @@ final class DialogComponentOpenAwareHistoryContextHistoryTokenWatcher implements
 
     private final BooleanSupplier isDialogOpen;
 
-    private final HistoryTokenWatcher watcher;
+    private final HistoryWatcher watcher;
 
     // Object...........................................................................................................
 

@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -100,12 +100,12 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            this.historyWatchers.add(watcher);
             return null;
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
@@ -122,7 +122,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
             final HistoryToken previous = this.historyToken;
             this.historyToken = token;
 
-            this.historyTokenWatchers.onHistoryTokenChange(
+            this.historyWatchers.onHistoryTokenChange(
                 previous,
                 this
             );
@@ -164,8 +164,8 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.context.addHistoryTokenWatcher(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.context.addHistoryWatcher(watcher);
         }
 
         @Override

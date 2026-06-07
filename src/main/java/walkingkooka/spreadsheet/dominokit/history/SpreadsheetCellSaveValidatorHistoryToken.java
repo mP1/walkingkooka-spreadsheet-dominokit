@@ -96,7 +96,7 @@ public final class SpreadsheetCellSaveValidatorHistoryToken extends SpreadsheetC
         return VALIDATOR;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

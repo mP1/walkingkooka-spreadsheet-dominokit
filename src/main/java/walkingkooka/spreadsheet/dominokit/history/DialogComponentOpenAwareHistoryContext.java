@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.function.BooleanSupplier;
 
 /**
- * A {@link HistoryContext} that wraps another, filtering (skipping) {@link HistoryTokenWatcher}
+ * A {@link HistoryContext} that wraps another, filtering (skipping) {@link HistoryWatcher}
  * if the enclosing {@link DialogComponent} is closed.
  */
 final class DialogComponentOpenAwareHistoryContext implements HistoryContextDelegator {
@@ -46,9 +46,9 @@ final class DialogComponentOpenAwareHistoryContext implements HistoryContextDele
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcher(
-            DialogComponentOpenAwareHistoryContextHistoryTokenWatcher.with(
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+        return this.context.addHistoryWatcher(
+            walkingkooka.spreadsheet.dominokit.history.DialogComponentOpenAwareHistoryContextHistoryWatcher.with(
                 this.isDialogOpen,
                 watcher
             )
@@ -56,9 +56,9 @@ final class DialogComponentOpenAwareHistoryContext implements HistoryContextDele
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.context.addHistoryTokenWatcherOnce(
-            DialogComponentOpenAwareHistoryContextHistoryTokenWatcher.with(
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
+        return this.context.addHistoryWatcherOnce(
+            walkingkooka.spreadsheet.dominokit.history.DialogComponentOpenAwareHistoryContextHistoryWatcher.with(
                 this.isDialogOpen,
                 watcher
             )

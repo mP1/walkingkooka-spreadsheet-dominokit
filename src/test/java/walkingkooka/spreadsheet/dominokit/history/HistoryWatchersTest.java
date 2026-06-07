@@ -24,23 +24,23 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
-public final class HistoryTokenWatchersTest implements ClassTesting<HistoryTokenWatchers> {
+public final class HistoryWatchersTest implements ClassTesting<HistoryWatchers> {
 
     @Test
     public void testAddThenFire() {
         final HistoryToken historyToken = HistoryToken.unknown(UrlFragment.EMPTY);
         final AppContext appContext = AppContexts.fake();
 
-        final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+        final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
         watchers.add(
-            new HistoryTokenWatcher() {
+            new HistoryWatcher() {
                 @Override
                 public void onHistoryTokenChange(final HistoryToken previous,
                                                  final AppContext context) {
-                    HistoryTokenWatchersTest.this.checkEquals(historyToken, previous);
-                    HistoryTokenWatchersTest.this.checkEquals(appContext, context);
+                    HistoryWatchersTest.this.checkEquals(historyToken, previous);
+                    HistoryWatchersTest.this.checkEquals(appContext, context);
 
-                    HistoryTokenWatchersTest.this.fired = true;
+                    HistoryWatchersTest.this.fired = true;
                 }
             });
         watchers.onHistoryTokenChange(historyToken, appContext);
@@ -53,8 +53,8 @@ public final class HistoryTokenWatchersTest implements ClassTesting<HistoryToken
     // ClassTesting....................................................................................................
 
     @Override
-    public Class<HistoryTokenWatchers> type() {
-        return HistoryTokenWatchers.class;
+    public Class<HistoryWatchers> type() {
+        return HistoryWatchers.class;
     }
 
     @Override

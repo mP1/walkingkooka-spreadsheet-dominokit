@@ -91,7 +91,7 @@ public final class BigFontWeightComponent implements TextStylePropertyComponent<
 
         this.context = context;
 
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             // force refresh of links
             (final HistoryToken previous,
              final AppContext appContext) -> BigFontWeightComponent.this.setValue(this.value())

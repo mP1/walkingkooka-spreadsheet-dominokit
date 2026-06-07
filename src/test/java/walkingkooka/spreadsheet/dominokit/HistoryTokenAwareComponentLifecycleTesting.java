@@ -18,12 +18,12 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.text.printer.TreePrintable;
 
 /**
- * Note the overloads that take a {@link HistoryTokenWatcher} are intended for tests to provide the {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers},
- * also given to the provided {@link AppContext}. This will be necessary for components that have children that also register themselves as {@link HistoryTokenWatcher}.
+ * Note the overloads that take a {@link HistoryWatcher} are intended for tests to provide the {@link walkingkooka.spreadsheet.dominokit.history.HistoryWatchers},
+ * also given to the provided {@link AppContext}. This will be necessary for components that have children that also register themselves as {@link HistoryWatcher}.
  */
 public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTokenAwareComponentLifecycle & TreePrintable> extends ComponentLifecycleTesting<T>,
     ComponentLifecycleMatcherTesting {
@@ -42,7 +42,7 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
     }
 
     default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
-                                                                                                               final HistoryTokenWatcher watcher,
+                                                                                                               final HistoryWatcher watcher,
                                                                                                                final AppContext context,
                                                                                                                final String expected) {
         this.onHistoryTokenChangeAndCheck(
@@ -68,7 +68,7 @@ public interface HistoryTokenAwareComponentLifecycleTesting<T extends HistoryTok
     }
 
     default <TT extends HistoryTokenAwareComponentLifecycle & TreePrintable> void onHistoryTokenChangeAndCheck(final TT component,
-                                                                                                               final HistoryTokenWatcher watcher,
+                                                                                                               final HistoryWatcher watcher,
                                                                                                                final HistoryToken previous,
                                                                                                                final AppContext context,
                                                                                                                final String expected) {

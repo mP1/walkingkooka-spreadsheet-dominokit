@@ -60,7 +60,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     private ValidatorSelectorDialogComponent(final ValidatorSelectorDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.validators = this.validators();

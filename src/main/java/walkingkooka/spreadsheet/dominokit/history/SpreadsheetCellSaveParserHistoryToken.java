@@ -96,7 +96,7 @@ public final class SpreadsheetCellSaveParserHistoryToken extends SpreadsheetCell
         return PARSER;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

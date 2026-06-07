@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -239,7 +239,7 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                                                final List<T> expected) {
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 this.watcher = watcher;
                 return null;
             }
@@ -262,7 +262,7 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
 
             private HistoryToken previous;
 
-            private HistoryTokenWatcher watcher;
+            private HistoryWatcher watcher;
         };
 
         final HistoryContextRecentValueSavesContext context = HistoryContextRecentValueSavesContext.with(historyContext);
@@ -285,7 +285,7 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
         return HistoryContextRecentValueSavesContext.with(
             new FakeHistoryContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
             }

@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.BorderStyle;
 import walkingkooka.tree.text.TextStyle;
@@ -67,7 +67,7 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
             "Test123-",
             new FakeBorderTopStyleComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {};
                 }
 
@@ -126,7 +126,7 @@ public final class BorderTopStyleComponentTest extends BorderStyleSharedComponen
             "Test123-",
             new FakeBorderTopStyleComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {};
                 }
 

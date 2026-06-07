@@ -82,7 +82,7 @@ public final class SpreadsheetLabelMappingDialogComponent implements DialogCompo
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
         this.undoLabelName = Optional.empty();

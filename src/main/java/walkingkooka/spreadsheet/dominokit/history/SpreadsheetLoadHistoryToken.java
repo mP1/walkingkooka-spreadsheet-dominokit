@@ -33,7 +33,7 @@ import java.util.Optional;
  * /spreadsheet-id
  * </pre>
  */
-public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
+public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken implements HistoryWatcher {
 
     static SpreadsheetLoadHistoryToken with(final SpreadsheetId spreadsheetId) {
         return new SpreadsheetLoadHistoryToken(
@@ -80,7 +80,7 @@ public final class SpreadsheetLoadHistoryToken extends SpreadsheetIdHistoryToken
         return this;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

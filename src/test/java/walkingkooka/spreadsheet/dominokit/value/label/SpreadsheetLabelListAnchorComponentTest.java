@@ -25,8 +25,8 @@ import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
@@ -136,15 +136,15 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
         private HistoryToken historyToken;
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
         @Override
         public void pushHistoryToken(final HistoryToken token) {
             final HistoryToken previous = this.historyToken;
             this.historyToken = token;
-            this.historyTokenWatchers.onHistoryTokenChange(
+            this.historyWatchers.onHistoryTokenChange(
                 previous,
                 new FakeAppContext() {
 
@@ -156,7 +156,7 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
             );
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public String toString() {

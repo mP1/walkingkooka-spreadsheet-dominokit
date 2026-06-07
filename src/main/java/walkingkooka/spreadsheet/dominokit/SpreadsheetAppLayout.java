@@ -89,7 +89,7 @@ final class SpreadsheetAppLayout extends AppLayout implements
 
     private SpreadsheetAppLayout(final AppContext context) {
         super();
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         Doms.setVisibility(
             this.element(),
             false

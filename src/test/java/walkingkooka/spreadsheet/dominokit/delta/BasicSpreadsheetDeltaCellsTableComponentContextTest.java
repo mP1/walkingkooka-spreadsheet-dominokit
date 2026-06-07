@@ -182,12 +182,12 @@ public final class BasicSpreadsheetDeltaCellsTableComponentContextTest implement
     }
 
     @Override
-    public void testAddHistoryTokenWatcherOnceWithNullFails() {
+    public void testAddHistoryWatcherOnceWithNullFails() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void testAddHistoryTokenWatcherWithNullFails() {
+    public void testAddHistoryWatcherWithNullFails() {
         throw new UnsupportedOperationException();
     }
 

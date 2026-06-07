@@ -20,19 +20,19 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.watch.Watchers;
 
-public final class HistoryTokenWatchers implements HistoryTokenWatcher {
+public final class HistoryWatchers implements HistoryWatcher {
 
-    public static HistoryTokenWatchers empty() {
-        return new HistoryTokenWatchers();
+    public static HistoryWatchers empty() {
+        return new HistoryWatchers();
     }
 
-    public Runnable add(final HistoryTokenWatcher watcher) {
+    public Runnable add(final HistoryWatcher watcher) {
         return this.watchers.add(
             (e) -> e.accept(watcher)
         );
     }
 
-    public Runnable addOnce(final HistoryTokenWatcher watcher) {
+    public Runnable addOnce(final HistoryWatcher watcher) {
         return this.watchers.addOnce(
             (e) -> e.accept(watcher)
         );
@@ -42,14 +42,14 @@ public final class HistoryTokenWatchers implements HistoryTokenWatcher {
     public void onHistoryTokenChange(final HistoryToken previous,
                                      final AppContext context) {
         this.watchers.accept(
-            HistoryTokenWatchersEvent.with(
+            HistoryWatchersEvent.with(
                 previous,
                 context
             )
         );
     }
 
-    private final Watchers<HistoryTokenWatchersEvent> watchers = Watchers.empty();
+    private final Watchers<HistoryWatchersEvent> watchers = Watchers.empty();
 
     @Override
     public String toString() {

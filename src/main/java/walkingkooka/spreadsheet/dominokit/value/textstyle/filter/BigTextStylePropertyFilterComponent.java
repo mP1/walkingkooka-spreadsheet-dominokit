@@ -95,7 +95,7 @@ public final class BigTextStylePropertyFilterComponent implements FormElementCom
 
         this.context = context;
 
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             // force refresh of links
             (final HistoryToken previous,
              final AppContext appContext) -> BigTextStylePropertyFilterComponent.this.setValue(

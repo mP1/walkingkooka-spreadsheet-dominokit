@@ -79,7 +79,7 @@ public final class SpreadsheetViewportFormulaComponent implements HtmlComponentD
             ).setDisabled(true);
         this.context = context;
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 

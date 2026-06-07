@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryToken extends SpreadsheetCe
         return CURRENCY;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

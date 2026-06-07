@@ -78,7 +78,7 @@ abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumn
 
         Objects.requireNonNull(context, "context");
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         this.context = context;
 
         final SpreadsheetColumnOrRowReferenceKind columnOrRow = this.referenceKind();

@@ -49,7 +49,7 @@ public final class SpreadsheetKeyboardDialogComponent implements DialogComponent
 
     private SpreadsheetKeyboardDialogComponent(final SpreadsheetKeyboardDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         this.table = this.table();
         this.close = this.closeAnchor();

@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.plugin.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
@@ -212,8 +212,8 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
         return new FakePluginAliasSetLikeDialogComponentContext<>() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return context.addHistoryTokenWatcher(watcher);
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                return context.addHistoryWatcher(watcher);
             }
 
             @Override
@@ -308,7 +308,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
         return new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 

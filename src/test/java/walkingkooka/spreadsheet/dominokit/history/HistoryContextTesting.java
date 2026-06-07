@@ -24,25 +24,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public interface HistoryContextTesting<C extends HistoryContext> extends ContextTesting<C> {
 
-    // addHistoryTokenWatcher...........................................................................................
+    // addHistoryWatcher................................................................................................
 
     @Test
-    default void testAddHistoryTokenWatcherWithNullFails() {
+    default void testAddHistoryWatcherWithNullFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createContext()
-                .addHistoryTokenWatcher(null)
+                .addHistoryWatcher(null)
         );
     }
 
-    // addHistoryTokenWatcherOnce.......................................................................................
+    // addHistoryWatcherOnce............................................................................................
 
     @Test
-    default void testAddHistoryTokenWatcherOnceWithNullFails() {
+    default void testAddHistoryWatcherOnceWithNullFails() {
         assertThrows(
             NullPointerException.class,
             () -> this.createContext()
-                .addHistoryTokenWatcherOnce(null)
+                .addHistoryWatcherOnce(null)
         );
     }
 
@@ -63,7 +63,7 @@ public interface HistoryContextTesting<C extends HistoryContext> extends Context
         assertThrows(
             NullPointerException.class,
             () -> this.createContext()
-                .addHistoryTokenWatcherOnce(null)
+                .addHistoryWatcherOnce(null)
         );
     }
 

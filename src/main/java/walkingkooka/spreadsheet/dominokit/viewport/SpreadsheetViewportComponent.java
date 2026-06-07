@@ -172,8 +172,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
 
         this.setVisibility(false);
 
-        // SpreadsheetViewportComponent#addHistoryTokenWatcher must happen after recent HistoryTokenWatchers
-        context.addHistoryTokenWatcher(this);
+        // SpreadsheetViewportComponent#addHistoryWatcher must happen after recent HistoryWatchers
+        context.addHistoryWatcher(this);
         context.addSpreadsheetFormatterFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);

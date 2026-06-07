@@ -58,7 +58,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponent implements Dia
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
     }
 
     // dialog...........................................................................................................

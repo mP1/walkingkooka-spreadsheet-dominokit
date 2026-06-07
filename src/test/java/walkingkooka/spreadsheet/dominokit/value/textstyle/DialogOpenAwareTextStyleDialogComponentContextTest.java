@@ -22,17 +22,17 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 
 public final class DialogOpenAwareTextStyleDialogComponentContextTest implements TextStyleDialogComponentContextTesting<DialogOpenAwareTextStyleDialogComponentContext> {
 
     @Test
-    public void testAddHistoryTokenWatcherOnHistoryTokenDialogOpen() {
+    public void testAddHistoryWatcherOnHistoryTokenDialogOpen() {
         this.fired = false;
 
         final DialogOpenAwareTextStyleDialogComponentContext context = this.createContext(true);
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> DialogOpenAwareTextStyleDialogComponentContextTest.this.fired = true
         );
@@ -45,9 +45,9 @@ public final class DialogOpenAwareTextStyleDialogComponentContextTest implements
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnHistoryTokenDialogClose() {
+    public void testAddHistoryWatcherOnHistoryTokenDialogClose() {
         final DialogOpenAwareTextStyleDialogComponentContext context = this.createContext(false);
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> {
                 throw new UnsupportedOperationException();
@@ -57,11 +57,11 @@ public final class DialogOpenAwareTextStyleDialogComponentContextTest implements
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnceOnHistoryTokenDialogOpen() {
+    public void testAddHistoryWatcherOnceOnHistoryTokenDialogOpen() {
         this.fired = false;
 
         final DialogOpenAwareTextStyleDialogComponentContext context = this.createContext(true);
-        context.addHistoryTokenWatcherOnce(
+        context.addHistoryWatcherOnce(
             (final HistoryToken previous,
              final AppContext appContext) -> DialogOpenAwareTextStyleDialogComponentContextTest.this.fired = true
         );
@@ -74,9 +74,9 @@ public final class DialogOpenAwareTextStyleDialogComponentContextTest implements
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnceOnHistoryTokenDialogClose() {
+    public void testAddHistoryWatcherOnceOnHistoryTokenDialogClose() {
         final DialogOpenAwareTextStyleDialogComponentContext context = this.createContext(false);
-        context.addHistoryTokenWatcherOnce(
+        context.addHistoryWatcherOnce(
             (final HistoryToken previous,
              final AppContext appContext) -> {
                 throw new UnsupportedOperationException();
@@ -103,16 +103,16 @@ public final class DialogOpenAwareTextStyleDialogComponentContextTest implements
             new FakeTextStyleDialogComponentContext() {
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return this.watcher.add(watcher);
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
                     return this.watcher.addOnce(watcher);
                 }
 
-                private final HistoryTokenWatchers watcher = HistoryTokenWatchers.empty();
+                private final HistoryWatchers watcher = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
                 @Override
                 public void fireCurrentHistoryToken() {

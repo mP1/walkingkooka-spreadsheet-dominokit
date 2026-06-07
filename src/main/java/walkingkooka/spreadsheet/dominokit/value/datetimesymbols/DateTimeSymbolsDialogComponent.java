@@ -112,7 +112,7 @@ public final class DateTimeSymbolsDialogComponent implements DialogComponentLife
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addDateTimeSymbolsFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);

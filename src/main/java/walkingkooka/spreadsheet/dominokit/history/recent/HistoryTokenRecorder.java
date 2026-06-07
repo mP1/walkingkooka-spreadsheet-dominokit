@@ -21,7 +21,7 @@ import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 
@@ -31,11 +31,11 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * A {@link HistoryTokenWatcher} that watches all history token events, and filters only a certain type mostly extracting the save value.
+ * A {@link HistoryWatcher} that watches all history token events, and filters only a certain type mostly extracting the save value.
  * <br>
  * This is useful for tracking the last pattern saves and then create menu items in a menu.
  */
-public final class HistoryTokenRecorder<T> implements HistoryTokenWatcher {
+public final class HistoryTokenRecorder<T> implements HistoryWatcher {
 
     public static <T> HistoryTokenRecorder<T> with(final Function<HistoryToken, Optional<T>> mapper,
                                                    final int max) {

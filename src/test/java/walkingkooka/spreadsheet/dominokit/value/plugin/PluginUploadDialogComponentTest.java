@@ -33,7 +33,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.PluginSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSaveHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.PluginUploadSelectHistoryToken;
@@ -225,7 +225,7 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
         private final PluginFetcherWatchers pluginFetcherWatchers = PluginFetcherWatchers.empty();
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return null;
         }
 
@@ -295,8 +295,8 @@ public final class PluginUploadDialogComponentTest implements DialogComponentLif
             }
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return context.addHistoryTokenWatcher(watcher);
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                return context.addHistoryWatcher(watcher);
             }
         };
     }

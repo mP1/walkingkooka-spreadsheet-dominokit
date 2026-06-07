@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 
 import java.util.Optional;
@@ -206,11 +206,11 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public HistoryToken historyToken() {
@@ -222,7 +222,7 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
             final HistoryToken previous = this.historyToken;
             this.historyToken = token;
 
-            this.historyTokenWatchers.onHistoryTokenChange(
+            this.historyWatchers.onHistoryTokenChange(
                 previous,
                 this
             );
@@ -277,8 +277,8 @@ public final class PluginFileViewDialogComponentTest implements DialogComponentL
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.context.addHistoryTokenWatcher(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.context.addHistoryWatcher(watcher);
         }
 
         private final TestAppContext context;

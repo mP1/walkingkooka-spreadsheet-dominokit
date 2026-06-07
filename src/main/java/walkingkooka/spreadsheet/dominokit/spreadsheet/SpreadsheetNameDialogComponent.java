@@ -52,7 +52,7 @@ public final class SpreadsheetNameDialogComponent implements DialogComponentLife
     private SpreadsheetNameDialogComponent(final SpreadsheetNameDialogComponentContext context) {
         super();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         this.context = context;
 
         this.name = this.name();

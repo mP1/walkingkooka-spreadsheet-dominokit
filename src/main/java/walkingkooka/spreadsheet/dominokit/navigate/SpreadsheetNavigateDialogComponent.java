@@ -61,7 +61,7 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
 
     private SpreadsheetNavigateDialogComponent(final SpreadsheetNavigateDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.home = this.home();

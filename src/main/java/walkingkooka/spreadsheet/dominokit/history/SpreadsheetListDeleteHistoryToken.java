@@ -41,7 +41,7 @@ import java.util.Set;
  * /delete/spreadsheet-id
  * </pre>
  */
-public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken implements HistoryTokenWatcher {
+public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistoryToken implements HistoryWatcher {
 
     static SpreadsheetListDeleteHistoryToken with(final SpreadsheetId spreadsheetId) {
         return new SpreadsheetListDeleteHistoryToken(
@@ -86,7 +86,7 @@ public final class SpreadsheetListDeleteHistoryToken extends SpreadsheetIdHistor
         return this;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

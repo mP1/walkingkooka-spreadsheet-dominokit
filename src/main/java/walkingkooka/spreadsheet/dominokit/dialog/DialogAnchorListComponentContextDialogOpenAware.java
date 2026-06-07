@@ -26,7 +26,7 @@ import java.util.Optional;
 import java.util.function.BooleanSupplier;
 
 /**
- * A {@link DialogAnchorListComponentContext} that wraps another, filtering (skipping) {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
+ * A {@link DialogAnchorListComponentContext} that wraps another, filtering (skipping) {@link walkingkooka.spreadsheet.dominokit.history.HistoryWatcher}
  * if the enclosing {@link DialogComponent} is closed.
  */
 final class DialogAnchorListComponentContextDialogOpenAware<T> implements DialogAnchorListComponentContext<T>,
