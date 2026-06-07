@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
@@ -82,7 +82,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
     private static class TestFormHandlerSelectorDialogComponentContext extends FakeFormHandlerSelectorDialogComponentContext {
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return () -> {
             };
         }
@@ -107,7 +107,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
             }
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 

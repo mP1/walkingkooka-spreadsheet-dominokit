@@ -70,7 +70,7 @@ public final class SpreadsheetLabelMappingListDialogComponent implements DialogC
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
     }
 
     // dialog...........................................................................................................

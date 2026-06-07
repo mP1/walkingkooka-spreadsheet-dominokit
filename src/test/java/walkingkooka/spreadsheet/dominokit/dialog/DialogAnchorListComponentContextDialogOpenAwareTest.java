@@ -22,19 +22,19 @@ import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public final class DialogAnchorListComponentContextDialogOpenAwareTest implements DialogAnchorListComponentContextTesting<DialogAnchorListComponentContextDialogOpenAware<String>, String> {
 
     @Test
-    public void testAddHistoryTokenWatcherOnHistoryTokenDialogOpen() {
+    public void testAddHistoryWatcherOnHistoryTokenDialogOpen() {
         this.fired = false;
 
         final DialogAnchorListComponentContextDialogOpenAware<String> context = this.createContext(true);
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> DialogAnchorListComponentContextDialogOpenAwareTest.this.fired = true
         );
@@ -47,9 +47,9 @@ public final class DialogAnchorListComponentContextDialogOpenAwareTest implement
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnHistoryTokenDialogClose() {
+    public void testAddHistoryWatcherOnHistoryTokenDialogClose() {
         final DialogAnchorListComponentContextDialogOpenAware<String> context = this.createContext(false);
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> {
                 throw new UnsupportedOperationException();
@@ -59,11 +59,11 @@ public final class DialogAnchorListComponentContextDialogOpenAwareTest implement
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnceOnHistoryTokenDialogOpen() {
+    public void testAddHistoryWatcherOnceOnHistoryTokenDialogOpen() {
         this.fired = false;
 
         final DialogAnchorListComponentContextDialogOpenAware<String> context = this.createContext(true);
-        context.addHistoryTokenWatcherOnce(
+        context.addHistoryWatcherOnce(
             (final HistoryToken previous,
              final AppContext appContext) -> DialogAnchorListComponentContextDialogOpenAwareTest.this.fired = true
         );
@@ -76,9 +76,9 @@ public final class DialogAnchorListComponentContextDialogOpenAwareTest implement
     }
 
     @Test
-    public void testAddHistoryTokenWatcherOnceOnHistoryTokenDialogClose() {
+    public void testAddHistoryWatcherOnceOnHistoryTokenDialogClose() {
         final DialogAnchorListComponentContextDialogOpenAware<String> context = this.createContext(false);
-        context.addHistoryTokenWatcherOnce(
+        context.addHistoryWatcherOnce(
             (final HistoryToken previous,
              final AppContext appContext) -> {
                 throw new UnsupportedOperationException();
@@ -105,16 +105,16 @@ public final class DialogAnchorListComponentContextDialogOpenAwareTest implement
             new FakeDialogAnchorListComponentContext<>() {
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return this.watcher.add(watcher);
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
                     return this.watcher.addOnce(watcher);
                 }
 
-                private final HistoryTokenWatchers watcher = HistoryTokenWatchers.empty();
+                private final HistoryWatchers watcher = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
                 @Override
                 public void fireCurrentHistoryToken() {

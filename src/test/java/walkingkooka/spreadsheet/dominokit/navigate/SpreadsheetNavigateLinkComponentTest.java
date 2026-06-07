@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.ComponentTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -89,7 +89,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements ComponentTest
                                     final String expected) {
         final AppContext context = new FakeAppContext() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 

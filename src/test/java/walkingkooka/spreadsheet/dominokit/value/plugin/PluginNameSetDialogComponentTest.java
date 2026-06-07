@@ -37,7 +37,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -65,7 +65,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
 
         final AppContext context = new FakeAppContext() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -93,7 +93,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
 
         final AppContext context = new FakeAppContext() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -345,8 +345,8 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
         // HistoryContext..........................................................................................
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.context.addHistoryTokenWatcher(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.context.addHistoryWatcher(watcher);
         }
 
         @Override
@@ -401,7 +401,7 @@ public final class PluginNameSetDialogComponentTest implements DialogComponentLi
         return new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 

@@ -51,7 +51,7 @@ public final class SpreadsheetMetadataHistoryTokenAwareComponentLifecycle<E exte
     private SpreadsheetMetadataHistoryTokenAwareComponentLifecycle(final SpreadsheetFormComponentLifecycle<E, ?> form,
                                                                    final HistoryContext context) {
         this.form = form;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
     }
 
     // ComponentLifecycle...............................................................................................

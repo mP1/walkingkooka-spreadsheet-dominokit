@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
     implements HasValue<BrowserFile>,
-    HistoryTokenWatcher {
+    HistoryWatcher {
 
     /**
      * Factory
@@ -79,7 +79,7 @@ public final class PluginUploadSaveHistoryToken extends PluginUploadHistoryToken
         return HistoryToken.pluginUploadSelect();
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

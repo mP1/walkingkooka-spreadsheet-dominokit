@@ -25,26 +25,26 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * The event payload used by {@link HistoryTokenWatchers}.
+ * The event payload used by {@link HistoryWatchers}.
  */
-final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
+final class HistoryWatchersEvent implements Consumer<HistoryWatcher> {
 
-    static HistoryTokenWatchersEvent with(final HistoryToken previous,
+    static HistoryWatchersEvent with(final HistoryToken previous,
                                           final AppContext context) {
-        return new HistoryTokenWatchersEvent(
+        return new HistoryWatchersEvent(
             Objects.requireNonNull(previous, "previous"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private HistoryTokenWatchersEvent(final HistoryToken previous,
+    private HistoryWatchersEvent(final HistoryToken previous,
                                       final AppContext context) {
         this.previous = previous;
         this.context = context;
     }
 
     @Override
-    public void accept(final HistoryTokenWatcher watcher) {
+    public void accept(final HistoryWatcher watcher) {
         final long before = GWT.isClient() ?
             System.currentTimeMillis() :
             0;
@@ -56,7 +56,7 @@ final class HistoryTokenWatchersEvent implements Consumer<HistoryTokenWatcher> {
             );
         } catch (final Exception cause) {
             this.context.error(
-                "HistoryTokenWatchersEvent.accept exception: " + cause.getMessage(),
+                "HistoryWatchersEvent.accept exception: " + cause.getMessage(),
                 cause
             );
         } finally {

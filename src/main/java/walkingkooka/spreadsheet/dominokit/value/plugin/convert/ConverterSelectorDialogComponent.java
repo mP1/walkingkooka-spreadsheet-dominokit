@@ -71,7 +71,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
     private ConverterSelectorDialogComponent(final ConverterSelectorDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addConverterFetcherWatcher(this);

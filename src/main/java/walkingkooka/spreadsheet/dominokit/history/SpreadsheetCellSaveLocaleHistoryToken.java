@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveLocaleHistoryToken extends SpreadsheetCell
         return LOCALE;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken extends S
         return DECIMAL_NUMBER_SYMBOLS;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

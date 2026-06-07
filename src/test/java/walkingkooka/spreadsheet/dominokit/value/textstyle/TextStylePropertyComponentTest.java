@@ -22,7 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.FakeTextStyleColorComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStyleColorComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.FakeTextAlignComponentContext;
@@ -42,7 +42,7 @@ public final class TextStylePropertyComponentTest implements ClassTesting<TextSt
                 ID_PREFIX,
                 new FakeTextStyleColorComponentContext() {
                     @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                         return () -> {};
                     }
 
@@ -68,7 +68,7 @@ public final class TextStylePropertyComponentTest implements ClassTesting<TextSt
                 ID_PREFIX,
                 new FakeTextAlignComponentContext() {
                     @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                         return () -> {};
                     }
 

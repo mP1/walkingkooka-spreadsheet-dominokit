@@ -120,7 +120,7 @@ public final class SpreadsheetCellValueDialogComponent<T> implements DialogCompo
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
     }
 

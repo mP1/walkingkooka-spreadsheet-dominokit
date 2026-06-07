@@ -22,7 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.Direction;
@@ -40,7 +40,7 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
             "Test123-",
             new FakeDirectionComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {};
                 }
 
@@ -84,7 +84,7 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
             "Test123-",
             new FakeDirectionComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {};
                 }
 
@@ -137,7 +137,7 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
             "Test123-",
             new FakeDirectionComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {};
                 }
 

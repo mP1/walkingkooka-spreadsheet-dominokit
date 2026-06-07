@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenWatchersEventTest implements ClassTesting<HistoryTokenWatchersEvent> {
+public final class HistoryWatchersEventTest implements ClassTesting<HistoryWatchersEvent> {
 
     // with.............................................................................................................
 
@@ -33,7 +33,7 @@ public final class HistoryTokenWatchersEventTest implements ClassTesting<History
     public void testWithNullPreviousFails() {
         assertThrows(
             NullPointerException.class,
-            () -> HistoryTokenWatchersEvent.with(
+            () -> HistoryWatchersEvent.with(
                 null,
                 AppContexts.fake()
             )
@@ -44,7 +44,7 @@ public final class HistoryTokenWatchersEventTest implements ClassTesting<History
     public void testWithNullContextFails() {
         assertThrows(
             NullPointerException.class,
-            () -> HistoryTokenWatchersEvent.with(
+            () -> HistoryWatchersEvent.with(
                 HistoryToken.unknown(
                     UrlFragment.EMPTY
                 ),
@@ -56,8 +56,8 @@ public final class HistoryTokenWatchersEventTest implements ClassTesting<History
     // class............................................................................................................
 
     @Override
-    public Class<HistoryTokenWatchersEvent> type() {
-        return HistoryTokenWatchersEvent.class;
+    public Class<HistoryWatchersEvent> type() {
+        return HistoryWatchersEvent.class;
     }
 
     @Override

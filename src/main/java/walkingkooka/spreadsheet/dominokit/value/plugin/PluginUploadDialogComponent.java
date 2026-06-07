@@ -61,7 +61,7 @@ public final class PluginUploadDialogComponent implements DialogComponentLifecyc
 
         this.dialog = this.dialogCreate(context);
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addPluginFetcherWatcher(this);
 
         this.context = context;

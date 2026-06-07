@@ -18,15 +18,15 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 
 /**
  * Interface that provides simple operations to update the visual state of the ui.
- * Dont forget to register this {@link HistoryTokenWatcher}.
+ * Dont forget to register this {@link HistoryWatcher}.
  */
-public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher,
+public interface HistoryTokenAwareComponentLifecycle extends HistoryWatcher,
     ComponentLifecycleMatcher,
     ComponentLifecycle,
     Logging {
@@ -60,7 +60,7 @@ public interface HistoryTokenAwareComponentLifecycle extends HistoryTokenWatcher
         }
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     default void onHistoryTokenChange(final HistoryToken previous,

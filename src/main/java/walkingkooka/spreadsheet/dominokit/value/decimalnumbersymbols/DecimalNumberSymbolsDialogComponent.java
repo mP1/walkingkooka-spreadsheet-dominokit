@@ -128,7 +128,7 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addDecimalNumberSymbolsFetcherWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);

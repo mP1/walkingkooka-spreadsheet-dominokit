@@ -88,7 +88,7 @@ public final class PluginAliasSetLikeDialogComponent<N extends Name & Comparable
 
     private PluginAliasSetLikeDialogComponent(final PluginAliasSetLikeDialogComponentContext<N, I, IS, S, A, AS> context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
         context.addProviderFetcherWatcher(this::onProviderAliasSet);

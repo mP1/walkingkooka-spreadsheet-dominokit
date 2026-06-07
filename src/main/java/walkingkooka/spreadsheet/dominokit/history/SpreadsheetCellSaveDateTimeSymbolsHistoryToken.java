@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryToken extends Spread
         return DATE_TIME_SYMBOLS;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     void onHistoryTokenChange0(final HistoryToken previous,

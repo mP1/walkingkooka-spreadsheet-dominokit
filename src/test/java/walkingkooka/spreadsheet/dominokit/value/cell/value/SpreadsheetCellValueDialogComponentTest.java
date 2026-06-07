@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.datetime.DateComponent;
@@ -473,11 +473,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public HistoryToken historyToken() {
@@ -490,7 +490,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         public void pushHistoryToken(final HistoryToken token) {
             final HistoryToken previous = this.historyToken;
             this.historyToken = token;
-            this.historyTokenWatchers.onHistoryTokenChange(
+            this.historyWatchers.onHistoryTokenChange(
                 previous,
                 this
             );
@@ -578,11 +578,11 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         private final AppContext context;
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
         public ValueType valueType() {

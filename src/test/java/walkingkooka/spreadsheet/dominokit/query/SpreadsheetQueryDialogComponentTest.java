@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellQueryHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -2911,17 +2911,17 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
         public void pushHistoryToken(final HistoryToken token) {
             final HistoryToken previous = this.historyToken;
             this.historyToken = token;
-            this.historyTokenWatchers.onHistoryTokenChange(
+            this.historyWatchers.onHistoryTokenChange(
                 previous,
                 this
             );
@@ -2994,11 +2994,11 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {

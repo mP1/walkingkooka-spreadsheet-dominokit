@@ -34,7 +34,7 @@ import java.util.Objects;
  * </pre>
  */
 public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetListRenameHistoryToken implements HasValue<SpreadsheetName>,
-    HistoryTokenWatcher {
+    HistoryWatcher {
 
     static SpreadsheetListRenameSaveHistoryToken with(final SpreadsheetId spreadsheetId,
                                                       final SpreadsheetName value) {
@@ -88,7 +88,7 @@ public final class SpreadsheetListRenameSaveHistoryToken extends SpreadsheetList
         return this; // ignore tokens after /save/SpreadsheetName
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

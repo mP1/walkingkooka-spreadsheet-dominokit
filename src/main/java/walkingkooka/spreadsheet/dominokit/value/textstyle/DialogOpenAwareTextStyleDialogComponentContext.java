@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
@@ -97,13 +97,13 @@ final class DialogOpenAwareTextStyleDialogComponentContext implements TextStyleD
     // HistoryContextDelegator..........................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-        return this.historyContext.addHistoryTokenWatcher(watcher);
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+        return this.historyContext.addHistoryWatcher(watcher);
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
-        return this.historyContext.addHistoryTokenWatcherOnce(watcher);
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
+        return this.historyContext.addHistoryWatcherOnce(watcher);
     }
 
     @Override

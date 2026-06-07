@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -243,7 +243,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
             }
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 

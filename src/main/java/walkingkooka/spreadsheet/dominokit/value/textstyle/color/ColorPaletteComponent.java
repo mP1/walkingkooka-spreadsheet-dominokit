@@ -168,7 +168,7 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
 
         this.refreshAnchors();
 
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> this.refreshAnchors()
         );

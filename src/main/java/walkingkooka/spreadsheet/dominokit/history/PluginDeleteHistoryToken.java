@@ -26,7 +26,7 @@ import java.util.Objects;
 /**
  * Represents the selection of a single {@link walkingkooka.plugin.store.Plugin}.
  */
-public final class PluginDeleteHistoryToken extends PluginNameHistoryToken implements HistoryTokenWatcher {
+public final class PluginDeleteHistoryToken extends PluginNameHistoryToken implements HistoryWatcher {
 
     static PluginDeleteHistoryToken with(final PluginName name) {
         return new PluginDeleteHistoryToken(
@@ -55,7 +55,7 @@ public final class PluginDeleteHistoryToken extends PluginNameHistoryToken imple
         return HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY);
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

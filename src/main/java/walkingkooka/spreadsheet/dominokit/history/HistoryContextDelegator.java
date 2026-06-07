@@ -20,15 +20,15 @@ package walkingkooka.spreadsheet.dominokit.history;
 public interface HistoryContextDelegator extends HistoryContext {
 
     @Override
-    default Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    default Runnable addHistoryWatcher(final HistoryWatcher watcher) {
         return this.historyContext()
-            .addHistoryTokenWatcher(watcher);
+            .addHistoryWatcher(watcher);
     }
 
     @Override
-    default Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    default Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
         return this.historyContext()
-            .addHistoryTokenWatcherOnce(watcher);
+            .addHistoryWatcherOnce(watcher);
     }
 
     @Override

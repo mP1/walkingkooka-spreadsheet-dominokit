@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import elemental2.dom.HTMLElement;
 
 /**
- * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}
+ * A form holds form components such as text boxes, links etc. Note it does not receive {@link walkingkooka.spreadsheet.dominokit.history.HistoryWatcher}
  * events, it instead receives events to prepare or {@link #openGiveFocus(RefreshContext)} and {@link #refresh(RefreshContext)}.
  */
 public interface SpreadsheetFormComponentLifecycle<E extends HTMLElement, C extends SpreadsheetFormComponentLifecycle<E, C>> extends HtmlComponent<E, C>,

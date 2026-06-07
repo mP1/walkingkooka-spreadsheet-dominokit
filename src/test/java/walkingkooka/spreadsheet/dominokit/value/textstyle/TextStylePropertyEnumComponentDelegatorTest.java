@@ -22,7 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.naming.HasName;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentDelegatorTest.TestTextStylePropertyEnumComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilterKind;
 import walkingkooka.tree.text.TextAlign;
@@ -110,7 +110,7 @@ public final class TextStylePropertyEnumComponentDelegatorTest implements TextSt
             ),
             new FakeTextStylePropertyEnumComponentContext() {
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return () -> {
                     };
                 }

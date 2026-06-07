@@ -56,7 +56,7 @@ public final class PluginSetDialogComponent implements DialogComponentLifecycle,
     private PluginSetDialogComponent(final PluginSetDialogComponentContext context) {
         this.context = context;
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addPluginFetcherWatcher(this);
 
         this.table = this.table();

@@ -100,7 +100,7 @@ import java.util.function.Function;
 /**
  * A {@link HistoryToken} represents a simple summary of the spreadsheet or an action. Every action performed by the user,
  * by clicking a button or link actually results in that component pushing a {@link HistoryToken} to the application's
- * history. The application has several {@link HistoryTokenWatcher watchers} one which may perform some action, or
+ * history. The application has several {@link HistoryWatcher watchers} one which may perform some action, or
  * {@link HistoryToken} themselves can also execute some real action.
  * <br>
  * A sample history token is {@link SpreadsheetCellFormulaSaveHistoryToken}, this includes the spreadsheet-id, cell and formula text.
@@ -5446,7 +5446,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
     /**
      * Temporary {@link HistoryToken} which perform an immediate action and probably return the previous {@link HistoryToken}
-     * should probably be ignored by {@link HistoryTokenWatcher} that are monitoring if a {@link SpreadsheetSelection} changes
+     * should probably be ignored by {@link HistoryWatcher} that are monitoring if a {@link SpreadsheetSelection} changes
      * or present a stateful UI like a dialog box.
      */
     public final boolean shouldIgnore() {

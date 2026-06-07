@@ -57,7 +57,7 @@ public final class SpreadsheetComparatorNameListDialogComponent implements Dialo
 
     private SpreadsheetComparatorNameListDialogComponent(final SpreadsheetComparatorNameListDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         context.addSpreadsheetMetadataFetcherWatcher(this);
 

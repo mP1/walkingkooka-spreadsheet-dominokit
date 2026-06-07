@@ -81,7 +81,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
     private SpreadsheetFormatterSelectorDialogComponent(final SpreadsheetFormatterSelectorDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         context.addSpreadsheetDeltaFetcherWatcher(this);
         context.addSpreadsheetFormatterFetcherWatcher(this);

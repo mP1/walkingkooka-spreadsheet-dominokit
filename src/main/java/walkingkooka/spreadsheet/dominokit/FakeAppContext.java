@@ -68,7 +68,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetParserFetcherWatche
 import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ValidatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
@@ -632,14 +632,14 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     // HistoryToken.....................................................................................................
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
         Objects.requireNonNull(watcher, "watcher");
 
         throw new UnsupportedOperationException();

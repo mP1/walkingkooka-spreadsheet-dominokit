@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -1491,7 +1491,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
         return new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -1552,8 +1552,8 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return context.addHistoryTokenWatcher(watcher);
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                    return context.addHistoryWatcher(watcher);
                 }
 
                 @Override
@@ -1619,7 +1619,7 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
             }

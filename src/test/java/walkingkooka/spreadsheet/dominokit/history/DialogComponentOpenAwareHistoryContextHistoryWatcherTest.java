@@ -17,13 +17,18 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.spreadsheet.dominokit.AppContext;
+import walkingkooka.reflect.ClassTesting2;
+import walkingkooka.reflect.JavaVisibility;
 
-/**
- * A watcher that receives all {@link HistoryToken} change events.
- */
-public interface HistoryTokenWatcher {
+public final class DialogComponentOpenAwareHistoryContextHistoryWatcherTest implements ClassTesting2<DialogComponentOpenAwareHistoryContextHistoryWatcher> {
 
-    void onHistoryTokenChange(final HistoryToken previous,
-                              final AppContext context);
+    @Override
+    public Class<DialogComponentOpenAwareHistoryContextHistoryWatcher> type() {
+        return DialogComponentOpenAwareHistoryContextHistoryWatcher.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PACKAGE_PRIVATE;
+    }
 }

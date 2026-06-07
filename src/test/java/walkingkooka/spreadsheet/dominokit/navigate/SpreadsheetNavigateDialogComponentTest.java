@@ -23,8 +23,8 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -243,11 +243,11 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public Runnable addSpreadsheetMetadataFetcherWatcher(final SpreadsheetMetadataFetcherWatcher watcher) {
@@ -296,7 +296,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
 

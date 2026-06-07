@@ -71,7 +71,7 @@ public final class SpreadsheetCellSortDialogComponent implements DialogComponent
     private SpreadsheetCellSortDialogComponent(final SpreadsheetCellSortDialogComponentContext context) {
         super();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
 
         this.context = context;
 

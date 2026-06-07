@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
@@ -36,7 +36,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -81,7 +81,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -126,7 +126,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -171,7 +171,7 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 new FakeAppContext() {
 
                     @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                         return null;
                     }
 

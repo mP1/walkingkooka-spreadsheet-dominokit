@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogAnchorListComponentCo
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.tree.text.TextStyle;
 
@@ -90,12 +90,12 @@ public class FakeTextStyleDialogComponentContext extends FakeDialogAnchorListCom
     }
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 

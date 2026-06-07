@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -433,7 +433,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return () -> {
             };
         }
@@ -470,7 +470,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         private final HistoryToken historyToken;
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return null;
         }
 

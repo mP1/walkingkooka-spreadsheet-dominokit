@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -146,7 +146,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
             context.spreadsheetMetadata()
         );
 
-        context.historyTokenWatchers.onHistoryTokenChange(
+        context.historyWatchers.onHistoryTokenChange(
             context.historyToken(),
             context
         );
@@ -196,7 +196,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
             context.spreadsheetMetadata()
         );
 
-        context.historyTokenWatchers.onHistoryTokenChange(
+        context.historyWatchers.onHistoryTokenChange(
             context.historyToken(),
             context
         );
@@ -250,7 +250,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
             context.spreadsheetMetadata()
         );
 
-        context.historyTokenWatchers.onHistoryTokenChange(
+        context.historyWatchers.onHistoryTokenChange(
             context.historyToken(),
             context
         );
@@ -294,11 +294,11 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {

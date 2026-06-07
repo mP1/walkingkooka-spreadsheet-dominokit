@@ -23,8 +23,8 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.history.History;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
@@ -42,7 +42,7 @@ import java.util.Optional;
  * Combines the responsibilities and features relating to History events.
  */
 final class AppHistoryContextHistoryWatcher implements HistoryContext,
-    HistoryTokenWatcher,
+    HistoryWatcher,
     LoggingContextDelegator,
     Logging {
 
@@ -57,9 +57,9 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
 
         this.history = Historys.elemental(appContext);
         this.previousToken = HistoryToken.unknown(UrlFragment.EMPTY);
-        this.historyWatchers = HistoryTokenWatchers.empty();
+        this.historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
-        this.addHistoryTokenWatcher(this);
+        this.addHistoryWatcher(this);
 
         DomGlobal.self.addEventListener(
             EventType.hashchange.getName(),
@@ -149,16 +149,16 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
     private HistoryToken firePrevious;
 
     @Override
-    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
         return this.historyWatchers.add(watcher);
     }
 
     @Override
-    public Runnable addHistoryTokenWatcherOnce(final HistoryTokenWatcher watcher) {
+    public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
         return this.historyWatchers.addOnce(watcher);
     }
 
-    private final HistoryTokenWatchers historyWatchers;
+    private final HistoryWatchers historyWatchers;
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,
@@ -174,8 +174,8 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
 
         this.firePrevious = previous;
         try {
-            if (historyToken instanceof HistoryTokenWatcher) {
-                ((HistoryTokenWatcher) historyToken).onHistoryTokenChange(
+            if (historyToken instanceof HistoryWatcher) {
+                ((HistoryWatcher) historyToken).onHistoryTokenChange(
                     previous,
                     context
                 );

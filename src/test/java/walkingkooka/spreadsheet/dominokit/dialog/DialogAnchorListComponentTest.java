@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.dominokit.FakeRefreshContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -896,7 +896,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                                                                    final Optional<T> undo) {
         return new FakeDialogAnchorListComponentContext<>() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return this.watchers.add(watcher);
             }
 
@@ -929,7 +929,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 this.currentHistoryToken = token;
             }
 
-            private final HistoryTokenWatchers watchers = HistoryTokenWatchers.empty();
+            private final HistoryWatchers watchers = HistoryWatchers.empty();
         };
     }
 

@@ -69,7 +69,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     private PluginNameSetDialogComponent(final PluginNameSetDialogComponentContext context) {
         this.context = context;
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addPluginFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 

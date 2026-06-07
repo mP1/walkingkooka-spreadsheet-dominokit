@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLike;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.filter.TextStylePropertyFilter;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -12245,11 +12245,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
         return new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return this.historyTokenWatchers.add(watcher);
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                return this.historyWatchers.add(watcher);
             }
 
-            private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+            private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
             @Override
             public Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher) {
@@ -12267,7 +12267,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
 
                 final HistoryToken previous = this.currentHistoryToken;
                 this.currentHistoryToken = token;
-                this.historyTokenWatchers.onHistoryTokenChange(
+                this.historyWatchers.onHistoryTokenChange(
                     previous,
                     this // AppContext
                 );

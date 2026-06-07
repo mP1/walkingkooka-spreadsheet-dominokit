@@ -133,7 +133,7 @@ import walkingkooka.spreadsheet.dominokit.focus.CanGiveFocuses;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListRenameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
@@ -272,7 +272,7 @@ public class App implements EntryPoint,
     private final static Charset CHARSET = StandardCharsets.UTF_8;
 
     /**
-     * When a {@link HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
+     * When a {@link HistoryWatcher#onHistoryTokenChange(HistoryToken, AppContext)} exceeds this value, it should be considered too slow and a WARN message logged.
      */
     public final static long SLOW_HISTORY_TOKEN_CHANGE = 150;
 
@@ -506,7 +506,7 @@ public class App implements EntryPoint,
         );
 
         // history
-        this.apphistoryContextHistoryTokenWatcher = AppHistoryContextHistoryWatcher.with(this);
+        this.apphistoryContextHistoryWatcher = AppHistoryContextHistoryWatcher.with(this);
 
         this.viewportCache = SpreadsheetViewportCache.empty(this);
 
@@ -613,7 +613,7 @@ public class App implements EntryPoint,
 
     @Override
     public void onModuleLoad() {
-        this.apphistoryContextHistoryTokenWatcher.onHashChange(
+        this.apphistoryContextHistoryWatcher.onHashChange(
             this.historyToken()
         );
 
@@ -1216,10 +1216,10 @@ public class App implements EntryPoint,
 
     @Override
     public HistoryContext historyContext() {
-        return this.apphistoryContextHistoryTokenWatcher;
+        return this.apphistoryContextHistoryWatcher;
     }
 
-    private final AppHistoryContextHistoryWatcher apphistoryContextHistoryTokenWatcher;
+    private final AppHistoryContextHistoryWatcher apphistoryContextHistoryWatcher;
 
     // SpreadsheetImporterFetcher.......................................................................................
 

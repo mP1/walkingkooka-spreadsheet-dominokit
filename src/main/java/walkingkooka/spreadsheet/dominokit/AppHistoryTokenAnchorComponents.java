@@ -51,7 +51,7 @@ final class AppHistoryTokenAnchorComponents implements PublicStaticHelper {
         final HistoryTokenAnchorComponent anchor = context.historyToken()
             .link("spreadsheetNameRename");
 
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (previous, c) -> {
                 final HistoryToken historyToken = c.historyToken();
 

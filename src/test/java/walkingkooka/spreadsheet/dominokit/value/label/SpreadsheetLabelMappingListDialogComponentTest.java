@@ -32,8 +32,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLabelListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetLabelMappingListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -504,7 +504,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return null;
         }
 
@@ -575,11 +575,11 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         }
 
         @Override
-        public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-            return this.historyTokenWatchers.add(watcher);
+        public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+            return this.historyWatchers.add(watcher);
         }
 
-        private final HistoryTokenWatchers historyTokenWatchers = HistoryTokenWatchers.empty();
+        private final HistoryWatchers historyWatchers = HistoryWatchers.empty();
 
         @Override
         public Set<SpreadsheetExpressionReference> cellReferences(final SpreadsheetExpressionReference spreadsheetExpressionReference) {

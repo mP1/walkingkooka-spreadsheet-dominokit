@@ -32,7 +32,7 @@ import java.util.Optional;
  * /create
  * </pre>
  */
-public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken implements HistoryTokenWatcher {
+public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken implements HistoryWatcher {
 
     static SpreadsheetCreateHistoryToken with() {
         return new SpreadsheetCreateHistoryToken();
@@ -74,7 +74,7 @@ public final class SpreadsheetCreateHistoryToken extends SpreadsheetHistoryToken
         return this;
     }
 
-    // HistoryTokenWatcher..............................................................................................
+    // HistoryWatcher...................................................................................................
 
     @Override
     public void onHistoryTokenChange(final HistoryToken previous,

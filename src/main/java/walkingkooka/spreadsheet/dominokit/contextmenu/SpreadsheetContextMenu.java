@@ -261,7 +261,7 @@ public final class SpreadsheetContextMenu implements TreePrintable {
      */
     public SpreadsheetContextMenu focus() {
         this.menu.open(true);
-        this.context.addHistoryTokenWatcher(
+        this.context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext context) ->
                 SpreadsheetContextMenu.this.close()

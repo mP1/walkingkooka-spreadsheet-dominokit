@@ -37,7 +37,7 @@ import java.util.Optional;
 
 /**
  * An anchor that when clicked supports saving a value including {@link Optional#empty()} for the given constant
- * {@link TextStylePropertyName}. The link will automatically refresh as it adds itself as a {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher}.
+ * {@link TextStylePropertyName}. The link will automatically refresh as it adds itself as a {@link walkingkooka.spreadsheet.dominokit.history.HistoryWatcher}.
  * Note the value cannot be changed.
  */
 public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements ValueComponent<HTMLAnchorElement, V, TextStylePropertyHistoryTokenAnchorComponent<V>>,
@@ -84,7 +84,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponent<V> implements Va
         this.value = value;
 
         this.context = context;
-        context.addHistoryTokenWatcher(
+        context.addHistoryWatcher(
             (final HistoryToken previous, final AppContext appContext) -> this.refreshAnchor()
         );
 

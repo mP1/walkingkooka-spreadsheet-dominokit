@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -202,7 +202,7 @@ public final class AppContextSpreadsheetQueryDialogComponentContextTest implemen
         }
 
         @Override
-        public final Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+        public final Runnable addHistoryWatcher(final HistoryWatcher watcher) {
             return null;
         }
 

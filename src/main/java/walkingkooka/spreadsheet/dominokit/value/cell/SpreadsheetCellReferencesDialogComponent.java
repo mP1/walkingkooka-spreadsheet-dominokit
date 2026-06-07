@@ -60,7 +60,7 @@ public final class SpreadsheetCellReferencesDialogComponent implements DialogCom
 
         this.dialog = this.dialogCreate();
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
     }
 
     // dialog...........................................................................................................

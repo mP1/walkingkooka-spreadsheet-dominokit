@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatchers;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -513,19 +513,19 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
         final AppContext appContext = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return this.historyTokenWatcher.add(watcher);
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                return this.historyWatcher.add(watcher);
             }
 
             @Override
             public void fireCurrentHistoryToken() {
-                this.historyTokenWatcher.onHistoryTokenChange(
+                this.historyWatcher.onHistoryTokenChange(
                     this.historyToken(),
                     this
                 );
             }
 
-            private final HistoryTokenWatchers historyTokenWatcher = HistoryTokenWatchers.empty();
+            private final HistoryWatchers historyWatcher = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
             @Override
             public HistoryToken historyToken() {
@@ -545,8 +545,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
 
         final SpreadsheetViewportCacheContext cacheContext = new FakeSpreadsheetViewportCacheContext() {
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                return appContext.addHistoryTokenWatcher(watcher);
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                return appContext.addHistoryWatcher(watcher);
             }
 
             @Override
@@ -604,8 +604,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
             new FakeSpreadsheetViewportComponentContext() {
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
-                    return appContext.addHistoryTokenWatcher(watcher);
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
+                    return appContext.addHistoryWatcher(watcher);
                 }
 
                 @Override

@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Creates a {@link SpreadsheetLabelListAnchorComponent} that automatically updates itself when the {@link walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher#onHistoryTokenChange(HistoryToken, AppContext)} happen.
+ * Creates a {@link SpreadsheetLabelListAnchorComponent} that automatically updates itself when the {@link walkingkooka.spreadsheet.dominokit.history.HistoryWatcher#onHistoryTokenChange(HistoryToken, AppContext)} happen.
  * Attempts to setValue will throw a {@link UnsupportedOperationException}.
  */
 public final class SpreadsheetLabelListAnchorComponent implements AnchorComponentDelegator<SpreadsheetLabelListAnchorComponent>,
@@ -55,7 +55,7 @@ public final class SpreadsheetLabelListAnchorComponent implements AnchorComponen
         this.setId(id);
 
         this.context = Objects.requireNonNull(context, "context");
-        this.context.addHistoryTokenWatcher(
+        this.context.addHistoryWatcher(
             (final HistoryToken previous, final AppContext appContext) ->
                 this.component.setHistoryToken(
                     Optional.of(

@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.HistoryTokenWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -55,7 +55,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -95,7 +95,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
 
@@ -134,7 +134,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
         final AppContext context = new FakeAppContext() {
 
             @Override
-            public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+            public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                 return null;
             }
 
@@ -174,7 +174,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 }
 
                 @Override
-                public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                     return null;
                 }
 
@@ -215,7 +215,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 new FakeAppContext() {
 
                     @Override
-                    public Runnable addHistoryTokenWatcher(final HistoryTokenWatcher watcher) {
+                    public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
                         return null;
                     }
 

@@ -55,7 +55,7 @@ public final class JarEntryInfoListDialogComponent implements DialogComponentLif
     private JarEntryInfoListDialogComponent(final JarEntryInfoListDialogComponentContext context) {
         this.context = context;
 
-        context.addHistoryTokenWatcher(this);
+        context.addHistoryWatcher(this);
         context.addPluginFetcherWatcher(this);
 
         this.table = this.table();
