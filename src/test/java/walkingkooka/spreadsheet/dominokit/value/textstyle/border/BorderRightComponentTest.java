@@ -34,7 +34,7 @@ public final class BorderRightComponentTest extends BorderSharedComponentTestCas
             "BorderRightComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Border Right [] icons=mdi-close-circle id=TestIdPrefix123-borderRight-TextBox REQUIRED\n" +
+                "      Border right [] icons=mdi-close-circle id=TestIdPrefix123-borderRight-TextBox REQUIRED\n" +
                 "        innerRight\n" +
                 "          BorderBoxComponent\n"
         );

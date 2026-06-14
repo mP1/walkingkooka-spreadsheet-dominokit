@@ -341,7 +341,7 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
         this.treePrintAndCheck(
             anchor,
             "TextStylePropertyEnumComponent\n" +
-                "  Text Align\n" +
+                "  Text align\n" +
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +

@@ -2190,7 +2190,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
                 "  ColorComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Background Color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
+                "        Background color [] icons=mdi-close-circle, mdi-palette id=TestId123-backgroundColor-TextBox REQUIRED\n" +
                 "          innerRight\n" +
                 "            ColorBoxComponent\n" +
                 "        Errors\n" +

@@ -63,7 +63,7 @@ public interface TextStylePropertyComponent<E extends HTMLElement, V, C extends 
             CaseKind.KEBAB.change(
                 this.name()
                     .value(),
-                CaseKind.TITLE
+                CaseKind.SENTENCE
             )
         );
     }

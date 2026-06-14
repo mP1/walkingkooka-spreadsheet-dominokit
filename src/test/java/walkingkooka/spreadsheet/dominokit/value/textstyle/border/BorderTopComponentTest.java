@@ -34,7 +34,7 @@ public final class BorderTopComponentTest extends BorderSharedComponentTestCase<
             "BorderTopComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Border Top [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
+                "      Border top [] icons=mdi-close-circle id=TestIdPrefix123-borderTop-TextBox REQUIRED\n" +
                 "        innerRight\n" +
                 "          BorderBoxComponent\n"
         );

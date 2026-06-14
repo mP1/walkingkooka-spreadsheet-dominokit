@@ -35,7 +35,7 @@ public final class FontWeightComponentTest implements TextStylePropertyValueText
             "FontWeightComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      Font Weight [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
+                "      Font weight [] icons=mdi-close-circle id=TestIdPrefix123-fontWeight-TextBox REQUIRED\n" +
                 "      Errors\n" +
                 "        Empty \"text\"\n"
         );

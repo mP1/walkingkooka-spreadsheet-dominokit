@@ -78,7 +78,7 @@ public final class TextStylePropertyComponentTest implements ClassTesting<TextSt
                     }
                 }
             ),
-            "Text Align"
+            "Text align"
         );
     }
 
